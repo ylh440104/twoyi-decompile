@@ -124,6 +124,7 @@ R_OTHER = re.compile(r'^(?:param_\d+|param_\w+|local_[0-9a-f]+|unaff_\w+|extraou
 UNMAPPED = {}
 
 KINDS = [
+    (re.compile(r'^dVar'), 64, True), (re.compile(r'^fVar'), 32, True),
     (R_UVAR, 32, False), (R_IVAR, 32, True), (R_LVAR, 64, True), (R_UL, 64, False),
     (R_BVAR, 8, False), (R_CVAR, 8, True), (R_DAT, 32, False), (R_PVAR, 64, False),
 ]
@@ -176,10 +177,11 @@ TYPE_BITS = {
     'int32_t': (32, True), 'uint32_t': (32, False), 'undefined': (32, False),
     'size_t': (64, False), 'long': (64, True), 'ulong': (64, False),
     'undefined8': (64, False), 'ssize_t': (64, True), 'code': (64, False),
+    'double': (64, True), 'float': (32, True),
 }
-CAST2 = re.compile(r'\(\s*(?:(unsigned|signed)\s+)?([A-Za-z_]\w*)\s*\)\s*'
+CAST2 = re.compile(r'\(\s*(?:(unsigned|signed)\s+)?([A-Za-z_]\w*(?:\s*\[\s*\d+\s*\])?)\s*\)\s*'
                    r'([A-Za-z_]\w*|0[xX][0-9a-fA-F]+|\d+)')
-CAST1 = re.compile(r'\(\s*(?:(unsigned|signed)\s+)?([A-Za-z_]\w*)\s*\)')
+CAST1 = re.compile(r'\(\s*(?:(unsigned|signed)\s+)?([A-Za-z_]\w*(?:\s*\[\s*\d+\s*\])?)\s*\)')
 # cast applied to a unary expression: `(ulong)~X`, `(int)-X`
 CASTUN = re.compile(r'\(\s*(?:(unsigned|signed)\s+)?([A-Za-z_]\w*)\s*\)\s*([~+-])')
 
@@ -203,7 +205,8 @@ def _unary_operand(c, i):
 
 
 def _cast_key(mod, typ):
-    t = typ.lower()
+    t = typ.lower().replace(' ', '')
+    t = re.sub(r'\[\d+\]$', '', t)
     info = TYPE_BITS.get(t)
     if info is None:
         m = re.match(r'^u?int(\d+)$', t) or re.match(r'^undefined(\d+)$', t)
@@ -253,7 +256,8 @@ DEREF_T = re.compile(r'\*\s*\(\s*[A-Za-z_]\w*\s*\*+\s*\)\s*(?:[A-Za-z_]\w*)?')
 # plain deref:  *p   but NOT  a * b
 DEREF_P = re.compile(r'(?<![\w\)\]])\s*\*\s*([A-Za-z_]\w*)')
 CALL = re.compile(r'(?<![\w\.])([A-Za-z_]\w*)\s*\(([^()]*)\)')
-IDX = re.compile(r'(?<![\w])([A-Za-z_]\w*)\s*\[([^\[\]]*)\]')
+IDX = re.compile(r'(?<![\w])(?!(?:undefined|byte|char|int|uint|long|ulong|short|ushort|'
+                 r'code|size_t|ssize_t|bool|float|double)\b)([A-Za-z_]\w*)\s*\[([^\[\]]*)\]')
 ARROW = re.compile(r'\b([A-Za-z_]\w*)->(\w+)')
 DOT = re.compile(r'\b(_?DAT_[0-9a-f]{8})\._(\d+)_(\d+)_')
 CHARLIT = re.compile(r"'(\\.|[^'\\]){1,4}'")

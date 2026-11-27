@@ -117,6 +117,16 @@ for e in pool:
                 if d == 0:
                     break
                 j += 1
+            # Ghidra emits unbalanced braces around goto-heavy blocks, so the
+            # depth scan can run off the end of the function.  Those are the 6
+            # `noguard` rows: the only reliable anchor left is the first
+            # `} while (...)` line below the `do {`.
+            if j >= len(body) or 'while' not in decomment(body[j]):
+                for kk in range(i + 1, min(i + 4000, len(body))):
+                    t = decomment(body[kk]).strip()
+                    if t.startswith('} while') or t.startswith('}while'):
+                        j = kk
+                        break
             k = j
             while k < len(body) and k < j + 8 and 'while' not in decomment(body[k]):
                 k += 1

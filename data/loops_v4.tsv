@@ -1,6 +1,6 @@
 fn	line	kind	spans	guard	prepared	verdict	reason
 0x1c5310	37	do-while	3	0xceb31795 < (uVar11 + 0x252af3a3 ^ 0xffffffff | 0x75c3750e) + uVar11 + 0x252af3a4	0xceb31795 < (uVar11 + 0x252af3a3 ^ 0xffffffff | 0x75c3750e) + uVar11 + 0x252af3a4	data	runtime
-0x1c5310	41	do-while	1369			noguard	no-guard
+0x1c5310	41	do-while	1137	0x6176e8e3 <              ((uVar11 & 0xef9790) - ((uVar11 ^ 0xffffffff) & 0x7f10686f) & 0x6c263e43) / 0xfcf9954	0x6176e8e3 <              ((uVar11 & 0xef9790) - ((uVar11 ^ 0xffffffff) & 0x7f10686f) & 0x6c263e43) / 0xfcf9954	data	runtime
 0x1c5310	1178	do-while	29	0xc663132f <              (((DAT_00a16c00 ^ 0xe03fe03f) & (DAT_00a16bfc ^ 0x6c2ce627) |               (DAT_00a16bfc ^ 0x1af31ad2) & (DAT_00a16c00 ^ 0x1fc01fc0)) & 0x2463081 ^ 0x6580bc03)	0xc663132f <              (((DAT_00a16c00 ^ 0xe03fe03f) & (DAT_00a16bfc ^ 0x6c2ce627) |               (DAT_00a16bfc ^ 0x1af31ad2) & (DAT_00a16c00 ^ 0x1fc01fc0)) & 0x2463081 ^ 0x6580bc03)	FALSE	
 0x1c5310	1418	do-while	7	0x73f75db5 <            ~((uVar11 ^ 0xfe1f7bff) & 0x2e1b69f5 | (uVar11 | 0xd1e4960a) ^ 0xffffffff) + 0x98e815bf	0x73f75db5 <            ~((uVar11 ^ 0xfe1f7bff) & 0x2e1b69f5 | (uVar11 | 0xd1e4960a) ^ 0xffffffff) + 0x98e815bf	data	runtime
 0x1c5310	1434	do-while	3	((DAT_00a16c14 ^ 0x42c0080 | DAT_00a16c18 ^ 0x3800380) & 0x862c2090 | 0x7991df6f) *            -0x7fa6b15d == 0x136d67ff	((DAT_00a16c14 ^ 0x42c0080 | DAT_00a16c18 ^ 0x3800380) & 0x862c2090 | 0x7991df6f) *            -0x7fa6b15d == 0x136d67ff	FALSE	
@@ -294,7 +294,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x1e006c	26	do-while	4	((uVar5 + (uVar5 ^ 0xeb3c50ae)) - (uVar5 & 0x14c3af51) & 0xde9c4ed4) < 0x216a7e87	((uVar5 + (uVar5 ^ 0xeb3c50ae)) - (uVar5 & 0x14c3af51) & 0xde9c4ed4) < 0x216a7e87	data	runtime
 0x1e006c	31	do-while	3	(((uVar1 ^ 0xffffffff) & 0xf346fc66 | uVar1 & 0xcb90399) + 0x921b0d97 & 0xb0570af3) <            0x12fd944d	(((uVar1 ^ 0xffffffff) & 0xf346fc66 | uVar1 & 0xcb90399) + 0x921b0d97 & 0xb0570af3) <            0x12fd944d	data	runtime
 0x1e006c	43	do-while	34	0xaef5b5ea <              (((uVar1 / 0x2804b7df ^ 0xffffffff) & 0xbe1b05e6 | uVar5) ^ 0x25ecdb0b | uVar5)	0xaef5b5ea <              (((uVar1 / 0x2804b7df ^ 0xffffffff) & 0xbe1b05e6 | uVar5) ^ 0x25ecdb0b | uVar5)	data	runtime
-0x1e006c	78	do-while	13			noguard	no-guard
+0x1e006c	78	do-while	30	(((uVar1 ^ 0xffffffff) & 0x58e1f1bd | 0x8a0c134 | uVar1 & 0x871a0a40) ^ 0x946d85d6 |              uVar1 & 0xc4083049) == 0xd777e27	(((uVar1 ^ 0xffffffff) & 0x58e1f1bd | 0x8a0c134 | uVar1 & 0x871a0a40) ^ 0x946d85d6 |              uVar1 & 0xc4083049) == 0xd777e27	data	runtime
 0x1e006c	109	do-while	5	(uVar1 & 0x2040400) * 2 - (uVar1 ^ 0x99e193c9) < 0xc086d26	(uVar1 & 0x2040400) * 2 - (uVar1 ^ 0x99e193c9) < 0xc086d26	data	runtime
 0x1e006c	117	do-while	3	0x42d2b604 <            ((DAT_00a177ec ^ 0x14e29056) + (DAT_00a177f0 ^ 0xd61ebe6) & 0x1900d741 | 0x800d541)	0x42d2b604 <            ((DAT_00a177ec ^ 0x14e29056) + (DAT_00a177f0 ^ 0xd61ebe6) & 0x1900d741 | 0x800d541)	FALSE	
 0x1e006c	126	do-while	3	(((uVar1 ^ 0xffffffff) & 0x6181b00 | uVar1 & 0x19e7e4ff) * 0x7ae0c477 | 0xe9cc689b)                == 0x6e6aefa8	(((uVar1 ^ 0xffffffff) & 0x6181b00 | uVar1 & 0x19e7e4ff) * 0x7ae0c477 | 0xe9cc689b)                == 0x6e6aefa8	data	runtime
@@ -422,7 +422,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x1e9cf8	59	do-while	5	0xd7e76ba0 <            ((DAT_00a17eb4 ^ 0x26a2d0d9) + (DAT_00a17eb8 ^ 0x1aa5ef39) +             ((DAT_00a17eb4 ^ 0x26a2d0d9) & (DAT_00a17eb8 ^ 0x1aa5ef39)) * -2 | 0x6e9893d1) +            0x93262233	0xd7e76ba0 <            ((DAT_00a17eb4 ^ 0x26a2d0d9) + (DAT_00a17eb8 ^ 0x1aa5ef39) +             ((DAT_00a17eb4 ^ 0x26a2d0d9) & (DAT_00a17eb8 ^ 0x1aa5ef39)) * -2 | 0x6e9893d1) +            0x93262233	FALSE	
 0x1e9cf8	64	do-while	4	0x3a14e1bb <            (((DAT_00a17ebc ^ 0x69d355f6) * (DAT_00a17ec0 ^ 0x93181789)) / 0x40eba31c & 1) *            -0x4069312d	0x3a14e1bb <            (((DAT_00a17ebc ^ 0x69d355f6) * (DAT_00a17ec0 ^ 0x93181789)) / 0x40eba31c & 1) *            -0x4069312d	FALSE	
 0x1e9cf8	69	do-while	14	((uVar9 ^ 0xffffffff) & 0xe8352138 | uVar9 & 0x174adec6) < 0x4ebf3c9f	((uVar9 ^ 0xffffffff) & 0xe8352138 | uVar9 & 0x174adec6) < 0x4ebf3c9f	data	runtime
-0x1e9cf8	83	do-while	136			noguard	no-guard
+0x1e9cf8	83	do-while	67	(((uVar9 ^ 0xffffffff) & 0x4c2e059b | uVar9 & 0xb3d1fa64) ^ 0xf12e2af5 |              uVar9 & 0xbd002f6e) < 0xb782ac9e	(((uVar9 ^ 0xffffffff) & 0x4c2e059b | uVar9 & 0xb3d1fa64) ^ 0xf12e2af5 |              uVar9 & 0xbd002f6e) < 0xb782ac9e	data	runtime
 0x1e9cf8	150	do-while	67	0xe02e83be <              ((DAT_00a17eec ^ 0x3ffc0000) & (DAT_00a17ef0 ^ 0x3ff80000) | 0xaff3ffff) * -0x7ffe46ac	0xe02e83be <              ((DAT_00a17eec ^ 0x3ffc0000) & (DAT_00a17ef0 ^ 0x3ff80000) | 0xaff3ffff) * -0x7ffe46ac	FALSE	
 0x1e9cf8	247	do-while	151	0xd2d2ee37 <            (((uVar9 & 0x40818510) * 2 - (uVar9 ^ 0x3f7e7aef) ^ 0xffffffff) & 0x421ee4ab)	0xd2d2ee37 <            (((uVar9 & 0x40818510) * 2 - (uVar9 ^ 0x3f7e7aef) ^ 0xffffffff) & 0x421ee4ab)	data	runtime
 0x1e9cf8	398	do-while	3	((DAT_00a17f04 ^ 0x13fdc626 | DAT_00a17f08 ^ 0xda9206e5) / 0x7e1a2260 | 0xbfaf7af0) <            0x89dc1363	((DAT_00a17f04 ^ 0x13fdc626 | DAT_00a17f08 ^ 0xda9206e5) / 0x7e1a2260 | 0xbfaf7af0) <            0x89dc1363	FALSE	
@@ -758,7 +758,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x201328	358	do-while	9	0x66ba49b2 <              (((uVar5 + (uVar5 ^ 0x6b345232)) - (uVar5 & 0x94cbadcd)) + 0x68cfc017) / 0x27bf676a	0x66ba49b2 <              (((uVar5 + (uVar5 ^ 0x6b345232)) - (uVar5 & 0x94cbadcd)) + 0x68cfc017) / 0x27bf676a	data	runtime
 0x201328	371	do-while	3	((uint)((ulong)((uVar5 & 0x85e92857) + (uVar5 | 0x85e92857)) * 0x5124c17b >> 0x3e) |            0xb646fe4a) < 0x733d5f79	((uint)((ulong)((uVar5 & 0x85e92857) + (uVar5 | 0x85e92857)) * 0x5124c17b >> 0x3e) |            0xb646fe4a) < 0x733d5f79	data	runtime
 0x203040	26	do-while	2	((uVar14 & 0xf4eb7b9a) + (uVar14 | 0xf4eb7b9a) + 0x43561f95 ^ 0xdd4581a4) < 0xdd331e9b	((uVar14 & 0xf4eb7b9a) + (uVar14 | 0xf4eb7b9a) + 0x43561f95 ^ 0xdd4581a4) < 0xdd331e9b	data	runtime
-0x203040	29	do-while	812			noguard	no-guard
+0x203040	29	do-while	55	(uVar14 & 0x7b42b3b) - ((uVar14 ^ 0xffffffff) & 0xf84bd4c4) == -0xcac7268	(uVar14 & 0x7b42b3b) - ((uVar14 ^ 0xffffffff) & 0xf84bd4c4) == -0xcac7268	data	runtime
 0x203040	440	do-while	13	(((uVar14 & 0x1b2231d7) * ((uVar14 ^ 0xffffffff) & 0xe4ddce28) +             (uVar14 | 0xe4ddce28) * (uVar14 & 0xe4ddce28)) / 0x267b1149) * 0x45ce669f < 0x1f4b7125	(((uVar14 & 0x1b2231d7) * ((uVar14 ^ 0xffffffff) & 0xe4ddce28) +             (uVar14 | 0xe4ddce28) * (uVar14 & 0xe4ddce28)) / 0x267b1149) * 0x45ce669f < 0x1f4b7125	data	runtime
 0x203040	457	do-while	6	0x8bac94cf < (uint)((ulong)uVar14 * 0xb8a0c81 >> 0x3b) * -0x1168dd89 + 0x121b39b2	0x8bac94cf < (uint)((ulong)uVar14 * 0xb8a0c81 >> 0x3b) * -0x1168dd89 + 0x121b39b2	data	runtime
 0x203040	464	do-while	4	iVar7 * -2 - (-iVar7 | 0x8e2e8416U) == 0x402eb778	iVar7 * -2 - (-iVar7 | 0x8e2e8416U) == 0x402eb778	data	runtime
@@ -3512,7 +3512,8 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x32a888	246	do-while	2	0xfe4610c6 < (uVar3 + (uVar3 ^ 0xffffffff | 0x1cb74307) + 0x2348bcf9 & 0x100b4420)	0xfe4610c6 < (uVar3 + (uVar3 ^ 0xffffffff | 0x1cb74307) + 0x2348bcf9 & 0x100b4420)	data	runtime
 0x32c8b8	21	do-while	4	(((DAT_00a26cbc ^ 0xffffff87) & 0x21888 | (DAT_00a26cbc ^ 0xffff03ff) & 0x10400) ^             ((DAT_00a26cc0 ^ 0x80) & 0x21888 | DAT_00a26cc0 & 0x10400) | 0xfffce377) * -0x25948a9a <            0xb1e4222b	(((DAT_00a26cbc ^ 0xffffff87) & 0x21888 | (DAT_00a26cbc ^ 0xffff03ff) & 0x10400) ^             ((DAT_00a26cc0 ^ 0x80) & 0x21888 | DAT_00a26cc0 & 0x10400) | 0xfffce377) * -0x25948a9a <            0xb1e4222b	FALSE	
 0x32c8b8	26	do-while	43	(uVar1 & 0x35f4a8cf) * ((uVar1 ^ 0xffffffff) & 0xca0b5730) +              (uVar1 | 0xca0b5730) * (uVar1 & 0xca0b5730) == 0x4d6a2588	(uVar1 & 0x35f4a8cf) * ((uVar1 ^ 0xffffffff) & 0xca0b5730) +              (uVar1 | 0xca0b5730) * (uVar1 & 0xca0b5730) == 0x4d6a2588	data	runtime
-0x32c8b8	70	do-while	107	 true 	1	TRUE	literal
+0x32c8b8	70	do-while	22	0xc8dba121 <              (((DAT_00a26cdc ^ 0xc1d0420) - (DAT_00a26ce0 ^ 0x7506aced)) + 0xa5aea8df & 0x459cee05)              + 0x2fd7040a	0xc8dba121 <              (((DAT_00a26cdc ^ 0xc1d0420) - (DAT_00a26ce0 ^ 0x7506aced)) + 0xa5aea8df & 0x459cee05)              + 0x2fd7040a	FALSE	
+0x32c8b8	176	while	1	 true 	1	TRUE	literal
 0x32c8b8	198	do-while	12	((uVar1 & 0x58086cd8) * ((uVar1 ^ 0xffffffff) & 0x27f79327) +             (uVar1 | 0x27f79327) * (uVar1 & 0x27f79327) & 0x482aa204 ^ 0xad1e81a7) < 0x25db2d33	((uVar1 & 0x58086cd8) * ((uVar1 ^ 0xffffffff) & 0x27f79327) +             (uVar1 | 0x27f79327) * (uVar1 & 0x27f79327) & 0x482aa204 ^ 0xad1e81a7) < 0x25db2d33	data	runtime
 0x32c8b8	212	do-while	3	0xdb54beca <            (((uVar1 ^ 0xffffffff) & 0x45118af0 | uVar1 & 0xbaee750f) ^ 0xa40b0f0f) + 0x12caebd1	0xdb54beca <            (((uVar1 ^ 0xffffffff) & 0x45118af0 | uVar1 & 0xbaee750f) ^ 0xa40b0f0f) + 0x12caebd1	data	runtime
 0x32c8b8	221	do-while	3	0x67f27675 <            (((uVar1 & 0x8743a06b) * 2 - (uVar1 ^ 0x78bc5f94)) + 0x7b818bea) / 0x11bf0972	0x67f27675 <            (((uVar1 & 0x8743a06b) * 2 - (uVar1 ^ 0x78bc5f94)) + 0x7b818bea) / 0x11bf0972	data	runtime
@@ -3528,7 +3529,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x32e6e4	12	do-while	2	(DAT_00a26d74 ^ 0x61247db5) - (DAT_00a26d78 ^ 0xa938cb32) == 0x73e0a54b	(DAT_00a26d74 ^ 0x61247db5) - (DAT_00a26d78 ^ 0xa938cb32) == 0x73e0a54b	FALSE	
 0x32e6e4	16	do-while	3	0x5acc52f7 < ((uVar3 ^ 0xe731f9b5) & uVar3)	0x5acc52f7 < ((uVar3 ^ 0xe731f9b5) & uVar3)	data	runtime
 0x32e6e4	58	do-while	31	0x211e3f55 < (uVar2 & 0xc62a1848 | (uVar2 ^ 0xffffffff) & 0x39d5e7b7)	0x211e3f55 < (uVar2 & 0xc62a1848 | (uVar2 ^ 0xffffffff) & 0x39d5e7b7)	data	runtime
-0x32e6e4	89	do-while	75			noguard	no-guard
+0x32e6e4	89	do-while	126	(uVar2 + (uVar2 & 6) * -2 + 0x7545d26e ^ 0xffffffff | 0x64774a81) < 0xd2dd44ff	(uVar2 + (uVar2 & 6) * -2 + 0x7545d26e ^ 0xffffffff | 0x64774a81) < 0xd2dd44ff	data	runtime
 0x32e6e4	216	do-while	4	((uint)((ulong)((DAT_00a26da4 ^ 0xfb49b5f7) + (DAT_00a26da8 ^ 0x3d7909cd) >> 3) *                    0x5486a83 >> 0x35) + 0x85e07732 ^ 0x3495792b) < 0x9e282cd7	((uint)((ulong)((DAT_00a26da4 ^ 0xfb49b5f7) + (DAT_00a26da8 ^ 0x3d7909cd) >> 3) *                    0x5486a83 >> 0x35) + 0x85e07732 ^ 0x3495792b) < 0x9e282cd7	FALSE	
 0x32e6e4	225	do-while	6	0xbea80cc1 < (uVar2 ^ 0x73ec5062) + (uVar2 & 0x73ec5060) * 2	0xbea80cc1 < (uVar2 ^ 0x73ec5062) + (uVar2 & 0x73ec5060) * 2	data	runtime
 0x32e6e4	237	do-while	5	((uVar3 & 0x79d8b888) - ((uVar3 ^ 0xffffffff) & 0x86274772) | 0x3fc5bebb) == 0xcfddd26c             	((uVar3 & 0x79d8b888) - ((uVar3 ^ 0xffffffff) & 0x86274772) | 0x3fc5bebb) == 0xcfddd26c	data	runtime
@@ -3769,7 +3770,8 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x341bec	111	do-while	3	0x9374b6a6 <            ~(uVar10 & 0xe7152376 | (uVar10 ^ 0xffffffff) & 0x18eadc89) * -0x58f75fdf + 0x6cf3c51e	0x9374b6a6 <            ~(uVar10 & 0xe7152376 | (uVar10 ^ 0xffffffff) & 0x18eadc89) * -0x58f75fdf + 0x6cf3c51e	data	runtime
 0x341bec	115	do-while	3	((uVar10 ^ 0xffffe7ff) & 0x32802818 | (uVar10 ^ 0xfe07fe07) & 0x891b92e7 | 0x81119046) <            0x9128906f	((uVar10 ^ 0xffffe7ff) & 0x32802818 | (uVar10 ^ 0xfe07fe07) & 0x891b92e7 | 0x81119046) <            0x9128906f	data	runtime
 0x341bec	120	do-while	12	(uint)((ulong)(DAT_00a28a88 ^ DAT_00a28a84 ^ 0x6d003c8b) * 0x32c3acc5 >> 0x3d) +              0xaa026ddd < 0x87bc4ea9	(uint)((ulong)(DAT_00a28a88 ^ DAT_00a28a84 ^ 0x6d003c8b) * 0x32c3acc5 >> 0x3d) +              0xaa026ddd < 0x87bc4ea9	FALSE	
-0x341bec	132	do-while	58	 true 	1	TRUE	literal
+0x341bec	132	do-while	25	0xddf391cb < (uVar10 & 0x113e9576 | (uVar10 ^ 0xffffffff | 0xe6c16a89) ^ 0xffffffff)	0xddf391cb < (uVar10 & 0x113e9576 | (uVar10 ^ 0xffffffff | 0xe6c16a89) ^ 0xffffffff)	data	runtime
+0x341bec	189	while	1	 true 	1	TRUE	literal
 0x341bec	213	do-while	15	((uVar9 & 0x9dffe661) * ((uVar9 ^ 0xffffffff) & 0x6200199e) +             (uVar9 | 0x6200199e) * (uVar9 & 0x6200199e) & 0x9ea63e62) == 0x8d0a6c35	((uVar9 & 0x9dffe661) * ((uVar9 ^ 0xffffffff) & 0x6200199e) +             (uVar9 | 0x6200199e) * (uVar9 & 0x6200199e) & 0x9ea63e62) == 0x8d0a6c35	data	runtime
 0x341bec	229	do-while	7	(~(uVar9 | 0x7dae6bf7) * ((uVar9 | 0x7d0a23f1) & 0x1ca468b6) +             (uVar9 | 0xff5bb7f9) * ((uVar9 | 0x7d0a23f1) & 0xe35b9749) ^ 0xffffffff | 0x35980516) <            0x23901332	(~(uVar9 | 0x7dae6bf7) * ((uVar9 | 0x7d0a23f1) & 0x1ca468b6) +             (uVar9 | 0xff5bb7f9) * ((uVar9 | 0x7d0a23f1) & 0xe35b9749) ^ 0xffffffff | 0x35980516) <            0x23901332	data	runtime
 0x341bec	287	do-while	970	 true 	1	TRUE	literal
@@ -4982,7 +4984,8 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x35b38c	134	do-while	4	((uVar23 | 0xdd76c48) & 0x9a7aca1d) - ((uVar23 ^ 0xffffffff) & 0x600011a2) < 0x8406e7ff	((uVar23 | 0xdd76c48) & 0x9a7aca1d) - ((uVar23 ^ 0xffffffff) & 0x600011a2) < 0x8406e7ff	data	runtime
 0x35b38c	138	do-while	2	~((DAT_00a29c7c ^ 0x79443b88) & (DAT_00a29c80 ^ 0xcbeebab8)) / 0xf702075a == 0xff172088	~((DAT_00a29c7c ^ 0x79443b88) & (DAT_00a29c80 ^ 0xcbeebab8)) / 0xf702075a == 0xff172088	FALSE	
 0x35b38c	144	do-while	4	0xa0653d37 < uVar25 + (uVar25 & 0xc8af671c) * -2 + -0x375098e4	0xa0653d37 < uVar25 + (uVar25 & 0xc8af671c) * -2 + -0x375098e4	data	runtime
-0x35b38c	509	do-while	104	 true 	1	TRUE	literal
+0x35b38c	509	do-while	97	((uVar23 ^ 0xda5a5ed7) & uVar23) < 0x1ca6c1bc	((uVar23 ^ 0xda5a5ed7) & uVar23) < 0x1ca6c1bc	data	runtime
+0x35b38c	612	while	1	 true 	1	TRUE	literal
 0x35b38c	663	do-while	6	(((DAT_00a29cb4 ^ 0x46d82d) - (DAT_00a29cb8 ^ 0x5cab7b2)) * -0x26cc3ba6 + 0x60ef06f0 |            0xfa41f14a) == 0x210b8187	(((DAT_00a29cb4 ^ 0x46d82d) - (DAT_00a29cb8 ^ 0x5cab7b2)) * -0x26cc3ba6 + 0x60ef06f0 |            0xfa41f14a) == 0x210b8187	FALSE	
 0x35b38c	674	do-while	3	0xfb03aafc < (uVar25 & 0x3d63b7d7) * 2 - (uVar25 ^ 0xc29c4828)	0xfb03aafc < (uVar25 & 0x3d63b7d7) * 2 - (uVar25 ^ 0xc29c4828)	data	runtime
 0x35b38c	677	do-while	4	(((DAT_00a29cc4 ^ 0x6ef54125) & 0x9fe3301a | (DAT_00a29cc4 ^ 0x88ec0) & 0x601ccfe5) ^             ((DAT_00a29cc8 ^ 0x68553ef8) & 0x9fe3301a | (DAT_00a29cc8 ^ 0x8c105) & 0x601ccfe5) |            (DAT_00a29cc4 ^ 0x6ef54125 | DAT_00a29cc8 ^ 0x68553ef8) ^ 0xffffffff) == 0xce4492c0	(((DAT_00a29cc4 ^ 0x6ef54125) & 0x9fe3301a | (DAT_00a29cc4 ^ 0x88ec0) & 0x601ccfe5) ^             ((DAT_00a29cc8 ^ 0x68553ef8) & 0x9fe3301a | (DAT_00a29cc8 ^ 0x8c105) & 0x601ccfe5) |            (DAT_00a29cc4 ^ 0x6ef54125 | DAT_00a29cc8 ^ 0x68553ef8) ^ 0xffffffff) == 0xce4492c0	FALSE	
@@ -7895,7 +7898,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x41f864	34	while	1	 true 	1	TRUE	literal
 0x41f864	35	while	1	 true 	1	TRUE	literal
 0x41f864	36	while	1	local_80 < -0x14931f56	local_80 < -0x14931f56	data	runtime
-0x41fa44	38	do-while	527			noguard	no-guard
+0x41fa44	38	do-while	814	 true 	1	TRUE	literal
 0x41fa44	39	while	1	 true 	1	TRUE	literal
 0x41fa44	40	while	1	local_130 < 0x2a4185ac	local_130 < 0x2a4185ac	data	runtime
 0x427a58	108	while	1	 true 	1	TRUE	literal
@@ -11096,7 +11099,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x72c0d4	53	do-while	9	(*pbVar8 <= *pbVar2) && (pbVar8 = pbVar8 + 1, pbVar2 = pbVar9, pbVar9 != local_70)	(*pbVar8 <= *pbVar2) && (pbVar8 = pbVar8 + 1, pbVar2 = pbVar9, pbVar9 != local_70)	memdep	MEM1
 0x72c0d4	72	while	1	pbVar2 != (byte *)plVar12[5]	pbVar2 != (byte *)plVar12[5]	memdep	MEM1
 0x72c0d4	85	do-while	6	plVar4 != plVar6	plVar4 != plVar6	data	runtime
-0x72c36c	32	do-while	77	dVar14 < (double)(int)uVar3	dVar14 < (double)(int)uVar3	unparsed	syntax:invalid syntax
+0x72c36c	32	do-while	77	dVar14 < (double)(int)uVar3	dVar14 < (double)(int)uVar3	memdep	call
 0x72c36c	69	do-while	20	plVar12 != (long *)0x0	plVar12 != (long *)0x0	data	runtime
 0x72c36c	73	do-while	10	(*pbVar10 <= *pbVar5) &&                     (pbVar10 = pbVar10 + 1, pbVar5 = pbVar11, pbVar11 != pbVar6)	(*pbVar10 <= *pbVar5) &&                     (pbVar10 = pbVar10 + 1, pbVar5 = pbVar11, pbVar11 != pbVar6)	memdep	MEM1
 0x72c36c	92	while	1	pbVar5 != (byte *)plVar8[5]	pbVar5 != (byte *)plVar8[5]	memdep	MEM1
@@ -13312,7 +13315,7 @@ fn	line	kind	spans	guard	prepared	verdict	reason
 0x8226e4	898	do-while	88	lVar16 != 0	lVar16 != 0	data	runtime
 0x8226e4	955	do-while	13	uVar32 != 0	uVar32 != 0	data	runtime
 0x8226e4	972	do-while	6	puVar40 != puVar61	puVar40 != puVar61	data	runtime
-0x8226e4	997	for	2	auVar1 != (undefined  [8])ppuVar34	auVar1 != (undefined  [8])ppuVar34	unparsed	syntax:invalid syntax
+0x8226e4	997	for	2	auVar1 != (undefined  [8])ppuVar34	auVar1 != (undefined  [8])ppuVar34	data	runtime
 0x8226e4	1065	do-while	13	uVar32 != 0	uVar32 != 0	data	runtime
 0x8226e4	1082	do-while	6	puVar40 != puVar61	puVar40 != puVar61	data	runtime
 0x8226e4	1167	do-while	13	uVar32 != 0	uVar32 != 0	data	runtime
