@@ -1,0 +1,7 @@
+program: libbinder.so
+language: AARCH64:LE:64:v8A
+image base: 00014000
+symbols: 12644
+functions total: 2396
+decompiled ok: 2396
+failed: 0
