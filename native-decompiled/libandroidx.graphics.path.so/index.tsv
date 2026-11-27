@@ -1,0 +1,29 @@
+address	name	size	signature	status
+00100d2c	_FINI_1	16	undefined _FINI_1()	OK
+00100d3c	FUN_00100d3c	8	undefined FUN_00100d3c()	OK
+00100d44	_FINI_0	8	undefined _FINI_0()	OK
+00100d4c	FUN_00100d4c	20	undefined FUN_00100d4c()	OK
+00100d60	FUN_00100d60	28	undefined FUN_00100d60()	OK
+00100d7c	FUN_00100d7c	324	undefined FUN_00100d7c()	OK
+00100ec0	FUN_00100ec0	552	undefined FUN_00100ec0()	OK
+001010e8	FUN_001010e8	332	undefined FUN_001010e8()	OK
+00101234	FUN_00101234	404	undefined FUN_00101234()	OK
+001013c8	FUN_001013c8	240	undefined FUN_001013c8()	OK
+001014b8	FUN_001014b8	528	undefined FUN_001014b8()	OK
+001016c8	JNI_OnLoad	448	undefined JNI_OnLoad()	OK
+001019ec	FUN_001019ec	148	undefined FUN_001019ec()	OK
+00101bb0	FUN_00101bb0	20	undefined FUN_00101bb0()	OK
+00101bd0	__cxa_finalize	16	undefined __cxa_finalize()	OK
+00101be0	__cxa_atexit	16	undefined __cxa_atexit()	OK
+00101bf0	__stack_chk_fail	16	undefined __stack_chk_fail()	OK
+00101c00	__system_property_get	16	undefined __system_property_get()	OK
+00101c10	atoi	16	int atoi(char * __nptr)	OK
+00101c20	malloc	16	void * malloc(size_t __size)	OK
+00101c30	free	16	void free(void * __ptr)	OK
+0010a000	__cxa_finalize	1	undefined __cxa_finalize()	OK
+0010a008	__cxa_atexit	1	undefined __cxa_atexit()	OK
+0010a010	__stack_chk_fail	1	undefined __stack_chk_fail()	OK
+0010a018	__system_property_get	1	undefined __system_property_get()	OK
+0010a020	atoi	1	int atoi(char * __nptr)	OK
+0010a028	malloc	1	void * malloc(size_t __size)	OK
+0010a030	free	1	void free(void * __ptr)	OK
