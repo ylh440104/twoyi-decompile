@@ -24,10 +24,7 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - lib: libandroidx.graphics.path.so
-          - lib: libloader.so
-          - lib: libloader32.so
-          - lib: libtwoyi.so
+          - lib: libbinder.so
     steps:
       - uses: actions/checkout@v4
         with:
