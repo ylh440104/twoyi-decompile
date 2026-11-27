@@ -1,33 +1,35 @@
-"""Decrypt the string buffers built by an arbitrary function, by line range.
+"""Decrypt an arbitrary line range of the Ghidra export and dump target vaddrs.
 
-JNI_OnLoad was already handled by decrypt_strings.py. The other functions do
-the same trick: assemble a string into .data one byte at a time, each byte with
-its own arithmetic. Since both the ciphertext and the destination live in
-.data, any function's literals can be recovered the same way -- it just needs
-to be pointed at a different range of functions.c.
+The JNI tables live in .data.rel.ro and their name/signature strings live in
+encrypted .data. The decryption is not confined to JNI_OnLoad: the tables at
+0x8e5908/0x8e5920/0x8e5938/0x8e5950 have their strings decrypted by whichever
+function holds those assignments, around line 24500.
+
+This evaluates every `DAT_xxxxxxxx = <byte expr>;` assignment in a line range,
+writing results into a copy of .data, then prints the C strings at requested
+vaddrs. Byte expressions may reference earlier DAT_ values and string literals,
+including multi-character escapes such as '\x16'.
 """
 
 import re
 import struct
 import sys
 
+C = "/root/nd/functions.c"
 SO = "/root/tf/out/apktool-decoded/lib/arm64-v8a/libtwoyi.so"
-CFILE = "/root/nd/functions.c"
-GHIDRA_BASE = 0x100000
 
-ASSIGN = re.compile(r"^\s*DAT_([0-9a-fA-F]{8})\s*=\s*(.+?);\s*$")
 TOKEN = re.compile(r"""\s*(?:
-      (?P<hex>0[xX][0-9a-fA-F]+)
-    | (?P<dat>DAT_[0-9a-fA-F]{8})
-    | (?P<chr>'(?:\\.|[^'\\])*')
-    | (?P<num>\d+)
-    | (?P<op><<|>>|[-+*/%^&|~()]))""", re.VERBOSE)
-ESC = {"n": 10, "t": 9, "r": 13, "0": 0, "f": 12, "v": 11, "b": 8, "a": 7,
-       "\\": 92, "'": 39}
+    (?P<hex>0[xX][0-9a-fA-F]+)
+  | (?P<chr>'(?:\\.|[^'\\])+')
+  | (?P<dec>\d+)
+  | (?P<dat>DAT_[0-9a-fA-F]{8})
+  | (?P<op>[()~&|^+\-*/])
+)""", re.VERBOSE)
+
+ASSIGN = re.compile(r"^\s*(DAT_[0-9a-fA-F]{8})\s*=\s*(.+?);\s*$")
 
 
-def sections(path):
-    data = open(path, "rb").read()
+def sections(data):
     shoff = struct.unpack_from("<Q", data, 0x28)[0]
     shents = struct.unpack_from("<H", data, 0x3A)[0]
     shnum = struct.unpack_from("<H", data, 0x3C)[0]
@@ -35,208 +37,153 @@ def sections(path):
     out = []
     for i in range(shnum):
         o = shoff + i * shents
-        name, stype = struct.unpack_from("<II", data, o)
+        nm, = struct.unpack_from("<I", data, o)
         flags, addr, off, size = struct.unpack_from("<QQQQ", data, o + 8)
-        out.append(dict(name_off=name, addr=addr, off=off, size=size))
+        out.append(dict(n=nm, addr=addr, off=off, size=size))
     st = out[shstrndx]["off"]
     for s in out:
-        a = st + s["name_off"]
-        b = data.index(b"\0", a)
-        s["name"] = data[a:b].decode("utf-8", "replace")
-    return data, out
-
-
-def parse_char(lit):
-    body = lit[1:-1]
-    if body.startswith("\\"):
-        c = body[1:]
-        if c.startswith("x"):
-            return int(c[1:], 16) & 0xFF
-        return ESC.get(c, 0)
-    return ord(body[0]) & 0xFF if body else 0
-
-
-def tokenize(expr):
-    pos = 0
-    out = []
-    while pos < len(expr):
-        m = TOKEN.match(expr, pos)
-        if not m or m.end() == pos:
-            break
-        pos = m.end()
-        if m.group("hex"):
-            out.append(("v", int(m.group("hex"), 16)))
-        elif m.group("dat"):
-            out.append(("d", int(m.group("dat")[4:], 16)))
-        elif m.group("chr"):
-            out.append(("v", parse_char(m.group("chr"))))
-        elif m.group("num"):
-            out.append(("v", int(m.group("num"))))
-        else:
-            out.append(("o", m.group("op")))
+        a = st + s["n"]
+        s["name"] = data[a:data.index(b"\0", a)].decode("utf-8", "replace")
     return out
 
 
-class P:
-    def __init__(self, t, mem):
-        self.t, self.i, self.mem = t, 0, mem
-
-    def peek(self):
-        return self.t[self.i] if self.i < len(self.t) else (None, None)
-
-    def eat(self, op):
-        k, v = self.peek()
-        if k == "o" and v == op:
-            self.i += 1
-            return True
-        return False
-
-    def parse(self):
-        return self.or_()
-
-    def or_(self):
-        v = self.xor()
-        while self.eat("|"):
-            v |= self.xor()
-        return v
-
-    def xor(self):
-        v = self.and_()
-        while self.eat("^"):
-            v ^= self.and_()
-        return v
-
-    def and_(self):
-        v = self.shift()
-        while self.eat("&"):
-            v &= self.shift()
-        return v
-
-    def shift(self):
-        v = self.add()
-        while True:
-            if self.eat("<<"):
-                v <<= self.add()
-            elif self.eat(">>"):
-                v >>= self.add()
+def unesc(lit):
+    body = lit[1:-1]
+    out = b""
+    i = 0
+    while i < len(body):
+        ch = body[i]
+        if ch != "\\":
+            out += ch.encode("latin-1")
+            i += 1
+            continue
+        i += 1
+        e = body[i]
+        if e == "x":
+            m = re.match(r"[0-9a-fA-F]{1,2}", body[i + 1:])
+            if m:
+                out += bytes([int(m.group(0), 16)])
+                i += 1 + len(m.group(0))
             else:
-                return v
+                out += b"x"
+                i += 1
+        else:
+            out += {"n": b"\n", "r": b"\r", "t": b"\t", "0": b"\0",
+                    "\\": b"\\", "'": b"'", '"': b'"'}.get(e, e.encode())
+            i += 1
+    return out
 
-    def add(self):
-        v = self.mul()
-        while True:
-            if self.eat("+"):
-                v += self.mul()
-            elif self.eat("-"):
-                v -= self.mul()
+
+def evaluate(expr, mem, raw_byte=None, mask8=True):
+    """Evaluate a C byte expression. Returns int or None.
+
+    Source operands fall back to the original file byte when they have not been
+    written yet in this pass -- without that fallback every expression fails,
+    because a ciphertext byte is never itself a destination before it is read.
+    """
+    parts = []
+    pos = 0
+    while pos < len(expr):
+        m = TOKEN.match(expr, pos)
+        if not m:
+            if expr[pos].isspace():
+                pos += 1
+                continue
+            return None
+        pos = m.end()
+        if m.group("hex"):
+            parts.append(str(int(m.group("hex"), 16)))
+        elif m.group("dec"):
+            parts.append(m.group("dec"))
+        elif m.group("chr"):
+            raw = unesc(m.group("chr"))
+            if not raw:
+                return None
+            v = raw[0]
+            for c in raw[1:]:
+                v = (v << 8) | c
+            parts.append(str(v))
+        elif m.group("dat"):
+            key = int(m.group("dat")[4:], 16) - 0x100000
+            if key in mem:
+                parts.append(str(mem[key]))
+            elif raw_byte is not None:
+                parts.append(str(raw_byte(key)))
             else:
-                return v
-
-    def mul(self):
-        v = self.un()
-        while True:
-            if self.eat("*"):
-                v *= self.un()
-            elif self.eat("/"):
-                d = self.un()
-                v = v // d if d else 0
-            elif self.eat("%"):
-                d = self.un()
-                v = v % d if d else 0
-            else:
-                return v
-
-    def un(self):
-        if self.eat("~"):
-            return ~self.un()
-        if self.eat("-"):
-            return -self.un()
-        if self.eat("+"):
-            return self.un()
-        if self.eat("("):
-            v = self.or_()
-            self.eat(")")
-            return v
-        k, v = self.peek()
-        if k == "v":
-            self.i += 1
-            return v
-        if k == "d":
-            self.i += 1
-            return self.mem.get(v)
-        raise ValueError("eof")
+                return None
+        else:
+            op = m.group("op")
+            parts.append("/" if op == "/" else op)
+    src = "".join(parts)
+    if not re.fullmatch(r"[0-9()~&|^+\-*/ ]+", src):
+        return None
+    try:
+        v = eval(compile(src, "<e>", "eval"), {"__builtins__": {}})
+    except Exception:
+        return None
+    if not isinstance(v, int):
+        return None
+    return v & 0xFF if mask8 else v
 
 
 def main():
     lo = int(sys.argv[1])
     hi = int(sys.argv[2])
+    targets = [int(x, 16) for x in sys.argv[3:]]
 
-    data, secs = sections(SO)
-    dsec = next(s for s in secs if s["name"] == ".data")
-    dec = {}
+    data = open(SO, "rb").read()
+    secs = sections(data)
 
-    def rd(v):
-        if v in dec:
-            return dec[v]
-        if dsec["addr"] <= v < dsec["addr"] + dsec["size"]:
-            return data[dsec["off"] + (v - dsec["addr"])]
-        return 0
+    def off_of(v):
+        for s in secs:
+            if not s["addr"] or s["name"] in (".bss", ".relro_padding"):
+                continue
+            if s["addr"] <= v < s["addr"] + s["size"]:
+                return s["off"] + (v - s["addr"])
+        return None
 
-    class Mem:
-        def get(self, g):
-            return rd(g - GHIDRA_BASE)
-
-    mem = Mem()
+    lines = open(C, encoding="utf-8", errors="replace").read().split("\n")
     stmts = []
-    with open(CFILE, errors="replace") as fh:
-        for n, line in enumerate(fh, 1):
-            if n < lo:
-                continue
-            if n > hi:
-                break
-            m = ASSIGN.match(line)
-            if not m:
-                continue
-            expr = re.sub(r"\((?:int|uint|char|byte|undefined\d?|long|ulong)\)",
-                          "", m.group(2))
-            toks = tokenize(expr)
-            if toks:
-                stmts.append((int(m.group(1), 16) - GHIDRA_BASE, toks))
+    for ln in lines[lo - 1:hi]:
+        m = ASSIGN.match(ln)
+        if not m:
+            continue
+        stmts.append((int(m.group(1)[4:], 16) - 0x100000, m.group(2)))
 
-    for _ in range(6):
-        changed = 0
-        for dst, toks in stmts:
-            try:
-                val = P(toks, mem).parse() & 0xFF
-            except Exception:  # noqa: BLE001 - unresolved operand
+    def raw_byte(v):
+        off = off_of(v)
+        return data[off] if off is not None else 0
+
+    mem = {}
+    ok = fail = 0
+    for _ in range(8):
+        ok = fail = 0
+        for addr, expr in stmts:
+            v = evaluate(expr, mem, raw_byte)
+            if v is None:
+                fail += 1
                 continue
-            if dec.get(dst) != val:
-                dec[dst] = val
-                changed += 1
-        if changed == 0:
+            mem[addr] = v
+            ok += 1
+        if fail == 0:
             break
 
-    print("assignments=%d decoded=%d" % (len(stmts), len(dec)))
-    addrs = sorted(dec)
-    if not addrs:
-        return
-    # Group consecutive destinations into runs, which are the string buffers.
-    runs = []
-    start = prev = addrs[0]
-    for a in addrs[1:]:
-        if a == prev + 1:
-            prev = a
+    print("assignments=%d ok=%d fail=%d" % (len(stmts), ok, fail))
+    for t in targets:
+        off = off_of(t)
+        if off is None:
+            print("0x%x  <not mapped>" % t)
             continue
-        runs.append((start, prev))
-        start = prev = a
-    runs.append((start, prev))
-
-    for a, b in runs:
-        raw = bytes(dec.get(v, 0) for v in range(a, b + 1))
-        if len(raw) < 2:
-            continue
-        txt = "".join(chr(c) if 32 <= c < 127 else "." for c in raw)
-        print("0x%08x..0x%08x  %r" % (a, b, txt))
+        raw = bytearray(data[off:off + 64])
+        for k in range(64):
+            key = t + k
+            if key in mem:
+                raw[k] = mem[key]
+        end = raw.find(b"\0")
+        s = raw[:end if end >= 0 else 64]
+        printable = bool(s) and all(32 <= c < 127 for c in s)
+        print("0x%x  %-60r %s"
+              % (t, bytes(s), "OK" if printable else "ENCRYPTED"))
 
 
 if __name__ == "__main__":
