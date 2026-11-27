@@ -1,0 +1,16 @@
+decrypted strings: 1329 bytes
+JNINativeMethod entries: 13
+
+table@0x008e5800  attachWindow               (mandroid/view/Surface;)V                                   fn=0x1e006c
+table@0x008e5818  resetWindow                (Landroid/view/Surface;IIII)V                               fn=0x1e1e9c
+table@0x008e5830  removeWindow               (mandroid/view/Surface;)V                                   fn=0x1e3fe4
+table@0x008e5860  sendKeycode                (I)V                                                        fn=0x1e90b8
+table@0x008e5890  nativeDisconnectSurface    (Landroid/view/Surface;)Z                                   fn=0x1ef5e0
+table@0x008e58c0  waitForExit                ()I                                                         fn=0x1f3d54
+table@0x008e58d8  stop                       ()V                                                         fn=0x1f5ba0
+table@0x009076e0  nativeHandle               (I)V                                                        fn=0x84cb18
+table@0x0096c1e8  init                       (Landroid/net/LocalSocket;Ljava/lang/String;)I              fn=0x877f34
+table@0x0096c200  destroy                    ()V                                                         fn=0x8782f0
+table@0x0096c218  setOnModemCallback         (Lio/twoyi/hal/ril/OnModemCallback;)I                       fn=0x87830c
+table@0x0096c230  setNetworkType             (I)V                                                        fn=0x878364
+table@0x0096c248  setSignalStrength          (I)V                                                        fn=0x87839c
