@@ -113,7 +113,65 @@ The honest statement now is: the Java layer is 28.5 MB across 4,705 files, of
 which roughly 15 files have been read in full. Any claim about its total API
 surface needs to be recomputed over the real tree before it can be trusted.
 
-## Method
+## 3. `binder_cmd_name` resolves three families, not two
+
+The previous revision listed the leftover constants as "13 `0x62`-family (`BR_*`)
+names". That label was wrong. Type byte `0x62` is `'b'`, which in the binder UAPI
+is the **`BINDER_*` ioctl** family on `/dev/binder`; `BR_*` replies use `'r'`
+(`0x72`).
+
+The thirteen, read as strings out of `binder_cmd_name`:
+
+```
+BINDER_WRITE_READ          BINDER_SET_IDLE_TIMEOUT
+BINDER_SET_MAX_THREADS     BINDER_SET_IDLE_PRIORITY
+BINDER_SET_CONTEXT_MGR     BINDER_VERSION
+BINDER_DONE                BINDER_SET_CONTEXT_MGR_EXT
+BINDER_GET_NODE_DEBUG_INFO BINDER_GET_NODE_INFO_FOR_REF
+BINDER_FREEZE              BINDER_GET_FROZEN_INFO
+BINDER_ENABLE_ONEWAY_SPAM_DETECTION
+```
+
+The four constants that were left unnamed decode against `_IOC(_IOC_WRITE,
+'b', nr, 4)` and all four check out:
+
+| constant | type | nr | size | ioctl |
+|---|---|---|---|---|
+| `0x40046205` | `'b'` | 5 | 4 | `BINDER_SET_MAX_THREADS` |
+| `0x40046206` | `'b'` | 6 | 4 | `BINDER_SET_IDLE_PRIORITY` |
+| `0x40046207` | `'b'` | 7 | 4 | `BINDER_SET_CONTEXT_MGR` |
+| `0x40046210` | `'b'` | 16 | 4 | `BINDER_ENABLE_ONEWAY_SPAM_DETECTION` |
+
+So `binder_cmd_name` is a single name resolver for **three** families at once:
+
+| family | type byte | count |
+|---|---|---|
+| `BINDER_*` ioctls | `'b'` = 0x62 | 13 |
+| `BC_*` commands | `'c'` = 0x63 | 16 |
+| `BR_*` replies | `'r'` = 0x72 | 21 |
+
+`BR_*` names present, read directly: `BR_ERROR`, `BR_OK`,
+`BR_TRANSACTION_COMPLETE`, `BR_DEAD_REPLY`, `BR_TRANSACTION_SEC_CTX`,
+`BR_TRANSACTION`, `BR_REPLY`, `BR_ACQUIRE_RESULT`, `BR_DEAD_BINDER`,
+`BR_CLEAR_DEATH_NOTIFICATION_DONE`, `BR_FAILED_REPLY`, `BR_FROZEN_REPLY`,
+`BR_ONEWAY_SPAM_SUSPECT`, `BR_NOOP`, `BR_SPAWN_LOOPER`, `BR_FINISHED`,
+`BR_ATTEMPT_ACQUIRE`, `BR_INCREFS`, `BR_ACQUIRE`, `BR_RELEASE`, `BR_DECREFS`.
+
+The other `0x3f...` / `0x7f...` eight-digit values my first regex picked up are
+**stack addresses**, not constants — `0x7ff78df0`-style values are ARM64 stack
+pointers. Two of them were counted as "unidentified constants" in error.
+
+### The Java census, recomputed
+
+```
+files: 4705
+bytes: 29861631
+```
+
+Confirmed independently twice now. No further claims are made here about method
+or native counts — the earlier `grep -c` for `native ` across 4,705 files
+returned no summary line, so that number is **not** established yet and should
+not be quoted until measured properly.
 
 ```
 grep -n '0x400c630f' libbinder.c
