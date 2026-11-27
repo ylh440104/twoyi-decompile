@@ -1,0 +1,10 @@
+# Local operator helpers: these read GH_TOKEN from the environment.
+# They are kept untracked so no credential ever lands in the public repo.
+tools/logs.py
+tools/status.py
+tools/upload_asset.py
+tools/delete_assets.py
+tools/check_run.py
+
+__pycache__/
+*.pyc
