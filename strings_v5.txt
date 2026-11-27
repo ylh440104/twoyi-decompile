@@ -1,0 +1,411 @@
+0x915ad5	roid/view/Mo
+0x915fc4	getRuntime
+0x916000	unable to register DirectLauncher natives
+0x916060	unable to register KernelSuHal natives
+0x916230	dalvik/system/VMRuntime
+0x916258	getPointerCount
+0x9162c0	()Ldalvik/system/VMRuntime;
+0x916300	setHiddenApiExemptions
+0x916340	([Ljava/lang/String;)V
+0x916380	java/lang/String
+0x9163c0	Landroid/view/MotionEvent
+0x916444	BNFD['
+0x916460	ro.build.version.sdk
+0x916488	JNI_OnLoad: %s
+0x9164e8	getAction
+0x91652f	~getPressure
+0x91654c	JNI_OnLoad: %s
+0x916580	java/lang/RuntimeException
+0x9165c0	Renderer.prepare failed
+0x916600	java/lang/RuntimeException
+0x916650	Renderer.attachWindow failed
+0x916690	java/lang/RuntimeException
+0x9166e0	Renderer.resetWindow failed
+0x916720	Renderer.removeWindow failed
+0x9167a0	Renderer.handleTouch failed
+0x9167e0	Renderer.sendKeycode failed
+0x916820	java/lang/RuntimeException
+0x916890	Renderer.configureEndpoints received an empty endpoint
+0x916910	host endpoints are already configured differently
+0x916970	java/lang/RuntimeException
+0x9169d0	DirectLauncher.prepare received null loader
+0x916a17	YwUI2^
+0x916a20	DirectLauncher.prepare failed
+0x916af0	CLIENT_EGL
+0x916b20	java/lang/RuntimeException
+0x916b80	Renderer received a null Surface
+0x916bac	vector
+0x916bc4	basic_string
+0x917105	[ObZGQR
+0x917949	+RO[bHLv,Gy
+0x917c0b	Gti:\8
+0x918097	m'BmZME
+0x9183f7	pXdZ~?
+0x918c30	Twoyi host runtime ready: %dx%d@%d
+0x918cb0	Invalid host runtime request: display=%dx%d dpi=%.2fx%.2f fps=%d
+0x918d30	Unable to bind required input listeners
+0x918d8f	tRenderer endpoint unavailable after startup: %s
+0x918def	mOpenGL renderer core initialization returned %d
+0x918e2c	opengles2
+0x918e44	opengles3
+0x918e80	Renderer endpoint path too long: %s/%s
+0x918eb4	opengles
+0x918f70	Unable to
+0x918fe0	Legacy direct runtime waiting for Activity window
+0x919080	Invalid direct runtime request: display=%dx%d dpi=%.2fx%.2f fps=%d loader_empty=%d
+0x9191f0	/data/data/io.twoyi/rootfs/system/bin/init
+0x919250	Unable to inspect rootfs init layout: %s
+0x919370	Unable to start legacy rootf
+0x9193e0	Legacy direct runtime launched after Activity window attach
+0x919460	Renderer window arrived 
+0x9194e0	Unable to update input dimensions for attached window
+0x919550	Unable to bind required input listeners
+0x9195a0	resetSubWindow returned %d
+0x9195e0	setNativeWindow returned %d
+0x919620	Invalid renderer reset request
+0x919670	Renderer reset received for a detached window
+0x9196c0	resetSubWindow returned %d
+0x919710	Unable to update input surface dimensions
+0x919760	removeSubWindow returned %d
+0x9197b0	setNativeWindow(nullptr) returned %d
+0x919a8a	ndKcn8RL
+0x91a1e0	/data/data/io.twoyi/rootfs
+0x91a208	twoyi_hal
+0x91a220	TWOYI_SOCK
+0x91a260	/data/data/io.twoyi/rootfs/gfxstream-vulkan
+0x91a2f6	LYnZ*K
+0x91a3c7	V~KlBwV
+0x91a660	<vtouch 
+0x91a67c	<keyboar
+0x91a6c0	invalid input surface dimensions
+0x91a6f8	CLIENT_EGL
+0x91a718	CLIENT_EGL
+0x91a760	cannot create input writer thread
+0x91a7c0	cannot detach input writer thread
+0x91a830	cannot create input accept thread
+0x91a890	cannot detach input accept thread
+0x91a8e0	input socket path is too long
+0x91a920	cannot create input listener
+0x91a960	cannot configure input listener
+0x91a9b0	cannot remove s.ale input socket
+0x91aa00	cannot bind input listener
+0x91aa40	cannot listen on input socket
+0x91aa90	touch input queue full; reconnecting client
+0x91aad0	CLIENT_EGL
+0x91ab00	unsupported Android keycode
+0x91ab50	key input queue full; reconnecting client
+0x91ab90	CLIENT_EGL
+0x91aba4	vector
+0x91abc0	CLIENT_EGL
+0x91abf0	cannot duplicate input client
+0x91ac40	input client disconnected during write
+0x91aca0	cannot accept input client
+0x91acc8	CLIENT_EGL
+0x91ad10	cannot configure input client
+0x91ad60	cannot send input device descri
+0x91b0c1	xJk3|F
+0x91b26a	vD)XyM4
+0x91ba22	FysB*@
+0x91bda7	*Z$qiRYe:
+0x91be67	UpTS}lu6
+0x91c14e	4/CiZ6
+0x91cdb0	native
+0x91cdb7	ecoverRootfs failed: %d (%s): %s
+0x91ce10	native %s rootfs fajled: %d (%s): %s
+0x91ce40	repair
+0x91ce50	extract
+0x91ce80	nativeExtr
+0x91ce8b	ctRootfs ok
+0x91cea0	vector
+0x91ceb0	vector
+0x91d004	qhB[)0
+0x91d05f	jX,apf
+0x91d0e1	OZc0+N
+0x91def4	_6|SqY
+0x91df3f	SzASTmF
+0x91e0d0	io/twoyi/hal/
+0x91e0de	woyiResol=erHal
+0x91e100	nativeResolve
+0x91e300	system/etc/ld.config
+0x91e324	/javalib/
+0x91e350	apex/com.android.runtime/
+0x91e37c	system/bin/init
+0x91e3b0	system/bin/linker
+0x91e3f0	system/bin/bootstrap/
+0x91e430	system/lib64/bootstrap/
+0x91e470	apex/com.android.art/
+0x91e4b0	system/etc/init/
+0x91e4f1	ystem/etc/selinux/
+0x91e530	system/etc/classpaths/
+0x91e570	system/etc/linker
+0x91e590	system/bin/
+0x91e5ac	system/lib64/
+0x91e600	system/framework/framework-res.apk
+0x91e62b	W/lib64/
+0x91e64c	vendor/
+0x91e6c0	system/framework/boot
+0x91e700	system/framework/
+0x91e72c	).Oqsystem/usr/
+0x91e770	system/framework/oat/arm64/services.
+0x91e803	>system/etcl
+0x91e834	data/system
+0x91e8a0	priv-app/SystemUI
+0x91e8e0	priv-app/Launcher
+0x91e940	twoyi-boot-prefetch
+0x91e960	end %zu
+0x91e9b0	twoyi-boot-prefetch
+0x91ea4f	k/framework-res.apk
+0x91eb90	system/framework/framework.jar
+0x91ec20	NSt6__ndk120__shared_ptr_emplaceIN5twoyi13boot_prefetch12_GLOBAL__N_16ReplayENS_9allocatorIS4_EEEE
+0x91ecb0	thread constructor failed
+0x91ed20	boot prefetch: %zu files, %lu MiB listed, %lu MiB read ahead, %ld ms%s
+0x91ed78	 (cancelled)
+0x91ee80	system
+0x91ee94	system_ext
+0x91eea7	eproduct
+0x91eeb8	vendor
+0x91eefc	data/media
+0x91ef18	data/local/tmp
+0x91ef40	basic_string
+0x91ef58	vector
+0x91ef68	vector
+0x91ef78	vector
+0x91ef88	vector
+0x91fa35	f_|dHB
+0x920392	OQX?F{[?e
+0x920837	,JSEpGnV
+0x9212df	9=zyR 
+0x9217ae	5cBWuFt
+0x9219fd	$4WPbh~
+0x9220a7	)mXvj`
+0x922816	~QHt2R
+0x922a58	%^*fBP
+0x923710	io/twoyi/BootPrefetch
+0x923734	nativeStart
+0x923780	(Ljava/lang/String;Ljava/la&g/String;Ljava/lang/String;)I
+0x9237cc	nativeCancel
+0x9237f4	nativeRecord
+0x923850	(Ljava/lang/String;Ljava/lang/St
+0x923871	ing;Ljava/lang/String;)Z
+0x923988	|mVqQ^Y
+0x923b33	rsfF<k%3
+0x9246b1	u9.SvT
+0x9247d0	twoyi: unable to execute legacy rootfs inl
+0x924840	Refusing invalid direct guest process group %d
+0x9248b0	Unable to stop direct guest process group %d: %s
+0x924920	Unable to detach rootfs reaper: %d
+0x924954	/proc/self/fd
+0x9249a0	rootfs init %d killed by signal %d
+0x924a00	Direct guest process group %d did not disappear
+0x924a60	rootfs init %d exited with status %d
+0x924ab0	waitpid(%d) failed: %s
+0x924ad0	vector
+0x924baf	YlceA@
+0x924dfb	XOVz%U2!BKPv
+0x926077	w.gYd8
+0x926138	CsumUR
+0x9262cd	thagzu
+0x926351	&ats3<[
+0x926394	mghT[%Q
+0x926890	Invalid gfxstream host start request
+0x9268f0	Unable to initialize gfxstream host once-state
+0x926940	gfxstream host start failed: %s
+0x92696c	no detail
+0x9269dd	p"Dstatically linked gfxstream Vulkan host listening on %s with G5 direct-AHB/shared-shadow bridge
+0x926a80	skipping legacy cleanup for live/reused pid=%u puid=%llu
+0x926b10	skipping legacy cleanup after pid probe error pid=%u puid=%llu errno=%d
+0x926ba0	released %u legacy ColorBuffer refs for pid=%u puid=%llu
+0x926d96	paGJQ]
+0x926f30	/proc/%d/stat
+0x926f80	/data/dataGio.twoyi/files/seccomp_user_notif.enable
+0x927000	twoyi seccomp disabled: create %s after device acceptance
+0x927080	twoyi seccomp capability probe failed; wrapper-only session
+0x927100	twoyi seccomp endpoint unavailable; wrapper-only session
+0x927180	twoyi seccomp native opener unavailable; wrapper-only session
+0x9271e0	twoyi seccomp broker enabled
+0x92720c	/dev/null
+0x927240	0123456789abcdef
+0x927264	twoyi.seccomp.
+0x927284	/proc/%d/stat
+0x9272c0	broker accept failed
+0x927300	thread constructor failed
+0x927340	thread constructor failed
+0x9273a0	rootfs init %d exited while seccomp listener was active
+0x927400	twoyi seccomp fatal: %s
+0x927460	init lifecycle channel lost
+0x927664	libGLESv1_CM.s
+0x9276a4	libGLESv3.so
+0x9276c4	/proc/%d/maps
+0x927750	twoyi seccomp listener active pid=%d
+0x9277e0	NSt6__ndk120__shared_ptr_emplaceIN5tw
+0x927806	yi12_GLOBAL__N_113Li
+0x92781b	tenerStateENS_9allocatorIS3_EEEE
+0x927860	%llx-%llx %4s %*s kx:%x %llu %n
+0x92788c	 Cdeteted)
+0x9278a0	vector
+0x927bc0	thread constructor
+0x927c00	NOTIF_SEND failed
+0x927c23	Q/proc/%d/status
+0x927c4c	vector
+0x927c80	/data/data/io.twoyi/rootfs
+0x927cb8	/storage
+0x927cf0	/storage/emu
+0x927d14	/storage/self
+0x927d60	/dev/.coldboot_done
+0x927da0	/dev/__properties__
+0x927dc0	/dev/input
+0x927ddc	/dev/__kmsg__
+0x927dfc	/dev/__kmsg2__
+0x927e18	/dev/l{g
+0x927e50	/dev/socket/logd
+0x927e90	/dev/socket/logdw
+0x927ed0	/dev/socket/logdr
+0x927ef0	/dev/socket
+0x927f0c	/dev/vbinder
+0x927f2c	/dev/vndbinder
+0x927f4c	/dev/hwbinder
+0x927f68	/dev/vid
+0x927f94	/sys/fs/selinux
+0x927fd0	/sys/class/android_usb
+0x928010	/data/data/io.twoyi/rootfs
+0x92803c	/proc/%d/cwd
+0x928070	/data/data/io.twoyi/rootfs
+0x92809c	%s/dev/vid/%d
+0x9280d0	NOTIF_SEND failed
+0x9288cd	fG<gRx
+0x928cd8	ZZgb[8
+0x929949	lrIM?N
+0x92a2a1	v'tZmM
+0x92a3e3	paOVBN
+0x92a6f6	xr!UhN
+0x92ac63	B:~V/EaI
+0x92b0e0	{&5FhC
+0x92b21c	TJU>8}i8,
+0x92b513	^53lpC,
+0x92bd80	1vnz4E
+0x92bea2	j<>*gSa
+0x92c277	ChET77B{w
+0x92c4c6	}Y hXY
+0x92cd0d	eut=D9
+0x92e20c	OoNz(&
+0x92e336	QtH4@7
+0x92e781	xKJ8p{
+0x92ed80	 (deleted)
+0x92ed9c	twoyi-opener
+0x92edd0	/data/data/io.twoyi/rootfs
+0x92ee10	/proc/self/fd/%d
+0x92ee50	thread constructor failed
+0x92eed0	NSt6__ndk120__shared_ptr_emplaceIN5twoyi12_GLOBAL__N_17OpenJobENS_9allocatorIS3_EEEE
+0x92ef90	NSt6__ndk120__shared_ptr_emplaceIN5twoyi12_GLOBAL__N_19AccessJobENS_9allocatorIS3_EEEE
+0x92f010	/proc/self/fdinfo/%d
+0x92f02e	\Ymnt_id:
+0x92f060	/procuself/fd/%do
+0x92f080	 (deleted)
+0x92f0b0	/data/da
+0x92f0b9	a/io.twoyi/rootfs
+0x92f0f0	/data/data/io.twoyi/rootfs
+0x92f130	user.twoyi.owner
+0x92f675	7OAQbi~'
+0x92fb84	jQ;aKB
+0x92fbbb	\13wnn_&V
+0x9300eb	]"wNcI
+0x93086b	`+AUc_=
+0x930c76	;Eyqgx
+0x9313e8	:Pix0?
+0x9318e0	invalid arguments
+0x931900	i/o error
+0x93191c	bad zstd frame
+0x931950	unacceptable content size
+0x931990	insufficient disk space
+0x9319d0	zstd decode error
+0x9319f4	truncated input
+0x931a14	bad tar header
+0x931a3b	&bj1kfrc[
+0x931a50	bad tar member name
+0x931a90	unsupported tar member type
+0x931ad0	bad tar s
+0x931ada	ze field
+0x931af4	path conflict
+0x931b14	out of memory
+0x931b50	ROM payload identity mismatch
+0x931b90	ROM payload hash mismatch
+0x931bbc	unknown error
+0x931c1c	 data_dir: %s
+0x931cd0	rom_ex
+0x931cf0	data_dir
+0x931d20	rootfs.zst.rollback
+0x931d44	rootfs.zst.old
+0x931d96	 rootfs 
+0x931e00	rootfs 
+0x931e19	: rollback 
+0x931e4c	rootfs.zst.tmp
+0x931e96	 rootfs staging 
+0x9320e7	knv\I/(
+0x932507	xjqe|g0
+0x932a89	x9iXg/
+0x9333d3	x#RF6xtq
+0x93356c	rootfs/system/
+0x93358c	rootfs/vend/r/
+0x9335ac	rootfs/product/
+0x9335e0	rootfs/system_ext/
+0x933600	rootfs/odm/
+0x933618	rootfs/oem/
+0x9336a0	cannot check ROM artifact: %s (%s)
+0x9336f0	not a regA_ar file
+0x93370f	drom_extract
+0x933770	compressed
+0x93377b	SHA-256 worker buffer unavailable; using inline fallback
+0x933810	compressed SHA-256 worker unavailable (%s); rsing inline fallback
+0x9341f6	 %s compre
+0x93425e	_3%s compressed frame 
+0x934277	 SHA-256 
+0x9342c6	 %s compressed frame 
+0x9342de	 SHA-256 
+0x934320	%s compressed frame SHA-256 
+0x934358	user.twoyi.meta
+0x9343a0	lower metadata xattr 
+0x934436	phase=%d
+0x9344a0	tar: symlink 
+0x934500	tar: symlink 
+0x934550	s-%016llx-%016llx
+0x9345d0	.rootfs.repair.pending
+0x934630	ROM artifact disappeared during\repair; retry: %s
+0x934674	repair pending
+0x9346b0	repair parent missing: %s
+0x9346f0	repair publish failed: %s: %s
+0x934740	ROM artifact still missing after repair: %s
+0x93477c	repair complete
+0x934cc4	user.twoyi.meta
+0x934d10	lower metadatahxattr 
+0x934d57	Vstorage
+0x934d90	config
+0x934da8	linkerconfig
+0x934dd8	.twoyi-
+0x934e21	I\&toy
+0x93510e	4eEtkC
+0x935280	rootfs.zst.rollback
+0x93529c	rootfs
+0x9352a4	~8/!dev
+0x9352b4	storage
+0x93538f	 rename/merge: %s
+0x935446	 rootfs 
+0x9354a0	rootfs 
+0x9354bc	 rename: %s
+0x9354d0	st:rage
+0x9354e4	bmulated
+0x935d44	xrLCX,
+0x937a79	wBvG8e
+0x937cee	xxAK>s
+0x9380b6	6c*ETC
+0x938110	0WyTu+
+0x9386ae	cDXL<]
+0x938cb8	fYI-`/c
+0x939799	))\xBc
+0x9397f1	OVNm@4
+0x9398b6	>qAa'{
+0x939f0a	T=JCez/
+0x93ad84	?aUrM46E
+0x93b0ed	o"CMrY
+0x93bd4e	7;VZpN
+0x93bfe7	5ktIl=}Z
+0x93c443	yuX~ua
