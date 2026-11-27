@@ -75,14 +75,19 @@ jobs:
 
       - name: Inspect APK contents
         run: |
-          set -euxo pipefail
           mkdir -p work
-          7z l input/twoyi.apk > work/apk-list.txt
-          tail -40 work/apk-list.txt
-          echo "--- dex entries:"
-          grep -E '\.dex$' work/apk-list.txt || true
-          echo "--- native libs:"
-          grep -E '\.so$' work/apk-list.txt || true
+          python3 - <<'PY'
+          import zipfile
+          z = zipfile.ZipFile("input/twoyi.apk")
+          names = z.namelist()
+          dex = [n for n in names if n.endswith(".dex")]
+          so = [n for n in names if n.endswith(".so")]
+          lines = ["entries: %d" % len(names), "", "dex:"] + ["  " + n for n in dex]
+          lines += ["", "native libs:"] + ["  %s  %d bytes" % (n, z.getinfo(n).file_size) for n in so]
+          text = "\n".join(lines)
+          open("work/apk-list.txt", "w").write(text)
+          print(text)
+          PY
 
       - name: apktool decode (resources + smali + AndroidManifest)
         run: |
@@ -122,9 +127,9 @@ jobs:
             echo "- Java files: $(find out/jadx -name '*.java' | wc -l)"
             echo "- Smali files: $(find out/apktool-decoded -name '*.smali' | wc -l)"
             echo "- Native libs:"
-            grep -E '\.so$' "$GITHUB_WORKSPACE/work/apk-list.txt" 2>/dev/null || echo "  (none listed)"
+            sed -n '/native libs:/,$p' work/apk-list.txt | tail -n +2 || echo "  (none listed)"
             echo "- Dex files:"
-            grep -E '\.dex$' "$GITHUB_WORKSPACE/work/apk-list.txt" 2>/dev/null || echo "  (none listed)"
+            sed -n '/^dex:/,/^$/p' work/apk-list.txt | tail -n +2 || echo "  (none listed)"
           } > INVENTORY.md
           cat INVENTORY.md
 
