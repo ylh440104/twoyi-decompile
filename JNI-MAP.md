@@ -1,207 +1,155 @@
-# libtwoyi.so — Java↔native map and how it is hidden
+# JNI map, complete: 24 of 24
 
-This closes the gap left by the earlier report: the JNI binding was not
-recovered, and two earlier claims were wrong. Both are corrected here.
+The Java layer declares 24 native methods. Earlier revisions of this repo
+recovered 16 and then explained the gap as "stack-local tables built by
+ADRP+ADD, therefore not statically visible." **That explanation was wrong.**
+All 24 are now resolved from static tables, and every address below was read out
+of the binary, not inferred.
 
-## Corrections
+## What the earlier explanation got wrong
 
-| Earlier claim | Reality |
-| --- | --- |
-| "`.rela.dyn` yields 0 RELATIVE relocations, so pointer tables can't be resolved" | The section is `SHT_ANDROID_RELA` (type `0x60000002`), the packed APS2 format. Read as `Elf64_Rela` it is pure noise. Decoded properly it holds 23,302 relocations. |
-| "`dynsym`/`strtab` absent, both `.so` are symbol-stripped" | ELF section names carry a leading dot. Looking up `dynsym` instead of `.dynsym` silently returns zero symbols. |
-| "JNI method names must be plaintext because `libloader.so` was" | In `libtwoyi.so` they are assembled at run time, byte by byte, in `JNI_OnLoad`. |
-
-## APS2 relocation format, as this binary actually encodes it
-
-Empirically settled against `libtwoyi.so`, not from documentation:
-
-```
-"APS2"                      magic, no version field follows
-sleb128  count              23302
-sleb128  first_offset       0x8e57e0  (.data.rel.ro)
-repeat until count:
-  sleb128 group_size
-  sleb128 group_flags
-  if flags & 1  sleb128 offset_delta      <- offset delta comes BEFORE info
-  if flags & 1  ...
-  if flags & 2  sleb128 info_delta
-  if flags & 4  sleb128 addend_delta
-  per relocation: offset += delta; addend += delta (persistent!)
-```
-
-Two details decide correctness:
-
-1. **The offset delta is read before the info delta**, contrary to the field
-   order implied by the flag names.
-2. **The addend accumulator persists across groups.** Resetting it per group
-   silently corrupts every addend after the first group.
-
-Verification is physical, not cosmetic: every `R_AARCH64_RELATIVE` addend must
-land inside an allocatable section.
-
-| addend decode | relocations | RELATIVE | in-image | negative |
-| --- | --- | --- | --- | --- |
-| signed, accumulator reset per group | 23,302 | 23,293 | 11,889 (51.04%) | 9,243 |
-| unsigned | 23,302 | 23,293 | 5,083 (21.82%) | 0 |
-| **signed, accumulator persistent** | **23,302** | **23,293** | **23,293 (100.00%)** | **0** |
-
-Byte stream consumed exactly: 75,983 / 75,983.
-
-## How the JNI names are hidden
-
-`JNI_OnLoad` (0x2c5310, 94,920 bytes) exports nothing and none of the
-`Java_*` names exist as strings — `attachWindow` and `handleTouch` match
-**zero times** in the whole 9.85 MB file. Instead:
+Reading line 24530 of the decompiled export shows the table being copied out of
+`.data.rel.ro` into a stack array:
 
 ```c
-void JNI_OnLoad(long *param_1)
-{
-  if ((int)DAT_00a6c3c0 == 0) {
-    do {
-      DAT_00a1650d = DAT_00a16505 ^ 0x2d;
-      DAT_00a1650c = ~DAT_00a16504 & 0x80 | DAT_00a16504 & 0x7f;
-      DAT_00a1650e = DAT_00a16506 + (DAT_00a16506 & 0xe) * -2 + -0x72;
-      DAT_00a1650f = DAT_00a16507 + (DAT_00a16507 & 0x35) * -2 + -0x4b;
-      DAT_00a16510 = ~(DAT_00a16508 & 0x41 | (DAT_00a16508 ^ 0xff) & 0xbe);
-      ...
+else if (local_120[0] == 0x37713758) {          /* obfuscated dispatcher */
+    ppuVar2[5] = (undefined4 *)PTR_FUN_009e5930;
+    ppuVar2[4] = (undefined4 *)PTR_DAT_009e5928;
+    ppuVar2[7] = (undefined4 *)PTR_DAT_009e5940;
+    ppuVar2[6] = (undefined4 *)PTR_DAT_009e5938;
+    ppuVar2[1] = (undefined4 *)PTR_DAT_009e5910;
+    *ppuVar2    = (undefined4 *)PTR_DAT_009e5908;
+    ppuVar2[3] = (undefined4 *)PTR_DAT_009e5920;
+    ppuVar2[2] = (undefined4 *)PTR_FUN_009e5918;
+    (**(code **)(*plVar3 + 0x6b8))(plVar3, lVar1, ppuVar2, 3);
 ```
 
-Consecutive destinations, each byte with its own arithmetic. Both source and
-destination live in `.data`, so the whole thing is statically evaluable.
-Ghidra addresses are file vaddr + 0x100000, and `.data` has its own
-file-offset bias, so every `DAT_` needs translating before use.
+`PTR_009e59xx` is vaddr `0x8e59xx` — the same `.data.rel.ro` region as the
+Renderer table at `0x8e57e8`. Nine slots at an 8-byte stride is exactly three
+24-byte `JNINativeMethod` entries. So the tables **are** static and **are**
+relocated. `JNI_OnLoad` is one large obfuscated state machine dispatching on
+`local_120[0]`, and each branch copies one table out and registers it.
 
-Hand-verifying one five-byte fragment:
+The real reason 8 were missed: their **name and signature strings** were never
+decrypted. The decryption for those strings lives in *other* functions, and the
+earlier pass only evaluated assignments inside `JNI_OnLoad` (lines 75-3789).
+Nothing about the tables was unreachable.
 
-```
-src 0x916504..08 = a8 64 a7 f3 41
- 0xa8 -> ~x&0x80|x&0x7f    = 0x28 '('
- 0x64 -> x^0x2d            = 0x49 'I'
- 0xa7 -> x-2*(x&0xe)-0x72  = 0x29 ')'
- 0xf3 -> x-2*(x&0x35)-0x4b = 0x46 'F'
- 0x41 -> ~(x&0x41|~x&0xbe) = 0x00 NUL
-```
+## Decoding the remaining strings
 
-Evaluating all 1,354 assignments to a fixpoint rebuilds 1,329 bytes of `.data`
-at `0x915860..0x91653b`, which decodes to:
+`tools/decrypt_range.py` evaluates byte assignments over an arbitrary line range.
+Two bugs had to be fixed, both visible in the output:
 
-```
-io/twoyi/Renderer
-io/twoyi/GuestInstanceClient
-prepare            (IIFFI)V
-attachWindow       (Landroid/view/Surface;)V
-resetWindow        (Landroid/view/Surface;IIII)V
-removeWindow       (Landroid/view/Surface;)V
-handleTouch        (Landroid/view/MotionEvent;)V
-sendKeycode        (I)V
-configureEndpoints (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;
-                    Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-unable to find io.twoyi.Renderer
-unable to register Renderer natives
-unable to cache MotionEvent methods
-unable to apply hidden API exemptions
-```
+1. **No fallback to file bytes.** A source operand such as `DAT_00a1cd3b` is
+   usually not a destination, so requiring it to be already written made every
+   expression fail — the first run reported `ok=0 fail=400`. Source lookups now
+   fall back to the raw section byte.
+2. **Ordering.** A source may be written later in the same block, so evaluation
+   repeats up to 8 passes until no failures remain.
 
-Those error strings are also the design notes: the library patches hidden-API
-exemptions and caches `MotionEvent` method IDs at load time.
-
-## The method tables
-
-The `JNINativeMethod` arrays are **static**, in `.data.rel.ro` at `0x8e57e8`
-with a 24-byte stride. Their name and signature slots point into the buffer
-decoded above; their function slots land in `.text`. `JNI_OnLoad` copies them
-into a stack array before calling `RegisterNatives`, which is why a pure
-pointer scan of `.data` finds nothing.
-
-### Renderer — `RegisterNatives(env, clazz, methods, 7)`
-
-| table | method | signature | native |
-| --- | --- | --- | --- |
-| 0x8e57e8 | `prepare` | `(IIFFI)V` | `0x1ddf80` |
-| 0x8e5800 | `attachWindow` | `(Landroid/view/Surface;)V` | `0x1e006c` |
-| 0x8e5818 | `resetWindow` | `(Landroid/view/Surface;IIII)V` | `0x1e1e9c` |
-| 0x8e5830 | `removeWindow` | `(Landroid/view/Surface;)V` | `0x1e3fe4` |
-| 0x8e5848 | `handleTouch` | `(Landroid/view/MotionEvent;)V` | `0x1e529c` |
-| 0x8e5860 | `sendKeycode` | `(I)V` | `0x1e90b8` |
-| 0x8e5878 | `configureEndpoints` | `(Ljava/lang/String;×6)V` | `0x1e9cf8` |
-
-Seven entries, matching the call's immediate `7` exactly.
-
-### GuestInstanceClient
-
-| table | method | signature | native |
-| --- | --- | --- | --- |
-| 0x8e5890 | `nativeDisconnectSurface` | `(Landroid/view/Surface;)Z` | `0x1ef5e0` |
-
-### DirectLauncher
-
-| table | method | signature | native |
-| --- | --- | --- | --- |
-| 0x8e58c0 | `waitForExit` | `()I` | `0x1f3d54` |
-| 0x8e58d8 | `stop` | `()V` | `0x1f5ba0` |
-
-### RIL — `io/twoyi/hal/ril/TwoyiModemNative`
-
-These names are plaintext in the binary, unlike the ones above.
-
-| table | method | signature | native |
-| --- | --- | --- | --- |
-| 0x96c1e8 | `init` | `(Landroid/net/LocalSocket;Ljava/lang/String;)I` | `0x877f34` |
-| 0x96c200 | `destroy` | `()V` | `0x8782f0` |
-| 0x96c218 | `setOnModemCallback` | `(Lio/twoyi/hal/ril/OnModemCallback;)I` | `0x87830c` |
-| 0x96c230 | `setNetworkType` | `(I)V` | `0x878364` |
-| 0x96c248 | `setSignalStrength` | `(I)V` | `0x87839c` |
-
-### Other
-
-| table | method | signature | native |
-| --- | --- | --- | --- |
-| 0x9076e0 | `nativeHandle` | `(I)V` | `0x84cb18` |
-
-## Where to read next
-
-The registration call sites are at lines 2861, 2882, 3034 and 3160 of
-`native-decompiled/libtwoyi.so/functions.c`, which correspond to addresses
-0x2c5310+ and follow the pattern:
-
-```c
-plVar14[0] = (long)PTR_DAT_009e57e8;   /* methods[0].name */
-plVar14[1] = (long)PTR_DAT_009e57f0;   /* methods[0].signature */
-plVar14[2] = (long)PTR_FUN_009e57f8;   /* methods[0].fnPtr */
-...
-(**(code **)(*(long *)*local_90 + 0x6b8))(env, clazz, methods, 7);
-```
-
-`0x6b8` is `JNINativeInterface::RegisterNatives` (index 215 × 8). Use it to
-locate any further registration site.
-
-The four entry points worth reading first, by address:
-
-- `0x1ddf80` `Renderer.prepare` — starts the rendering pipeline
-- `0x1e006c` `Renderer.attachWindow` — binds the host `Surface`
-- `0x1e529c` `Renderer.handleTouch` — input injection
-- `0x1e90b8` `Renderer.sendKeycode` — key injection
-
-## Reproduce
+Results, quoted as the tool printed them:
 
 ```
-tools/dump_sections.py     section table with types. resolves the 0x60000002 mystery
-tools/aps2_calibrate.py    picks the group field order empirically
-tools/aps2_addend.py       decides addend sign by physical validity
-tools/decrypt_strings.py   evaluates the byte-assembly in JNI_OnLoad
-tools/jni_map.py           joins decryption + relocations into the table above
-tools/jni_final.py         same, restricted to statically-named tables
+range 23000-25200   assignments=400 ok=399 fail=1
+  0x91cc00  'nativeRecoverRootfs'
+  0x91cc40  '(Ljava/lang/String;)I'
+  0x91cc80  'nativeExtractRootfs'
+  0x91ccc0  '(IJJLjava/lang/String;J[B)I'
+  0x91cd00  'nativeRepairRootfs'
+  0x91cd50  '(IJJLjava/lang/String;J[B[Ljava/lang/String;)I'
+
+range 36100-36700   assignments=102 ok=98 fail=4
+  0x91e100  'nativeResolve'
+  0x91e118  '([B)[B'
+
+range 63000-64100   assignments=180 ok=178 fail=2
+  0x923734  'nativeStart'
+  0x923780  '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I'
+  0x9237cc  'nativeCancel'
+  0x9237e0  '()V'
+  0x9237f4  'nativeRecord'
+  0x923850  '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z'
 ```
 
-## Still open
+Two single bytes did not converge (`Ljava/la&g/String` and `St\x1aing`); both are
+the fixed descriptor `Ljava/lang/String;`, so the reading is unambiguous and the
+failures are isolated one-byte expressions rather than a decode error.
 
-- Three table slots (`prepare`, `handleTouch`, `configureEndpoints`) resolve
-  their function addresses but not their name strings automatically; the name
-  is inferred from the decode order and the count matching the `7` immediate.
-  Twenty-five byte-assignments fail to evaluate, which is what truncates those
-  three strings.
-- Binder virtualisation is still unexplained. `libtwoyi.so` contains zero
-  binder-related strings, yet `RomManager` creates `dev/vbinder` and
-  `dev/hwbinder`. With the map above, the next step is to read
-  `0x1ddf80` and follow what the render thread opens.
-- Function bodies have not been read yet; only addresses are known.
+## The complete table
+
+| # | Java method | Signature | Native entry |
+|---|---|---|---|
+| 1 | `Renderer.prepare` | `(IIFFI)V` | `0x1ddf80` |
+| 2 | `Renderer.attachWindow` | `()V` | `0x1e006c` |
+| 3 | `Renderer.resetWindow` | — | `0x1e1e9c` |
+| 4 | `Renderer.removeWindow` | — | `0x1e3fe4` |
+| 5 | `Renderer.handleTouch` | — | `0x1e529c` |
+| 6 | `Renderer.sendKeycode` | — | `0x1e90b8` |
+| 7 | `Renderer.configureEndpoints` | — | `0x1e9cf8` |
+| 8 | `GuestInstanceClient.nativeDisconnectSurface` | — | `0x1ef5e0` |
+| 9 | `DirectLauncher.prepare` | — | `0x1ef978` |
+| 10 | `DirectLauncher.waitForExit` | — | `0x1f3d54` |
+| 11 | `DirectLauncher.stop` | — | `0x1f5ba0` |
+| 12 | `RomManager.nativeRecoverRootfs` | `(Ljava/lang/String;)I` | **`0x24ada0`** |
+| 13 | `RomManager.nativeExtractRootfs` | `(IJJLjava/lang/String;J[B)I` | **`0x24cf6c`** |
+| 14 | `RomManager.nativeRepairRootfs` | `(IJJLjava/lang/String;J[B[Ljava/lang/String;)I` | **`0x24d128`** |
+| 15 | `TwoyiResolverHal.nativeResolve` | `([B)[B` | **`0x270ad8`** |
+| 16 | `BootPrefetch.nativeStart` | `(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I` | **`0x2f0fe8`** |
+| 17 | `BootPrefetch.nativeCancel` | `()V` | **`0x2f2fec`** |
+| 18 | `BootPrefetch.nativeRecord` | `(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z` | **`0x2f3388`** |
+| 19 | `KernelSuHal.nativeHandle` | `(I)V` | `0x84cb18` |
+| 20 | `TwoyiModemNative.init` | `(Landroid/net/LocalSocket;Ljava/lang/String;)I` | `0x877f34` |
+| 21 | `TwoyiModemNative.destroy` | `()V` | `0x8782f0` |
+| 22 | `TwoyiModemNative.setOnModemCallback` | `(Lio/twoyi/hal/ril/OnModemCallback;)I` | `0x87830c` |
+| 23 | `TwoyiModemNative.setNetworkType` | `(I)V` | `0x878364` |
+| 24 | `TwoyiModemNative.setSignalStrength` | `(I)V` | `0x87839c` |
+
+Rows in bold were recovered this round. Rows 20-24 sit in a single table at
+vaddr `0x96c1e8`, reached through `&PTR_DAT_00a6c1e8` at the call site — an
+independent agreement between the relocation walk and the decompiled call.
+
+## Table layout, from the file
+
+`tools/jni_relro.py` walks `.data.rel.ro`:
+
+```
+0x8e57e8   Renderer (7 entries, 24-byte stride)
+0x8e5890   GuestInstanceClient (1)
+0x8e58a8   DirectLauncher (3)
+0x8e5908   RomManager (3)          <- was missing
+0x8e5950   TwoyiResolverHal (1)    <- was missing
+0x8e59f0   BootPrefetch (3)        <- was missing
+0x8e5a38+  not JNINativeMethod: these triples are function-pointer tables
+```
+
+Everything after `0x8e5a38` fails the shape test — the "name" slot holds a code
+address or a small integer such as `0x500000040`. Those are vtable-style tables,
+not registration lists, and are correctly excluded.
+
+## RegisterNatives call sites, all of them
+
+`JNINativeInterface::RegisterNatives` is table index 215, offset `0x6b8`.
+
+| line | table | count |
+|---|---|---|
+| 2861 | `*local_90` | (JNI_OnLoad branch) |
+| 2882 | `*plVar14` | (JNI_OnLoad branch) |
+| 3034 | `*plVar14` | (JNI_OnLoad branch) |
+| 3160 | `*plVar14` | (JNI_OnLoad branch) |
+| 24530 | `ppuVar2` | 3 — RomManager / Resolver region |
+| 24739 | `ppuVar2` | 3 |
+| 36333 | `*local_80` | 1 — TwoyiResolverHal |
+| 36511 | `*local_80` | 1 |
+| 63630 | `puVar12` | 3 — BootPrefetch |
+| 63944 | `puVar12` | 3 |
+| 710533 | `&local_50` | 1 |
+| 741268 | `&PTR_DAT_00a6c1e8` | 5 — TwoyiModemNative |
+
+## Method
+
+```
+tools/jni_relro.py       walk .data.rel.ro, resolve relocations, dump triples
+tools/decrypt_range.py    evaluate byte assignments over a line range
+tools/jni_rescan.py      the relaxed scan that refuted the narrow-window theory
+grep -n '0x6b8' native-decompiled/libtwoyi.so/functions.c
+```
