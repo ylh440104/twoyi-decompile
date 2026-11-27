@@ -1,0 +1,111 @@
+A. REGION MAP  (page = 64 KiB of vaddr; 103 pages)
+  page vaddr       funcs   lines top_tag    n top imports
+    28 0x1c0000     7    3778 plain      3 _FINI_1, __cxa_finalize, _FINI_0
+    29 0x1d0000     2     294 plain      2 
+    30 0x1e0000     8    3190 plain      5 __stack_chk_fail, ANativeWindow_release, block
+    31 0x1f0000    18    2690 plain     16 __stack_chk_fail, ANativeWindow_release, __android_log_vprint
+    32 0x200000     5    2526 plain      3 SBORROW4, block, __stack_chk_fail
+    33 0x210000    14    3596 plain      7 __stack_chk_fail, block, ABS
+    34 0x220000     7    3248 io.mem     4 __stack_chk_fail, block, memset
+    35 0x230000     9    2751 io.file    4 __android_log_print, __stack_chk_fail, block
+    36 0x240000    10    4307 io.mem     7 free, __stack_chk_fail, block
+    37 0x250000     9    7085 io.mem     5 __stack_chk_fail, free, memcpy
+    38 0x260000     4    3161 plain      3 __stack_chk_fail, block, memchr
+    39 0x270000     7    3871 io.mem     4 __stack_chk_fail, strlen, block
+    40 0x280000     5    4031 io.mem     4 __stack_chk_fail, free, CONCAT44
+    41 0x290000     2    3937 io.file    2 CONCAT11, CONCAT12, CONCAT13
+    42 0x2a0000     5    3256 io.file    3 __stack_chk_fail, clock_gettime, __openat_2
+    43 0x2b0000    12    4548 io.mem     5 __stack_chk_fail, free, block
+    44 0x2c0000     4    4790 io.mem     4 __stack_chk_fail, free, CONCAT44
+    46 0x2e0000    11    2782 io.mem     6 free, __stack_chk_fail, block
+    47 0x2f0000     3     915 io.mem     2 __stack_chk_fail, free, block
+    49 0x310000     8    3409 proc       4 __stack_chk_fail, kill, nanosleep
+    50 0x320000    13    2611 plain      6 __stack_chk_fail, __errno, block
+    51 0x330000    10    3351 plain      6 __stack_chk_fail, free, CONCAT44
+    52 0x340000    20   12321 io.file   11 __stack_chk_fail, __errno, SBORROW4
+    53 0x350000    12    6318 io.file    5 __errno, __stack_chk_fail, close
+    54 0x360000     5    3087 io.file    2 block, __stack_chk_fail, free
+    55 0x370000     3    1441 plain      2 CONCAT11, CONCAT12, CONCAT13
+    56 0x380000     5    2196 plain      3 __errno, ioctl, block
+    57 0x390000    28    6070 plain     19 __errno, ioctl, memcmp
+    58 0x3a0000     9    3561 io.mem     5 __stack_chk_fail, free, block
+    59 0x3b0000     6    3869 plain      2 __stack_chk_fail, block, syscall
+    60 0x3c0000     6    2370 io.file    6 __stack_chk_fail, close, __errno
+    61 0x3d0000     8    3343 io.mem     4 __stack_chk_fail, block, free
+    62 0x3e0000     9    6370 io.mem     5 __stack_chk_fail, free, __open_2
+    63 0x3f0000     9    4296 plain      5 __stack_chk_fail, block, CONCAT44
+    64 0x400000     7    2837 io.file    4 __stack_chk_fail, CONCAT44, close
+    65 0x410000    15    4241 io.mem     6 __stack_chk_fail, free, close
+    66 0x420000     4    3642 io.file    2 __stack_chk_fail, __errno, __open_2
+    70 0x460000     1      59 plain      1 __stack_chk_fail
+    71 0x470000     1     408 io.file    1 __errno, __stack_chk_fail, fstatat
+    74 0x4a0000     1    1536 io.file    1 __errno, __openat_2, __stack_chk_fail
+    75 0x4b0000     3    3345 io.file    3 __errno, __stack_chk_fail, close
+    76 0x4c0000     7    5177 io.mem     4 __stack_chk_fail, free, __errno
+    80 0x500000     1     896 io.mem     1 __stack_chk_fail, free, memcmp
+    81 0x510000     3    7683 io.file    2 __stack_chk_fail, memcmp, __errno
+    82 0x520000     1    3712 io.file    1 __errno, __stack_chk_fail, close
+    83 0x530000     1    1604 io.file    1 __errno, __openat_2, __stack_chk_fail
+    84 0x540000     6    4682 io.file    2 __stack_chk_fail, __errno, __pread_chk
+    85 0x550000     1     136 io.mem     1 __stack_chk_fail, memcmp, strrchr
+    86 0x560000     1    2010 io.file    1 __errno, __openat_2, __stack_chk_fail
+    87 0x570000     3    3845 io.file    3 __errno, __stack_chk_fail, close
+    88 0x580000   130   10578 plain     69 __stack_chk_fail, free, __cxa_atexit
+    89 0x590000   215   13923 plain    123 free, __stack_chk_fail, CONCAT62
+    90 0x5a0000   274   15018 plain    164 free, __stack_chk_fail, abort
+    91 0x5b0000   302   13768 plain    238 __stack_chk_fail, free, fprintf
+    92 0x5c0000   254   16141 plain    172 CONCAT62, NEON_cnt, NEON_uaddlv
+    93 0x5d0000   436   16357 plain    305 free, __stack_chk_fail, CONCAT62
+    94 0x5e0000   199   13975 plain    125 __stack_chk_fail, free, CONCAT62
+    95 0x5f0000    91   13617 plain     55 __stack_chk_fail, free, CONCAT62
+    96 0x600000    56    7846 plain     32 free, CONCAT62, NEON_cnt
+    99 0x630000    45    1115 plain     43 free
+   100 0x640000   484   13729 plain    468 __stack_chk_fail, free, memcpy
+   101 0x650000   163   10539 plain    146 __stack_chk_fail, memcpy, SCARRY4
+   102 0x660000   167   10673 plain    152 __stack_chk_fail, memcpy
+   103 0x670000   177   10467 plain    166 __stack_chk_fail, memcpy
+   104 0x680000   382   10321 plain    382 __stack_chk_fail, abort
+   105 0x690000   338   10120 plain    324 __stack_chk_fail, fprintf, free
+   106 0x6a0000   176   13437 plain    144 fprintf, __stack_chk_fail, CONCAT62
+   107 0x6b0000   308   12115 plain    299 fprintf, __stack_chk_fail, free
+   108 0x6c0000   185   16430 plain     96 CONCAT62, NEON_cnt, NEON_uaddlv
+   109 0x6d0000    91   13490 plain     45 CONCAT62, NEON_cnt, NEON_uaddlv
+   110 0x6e0000   230   12493 plain    197 memcpy, CONCAT62, NEON_cnt
+   111 0x6f0000   785   19813 plain    738 __stack_chk_fail, free, memcpy
+   112 0x700000    92   17466 plain     83 free, memcpy, __stack_chk_fail
+   113 0x710000   151    3648 plain    140 memcpy, fprintf, __stack_chk_fail
+   114 0x720000   217   14277 plain    153 free, __stack_chk_fail, fprintf
+   115 0x730000   241   15310 plain    173 free, CONCAT62, NEON_cnt
+   116 0x740000   228   12309 plain    177 free, __stack_chk_fail, CONCAT62
+   118 0x760000   210   10310 plain    189 fprintf, __stack_chk_fail, free
+   119 0x770000   193    8641 plain    184 fprintf, __stack_chk_fail, CONCAT44
+   120 0x780000   197   11804 plain    169 __stack_chk_fail, fprintf, free
+   121 0x790000   129    8627 plain    116 fprintf, __stack_chk_fail, SCARRY4
+   122 0x7a0000   176    8779 plain    171 fprintf, SCARRY4, __stack_chk_fail
+   123 0x7b0000   265   14024 plain    201 fprintf, __stack_chk_fail, free
+   124 0x7c0000   421   16537 plain    396 __stack_chk_fail, free, CONCAT44
+   125 0x7d0000   208   13919 plain    147 free, __stack_chk_fail, memcpy
+   126 0x7e0000   149   11835 plain    110 __stack_chk_fail, free, CONCAT11
+   127 0x7f0000   199   15692 plain    131 __stack_chk_fail, free, memcpy
+   128 0x800000   205   13693 plain    129 __stack_chk_fail, free, thunk_FUN_008c7e68
+   129 0x810000   153   13025 plain    111 __stack_chk_fail, free, thunk_FUN_008c7e68
+   130 0x820000   128   14021 plain     74 __stack_chk_fail, free, CONCAT62
+   131 0x830000   276   14276 plain    237 free, __stack_chk_fail, CONCAT62
+   132 0x840000   213   14594 io.mem   101 free, __stack_chk_fail, memcpy
+   133 0x850000    99   10547 plain     74 __stack_chk_fail, free, CONCAT44
+   134 0x860000   104    9439 plain     55 free, __stack_chk_fail, fprintf
+   135 0x870000   272   13273 plain    135 __stack_chk_fail, free, __errno
+   136 0x880000   255   14730 plain    157 __stack_chk_fail, free, __errno
+   137 0x890000   215   14492 plain    143 free, memmove, memcpy
+   138 0x8a0000   215   12691 plain    116 free, CONCAT71, newlocale
+   139 0x8b0000   248   12870 plain    168 free, newlocale, __cxa_atexit
+   140 0x8c0000   193   14136 io.mem   129 malloc, free, abort
+   141 0x8d0000   295   15253 io.mem   180 free, abort, realloc
+   142 0x8e0000   338    4573 plain    205 ExclusiveMonitorPass, ExclusiveMonitorsStatus, LOAcquire
+   151 0x970000   290    3723 plain    159 halt_baddata, __cxa_finalize, __cxa_atexit
+
+B. ID SPACE  .rodata strings=12195
+   distinct ids in [0x3b9a0000,0x3ba00000): 379
+   hash hits: 0  (0 hits => the ids are not a hash of any .rodata string under these 7 functions)
+   id - 0x3b9aca00: min=-38635 max=340001  (0x-96eb..0x53021)
+   ids also seen as small ints: 

@@ -1,0 +1,506 @@
+==============================================================================
+FUNC 0x6872bc  name=FUN_007872bc  lines=1645  loops=1  callers=343  callees=305  shape=call-relay
+  tag=plain ev=
+  imports(1): abort x1
+  calls(305): 0x7febc0 x2, 0x6f4a9c x2, 0x7872bc x1, 0x6d9ac4 x1, 0x6f31ec x1, 0x78efa8 x1, 0x78f124 x1, 0x78f2e8 x1, 0x78f7ac x1, 0x792074 x1, 0x794758 x1, 0x794854 x1
+  consts: 0x3b9bb078 x3, 0x3b9db030 x2, 0x3b9c7b98 x2, 0x3b9bb46c x2, 0x3b9b75e6 x2, 0x3b9b2f91 x2, 0x3b9ad5b8 x2, 0x33 x2, 0x3b9af4f8 x2, 0x3b9b3762 x2, 0x3b9b3760 x2, 0x3b9b75e2 x2
+  HEAD:
+      0| 
+      1| void FUN_007872bc(long *param_1,int param_2,long param_3)
+      2| 
+      3| {
+      4|   bool bVar1;
+      5|   bool bVar2;
+      6|   int iVar3;
+      7|   undefined8 uVar4;
+      8|   long lVar5;
+      9|   
+     10|   uVar4 = FUN_007febc0();
+     11|   lVar5 = FUN_006f4a9c(uVar4,param_2,param_3);
+     12|   bVar1 = lVar5 == 0;
+     13|   bVar2 = param_3 != 0;
+     14|   if (param_3 != 0) {
+     15|     do {
+     16|       if (lVar5 != 0) break;
+     17|       param_3 = *(long *)(param_3 + 8);
+     18|       uVar4 = FUN_007febc0(param_1);
+     19|       lVar5 = FUN_006f4a9c(uVar4,param_2,param_3);
+     20|       bVar1 = lVar5 == 0;
+     21|       bVar2 = param_3 != 0;
+  TAIL:
+   1639|                     /* WARNING: Subroutine does not return */
+   1640|   abort();
+   1641| }
+   1642| 
+   1643| 
+   1644| 
+==============================================================================
+FUNC 0x3a82dc  name=FUN_004a82dc  lines=1546  loops=0  callers=1  callees=1  shape=branch-web
+  tag=plain ev=
+  imports(1): __stack_chk_fail x1
+  calls(1): 0x4a82dc x1
+  consts: 16 x32, 0xffffffff x8, 0x186d98f2 x5, 0x6aff9b59 x5, 0x3391169e x5, 0x6cd254c0 x5, 0x28 x4, 0x185d32eb x4, 0x65aa322e x4, 0xe2b7830 x4, 0x286c22f0 x4, 0x156e6bcb x4
+  HEAD:
+      0| 
+      1| void FUN_004a82dc(long param_1,int *param_2)
+      2| 
+      3| {
+      4|   int *piVar1;
+      5|   uint uVar2;
+      6|   int iVar3;
+      7|   int iVar4;
+      8|   char cVar5;
+      9|   byte bVar6;
+     10|   undefined8 *puVar7;
+     11|   int *piVar8;
+     12|   bool bVar9;
+     13|   ulong uVar10;
+     14|   long lVar11;
+     15|   ulong uVar12;
+     16|   ulong *puVar13;
+     17|   uint uVar14;
+     18|   long lVar15;
+     19|   long *plVar17;
+     20|   ulong *puVar18;
+     21|   ulong *puVar19;
+  TAIL:
+   1540|   *local_78 = lVar15;
+   1541|   goto LAB_004a8bcc;
+   1542| }
+   1543| 
+   1544| 
+   1545| 
+==============================================================================
+FUNC 0x3b0efc  name=FUN_004b0efc  lines=1101  loops=1  callers=2  callees=1  shape=loop-mem
+  tag=plain ev=
+  imports(2): block x2, __stack_chk_fail x1
+  calls(1): 0x4b0efc x1
+  consts: 0x10 x18, 16 x16, 0x18 x9, 0xffffffff x8, 0x23a81422 x5, 0x1bab8ac6 x5, 0x23689b65 x4, 0xd8143f8 x4, 0x19d92736 x4, 0x514fe0a8 x4, 0x3159bee3 x4, 0x35adc69 x4
+  HEAD:
+      0| 
+      1| /* WARNING: Removing unreachable block (ram,0x004b3b14) */
+      2| /* WARNING: Removing unreachable block (ram,0x004b6354) */
+      3| 
+      4| void FUN_004b0efc(long param_1,long param_2)
+      5| 
+      6| {
+      7|   uint uVar1;
+      8|   char cVar2;
+      9|   uint uVar3;
+     10|   char *pcVar4;
+     11|   bool bVar5;
+     12|   undefined8 *puVar6;
+     13|   undefined *puVar7;
+     14|   long lVar8;
+     15|   undefined8 uVar9;
+     16|   long lVar10;
+     17|   undefined8 *puVar11;
+     18|   long *plVar12;
+     19|   long **pplVar13;
+     20|   long *plVar14;
+     21|   int local_700;
+  TAIL:
+   1095|   *pplVar13[-0x20] = (long)plVar12;
+   1096|   goto LAB_004b1508;
+   1097| }
+   1098| 
+   1099| 
+   1100| 
+==============================================================================
+FUNC 0x682c48  name=FUN_00782c48  lines=935  loops=1  callers=47  callees=14  shape=branch-web
+  tag=plain ev=
+  imports(0): 
+  calls(14): 0x782c48 x1, 0x6f31ec x1, 0x7b1220 x1, 0x7b1480 x1, 0x78524c x1, 0x7b137c x1, 0x7b1308 x1, 0x7b13f0 x1, 0x7856fc x1, 0x7866dc x1, 0x7867ec x1, 0x78562c x1
+  consts: 0x3b9c0000 x3, 0x3b9d0000 x3, 0x3b9f0000 x3, 0x3b9db030 x2, 0x3b9c7b98 x2, 0x3b9bb46b x2, 0x3b9c0669 x2, 0x3b9bdf58 x2, 0x3b9bc018 x2, 0x3b9bb46e x2, 0x3b9b0000 x2, 0x3b9be342 x2
+  HEAD:
+      0| 
+      1| /* WARNING: Type propagation algorithm not settling */
+      2| 
+      3| void FUN_00782c48(undefined8 param_1,long param_2)
+      4| 
+      5| {
+      6|   uint uVar1;
+      7|   uint uVar2;
+      8|   
+      9|   if (param_2 == 0) {
+     10|     return;
+     11|   }
+     12|   do {
+     13|     uVar1 = FUN_006f31ec(param_2);
+     14|     if ((int)uVar1 < 0x3b9db030) {
+     15|       if ((int)uVar1 < 0x3b9c7b98) {
+     16|         if (0x3b9bb46b < (int)uVar1) {
+     17|           if ((int)uVar1 < 0x3b9c0669) {
+     18|             if ((int)uVar1 < 0x3b9bdf58) {
+     19|               if ((int)uVar1 < 0x3b9bc018) {
+     20|                 if ((int)uVar1 < 0x3b9bb46e) {
+     21|                   if (uVar1 != 0x3b9bb46c) {
+  TAIL:
+    929|     }
+    930|   } while( true );
+    931| }
+    932| 
+    933| 
+    934| 
+==============================================================================
+FUNC 0x546d7c  name=FUN_00646d7c  lines=932  loops=0  callers=1  callees=1  shape=branch-web
+  tag=plain ev=
+  imports(1): __stack_chk_fail x1
+  calls(1): 0x646d7c x1
+  consts: 0xffffffff x22, 16 x9, 0x2be65c2b x7, 0x5e13331 x5, 0x3a48fead x5, 0x5d2c4693 x5, 0x7bea81d7 x4, 0x720cca9c x4, 0x6c3473d5 x4, 0x5c27d2c3 x4, 0x57b91a98 x4, 0x3d x4
+  HEAD:
+      0| 
+      1| void FUN_00646d7c(char *param_1,ulong param_2,ulong *param_3)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   char cVar2;
+      6|   byte bVar3;
+      7|   bool bVar4;
+      8|   bool bVar5;
+      9|   int *piVar6;
+     10|   int *piVar7;
+     11|   int iVar8;
+     12|   uint uVar9;
+     13|   ulong uVar10;
+     14|   int **ppiVar11;
+     15|   int **ppiVar12;
+     16|   int iVar13;
+     17|   ulong *puVar14;
+     18|   ulong *puVar15;
+     19|   int *local_3c0 [2];
+     20|   int local_3b0 [4];
+     21|   ulong local_3a0 [2];
+  TAIL:
+    926|   puVar14 = puVar15;
+    927|   goto LAB_00647078;
+    928| }
+    929| 
+    930| 
+    931| 
+==============================================================================
+FUNC 0x8336c4  name=FUN_009336c4  lines=822  loops=0  callers=5  callees=1  shape=mixed
+  tag=plain ev=
+  imports(0): 
+  calls(1): 0x9336c4 x1
+  consts: 0x1401 x10, 0x1400 x8, 0x8228 x7, 0x8d99 x7, 0x8d94 x6, 0x8d98 x6, 0x1908 x5, 0x1403 x5, 0x1405 x5, 0x8227 x5, 0x1406 x5, 0x1402 x4
+  HEAD:
+      0| 
+      1| void FUN_009336c4(int param_1,undefined4 *param_2,undefined4 *param_3)
+      2| 
+      3| {
+      4|   undefined4 uVar1;
+      5|   int iVar2;
+      6|   undefined4 uVar3;
+      7|   undefined4 uVar4;
+      8|   
+      9|   if (param_1 < 0x8f94) {
+     10|     if (param_1 < 0x8814) {
+     11|       if (param_1 < 0x8058) {
+     12|         if (param_1 == 0x8051) {
+     13| switchD_00933790_caseD_8d62:
+     14|           uVar1 = 0x1401;
+     15|           goto switchD_00933754_caseD_9274;
+     16|         }
+     17|         if (param_1 != 0x8056) {
+     18|           iVar2 = 0x8057;
+     19| LAB_00933820:
+     20|           if (param_1 != iVar2) {
+     21|             return;
+  TAIL:
+    816| switchD_0093370c_caseD_81a7:
+    817|   return;
+    818| }
+    819| 
+    820| 
+    821| 
+==============================================================================
+FUNC 0x24ada0  name=FUN_0034ada0  lines=708  loops=0  callers=1  callees=4  shape=branch-web
+  tag=plain ev=
+  imports(1): __stack_chk_fail x1
+  calls(4): 0x51fa44 x2, 0x34ada0 x1, 0x2f5f8c x1, 0x523d38 x1
+  consts: 0xffffffff x19, 0xff x15, 0x6676451f x5, 0x255166e5 x5, 0x410d8c05 x4, 0x487224ad x4, 0x2c3827a4 x4, 0x49e02dcb x4, 0x57f8c913 x4, 0x21c4b725 x4, 0x22e0ab31 x4, 0x321b7df0 x4
+  strings: qhB[)0
+  HEAD:
+      0| 
+      1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      2| 
+      3| void FUN_0034ada0(long *param_1,undefined8 param_2,long param_3)
+      4| 
+      5| {
+      6|   char cVar1;
+      7|   uint uVar2;
+      8|   int **ppiVar3;
+      9|   int **ppiVar4;
+     10|   bool bVar5;
+     11|   bool bVar6;
+     12|   int iVar7;
+     13|   undefined8 uVar8;
+     14|   long lVar9;
+     15|   uint uVar10;
+     16|   int *piVar11;
+     17|   int iVar12;
+     18|   int *piVar13;
+     19|   int **ppiVar14;
+     20|   char *pcVar15;
+     21|   int *local_1c0 [2];
+  TAIL:
+    702|   *piVar11 = iVar7;
+    703|   goto LAB_0034afbc;
+    704| }
+    705| 
+    706| 
+    707| 
+==============================================================================
+FUNC 0x20889c  name=FUN_0030889c  lines=689  loops=34  callers=2  callees=9  shape=loop-mem
+  tag=plain ev=
+  imports(5): ANativeWindow_getWidth x2, ANativeWindow_getHeight x2, block x1, SBORROW4 x1, __stack_chk_fail x1
+  calls(9): 0x2f5f8c x10, 0x41ca88 x6, 0x30dd98 x3, 0x99e4c4 x2, 0x325160 x2, 0x301328 x2, 0x99e4f0 x2, 0x30889c x1, 0x3f4f9c x1
+  consts: 0xff x68, 0xffffffff x27, 0x3e x8, 0x28 x7, 0x1c x7, 0x3f x6, 0x3d x6, 0x57 x6, 0x5d x5, 0xdb x5, 0xaf x5, 0xaa x4
+  strings: Unable to start legacy rootf
+  HEAD:
+      0| 
+      1| /* WARNING: Removing unreachable block (ram,0x0030c184) */
+      2| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      3| 
+      4| uint FUN_0030889c(long param_1)
+      5| 
+      6| {
+      7|   uint uVar1;
+      8|   uint uVar2;
+      9|   uint uVar3;
+     10|   uint *puVar4;
+     11|   long lVar5;
+     12|   bool bVar6;
+     13|   uint uVar7;
+     14|   uint uVar8;
+     15|   ulong uVar9;
+     16|   uint local_b0 [10];
+     17|   uint *local_88;
+     18|   long local_80;
+     19|   long local_78;
+     20|   uint local_70;
+     21|   long local_68;
+  TAIL:
+    683|   }
+    684|   return uVar7 & 1;
+    685| }
+    686| 
+    687| 
+    688| 
+==============================================================================
+FUNC 0x899804  name=FUN_00999804  lines=445  loops=17  callers=2  callees=4  shape=mem-writer
+  tag=plain ev=
+  imports(0): 
+  calls(4): 0x999804 x2, 0x999efc x2, 0x99a19c x1, 0x99a2c4 x1
+  consts: 0xffffffff x1, 0x18 x1, 0x81 x1
+  HEAD:
+      0| 
+      1| void FUN_00999804(int *param_1,int *param_2,undefined param_3,long param_4,ulong param_5)
+      2| 
+      3| {
+      4|   long lVar1;
+      5|   int iVar2;
+      6|   ulong uVar3;
+      7|   ulong uVar4;
+      8|   long lVar5;
+      9|   int *piVar6;
+     10|   int *piVar7;
+     11|   long lVar8;
+     12|   int *piVar9;
+     13|   int *piVar10;
+     14|   int iVar11;
+     15|   int iVar12;
+     16|   int iVar13;
+     17|   int *piVar14;
+     18|   int *piVar15;
+     19|   int iVar16;
+     20|   undefined local_34 [4];
+     21|   
+  TAIL:
+    439|     *piVar7 = iVar12;
+    440|   } while( true );
+    441| }
+    442| 
+    443| 
+    444| 
+==============================================================================
+FUNC 0x7642e0  name=FUN_008642e0  lines=427  loops=0  callers=2  callees=1  shape=branch-web
+  tag=plain ev=
+  imports(1): fprintf x2
+  calls(1): 0x8642e0 x1
+  consts: 0x8d94 x10, 0x8d98 x9, 0x8d99 x7, 0x1908 x7, 0x8228 x6, 0x190a x5, 0x8227 x5, 0x1907 x4, 0x8051 x4, 0x1404 x3, 0x823b x3, 0x1902 x3
+  HEAD:
+      0| 
+      1| int FUN_008642e0(uint param_1,uint param_2,uint param_3,uint param_4,int param_5)
+      2| 
+      3| {
+      4|   int iVar1;
+      5|   uint uVar2;
+      6|   int iVar3;
+      7|   undefined8 uVar4;
+      8|   ulong uVar5;
+      9|   undefined8 uVar6;
+     10|   int iVar7;
+     11|   uint uVar8;
+     12|   FILE *pFVar9;
+     13|   
+     14|   uVar5 = (ulong)param_2;
+     15|   iVar7 = 2;
+     16|   if ((int)param_2 < 0x8363) {
+     17|     if (0x1404 < (int)param_2) {
+     18|       if ((int)param_2 < 0x8033) {
+     19|         if (param_2 == 0x1405) {
+     20|           iVar7 = 4;
+     21|           if (0x823b < (int)param_1) {
+  TAIL:
+    421|   }
+    422|   return iVar7 * param_5 * (iVar1 + param_4);
+    423| }
+    424| 
+    425| 
+    426| 
+==============================================================================
+FUNC 0x7254e8  name=FUN_008254e8  lines=383  loops=0  callers=6  callees=21  shape=branch-web
+  tag=plain ev=
+  imports(3): pthread_mutex_unlock x2, pthread_mutex_lock x1, __stack_chk_fail x1
+  calls(21): 0x86c974 x10, 0x9e0360 x9, 0x99b070 x9, 0x9e0330 x7, 0x82d558 x2, 0x86a734 x2, 0x86c66c x2, 0x825d78 x2, 0x938b38 x2, 0x824894 x2, 0x825dc8 x2, 0x8254e8 x1
+  consts: 0x10 x14, 0x28 x10, 0x3000 x10, 0xffffffffffffffff x9, 0x58 x6, 0x18 x4, 0x30 x4, 0x20 x4, 0x40 x3, 0x78 x3, 0x300d x2, 0x3009 x2
+  HEAD:
+      0| 
+      1| void FUN_008254e8(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+      2| 
+      3| {
+      4|   long lVar1;
+      5|   long *plVar2;
+      6|   long lVar3;
+      7|   bool bVar4;
+      8|   bool bVar5;
+      9|   long lVar6;
+     10|   long lVar7;
+     11|   long lVar8;
+     12|   long *plVar9;
+     13|   long lVar10;
+     14|   ulong uVar11;
+     15|   ulong uVar12;
+     16|   int *piVar13;
+     17|   undefined8 uVar14;
+     18|   long *plVar15;
+     19|   int iVar16;
+     20|   long *plVar17;
+     21|   code *pcVar18;
+  TAIL:
+    377|                     /* WARNING: Subroutine does not return */
+    378|   __stack_chk_fail(uVar14);
+    379| }
+    380| 
+    381| 
+    382| 
+==============================================================================
+FUNC 0x8db048  name=FUN_009db048  lines=378  loops=8  callers=1  callees=11  shape=loop-mem
+  tag=plain ev=
+  imports(2): thunk_FUN_009dc068 x4, abort x2
+  calls(11): 0x9db5e4 x5, 0x9da718 x3, 0x9da698 x3, 0x9dbf34 x2, 0x9c0c58 x2, 0x9db048 x1, 0x9dbe78 x1, 0x9dbf04 x1, 0x9dbeac x1, 0x9c0c04 x1, 0x9db78c x1
+  consts: 0x3f x22, 0x7f x7, 0x434c4e47432b2b00 x5, 0xff x4, 12 x3, 0x10 x3, 0xffffffff x3, 0x20 x3, 0x434c4e47432b2b01 x3, 0x58 x3, 0x50 x3, 0x24 x2
+  HEAD:
+      0| 
+      1| /* WARNING: Type propagation algorithm not settling */
+      2| 
+      3| ulong * FUN_009db048(int param_1,uint param_2,byte **param_3,long param_4,long param_5)
+      4| 
+      5| {
+      6|   uint uVar1;
+      7|   byte bVar2;
+      8|   byte bVar3;
+      9|   int iVar4;
+     10|   ulong uVar5;
+     11|   undefined4 uVar6;
+     12|   char *pcVar7;
+     13|   ulong uVar8;
+     14|   long lVar9;
+     15|   long *plVar10;
+     16|   byte *pbVar11;
+     17|   ulong uVar12;
+     18|   ulong *puVar13;
+     19|   byte **ppbVar14;
+     20|   uint *puVar15;
+     21|   ulong uVar16;
+  TAIL:
+    372|   *(undefined8 *)(param_4 + -0x10) = 0;
+    373|   return (ulong *)0x7;
+    374| }
+    375| 
+    376| 
+    377| 
+==============================================================================
+FUNC 0x834c68  name=FUN_00934c68  lines=358  loops=8  callers=1  callees=23  shape=loop-mem
+  tag=plain ev=
+  imports(2): CONCAT44 x1, __stack_chk_fail x1
+  calls(23): 0x8330e0 x17, 0x84866c x3, 0x9e0360 x2, 0x99b070 x2, 0x84921c x2, 0x84be1c x2, 0x84bd40 x2, 0x84bd38 x2, 0x84bd48 x2, 0x84be04 x2, 0x934c68 x1, 0x833554 x1
+  consts: 0x3c x18, 0x28 x9, 0x10 x8, 0xffffffff x6, 0x3333333333333333 x5, 0x6f x4, 0x70 x4, 0x11 x3, 0x20 x3, 0x8c8e x3, 0x8a11 x3, 0x14 x3
+  HEAD:
+      0| 
+      1| void FUN_00934c68(long *param_1)
+      2| 
+      3| {
+      4|   long lVar1;
+      5|   undefined *puVar2;
+      6|   undefined *puVar3;
+      7|   undefined **ppuVar4;
+      8|   int iVar5;
+      9|   undefined4 uVar6;
+     10|   undefined4 uVar7;
+     11|   undefined4 uVar8;
+     12|   undefined4 uVar9;
+     13|   uint uVar10;
+     14|   long lVar11;
+     15|   ulong uVar12;
+     16|   undefined8 uVar13;
+     17|   ulong uVar14;
+     18|   undefined8 *puVar15;
+     19|   code *pcVar16;
+     20|   long *plVar17;
+     21|   long lVar18;
+  TAIL:
+    352|                     /* WARNING: Subroutine does not return */
+    353|   __stack_chk_fail();
+    354| }
+    355| 
+    356| 
+    357| 
+==============================================================================
+FUNC 0x781e9c  name=FUN_00881e9c  lines=335  loops=9  callers=1  callees=8  shape=loop-mem
+  tag=plain ev=
+  imports(3): fprintf x2, NEON_ucvtf x2, __stack_chk_fail x1
+  calls(8): 0x84c128 x5, 0x9e0490 x2, 0x84be0c x2, 0x881e9c x1, 0x8294b8 x1, 0x87ff78 x1, 0x889088 x1, 0x841da4 x1
+  consts: 0x4000 x10, 0x40 x9, 0x28 x8, 0x10 x8, 0x408 x7, 0x18 x7, 0x84c0 x6, 0x260 x5, 0x20 x5, 800 x5, 0x3d0 x4, 1000 x4
+  HEAD:
+      0| 
+      1| void FUN_00881e9c(long param_1)
+      2| 
+      3| {
+      4|   undefined8 *puVar1;
+      5|   undefined8 *puVar2;
+      6|   long lVar3;
+      7|   undefined8 *puVar4;
+      8|   undefined *puVar5;
+      9|   undefined *puVar6;
+     10|   undefined *puVar7;
+     11|   undefined8 uVar8;
+     12|   ulong uVar9;
+     13|   long *plVar10;
+     14|   undefined8 uVar11;
+     15|   long *plVar12;
+     16|   long lVar13;
+     17|   uint uVar14;
+     18|   ulong uVar15;
+     19|   long lVar16;
+     20|   undefined4 uVar17;
+     21|   long alStack_d0 [4];
+  TAIL:
+    329|                     /* WARNING: Subroutine does not return */
+    330|   __stack_chk_fail();
+    331| }
+    332| 
+    333| 
+    334| 

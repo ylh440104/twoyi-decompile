@@ -1,0 +1,161 @@
+addr        lines indir   sw  datu  datw dat_lo    dat_hi     stN stAsg calls   tag
+0x6872bc   1645     0    0     0     0 -         -            3     3   305 plain
+0x3a82dc   1546     0    0    50     0 0xa2cae4  0xa2cea8    97   176     1 plain
+0x3b0efc   1101     0    0    24     0 0xa2cebc  0xa2d108    72   130     1 plain
+0x682c48    935     0    0     0     0 -         -            0   104    14 plain
+0x546d7c    932     0    0    64     0 0xa3afd8  0xa3b0dc    74   135     1 plain
+0x8336c4    822     0    3     0     0 -         -            0    96     1 plain
+0x24ada0    708     0    0   130    41 0xa1cd80  0xa1d01c    54    85     4 plain
+0x20889c    689     0    0   735   323 0xa18bf0  0xa6c484     0     4     9 plain
+0x899804    445     0    0     0     0 -         -            0     0     4 plain
+0x7642e0    427     0    0     0     0 -         -           11    39     1 plain
+0x7254e8    383     0    0     2     0 0xa6d658  0xa6d660     0    10    21 plain
+0x8db048    378     0    0     1     0 0x223fb8  0x223fb8     0     0    12 plain
+0x834c68    358     1    0     0     0 -         -            0     0    23 plain
+0x781e9c    335     3    0     0     2 -         -            0     2     8 plain
+
+--- helper callees (profile: tag / lines / callers / callees / imports / strings)
+0x1f5f8c tag=log     lines=121   callers=36   callees=1    imports=2   strings=1    __android_log_vprint,__stack_chk_fail
+        0| 
+        1| void FUN_002f5f8c(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+        2|                  undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+        3|                  undefined8 param_9,undefined8 param_10,undefined8 param_11,undefined8 param_12,
+        4|                  undefined8 param_13,undefined8 param_14,undefined8 param_15,undefined8 param_16)
+        5| 
+        6| {
+        7|   uint uVar1;
+0x5f31ec tag=plain   lines=9     callers=6    callees=1    imports=0   strings=0    
+        0| 
+        1| undefined4 FUN_006f31ec(undefined4 *param_1)
+        2| 
+        3| {
+        4|   return *param_1;
+        5| }
+        6| 
+        7| 
+0x6febc0 tag=plain   lines=9     callers=504  callees=1    imports=0   strings=0    
+        0| 
+        1| undefined4 FUN_007febc0(long param_1)
+        2| 
+        3| {
+        4|   return *(undefined4 *)(param_1 + 0xa0);
+        5| }
+        6| 
+        7| 
+0x5f4a9c tag=plain   lines=1134  callers=504  callees=1    imports=0   strings=0    
+        0| 
+        1| undefined8 FUN_006f4a9c(ulong param_1,int param_2,uint *param_3)
+        2| 
+        3| {
+        4|   uint uVar1;
+        5|   undefined8 uVar2;
+        6|   uint uVar3;
+        7|   
+0x31ca88 tag=plain   lines=59    callers=3    callees=4    imports=0   strings=0    
+        0| 
+        1| void FUN_0041ca88(void)
+        2| 
+        3| {
+        4|   uint uVar1;
+        5|   uint uVar2;
+        6|   
+        7|                     /* try { // try from 0041cab4 to 0041cabf has its CatchHandler @ 0041cde0 */
+0x41fa44 tag=plain   lines=856   callers=3    callees=1    imports=1   strings=18   __stack_chk_fail
+        0| 
+        1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+        2| 
+        3| void FUN_0051fa44(uint param_1)
+        4| 
+        5| {
+        6|   uint uVar1;
+        7|   int local_130;
+0x423d38 tag=io.file lines=1121  callers=2    callees=3    imports=7   strings=1    __errno,__open_2,__stack_chk_fail,close,flock,openat
+        0| 
+        1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+        2| 
+        3| void FUN_00523d38(char *param_1,undefined8 param_2,undefined8 param_3)
+        4| 
+        5| {
+        6|   int **ppiVar1;
+        7|   bool bVar2;
+0x7330e0 tag=plain   lines=17    callers=119  callees=2    imports=0   strings=0    
+        0| 
+        1| undefined4 FUN_008330e0(pthread_mutex_t *param_1,short param_2,undefined8 param_3)
+        2| 
+        3| {
+        4|   undefined4 uVar1;
+        5|   
+        6|   if (param_2 < 10) {
+        7|     pthread_mutex_lock(param_1);
+0x74866c tag=plain   lines=10    callers=7    callees=2    imports=0   strings=0    
+        0| 
+        1| void FUN_0084866c(long param_1,undefined8 param_2)
+        2| 
+        3| {
+        4|   FUN_00835f48(*(undefined8 *)(param_1 + 0x2a8),param_2,0);
+        5|   return;
+        6| }
+        7| 
+0x8e0360 tag=plain   lines=29    callers=352  callees=1    imports=4   strings=0    ExclusiveMonitorPass,ExclusiveMonitorsStatus,LOAcquire,LORelease
+        0| 
+        1| long FUN_009e0360(long param_1,long *param_2)
+        2| 
+        3| {
+        4|   char cVar1;
+        5|   bool bVar2;
+        6|   long lVar3;
+        7|   
+0x89b070 tag=plain   lines=17    callers=325  callees=2    imports=0   strings=0    
+        0| 
+        1| void FUN_0099b070(long *param_1)
+        2| 
+        3| {
+        4|   long lVar1;
+        5|   
+        6|   if ((param_1[2] != 0) && (lVar1 = FUN_009e0360(0xffffffffffffffff), lVar1 != 0)) {
+        7|     return;
+0x76c974 tag=plain   lines=21    callers=35   callees=2    imports=0   strings=0    
+        0| 
+        1| void FUN_0086c974(void)
+        2| 
+        3| {
+        4|   char *pcVar1;
+        5|   undefined *puVar2;
+        6|   undefined8 *puVar3;
+        7|   
+0x74c128 tag=plain   lines=31    callers=3    callees=2    imports=1   strings=0    __stack_chk_fail
+        0| 
+        1| void FUN_0084c128(long param_1,long param_2)
+        2| 
+        3| {
+        4|   long lVar1;
+        5|   long *plVar2;
+        6|   undefined8 uVar3;
+        7|   undefined4 local_2c;
+0x8db5e4 tag=plain   lines=114   callers=3    callees=1    imports=1   strings=0    abort
+        0| 
+        1| /* WARNING: Type propagation algorithm not settling */
+        2| 
+        3| ulong * FUN_009db5e4(undefined8 *param_1,uint param_2,long param_3)
+        4| 
+        5| {
+        6|   uint uVar1;
+        7|   byte bVar2;
+0x8e0490 tag=io.mem  lines=28    callers=1291 callees=5    imports=1   strings=0    malloc
+        0| 
+        1| void FUN_009e0490(size_t param_1)
+        2| 
+        3| {
+        4|   void *pvVar1;
+        5|   code *pcVar2;
+        6|   undefined8 uVar3;
+        7|   
+0x8e0330 tag=plain   lines=27    callers=158  callees=1    imports=2   strings=0    ExclusiveMonitorPass,ExclusiveMonitorsStatus
+        0| 
+        1| long FUN_009e0330(long param_1,long *param_2)
+        2| 
+        3| {
+        4|   char cVar1;
+        5|   bool bVar2;
+        6|   long lVar3;
+        7|   

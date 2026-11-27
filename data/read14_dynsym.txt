@@ -1,0 +1,33 @@
+== other  233
+   AHardwareBuffer_acquire, AHardwareBuffer_allocate, AHardwareBuffer_describe, AHardwareBuffer_recvHandleFromUnixSocket, AHardwareBuffer_release
+   ANativeWindow_acquire, ANativeWindow_fromSurface, ANativeWindow_getHeight, ANativeWindow_getWidth, ANativeWindow_release, ANativeWindow_setBuffersGeometry
+   ASharedMemory_create, ZSTD_trace_decompress_begin, ZSTD_trace_decompress_end, _exit, abort, accept, accept4, access, acosf
+   acoshf, android_set_abort_message, asinf, asinhf, atan2f, atanf, atanhf, atoi, bind, calloc, chdir, chmod, clock_gettime, close
+   closedir, closelog, connect, cosf, coshf, creat, difftime, dirfd, dl_iterate_phdr, dlclose, dlerror, dlopen, dlsym, dup, dup2
+   environ, execve, execvp, exit, exp2f, expf, faccessat, fchmod, fchmodat, fclose, fcntl, fdopen, fdopendir, ferror, fflush
+   fgets, fgetxattr, flock, fopen, fork, fprintf, fputc, fputwc, fread, free, freeaddrinfo, freelocale, fseek, fseeko, fsetxattr
+   fstat, fstatat, fstatfs, fsync, ftello, ftruncate, futimens, fwrite, getaddrinfo, getauxval, getc, getcwd, getenv, getline
+   getpgid, getpgrp, getpid, getpwuid, getrlimit, getrusage, getsockname, getsockopt, gettimeofday, getuid, getwc, gmtime, ioctl
+   isatty, iswlower_l, kill, ldexp, listen, localtime, localtime_r, log2, logf, lseek, lstat, malloc, mbrlen, mbrtowc, mbsnrtowcs
+   mbsrtowcs, mbtowc, memchr, memcmp, memcpy, memmove, memset, mincore, mkdir, mkdirat, mktime, mmap, modff, munmap, nanosleep
+   newlocale, open, openat, opendir, openlog, perror, poll, posix_memalign, pow, powf, prctl, pread, printf, puts, raise, read
+   readahead, readdir, readlink, readlinkat, realloc, recvfrom, recvmsg, remove, rename, renameat, sched_yield, select, sendmsg
+   sendto, setenv, setpgid, setsockopt, shutdown, sigaddset, sigdelset, sigemptyset, sigfillset, sincosf, sinf, sinhf, snprintf
+   socket, socketpair, sscanf, stat, statvfs, stdin, stdout, strchr, strcmp, strcpy, strdup, strerror, strerror_r, strftime_l
+   strlen, strncmp, strncpy, strnlen, strrchr, strstr, strtod, strtof, strtok_r, strtol, strtold_l, strtoll_l, strtoull, strtoull_l
+   symlinkat, syscall, sysconf, syslog, system, tanf, tanhf, time, times, ungetc, ungetwc, unlink, unlinkat, unsetenv, uselocale
+   usleep, utimensat, vasprintf, vfprintf, vsnprintf, vsscanf, waitpid, wcrtomb, wcslen, wcsnrtombs, wmemchr, write
+== pthread  30
+   pthread_attr_destroy, pthread_attr_init, pthread_attr_setdetachstate, pthread_attr_setstacksize, pthread_cond_broadcast, pthread_cond_destroy
+   pthread_cond_init, pthread_cond_signal, pthread_cond_timedwait, pthread_cond_wait, pthread_create, pthread_detach, pthread_getspecific
+   pthread_join, pthread_key_create, pthread_key_delete, pthread_mutex_destroy, pthread_mutex_init, pthread_mutex_lock, pthread_mutex_unlock
+   pthread_once, pthread_rwlock_destroy, pthread_rwlock_init, pthread_rwlock_rdlock, pthread_rwlock_unlock, pthread_rwlock_wrlock
+   pthread_self, pthread_setname_np, pthread_setspecific, pthread_sigmask
+== bionic-other  25
+   __FD_CLR_chk, __FD_ISSET_chk, __FD_SET_chk, __cmsg_nxthdr, __ctype_get_mb_cur_max, __errno, __memcpy_chk, __memmove_chk, __open_2
+   __openat_2, __pread_chk, __read_chk, __register_atfork, __stack_chk_fail, __strcat_chk, __strchr_chk, __strcpy_chk, __strlen_chk
+   __strncpy_chk2, __strrchr_chk, __system_property_get, __umask_chk, __vsnprintf_chk, __vsprintf_chk, __write_chk
+== log/stdio  4
+   __android_log_print, __android_log_vprint, __sF, stderr
+== cxxabi/unwind  3
+   __cxa_atexit, __cxa_finalize, __cxa_thread_atexit_impl

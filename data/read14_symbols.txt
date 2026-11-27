@@ -1,0 +1,96 @@
+1. NAMED SYMBOLS: 1028 of 12412 functions carry a real name
+   free                                     307
+   thunk_FUN_008c7e68                       35
+   thunk_FUN_0099dcac                       5
+   thunk_FUN_0099b068                       5
+   pthread_mutex_destroy                    3
+   ANativeWindow_release                    3
+   sched_yield                              3
+   usleep                                   3
+   dup                                      3
+   __open_2                                 3
+   thunk_FUN_008294b8                       2
+   thunk_FUN_008294a8                       2
+   thunk_FUN_009c0fb8                       2
+   thunk_FUN_0099ea18                       2
+   __cxa_finalize                           2
+   __cxa_atexit                             2
+   __register_atfork                        2
+   __system_property_get                    2
+   atoi                                     2
+   __stack_chk_fail                         2
+   memcpy                                   2
+   strlen                                   2
+   memmove                                  2
+   __android_log_vprint                     2
+   ANativeWindow_fromSurface                2
+   lstat                                    2
+   access                                   2
+   __errno                                  2
+   strerror                                 2
+   ANativeWindow_getWidth                   2
+   ANativeWindow_getHeight                  2
+   ANativeWindow_acquire                    2
+   vsnprintf                                2
+   memcmp                                   2
+   clock_gettime                            2
+   memset                                   2
+   wmemchr                                  2
+   __android_log_print                      2
+   pthread_create                           2
+   pthread_detach                           2
+
+2. .rodata / whole-file markers (occurrences)
+   angle              132
+   ANGLE              9
+   libEGL             3
+   libGLESv2          3
+   libc++             3
+   __cxxabiv1         4
+   ZSTD               2
+   pthread_create     1
+   JNI_OnLoad         1
+   twoyi              73
+   rootfs             2
+
+3. sample of non-FUN_ names (first 40)
+   _FINI_1
+   _FINI_0
+   JNI_OnLoad
+   _INIT_3
+   _INIT_4
+   _INIT_5
+   _INIT_6
+   _INIT_7
+   free
+   free
+   _INIT_8
+   _INIT_9
+   _INIT_10
+   _INIT_11
+   _INIT_12
+   _INIT_13
+   _INIT_14
+   _INIT_15
+   _INIT_16
+   _INIT_17
+   _INIT_18
+   _INIT_19
+   _INIT_20
+   _INIT_21
+   _INIT_22
+   _INIT_23
+   _INIT_24
+   _INIT_25
+   _INIT_26
+   _INIT_27
+   _INIT_28
+   _INIT_29
+   _INIT_30
+   _INIT_31
+   _INIT_32
+   _INIT_33
+   _INIT_34
+   free
+   thunk_FUN_0099dcac
+   thunk_FUN_0099dcac

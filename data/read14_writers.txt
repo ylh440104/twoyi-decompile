@@ -1,0 +1,37 @@
+functions that store into .data/.bss : 577 / 12412
+distinct .data/.bss addresses written: 11637  (of 355160 bytes in .data)
+stores total                        : 16111
+
+top 15 writer functions:
+  0x1c5310  stores=1360 uniq=1360 tag=jni      shape=loop-mem
+  0x41fa44  stores=610  uniq=310  tag=io.mem>  shape=loop-mem
+  0x272f04  stores=586  uniq=586  tag=string   shape=arith-chain
+  0x3ba5a8  stores=494  uniq=328  tag=string   shape=branch-web
+  0x56db3c  stores=492  uniq=272  tag=io.file  shape=branch-web
+  0x51bb98  stores=462  uniq=231  tag=io.file  shape=branch-web
+  0x35b38c  stores=459  uniq=456  tag=io.file  shape=loop-mem
+  0x203040  stores=417  uniq=411  tag=io.file  shape=arith-chain
+  0x312024  stores=389  uniq=389  tag=io.file  shape=loop-mem
+  0x5268dc  stores=374  uniq=187  tag=io.file  shape=branch-web
+  0x428f48  stores=372  uniq=186  tag=io.file  shape=branch-web
+  0x2479e4  stores=364  uniq=182  tag=jni>     shape=arith-chain
+  0x334d6c  stores=364  uniq=364  tag=io.file  shape=loop-mem
+  0x513098  stores=340  uniq=206  tag=io.file  shape=branch-web
+  0x22a270  stores=339  uniq=339  tag=io.file  shape=loop-mem
+
+by (tag,shape):
+  io.mem<   loop-mem    132
+  io.mem<   mixed       49
+  io.file   loop-mem    39
+  plain     mixed       39
+  io.mem>   mixed       37
+  io.mem    loop-mem    36
+  io.mem<   mem-writer  33
+  io.mem    mem-writer  16
+  io.mem    mixed       15
+  io.file   branch-web  13
+  cxx       mixed       10
+  io.mem>   mem-writer  10
+
+plain functions: 3705, of which writer sites: 67, pure-compute: 3638
+written window 0x915860..0x978368  span=404233  filled=11637 (2.9%)

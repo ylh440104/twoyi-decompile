@@ -1,0 +1,3795 @@
+==============================================================================
+SKELETON 0x6872bc  lines=1645 shape=call-relay
+   .... 1 straight-line statements
+      1| void FUN_007872bc(long *param_1,int param_2,long param_3)
+   .... 8 straight-line statements
+     10|   uVar4 = FUN_007febc0();
+     11|   lVar5 = FUN_006f4a9c(uVar4,param_2,param_3);
+   .... 2 straight-line statements
+     14|   if (param_3 != 0) {
+     15|     do {
+     16|       if (lVar5 != 0) break;
+   .... 1 straight-line statements
+     18|       uVar4 = FUN_007febc0(param_1);
+     19|       lVar5 = FUN_006f4a9c(uVar4,param_2,param_3);
+   .... 4 straight-line statements
+     24|   FUN_006d9ac4(param_1);
+     25|   if ((bVar1) || ((**(code **)(*param_1 + 0x18))(param_1,param_3,4), !bVar2)) {
+     26|     return;
+   .... 1 straight-line statements
+     28|   iVar3 = FUN_006f31ec(param_3);
+     29|   if (iVar3 < 0x3b9db030) {
+     30|     if (iVar3 < 0x3b9c7b98) {
+     31|       if (iVar3 < 0x3b9bb46c) {
+     32|         if (iVar3 < 0x3b9b75e6) {
+     33|           if (iVar3 < 0x3b9b2f91) {
+     34|             if (iVar3 < 0x3b9ad5b8) {
+     35|               if (iVar3 < 0x33) {
+     36|                 if (iVar3 == 0x31) {
+     37|                   FUN_0078efa8(param_1,param_2,param_3);
+     38|                   return;
+   .... 1 straight-line statements
+     40|                 if (iVar3 == 0x32) {
+     41|                   FUN_0078f124(param_1,param_2,param_3);
+     42|                   return;
+   .... 2 straight-line statements
+     45|               else {
+     46|                 if (iVar3 == 0x33) {
+     47|                   FUN_0078f2e8(param_1,param_2,param_3);
+     48|                   return;
+   .... 1 straight-line statements
+     50|                 if (iVar3 == 0x34) {
+     51|                   FUN_0078f7ac(param_1,param_2,param_3);
+     52|                   return;
+   .... 3 straight-line statements
+     56|             else if (iVar3 < 0x3b9af4f8) {
+     57|               if (iVar3 == 0x3b9ad5b8) {
+     58|                 FUN_00792074(param_1,param_2,param_3);
+     59|                 return;
+   .... 1 straight-line statements
+     61|               if (iVar3 == 0x3b9af110) {
+     62|                 FUN_00794758(param_1,param_2,param_3);
+     63|                 return;
+   .... 2 straight-line statements
+     66|             else {
+     67|               if (iVar3 == 0x3b9af4f8) {
+     68|                 FUN_00794854(param_1,param_2,param_3);
+     69|                 return;
+   .... 1 straight-line statements
+     71|               if (iVar3 == 0x3b9b1050) {
+     72|                 FUN_0079490c(param_1,param_2,param_3);
+     73|                 return;
+   .... 1 straight-line statements
+     75|               if (iVar3 == 0x3b9b2f90) {
+     76|                 FUN_00794980(param_1,param_2,param_3);
+     77|                 return;
+   .... 3 straight-line statements
+     81|           else if (iVar3 < 0x3b9b3762) {
+     82|             if (iVar3 < 0x3b9b3760) {
+     83|               if (iVar3 == 0x3b9b2f91) {
+     84|                 FUN_007949f4(param_1,param_2,param_3);
+     85|                 return;
+   .... 1 straight-line statements
+     87|               if (iVar3 == 0x3b9b2f92) {
+     88|                 FUN_00794a68(param_1,param_2,param_3);
+     89|                 return;
+   .... 2 straight-line statements
+     92|             else {
+     93|               if (iVar3 == 0x3b9b3760) {
+     94|                 FUN_00794b60(param_1,param_2,param_3);
+     95|                 return;
+   .... 1 straight-line statements
+     97|               if (iVar3 == 0x3b9b3761) {
+     98|                 FUN_00794bec(param_1,param_2,param_3);
+     99|                 return;
+   .... 3 straight-line statements
+    103|           else if (iVar3 < 0x3b9b75e2) {
+    104|             if (iVar3 == 0x3b9b3762) {
+    105|               FUN_00794d38(param_1,param_2,param_3);
+    106|               return;
+   .... 1 straight-line statements
+    108|             if (iVar3 == 0x3b9b6a28) {
+    109|               FUN_00794e50(param_1,param_2,param_3);
+    110|               return;
+   .... 2 straight-line statements
+    113|           else {
+    114|             if (iVar3 == 0x3b9b75e2) {
+    115|               FUN_007921a8(param_1,param_2,param_3);
+    116|               return;
+   .... 1 straight-line statements
+    118|             if (iVar3 == 0x3b9b75e3) {
+    119|               FUN_00792280(param_1,param_2,param_3);
+    120|               return;
+   .... 1 straight-line statements
+    122|             if (iVar3 == 0x3b9b75e4) {
+    123|               FUN_007922f4(param_1,param_2,param_3);
+    124|               return;
+   .... 3 straight-line statements
+    128|         else if (iVar3 < 0x3b9ba4c1) {
+    129|           if (iVar3 < 0x3b9b8d50) {
+    130|             if (iVar3 < 0x3b9b75e8) {
+    131|               if (iVar3 == 0x3b9b75e6) {
+    132|                 FUN_007923fc(param_1,param_2,param_3);
+    133|                 return;
+   .... 1 straight-line statements
+    135|               if (iVar3 == 0x3b9b75e7) {
+    136|                 FUN_00792504(param_1,param_2,param_3);
+    137|                 return;
+   .... 2 straight-line statements
+    140|             else {
+    141|               if (iVar3 == 0x3b9b75e8) {
+    142|                 FUN_007925dc(param_1,param_2,param_3);
+    143|                 return;
+   .... 1 straight-line statements
+    145|               if (iVar3 == 0x3b9b75e9) {
+    146|                 FUN_00792694(param_1,param_2,param_3);
+    147|                 return;
+   .... 3 straight-line statements
+    151|           else if (iVar3 < 0x3b9b9909) {
+    152|             if (iVar3 == 0x3b9b8d50) {
+    153|               FUN_00794ec4(param_1,param_2,param_3);
+    154|               return;
+   .... 1 straight-line statements
+    156|             if (iVar3 == 0x3b9b9908) {
+    157|               FUN_0078e178(param_1,param_2,param_3);
+    158|               return;
+   .... 2 straight-line statements
+    161|           else {
+    162|             if (iVar3 == 0x3b9b9909) {
+    163|               FUN_0078e270(param_1,param_2,param_3);
+    164|               return;
+   .... 1 straight-line statements
+    166|             if (iVar3 == 0x3b9b990a) {
+    167|               FUN_0078e314(param_1,param_2,param_3);
+    168|               return;
+   .... 1 straight-line statements
+    170|             if (iVar3 == 0x3b9ba4c0) {
+    171|               FUN_00795040(param_1,param_2,param_3);
+    172|               return;
+   .... 3 straight-line statements
+    176|         else if (iVar3 < 0x3b9bb465) {
+    177|           if (iVar3 < 0x3b9bb460) {
+    178|             if (iVar3 == 0x3b9ba4c1) {
+    179|               FUN_007950b4(param_1,param_2,param_3);
+    180|               return;
+   .... 1 straight-line statements
+    182|             if (iVar3 == 0x3b9bb078) {
+    183|               FUN_0078d9e0(param_1,param_2,param_3);
+    184|               return;
+   .... 2 straight-line statements
+    187|           else {
+    188|             if (iVar3 == 0x3b9bb460) {
+    189|               FUN_0078d0f8(param_1,param_2,param_3);
+    190|               return;
+   .... 1 straight-line statements
+    192|             if (iVar3 == 0x3b9bb463) {
+    193|               FUN_0078d184(param_1,param_2,param_3);
+    194|               return;
+   .... 1 straight-line statements
+    196|             if (iVar3 == 0x3b9bb464) {
+    197|               FUN_0078d2a8(param_1,param_2,param_3);
+    198|               return;
+   .... 3 straight-line statements
+    202|         else if (iVar3 < 0x3b9bb468) {
+    203|           if (iVar3 == 0x3b9bb465) {
+    204|             FUN_0078d31c(param_1,param_2,param_3);
+    205|             return;
+   .... 1 straight-line statements
+    207|           if (iVar3 == 0x3b9bb466) {
+    208|             FUN_0078d414(param_1,param_2,param_3);
+    209|             return;
+   .... 2 straight-line statements
+    212|         else {
+    213|           if (iVar3 == 0x3b9bb468) {
+    214|             FUN_007918e4(param_1,param_2,param_3);
+    215|             return;
+   .... 1 straight-line statements
+    217|           if (iVar3 == 0x3b9bb469) {
+    218|             FUN_007919a4(param_1,param_2,param_3);
+    219|             return;
+   .... 1 straight-line statements
+    221|           if (iVar3 == 0x3b9bb46b) {
+    222|             FUN_00791b08(param_1,param_2,param_3);
+    223|             return;
+   .... 3 straight-line statements
+    227|       else if (iVar3 < 0x3b9c0669) {
+    228|         if (iVar3 < 0x3b9bdf58) {
+    229|           if (iVar3 < 0x3b9bc018) {
+    230|             if (iVar3 < 0x3b9bb46e) {
+    231|               if (iVar3 == 0x3b9bb46c) {
+    232|                 FUN_00791bb0(param_1,param_2,param_3);
+    233|                 return;
+   .... 1 straight-line statements
+    235|               if (iVar3 == 0x3b9bb46d) {
+    236|                 FUN_0078d4a0(param_1,param_2,param_3);
+    237|                 return;
+   .... 2 straight-line statements
+    240|             else {
+    241|               if (iVar3 == 0x3b9bb46e) {
+    242|                 FUN_0078d530(param_1,param_2,param_3);
+    243|                 return;
+   .... 1 straight-line statements
+    245|               if (iVar3 == 0x3b9bb848) {
+    246|                 FUN_00795128(param_1,param_2,param_3);
+    247|                 return;
+   .... 3 straight-line statements
+    251|           else if (iVar3 < 0x3b9bcfb8) {
+    252|             if (iVar3 == 0x3b9bc018) {
+    253|               FUN_0078ef34(param_1,param_2,param_3);
+    254|               return;
+   .... 1 straight-line statements
+    256|             if (iVar3 == 0x3b9bcbd0) {
+    257|               FUN_007951b8(param_1,param_2,param_3);
+    258|               return;
+   .... 2 straight-line statements
+    261|           else {
+    262|             if (iVar3 == 0x3b9bcfb8) {
+    263|               FUN_0079522c(param_1,param_2,param_3);
+    264|               return;
+   .... 1 straight-line statements
+    266|             if (iVar3 == 0x3b9bcfb9) {
+    267|               FUN_007952a0(param_1,param_2,param_3);
+    268|               return;
+   .... 1 straight-line statements
+    270|             if (iVar3 == 0x3b9bdb71) {
+    271|               FUN_0078d714(param_1,param_2,param_3);
+    272|               return;
+   .... 3 straight-line statements
+    276|         else if (iVar3 < 0x3b9be342) {
+    277|           if (iVar3 < 0x3b9bdf5c) {
+    278|             if (iVar3 == 0x3b9bdf58) {
+    279|               FUN_0078e818(param_1,param_2,param_3);
+    280|               return;
+   .... 1 straight-line statements
+    282|             if (iVar3 == 0x3b9bdf59) {
+    283|               FUN_0078e88c(param_1,param_2,param_3);
+    284|               return;
+   .... 2 straight-line statements
+    287|           else {
+    288|             if (iVar3 == 0x3b9bdf5c) {
+    289|               FUN_0078e9d4(param_1,param_2,param_3);
+    290|               return;
+   .... 1 straight-line statements
+    292|             if (iVar3 == 0x3b9be340) {
+    293|               FUN_0078eb1c(param_1,param_2,param_3);
+    294|               return;
+   .... 1 straight-line statements
+    296|             if (iVar3 == 0x3b9be341) {
+    297|               FUN_0078eaa8(param_1,param_2,param_3);
+    298|               return;
+   .... 3 straight-line statements
+    302|         else if (iVar3 < 0x3b9bf6c8) {
+    303|           if (iVar3 == 0x3b9be342) {
+    304|             FUN_0078eb90(param_1,param_2,param_3);
+    305|             return;
+   .... 1 straight-line statements
+    307|           if (iVar3 == 0x3b9beb10) {
+    308|             FUN_00792720(param_1,param_2,param_3);
+    309|             return;
+   .... 2 straight-line statements
+    312|         else {
+    313|           if (iVar3 == 0x3b9bf6c8) {
+    314|             FUN_0078ed1c(param_1,param_2,param_3);
+    315|             return;
+   .... 1 straight-line statements
+    317|           if (iVar3 == 0x3b9c0280) {
+    318|             FUN_00792820(param_1,param_2,param_3);
+    319|             return;
+   .... 1 straight-line statements
+    321|           if (iVar3 == 0x3b9c0668) {
+    322|             FUN_007953a0(param_1,param_2,param_3);
+    323|             return;
+   .... 3 straight-line statements
+    327|       else if (iVar3 < 0x3b9c48d0) {
+    328|         if (iVar3 < 0x3b9c1dd8) {
+    329|           if (iVar3 < 0x3b9c0e38) {
+    330|             if (iVar3 == 0x3b9c0669) {
+    331|               FUN_00795314(param_1,param_2,param_3);
+    332|               return;
+   .... 1 straight-line statements
+    334|             if (iVar3 == 0x3b9c0a50) {
+    335|               FUN_0078fff4(param_1,param_2,param_3);
+    336|               return;
+   .... 2 straight-line statements
+    339|           else {
+    340|             if (iVar3 == 0x3b9c0e38) {
+    341|               FUN_0078ceb8(param_1,param_2,param_3);
+    342|               return;
+   .... 1 straight-line statements
+    344|             if (iVar3 == 0x3b9c1220) {
+    345|               FUN_00792994(param_1,param_2,param_3);
+    346|               return;
+   .... 3 straight-line statements
+    350|         else if (iVar3 < 0x3b9c3160) {
+    351|           if (iVar3 == 0x3b9c1dd8) {
+    352|             FUN_00795414(param_1,param_2,param_3);
+    353|             return;
+   .... 1 straight-line statements
+    355|           if (iVar3 == 0x3b9c2d7b) {
+    356|             FUN_007956cc(param_1,param_2,param_3);
+    357|             return;
+   .... 2 straight-line statements
+    360|         else {
+    361|           if (iVar3 == 0x3b9c3160) {
+    362|             FUN_007957e4(param_1,param_2,param_3);
+    363|             return;
+   .... 1 straight-line statements
+    365|           if (iVar3 == 0x3b9c3930) {
+    366|             FUN_0078cdfc(param_1,param_2,param_3);
+    367|             return;
+   .... 1 straight-line statements
+    369|           if (iVar3 == 0x3b9c44e8) {
+    370|             FUN_007958d8(param_1,param_2,param_3);
+    371|             return;
+   .... 3 straight-line statements
+    375|       else if (iVar3 < 0x3b9c5870) {
+    376|         if (iVar3 < 0x3b9c4cb9) {
+    377|           if (iVar3 == 0x3b9c48d0) {
+    378|             FUN_0079594c(param_1,param_2,param_3);
+    379|             return;
+   .... 1 straight-line statements
+    381|           if (iVar3 == 0x3b9c4cb8) {
+    382|             FUN_00795a88(param_1,param_2,param_3);
+    383|             return;
+   .... 2 straight-line statements
+    386|         else {
+    387|           if (iVar3 == 0x3b9c4cb9) {
+    388|             FUN_00795afc(param_1,param_2,param_3);
+    389|             return;
+   .... 1 straight-line statements
+    391|           if (iVar3 == 0x3b9c5488) {
+    392|             FUN_00795c50(param_1,param_2,param_3);
+    393|             return;
+   .... 1 straight-line statements
+    395|           if (iVar3 == 0x3b9c5489) {
+    396|             FUN_00795d84(param_1,param_2,param_3);
+    397|             return;
+   .... 3 straight-line statements
+    401|       else if (iVar3 < 0x3b9c6fe0) {
+    402|         if (iVar3 == 0x3b9c5870) {
+    403|           FUN_00795e28(param_1,param_2,param_3);
+    404|           return;
+   .... 1 straight-line statements
+    406|         if (iVar3 == 0x3b9c5871) {
+    407|           FUN_00795e9c(param_1,param_2,param_3);
+    408|           return;
+   .... 2 straight-line statements
+    411|       else {
+    412|         if (iVar3 == 0x3b9c6fe0) {
+    413|           FUN_00790d60(param_1,param_2,param_3);
+    414|           return;
+   .... 1 straight-line statements
+    416|         if (iVar3 == 0x3b9c6fe1) {
+    417|           FUN_00790edc(param_1,param_2,param_3);
+    418|           return;
+   .... 1 straight-line statements
+    420|         if (iVar3 == 0x3b9c6fe3) {
+    421|           FUN_00790f94(param_1,param_2,param_3);
+    422|           return;
+   .... 3 straight-line statements
+    426|     else if (iVar3 < 0x3b9d2391) {
+    427|       if (iVar3 < 0x3b9ce512) {
+    428|         if (iVar3 < 0x3b9c930b) {
+    429|           if (iVar3 < 0x3b9c8f22) {
+    430|             if (iVar3 < 0x3b9c8f20) {
+    431|               if (iVar3 == 0x3b9c7b98) {
+    432|                 FUN_00792a58(param_1,param_2,param_3);
+    433|                 return;
+   .... 1 straight-line statements
+    435|               if (iVar3 == 0x3b9c8368) {
+    436|                 FUN_0078eca8(param_1,param_2,param_3);
+    437|                 return;
+   .... 2 straight-line statements
+    440|             else {
+    441|               if (iVar3 == 0x3b9c8f20) {
+    442|                 FUN_00792acc(param_1,param_2,param_3);
+    443|                 return;
+   .... 1 straight-line statements
+    445|               if (iVar3 == 0x3b9c8f21) {
+    446|                 FUN_00792b58(param_1,param_2,param_3);
+    447|                 return;
+   .... 3 straight-line statements
+    451|           else if (iVar3 < 0x3b9c9308) {
+    452|             if (iVar3 == 0x3b9c8f22) {
+    453|               FUN_00792d44(param_1,param_2,param_3);
+    454|               return;
+   .... 1 straight-line statements
+    456|             if (iVar3 == 0x3b9c8f23) {
+    457|               FUN_00792dec(param_1,param_2,param_3);
+    458|               return;
+   .... 2 straight-line statements
+    461|           else {
+    462|             if (iVar3 == 0x3b9c9308) {
+    463|               FUN_0078df28(param_1,param_2,param_3);
+    464|               return;
+   .... 1 straight-line statements
+    466|             if (iVar3 == 0x3b9c9309) {
+    467|               FUN_0078df9c(param_1,param_2,param_3);
+    468|               return;
+   .... 1 straight-line statements
+    470|             if (iVar3 == 0x3b9c930a) {
+    471|               FUN_0078e090(param_1,param_2,param_3);
+    472|               return;
+   .... 3 straight-line statements
+    476|         else if (iVar3 < 0x3b9cbe04) {
+    477|           if (iVar3 < 0x3b9cba18) {
+    478|             if (iVar3 == 0x3b9c930b) {
+    479|               FUN_0078e104(param_1,param_2,param_3);
+    480|               return;
+   .... 1 straight-line statements
+    482|             if (iVar3 == 0x3b9c9ec0) {
+    483|               FUN_0078e3a0(param_1,param_2,param_3);
+    484|               return;
+   .... 2 straight-line statements
+    487|           else {
+    488|             if (iVar3 == 0x3b9cba18) {
+    489|               FUN_0078cf74(param_1,param_2,param_3);
+    490|               return;
+   .... 1 straight-line statements
+    492|             if (iVar3 == 0x3b9cba19) {
+    493|               FUN_0078d000(param_1,param_2,param_3);
+    494|               return;
+   .... 3 straight-line statements
+    498|         else if (iVar3 < 0x3b9cc5d1) {
+    499|           if (iVar3 == 0x3b9cbe04) {
+    500|             FUN_00795f28(param_1,param_2,param_3);
+    501|             return;
+   .... 1 straight-line statements
+    503|           if (iVar3 == 0x3b9cc5d0) {
+    504|             FUN_00790c30(param_1,param_2,param_3);
+    505|             return;
+   .... 2 straight-line statements
+    508|         else {
+    509|           if (iVar3 == 0x3b9cc5d1) {
+    510|             FUN_00790bbc(param_1,param_2,param_3);
+    511|             return;
+   .... 1 straight-line statements
+    513|           if (iVar3 == 0x3b9ce510) {
+    514|             FUN_00796010(param_1,param_2,param_3);
+    515|             return;
+   .... 1 straight-line statements
+    517|           if (iVar3 == 0x3b9ce511) {
+    518|             FUN_0079609c(param_1,param_2,param_3);
+    519|             return;
+   .... 3 straight-line statements
+    523|       else if (iVar3 < 0x3b9d0838) {
+    524|         if (iVar3 < 0x3b9cf89a) {
+    525|           if (iVar3 < 0x3b9cf898) {
+    526|             if (iVar3 == 0x3b9ce512) {
+    527|               FUN_00796170(param_1,param_2,param_3);
+    528|               return;
+   .... 1 straight-line statements
+    530|             if (iVar3 == 0x3b9ce513) {
+    531|               FUN_007961fc(param_1,param_2,param_3);
+    532|               return;
+   .... 2 straight-line statements
+    535|           else {
+    536|             if (iVar3 == 0x3b9cf898) {
+    537|               FUN_00796270(param_1,param_2,param_3);
+    538|               return;
+   .... 1 straight-line statements
+    540|             if (iVar3 == 0x3b9cf899) {
+    541|               FUN_00796394(param_1,param_2,param_3);
+    542|               return;
+   .... 3 straight-line statements
+    546|         else if (iVar3 < 0x3b9d0068) {
+    547|           if (iVar3 == 0x3b9cf89a) {
+    548|             FUN_007964d4(param_1,param_2,param_3);
+    549|             return;
+   .... 1 straight-line statements
+    551|           if (iVar3 == 0x3b9cf89b) {
+    552|             FUN_00796558(param_1,param_2,param_3);
+    553|             return;
+   .... 2 straight-line statements
+    556|         else {
+    557|           if (iVar3 == 0x3b9d0068) {
+    558|             FUN_0078e514(param_1,param_2,param_3);
+    559|             return;
+   .... 1 straight-line statements
+    561|           if (iVar3 == 0x3b9d0069) {
+    562|             FUN_0078e42c(param_1,param_2,param_3);
+    563|             return;
+   .... 1 straight-line statements
+    565|           if (iVar3 == 0x3b9d006a) {
+    566|             FUN_0078e4a0(param_1,param_2,param_3);
+    567|             return;
+   .... 3 straight-line statements
+    571|       else if (iVar3 < 0x3b9d13f7) {
+    572|         if (iVar3 < 0x3b9d0c21) {
+    573|           if (iVar3 == 0x3b9d0838) {
+    574|             FUN_0078fd30(param_1,param_2,param_3);
+    575|             return;
+   .... 1 straight-line statements
+    577|           if (iVar3 == 0x3b9d0c20) {
+    578|             FUN_007966d0(param_1,param_2,param_3);
+    579|             return;
+   .... 2 straight-line statements
+    582|         else {
+    583|           if (iVar3 == 0x3b9d0c21) {
+    584|             FUN_00796744(param_1,param_2,param_3);
+    585|             return;
+   .... 1 straight-line statements
+    587|           if (iVar3 == 0x3b9d0c22) {
+    588|             FUN_00796830(param_1,param_2,param_3);
+    589|             return;
+   .... 1 straight-line statements
+    591|           if (iVar3 == 0x3b9d1008) {
+    592|             FUN_007968d4(param_1,param_2,param_3);
+    593|             return;
+   .... 3 straight-line statements
+    597|       else if (iVar3 < 0x3b9d13fe) {
+    598|         if (iVar3 == 0x3b9d13f7) {
+    599|           FUN_0079c344(param_1,param_2,param_3);
+    600|           return;
+   .... 1 straight-line statements
+    602|         if (iVar3 == 0x3b9d13fd) {
+    603|           FUN_0079c44c(param_1,param_2,param_3);
+    604|           return;
+   .... 2 straight-line statements
+    607|       else {
+    608|         if (iVar3 == 0x3b9d13fe) {
+    609|           FUN_0079c520(param_1,param_2,param_3);
+    610|           return;
+   .... 1 straight-line statements
+    612|         if (iVar3 == 0x3b9d1bc0) {
+    613|           FUN_00796978(param_1,param_2,param_3);
+    614|           return;
+   .... 1 straight-line statements
+    616|         if (iVar3 == 0x3b9d2390) {
+    617|           FUN_00796afc(param_1,param_2,param_3);
+    618|           return;
+   .... 3 straight-line statements
+    622|     else if (iVar3 < 0x3b9d4aa2) {
+    623|       if (iVar3 < 0x3b9d3334) {
+    624|         if (iVar3 < 0x3b9d2b64) {
+    625|           if (iVar3 < 0x3b9d2b62) {
+    626|             if (iVar3 == 0x3b9d2391) {
+    627|               FUN_00796a70(param_1,param_2,param_3);
+    628|               return;
+   .... 1 straight-line statements
+    630|             if (iVar3 == 0x3b9d2b61) {
+    631|               FUN_0078e588(param_1,param_2,param_3);
+    632|               return;
+   .... 2 straight-line statements
+    635|           else {
+    636|             if (iVar3 == 0x3b9d2b62) {
+    637|               FUN_0078e648(param_1,param_2,param_3);
+    638|               return;
+   .... 1 straight-line statements
+    640|             if (iVar3 == 0x3b9d2b63) {
+    641|               FUN_0078e6bc(param_1,param_2,param_3);
+    642|               return;
+   .... 3 straight-line statements
+    646|         else if (iVar3 < 0x3b9d3330) {
+    647|           if (iVar3 == 0x3b9d2b64) {
+    648|             FUN_0078e730(param_1,param_2,param_3);
+    649|             return;
+   .... 1 straight-line statements
+    651|           if (iVar3 == 0x3b9d2b65) {
+    652|             FUN_0078e7a4(param_1,param_2,param_3);
+    653|             return;
+   .... 2 straight-line statements
+    656|         else {
+    657|           if (iVar3 == 0x3b9d3330) {
+    658|             FUN_00796b70(param_1,param_2,param_3);
+    659|             return;
+   .... 1 straight-line statements
+    661|           if (iVar3 == 0x3b9d3332) {
+    662|             FUN_00796c7c(param_1,param_2,param_3);
+    663|             return;
+   .... 1 straight-line statements
+    665|           if (iVar3 == 0x3b9d3333) {
+    666|             FUN_00796d5c(param_1,param_2,param_3);
+    667|             return;
+   .... 3 straight-line statements
+    671|       else if (iVar3 < 0x3b9d3eea) {
+    672|         if (iVar3 < 0x3b9d3b01) {
+    673|           if (iVar3 == 0x3b9d3334) {
+    674|             FUN_00796dec(param_1,param_2,param_3);
+    675|             return;
+   .... 1 straight-line statements
+    677|           if (iVar3 == 0x3b9d3336) {
+    678|             FUN_00796f9c(param_1,param_2,param_3);
+    679|             return;
+   .... 2 straight-line statements
+    682|         else {
+    683|           if (iVar3 == 0x3b9d3b01) {
+    684|             FUN_007970a8(param_1,param_2,param_3);
+    685|             return;
+   .... 1 straight-line statements
+    687|           if (iVar3 == 0x3b9d3ee8) {
+    688|             FUN_00790274(param_1,param_2,param_3);
+    689|             return;
+   .... 1 straight-line statements
+    691|           if (iVar3 == 0x3b9d3ee9) {
+    692|             FUN_00790324(param_1,param_2,param_3);
+    693|             return;
+   .... 3 straight-line statements
+    697|       else if (iVar3 < 0x3b9d3eec) {
+    698|         if (iVar3 == 0x3b9d3eea) {
+    699|           FUN_00790560(param_1,param_2,param_3);
+    700|           return;
+   .... 1 straight-line statements
+    702|         if (iVar3 == 0x3b9d3eeb) {
+    703|           FUN_007907e4(param_1,param_2,param_3);
+    704|           return;
+   .... 2 straight-line statements
+    707|       else {
+    708|         if (iVar3 == 0x3b9d3eec) {
+    709|           FUN_00790874(param_1,param_2,param_3);
+    710|           return;
+   .... 1 straight-line statements
+    712|         if (iVar3 == 0x3b9d4aa0) {
+    713|           FUN_00797168(param_1,param_2,param_3);
+    714|           return;
+   .... 1 straight-line statements
+    716|         if (iVar3 == 0x3b9d4aa1) {
+    717|           FUN_00797278(param_1,param_2,param_3);
+    718|           return;
+   .... 3 straight-line statements
+    722|     else if (iVar3 < 0x3b9d71b0) {
+    723|       if (iVar3 < 0x3b9d5270) {
+    724|         if (iVar3 < 0x3b9d4e8f) {
+    725|           if (iVar3 == 0x3b9d4aa2) {
+    726|             FUN_00797304(param_1,param_2,param_3);
+    727|             return;
+   .... 1 straight-line statements
+    729|           if (iVar3 == 0x3b9d4aa5) {
+    730|             FUN_007973c0(param_1,param_2,param_3);
+    731|             return;
+   .... 2 straight-line statements
+    734|         else {
+    735|           if (iVar3 == 0x3b9d4e8f) {
+    736|             FUN_00797554(param_1,param_2,param_3);
+    737|             return;
+   .... 1 straight-line statements
+    739|           if (iVar3 == 0x3b9d4e91) {
+    740|             FUN_0079765c(param_1,param_2,param_3);
+    741|             return;
+   .... 3 straight-line statements
+    745|       else if (iVar3 < 0x3b9d5a40) {
+    746|         if (iVar3 == 0x3b9d5270) {
+    747|           FUN_00797778(param_1,param_2,param_3);
+    748|           return;
+   .... 1 straight-line statements
+    750|         if (iVar3 == 0x3b9d5271) {
+    751|           FUN_007977ec(param_1,param_2,param_3);
+    752|           return;
+   .... 2 straight-line statements
+    755|       else {
+    756|         if (iVar3 == 0x3b9d5a40) {
+    757|           FUN_0078ee34(param_1,param_2,param_3);
+    758|           return;
+   .... 1 straight-line statements
+    760|         if (iVar3 == 0x3b9d6210) {
+    761|           FUN_00797860(param_1,param_2,param_3);
+    762|           return;
+   .... 1 straight-line statements
+    764|         if (iVar3 == 0x3b9d6211) {
+    765|           FUN_007978d4(param_1,param_2,param_3);
+    766|           return;
+   .... 3 straight-line statements
+    770|     else if (iVar3 < 0x3b9d8920) {
+    771|       if (iVar3 < 0x3b9d7d68) {
+    772|         if (iVar3 == 0x3b9d71b0) {
+    773|           FUN_00797960(param_1,param_2,param_3);
+    774|           return;
+   .... 1 straight-line statements
+    776|         if (iVar3 == 0x3b9d7598) {
+    777|           FUN_007910fc(param_1,param_2,param_3);
+    778|           return;
+   .... 2 straight-line statements
+    781|       else {
+    782|         if (iVar3 == 0x3b9d7d68) {
+    783|           FUN_0078fdc0(param_1,param_2,param_3);
+    784|           return;
+   .... 1 straight-line statements
+    786|         if (iVar3 == 0x3b9d8150) {
+    787|           FUN_007979d4(param_1,param_2,param_3);
+    788|           return;
+   .... 1 straight-line statements
+    790|         if (iVar3 == 0x3b9d8152) {
+    791|           FUN_00797af4(param_1,param_2,param_3);
+    792|           return;
+   .... 3 straight-line statements
+    796|     else if (iVar3 < 0x3b9d94d8) {
+    797|       if (iVar3 == 0x3b9d8920) {
+    798|         FUN_0078ff68(param_1,param_2,param_3);
+    799|         return;
+   .... 1 straight-line statements
+    801|       if (iVar3 == 0x3b9d8d08) {
+    802|         FUN_00793310(param_1,param_2,param_3);
+    803|         return;
+   .... 2 straight-line statements
+    806|     else {
+    807|       if (iVar3 == 0x3b9d94d8) {
+    808|         FUN_00797b68(param_1,param_2,param_3);
+    809|         return;
+   .... 1 straight-line statements
+    811|       if (iVar3 == 0x3b9d9ca8) {
+    812|         FUN_00797bdc(param_1,param_2,param_3);
+    813|         return;
+   .... 1 straight-line statements
+    815|       if (iVar3 == 0x3b9dac48) {
+    816|         FUN_00797d88(param_1,param_2,param_3);
+    817|         return;
+   .... 3 straight-line statements
+    821|   else if (iVar3 < 0x3b9ef468) {
+    822|     if (iVar3 < 0x3b9e3cd3) {
+    823|       if (iVar3 < 0x3b9df29a) {
+    824|         if (iVar3 < 0x3b9ddf10) {
+    825|           if (iVar3 < 0x3b9dc7a0) {
+    826|             if (iVar3 < 0x3b9db032) {
+    827|               if (iVar3 == 0x3b9db030) {
+    828|                 FUN_00797dfc(param_1,param_2,param_3);
+    829|                 return;
+   .... 1 straight-line statements
+    831|               if (iVar3 == 0x3b9db031) {
+    832|                 FUN_00797e70(param_1,param_2,param_3);
+    833|                 return;
+   .... 2 straight-line statements
+    836|             else {
+    837|               if (iVar3 == 0x3b9db032) {
+    838|                 FUN_00797f4c(param_1,param_2,param_3);
+    839|                 return;
+   .... 1 straight-line statements
+    841|               if (iVar3 == 0x3b9db800) {
+    842|                 FUN_00797fd8(param_1,param_2,param_3);
+    843|                 return;
+   .... 3 straight-line statements
+    847|           else if (iVar3 < 0x3b9dd358) {
+    848|             if (iVar3 == 0x3b9dc7a0) {
+    849|               FUN_0078fe64(param_1,param_2,param_3);
+    850|               return;
+   .... 1 straight-line statements
+    852|             if (iVar3 == 0x3b9dcb88) {
+    853|               FUN_00790080(param_1,param_2,param_3);
+    854|               return;
+   .... 2 straight-line statements
+    857|           else {
+    858|             if (iVar3 == 0x3b9dd358) {
+    859|               FUN_00790a18(param_1,param_2,param_3);
+    860|               return;
+   .... 1 straight-line statements
+    862|             if (iVar3 == 0x3b9dd359) {
+    863|               FUN_007908e8(param_1,param_2,param_3);
+    864|               return;
+   .... 1 straight-line statements
+    866|             if (iVar3 == 0x3b9ddb28) {
+    867|               FUN_007980e8(param_1,param_2,param_3);
+    868|               return;
+   .... 3 straight-line statements
+    872|         else if (iVar3 < 0x3b9deac8) {
+    873|           if (iVar3 < 0x3b9de2f8) {
+    874|             if (iVar3 == 0x3b9ddf10) {
+    875|               FUN_00798174(param_1,param_2,param_3);
+    876|               return;
+   .... 1 straight-line statements
+    878|             if (iVar3 == 0x3b9ddf11) {
+    879|               FUN_00798200(param_1,param_2,param_3);
+    880|               return;
+   .... 2 straight-line statements
+    883|           else {
+    884|             if (iVar3 == 0x3b9de2f8) {
+    885|               FUN_00798394(param_1,param_2,param_3);
+    886|               return;
+   .... 1 straight-line statements
+    888|             if (iVar3 == 0x3b9de6e0) {
+    889|               FUN_00798408(param_1,param_2,param_3);
+    890|               return;
+   .... 3 straight-line statements
+    894|         else if (iVar3 < 0x3b9deeb1) {
+    895|           if (iVar3 == 0x3b9deac8) {
+    896|             FUN_0079847c(param_1,param_2,param_3);
+    897|             return;
+   .... 1 straight-line statements
+    899|           if (iVar3 == 0x3b9deaca) {
+    900|             FUN_007985a0(param_1,param_2,param_3);
+    901|             return;
+   .... 2 straight-line statements
+    904|         else {
+    905|           if (iVar3 == 0x3b9deeb1) {
+    906|             FUN_00798614(param_1,param_2,param_3);
+    907|             return;
+   .... 1 straight-line statements
+    909|           if (iVar3 == 0x3b9df298) {
+    910|             FUN_00791358(param_1,param_2,param_3);
+    911|             return;
+   .... 1 straight-line statements
+    913|           if (iVar3 == 0x3b9df299) {
+    914|             FUN_007913cc(param_1,param_2,param_3);
+    915|             return;
+   .... 3 straight-line statements
+    919|       else if (iVar3 < 0x3b9e1d90) {
+    920|         if (iVar3 < 0x3b9e0238) {
+    921|           if (iVar3 < 0x3b9dfa68) {
+    922|             if (iVar3 == 0x3b9df29a) {
+    923|               FUN_00791440(param_1,param_2,param_3);
+    924|               return;
+   .... 1 straight-line statements
+    926|             if (iVar3 == 0x3b9df29b) {
+    927|               FUN_007914cc(param_1,param_2,param_3);
+    928|               return;
+   .... 2 straight-line statements
+    931|           else {
+    932|             if (iVar3 == 0x3b9dfa68) {
+    933|               FUN_00798734(param_1,param_2,param_3);
+    934|               return;
+   .... 1 straight-line statements
+    936|             if (iVar3 == 0x3b9dfe50) {
+    937|               FUN_007987f0(param_1,param_2,param_3);
+    938|               return;
+   .... 3 straight-line statements
+    942|         else if (iVar3 < 0x3b9e0a08) {
+    943|           if (iVar3 == 0x3b9e0238) {
+    944|             FUN_00790cbc(param_1,param_2,param_3);
+    945|             return;
+   .... 1 straight-line statements
+    947|           if (iVar3 == 0x3b9e0620) {
+    948|             FUN_00798864(param_1,param_2,param_3);
+    949|             return;
+   .... 2 straight-line statements
+    952|         else {
+    953|           if (iVar3 == 0x3b9e0a08) {
+    954|             FUN_00798920(param_1,param_2,param_3);
+    955|             return;
+   .... 1 straight-line statements
+    957|           if (iVar3 == 0x3b9e0a09) {
+    958|             FUN_00798994(param_1,param_2,param_3);
+    959|             return;
+   .... 1 straight-line statements
+    961|           if (iVar3 == 0x3b9e11d8) {
+    962|             FUN_0079339c(param_1,param_2,param_3);
+    963|             return;
+   .... 3 straight-line statements
+    967|       else if (iVar3 < 0x3b9e38e9) {
+    968|         if (iVar3 < 0x3b9e1d92) {
+    969|           if (iVar3 == 0x3b9e1d90) {
+    970|             if (param_2 == 3) {
+   .... 2 straight-line statements
+    973|             else {
+    974|               if (param_2 == 5) {
+   .... 1 straight-line statements
+    976|                 goto LAB_00787fd8;
+   .... 1 straight-line statements
+    978|               if (param_2 == 0x3b9bb078) {
+   .... 3 straight-line statements
+    982|             FUN_00798a08(param_1,param_2,param_3);
+    983|             return;
+   .... 1 straight-line statements
+    985|           if (iVar3 == 0x3b9e1d91) {
+    986|             if (param_2 != 5) {
+    987|               if (param_2 == 0x3b9bb079) {
+   .... 2 straight-line statements
+    990|               FUN_00798aac(param_1,param_2,param_3);
+    991|               return;
+   .... 2 straight-line statements
+    994| LAB_0078b3a4:
+    995|             FUN_0079beb4(param_1,param_2,param_3);
+    996|             return;
+   .... 2 straight-line statements
+    999|         else {
+   1000|           if (iVar3 == 0x3b9e1d92) {
+   1001|             if (param_2 != 5) {
+   1002|               if (param_2 == 0x3b9c73cc) {
+   .... 2 straight-line statements
+   1005|               else if (param_2 == 0x26) {
+   .... 2 straight-line statements
+   1008|               FUN_00798b80(param_1,param_2,param_3);
+   1009|               return;
+   .... 2 straight-line statements
+   1012| LAB_00788b88:
+   1013|             FUN_0079be40(param_1,param_2,param_3);
+   1014|             return;
+   .... 1 straight-line statements
+   1016|           if (iVar3 == 0x3b9e2948) {
+   1017|             FUN_00790ad4(param_1,param_2,param_3);
+   1018|             return;
+   .... 1 straight-line statements
+   1020|           if (iVar3 == 0x3b9e38e8) {
+   1021|             FUN_00798c98(param_1,param_2,param_3);
+   1022|             return;
+   .... 3 straight-line statements
+   1026|       else if (iVar3 < 0x3b9e3cd0) {
+   1027|         if (iVar3 == 0x3b9e38e9) {
+   1028|           FUN_00798d54(param_1,param_2,param_3);
+   1029|           return;
+   .... 1 straight-line statements
+   1031|         if (iVar3 == 0x3b9e38ea) {
+   1032|           FUN_00798c0c(param_1,param_2,param_3);
+   1033|           return;
+   .... 2 straight-line statements
+   1036|       else {
+   1037|         if (iVar3 == 0x3b9e3cd0) {
+   1038|           FUN_00793410(param_1,param_2,param_3);
+   1039|           return;
+   .... 1 straight-line statements
+   1041|         if (iVar3 == 0x3b9e3cd1) {
+   1042|           FUN_00793530(param_1,param_2,param_3);
+   1043|           return;
+   .... 1 straight-line statements
+   1045|         if (iVar3 == 0x3b9e3cd2) {
+   1046|           FUN_00793678(param_1,param_2,param_3);
+   1047|           return;
+   .... 3 straight-line statements
+   1051|     else if (iVar3 < 0x3b9e9a90) {
+   1052|       if (iVar3 < 0x3b9e7768) {
+   1053|         if (iVar3 < 0x3b9e67c8) {
+   1054|           if (iVar3 < 0x3b9e4888) {
+   1055|             if (iVar3 == 0x3b9e3cd3) {
+   1056|               FUN_007935d4(param_1,param_2,param_3);
+   1057|               return;
+   .... 1 straight-line statements
+   1059|             if (iVar3 == 0x3b9e40b8) {
+   1060|               FUN_00798dc8(param_1,param_2,param_3);
+   1061|               return;
+   .... 2 straight-line statements
+   1064|           else {
+   1065|             if (iVar3 == 0x3b9e4888) {
+   1066|               FUN_00798e54(param_1,param_2,param_3);
+   1067|               return;
+   .... 1 straight-line statements
+   1069|             if (iVar3 == 0x3b9e5c10) {
+   1070|               FUN_00798ec8(param_1,param_2,param_3);
+   1071|               return;
+   .... 3 straight-line statements
+   1075|         else if (iVar3 < 0x3b9e6bb1) {
+   1076|           if (iVar3 == 0x3b9e67c8) {
+   1077|             FUN_00798f54(param_1,param_2,param_3);
+   1078|             return;
+   .... 1 straight-line statements
+   1080|           if (iVar3 == 0x3b9e6bb0) {
+   1081|             FUN_00798fe0(param_1,param_2,param_3);
+   1082|             return;
+   .... 2 straight-line statements
+   1085|         else {
+   1086|           if (iVar3 == 0x3b9e6bb1) {
+   1087|             FUN_00799054(param_1,param_2,param_3);
+   1088|             return;
+   .... 1 straight-line statements
+   1090|           if (iVar3 == 0x3b9e6f98) {
+   1091|             FUN_00793958(param_1,param_2,param_3);
+   1092|             return;
+   .... 1 straight-line statements
+   1094|           if (iVar3 == 0x3b9e7380) {
+   1095|             FUN_007990c8(param_1,param_2,param_3);
+   1096|             return;
+   .... 3 straight-line statements
+   1100|       else if (iVar3 < 0x3b9e8af0) {
+   1101|         if (iVar3 < 0x3b9e776a) {
+   1102|           if (iVar3 == 0x3b9e7768) {
+   1103|             FUN_00791170(param_1,param_2,param_3);
+   1104|             return;
+   .... 1 straight-line statements
+   1106|           if (iVar3 == 0x3b9e7769) {
+   1107|             FUN_007911e4(param_1,param_2,param_3);
+   1108|             return;
+   .... 2 straight-line statements
+   1111|         else {
+   1112|           if (iVar3 == 0x3b9e776a) {
+   1113|             FUN_00791258(param_1,param_2,param_3);
+   1114|             return;
+   .... 1 straight-line statements
+   1116|           if (iVar3 == 0x3b9e8320) {
+   1117|             FUN_0079913c(param_1,param_2,param_3);
+   1118|             return;
+   .... 1 straight-line statements
+   1120|           if (iVar3 == 0x3b9e8322) {
+   1121|             FUN_007991e0(param_1,param_2,param_3);
+   1122|             return;
+   .... 3 straight-line statements
+   1126|       else if (iVar3 < 0x3b9e92c0) {
+   1127|         if (iVar3 == 0x3b9e8af0) {
+   1128|           FUN_00790b48(param_1,param_2,param_3);
+   1129|           return;
+   .... 1 straight-line statements
+   1131|         if (iVar3 == 0x3b9e8ed8) {
+   1132|           FUN_00799328(param_1,param_2,param_3);
+   1133|           return;
+   .... 2 straight-line statements
+   1136|       else {
+   1137|         if (iVar3 == 0x3b9e92c0) {
+   1138|           FUN_007939cc(param_1,param_2,param_3);
+   1139|           return;
+   .... 1 straight-line statements
+   1141|         if (iVar3 == 0x3b9e96a8) {
+   1142|           FUN_00799508(param_1,param_2,param_3);
+   1143|           return;
+   .... 1 straight-line statements
+   1145|         if (iVar3 == 0x3b9e96aa) {
+   1146|           FUN_00799594(param_1,param_2,param_3);
+   1147|           return;
+   .... 3 straight-line statements
+   1151|     else if (iVar3 < 0x3b9eb5ea) {
+   1152|       if (iVar3 < 0x3b9ea648) {
+   1153|         if (iVar3 < 0x3b9e9e78) {
+   1154|           if (iVar3 == 0x3b9e9a90) {
+   1155|             FUN_00799608(param_1,param_2,param_3);
+   1156|             return;
+   .... 1 straight-line statements
+   1158|           if (iVar3 == 0x3b9e9a91) {
+   1159|             FUN_0079967c(param_1,param_2,param_3);
+   1160|             return;
+   .... 2 straight-line statements
+   1163|         else {
+   1164|           if (iVar3 == 0x3b9e9e78) {
+   1165|             FUN_007997c4(param_1,param_2,param_3);
+   1166|             return;
+   .... 1 straight-line statements
+   1168|           if (iVar3 == 0x3b9ea260) {
+   1169|             FUN_00799868(param_1,param_2,param_3);
+   1170|             return;
+   .... 3 straight-line statements
+   1174|       else if (iVar3 < 0x3b9eaa31) {
+   1175|         if (iVar3 == 0x3b9ea648) {
+   1176|           FUN_00791088(param_1,param_2,param_3);
+   1177|           return;
+   .... 1 straight-line statements
+   1179|         if (iVar3 == 0x3b9eaa30) {
+   1180|           FUN_007998dc(param_1,param_2,param_3);
+   1181|           return;
+   .... 2 straight-line statements
+   1184|       else {
+   1185|         if (iVar3 == 0x3b9eaa31) {
+   1186|           FUN_007999f4(param_1,param_2,param_3);
+   1187|           return;
+   .... 1 straight-line statements
+   1189|         if (iVar3 == 0x3b9eaa32) {
+   1190|           FUN_00799968(param_1,param_2,param_3);
+   1191|           return;
+   .... 1 straight-line statements
+   1193|         if (iVar3 == 0x3b9eb5e8) {
+   1194|           FUN_007915c0(param_1,param_2,param_3);
+   1195|           return;
+   .... 3 straight-line statements
+   1199|     else if (iVar3 < 0x3b9ec1a0) {
+   1200|       if (iVar3 < 0x3b9ebdb8) {
+   1201|         if (iVar3 == 0x3b9eb5ea) {
+   1202|           FUN_00791664(param_1,param_2,param_3);
+   1203|           return;
+   .... 1 straight-line statements
+   1205|         if (iVar3 == 0x3b9eb5eb) {
+   1206|           FUN_007916d8(param_1,param_2,param_3);
+   1207|           return;
+   .... 2 straight-line statements
+   1210|       else {
+   1211|         if (iVar3 == 0x3b9ebdb8) {
+   1212|           FUN_00799a68(param_1,param_2,param_3);
+   1213|           return;
+   .... 1 straight-line statements
+   1215|         if (iVar3 == 0x3b9ebdb9) {
+   1216|           FUN_00799bc8(param_1,param_2,param_3);
+   1217|           return;
+   .... 1 straight-line statements
+   1219|         if (iVar3 == 0x3b9ebdba) {
+   1220|           FUN_00799b54(param_1,param_2,param_3);
+   1221|           return;
+   .... 3 straight-line statements
+   1225|     else if (iVar3 < 0x3b9ed528) {
+   1226|       if (iVar3 == 0x3b9ec1a0) {
+   1227|         FUN_00799c84(param_1,param_2,param_3);
+   1228|         return;
+   .... 1 straight-line statements
+   1230|       if (iVar3 == 0x3b9ec588) {
+   1231|         FUN_007912e4(param_1,param_2,param_3);
+   1232|         return;
+   .... 2 straight-line statements
+   1235|     else {
+   1236|       if (iVar3 == 0x3b9ed528) {
+   1237|         FUN_00799e00(param_1,param_2,param_3);
+   1238|         return;
+   .... 1 straight-line statements
+   1240|       if (iVar3 == 0x3b9edcf8) {
+   1241|         FUN_00799e74(param_1,param_2,param_3);
+   1242|         return;
+   .... 1 straight-line statements
+   1244|       if (iVar3 == 0x3b9ee4c8) {
+   1245|         FUN_00793a40(param_1,param_2,param_3);
+   1246|         return;
+   .... 3 straight-line statements
+   1250|   else if (iVar3 < 0x3b9fc75a) {
+   1251|     if (iVar3 < 0x3b9f2b19) {
+   1252|       if (iVar3 < 0x3b9f13a8) {
+   1253|         if (iVar3 < 0x3b9f040f) {
+   1254|           if (iVar3 < 0x3b9f0408) {
+   1255|             if (iVar3 == 0x3b9ef468) {
+   1256|               FUN_00799ee8(param_1,param_2,param_3);
+   1257|               return;
+   .... 1 straight-line statements
+   1259|             if (iVar3 == 0x3b9f0020) {
+   1260|               FUN_0079a064(param_1,param_2,param_3);
+   1261|               return;
+   .... 2 straight-line statements
+   1264|           else {
+   1265|             if (iVar3 == 0x3b9f0408) {
+   1266|               FUN_0079a0d8(param_1,param_2,param_3);
+   1267|               return;
+   .... 1 straight-line statements
+   1269|             if (iVar3 == 0x3b9f040a) {
+   1270|               FUN_0079a3e4(param_1,param_2,param_3);
+   1271|               return;
+   .... 3 straight-line statements
+   1275|         else if (iVar3 < 0x3b9f07f1) {
+   1276|           if (iVar3 == 0x3b9f040f) {
+   1277|             FUN_0079a20c(param_1,param_2,param_3);
+   1278|             return;
+   .... 1 straight-line statements
+   1280|           if (iVar3 == 0x3b9f07f0) {
+   1281|             FUN_0079a530(param_1,param_2,param_3);
+   1282|             return;
+   .... 2 straight-line statements
+   1285|         else {
+   1286|           if (iVar3 == 0x3b9f07f1) {
+   1287|             FUN_0079a5a4(param_1,param_2,param_3);
+   1288|             return;
+   .... 1 straight-line statements
+   1290|           if (iVar3 == 0x3b9f0fc0) {
+   1291|             FUN_00793d14(param_1,param_2,param_3);
+   1292|             return;
+   .... 1 straight-line statements
+   1294|           if (iVar3 == 0x3b9f0fc1) {
+   1295|             FUN_00793d88(param_1,param_2,param_3);
+   1296|             return;
+   .... 3 straight-line statements
+   1300|       else if (iVar3 < 0x3b9f1f60) {
+   1301|         if (iVar3 < 0x3b9f1790) {
+   1302|           if (iVar3 == 0x3b9f13a8) {
+   1303|             FUN_0079a6e4(param_1,param_2,param_3);
+   1304|             return;
+   .... 1 straight-line statements
+   1306|           if (iVar3 == 0x3b9f13a9) {
+   1307|             FUN_0079a758(param_1,param_2,param_3);
+   1308|             return;
+   .... 2 straight-line statements
+   1311|         else {
+   1312|           if (iVar3 == 0x3b9f1790) {
+   1313|             FUN_0079a888(param_1,param_2,param_3);
+   1314|             return;
+   .... 1 straight-line statements
+   1316|           if (iVar3 == 0x3b9f1791) {
+   1317|             FUN_0079a814(param_1,param_2,param_3);
+   1318|             return;
+   .... 3 straight-line statements
+   1322|       else if (iVar3 < 0x3b9f2730) {
+   1323|         if (iVar3 == 0x3b9f1f60) {
+   1324|           FUN_0079a95c(param_1,param_2,param_3);
+   1325|           return;
+   .... 1 straight-line statements
+   1327|         if (iVar3 == 0x3b9f1f61) {
+   1328|           FUN_0079a9d0(param_1,param_2,param_3);
+   1329|           return;
+   .... 2 straight-line statements
+   1332|       else {
+   1333|         if (iVar3 == 0x3b9f2730) {
+   1334|           FUN_0079aa68(param_1,param_2,param_3);
+   1335|           return;
+   .... 1 straight-line statements
+   1337|         if (iVar3 == 0x3b9f2731) {
+   1338|           FUN_0079ab0c(param_1,param_2,param_3);
+   1339|           return;
+   .... 1 straight-line statements
+   1341|         if (iVar3 == 0x3b9f2b18) {
+   1342|           FUN_0079ab98(param_1,param_2,param_3);
+   1343|           return;
+   .... 3 straight-line statements
+   1347|     else if (iVar3 < 0x3b9f9490) {
+   1348|       if (iVar3 < 0x3b9f4a58) {
+   1349|         if (iVar3 < 0x3b9f4670) {
+   1350|           if (iVar3 == 0x3b9f2b19) {
+   1351|             FUN_0079ac24(param_1,param_2,param_3);
+   1352|             return;
+   .... 1 straight-line statements
+   1354|           if (iVar3 == 0x3b9f2b1a) {
+   1355|             FUN_0079ac98(param_1,param_2,param_3);
+   1356|             return;
+   .... 2 straight-line statements
+   1359|         else {
+   1360|           if (iVar3 == 0x3b9f4670) {
+   1361|             FUN_007940b4(param_1,param_2,param_3);
+   1362|             return;
+   .... 1 straight-line statements
+   1364|           if (iVar3 == 0x3b9f4671) {
+   1365|             FUN_00794164(param_1,param_2,param_3);
+   1366|             return;
+   .... 3 straight-line statements
+   1370|       else if (iVar3 < 0x3b9f5228) {
+   1371|         if (iVar3 == 0x3b9f4a58) {
+   1372|           FUN_0079ad24(param_1,param_2,param_3);
+   1373|           return;
+   .... 1 straight-line statements
+   1375|         if (iVar3 == 0x3b9f4a59) {
+   1376|           FUN_0079ad98(param_1,param_2,param_3);
+   1377|           return;
+   .... 2 straight-line statements
+   1380|       else {
+   1381|         if (iVar3 == 0x3b9f5228) {
+   1382|           FUN_0079ae0c(param_1,param_2,param_3);
+   1383|           return;
+   .... 1 straight-line statements
+   1385|         if (iVar3 == 0x3b9f5de0) {
+   1386|           FUN_0079ae80(param_1,param_2,param_3);
+   1387|           return;
+   .... 1 straight-line statements
+   1389|         if (iVar3 == 0x3b9f5de1) {
+   1390|           FUN_0079aef4(param_1,param_2,param_3);
+   1391|           return;
+   .... 3 straight-line statements
+   1395|     else if (iVar3 < 0x3b9fc370) {
+   1396|       if (iVar3 < 0x3b9f9498) {
+   1397|         if (iVar3 == 0x3b9f9490) {
+   1398|           FUN_007941d8(param_1,param_2,param_3);
+   1399|           return;
+   .... 1 straight-line statements
+   1401|         if (iVar3 == 0x3b9f9497) {
+   1402|           FUN_00794294(param_1,param_2,param_3);
+   1403|           return;
+   .... 2 straight-line statements
+   1406|       else {
+   1407|         if (iVar3 == 0x3b9f9498) {
+   1408|           FUN_00794308(param_1,param_2,param_3);
+   1409|           return;
+   .... 1 straight-line statements
+   1411|         if (iVar3 == 0x3b9fb7b8) {
+   1412|           FUN_00794428(param_1,param_2,param_3);
+   1413|           return;
+   .... 1 straight-line statements
+   1415|         if (iVar3 == 0x3b9fbf88) {
+   1416|           FUN_0079449c(param_1,param_2,param_3);
+   1417|           return;
+   .... 3 straight-line statements
+   1421|     else if (iVar3 < 0x3b9fc372) {
+   1422|       if (iVar3 == 0x3b9fc370) {
+   1423|         FUN_0079b00c(param_1,param_2,param_3);
+   1424|         return;
+   .... 1 straight-line statements
+   1426|       if (iVar3 == 0x3b9fc371) {
+   1427|         FUN_0079af68(param_1,param_2,param_3);
+   1428|         return;
+   .... 2 straight-line statements
+   1431|     else {
+   1432|       if (iVar3 == 0x3b9fc372) {
+   1433|         FUN_0079b080(param_1,param_2,param_3);
+   1434|         return;
+   .... 1 straight-line statements
+   1436|       if (iVar3 == 0x3b9fc758) {
+   1437|         FUN_0079b124(param_1,param_2,param_3);
+   1438|         return;
+   .... 1 straight-line statements
+   1440|       if (iVar3 == 0x3b9fc759) {
+   1441|         FUN_0079b224(param_1,param_2,param_3);
+   1442|         return;
+   .... 3 straight-line statements
+   1446|   else if (iVar3 < 0x3ba06b69) {
+   1447|     if (iVar3 < 0x3ba01578) {
+   1448|       if (iVar3 < 0x3b9fdec8) {
+   1449|         if (iVar3 < 0x3b9fdae0) {
+   1450|           if (iVar3 == 0x3b9fc75a) {
+   1451|             FUN_0079b198(param_1,param_2,param_3);
+   1452|             return;
+   .... 1 straight-line statements
+   1454|           if (iVar3 == 0x3b9fd310) {
+   1455|             FUN_0079b2b0(param_1,param_2,param_3);
+   1456|             return;
+   .... 2 straight-line statements
+   1459|         else {
+   1460|           if (iVar3 == 0x3b9fdae0) {
+   1461|             FUN_0079b324(param_1,param_2,param_3);
+   1462|             return;
+   .... 1 straight-line statements
+   1464|           if (iVar3 == 0x3b9fdae1) {
+   1465|             FUN_0079b398(param_1,param_2,param_3);
+   1466|             return;
+   .... 3 straight-line statements
+   1470|       else if (iVar3 < 0x3b9fea80) {
+   1471|         if (iVar3 == 0x3b9fdec8) {
+   1472|           FUN_0079b454(param_1,param_2,param_3);
+   1473|           return;
+   .... 1 straight-line statements
+   1475|         if (iVar3 == 0x3b9fe698) {
+   1476|           FUN_0079b4c8(param_1,param_2,param_3);
+   1477|           return;
+   .... 2 straight-line statements
+   1480|       else {
+   1481|         if (iVar3 == 0x3b9fea80) {
+   1482|           FUN_00794510(param_1,param_2,param_3);
+   1483|           return;
+   .... 1 straight-line statements
+   1485|         if (iVar3 == 0x3b9ffa20) {
+   1486|           FUN_0079b53c(param_1,param_2,param_3);
+   1487|           return;
+   .... 1 straight-line statements
+   1489|         if (iVar3 == 0x3ba009c0) {
+   1490|           FUN_0079b5c8(param_1,param_2,param_3);
+   1491|           return;
+   .... 3 straight-line statements
+   1495|     else if (iVar3 < 0x3ba02900) {
+   1496|       if (iVar3 < 0x3ba0196d) {
+   1497|         if (iVar3 == 0x3ba01578) {
+   1498|           FUN_0079c6e0(param_1,param_2,param_3);
+   1499|           return;
+   .... 1 straight-line statements
+   1501|         if (iVar3 == 0x3ba01579) {
+   1502|           FUN_0079c7b4(param_1,param_2,param_3);
+   1503|           return;
+   .... 2 straight-line statements
+   1506|       else {
+   1507|         if (iVar3 == 0x3ba0196d) {
+   1508|           FUN_0079c8d0(param_1,param_2,param_3);
+   1509|           return;
+   .... 1 straight-line statements
+   1511|         if (iVar3 == 0x3ba02518) {
+   1512|           FUN_0079b63c(param_1,param_2,param_3);
+   1513|           return;
+   .... 1 straight-line statements
+   1515|         if (iVar3 == 0x3ba0251a) {
+   1516|           FUN_0079b6b0(param_1,param_2,param_3);
+   1517|           return;
+   .... 3 straight-line statements
+   1521|     else if (iVar3 < 0x3ba038a0) {
+   1522|       if (iVar3 == 0x3ba02900) {
+   1523|         FUN_0079b790(param_1,param_2,param_3);
+   1524|         return;
+   .... 1 straight-line statements
+   1526|       if (iVar3 == 0x3ba02ce8) {
+   1527|         FUN_0079b804(param_1,param_2,param_3);
+   1528|         return;
+   .... 2 straight-line statements
+   1531|     else {
+   1532|       if (iVar3 == 0x3ba038a0) {
+   1533|         FUN_0079b8f0(param_1,param_2,param_3);
+   1534|         return;
+   .... 1 straight-line statements
+   1536|       if (iVar3 == 0x3ba04840) {
+   1537|         FUN_007945cc(param_1,param_2,param_3);
+   1538|         return;
+   .... 1 straight-line statements
+   1540|       if (iVar3 == 0x3ba06b68) {
+   1541|         FUN_0079b97c(param_1,param_2,param_3);
+   1542|         return;
+   .... 3 straight-line statements
+   1546|   else if (iVar3 < 0x3ba0a9ea) {
+   1547|     if (iVar3 < 0x3ba08aa8) {
+   1548|       if (iVar3 < 0x3ba06f50) {
+   1549|         if (iVar3 == 0x3ba06b69) {
+   1550|           FUN_0079ba54(param_1,param_2,param_3);
+   1551|           return;
+   .... 1 straight-line statements
+   1553|         if (iVar3 == 0x3ba06b6a) {
+   1554|           FUN_0079bac8(param_1,param_2,param_3);
+   1555|           return;
+   .... 2 straight-line statements
+   1558|       else {
+   1559|         if (iVar3 == 0x3ba06f50) {
+   1560|           FUN_0079bb3c(param_1,param_2,param_3);
+   1561|           return;
+   .... 1 straight-line statements
+   1563|         if (iVar3 == 0x3ba07339) {
+   1564|           FUN_0079bbb0(param_1,param_2,param_3);
+   1565|           return;
+   .... 3 straight-line statements
+   1569|     else if (iVar3 < 0x3ba09a49) {
+   1570|       if (iVar3 == 0x3ba08aa8) {
+   1571|         FUN_0079bc24(param_1,param_2,param_3);
+   1572|         return;
+   .... 1 straight-line statements
+   1574|       if (iVar3 == 0x3ba09a48) {
+   1575|         FUN_0079bcc8(param_1,param_2,param_3);
+   1576|         return;
+   .... 2 straight-line statements
+   1579|     else {
+   1580|       if (iVar3 == 0x3ba09a49) {
+   1581|         FUN_0079bd3c(param_1,param_2,param_3);
+   1582|         return;
+   .... 1 straight-line statements
+   1584|       if (iVar3 == 0x3ba0a9e8) {
+   1585| LAB_00787fd8:
+   1586|         FUN_0079bdcc(param_1,param_2,param_3);
+   1587|         return;
+   .... 1 straight-line statements
+   1589|       if (iVar3 == 0x3ba0a9e9) goto LAB_0078b3a4;
+   .... 2 straight-line statements
+   1592|   else if (iVar3 < 0x3ba10f78) {
+   1593|     if (iVar3 < 0x3ba0b5a1) {
+   1594|       if (iVar3 == 0x3ba0a9ea) goto LAB_00788b88;
+   1595|       if (iVar3 == 0x3ba0b5a0) {
+   1596|         FUN_0079bf88(param_1,param_2,param_3);
+   1597|         return;
+   .... 2 straight-line statements
+   1600|     else {
+   1601|       if (iVar3 == 0x3ba0b5a1) {
+   1602|         FUN_0079bffc(param_1,param_2,param_3);
+   1603|         return;
+   .... 1 straight-line statements
+   1605|       if (iVar3 == 0x3ba0c540) {
+   1606|         FUN_0079c088(param_1,param_2,param_3);
+   1607|         return;
+   .... 1 straight-line statements
+   1609|       if (iVar3 == 0x3ba0c541) {
+   1610|         FUN_0079c0fc(param_1,param_2,param_3);
+   1611|         return;
+   .... 3 straight-line statements
+   1615|   else if (iVar3 < 0x3ba11360) {
+   1616|     if (iVar3 == 0x3ba10f78) {
+   1617|       FUN_0079c170(param_1,param_2,param_3);
+   1618|       return;
+   .... 1 straight-line statements
+   1620|     if (iVar3 == 0x3ba10f79) {
+   1621|       FUN_0079c1fc(param_1,param_2,param_3);
+   1622|       return;
+   .... 2 straight-line statements
+   1625|   else {
+   1626|     if (iVar3 == 0x3ba11360) {
+   1627|       FUN_0079c2d0(param_1,param_2,param_3);
+   1628|       return;
+   .... 1 straight-line statements
+   1630|     if (iVar3 == 0x3ba11748) {
+   1631|       FUN_00794670(param_1,param_2,param_3);
+   1632|       return;
+   .... 1 straight-line statements
+   1634|     if (iVar3 == 0x3ba11749) {
+   1635|       FUN_007946e4(param_1,param_2,param_3);
+   1636|       return;
+   .... 8 straight-line statements (to end)
+==============================================================================
+SKELETON 0x3a82dc  lines=1546 shape=branch-web
+   .... 1 straight-line statements
+      1| void FUN_004a82dc(long param_1,int *param_2)
+   .... 353 straight-line statements
+    355| LAB_004a8bcc:
+   .... 3 straight-line statements
+    359|   if (0xb6bebb4 < local_a10) {
+   .... 1 straight-line statements
+    361|     if (local_a10 < 0x40606f4c) {
+    362|       if (local_a10 < 0x243c876b) {
+    363|         if (local_a10 < 0x1706bfd3) {
+    364|           if (local_a10 < 0x10d96e97) {
+    365|             if (local_a10 < 0xc7b618e) {
+    366|               if (local_a10 < 0xbe31a28) {
+    367|                 if (local_a10 == 0xb6bebb5) {
+   .... 2 straight-line statements
+    370| LAB_004ae1ac:
+   .... 2 straight-line statements
+    373|                 else if (local_a10 == 0xbc84c85) {
+   .... 3 straight-line statements
+    377|               else if ((local_a10 != 0xbe31a28) && (local_a10 == 0xbf5b3d3)) {
+   .... 3 straight-line statements
+    381|             else if (local_a10 < 0xe2b7830) {
+    382|               if ((local_a10 != 0xc7b618e) && (local_a10 == 0xd5a5998)) {
+   .... 3 straight-line statements
+    386|             else if ((local_a10 != 0xe2b7830) && (local_a10 == 0xf785351)) {
+    387| LAB_004acfd0:
+   .... 3 straight-line statements
+    391|           else if (local_a10 < 0x133d80dc) {
+    392|             if (local_a10 < 0x11c46d1d) {
+    393|               if (local_a10 == 0x10d96e97) {
+   .... 2 straight-line statements
+    396|               else if (local_a10 == 0x110577d3) {
+   .... 4 straight-line statements
+    401|           else if (local_a10 < 0x1473aa89) {
+    402|             if ((local_a10 != 0x133d80dc) && (local_a10 == 0x13f24a6e)) {
+   .... 3 straight-line statements
+    406|           else if (((local_a10 != 0x1473aa89) && (local_a10 != 0x15fcb704)) &&
+   .... 5 straight-line statements
+    412|         else if (local_a10 < 0x1bf10395) {
+    413|           if (local_a10 < 0x186d98f2) {
+    414|             if (local_a10 < 0x180eddab) {
+    415|               if (local_a10 == 0x1706bfd3) {
+   .... 2 straight-line statements
+    418|               else if (local_a10 == 0x177c8180) {
+   .... 3 straight-line statements
+    422|             else if (local_a10 == 0x180eddab) {
+   .... 2 straight-line statements
+    425|             else if (local_a10 == 0x185d32eb) {
+   .... 10 straight-line statements
+    436|               if (bVar9) {
+   .... 4 straight-line statements
+    441|           else if (local_a10 < 0x192733d2) {
+    442|             if (local_a10 == 0x186d98f2) {
+   .... 3 straight-line statements
+    446|               if (0xabff1bef <
+   .... 6 straight-line statements
+    453|           else if (local_a10 == 0x192733d2) {
+   .... 2 straight-line statements
+    456|           else if ((local_a10 != 0x19e95991) && (local_a10 == 0x19f70951)) {
+   .... 3 straight-line statements
+    460|         else if (local_a10 < 0x2111af5f) {
+    461|           if (local_a10 < 0x1ff4887d) {
+    462|             if ((local_a10 != 0x1bf10395) && (local_a10 == 0x1cbaad8f)) {
+   .... 3 straight-line statements
+    466|           else if (local_a10 == 0x1ff4887d) {
+   .... 2 straight-line statements
+    469|           else if (local_a10 == 0x1ffad614) {
+   .... 3 straight-line statements
+    473|         else if (local_a10 < 0x215bac45) {
+    474|           if ((local_a10 != 0x2111af5f) && (local_a10 == 0x21599bfe)) {
+   .... 3 straight-line statements
+    478|         else if (local_a10 == 0x215bac45) {
+   .... 2 straight-line statements
+    481|         else if (local_a10 == 0x22a84113) {
+   .... 2 straight-line statements
+    484|         else if (local_a10 == 0x22ea08d9) {
+   .... 6 straight-line statements
+    491|           if ((uVar14 & 0x3faa2ae7) * 2 - (uVar14 ^ 0xc055d518) == -0x7cf1e458) {
+   .... 4 straight-line statements
+    496|       else if (local_a10 < 0x331869d7) {
+    497|         if (local_a10 < 0x29f71d9d) {
+    498|           if (local_a10 < 0x286c22f0) {
+    499|             if (local_a10 < 0x25d87463) {
+    500|               if (local_a10 == 0x243c876b) {
+   .... 3 straight-line statements
+    504|             else {
+   .... 1 straight-line statements
+    506|               if (local_a10 == 0x25d87463) goto LAB_004b0820;
+   .... 2 straight-line statements
+    509|           else if (local_a10 < 0x296d9044) {
+    510|             if (local_a10 == 0x286c22f0) {
+   .... 2 straight-line statements
+    513|               if (0x6ed3fa47 <
+   .... 5 straight-line statements
+    519|             else if (local_a10 == 0x294fae84) {
+   .... 2 straight-line statements
+    522|               if ((uint)-(int)((long)((ulong)((uVar14 & 0xfffffffd) + (uVar14 | 0xae0a9fad)) *
+   .... 5 straight-line statements
+    528|           else if (local_a10 != 0x296d9044) {
+    529|             if (local_a10 == 0x297e7926) {
+   .... 2 straight-line statements
+    532|             else if (local_a10 == 0x29c9dff8) {
+   .... 2 straight-line statements
+    535|               goto LAB_004aafd4;
+   .... 3 straight-line statements
+    539|         else if (local_a10 < 0x2b60cf6f) {
+    540|           if (local_a10 < 0x2a08592e) {
+    541|             if (local_a10 == 0x29f71d9d) {
+   .... 2 straight-line statements
+    544|             else if (local_a10 == 0x29f94d68) goto LAB_004aefd4;
+   .... 1 straight-line statements
+    546|           else if (local_a10 == 0x2a08592e) {
+   .... 2 straight-line statements
+    549|             if (0xd6b03d4 <
+   .... 5 straight-line statements
+    555|           else if (local_a10 == 0x2b11bc7c) {
+   .... 3 straight-line statements
+    559|         else if (local_a10 < 0x2ca7bf9b) {
+    560|           if (local_a10 == 0x2b60cf6f) {
+   .... 2 straight-line statements
+    563|           else if (local_a10 == 0x2bd8c2b1) {
+   .... 3 straight-line statements
+    567|         else if (local_a10 == 0x2ca7bf9b) {
+   .... 2 straight-line statements
+    570|         else if (local_a10 == 0x2f27268c) {
+   .... 1 straight-line statements
+    572|           goto LAB_004af5e4;
+   .... 2 straight-line statements
+    575|       else if (local_a10 < 0x39153f7c) {
+    576|         if (local_a10 < 0x353b961d) {
+    577|           if (local_a10 < 0x3391169e) {
+    578|             if (local_a10 == 0x331869d7) {
+   .... 3 straight-line statements
+    582|           else if (local_a10 == 0x3391169e) {
+   .... 1 straight-line statements
+    584|             if ((DAT_00a2cb84 ^ 0xdc780cad) * (DAT_00a2cb88 ^ 0x733d6578) != -0x3bd6f540) {
+   .... 3 straight-line statements
+    588|           else if (local_a10 == 0x33cd8ba3) {
+   .... 3 straight-line statements
+    592|         else if (local_a10 < 0x368c3536) {
+    593|           if (local_a10 == 0x35894d0f) {
+   .... 2 straight-line statements
+    596|           else if (local_a10 == 0x36467185) {
+   .... 2 straight-line statements
+    599|           else if (local_a10 == 0x353b961d) {
+    600|             if (*(long *)(local_3d8 + 0x28) == local_70) {
+    601|               return;
+   .... 6 straight-line statements
+    608|       else if (local_a10 < 0x3e121fa5) {
+    609|         if (((0x3bf2043e < local_a10) && (local_a10 != 0x3bf2043f)) && (local_a10 == 0x3c6c5f26)) {
+   .... 4 straight-line statements
+    614|       else if (local_a10 < 0x3f7dd42a) {
+    615|         if ((local_a10 != 0x3e121fa5) && (local_a10 == 0x3f35e306)) {
+   .... 3 straight-line statements
+    619|       else if (local_a10 == 0x3f7dd42a) {
+   .... 1 straight-line statements
+    621|         if ((DAT_00a2cd78 ^ 0x605b5c7d) != 0) {
+   .... 3 straight-line statements
+    625|         if ((int)((long)((ulong)(uVar14 | 0xae3c6bd) * 0x9e0d95f1) >> 0x3f) == 0x773ecebe) {
+   .... 3 straight-line statements
+    629|       else if (local_a10 == 0x3f908787) {
+   .... 2 straight-line statements
+    632|         if (((uVar14 ^ 0x4010c026 | 0x3ded34c9) & (uVar14 ^ 0xffe0ffe0 | 0xd7d8f6b6) & 0xfffdf6ff)
+   .... 4 straight-line statements
+    637|       else if (local_a10 == 0x403dce23) {
+   .... 2 straight-line statements
+    640|       goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    642|     if (local_a10 < 0x62bca0bf) {
+    643|       if (0x528218c5 < local_a10) {
+    644|         if (local_a10 < 0x5b3ba0b0) {
+    645|           if (local_a10 < 0x5878e1ca) {
+    646|             if (local_a10 < 0x537b4e6e) {
+    647|               if (local_a10 == 0x528218c6) {
+   .... 1 straight-line statements
+    649|                 if ((DAT_00a2cc68 ^ 0xb49d8112) != 0) {
+   .... 3 straight-line statements
+    653|                 if ((int)((long)((ulong)uVar14 * 0xa538724d) >> 0x3f) * -0x4ad5edec + 0xe2db3242U <
+   .... 5 straight-line statements
+    659|             else if (local_a10 == 0x537b4e6e) {
+   .... 4 straight-line statements
+    664|               goto LAB_004ad4c4;
+   .... 2 straight-line statements
+    667|           else if (local_a10 < 0x58fbe0ce) {
+    668|             if (local_a10 == 0x5878e1ca) {
+   .... 2 straight-line statements
+    671|             else if (local_a10 == 0x58a29e7e) {
+   .... 3 straight-line statements
+    675|           else if (local_a10 == 0x58fbe0ce) {
+   .... 2 straight-line statements
+    678|           else if (local_a10 == 0x59811cdf) {
+   .... 2 straight-line statements
+    681|           else if ((local_a10 == 0x59dcb711) &&
+   .... 6 straight-line statements
+    688|         else if (local_a10 < 0x5ecd2b7d) {
+    689|           if (local_a10 < 0x5ce08223) {
+    690|             if (local_a10 == 0x5b3ba0b0) {
+   .... 1 straight-line statements
+    692|               if (*local_290 == 0) {
+   .... 4 straight-line statements
+    697|             else if (local_a10 == 0x5c8e5fb8) {
+   .... 10 straight-line statements
+    708|           else if (local_a10 == 0x5ce08223) {
+   .... 2 straight-line statements
+    711|           else if (local_a10 == 0x5e89a96a) {
+   .... 2 straight-line statements
+    714|             goto LAB_004ae1ac;
+   .... 2 straight-line statements
+    717|         else if (local_a10 < 0x606ce314) {
+    718|           if (local_a10 == 0x5ecd2b7d) {
+   .... 3 straight-line statements
+    722|         else if (local_a10 == 0x606ce314) {
+   .... 3 straight-line statements
+    726|         else if (local_a10 == 0x619b4374) {
+   .... 4 straight-line statements
+    731|         else if (local_a10 == 0x61f1501a) {
+   .... 3 straight-line statements
+    735|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    737|       if (0x47bd57d0 < local_a10) {
+    738|         if (local_a10 < 0x4afee5a5) {
+    739|           if (local_a10 < 0x48fd7c84) {
+    740|             if (local_a10 == 0x47bd57d1) {
+   .... 5 straight-line statements
+    746|           else if (local_a10 == 0x48fd7c84) goto LAB_004b0820;
+   .... 1 straight-line statements
+    748|         else if (local_a10 < 0x4d6e6faa) {
+    749|           if ((local_a10 != 0x4afee5a5) && (local_a10 == 0x4cb686d1)) {
+   .... 3 straight-line statements
+    753|         else if (((local_a10 != 0x4d6e6faa) && (local_a10 != 0x4f759042)) &&
+   .... 4 straight-line statements
+    758|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    760|       if (local_a10 < 0x45594d71) {
+    761|         if (local_a10 < 0x44f304f2) {
+    762|           if (local_a10 == 0x40606f4c) {
+   .... 3 straight-line statements
+    766|         else if (local_a10 == 0x44f304f2) {
+   .... 2 straight-line statements
+    769|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    771|       if (local_a10 < 0x4681f353) {
+    772|         if (local_a10 == 0x45594d71) {
+   .... 2 straight-line statements
+    775|         else if (local_a10 == 0x455e554f) {
+   .... 2 straight-line statements
+    778|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    780|       if ((local_a10 == 0x4681f353) || (plVar16 = local_a0, local_a10 != 0x46d7566d))
+    781|       goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    783|     else {
+    784|       if (local_a10 < 0x726c58a0) {
+    785|         if (local_a10 < 0x6aff9b59) {
+    786|           if (local_a10 < 0x66196483) {
+    787|             if (local_a10 < 0x64bd57a1) {
+    788|               if (local_a10 == 0x62bca0bf) {
+   .... 6 straight-line statements
+    795|               else if (local_a10 == 0x636fbc7a) {
+   .... 3 straight-line statements
+    799|             else {
+   .... 1 straight-line statements
+    801|               if (local_a10 == 0x64bd57a1) goto LAB_004b0820;
+    802|               if (local_a10 == 0x65fbfdf4) {
+   .... 4 straight-line statements
+    807|           else if (local_a10 < 0x6761f7f0) {
+    808|             if (local_a10 == 0x66196483) {
+   .... 3 straight-line statements
+    812|           else {
+    813|             if (local_a10 == 0x6761f7f0) goto LAB_004af5d0;
+    814|             if (local_a10 == 0x67df4d1a) {
+   .... 4 straight-line statements
+    819|         else if (local_a10 < 0x6e0f3c79) {
+    820|           if (local_a10 < 0x6cd254c0) {
+    821|             if (local_a10 == 0x6aff9b59) {
+   .... 5 straight-line statements
+    827|               if (uVar14 + (uVar14 & 0xd8d8c40) * -2 + 0xd8d8c40 < 0x66efe660) {
+   .... 3 straight-line statements
+    831|             else if (local_a10 == 0x6b10d048) {
+   .... 4 straight-line statements
+    836|           else if (local_a10 == 0x6cd254c0) {
+   .... 3 straight-line statements
+    840|             if ((uint)((ulong)((uVar14 & 0x8fbd4cfc) * ((uVar14 ^ 0xffffffff) & 0x7042b303) +
+   .... 5 straight-line statements
+    846|           else if (local_a10 == 0x6df2bb9c) {
+   .... 3 straight-line statements
+    850|         else if (local_a10 < 0x6f4abfd6) {
+    851|           if (local_a10 == 0x6e0f3c79) {
+   .... 2 straight-line statements
+    854|           else if (local_a10 == 0x6e5e7b53) {
+   .... 4 straight-line statements
+    859|         else if (local_a10 == 0x6f4abfd6) {
+   .... 2 straight-line statements
+    862|         else if (local_a10 == 0x6fbca316) {
+   .... 2 straight-line statements
+    865|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    867|       if (local_a10 < 0x79dde67b) {
+    868|         if (local_a10 < 0x777f678d) {
+    869|           if (local_a10 < 0x74044020) {
+    870|             if ((local_a10 != 0x726c58a0) && (local_a10 == 0x72829ee5)) {
+   .... 3 straight-line statements
+    874|           else if (local_a10 == 0x74044020) {
+   .... 2 straight-line statements
+    877|           goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    879|         if (0x780a35f7 < local_a10) {
+    880|           if (local_a10 == 0x780a35f8) {
+   .... 2 straight-line statements
+    883|           else if (local_a10 == 0x78a5c8e5) {
+   .... 2 straight-line statements
+    886|           else if (local_a10 == 0x79cb09ab) {
+   .... 3 straight-line statements
+    890|           goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    892|         if ((local_a10 == 0x777f678d) || (local_a10 != 0x77aa41d5)) goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    894|         goto LAB_004b082c;
+   .... 1 straight-line statements
+    896|       if (0x7c3179c9 < local_a10) {
+    897|         if (local_a10 < 0x7e00447b) {
+    898|           if (local_a10 == 0x7c3179ca) goto LAB_004aefd4;
+    899|           if (local_a10 == 0x7d2f676a) {
+   .... 3 straight-line statements
+    903|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    905|       if (local_a10 < 0x7aef906a) {
+    906|         if (local_a10 == 0x79dde67b) {
+   .... 3 straight-line statements
+    910|         else if (local_a10 == 0x7a4a4905) {
+   .... 2 straight-line statements
+    913|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    915|       if (local_a10 != 0x7aef906a) {
+    916|         if (local_a10 == 0x7c20259b) {
+   .... 2 straight-line statements
+    919|         goto LAB_004a8bcc;
+   .... 2 straight-line statements
+    922| LAB_004aefd4:
+   .... 1 straight-line statements
+    924|     goto LAB_004b082c;
+   .... 1 straight-line statements
+    926|   if (local_a10 < -0x428d54f1) {
+    927|     if (local_a10 < -0x66512081) {
+    928|       if (local_a10 < -0x73f408a9) {
+    929|         if (local_a10 < -0x7b2a87bd) {
+    930|           if (local_a10 < -0x7e286886) {
+    931|             if (local_a10 < -0x7ec41a83) {
+    932|               if (local_a10 == -0x7f8375db) {
+   .... 3 straight-line statements
+    936|             else if ((local_a10 != -0x7ec41a83) && (local_a10 == -0x7e9cf1c4)) {
+   .... 3 straight-line statements
+    940|           else if (local_a10 < -0x7c425fa5) {
+    941|             if (local_a10 == -0x7e286886) {
+   .... 3 straight-line statements
+    945|           else {
+    946|             if (local_a10 == -0x7c425fa5) {
+   .... 2 straight-line statements
+    949|               goto LAB_004ae1ac;
+   .... 1 straight-line statements
+    951|             if (local_a10 == -0x7b97202f) {
+   .... 4 straight-line statements
+    956|         else if (local_a10 < -0x7580016f) {
+    957|           if (local_a10 < -0x78b514c4) {
+    958|             if (local_a10 == -0x7b2a87bd) {
+   .... 2 straight-line statements
+    961|             else if (local_a10 == -0x7ae8d91b) {
+   .... 6 straight-line statements
+    968|           else if (local_a10 == -0x78b514c4) {
+   .... 2 straight-line statements
+    971|           else if (local_a10 == -0x758d8e78) {
+   .... 3 straight-line statements
+    975|         else if (local_a10 < -0x753359cc) {
+    976|           if (local_a10 == -0x7580016f) {
+   .... 3 straight-line statements
+    980|         else if (local_a10 == -0x753359cc) {
+   .... 2 straight-line statements
+    983|         else if (local_a10 == -0x7516b9b4) {
+   .... 2 straight-line statements
+    986|         else if (local_a10 == -0x74e23da9) {
+   .... 1 straight-line statements
+    988|           if (0x2e42a08d < *local_388) {
+   .... 3 straight-line statements
+    992|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+    994|       if (-0x6c2ecdfd < local_a10) {
+    995|         if (local_a10 < -0x689eba07) {
+    996|           if (local_a10 < -0x6a33a0ab) {
+    997|             if (local_a10 == -0x6c2ecdfc) {
+   .... 2 straight-line statements
+   1000|             else if (local_a10 == -0x6aa4432d) {
+   .... 3 straight-line statements
+   1004|           else if (local_a10 == -0x6a33a0ab) {
+   .... 1 straight-line statements
+   1006|             goto LAB_004ae188;
+   .... 2 straight-line statements
+   1009|         else if (local_a10 < -0x67ca6f65) {
+   1010|           if (local_a10 == -0x689eba07) {
+   .... 3 straight-line statements
+   1014|         else if (((local_a10 != -0x67ca6f65) && (local_a10 != -0x66ed2e90)) &&
+   .... 3 straight-line statements
+   1018|           if (*local_128 <= *local_b8) {
+   .... 2 straight-line statements
+   1021|           goto LAB_004b082c;
+   .... 1 straight-line statements
+   1023|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1025|       if (-0x70d56f4d < local_a10) {
+   1026|         if (local_a10 < -0x6fcc3945) {
+   1027|           if ((local_a10 != -0x70d56f4c) && (local_a10 == -0x6fd9255a)) {
+   .... 2 straight-line statements
+   1030|             if (0x8ef27c96 <
+   .... 6 straight-line statements
+   1037|         else if (local_a10 == -0x6fcc3945) {
+   .... 2 straight-line statements
+   1040|         else if (local_a10 == -0x6f6c0886) {
+   .... 14 straight-line statements
+   1055|         else if (local_a10 == -0x6d788ce4) {
+   .... 2 straight-line statements
+   1058|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1060|       if (local_a10 < -0x71eee8c4) {
+   1061|         if ((local_a10 != -0x73f408a9) && (local_a10 == -0x72bed0e4)) {
+   .... 2 straight-line statements
+   1064|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1066|       if (local_a10 == -0x71eee8c4) {
+   .... 1 straight-line statements
+   1068|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1070|       if (local_a10 != -0x715907e8) goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1072|     else {
+   1073|       if (local_a10 < -0x5598d897) {
+   1074|         if (local_a10 < -0x5b5ca8e8) {
+   1075|           if (local_a10 < -0x64b56b47) {
+   1076|             if (local_a10 < -0x65aa322e) {
+   1077|               if (local_a10 == -0x66512081) {
+   .... 2 straight-line statements
+   1080|                 if (0xd7d320bc <
+   .... 4 straight-line statements
+   1085|               else if (local_a10 == -0x662978b0) {
+   .... 3 straight-line statements
+   1089|             else if ((local_a10 != -0x65aa322e) && (local_a10 == -0x658a8307)) {
+   .... 3 straight-line statements
+   1093|           else if (-0x5f7e9603 < local_a10) {
+   1094|             if (local_a10 == -0x5f7e9602) {
+   .... 4 straight-line statements
+   1099|             else if (local_a10 == -0x5f4d6984) {
+   .... 4 straight-line statements
+   1104|         else if (local_a10 < -0x58da101f) {
+   1105|           if (local_a10 < -0x59cf3d54) {
+   1106|             if (local_a10 == -0x5b5ca8e8) {
+   .... 3 straight-line statements
+   1110|           else if (local_a10 == -0x59cf3d54) {
+   .... 3 straight-line statements
+   1114|           else if (local_a10 == -0x5930c319) {
+   .... 3 straight-line statements
+   1118|         else if (local_a10 < -0x56d429ef) {
+   1119|           if (local_a10 == -0x58da101f) {
+   .... 8 straight-line statements
+   1128|         else if (local_a10 == -0x56d429ef) {
+   .... 4 straight-line statements
+   1133|           if (cVar5 == '\0') {
+   .... 4 straight-line statements
+   1138|         else if (local_a10 == -0x55e76272) {
+   .... 2 straight-line statements
+   1141|         else if (local_a10 == -0x55bce6a0) {
+   .... 2 straight-line statements
+   1144|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1146|       if (local_a10 < -0x48d883fd) {
+   1147|         if (local_a10 < -0x4e8f5464) {
+   1148|           if (local_a10 < -0x515695c6) {
+   1149|             if (local_a10 == -0x5598d897) {
+   .... 3 straight-line statements
+   1153|           else if (local_a10 == -0x515695c6) {
+   .... 1 straight-line statements
+   1155|             if ((DAT_00a2cca8 ^ 0xa3deefad) != 0) {
+   .... 3 straight-line statements
+   1159|             if (0xf3156bf < (uVar14 & 0x110c7030) + 0xab949cd7) {
+   .... 4 straight-line statements
+   1164|         else if (local_a10 < -0x4d3df947) {
+   1165|           if (local_a10 == -0x4e8f5464) {
+   .... 3 straight-line statements
+   1169|         else if (local_a10 == -0x4d3df947) {
+   .... 2 straight-line statements
+   1172|         else if (local_a10 == -0x4cbaf0ae) {
+   1173| LAB_004af5d0:
+   .... 1 straight-line statements
+   1175| LAB_004af5e4:
+   .... 2 straight-line statements
+   1178|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1180|       if (-0x43d5112d < local_a10) {
+   1181|         if (local_a10 < -0x43c7095b) {
+   1182|           if ((local_a10 != -0x43d5112c) && (local_a10 == -0x43cac177)) {
+   .... 3 straight-line statements
+   1186|         else if (local_a10 == -0x43c7095b) {
+   .... 2 straight-line statements
+   1189|         else if (local_a10 == -0x42a72595) {
+   .... 2 straight-line statements
+   1192|         else if (local_a10 == -0x42925bfe) {
+   .... 2 straight-line statements
+   1195|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1197|       if (local_a10 < -0x471dfdf4) {
+   1198|         if (local_a10 == -0x48d883fd) goto LAB_004b0820;
+   1199|         if (local_a10 == -0x47355bd5) {
+   .... 2 straight-line statements
+   1202|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1204|       if (local_a10 == -0x471dfdf4) {
+   .... 2 straight-line statements
+   1207|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1209|       if (local_a10 != -0x44fe4c33) goto LAB_004a8bcc;
+   .... 2 straight-line statements
+   1212|     goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1214|   if (local_a10 < -0x26c6d8b0) {
+   1215|     if (local_a10 < -0x364ec848) {
+   1216|       if (-0x3e339251 < local_a10) {
+   1217|         if (local_a10 < -0x38f07694) {
+   1218|           if (local_a10 < -0x3cbf32d2) {
+   1219|             if ((local_a10 != -0x3e339250) && (local_a10 == -0x3db1b355)) {
+   .... 3 straight-line statements
+   1223|           else if (local_a10 == -0x3cbf32d2) {
+   .... 3 straight-line statements
+   1227|           else if (local_a10 == -0x39492a49) {
+   .... 3 straight-line statements
+   1231|         else if (local_a10 < -0x373f905b) {
+   1232|           if (local_a10 == -0x38f07694) {
+   .... 2 straight-line statements
+   1235|           else if (local_a10 == -0x37c15e0b) goto LAB_004b0820;
+   .... 1 straight-line statements
+   1237|         else if (local_a10 == -0x373f905b) {
+   .... 4 straight-line statements
+   1242|           if ((bVar6 & 1) == 0) {
+   .... 4 straight-line statements
+   1247|         else if (local_a10 == -0x36f56108) {
+   .... 2 straight-line statements
+   1250|         else if (local_a10 == -0x369b0db6) {
+   .... 1 straight-line statements
+   1252|           if ((DAT_00a2cb80 ^ 0x93650de8) != 0) {
+   .... 3 straight-line statements
+   1256|           if ((((uVar14 ^ 0xcd26e248) >> 1) / 0x7da97cdb | 0xc062e4d4) < 0x4f584f7b) {
+   .... 3 straight-line statements
+   1260|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1262|       if (-0x3f8bea7b < local_a10) {
+   1263|         if (local_a10 < -0x3ec4b03e) {
+   1264|           if (local_a10 == -0x3f8bea7a) {
+   .... 2 straight-line statements
+   1267|           else if (local_a10 == -0x3f7c0b52) {
+   .... 3 straight-line statements
+   1271|         else if (local_a10 != -0x3ec4b03e) {
+   1272|           if (local_a10 == -0x3eb1be38) {
+   .... 2 straight-line statements
+   1275|           else if (local_a10 == -0x3e405068) {
+   .... 3 straight-line statements
+   1279|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1281|       if (-0x4167f91d < local_a10) {
+   1282|         if (local_a10 == -0x4167f91c) {
+   .... 3 straight-line statements
+   1286|           if (cVar5 == '\0') {
+   .... 4 straight-line statements
+   1291|         else if (local_a10 == -0x400a7948) {
+   .... 3 straight-line statements
+   1295|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1297|       if (local_a10 != -0x428d54f1) {
+   1298|         if (local_a10 == -0x41eb3986) {
+   .... 2 straight-line statements
+   1301|         goto LAB_004a8bcc;
+   .... 3 straight-line statements
+   1305|     else {
+   1306|       if (local_a10 < -0x2e78b57c) {
+   1307|         if (local_a10 < -0x3199295e) {
+   1308|           if (-0x348085c8 < local_a10) {
+   1309|             if (local_a10 == -0x348085c7) {
+   .... 2 straight-line statements
+   1312|             else if (local_a10 == -0x33a90758) {
+   .... 5 straight-line statements
+   1318|         else if (local_a10 < -0x30fec500) {
+   1319|           if (local_a10 == -0x3199295e) {
+   .... 2 straight-line statements
+   1322|           else if (local_a10 == -0x317dc106) {
+   .... 3 straight-line statements
+   1326|         else if (local_a10 == -0x30fec500) {
+   .... 2 straight-line statements
+   1329|         else if (local_a10 == -0x2f1e398f) {
+   .... 4 straight-line statements
+   1334|           if (0x6f3c77f <
+   .... 5 straight-line statements
+   1340|         else if (local_a10 == -0x2ebe8685) {
+   .... 2 straight-line statements
+   1343|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1345|       if (local_a10 < -0x2b16cd2f) {
+   1346|         if (local_a10 < -0x2d7fef20) {
+   1347|           if (local_a10 == -0x2e78b57c) {
+   .... 1 straight-line statements
+   1349|             if (*local_230 == '\0') {
+   .... 3 straight-line statements
+   1353|           else if (local_a10 == -0x2e6d7d43) {
+   .... 16 straight-line statements
+   1370|             if (0x4a3d33a1 <
+   .... 7 straight-line statements
+   1378|         else if (local_a10 == -0x2d7fef20) {
+   .... 2 straight-line statements
+   1381|         else if (local_a10 == -0x2ccf35f5) {
+   .... 2 straight-line statements
+   1384|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1386|       if (local_a10 < -0x28209377) {
+   1387|         if (local_a10 == -0x2b16cd2f) {
+   .... 3 straight-line statements
+   1391|         else if (local_a10 == -0x28f1e695) goto LAB_004acfd0;
+   1392|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1394|       if (local_a10 == -0x28209377) goto LAB_004a8bcc;
+   1395|       if (local_a10 == -0x27dbcb76) {
+   .... 1 straight-line statements
+   1397|         goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1399|       if (local_a10 != -0x26e8209a) goto LAB_004a8bcc;
+   .... 2 straight-line statements
+   1402| LAB_004ae188:
+   .... 1 straight-line statements
+   1404|     goto LAB_004ae1ac;
+   .... 1 straight-line statements
+   1406|   if (local_a10 < -0x13128e19) {
+   1407|     if (local_a10 < -0x1911c74d) {
+   1408|       if (local_a10 < -0x1eab6ac7) {
+   1409|         if (local_a10 < -0x22138bbb) {
+   1410|           if (local_a10 == -0x26c6d8b0) {
+   .... 1 straight-line statements
+   1412|             if (*local_368 <= *local_f0) {
+   .... 4 straight-line statements
+   1417|           else if (local_a10 == -0x2563f582) {
+   .... 2 straight-line statements
+   1420| LAB_004aafd4:
+   .... 3 straight-line statements
+   1424| LAB_004ad4c4:
+   .... 3 straight-line statements
+   1428|         else if (local_a10 == -0x22138bbb) {
+   .... 3 straight-line statements
+   1432|       else if (local_a10 < -0x1af749ec) {
+   1433|         if (local_a10 == -0x1eab6ac7) {
+   .... 2 straight-line statements
+   1436|         else if ((local_a10 == -0x1e668aa1) &&
+   .... 7 straight-line statements
+   1444|       else if (((local_a10 != -0x1af749ec) && (local_a10 != -0x1ac83580)) &&
+   .... 4 straight-line statements
+   1449|     else if (local_a10 < -0x156e6bcb) {
+   1450|       if (local_a10 < -0x18158efa) {
+   1451|         if (local_a10 == -0x1911c74d) {
+   .... 2 straight-line statements
+   1454|         else if (local_a10 == -0x18c5a053) {
+   .... 4 straight-line statements
+   1459|       else if ((local_a10 != -0x18158efa) && (local_a10 == -0x1799aedc)) {
+   .... 3 straight-line statements
+   1463|     else if (local_a10 < -0x14752ac2) {
+   1464|       if (local_a10 == -0x156e6bcb) {
+   .... 3 straight-line statements
+   1468|     else if (local_a10 == -0x14752ac2) {
+   .... 5 straight-line statements
+   1474|       if (((uVar14 | 0x76f1fcad) & (uVar14 ^ 0x890e0352)) < 0xa10b8fb0) {
+   .... 3 straight-line statements
+   1478|     else if (local_a10 == -0x1432b46c) {
+   .... 9 straight-line statements
+   1488|       if (((DAT_00a2cd04 ^ 0xe6fd0c8a | DAT_00a2cd08 ^ 0xf57bddc5) + 0xbe423a42 >> 1) / 0x7efbe6b5
+   .... 4 straight-line statements
+   1493|     goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1495|   if (-0x3c53510 < local_a10) {
+   1496|     if (local_a10 < 0x3e8e16) {
+   1497|       if ((local_a10 < -0x29aaf18) && (local_a10 == -0x3c5350f)) {
+   .... 3 straight-line statements
+   1501|         if (((uVar14 | 0x40ace03a) & (uVar14 ^ 0xaf021c05)) != 0x3f1bf0aa) {
+   .... 4 straight-line statements
+   1506|     else if (((local_a10 < 0x16bcee3) && (local_a10 != 0x3e8e16)) && (local_a10 == 0x7f8049)) {
+   .... 2 straight-line statements
+   1509|     goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1511|   if (local_a10 < -0xdf4d094) {
+   1512|     if (((-0x10cac3a4 < local_a10) && (local_a10 != -0x10cac3a3)) && (local_a10 == -0x1010e489)) {
+   .... 2 straight-line statements
+   1515|     goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1517|   if (-0x978ebdd < local_a10) {
+   1518|     if (local_a10 == -0x978ebdc) {
+   .... 2 straight-line statements
+   1521|     else if (((local_a10 != -0x70ceec2) && (local_a10 == -0x3cfa2ac)) &&
+   .... 7 straight-line statements
+   1529|     goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1531|   if (local_a10 != -0xdf4d094) {
+   1532|     if (local_a10 == -0xab29f76) {
+   .... 2 straight-line statements
+   1535|     goto LAB_004a8bcc;
+   .... 1 straight-line statements
+   1537| LAB_004b0820:
+   .... 1 straight-line statements
+   1539| LAB_004b082c:
+   .... 1 straight-line statements
+   1541|   goto LAB_004a8bcc;
+   .... 4 straight-line statements (to end)
+==============================================================================
+SKELETON 0x3b0efc  lines=1101 shape=loop-mem
+   .... 4 straight-line statements
+      4| void FUN_004b0efc(long param_1,long param_2)
+   .... 236 straight-line statements
+    241| LAB_004b1508:
+    242|   while( true ) {
+   .... 4 straight-line statements
+    247|     if (-0xd434f19 < local_700) break;
+    248|     if (local_700 < -0x46bc4846) {
+    249|       if (local_700 < -0x64ba6f1a) {
+    250|         if (local_700 < -0x6fedc471) {
+    251|           if (local_700 < -0x7959aac1) {
+    252|             if (local_700 < -0x7d7997cd) {
+    253|               if (local_700 == -0x7ed53d8b) {
+   .... 6 straight-line statements
+    260|               else if (local_700 == -0x7e1fce5f) {
+   .... 7 straight-line statements
+    268|                 if ((uVar3 & 0x63428200 | (uVar3 ^ 0x63428201) & 0xf3468211) == 0x8beffb68) {
+   .... 4 straight-line statements
+    273|             else if (local_700 != -0x7d7997cd) {
+    274|               if (local_700 == -0x7b34a8ad) {
+   .... 2 straight-line statements
+    277|               else if (local_700 == -0x797adc0a) {
+   .... 4 straight-line statements
+    282|           else if (local_700 < -0x765a81f2) {
+    283|             if (local_700 == -0x7959aac1) {
+   .... 2 straight-line statements
+    286|             else if (local_700 == -0x76ff0649) {
+   .... 2 straight-line statements
+    289|             else if (local_700 == -0x7671c340) {
+   .... 3 straight-line statements
+    293|           else if (local_700 == -0x765a81f2) {
+   .... 2 straight-line statements
+    296|           else if (local_700 == -0x7436a0e8) {
+   .... 4 straight-line statements
+    301|         else if (local_700 < -0x6a3a7d5f) {
+    302|           if (local_700 < -0x6ef73e0d) {
+    303|             if (local_700 == -0x6fedc471) {
+   .... 2 straight-line statements
+    306|             else if (local_700 == -0x6f6b661b) {
+   .... 4 straight-line statements
+    311|           else if (local_700 == -0x6ef73e0d) {
+   .... 1 straight-line statements
+    313|             if (*local_208 == 0) {
+   .... 4 straight-line statements
+    318|           else if ((local_700 != -0x6e7f27ef) && (local_700 == -0x6c7333d1)) {
+   .... 3 straight-line statements
+    322|         else if (local_700 < -0x68af5800) {
+    323|           if (local_700 == -0x6a3a7d5f) {
+   .... 3 straight-line statements
+    327|             if ((((uVar3 ^ 0xffffffff) & 0x842c8044 | uVar3 & 0x63c00690) ^ 0x232c0400 | 0x1813792b)
+   .... 4 straight-line statements
+    332|           else if (local_700 == -0x69f79cde) {
+   .... 7 straight-line statements
+    340|           else if (local_700 == -0x694f0d90) {
+   .... 2 straight-line statements
+    343|             if (*pcVar4 == '\0') {
+   .... 5 straight-line statements
+    349|         else if (local_700 != -0x68af5800) {
+    350|           if (local_700 == -0x681f5228) {
+   .... 2 straight-line statements
+    353|           else if (local_700 == -0x675458f4) {
+   .... 4 straight-line statements
+    358|       else if (local_700 < -0x528dfcc1) {
+    359|         if (local_700 < -0x5aec1dcb) {
+    360|           if (local_700 < -0x61467293) {
+    361|             if (local_700 == -0x64ba6f1a) {
+   .... 2 straight-line statements
+    364|               if (((uVar3 & 0x76138319) - ((uVar3 ^ 0xffffffff) & 0x89ec7ce6)) + 0xc0ff7243 <
+   .... 4 straight-line statements
+    369|             else if (local_700 == -0x631635a1) {
+   .... 7 straight-line statements
+    377|           else if (local_700 == -0x61467293) {
+   .... 2 straight-line statements
+    380|           else if (local_700 == -0x5e411da4) {
+   .... 1 straight-line statements
+    382|             if (*local_270 == '\0') {
+   .... 4 straight-line statements
+    387|             goto LAB_004b4384;
+   .... 2 straight-line statements
+    390|         else if (local_700 < -0x564b96dc) {
+    391|           if (((local_700 != -0x5aec1dcb) && (local_700 != -0x5ac83521)) &&
+   .... 5 straight-line statements
+    397|         else if (local_700 == -0x564b96dc) {
+   .... 2 straight-line statements
+    400|         else if (local_700 == -0x542485ea) {
+   .... 2 straight-line statements
+    403|         else if (local_700 == -0x538d8d71) {
+   .... 3 straight-line statements
+    407|       else if (local_700 < -0x4f1409a1) {
+    408|         if (local_700 < -0x514fe0a8) {
+    409|           if (local_700 == -0x528dfcc1) {
+   .... 2 straight-line statements
+    412|           else if (local_700 == -0x524447e4) {
+   .... 7 straight-line statements
+    420|         else if (local_700 == -0x514fe0a8) {
+   .... 4 straight-line statements
+    425|         else if ((local_700 != -0x509fe190) && (local_700 == -0x501fcd1c)) {
+   .... 3 straight-line statements
+    429|       else if (local_700 < -0x4cf4520d) {
+    430|         if (local_700 == -0x4f1409a1) {
+   .... 2 straight-line statements
+    433|         else if (local_700 == -0x4f074c23) {
+   .... 2 straight-line statements
+    436|         else if (local_700 == -0x4d33f5c6) {
+   .... 3 straight-line statements
+    440|       else if (local_700 == -0x4cf4520d) {
+   .... 2 straight-line statements
+    443|         if (((uVar3 + (uVar3 ^ 0x63ae26d5)) - (uVar3 & 0x9c51d92a)) * -0x9294abf != 0x5cdfcf66) {
+   .... 3 straight-line statements
+    447|       else if (local_700 == -0x486f5b65) {
+   .... 2 straight-line statements
+    450|       else if (local_700 == -0x48209428) {
+   .... 11 straight-line statements
+    462|     else if (local_700 < -0x23a81422) {
+    463|       if (local_700 < -0x3aa4e9b0) {
+    464|         if (local_700 < -0x411b67d2) {
+    465|           if (local_700 < -0x45efe75f) {
+    466|             if (local_700 == -0x46bc4846) {
+   .... 2 straight-line statements
+    469|             else if (local_700 == -0x463eb812) {
+   .... 3 straight-line statements
+    473|           else if (local_700 == -0x45efe75f) {
+   .... 3 straight-line statements
+    477|           else if (local_700 == -0x453376a1) {
+   .... 4 straight-line statements
+    482|           else if (local_700 == -0x417b21a4) {
+   .... 3 straight-line statements
+    486|         else if (local_700 < -0x3cd2f61c) {
+    487|           if (local_700 == -0x411b67d2) {
+   .... 3 straight-line statements
+    491|           else if (local_700 == -0x3d62003d) {
+   .... 2 straight-line statements
+    494|           else if (local_700 == -0x3e33a59b) {
+    495|             if (*(long **)(local_2a8 + 0x28) != local_70[0]) {
+   .... 3 straight-line statements
+    499|             return;
+   .... 2 straight-line statements
+    502|         else if (local_700 == -0x3cd2f61c) {
+   .... 3 straight-line statements
+    506|         else if (local_700 == -0x3c61bd66) {
+   .... 2 straight-line statements
+    509|         else if (local_700 == -0x3bc6d304) {
+   .... 3 straight-line statements
+    513|       else if (local_700 < -0x3202bf73) {
+    514|         if (local_700 < -0x3904f034) {
+    515|           if (local_700 == -0x3aa4e9b0) {
+   .... 5 straight-line statements
+    521|             if (plVar14 != local_300) {
+   .... 8 straight-line statements
+    530|           else if (local_700 == -0x39b77450) {
+   .... 3 straight-line statements
+    534|         else if (local_700 == -0x3904f034) {
+   .... 3 straight-line statements
+    538|           if (cVar2 == '\0') {
+   .... 4 straight-line statements
+    543|           goto LAB_004b4384;
+   .... 2 straight-line statements
+    546|       else if (local_700 < -0x2a49a937) {
+    547|         if (((local_700 != -0x3202bf73) && (local_700 != -0x2f5f9db5)) && (local_700 == -0x2b4cadf0)
+   .... 4 straight-line statements
+    552|       else if (local_700 == -0x2a49a937) {
+   .... 2 straight-line statements
+    555|       else if ((local_700 != -0x28f26988) && (local_700 == -0x25be7d4a)) {
+   .... 10 straight-line statements
+    566|     else if (local_700 < -0x1bab8ac6) {
+    567|       if (local_700 < -0x22586499) {
+    568|         if (local_700 < -0x23689b65) {
+    569|           if (local_700 == -0x23a81422) {
+   .... 2 straight-line statements
+    572|             if ((DAT_00a2cfd8 ^ 0xa9e3c51d) != 0) {
+   .... 6 straight-line statements
+    579|             if (plVar14 != local_300) {
+   .... 11 straight-line statements
+    591|             if ((uVar3 & 0x381a1c7d) + (uVar3 | 0x381a1c7d) != 0x56ecec3d) {
+   .... 3 straight-line statements
+    595|           else if (local_700 == -0x2394cfc5) {
+   .... 3 straight-line statements
+    599|         else if (local_700 == -0x23689b65) {
+   .... 5 straight-line statements
+    605|         else if ((local_700 != -0x22cfc981) && (local_700 == -0x226e283e)) {
+   .... 3 straight-line statements
+    609|       else if (local_700 < -0x1e6152e4) {
+    610|         if (local_700 == -0x22586499) {
+   .... 2 straight-line statements
+    613|         else if (local_700 == -0x203a0d50) {
+   .... 3 straight-line statements
+    617|       else if (local_700 == -0x1e6152e4) {
+   .... 2 straight-line statements
+    620|       else if ((local_700 != -0x1dc9310c) && (local_700 == -0x1d8e24a1)) {
+   .... 4 straight-line statements
+    625|     else if (local_700 < -0x1119c0f3) {
+    626|       if (local_700 < -0x174a5b66) {
+    627|         if (local_700 == -0x1bab8ac6) {
+   .... 7 straight-line statements
+    635|           if (((uVar3 & 0x9cb11ad4) + (uVar3 | 0x9cb11ad4) | 0x7f393b37) == 0xe1d2db09) {
+   .... 3 straight-line statements
+    639|         else if (local_700 == -0x17b57698) {
+   .... 3 straight-line statements
+    643|       else if (local_700 != -0x174a5b66) {
+    644|         if (local_700 == -0x170c8d83) {
+   .... 1 straight-line statements
+    646|           if (*local_140 == '\0') {
+   .... 5 straight-line statements
+    652|         else if (local_700 == -0x16f09f6f) {
+   .... 6 straight-line statements
+    659|           goto LAB_004b4384;
+   .... 3 straight-line statements
+    663|     else if (local_700 < -0xde21d07) {
+    664|       if (local_700 == -0x1119c0f3) {
+   .... 2 straight-line statements
+    667|       else if (local_700 == -0xf38c95e) {
+   .... 4 straight-line statements
+    672|     else if (local_700 == -0xde21d07) {
+   .... 2 straight-line statements
+    675|     else if (local_700 == -0xd8143f8) {
+   .... 6 straight-line statements
+    682|       if (0x8d6c3d16 < ((uVar3 ^ 0x40320080 | 0x8896400) & (uVar3 ^ 0x31000220) & 0x79bb66a0)) {
+   .... 3 straight-line statements
+    686|     else if (local_700 == -0xd693c2b) {
+   .... 7 straight-line statements
+    694|   if (local_700 < 0x41604fc8) {
+    695|     if (local_700 < 0x20da7c40) {
+    696|       if (local_700 < 0xcc80fc8) {
+    697|         if (local_700 < -0x44b0daf) {
+    698|           if (local_700 < -0xbca6b7c) {
+    699|             if ((local_700 != -0xd434f18) && (local_700 == -0xbef0d5c)) {
+   .... 6 straight-line statements
+    706|               if ((uVar3 & 0xc0c10361 | 0x173efc88 | ~uVar3 & 0xf80000ff) != 0x73af37b5) {
+   .... 4 straight-line statements
+    711|           else if (((local_700 != -0xbca6b7c) && (local_700 != -0x76dd9b8)) &&
+   .... 4 straight-line statements
+    716|         else if (local_700 < 0x583f38d) {
+    717|           if (local_700 == -0x44b0daf) {
+   .... 3 straight-line statements
+    721|         else if (local_700 == 0x583f38d) {
+   .... 5 straight-line statements
+    727|         else if (local_700 == 0x6df8157) {
+   .... 3 straight-line statements
+    731|       else if (local_700 < 0x19d92736) {
+    732|         if (local_700 < 0x1104cf1b) {
+    733|           if (local_700 == 0xcc80fc8) {
+   .... 3 straight-line statements
+    737|             if ((uVar1 + (uVar3 ^ 0xa65018e1)) - (uVar1 & 0x6f6868e6) != 0x30224255) {
+   .... 3 straight-line statements
+    741|           else if (local_700 == 0x10bda184) {
+   .... 4 straight-line statements
+    746|         else if (local_700 == 0x1104cf1b) {
+   .... 3 straight-line statements
+    750|       else if (local_700 < 0x1e0ac056) {
+    751|         if (local_700 == 0x19d92736) {
+   .... 5 straight-line statements
+    757|           if (plVar14 != local_300) {
+   .... 11 straight-line statements
+    769|       else if (local_700 == 0x1e0ac056) {
+   .... 2 straight-line statements
+    772|       else if (local_700 == 0x1f1d4e62) {
+   .... 3 straight-line statements
+    776|       else if (local_700 == 0x1f9a064e) {
+   .... 2 straight-line statements
+    779|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    781|     if (local_700 < 0x3159bee3) {
+    782|       if (local_700 < 0x23db0057) {
+    783|         if (local_700 < 0x22391d15) {
+    784|           if (local_700 == 0x20da7c40) {
+   .... 3 straight-line statements
+    788|           else if (local_700 == 0x21086c21) {
+   .... 4 straight-line statements
+    793|         else if (local_700 == 0x22391d15) {
+   .... 3 straight-line statements
+    797|         else if (local_700 == 0x223f1ffd) {
+   .... 3 straight-line statements
+    801|       else if (local_700 < 0x2663fb5c) {
+    802|         if (local_700 == 0x23db0057) {
+   .... 1 straight-line statements
+    804|           if (*local_110 == '\0') {
+   .... 5 straight-line statements
+    810|         else if (local_700 == 0x24918df0) {
+   .... 3 straight-line statements
+    814|       else if (local_700 == 0x2663fb5c) {
+   .... 3 straight-line statements
+    818|       else if (local_700 == 0x26b60583) {
+   .... 2 straight-line statements
+    821|       else if (local_700 == 0x2d3f83e9) {
+   .... 2 straight-line statements
+    824|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    826|     if (0x3748d4c8 < local_700) {
+    827|       if (local_700 < 0x3ae81401) {
+    828|         if (local_700 == 0x3748d4c9) {
+   .... 2 straight-line statements
+    831|         else if (local_700 == 0x37e3e9e5) {
+   .... 4 straight-line statements
+    836|         else if (local_700 == 0x39e6492b) {
+   .... 1 straight-line statements
+    838|           if (*local_140 == '\0') {
+   .... 5 straight-line statements
+    844|       else if (local_700 == 0x3ae81401) {
+   .... 3 straight-line statements
+    848|       else if (local_700 == 0x3b6dd267) {
+   .... 2 straight-line statements
+    851|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    853|     if (local_700 < 0x32ed7d93) {
+    854|       if (local_700 == 0x3159bee3) {
+   .... 3 straight-line statements
+    858|       else if (local_700 == 0x31e8c5f8) {
+   .... 1 straight-line statements
+    860|         if (*local_1c0 == '\0') {
+   .... 4 straight-line statements
+    865|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    867|     if (local_700 == 0x32ed7d93) {
+   .... 1 straight-line statements
+    869|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    871|     if (local_700 == 0x344b3bf0) {
+   .... 12 straight-line statements
+    884|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    886|     if (local_700 != 0x3573ab7a) goto LAB_004b1508;
+   .... 5 straight-line statements
+    892|     if (cVar2 == '\0') {
+   .... 5 straight-line statements
+    898|   else {
+    899|     if (local_700 < 0x6226d072) {
+    900|       if (local_700 < 0x53be7026) {
+    901|         if (local_700 < 0x4a22173f) {
+    902|           if (local_700 < 0x4415fd90) {
+    903|             if (local_700 == 0x41604fc8) {
+   .... 2 straight-line statements
+    906|             else if (local_700 == 0x425e7ced) {
+   .... 3 straight-line statements
+    910|           else if (local_700 == 0x4415fd90) {
+   .... 8 straight-line statements
+    919|           else if (local_700 == 0x457114ab) {
+   .... 1 straight-line statements
+    921|             if (*local_110 == '\0') {
+   .... 4 straight-line statements
+    926|           else if (local_700 == 0x45863070) {
+   .... 5 straight-line statements
+    932|         else if (local_700 < 0x504f3d42) {
+    933|           if (local_700 == 0x4a22173f) {
+   .... 2 straight-line statements
+    936|           else if (local_700 == 0x4b93e9f1) {
+   .... 2 straight-line statements
+    939|           else if (local_700 == 0x4da7af5e) {
+   .... 4 straight-line statements
+    944|         else if (local_700 == 0x504f3d42) {
+   .... 2 straight-line statements
+    947|         else if (local_700 == 0x5183a4f3) {
+   .... 1 straight-line statements
+    949|           if (0x880e32df < *local_290) {
+   .... 3 straight-line statements
+    953|         else if (local_700 == 0x51be0a52) {
+   .... 3 straight-line statements
+    957|       else if (local_700 < 0x59234cba) {
+    958|         if (local_700 < 0x54c79faa) {
+    959|           if ((local_700 != 0x53be7026) && (local_700 == 0x5474a112)) {
+   .... 3 straight-line statements
+    963|         else if (local_700 == 0x54c79faa) {
+   .... 2 straight-line statements
+    966|         else if (local_700 == 0x55e8a757) {
+   .... 2 straight-line statements
+    969|         else if (local_700 == 0x57297f50) {
+   .... 3 straight-line statements
+    973|           if (0x89feb3ff <
+   .... 6 straight-line statements
+    980|       else if (local_700 < 0x5b46f597) {
+    981|         if (local_700 == 0x59234cba) {
+   .... 2 straight-line statements
+    984|         else if (local_700 == 0x5ab935d1) {
+   .... 2 straight-line statements
+    987|         else if (local_700 == 0x5ace4e8e) {
+   .... 3 straight-line statements
+    991|       else if ((local_700 == 0x5b46f597) &&
+   .... 5 straight-line statements
+    997|       goto LAB_004b1508;
+   .... 1 straight-line statements
+    999|     if (0x75d858b3 < local_700) {
+   1000|       if (local_700 < 0x7c66bec2) {
+   1001|         if (local_700 < 0x76585b78) {
+   1002|           if ((local_700 != 0x75d858b4) && (local_700 == 0x76122de9)) {
+   .... 3 straight-line statements
+   1006|         else if (local_700 == 0x76585b78) {
+   .... 2 straight-line statements
+   1009|         else if (local_700 == 0x7a12b981) {
+   .... 6 straight-line statements
+   1016|           if (lVar8 != local_1b8) {
+   .... 4 straight-line statements
+   1021|         else if (local_700 == 0x7bf40ac7) {
+   .... 4 straight-line statements
+   1026|       else if (local_700 < 0x7dc4226e) {
+   1027|         if (local_700 == 0x7c66bec2) {
+   .... 2 straight-line statements
+   1030|         else if (local_700 == 0x7cca0ce1) {
+   .... 6 straight-line statements
+   1037|         else if (local_700 == 0x7d019aa5) {
+   .... 3 straight-line statements
+   1041|       else if (local_700 == 0x7dc4226e) {
+   .... 2 straight-line statements
+   1044|       else if (local_700 == 0x7e18ec96) {
+   .... 2 straight-line statements
+   1047|       else if (local_700 == 0x7f445a92) {
+   .... 2 straight-line statements
+   1050|       goto LAB_004b1508;
+   .... 1 straight-line statements
+   1052|     if (local_700 < 0x695f42e5) {
+   1053|       if (local_700 < 0x6904b5bf) {
+   1054|         if (local_700 == 0x6226d072) {
+   .... 3 straight-line statements
+   1058|       else if (local_700 != 0x6904b5bf) {
+   1059|         if (local_700 == 0x690f495c) {
+   .... 2 straight-line statements
+   1062|         else if (local_700 == 0x690fbf64) {
+   .... 3 straight-line statements
+   1066|       goto LAB_004b1508;
+   .... 1 straight-line statements
+   1068|     if (0x73361cef < local_700) {
+   1069|       if (local_700 == 0x73361cf0) {
+   .... 2 straight-line statements
+   1072|       else if (local_700 == 0x73a12b14) {
+   .... 2 straight-line statements
+   1075|       else if (local_700 == 0x74485b51) {
+   .... 7 straight-line statements
+   1083|       goto LAB_004b1508;
+   .... 1 straight-line statements
+   1085|     if (((local_700 == 0x695f42e5) || (local_700 == 0x6ebd7bac)) || (local_700 != 0x7266c7d5))
+   1086|     goto LAB_004b1508;
+   .... 1 straight-line statements
+   1088|     if (*local_258 == '\0') {
+   .... 5 straight-line statements
+   1094| LAB_004b4384:
+   .... 1 straight-line statements
+   1096|   goto LAB_004b1508;
+   .... 4 straight-line statements (to end)
+==============================================================================
+SKELETON 0x682c48  lines=935 shape=branch-web
+   .... 3 straight-line statements
+      3| void FUN_00782c48(undefined8 param_1,long param_2)
+   .... 5 straight-line statements
+      9|   if (param_2 == 0) {
+     10|     return;
+   .... 1 straight-line statements
+     12|   do {
+     13|     uVar1 = FUN_006f31ec(param_2);
+     14|     if ((int)uVar1 < 0x3b9db030) {
+     15|       if ((int)uVar1 < 0x3b9c7b98) {
+     16|         if (0x3b9bb46b < (int)uVar1) {
+     17|           if ((int)uVar1 < 0x3b9c0669) {
+     18|             if ((int)uVar1 < 0x3b9bdf58) {
+     19|               if ((int)uVar1 < 0x3b9bc018) {
+     20|                 if ((int)uVar1 < 0x3b9bb46e) {
+     21|                   if (uVar1 != 0x3b9bb46c) {
+   .... 1 straight-line statements
+     23|                     goto LAB_00782cc4;
+   .... 2 straight-line statements
+     26|                 else if (uVar1 != 0x3b9bb46e) {
+   .... 1 straight-line statements
+     28|                   goto LAB_00784228;
+   .... 2 straight-line statements
+     31|               else {
+     32|                 if (0x3b9bcfb7 < (int)uVar1) {
+     33|                   if ((uVar1 == 0x3b9bcfb8) || (uVar1 == 0x3b9bcfb9)) goto LAB_00784258;
+   .... 1 straight-line statements
+     35|                   goto LAB_00782cc4;
+   .... 1 straight-line statements
+     37|                 if (uVar1 != 0x3b9bc018) {
+   .... 1 straight-line statements
+     39| LAB_00784228:
+     40|                   if (uVar1 != (uVar2 | 0x3b9b0000)) {
+     41|                     return;
+   .... 1 straight-line statements
+     43|                   goto LAB_00784258;
+   .... 3 straight-line statements
+     47|             else if ((int)uVar1 < 0x3b9be342) {
+     48|               if ((int)uVar1 < 0x3b9be340) {
+     49|                 if (uVar1 == 0x3b9bdf58) {
+     50|                   FUN_007b1220(param_1,param_2,1);
+   .... 1 straight-line statements
+     52|                 else if (uVar1 != 0x3b9bdf5c) {
+     53|                   if (uVar1 != 0x3b9bdf59) {
+     54|                     return;
+   .... 1 straight-line statements
+     56|                   FUN_007b1480(param_1,param_2,1);
+     57|                   FUN_0078524c(param_1,param_2);
+     58|                   return;
+   .... 2 straight-line statements
+     61|               else if (uVar1 == 0x3b9be340) {
+     62|                 FUN_007b137c(param_1,param_2,1);
+   .... 1 straight-line statements
+     64|               else {
+     65|                 if (uVar1 != 0x3b9be341) {
+     66|                   return;
+   .... 1 straight-line statements
+     68|                 FUN_007b1308(param_1,param_2,1);
+   .... 2 straight-line statements
+     71|             else if ((int)uVar1 < 0x3b9bf6c8) {
+     72|               if (uVar1 != 0x3b9be342) {
+   .... 1 straight-line statements
+     74|                 goto LAB_00782cc4;
+   .... 1 straight-line statements
+     76|               FUN_007b13f0(param_1,param_2,1);
+   .... 1 straight-line statements
+     78|             else if ((uVar1 != 0x3b9bf6c8) && (uVar1 != 0x3b9c0280)) {
+   .... 1 straight-line statements
+     80|               goto LAB_0078424c;
+   .... 1 straight-line statements
+     82|             goto LAB_00782cd0;
+   .... 1 straight-line statements
+     84|           if ((int)uVar1 < 0x3b9c48d0) {
+     85|             if ((int)uVar1 < 0x3b9c1dd8) {
+     86|               if ((int)uVar1 < 0x3b9c0e38) {
+     87|                 if (uVar1 == 0x3b9c0669) goto LAB_00784258;
+   .... 2 straight-line statements
+     90|               else {
+     91|                 if (uVar1 == 0x3b9c0e38) goto LAB_00782cd0;
+   .... 2 straight-line statements
+     94|               goto LAB_00784278;
+   .... 1 straight-line statements
+     96|             if ((int)uVar1 < 0x3b9c3160) {
+     97|               if (uVar1 != 0x3b9c1dd8) {
+   .... 1 straight-line statements
+     99|                 goto LAB_0078424c;
+   .... 2 straight-line statements
+    102|             else if (uVar1 != 0x3b9c3160) {
+    103|               if (uVar1 == 0x3b9c3930) goto LAB_00782cd0;
+   .... 1 straight-line statements
+    105|               goto LAB_0078424c;
+   .... 2 straight-line statements
+    108|           else if ((int)uVar1 < 0x3b9c5870) {
+    109|             if ((int)uVar1 < 0x3b9c4cb9) {
+    110|               if (uVar1 != 0x3b9c48d0) {
+   .... 1 straight-line statements
+    112|                 goto LAB_0078424c;
+   .... 2 straight-line statements
+    115|             else if ((uVar1 != 0x3b9c4cb9) && (uVar1 != 0x3b9c5488)) {
+   .... 1 straight-line statements
+    117| LAB_0078424c:
+    118|               if (uVar1 != (uVar2 | 0x3b9c0000)) {
+    119|                 return;
+   .... 3 straight-line statements
+    123|           else {
+    124|             if (0x3b9c6fdf < (int)uVar1) {
+    125|               if ((uVar1 != 0x3b9c6fe0) && (uVar1 != 0x3b9c6fe3)) {
+    126|                 if (uVar1 != 0x3b9c6fe1) {
+    127|                   return;
+   .... 1 straight-line statements
+    129|                 FUN_007856fc(param_1,param_2);
+    130|                 return;
+   .... 1 straight-line statements
+    132|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    134|             if (uVar1 != 0x3b9c5870) {
+   .... 1 straight-line statements
+    136|               goto LAB_00783ff4;
+   .... 2 straight-line statements
+    139| LAB_00784258:
+   .... 1 straight-line statements
+    141|           goto joined_r0x0078425c;
+   .... 1 straight-line statements
+    143|         if ((int)uVar1 < 0x3b9b75e6) {
+    144|           if ((int)uVar1 < 0x3b9b2f91) {
+    145|             if ((int)uVar1 < 0x3b9ad5b8) {
+    146|               if ((int)uVar1 < 0x33) {
+    147|                 if ((uVar1 != 0x31) && (uVar1 != 0x32)) {
+    148|                   return;
+   .... 2 straight-line statements
+    151|               else if ((uVar1 != 0x33) && (uVar1 != 0x34)) {
+    152|                 return;
+   .... 2 straight-line statements
+    155|             else if ((int)uVar1 < 0x3b9af4f8) {
+    156|               if ((uVar1 != 0x3b9ad5b8) && (uVar1 != 0x3b9af110)) {
+    157|                 return;
+   .... 2 straight-line statements
+    160|             else if ((uVar1 != 0x3b9af4f8) && (uVar1 != 0x3b9b1050)) {
+   .... 1 straight-line statements
+    162|               goto LAB_00782cc4;
+   .... 2 straight-line statements
+    165|           else if ((int)uVar1 < 0x3b9b3762) {
+    166|             if ((int)uVar1 < 0x3b9b3760) {
+    167|               if (uVar1 != 0x3b9b2f91) {
+   .... 1 straight-line statements
+    169|                 goto LAB_00782cc4;
+   .... 2 straight-line statements
+    172|             else if (uVar1 != 0x3b9b3760) {
+   .... 1 straight-line statements
+    174|               goto LAB_00782cc4;
+   .... 2 straight-line statements
+    177|           else if ((int)uVar1 < 0x3b9b75e2) {
+    178|             if (uVar1 != 0x3b9b3762) {
+   .... 1 straight-line statements
+    180|               goto LAB_00784228;
+   .... 2 straight-line statements
+    183|           else if ((uVar1 != 0x3b9b75e2) && (uVar1 != 0x3b9b75e3)) {
+   .... 1 straight-line statements
+    185|             goto LAB_00782cc4;
+   .... 2 straight-line statements
+    188|         else if ((int)uVar1 < 0x3b9ba4c1) {
+    189|           if ((int)uVar1 < 0x3b9b8d50) {
+    190|             if ((int)uVar1 < 0x3b9b75e8) {
+    191|               if (uVar1 != 0x3b9b75e6) {
+   .... 1 straight-line statements
+    193|                 goto LAB_00782cc4;
+   .... 2 straight-line statements
+    196|             else if (uVar1 != 0x3b9b75e8) {
+   .... 1 straight-line statements
+    198|               goto LAB_00782cc4;
+   .... 2 straight-line statements
+    201|           else {
+    202|             if ((int)uVar1 < 0x3b9b9909) {
+    203|               if (uVar1 == 0x3b9b8d50) goto LAB_00784258;
+   .... 1 straight-line statements
+    205|               goto LAB_00782cc4;
+   .... 1 straight-line statements
+    207|             if ((uVar1 != 0x3b9b9909) && (uVar1 != 0x3b9b990a)) {
+   .... 1 straight-line statements
+    209|               goto LAB_00784228;
+   .... 3 straight-line statements
+    213|         else if ((int)uVar1 < 0x3b9bb465) {
+    214|           if ((int)uVar1 < 0x3b9bb460) {
+    215|             if (uVar1 == 0x3b9ba4c1) goto LAB_00784258;
+   .... 2 straight-line statements
+    218|           else {
+    219|             if ((uVar1 == 0x3b9bb460) || (uVar1 == 0x3b9bb463)) goto LAB_00782cd0;
+   .... 2 straight-line statements
+    222| LAB_00782cc4:
+   .... 2 straight-line statements
+    225|           if (uVar1 != uVar2) {
+    226|             return;
+   .... 2 straight-line statements
+    229|         else if ((int)uVar1 < 0x3b9bb468) {
+    230|           if (uVar1 != 0x3b9bb465) {
+   .... 1 straight-line statements
+    232|             goto LAB_00782cc4;
+   .... 2 straight-line statements
+    235|         else if (((uVar1 != 0x3b9bb468) && (uVar1 != 0x3b9bb469)) && (uVar1 != 0x3b9bb46b)) {
+    236|           return;
+   .... 2 straight-line statements
+    239|       else {
+    240|         if ((int)uVar1 < 0x3b9d2b61) {
+    241|           if ((int)uVar1 < 0x3b9ce512) {
+    242|             if ((int)uVar1 < 0x3b9c930b) {
+    243|               if ((int)uVar1 < 0x3b9c8f22) {
+    244|                 if ((int)uVar1 < 0x3b9c8f20) {
+    245|                   if (uVar1 != 0x3b9c7b98) {
+   .... 1 straight-line statements
+    247|                     goto LAB_00784278;
+   .... 2 straight-line statements
+    250|                 else if (uVar1 != 0x3b9c8f20) {
+   .... 1 straight-line statements
+    252|                   goto LAB_00784278;
+   .... 2 straight-line statements
+    255|               else if ((int)uVar1 < 0x3b9c9308) {
+    256|                 if (uVar1 != 0x3b9c8f22) {
+   .... 1 straight-line statements
+    258|                   goto LAB_00784278;
+   .... 2 straight-line statements
+    261|               else if ((uVar1 != 0x3b9c9308) && (uVar1 != 0x3b9c9309)) {
+   .... 1 straight-line statements
+    263|                 goto LAB_00784278;
+   .... 1 straight-line statements
+    265|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    267|             if (0x3b9cbe03 < (int)uVar1) {
+    268|               if ((int)uVar1 < 0x3b9cc5d1) {
+    269|                 if (uVar1 != 0x3b9cbe04) {
+   .... 1 straight-line statements
+    271|                   goto LAB_00784278;
+   .... 2 straight-line statements
+    274|               else {
+    275|                 if (uVar1 == 0x3b9cc5d1) goto LAB_00782cd0;
+    276|                 if (uVar1 != 0x3b9ce510) {
+   .... 1 straight-line statements
+    278|                   goto LAB_00783ff4;
+   .... 2 straight-line statements
+    281|               goto LAB_00784344;
+   .... 1 straight-line statements
+    283|             if ((int)uVar1 < 0x3b9cba18) {
+    284|               if (uVar1 != 0x3b9c930b) {
+   .... 1 straight-line statements
+    286| LAB_00784278:
+   .... 1 straight-line statements
+    288|                 goto joined_r0x00784280;
+   .... 2 straight-line statements
+    291|             else if (uVar1 != 0x3b9cba18) {
+   .... 1 straight-line statements
+    293|               goto LAB_00784278;
+   .... 1 straight-line statements
+    295|             goto LAB_00782cd0;
+   .... 1 straight-line statements
+    297|           if ((int)uVar1 < 0x3b9d0c21) {
+    298|             if (0x3b9d0067 < (int)uVar1) {
+    299|               if ((int)uVar1 < 0x3b9d006a) {
+    300|                 if (uVar1 != 0x3b9d0068) {
+   .... 1 straight-line statements
+    302|                   goto LAB_00784400;
+   .... 2 straight-line statements
+    305|               else if ((uVar1 != 0x3b9d006a) && (uVar1 != 0x3b9d0838)) {
+   .... 1 straight-line statements
+    307|                 goto LAB_007842b4;
+   .... 1 straight-line statements
+    309|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    311|             if ((int)uVar1 < 0x3b9cf898) {
+    312|               if (uVar1 != 0x3b9ce512) {
+   .... 1 straight-line statements
+    314| LAB_00783ff4:
+   .... 1 straight-line statements
+    316|                 goto joined_r0x00783f8c;
+   .... 2 straight-line statements
+    319|             else if ((int)uVar1 < 0x3b9cf89a) {
+    320|               if (uVar1 != 0x3b9cf898) {
+    321|                 if (uVar1 != 0x3b9cf899) {
+    322|                   return;
+   .... 1 straight-line statements
+    324|                 FUN_007866dc(param_1,param_2);
+    325|                 return;
+   .... 2 straight-line statements
+    328|             else if (uVar1 != 0x3b9cf89b) {
+    329|               if (uVar1 != 0x3b9cf89a) {
+    330|                 return;
+   .... 1 straight-line statements
+    332|               FUN_007867ec(param_1,param_2);
+    333|               return;
+   .... 2 straight-line statements
+    336|           else if ((int)uVar1 < 0x3b9d13fd) {
+    337|             if ((int)uVar1 < 0x3b9d1008) {
+    338|               if (uVar1 != 0x3b9d0c21) {
+   .... 1 straight-line statements
+    340|                 goto LAB_007842b4;
+   .... 2 straight-line statements
+    343|             else if (uVar1 != 0x3b9d1008) {
+   .... 1 straight-line statements
+    345|               goto LAB_007841bc;
+   .... 2 straight-line statements
+    348|           else {
+    349|             if ((int)uVar1 < 0x3b9d1bc0) {
+    350|               if (uVar1 == 0x3b9d13fd) goto LAB_00784370;
+   .... 1 straight-line statements
+    352| LAB_007841bc:
+    353|               if (uVar1 != (uVar2 | 0x3b9d0000)) {
+    354|                 return;
+   .... 1 straight-line statements
+    356|               goto LAB_00784370;
+   .... 1 straight-line statements
+    358|             if ((uVar1 != 0x3b9d1bc0) && (uVar1 != 0x3b9d2390)) {
+   .... 1 straight-line statements
+    360|               goto LAB_007842b4;
+   .... 2 straight-line statements
+    363|           goto LAB_00784344;
+   .... 1 straight-line statements
+    365|         if (0x3b9d4aa1 < (int)uVar1) {
+    366|           if ((int)uVar1 < 0x3b9d71b0) {
+    367|             if ((int)uVar1 < 0x3b9d5270) {
+    368|               if ((int)uVar1 < 0x3b9d4e8f) {
+    369|                 if (uVar1 != 0x3b9d4aa2) {
+   .... 1 straight-line statements
+    371|                   goto LAB_007842b4;
+   .... 2 straight-line statements
+    374|               else if (uVar1 != 0x3b9d4e8f) {
+   .... 1 straight-line statements
+    376|                 goto LAB_007842b4;
+   .... 2 straight-line statements
+    379|             else if ((int)uVar1 < 0x3b9d5a40) {
+    380|               if (uVar1 != 0x3b9d5270) {
+   .... 1 straight-line statements
+    382|                 goto LAB_007842b4;
+   .... 2 straight-line statements
+    385|             else {
+    386|               if (uVar1 == 0x3b9d5a40) goto LAB_00782cd0;
+    387|               if (uVar1 != 0x3b9d6210) {
+   .... 1 straight-line statements
+    389|                 goto LAB_007842b4;
+   .... 3 straight-line statements
+    393|           else if ((int)uVar1 < 0x3b9d8920) {
+    394|             if ((int)uVar1 < 0x3b9d7d68) {
+    395|               if (uVar1 != 0x3b9d71b0) {
+   .... 1 straight-line statements
+    397|                 goto LAB_00784400;
+   .... 2 straight-line statements
+    400|             else {
+    401|               if (uVar1 == 0x3b9d7d68) goto LAB_00782cd0;
+    402|               if (uVar1 != 0x3b9d8150) {
+   .... 1 straight-line statements
+    404|                 goto LAB_007842b4;
+   .... 3 straight-line statements
+    408|           else {
+    409|             if ((int)uVar1 < 0x3b9d94d8) {
+    410|               if (uVar1 != 0x3b9d8920) {
+   .... 1 straight-line statements
+    412|                 goto LAB_00784400;
+   .... 1 straight-line statements
+    414|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    416|             if ((uVar1 != 0x3b9d94d8) && (uVar1 != 0x3b9d9ca8)) {
+   .... 1 straight-line statements
+    418|               goto LAB_007842b4;
+   .... 2 straight-line statements
+    421|           goto LAB_00784344;
+   .... 1 straight-line statements
+    423|         if (0x3b9d3335 < (int)uVar1) {
+    424|           if ((int)uVar1 < 0x3b9d3eea) {
+    425|             if ((int)uVar1 < 0x3b9d3ee8) {
+    426|               if (uVar1 != 0x3b9d3336) {
+   .... 1 straight-line statements
+    428|                 goto LAB_007842b4;
+   .... 1 straight-line statements
+    430|               goto LAB_00784344;
+   .... 1 straight-line statements
+    432|             if (uVar1 != 0x3b9d3ee8) {
+   .... 1 straight-line statements
+    434|               goto LAB_00784400;
+   .... 2 straight-line statements
+    437|           else if ((int)uVar1 < 0x3b9d3eec) {
+    438|             if (uVar1 != 0x3b9d3eea) {
+   .... 1 straight-line statements
+    440|               goto LAB_00784400;
+   .... 2 straight-line statements
+    443|           else if (uVar1 != 0x3b9d3eec) {
+    444|             if (uVar1 != 0x3b9d4aa0) {
+   .... 1 straight-line statements
+    446|               goto LAB_007842b4;
+   .... 1 straight-line statements
+    448|             goto LAB_00784344;
+   .... 1 straight-line statements
+    450|           goto LAB_00782cd0;
+   .... 1 straight-line statements
+    452|         if (0x3b9d2b64 < (int)uVar1) {
+    453|           if ((int)uVar1 < 0x3b9d3332) {
+    454|             if (uVar1 == 0x3b9d2b65) goto LAB_00782cd0;
+   .... 2 straight-line statements
+    457|           else {
+    458|             if ((uVar1 == 0x3b9d3332) || (uVar1 == 0x3b9d3333)) goto LAB_00784344;
+   .... 2 straight-line statements
+    461|           goto LAB_007842b4;
+   .... 1 straight-line statements
+    463|         if ((int)uVar1 < 0x3b9d2b63) {
+    464|           if (uVar1 != 0x3b9d2b61) {
+   .... 1 straight-line statements
+    466| LAB_00784400:
+   .... 1 straight-line statements
+    468|             goto joined_r0x00784408;
+   .... 2 straight-line statements
+    471|         else if (uVar1 != 0x3b9d2b63) {
+   .... 1 straight-line statements
+    473|           goto LAB_00784400;
+   .... 2 straight-line statements
+    476|       goto LAB_00782cd0;
+   .... 1 straight-line statements
+    478|     if ((int)uVar1 < 0x3b9ef468) {
+    479|       if ((int)uVar1 < 0x3b9e40b8) {
+    480|         if ((int)uVar1 < 0x3b9df29b) {
+    481|           if ((int)uVar1 < 0x3b9ddf11) {
+    482|             if ((int)uVar1 < 0x3b9dcb88) {
+    483|               if ((int)uVar1 < 0x3b9db032) {
+    484|                 if (uVar1 != 0x3b9db030) {
+   .... 1 straight-line statements
+    486|                   goto LAB_007842b4;
+   .... 2 straight-line statements
+    489|               else if ((uVar1 != 0x3b9db032) && (uVar1 != 0x3b9db800)) {
+   .... 1 straight-line statements
+    491|                 goto LAB_00784400;
+   .... 2 straight-line statements
+    494|             else {
+    495|               if ((int)uVar1 < 0x3b9dd359) {
+    496|                 if (uVar1 == 0x3b9dcb88) goto LAB_00782cd0;
+   .... 1 straight-line statements
+    498|                 goto LAB_00784400;
+   .... 1 straight-line statements
+    500|               if ((uVar1 != 0x3b9ddb28) && (uVar1 != 0x3b9ddf10)) {
+    501|                 if (uVar1 != 0x3b9dd359) {
+    502|                   return;
+   .... 1 straight-line statements
+    504|                 FUN_0078562c(param_1,param_2);
+    505|                 return;
+   .... 3 straight-line statements
+    509|           else if ((int)uVar1 < 0x3b9deaca) {
+    510|             if ((int)uVar1 < 0x3b9de6e0) {
+    511|               if (uVar1 != 0x3b9ddf11) {
+   .... 1 straight-line statements
+    513| LAB_007842b4:
+   .... 1 straight-line statements
+    515|                 goto joined_r0x00783f8c;
+   .... 2 straight-line statements
+    518|             else if (uVar1 != 0x3b9de6e0) {
+   .... 1 straight-line statements
+    520|               goto LAB_007842b4;
+   .... 2 straight-line statements
+    523|           else {
+    524|             if (0x3b9df297 < (int)uVar1) {
+    525|               if ((uVar1 != 0x3b9df298) && (uVar1 != 0x3b9df299)) {
+   .... 1 straight-line statements
+    527|                 goto LAB_00784400;
+   .... 1 straight-line statements
+    529|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    531|             if (uVar1 != 0x3b9deaca) {
+   .... 1 straight-line statements
+    533|               goto LAB_007842b4;
+   .... 3 straight-line statements
+    537|         else if ((int)uVar1 < 0x3b9e1d91) {
+    538|           if ((int)uVar1 < 0x3b9e0620) {
+    539|             if ((int)uVar1 < 0x3b9dfe50) {
+    540|               if (uVar1 != 0x3b9df29b) {
+   .... 1 straight-line statements
+    542|                 goto LAB_007842b4;
+   .... 1 straight-line statements
+    544|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    546|             if (uVar1 != 0x3b9dfe50) {
+   .... 1 straight-line statements
+    548|               goto LAB_007842f0;
+   .... 2 straight-line statements
+    551|           else if ((int)uVar1 < 0x3b9e0a09) {
+    552|             if (uVar1 != 0x3b9e0620) {
+   .... 1 straight-line statements
+    554|               goto LAB_00783f84;
+   .... 2 straight-line statements
+    557|           else if (uVar1 != 0x3b9e0a09) {
+    558|             if (uVar1 == 0x3b9e11d8) goto LAB_00782cd0;
+   .... 1 straight-line statements
+    560|             goto LAB_00783f84;
+   .... 2 straight-line statements
+    563|         else {
+    564|           if (0x3b9e38e9 < (int)uVar1) {
+    565|             if ((int)uVar1 < 0x3b9e3cd2) {
+    566|               if (uVar1 == 0x3b9e38ea) goto LAB_00784344;
+    567|               if (uVar1 != 0x3b9e3cd1) {
+    568|                 if (uVar1 != 0x3b9e3cd0) {
+    569|                   return;
+   .... 1 straight-line statements
+    571|                 FUN_00785ca8(param_1,param_2);
+    572|                 return;
+   .... 2 straight-line statements
+    575|             else if (uVar1 != 0x3b9e3cd2) {
+   .... 1 straight-line statements
+    577|               goto LAB_007842f0;
+   .... 1 straight-line statements
+    579| LAB_00782cd0:
+   .... 1 straight-line statements
+    581|             goto joined_r0x0078425c;
+   .... 1 straight-line statements
+    583|           if ((int)uVar1 < 0x3b9e2948) {
+    584|             if (uVar1 != 0x3b9e1d91) {
+   .... 1 straight-line statements
+    586|               goto LAB_00783f84;
+   .... 2 straight-line statements
+    589|           else {
+    590|             if (uVar1 == 0x3b9e2948) goto LAB_00782cd0;
+    591|             if (uVar1 != 0x3b9e38e8) {
+   .... 1 straight-line statements
+    593|               goto LAB_00783f84;
+   .... 4 straight-line statements
+    598|       else if ((int)uVar1 < 0x3b9e9a90) {
+    599|         if (0x3b9e7768 < (int)uVar1) {
+    600|           if ((int)uVar1 < 0x3b9e8af0) {
+    601|             if (0x3b9e831f < (int)uVar1) {
+    602|               if (uVar1 == 0x3b9e8320) goto LAB_00784344;
+   .... 1 straight-line statements
+    604|               goto LAB_00783f84;
+   .... 1 straight-line statements
+    606|             if (uVar1 != 0x3b9e7769) {
+   .... 1 straight-line statements
+    608|               goto LAB_007842f0;
+   .... 2 straight-line statements
+    611|           else if ((int)uVar1 < 0x3b9e92c0) {
+    612|             if (uVar1 != 0x3b9e8af0) {
+   .... 1 straight-line statements
+    614|               goto LAB_00783f84;
+   .... 2 straight-line statements
+    617|           else if (uVar1 != 0x3b9e92c0) {
+    618|             if (uVar1 == 0x3b9e96a8) goto LAB_00784344;
+   .... 1 straight-line statements
+    620|             goto LAB_00783f84;
+   .... 1 straight-line statements
+    622|           goto LAB_00782cd0;
+   .... 1 straight-line statements
+    624|         if ((int)uVar1 < 0x3b9e6bb0) {
+    625|           if ((int)uVar1 < 0x3b9e5c10) {
+    626|             if (uVar1 != 0x3b9e40b8) {
+   .... 1 straight-line statements
+    628|               goto LAB_00783f84;
+   .... 2 straight-line statements
+    631|           else if (uVar1 != 0x3b9e5c10) {
+   .... 1 straight-line statements
+    633|             goto LAB_00783f84;
+   .... 2 straight-line statements
+    636|         else if ((int)uVar1 < 0x3b9e6f98) {
+    637|           if (uVar1 != 0x3b9e6bb0) {
+   .... 1 straight-line statements
+    639|             goto LAB_00783f84;
+   .... 2 straight-line statements
+    642|         else {
+    643|           if (uVar1 == 0x3b9e6f98) goto LAB_00782cd0;
+    644|           if (uVar1 != 0x3b9e7380) {
+   .... 1 straight-line statements
+    646|             goto LAB_007842f0;
+   .... 3 straight-line statements
+    650|       else if ((int)uVar1 < 0x3b9eb5ea) {
+    651|         if ((int)uVar1 < 0x3b9ea648) {
+    652|           if ((int)uVar1 < 0x3b9e9e78) {
+    653|             if (uVar1 != 0x3b9e9a90) {
+   .... 1 straight-line statements
+    655| LAB_00783f84:
+   .... 1 straight-line statements
+    657|               goto joined_r0x00783f8c;
+   .... 2 straight-line statements
+    660|           else if (uVar1 != 0x3b9e9e78) {
+   .... 1 straight-line statements
+    662|             goto LAB_00783f84;
+   .... 2 straight-line statements
+    665|         else {
+    666|           if ((int)uVar1 < 0x3b9eaa31) {
+    667|             if (uVar1 == 0x3b9ea648) goto LAB_00782cd0;
+   .... 1 straight-line statements
+    669|             goto LAB_00783f84;
+   .... 1 straight-line statements
+    671|           if ((uVar1 != 0x3b9eaa31) && (uVar1 != 0x3b9eaa32)) {
+   .... 1 straight-line statements
+    673|             goto LAB_007842f0;
+   .... 3 straight-line statements
+    677|       else if ((int)uVar1 < 0x3b9ec1a0) {
+    678|         if ((int)uVar1 < 0x3b9ebdb8) {
+    679|           if (uVar1 == 0x3b9eb5ea) goto LAB_00782cd0;
+   .... 1 straight-line statements
+    681|           goto LAB_007842f0;
+   .... 1 straight-line statements
+    683|         if ((uVar1 != 0x3b9ebdb8) && (uVar1 != 0x3b9ebdb9)) {
+   .... 1 straight-line statements
+    685|           goto LAB_00783f84;
+   .... 2 straight-line statements
+    688|       else if ((int)uVar1 < 0x3b9ed528) {
+    689|         if (uVar1 != 0x3b9ec1a0) {
+   .... 1 straight-line statements
+    691|           goto LAB_007842f0;
+   .... 2 straight-line statements
+    694|       else if ((uVar1 != 0x3b9ed528) && (uVar1 != 0x3b9edcf8)) {
+   .... 1 straight-line statements
+    696| LAB_007842f0:
+   .... 1 straight-line statements
+    698|         goto joined_r0x00784280;
+   .... 1 straight-line statements
+    700| LAB_00784344:
+   .... 2 straight-line statements
+    703|     else {
+    704|       if ((int)uVar1 < 0x3b9fd310) {
+    705|         if ((int)uVar1 < 0x3b9f2b1a) {
+    706|           if ((int)uVar1 < 0x3b9f13a9) {
+    707|             if ((int)uVar1 < 0x3b9f07f0) {
+    708|               if ((int)uVar1 < 0x3b9f0408) {
+    709|                 if (uVar1 != 0x3b9ef468) {
+   .... 1 straight-line statements
+    711|                   goto LAB_00784338;
+   .... 2 straight-line statements
+    714|               else if ((uVar1 != 0x3b9f0408) && (uVar1 != 0x3b9f040f)) {
+    715|                 if (uVar1 != 0x3b9f040a) {
+    716|                   return;
+   .... 1 straight-line statements
+    718|                 FUN_00786dac(param_1,param_2);
+    719|                 return;
+   .... 2 straight-line statements
+    722|             else {
+    723|               if ((int)uVar1 < 0x3b9f0fc0) {
+    724|                 if (uVar1 == 0x3b9f07f0) goto LAB_00784344;
+   .... 2 straight-line statements
+    727|               else {
+    728|                 if ((uVar1 == 0x3b9f0fc0) || (uVar1 == 0x3b9f0fc1)) goto LAB_00782cd0;
+   .... 2 straight-line statements
+    731| LAB_00784338:
+   .... 2 straight-line statements
+    734|               if (uVar1 != uVar2) {
+    735|                 return;
+   .... 3 straight-line statements
+    739|           else if ((int)uVar1 < 0x3b9f1f61) {
+    740|             if ((int)uVar1 < 0x3b9f1791) {
+    741|               if (uVar1 != 0x3b9f13a9) {
+   .... 1 straight-line statements
+    743|                 goto LAB_00784338;
+   .... 2 straight-line statements
+    746|             else if (uVar1 != 0x3b9f1791) {
+   .... 1 straight-line statements
+    748|               goto LAB_00784338;
+   .... 2 straight-line statements
+    751|           else if ((int)uVar1 < 0x3b9f2731) {
+    752|             if (uVar1 != 0x3b9f1f61) {
+   .... 1 straight-line statements
+    754|               goto LAB_00784338;
+   .... 2 straight-line statements
+    757|           else if (((uVar1 != 0x3b9f2731) && (uVar1 != 0x3b9f2b18)) && (uVar1 != 0x3b9f2b19)) {
+    758|             return;
+   .... 2 straight-line statements
+    761|         else {
+    762|           if ((int)uVar1 < 0x3b9f9497) {
+    763|             if ((int)uVar1 < 0x3b9f4a59) {
+    764|               if (0x3b9f4670 < (int)uVar1) {
+    765|                 if (uVar1 == 0x3b9f4671) goto LAB_00782cd0;
+   .... 1 straight-line statements
+    767|                 goto LAB_00784338;
+   .... 1 straight-line statements
+    769|               if (uVar1 != 0x3b9f2b1a) {
+   .... 1 straight-line statements
+    771|                 goto LAB_00784314;
+   .... 2 straight-line statements
+    774|             else if ((int)uVar1 < 0x3b9f5de0) {
+    775|               if (uVar1 != 0x3b9f4a59) {
+   .... 1 straight-line statements
+    777|                 goto LAB_00784338;
+   .... 2 straight-line statements
+    780|             else if ((uVar1 != 0x3b9f5de0) && (uVar1 != 0x3b9f5de1)) {
+   .... 1 straight-line statements
+    782| LAB_00784314:
+   .... 2 straight-line statements
+    785|               if (uVar1 != uVar2) {
+    786|                 return;
+   .... 1 straight-line statements
+    788|               goto LAB_00782cd0;
+   .... 1 straight-line statements
+    790|             goto LAB_00784344;
+   .... 1 straight-line statements
+    792|           if ((int)uVar1 < 0x3b9fc371) {
+    793|             if ((int)uVar1 < 0x3b9fb7b8) {
+    794|               if (uVar1 != 0x3b9f9497) {
+   .... 1 straight-line statements
+    796|                 goto LAB_00784314;
+   .... 2 straight-line statements
+    799|             else if ((uVar1 != 0x3b9fb7b8) && (uVar1 != 0x3b9fbf88)) {
+   .... 1 straight-line statements
+    801|               goto LAB_00784338;
+   .... 1 straight-line statements
+    803|             goto LAB_00782cd0;
+   .... 1 straight-line statements
+    805|           if ((int)uVar1 < 0x3b9fc758) {
+    806|             if (uVar1 != 0x3b9fc371) {
+   .... 1 straight-line statements
+    808|               goto LAB_00784338;
+   .... 2 straight-line statements
+    811|           else if (uVar1 != 0x3b9fc758) {
+    812|             if (uVar1 == 0x3b9fc759) goto LAB_00784370;
+   .... 1 straight-line statements
+    814|             goto LAB_00784338;
+   .... 2 straight-line statements
+    817|         goto LAB_00784344;
+   .... 1 straight-line statements
+    819|       if ((int)uVar1 < 0x3ba06b69) {
+    820|         if ((int)uVar1 < 0x3ba01579) {
+    821|           if ((int)uVar1 < 0x3b9fe698) {
+    822|             if ((int)uVar1 < 0x3b9fdae1) {
+    823|               if (uVar1 != 0x3b9fd310) {
+   .... 1 straight-line statements
+    825| LAB_00783e74:
+   .... 1 straight-line statements
+    827|                 goto joined_r0x00783e7c;
+   .... 2 straight-line statements
+    830|             else if (uVar1 != 0x3b9fdae1) {
+   .... 1 straight-line statements
+    832|               goto LAB_00783e74;
+   .... 2 straight-line statements
+    835|           else if ((int)uVar1 < 0x3b9ffa20) {
+    836|             if (uVar1 != 0x3b9fe698) {
+   .... 1 straight-line statements
+    838|               goto LAB_00784314;
+   .... 2 straight-line statements
+    841|           else if ((uVar1 != 0x3b9ffa20) && (uVar1 != 0x3ba009c0)) {
+   .... 1 straight-line statements
+    843|             goto LAB_00784364;
+   .... 2 straight-line statements
+    846|         else if ((int)uVar1 < 0x3ba02900) {
+    847|           if ((int)uVar1 < 0x3ba02518) {
+    848|             if (uVar1 != 0x3ba01579) {
+   .... 1 straight-line statements
+    850|               goto LAB_00784364;
+   .... 2 straight-line statements
+    853|           else if (uVar1 != 0x3ba02518) {
+   .... 1 straight-line statements
+    855|             goto LAB_00784364;
+   .... 2 straight-line statements
+    858|         else if ((int)uVar1 < 0x3ba038a0) {
+    859|           if (uVar1 != 0x3ba02900) {
+   .... 1 straight-line statements
+    861|             goto LAB_00784364;
+   .... 2 straight-line statements
+    864|         else if (uVar1 != 0x3ba038a0) {
+    865|           if (uVar1 == 0x3ba04840) goto LAB_00782cd0;
+    866|           if (uVar1 != 0x3ba06b68) {
+    867|             return;
+   .... 3 straight-line statements
+    871|       else if ((int)uVar1 < 0x3ba0a9ea) {
+    872|         if ((int)uVar1 < 0x3ba08aa8) {
+    873|           if ((int)uVar1 < 0x3ba06f50) {
+    874|             if (uVar1 != 0x3ba06b69) {
+   .... 1 straight-line statements
+    876|               goto LAB_00784364;
+   .... 2 straight-line statements
+    879|           else if (uVar1 != 0x3ba06f50) {
+   .... 1 straight-line statements
+    881|             goto LAB_00784364;
+   .... 2 straight-line statements
+    884|         else if ((int)uVar1 < 0x3ba09a49) {
+    885|           if (uVar1 != 0x3ba08aa8) {
+   .... 1 straight-line statements
+    887|             goto LAB_00784364;
+   .... 2 straight-line statements
+    890|         else if ((uVar1 != 0x3ba09a49) && (uVar1 != 0x3ba0a9e8)) {
+   .... 1 straight-line statements
+    892|           goto LAB_00784364;
+   .... 2 straight-line statements
+    895|       else if ((int)uVar1 < 0x3ba10f78) {
+    896|         if ((int)uVar1 < 0x3ba0b5a1) {
+    897|           if (uVar1 != 0x3ba0a9ea) {
+   .... 1 straight-line statements
+    899|             goto LAB_00784364;
+   .... 2 straight-line statements
+    902|         else if ((uVar1 != 0x3ba0b5a1) && (uVar1 != 0x3ba0c540)) {
+   .... 1 straight-line statements
+    904| LAB_00784364:
+   .... 2 straight-line statements
+    907|           if (uVar1 != uVar2) {
+    908|             return;
+   .... 3 straight-line statements
+    912|       else if ((int)uVar1 < 0x3ba11360) {
+    913|         if ((uVar1 != 0x3ba10f78) && (uVar1 != 0x3ba10f79)) {
+    914|           return;
+   .... 2 straight-line statements
+    917|       else if (uVar1 != 0x3ba11360) {
+    918|         if ((uVar1 != 0x3ba11748) && (uVar1 != 0x3ba11749)) {
+    919|           return;
+   .... 1 straight-line statements
+    921|         goto LAB_00782cd0;
+   .... 1 straight-line statements
+    923| LAB_00784370:
+   .... 3 straight-line statements
+    927|     if (param_2 == 0) {
+    928|       return;
+   .... 6 straight-line statements (to end)
+==============================================================================
+SKELETON 0x546d7c  lines=932 shape=branch-web
+   .... 1 straight-line statements
+      1| void FUN_00646d7c(char *param_1,ulong param_2,ulong *param_3)
+   .... 120 straight-line statements
+    122| LAB_00647078:
+   .... 4 straight-line statements
+    127|   if (iVar8 < -0xa6a33c2) {
+   .... 1 straight-line statements
+    129|     if (iVar8 < -0x426e4fec) {
+    130|       if (iVar8 < -0x60bdd7ad) {
+    131|         if (iVar8 < -0x7124ea56) {
+    132|           if (iVar8 < -0x75558495) {
+    133|             if (iVar8 == -0x7d118b4f) {
+   .... 2 straight-line statements
+    136|             else if (iVar8 == -0x7bea81d7) {
+   .... 2 straight-line statements
+    139|               if ((uVar9 + (uVar9 ^ 0xffffffff | 0x7d6f5c57) + 0x8290a3a9 ^ 0xffffffff | 0x4b32ba17)
+   .... 7 straight-line statements
+    147|           else {
+    148|             if (iVar8 == -0x75558495) {
+   .... 5 straight-line statements
+    154|               goto LAB_00648f84;
+   .... 1 straight-line statements
+    156|             if (iVar8 == -0x7484b1eb) {
+   .... 2 straight-line statements
+    159|             else if (iVar8 == -0x72c40604) {
+   .... 6 straight-line statements
+    166|         else if (iVar8 < -0x6c3473d5) {
+    167|           if ((iVar8 == -0x7124ea56) || (iVar13 = -0x5c27d2c3, iVar8 == -0x710cff6f)) {
+   .... 2 straight-line statements
+    170|           else if (iVar8 == -0x7049d6c5) {
+   .... 5 straight-line statements
+    176|             if (*local_c0 == '\0') {
+   .... 2 straight-line statements
+    179|             goto LAB_0064931c;
+   .... 2 straight-line statements
+    182|         else {
+    183|           if (iVar8 == -0x6c3473d5) {
+   .... 7 straight-line statements
+    191|             if ((((DAT_00a3b030 ^ 0xdc93bb55) + (DAT_00a3b034 ^ 0x3d21faa5) + 1 +
+   .... 4 straight-line statements
+    196|             goto LAB_006493d4;
+   .... 1 straight-line statements
+    198|           if (iVar8 == -0x610b1744) {
+   .... 1 straight-line statements
+    200|             if (local_1a0 != '\0') {
+   .... 5 straight-line statements
+    206|           else if (iVar8 == -0x60cc31f8) {
+   .... 2 straight-line statements
+    209|             if ((DAT_00a3b0ac ^ 0xa15435f7) != 0) {
+   .... 5 straight-line statements
+    215| LAB_00648780:
+    216|             if (!bVar5) {
+   .... 5 straight-line statements
+    222|         goto LAB_00647078;
+   .... 1 straight-line statements
+    224|       if (iVar8 < -0x51873cc4) {
+    225|         if (iVar8 < -0x5d91eb0c) {
+    226|           if (iVar8 == -0x60bdd7ad) {
+   .... 8 straight-line statements
+    235|             goto LAB_00648780;
+   .... 1 straight-line statements
+    237|           if (iVar8 == -0x6046f69d) {
+   .... 3 straight-line statements
+    241|             if (0x37a9db2 < ((uVar9 | 0x26869381) & (uVar9 ^ 0x99382874))) {
+   .... 4 straight-line statements
+    246|           goto LAB_00647078;
+   .... 1 straight-line statements
+    248|         if (iVar8 == -0x5d91eb0c) {
+   .... 3 straight-line statements
+    252|           if (*local_b0 == '\0') {
+   .... 3 straight-line statements
+    256|           goto LAB_00647078;
+   .... 2 straight-line statements
+    259|         if (iVar8 == -0x5c27d2c3) {
+   .... 1 straight-line statements
+    261|           if ((DAT_00a3b03c ^ 0xd460e9b0) != 0) {
+   .... 12 straight-line statements
+    274|           goto LAB_006491e0;
+   .... 1 straight-line statements
+    276|         if (iVar8 != -0x57b91a98) goto LAB_00647078;
+   .... 12 straight-line statements
+    289|       else {
+    290|         if (iVar8 < -0x4937d5fa) {
+    291|           if (iVar8 == -0x51873cc4) {
+   .... 2 straight-line statements
+    294|           else if (iVar8 == -0x4f901963) {
+   .... 2 straight-line statements
+    297|           else if (iVar8 == -0x4bcb3b9f) {
+   .... 2 straight-line statements
+    300|           goto LAB_00647078;
+   .... 1 straight-line statements
+    302|         if (iVar8 == -0x4937d5fa) {
+   .... 4 straight-line statements
+    307|           if (*local_110 == '\0') {
+   .... 2 straight-line statements
+    310|           goto LAB_00648e14;
+   .... 1 straight-line statements
+    312|         if (iVar8 == -0x43ec269f) {
+   .... 1 straight-line statements
+    314|           goto LAB_00647078;
+   .... 1 straight-line statements
+    316|         if (iVar8 != -0x432a4127) goto LAB_00647078;
+   .... 7 straight-line statements
+    324|     else {
+    325|       if (iVar8 < -0x24d0fa07) {
+    326|         if (-0x2f0ab724 < iVar8) {
+    327|           if (iVar8 < -0x2b3ede38) {
+    328|             if (iVar8 == -0x2f0ab723) {
+   .... 8 straight-line statements
+    337|               goto LAB_00648f84;
+   .... 1 straight-line statements
+    339|             if (iVar8 == -0x2dab264f) {
+   .... 2 straight-line statements
+    342|               goto LAB_00648530;
+   .... 1 straight-line statements
+    344|             if (iVar8 == -0x2be65c2b) {
+    345|               if (*(long *)(local_148 + 0x28) == local_70) {
+    346|                 return;
+   .... 5 straight-line statements
+    352|           else if (iVar8 == -0x2b3ede38) {
+   .... 7 straight-line statements
+    360| LAB_00648f84:
+    361|             if (bVar5) {
+   .... 4 straight-line statements
+    366|           else {
+    367|             if (iVar8 == -0x29b95dcf) {
+   .... 2 straight-line statements
+    370|               if (*local_a8 == '\0') {
+   .... 2 straight-line statements
+    373|               goto LAB_00648ba8;
+   .... 1 straight-line statements
+    375|             if (iVar8 == -0x26ed947a) {
+   .... 3 straight-line statements
+    379|           goto LAB_00647078;
+   .... 1 straight-line statements
+    381|         if (iVar8 < -0x3a48fead) {
+    382|           if (iVar8 == -0x426e4fec) {
+   .... 3 straight-line statements
+    386|             if (*local_b8 == '\0') {
+   .... 2 straight-line statements
+    389| LAB_0064931c:
+   .... 1 straight-line statements
+    391|             goto LAB_00649328;
+   .... 1 straight-line statements
+    393|           if (iVar8 == -0x40c8a3e2) {
+   .... 2 straight-line statements
+    396|           else if (iVar8 == -0x3d8698bd) {
+   .... 2 straight-line statements
+    399|           goto LAB_00647078;
+   .... 1 straight-line statements
+    401|         if (iVar8 == -0x3a48fead) {
+   .... 2 straight-line statements
+    404|           if ((DAT_00a3b0b4 ^ 0xfce47bed) != 0) {
+   .... 9 straight-line statements
+    414|         else {
+    415|           if (iVar8 != -0x386b5ac1) {
+    416|             if (iVar8 == -0x37216ba3) {
+   .... 2 straight-line statements
+    419|             goto LAB_00647078;
+   .... 9 straight-line statements
+    429|         if (bVar5) {
+   .... 2 straight-line statements
+    432|         goto LAB_006493d4;
+   .... 1 straight-line statements
+    434|       if (iVar8 < -0x1ac00ada) {
+    435|         if (-0x1d06767a < iVar8) {
+    436|           if (iVar8 == -0x1d067679) {
+   .... 2 straight-line statements
+    439|           else if (iVar8 == -0x1ce6d30e) {
+    440| LAB_00648288:
+   .... 2 straight-line statements
+    443|           else if (iVar8 == -0x1cd0ac10) {
+   .... 2 straight-line statements
+    446|           goto LAB_00647078;
+   .... 1 straight-line statements
+    448|         if (iVar8 != -0x24d0fa07) {
+    449|           if (iVar8 == -0x24802011) {
+   .... 2 straight-line statements
+    452|           goto LAB_00647078;
+   .... 10 straight-line statements
+    463|       else {
+    464|         if (iVar8 < -0x15e6a1e9) {
+    465|           if (iVar8 == -0x1ac00ada) {
+   .... 4 straight-line statements
+    470|           else if (iVar8 == -0x19b4d049) {
+   .... 1 straight-line statements
+    472|             if (*local_130 < 0x6aa9e263) {
+   .... 4 straight-line statements
+    477|           else if (iVar8 == -0x167a11b0) {
+   .... 1 straight-line statements
+    479|             if ('\x1f' < local_1a0) {
+   .... 4 straight-line statements
+    484|           goto LAB_00647078;
+   .... 1 straight-line statements
+    486|         if (iVar8 != -0x15e6a1e9) {
+    487|           if (iVar8 == -0xdc2068a) {
+   .... 4 straight-line statements
+    492|             goto LAB_00648ab8;
+   .... 1 straight-line statements
+    494|           if (iVar8 == -0xd447710) {
+   .... 10 straight-line statements
+    505|             goto LAB_00647070;
+   .... 1 straight-line statements
+    507|           goto LAB_00647078;
+   .... 9 straight-line statements
+    517| LAB_00647070:
+    518|     if (!bVar4 || bVar5) {
+   .... 3 straight-line statements
+    522|     goto LAB_00647078;
+   .... 1 straight-line statements
+    524|   if (iVar8 < 0x4303774a) {
+    525|     if (iVar8 < 0x2234de7b) {
+    526|       if (iVar8 < -0x6699e1) {
+    527|         if (iVar8 < -0x891b1a0) {
+    528|           if (iVar8 == -0xa6a33c2) {
+   .... 3 straight-line statements
+    532|           else if (iVar8 == -0x97a7e9e) {
+   .... 3 straight-line statements
+    536|         else if (iVar8 == -0x891b1a0) {
+   .... 2 straight-line statements
+    539|         else if (iVar8 == -0x4492da5) {
+   .... 6 straight-line statements
+    546|           if ((((uVar9 ^ 0xffffffff) & 0x5c5108fa) * (uVar9 & 0xa3aef705) +
+   .... 6 straight-line statements
+    553|         else if (iVar8 == -0x3f79de5) {
+   .... 4 straight-line statements
+    558|         goto LAB_00647078;
+   .... 1 straight-line statements
+    560|       if (iVar8 < 0x5e13331) {
+    561|         if (iVar8 != -0x6699e1) {
+    562|           if (iVar8 == 0x2ba0903) {
+   .... 5 straight-line statements
+    568|             goto LAB_00649008;
+   .... 1 straight-line statements
+    570|           if (iVar8 == 0x5cd91b9) {
+   .... 2 straight-line statements
+    573|           goto LAB_00647078;
+   .... 7 straight-line statements
+    581|         goto LAB_00649008;
+   .... 1 straight-line statements
+    583|       if (iVar8 != 0x5e13331) {
+    584|         if (iVar8 == 0xdd5e8fd) goto LAB_00648288;
+    585|         if (iVar8 == 0x16ef46cb) {
+   .... 7 straight-line statements
+    593|         goto LAB_00647078;
+   .... 3 straight-line statements
+    597|       if ((DAT_00a3b05c ^ 0x4624780e) != 0) {
+   .... 8 straight-line statements
+    606|     else {
+    607|       if (iVar8 < 0x2f39104b) {
+    608|         if (iVar8 < 0x2b5e63ad) {
+    609|           if (iVar8 == 0x2234de7b) {
+   .... 2 straight-line statements
+    612|           else if (iVar8 == 0x293a4f6a) {
+   .... 5 straight-line statements
+    618|             goto LAB_00649008;
+   .... 2 straight-line statements
+    621|         else if (iVar8 == 0x2b5e63ad) {
+   .... 2 straight-line statements
+    624|         else if (iVar8 == 0x2cb85934) {
+   .... 4 straight-line statements
+    629| LAB_00648ab8:
+   .... 2 straight-line statements
+    632|         else if (iVar8 == 0x2f0cb4e8) {
+   .... 4 straight-line statements
+    637|         goto LAB_00647078;
+   .... 1 straight-line statements
+    639|       if (0x353ff086 < iVar8) {
+    640|         if (iVar8 == 0x353ff087) {
+   .... 4 straight-line statements
+    645|           if (*local_100 == '\0') {
+   .... 6 straight-line statements
+    652|         else {
+    653|           if (iVar8 == 0x3ac7a554) {
+   .... 4 straight-line statements
+    658|             if (0xaafd9b00 <
+   .... 4 straight-line statements
+    663|             goto LAB_006493d4;
+   .... 1 straight-line statements
+    665|           if (iVar8 == 0x3acd5d15) {
+   .... 1 straight-line statements
+    667|             if (local_1a0 != ' ') {
+   .... 6 straight-line statements
+    674|         goto LAB_00647078;
+   .... 1 straight-line statements
+    676|       if (iVar8 == 0x2f39104b) {
+   .... 7 straight-line statements
+    684|         goto LAB_00647070;
+   .... 1 straight-line statements
+    686|       if (iVar8 == 0x2f4491a4) {
+   .... 1 straight-line statements
+    688|         goto LAB_00647078;
+   .... 1 straight-line statements
+    690|       if (iVar8 != 0x337b65a7) goto LAB_00647078;
+   .... 9 straight-line statements
+    700|   else {
+    701|     if (0x656c783b < iVar8) {
+    702|       if (0x753faddf < iVar8) {
+    703|         if (0x7a1f2ec8 < iVar8) {
+    704|           if (iVar8 == 0x7a1f2ec9) {
+   .... 2 straight-line statements
+    707|           else if (iVar8 == 0x7c39dfa8) {
+   .... 2 straight-line statements
+    710|           else if (iVar8 == 0x7eeb5c9a) {
+   .... 4 straight-line statements
+    715|             if (local_2b0 == false) {
+   .... 2 straight-line statements
+    718| LAB_00648e14:
+   .... 2 straight-line statements
+    721|           goto LAB_00647078;
+   .... 1 straight-line statements
+    723|         if (iVar8 != 0x753fade0) {
+    724|           if (iVar8 == 0x7863c970) {
+   .... 4 straight-line statements
+    729|           else {
+    730|             if (iVar8 != 0x799a44f0) goto LAB_00647078;
+   .... 5 straight-line statements
+    736|           if (cVar2 == '\0') {
+   .... 2 straight-line statements
+    739| LAB_00648ba8:
+   .... 1 straight-line statements
+    741| LAB_00649328:
+   .... 1 straight-line statements
+    743|           goto LAB_00647078;
+   .... 2 straight-line statements
+    746|         if ('\x1f' < local_290) {
+   .... 3 straight-line statements
+    750|         goto LAB_00647078;
+   .... 1 straight-line statements
+    752|       if (iVar8 < 0x720cca9c) {
+    753|         if (iVar8 == 0x656c783c) {
+   .... 2 straight-line statements
+    756|         else if (iVar8 == 0x6c2636f4) {
+   .... 5 straight-line statements
+    762|           if ((((uVar9 ^ 0xffffffff) & 0xc678382 | uVar9 & 0xf3987c78) ^ 0x783bc1f7 |
+   .... 5 straight-line statements
+    768|         goto LAB_00647078;
+   .... 1 straight-line statements
+    770|       if (iVar8 == 0x720cca9c) {
+   .... 4 straight-line statements
+    775|         if (((((uVar9 ^ 0xffffffff) & 0x2350beaf) * (uVar9 & 0xdcaf4150) +
+   .... 5 straight-line statements
+    781|       else {
+    782|         if (iVar8 != 0x7494544d) {
+    783|           if (iVar8 == 0x74d90612) {
+   .... 9 straight-line statements
+    793|             goto LAB_00648f84;
+   .... 1 straight-line statements
+    795|           goto LAB_00647078;
+   .... 7 straight-line statements
+    803|         if ((((uint)((ulong)((DAT_00a3b060 ^ 0x80a8a45f) - (DAT_00a3b064 ^ 0x6e3884f7)) * 0x522da35
+   .... 4 straight-line statements
+    808| LAB_006493d4:
+   .... 1 straight-line statements
+    810|       goto LAB_00647078;
+   .... 1 straight-line statements
+    812|     if (iVar8 < 0x515e049d) {
+    813|       if (iVar8 < 0x45a309a7) {
+    814|         if (iVar8 != 0x4303774a) {
+    815|           if (iVar8 == 0x43b5a32f) {
+   .... 2 straight-line statements
+    818|           goto LAB_00647078;
+   .... 6 straight-line statements
+    825|       else {
+    826|         if (iVar8 == 0x45a309a7) {
+   .... 2 straight-line statements
+    829|           if ((DAT_00a3b074 ^ 0x8f876e28) != 0) {
+   .... 11 straight-line statements
+    841|           goto LAB_006491e0;
+   .... 1 straight-line statements
+    843|         if (iVar8 == 0x48003e09) {
+   .... 2 straight-line statements
+    846| LAB_00648530:
+   .... 1 straight-line statements
+    848|           if (!bVar5) {
+   .... 2 straight-line statements
+    851|           goto LAB_00648ba8;
+   .... 1 straight-line statements
+    853|         if (iVar8 != 0x4e93d2a2) goto LAB_00647078;
+   .... 10 straight-line statements
+    864| LAB_00649008:
+    865|       if (bVar5) {
+   .... 3 straight-line statements
+    869|       goto LAB_00647078;
+   .... 1 straight-line statements
+    871|     if (iVar8 < 0x5d2c4693) {
+    872|       if (iVar8 == 0x515e049d) {
+   .... 2 straight-line statements
+    875|       else if (iVar8 == 0x5585f95b) {
+   .... 2 straight-line statements
+    878|       else if (iVar8 == 0x55e76158) {
+   .... 9 straight-line statements
+    888|         goto LAB_00648f84;
+   .... 1 straight-line statements
+    890|       goto LAB_00647078;
+   .... 1 straight-line statements
+    892|     if (iVar8 != 0x5d2c4693) {
+    893|       if (iVar8 == 0x5f90214e) {
+   .... 3 straight-line statements
+    897|         if ((((DAT_00a3afdc ^ DAT_00a3afd8 ^ 0xa081051d) & 0xb089c79d) * (uVar9 & 0x4f763862) +
+   .... 5 straight-line statements
+    903|       else if (iVar8 == 0x62fd87eb) {
+   .... 2 straight-line statements
+    906|       goto LAB_00647078;
+   .... 3 straight-line statements
+    910|     if ((DAT_00a3b0d4 ^ 0x3a8c1fa6) != 0) {
+   .... 9 straight-line statements
+    920| LAB_006491e0:
+    921|   if (bVar5) {
+   .... 5 straight-line statements
+    927|   goto LAB_00647078;
+   .... 4 straight-line statements (to end)
