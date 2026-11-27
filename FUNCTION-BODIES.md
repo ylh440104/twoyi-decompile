@@ -116,6 +116,29 @@ Java side hands over the object and the native code pulls coordinates through
 cached `jmethodID`s; that cache is what the load-time string
 `unable to cache MotionEvent methods` refers to.
 
+## The render channel is created natively
+
+`libtwoyi.so` imports 295 symbols. Among them, verbatim from `.dynstr`:
+
+```
+socket   socketpair   connect   bind   listen   sendmsg   recvmsg   ioctl   mmap
+```
+
+So the host side opens the unix socket itself in C, it is not handed a Java
+`LocalSocket`. `socketpair` is the fd-passing primitive, and it also appears in
+`libloader.so`, which is how descriptors reach the guest child across `execve`.
+
+This settles the shape of the render path:
+
+```
+Java   Renderer.prepare(w, h, xdpi, ydpi, fps)
+  -> JNI entry 0x1ddf80            validates, calls, throws on failure
+  -> FUN_002fea3c                  locks, starts host runtime, logs "%dx%d@%d"
+  -> FUN_00325160(w, h)            builds two channel objects (0x28 + 0x38 bytes)
+       -> socket()/bind()/listen() or connect()  on a path under <dataDir>/socket
+  -> guest connects, protocol banner "G5 ready socket=%s GLES=%d.%d hostCallbacks=v5 mappedShadow="
+```
+
 ## Confirming the guest binder patch
 
 `ROOTFS-AND-BINDER.md` previously described the vbinder mechanism from the
