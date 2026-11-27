@@ -1,11 +1,14 @@
-decrypted strings: 1329 bytes
-JNINativeMethod entries: 13
+decrypted strings: 1354 bytes
+JNINativeMethod entries: 16
 
-table@0x008e5800  attachWindow               (mandroid/view/Surface;)V                                   fn=0x1e006c
+table@0x008e57e8  prepare                    (IIFFI)V                                                    fn=0x1ddf80
+table@0x008e5800  attachWindow               (Landroid/view/Surface;)V                                   fn=0x1e006c
 table@0x008e5818  resetWindow                (Landroid/view/Surface;IIII)V                               fn=0x1e1e9c
-table@0x008e5830  removeWindow               (mandroid/view/Surface;)V                                   fn=0x1e3fe4
+table@0x008e5830  removeWindow               (Landroid/view/Surface;)V                                   fn=0x1e3fe4
 table@0x008e5860  sendKeycode                (I)V                                                        fn=0x1e90b8
+table@0x008e5878  configureEndpoints         (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V  fn=0x1e9cf8
 table@0x008e5890  nativeDisconnectSurface    (Landroid/view/Surface;)Z                                   fn=0x1ef5e0
+table@0x008e58a8  prepare                    (Ljava/lang/String;Ljava/lang/String;IIFFI)V                fn=0x1ef978
 table@0x008e58c0  waitForExit                ()I                                                         fn=0x1f3d54
 table@0x008e58d8  stop                       ()V                                                         fn=0x1f5ba0
 table@0x009076e0  nativeHandle               (I)V                                                        fn=0x84cb18
