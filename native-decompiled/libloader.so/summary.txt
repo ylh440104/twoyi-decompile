@@ -1,0 +1,7 @@
+program: libloader.so
+language: AARCH64:LE:64:v8A
+image base: 00100000
+symbols: 1012
+functions total: 262
+decompiled ok: 262
+failed: 0
