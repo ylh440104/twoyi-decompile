@@ -86,7 +86,52 @@ usage (`169`/`170`) appears in the **caller** rows, which is why
 `nativeRecoverRootfs`/`nativeRepairRootfs` show string conversion even though
 their own 444/15,516 bytes do little.
 
-## Method
+## Correction: the two "callback pointers" in FUN_00351408 are hoisted JNIEnv slots
+
+Earlier revisions described `*local_f0` and `*local_100` as "stack-stored function
+pointers — real callbacks". Reading their assignments settles it:
+
+```c
+115:  local_f0  = local_250;                 /* stack slot */
+119:  local_100 = local_290;
+809:  *local_f0  = *local_78 + 0x558;        /* 0x558/8 = 171 = GetArrayLength */
+856:  *local_100 = *plVar6  + 0x720;         /* 0x720/8 = 228 = ExceptionCheck */
+```
+
+They are **not** callbacks into library code. They are `JNIEnv` slots cached into
+stack variables — the compiler hoisted the function pointer so the call site
+becomes a bare `(**(code **)*local_f0)(...)` with no visible offset. This is an
+ordinary optimisation, not obfuscation.
+
+So `FUN_00351408` actually uses four JNI functions:
+
+| offset | index | function |
+|---|---|---|
+| `0x548` | 169 | `GetStringUTFChars` |
+| `0x550` | 170 | `ReleaseStringUTFChars` |
+| `0x558` | 171 | `GetArrayLength` |
+| `0x720` | 228 | `ExceptionCheck` |
+
+`GetArrayLength` plus `GetObjectArrayElement` (index 173, seen in
+`nativeRepairRootfs`) is the full `String[]` walk: ask how long, then index each
+element. `ExceptionCheck` is the post-call guard.
+
+### The method limitation, and why the 24-native table still stands
+
+The census originally matched only `(*local_X + 0xNNN)` at the call site, which
+**misses any hoisted pointer** — a real methodological hole, found by reading
+`FUN_00351408`. `tools/jni_census.py` now also matches the hoist form
+`*dst = *src + 0xNNN`.
+
+Re-running with the fix produces **byte-identical output** for all 24 natives.
+So no registered native hoists its function pointers, and the table above is
+unaffected. The hole was real but confined to one non-registered internal
+routine.
+
+Worth recording as a general caveat: a JNIEnv census is a **lower bound** unless
+hoisting is accounted for, and the negative result here (no change) is only
+trustworthy because the pattern was searched for explicitly rather than assumed
+absent.
 
 ```
 python3 tools/jni_census.py
