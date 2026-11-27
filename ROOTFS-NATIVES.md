@@ -126,6 +126,49 @@ independent encodings of the same contract, and where the native side is
 runtime-dependent the Java side is authoritative. That is a legitimate
 cross-check, not an inference chain.
 
+## The two workers are dispatch shells, not I/O code
+
+Line ranges established from the `// ---- <addr> FUN_<name> size=` markers:
+
+| function | marker line | next marker | lines |
+|---|---|---|---|
+| `FUN_00351408` | 26465 | 27701 | **1,236** |
+| `FUN_00370ad8` (`nativeResolve`) | 36724 | 37529 | **805** |
+
+Counting calls in each body:
+
+| function | named calls | indirect calls | string literals |
+|---|---|---|---|
+| `FUN_00351408` | `__stack_chk_fail` ×1 | **8** | **0** |
+| `FUN_00370ad8` | `memset` ×2, `__stack_chk_fail` ×1 | **6** | **0** |
+
+That is the whole result and it is unambiguous: **neither function performs a
+single direct syscall or libc I/O call.** No `open`, `read`, `write`, `ioctl`,
+`socket`, `fork`, `execve`, `mkdir`, `mount` — nothing. Not one `PTR_FUN_` or
+`PTR_DAT_` symbol reference either, so the eight and six indirect calls are not
+resolving through `.data.rel.ro` slots.
+
+They therefore dispatch through **pointers carried in their arguments**.
+`FUN_00351408`'s first argument is `param_1`, which for every JNI entry point in
+this library is the `JNIEnv*`; the remaining indirect targets are reached from
+the argument-derived structs. `FUN_00370ad8` has the identical shape.
+
+Two consequences worth recording:
+
+1. The 16,228 bytes are mostly obfuscation, not logic. `FUN_0034cf6c` showed the
+   pattern in miniature — 51 lines of which one line does work. The workers are
+   the same construction at scale.
+2. Reading them line by line would not yield the rootfs file operations. Those
+   live behind the indirect targets, which are `libtwoyi.so`'s 295 imports
+   (established earlier: the full socket and file API). The thing to follow is
+   which import gets bound to which pointer slot at load time, not the
+   dispatch shell itself.
+
+This corrects an implicit assumption in the previous revision, which listed
+`FUN_00351408` as "the actual rootfs worker" on the strength of its size and its
+two call sites. Size and call-site count were the only evidence, and both were
+misleading: it is the *dispatch* point, and the *worker* is reached through it.
+
 ## What is still not read
 
 - `FUN_00351408` (16,228 B) — the actual rootfs worker. Only its two call sites
