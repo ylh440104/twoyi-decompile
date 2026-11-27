@@ -32,7 +32,7 @@ ASSIGN = re.compile(r"^\s*DAT_([0-9a-fA-F]{8})\s*=\s*(.+?);\s*$")
 TOKEN = re.compile(r"""\s*(?:
       (?P<hex>0[xX][0-9a-fA-F]+)
     | (?P<dat>DAT_[0-9a-fA-F]{8})
-    | (?P<chr>'(?:\\.|[^'\\])*')
+    | (?P<chr>'(?:\\.|[^'\\])')
     | (?P<num>\d+)
     | (?P<op><<|>>|[-+*/%^&|~()]))""", re.VERBOSE)
 ESC = {"n": 10, "t": 9, "r": 13, "0": 0, "f": 12, "v": 11, "b": 8, "a": 7,

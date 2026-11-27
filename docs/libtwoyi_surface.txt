@@ -1,0 +1,101 @@
+=== sections ===
+  .dynsym        vaddr=0x00002f8 off=0x00002f8 size=0x001bd8
+  .dynstr        vaddr=0x00021b8 off=0x00021b8 size=0x000c81
+  .rodata        vaddr=0x001d910 off=0x001d910 size=0x106a2c
+  .text          vaddr=0x01c52b0 off=0x01c52b0 size=0x71b1e0
+  .data.rel.ro   vaddr=0x08e57e0 off=0x08e17e0 size=0x027fc0
+  .init_array    vaddr=0x090d7b0 off=0x09097b0 size=0x000130
+  .data          vaddr=0x0915830 off=0x090d830 size=0x056b58
+  .bss           vaddr=0x096c390 off=0x0964388 size=0x00bfe0
+
+=== relocations (RELATIVE) ===
+  .rela.dyn      entries=75983
+  .rela.plt      entries=290
+  total RELATIVE entries: 0
+
+=== JNINativeMethod entries: 0 ===
+table@     name                     signature                                fn@
+
+=== strings: twoyi-private (64) ===
+  (Lio/twoyi/hal/ril/OnModemCallback;)I
+  /data/data/io.twoyi/rootfs/dev/input/key0
+  /data/data/io.twoyi/rootfs/dev/input/touch
+  /data/twoyi-13/device/generic/vulkan-cereal/base/Optional.h
+  /data/twoyi-13/device/generic/vulkan-cereal/base/SharedLibrary.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/host-common/AndroidPipe.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/host-common/RenderDoc.h
+  /data/twoyi-13/device/generic/vulkan-cereal/host-common/address_space_graphics.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/ChannelStream.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/CompositorVk.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/DisplayVk.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/FrameBuffer.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/IOStream.h
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/PostWorker.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/ReadBuffer.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/RenderContext.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/RenderThread.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/RendererImpl.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/RingStream.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/SwapChainStateVk.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/SyncThread.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/TextureResize.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/WindowSurface.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/apigen-codec-common/glUtils.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglDisplay.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglGlobalInfo.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglImp.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglOsApi_egl.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLES_CM/GLEScmContext.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLES_CM/GLEScmImp.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLES_V2/GLESv2Imp.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLES_V2/GLESv30Imp.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLES_V2/GLESv31Imp.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLES_V2/GLESv32Imp.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLcommon/GLEScontext.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/GLcommon/TextureUtils.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/render_api.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkAndroidNativeBuffer.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkCommonOperations.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkDecoder.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkDecoderGlobalState.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkQsriTimeline.h
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkReconstruction.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkSubDecoder.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VulkanStream.cpp
+  /data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/vk_util.h
+  /data/twoyi-13/device/generic/vulkan-cereal/third-party/perfetto/include/perfetto/base/time.h
+  /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/android/base/String.cpp
+  /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/android/base/async/Looper.cpp
+  /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/android/base/containers/PodVector.cpp
+  ... 14 more
+
+=== strings: binder (0) ===
+
+=== strings: input (2) ===
+  /data/data/io.twoyi/rootfs/dev/input/key0
+  /data/data/io.twoyi/rootfs/dev/input/touch
+
+=== strings: exec/fs (3) ===
+  /data/data/io.twoyi/rootfs/dev/input/key0
+  /data/data/io.twoyi/rootfs/dev/input/touch
+  execve
+
+=== strings: hal (0) ===
+
+=== strings: gfx-key (16) ===
+  ANativeWindow_acquire
+  ANativeWindow_fromSurface
+  ANativeWindow_getHeight
+  ANativeWindow_getWidth
+  ANativeWindow_release
+  ANativeWindow_setBuffersGeometry
+  eglSwapBuffers
+  glFinish
+  glFinish decode
+  glFinishARB
+  glFinishEXT
+  glFinishFenceNV
+  glFinishFenceNV decode
+  glFinishOES
+  glFinishRoundTrip
+  glFinishRoundTrip decode

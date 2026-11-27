@@ -1,0 +1,222 @@
+total call sites: 219
+
+line   fn_addr      fn_name        call       context
+18889  0x32a270     FUN_0032a270   shutdown   shutdown((int)local_80,2);
+18939  0x32a270     FUN_0032a270   socket     iVar9 = socket(1,1,0);
+19064  0x32a270     FUN_0032a270   unlink     iVar11 = unlink((char *)pbVar2);
+19068  0x32a270     FUN_0032a270   unlink     unlink((char *)pbVar2);
+19076  0x32a270     FUN_0032a270   bind       iVar11 = bind(iVar9,local_88,(int)sVar14 + 3);
+19118  0x32a270     FUN_0032a270   listen     iVar11 = listen(iVar9,4);
+19222  0x32a270     FUN_0032a270   unlink     uVar12 = unlink((char *)pbVar2);
+19231  0x32a270     FUN_0032a270   unlink     unlink((char *)pbVar2);
+19273  0x32a270     FUN_0032a270   unlink     unlink((char *)pbVar2);
+19280  0x32a270     FUN_0032a270   unlink     uVar13 = unlink((char *)pbVar2);
+20016  0x33110c     FUN_0033110c   shutdown   shutdown(iVar12,2);
+20280  0x334f6c     FUN_00334f6c   shutdown   shutdown(__fd,2);
+21143  0x338ee8     FUN_00338ee8   shutdown   shutdown(iVar14,2);
+21240  0x338ee8     FUN_00338ee8   shutdown   shutdown(iVar14,2);
+21338  0x33c120     FUN_0033c120   sendto     sVar5 = sendto(local_84,(void *)(local_80 + local_78),param_3 - local_78,0x400
+21645  0x33cb08     FUN_0033cb08   accept     iVar4 = accept(*(int *)(local_70 + 0x39c),(sockaddr *)0x0,(socklen_t *)0x0);
+21861  0x33cb08     FUN_0033cb08   shutdown   shutdown(iVar6,2);
+46035  0x391220     FUN_00391220   unlink     unlink((char *)pbVar28);
+46037  0x391220     FUN_00391220   unlink     unlink((char *)pbVar28);
+46188  0x391220     FUN_00391220   mmap       pvVar32 = mmap((void *)0x0,uVar30,1,1,iVar14,0);
+46727  0x391220     FUN_00391220   mmap       pvVar32 = mmap((void *)0x0,sVar31,1,1,iVar14,0);
+47841  0x39cc5c     FUN_0039cc5c   mmap       local_e8 = mmap((void *)0x0,(size_t)pvVar26,1,1,local_dc,0);
+49071  0x3a13bc     FUN_003a13bc   mmap       local_f0 = (ulong *)mmap((void *)0x0,local_a8,1,1,iVar14,0);
+50831  0x3a5ae0     FUN_003a5ae0   unlink     unlink(pcVar13);
+50841  0x3a5ae0     FUN_003a5ae0   unlink     unlink(pcVar3);
+50943  0x3a5ae0     FUN_003a5ae0   unlink     unlink(pcVar13);
+50948  0x3a5ae0     FUN_003a5ae0   unlink     unlink(pcVar13);
+52798  0x3b18d8     FUN_003b18d8   mmap       pvVar37 = mmap((void *)0x0,sVar13,1,1,*(int *)(unaff_x29 + -0x50),0);
+72542  0x434d6c     FUN_00434d6c   socketpair iVar9 = socketpair(1,0x80005,0,piVar25);
+72551  0x434d6c     FUN_00434d6c   mmap       puVar18 = (undefined8 *)mmap((void *)0x0,0x10,3,0x21,-1,0);
+73016  0x434d6c     FUN_00434d6c   ioctl      iVar9 = ioctl((int)local_a8,0xc0502100,local_c8);
+73086  0x434d6c     FUN_00434d6c   ioctl      iVar9 = ioctl((int)local_a8,0xc0182101);
+73120  0x434d6c     FUN_00434d6c   ioctl      iVar9 = ioctl((int)local_a8,0xc0502100,local_c8);
+73192  0x434d6c     FUN_00434d6c   ioctl      iVar14 = ioctl((int)local_a8,0x40182103,local_108);
+73786  0x434d6c     FUN_00434d6c   socket     iVar9 = socket(1,0x80005,0);
+73954  0x434d6c     FUN_00434d6c   bind       iVar15 = bind(iVar9,__addr,(int)uVar28 + 3);
+73968  0x434d6c     FUN_00434d6c   listen     iVar15 = listen(iVar9,4);
+74654  0x441bec     FUN_00441bec   accept4    iVar8 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+74657  0x441bec     FUN_00441bec   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+74795  0x441bec     FUN_00441bec   getsockopt iVar8 = getsockopt(iVar8,1,0x11,ppVar3,(socklen_t *)__optlen);
+76173  0x4458dc     FUN_004458dc   accept4    , iVar11 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+76176  0x4458dc     FUN_004458dc   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+76317  0x4458dc     FUN_004458dc   getsockopt iVar11 = getsockopt(iVar11,1,0x11,puVar20,__optlen);
+77654  0x44817c     FUN_0044817c   accept4    iVar10 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+77657  0x44817c     FUN_0044817c   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+77800  0x44817c     FUN_0044817c   getsockopt iVar10 = getsockopt(iVar10,1,0x11,puVar16,__optlen);
+78548  0x4494b4     FUN_004494b4   accept4    iVar9 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+78551  0x4494b4     FUN_004494b4   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+78694  0x4494b4     FUN_004494b4   getsockopt iVar9 = getsockopt(iVar9,1,0x11,puVar14,__optlen);
+79271  0x449520     FUN_00449520   accept4    iVar6 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+79274  0x449520     FUN_00449520   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+79417  0x449520     FUN_00449520   getsockopt iVar6 = getsockopt(iVar6,1,0x11,puVar17,__optlen);
+80402  0x449604     FUN_00449604   accept4    iVar6 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+80405  0x449604     FUN_00449604   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+80555  0x449604     FUN_00449604   getsockopt iVar6 = getsockopt(iVar6,1,0x11,puVar17,__optlen);
+81552  0x449670     FUN_00449670   accept4    iVar6 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+81555  0x449670     FUN_00449670   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+81695  0x449670     FUN_00449670   getsockopt iVar6 = getsockopt(iVar6,1,0x11,puVar17,__optlen);
+82779  0x449df0     FUN_00449df0   accept4    iVar6 = accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000),
+82782  0x449df0     FUN_00449df0   accept4    accept4(DAT_00a26ee0,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+82922  0x449df0     FUN_00449df0   getsockopt iVar6 = getsockopt(iVar6,1,0x11,puVar17,__optlen);
+88152  0x453b54     FUN_00453b54   sendmsg    sVar5 = sendmsg(local_74,local_80,0x4000);
+88396  0x454d64     FUN_00454d64   recvmsg    sVar8 = recvmsg((int)local_70,local_88,0x40000000);
+88995  0x458348     FUN_00458348   ioctl      local_70 = ioctl(local_6c,0x40082102,local_78);
+89467  0x4594c8     FUN_004594c8   sendmsg    sVar9 = sendmsg(local_6c,__message,0x4000);
+90410  0x45b38c     FUN_0045b38c   sendmsg    sVar19 = sendmsg(local_94,local_e8,0x4000);
+92338  0x45b38c     FUN_0045b38c   sendmsg    sVar19 = sendmsg(local_94,local_c8,0x4000);
+92551  0x45b38c     FUN_0045b38c   ioctl      iVar13 = ioctl(iVar14,0x40082102);
+93579  0x4698d8     FUN_004698d8   sendmsg    sVar9 = sendmsg(*(int *)(unaff_x29 + -0x34),*(msghdr **)(unaff_x29 + -0x68),0x
+93794  0x4698d8     FUN_004698d8   ioctl      iVar7 = ioctl(iVar6,0x40082102);
+94324  0x46b8a4     FUN_0046b8a4   ioctl      iVar8 = ioctl(iVar7,0x40082102);
+97802  0x48e1ac     FUN_0048e1ac   ioctl      iVar10 = ioctl(*(int *)(unaff_x29 + -0x188),0x40082102,puVar13);
+97873  0x48e1ac     FUN_0048e1ac   ioctl      iVar10 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x
+98007  0x48e1ac     FUN_0048e1ac   ioctl      iVar10 = ioctl(iVar4,0xc0182101,*(undefined8 *)(unaff_x29 + -0x918));
+98470  0x48e1ac     FUN_0048e1ac   ioctl      iVar10 = ioctl(iVar4,0xc0182101,*(undefined8 *)(unaff_x29 + -0xa50));
+98551  0x48e1ac     FUN_0048e1ac   ioctl      iVar10 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x
+98740  0x48e888     FUN_0048e888   ioctl      iVar7 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+99361  0x48e888     FUN_0048e888   ioctl      iVar7 = ioctl(iVar7,0x40082102,uVar11);
+99646  0x48e888     FUN_0048e888   ioctl      iVar9 = ioctl(iVar7,(ulong)(*(uint *)(unaff_x29 + -0x45c) ^ 0x1d11ecd0),
+99787  0x490ad0     FUN_00490ad0   ioctl      iVar7 = ioctl(iVar6,(ulong)(*(uint *)(unaff_x29 + -0x448) ^ 0xb47d34f7),
+99879  0x490ad0     FUN_00490ad0   ioctl      iVar6 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+99971  0x490ad0     FUN_00490ad0   ioctl      iVar5 = ioctl(iVar7,0x40082102,*(undefined8 *)(unaff_x29 + -0xa8));
+100086 0x490ad0     FUN_00490ad0   ioctl      iVar6 = ioctl(iVar6,0xc0182101,*(undefined8 *)(unaff_x29 + -0x948));
+100500 0x490ad0     FUN_00490ad0   ioctl      iVar7 = ioctl(iVar6,0xc0182101,*(undefined8 *)(unaff_x29 + -0x9b0));
+100565 0x490ad0     FUN_00490ad0   ioctl      iVar6 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+100672 0x4938d4     FUN_004938d4   ioctl      iVar4 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+100815 0x49400c     FUN_0049400c   ioctl      iVar2 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+100931 0x4944d4     FUN_004944d4   ioctl      iVar9 = ioctl(*(int *)(unaff_x29 + -0x188),0x40082102,param_4);
+101021 0x4944d4     FUN_004944d4   ioctl      iVar9 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+101156 0x4944d4     FUN_004944d4   ioctl      iVar9 = ioctl(iVar4,0xc0182101,*(undefined8 *)(unaff_x29 + -0x918));
+101617 0x4944d4     FUN_004944d4   ioctl      iVar9 = ioctl(iVar4,0xc0182101,*(undefined8 *)(unaff_x29 + -0xa50));
+101685 0x497c38     FUN_00497c38   ioctl      iVar3 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+101968 0x498530     FUN_00498530   ioctl      iVar3 = ioctl(unaff_w19,0xc0182101,*(undefined8 *)(unaff_x29 + -0x9b0));
+102083 0x498898     FUN_00498898   ioctl      iVar6 = ioctl(iVar6,0xc0182101,*(undefined8 *)(unaff_x29 + -0x948));
+102359 0x499390     FUN_00499390   ioctl      iVar2 = ioctl(*(int *)(unaff_x29 + -0x188),0xc0182101,*(undefined8 *)(unaff_x2
+102953 0x499990     FUN_00499990   ioctl      iVar8 = ioctl(iVar8,0x40082102,uVar14);
+103252 0x499990     FUN_00499990   ioctl      iVar9 = ioctl(iVar8,(ulong)(*(uint *)(unaff_x29 + -0x45c) ^ 0x1d11ecd0),
+103834 0x499d44     FUN_00499d44   ioctl      iVar9 = ioctl(iVar9,0x40082102,uVar14);
+104134 0x499d44     FUN_00499d44   ioctl      iVar8 = ioctl(iVar9,(ulong)(*(uint *)(unaff_x29 + -0x45c) ^ 0x1d11ecd0),
+104661 0x49aad8     FUN_0049aad8   ioctl      iVar9 = ioctl(iVar9,0x40082102,uVar14);
+104945 0x49aad8     FUN_0049aad8   ioctl      iVar8 = ioctl(iVar9,(ulong)(*(uint *)(unaff_x29 + -0x45c) ^ 0x1d11ecd0),
+105131 0x49ac9c     FUN_0049ac9c   ioctl      iVar5 = ioctl(iVar5,0x40082102,uVar9);
+105408 0x49ac9c     FUN_0049ac9c   ioctl      iVar4 = ioctl(iVar5,(ulong)(*(uint *)(unaff_x29 + -0x45c) ^ 0x1d11ecd0),
+107417 0x4a56f8     FUN_004a56f8   ioctl      ioctl(local_6c,0xc0182101,local_78);
+107422 0x4a56f8     FUN_004a56f8   ioctl      iVar5 = ioctl(param_1,0xc0182101,plVar7);
+115215 0x4cd888     FUN_004cd888   ioctl      iVar10 = ioctl((int)local_70,0x40082102,p_Var4->__val + 6);
+115297 0x4cd888     FUN_004cd888   ioctl      ioctl(iVar10,0x40182103,local_b8);
+115303 0x4cd888     FUN_004cd888   ioctl      iVar11 = ioctl(iVar10,0x40182103,puVar3);
+115353 0x4cd888     FUN_004cd888   ioctl      iVar10 = ioctl((int)local_70,0x40082102,local_78);
+115465 0x4cd888     FUN_004cd888   ioctl      iVar10 = ioctl((uint)local_78,0x40082102,local_88);
+115522 0x4cd888     FUN_004cd888   ioctl      ioctl(iVar10,0xc0182101,puVar5);
+115524 0x4cd888     FUN_004cd888   ioctl      iVar11 = ioctl(iVar10,0xc0182101,puVar5);
+125453 0x4f58d8     FUN_004f58d8   unlinkat   iVar8 = unlinkat(*(int *)(unaff_x29 + -0x18),*(char **)(unaff_x29 + -0x50),0);
+141084 0x5afbe8     FUN_005afbe8   unlinkat   uVar8 = unlinkat(local_84,local_80,0x200);
+141278 0x5afbe8     FUN_005afbe8   unlinkat   uVar8 = unlinkat(local_84,local_80,0);
+141617 0x5afbe8     FUN_005afbe8   unlinkat   uVar7 = unlinkat(local_84,local_80,0x200);
+143818 0x5b6120     FUN_005b6120   unlinkat   iVar15 = unlinkat(local_84,local_78,0x200);
+144451 0x5b6120     FUN_005b6120   unlinkat   unlinkat(local_84,local_78,0x200);
+158208 0x61bb98     FUN_0061bb98   unlinkat   uVar16 = unlinkat(local_7c,(char *)&DAT_00a345d0,0);
+159242 0x61bb98     FUN_0061bb98   unlinkat   uVar14 = unlinkat(local_7c,(char *)&DAT_00a345d0,0);
+162251 0x6268dc     FUN_006268dc   unlinkat   uVar13 = unlinkat(*(int *)(unaff_x29 + -0x1c),(char *)&DAT_00a345d0,0);
+162435 0x6268dc     FUN_006268dc   unlinkat   uVar11 = unlinkat(*(int *)(unaff_x29 + -0x1c),(char *)&DAT_00a345d0,0);
+249306 0x6d2cd8     FUN_006d2cd8   socket     uVar11 = socket(1,0x80801,0);
+249353 0x6d2cd8     FUN_006d2cd8   socket     pbVar21 = (byte *)FUN_0099bce4(&local_200,0,"socket() failed: ");
+249415 0x6d2cd8     FUN_006d2cd8   bind       iVar12 = bind(uVar11,(sockaddr *)local_170,uVar1 + 3);
+249455 0x6d2cd8     FUN_006d2cd8   listen     iVar12 = listen(uVar11,0x10);
+249469 0x6d2cd8     FUN_006d2cd8   listen     pbVar21 = (byte *)FUN_0099bce4(&local_100,0,"listen() failed: ");
+249571 0x6d2cd8     FUN_006d2cd8   socket     if ((_Var9 == _Var14) && (iVar13 = socket(1,0x80001,0), -1 < iVar13)) {
+249622 0x6d2cd8     FUN_006d2cd8   connect    iVar15 = connect(iVar13,(sockaddr *)&local_100,uVar2 + 3);
+249689 0x6d2cd8     FUN_006d2cd8   unlink     iVar13 = unlink((char *)pbVar4);
+249691 0x6d2cd8     FUN_006d2cd8   bind       iVar12 = bind(uVar11,(sockaddr *)local_170,uVar1 + 3);
+249698 0x6d2cd8     FUN_006d2cd8   bind       pbVar21 = (byte *)FUN_0099bce4(&local_200,0,"bind() failed: ");
+249736 0x6d2cd8     FUN_006d2cd8   bind       pbVar21 = (byte *)FUN_0099bce4(&local_200,0,"bind() failed: ");
+249863 0x6d345c     FUN_006d345c   unlink     uVar3 = unlink((char *)pbVar5);
+249981 0x6d3e4c     FUN_006d3e4c   sendto     sVar4 = sendto(param_1,param_2,param_3,0x4000,(sockaddr *)0x0,0);
+250163 0x6d4128     FUN_006d4128   accept4    iVar4 = accept4(iVar4,(sockaddr *)0x0,(socklen_t *)0x0,0x80000);
+251481 0x6d5530     FUN_006d5530   shutdown   shutdown(*param_1,2);
+251527 0x6d5644     FUN_006d5644   shutdown   shutdown(*param_1,2);
+251984 0x6d5ef4     FUN_006d5ef4   recvfrom   uVar9 = recvfrom(*param_1,acStack_10070,0x10000,0,(sockaddr *)0x0,(socklen_t *
+252029 0x6d5ef4     FUN_006d5ef4   shutdown   shutdown(*param_1,2);
+252104 0x6d5ef4     FUN_006d5ef4   shutdown   shutdown(*param_1,2);
+252136 0x6d5ef4     FUN_006d5ef4   shutdown   shutdown(*param_1,2);
+252233 0x6d63d4     FUN_006d63d4   sendto     piVar9 = (int *)sendto(iVar15,puVar13,sVar17,0x4000,(sockaddr *)0x0,0);
+252300 0x6d63d4     FUN_006d63d4   sendmsg    piVar9 = (int *)sendmsg(iVar15,&local_300,0x4000);
+252348 0x6d63d4     FUN_006d63d4   sendto     piVar9 = (int *)sendto(iVar15,puVar13,sVar17,0x4000,(sockaddr *)0x0,0);
+252408 0x6d63d4     FUN_006d63d4   shutdown   shutdown(*param_1,2);
+375378 0x7a9244     FUN_007a9244   mmap       pvVar9 = mmap((void *)0x0,*(size_t *)(lVar15 + 0x28),3,1,iVar5,0);
+710709 0x94cd80     FUN_0094cd80   getsockopt iVar4 = getsockopt(param_1,1,0x11,&local_578,local_a98);
+710735 0x94cd80     FUN_0094cd80   recvfrom   while (sVar6 = recvfrom(param_1,__buf_00,sVar12,0,(sockaddr *)0x0,(socklen_t *
+710764 0x94cd80     FUN_0094cd80   sendto     while (sVar6 = sendto(param_1,__buf,sVar12,0x4000,(sockaddr *)0x0,0), -1 < sVa
+713379 0x94f878     FUN_0094f878   unlinkat   unlinkat(__fd,acStack_b8,0);
+713456 0x94f878     FUN_0094f878   unlinkat   uVar5 = unlinkat(__fd,acStack_b8,0);
+714419 0x9509c4     FUN_009509c4   setsockopt iVar2 = setsockopt(param_1,6,1,&local_2c,4);
+714585 0x950b9c     FUN_00950b9c   socket     __fd = socket((uint)((sockaddr *)(param_1 + 1))->sa_family,param_2,0);
+714593 0x950b9c     FUN_00950b9c   setsockopt iVar2 = setsockopt(__fd,1,0xd,&local_50,8);
+714598 0x950b9c     FUN_00950b9c   setsockopt iVar2 = setsockopt(__fd,1,2,&local_50,4);
+714602 0x950b9c     FUN_00950b9c   bind       iVar2 = bind(__fd,(sockaddr *)(param_1 + 1),*param_1);
+714604 0x950b9c     FUN_00950b9c   listen     uVar3 = listen(__fd,5);
+714705 0x950da4     FUN_00950da4   socket     __fd = socket((uint)((sockaddr *)(param_1 + 1))->sa_family,param_2,0);
+714713 0x950da4     FUN_00950da4   setsockopt iVar2 = setsockopt(__fd,1,0xd,&local_50,8);
+714718 0x950da4     FUN_00950da4   setsockopt iVar2 = setsockopt(__fd,1,2,&local_50,4);
+714723 0x950da4     FUN_00950da4   connect    uVar3 = connect(__fd,(sockaddr *)(param_1 + 1),*param_1);
+714872 0x950fec     FUN_00950fec   accept     iVar1 = accept(param_1,(sockaddr *)0x0,(socklen_t *)0x0);
+738540 0x975344     FUN_00975344   shutdown   shutdown(*(int *)(param_1 + 4),2);
+738630 0x975464     FUN_00975464   sendto     sVar1 = sendto(*(int *)(param_1 + 0x20),(void *)(param_2 + (param_3 - __n)),__
+738664 0x97552c     FUN_0097552c   recvfrom   sVar1 = recvfrom(*(int *)(param_1 + 0x20),(void *)(param_2 - param_3),param_3,
+738724 0x97564c     FUN_0097564c   recvfrom   uVar1 = recvfrom(*(int *)(param_1 + 0x20),param_2,param_3,0,(sockaddr *)0x0,(s
+738741 0x9756c0     FUN_009756c0   shutdown   iVar1 = shutdown(*(int *)(param_1 + 0x20),2);
+740317 0x977690     FUN_00977690   sendmsg    sVar2 = sendmsg(param_1,&mStack_78,0);
+740358 0x977740     FUN_00977740   recvmsg    sVar3 = recvmsg(param_1,&mStack_78,0);
+740737 0x9779f8     FUN_009779f8   setsockopt iVar2 = setsockopt(__fd,1,0xd,&local_58,8);
+740847 0x977bcc     FUN_00977bcc   unlink     iVar1 = unlink((char *)param_1[7]);
+740982 0x977d80     FUN_00977d80   accept     iVar2 = accept(*(int *)(param_1 + 0x20),&local_b0,&local_b4);
+741019 0x977d80     FUN_00977d80   accept     iVar2 = accept(*(int *)(param_1 + 0x20),&local_b0,&local_b4);
+741055 0x977e74     FUN_00977e74   getsockopt (iVar2 = getsockopt(*(int *)(param_1 + 0x20),1,0x11,&local_38,&local_3c), iVar
+749792 0x982610     FUN_00982610   sendto     sVar3 = sendto(param_1,param_2,(long)param_3,0,(sockaddr *)0x0,0);
+749889 0x9827c4     FUN_009827c4   recvfrom   sVar3 = recvfrom(param_1,param_2,(long)param_3,0,(sockaddr *)0x0,(socklen_t *)
+749948 0x98286c     FUN_0098286c   setsockopt iVar2 = setsockopt(param_1,6,1,&local_2c,4);
+749982 0x9828c8     FUN_009828c8   socket     iVar2 = socket(2,__type,0);
+750025 0x98297c     FUN_0098297c   connect    iVar2 = connect(param_1,asStack_c0,local_c4);
+754012 0x98724c     FUN_0098724c   recvfrom   sVar1 = recvfrom(param_1,param_2,param_3,0,(sockaddr *)0x0,(socklen_t *)0x0);
+754028 0x987274     FUN_00987274   shutdown   iVar1 = shutdown(param_1,1);
+754041 0x98727c     FUN_0098727c   shutdown   iVar1 = shutdown(param_1,0);
+834293 0x9e0770     shutdown       shutdown   int shutdown(int __fd,int __how)
+834323 0x9e0790     socket         socket     int socket(int __domain,int __type,int __protocol)
+834364 0x9e07c0     unlink         unlink     int unlink(char *__name)
+834379 0x9e07d0     bind           bind       int bind(int __fd,sockaddr *__addr,socklen_t __len)
+834394 0x9e07e0     listen         listen     int listen(int __fd,int __n)
+834409 0x9e07f0     sendto         sendto     ssize_t sendto(int __fd,void *__buf,size_t __n,int __flags,sockaddr *__addr,so
+834439 0x9e0810     accept         accept     int accept(int __fd,sockaddr *__addr,socklen_t *__addr_len)
+834579 0x9e08b0     mmap           mmap       void * mmap(void *__addr,size_t __len,int __prot,int __flags,int __fd,__off_t 
+834979 0x9e0a60     socketpair     socketpair int socketpair(int __domain,int __type,int __protocol,int *__fds)
+835039 0x9e0aa0     ioctl          ioctl      int ioctl(int __fd,ulong __request,...)
+835054 0x9e0ab0     accept4        accept4    int accept4(int __fd,sockaddr *__addr,socklen_t *__addr_len,int __flags)
+835069 0x9e0ac0     getsockopt     getsockopt int getsockopt(int __fd,int __level,int __optname,void *__optval,socklen_t *__
+835192 0x9e0b50     sendmsg        sendmsg    ssize_t sendmsg(int __fd,msghdr *__message,int __flags)
+835207 0x9e0b60     recvmsg        recvmsg    ssize_t recvmsg(int __fd,msghdr *__message,int __flags)
+835484 0x9e0c90     unlinkat       unlinkat   int unlinkat(int __fd,char *__name,int __flag)
+836227 0x9e0fc0     connect        connect    int connect(int __fd,sockaddr *__addr,socklen_t __len)
+836257 0x9e0fe0     recvfrom       recvfrom   ssize_t recvfrom(int __fd,void *__buf,size_t __n,int __flags,sockaddr *__addr,
+837033 0x9e1340     setsockopt     setsockopt int setsockopt(int __fd,int __level,int __optname,void *__optval,socklen_t __o
+838436 0xa790d8     shutdown       shutdown   int shutdown(int __fd,int __how)
+838464 0xa790e8     socket         socket     int socket(int __domain,int __type,int __protocol)
+838505 0xa79100     unlink         unlink     int unlink(char *__name)
+838519 0xa79108     bind           bind       int bind(int __fd,sockaddr *__addr,socklen_t __len)
+838533 0xa79110     listen         listen     int listen(int __fd,int __n)
+838547 0xa79118     sendto         sendto     ssize_t sendto(int __fd,void *__buf,size_t __n,int __flags,sockaddr *__addr,so
+838575 0xa79128     accept         accept     int accept(int __fd,sockaddr *__addr,socklen_t *__addr_len)
+838713 0xa79178     mmap           mmap       void * mmap(void *__addr,size_t __len,int __prot,int __flags,int __fd,__off_t 
+839091 0xa79258     socketpair     socketpair int socketpair(int __domain,int __type,int __protocol,int *__fds)
+839147 0xa79278     ioctl          ioctl      int ioctl(int __fd,ulong __request,...)
+839161 0xa79280     accept4        accept4    int accept4(int __fd,sockaddr *__addr,socklen_t *__addr_len,int __flags)
+839175 0xa79288     getsockopt     getsockopt int getsockopt(int __fd,int __level,int __optname,void *__optval,socklen_t *__
+839298 0xa792d0     sendmsg        sendmsg    ssize_t sendmsg(int __fd,msghdr *__message,int __flags)
+839312 0xa792d8     recvmsg        recvmsg    ssize_t recvmsg(int __fd,msghdr *__message,int __flags)
+839576 0xa79370     unlinkat       unlinkat   int unlinkat(int __fd,char *__name,int __flag)
+840286 0xa79518     connect        connect    int connect(int __fd,sockaddr *__addr,socklen_t __len)
+840314 0xa79528     recvfrom       recvfrom   ssize_t recvfrom(int __fd,void *__buf,size_t __n,int __flags,sockaddr *__addr,
+841062 0xa796e0     setsockopt     setsockopt int setsockopt(int __fd,int __level,int __optname,void *__optval,socklen_t __o

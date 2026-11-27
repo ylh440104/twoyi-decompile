@@ -1,0 +1,123 @@
+name: Decompile native libraries with Ghidra
+
+on:
+  workflow_dispatch:
+    inputs:
+      timeout_hours:
+        description: "Analysis timeout per binary, hours"
+        required: false
+        default: "5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: native-decompile
+  cancel-in-progress: false
+
+jobs:
+  ghidra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - lib: libbinder.so
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Fetch target library
+        env:
+          LIB: ${{ matrix.lib }}
+        run: |
+          set -euxo pipefail
+          mkdir -p work
+          BASE="https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5"
+          curl -fL --retry 3 -o "work/$LIB" "$BASE/$LIB"
+          ls -la "work/$LIB"
+          file "work/$LIB"
+
+      - name: Install Ghidra
+        run: |
+          set -euxo pipefail
+          VER=11.2.1
+          DATE=20241105
+          curl -fL --retry 3 -o ghidra.zip \
+            "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${VER}_build/ghidra_${VER}_PUBLIC_${DATE}.zip"
+          unzip -q ghidra.zip
+          mv "ghidra_${VER}_PUBLIC" "$HOME/ghidra"
+          ls "$HOME/ghidra/support/analyzeHeadless"
+
+      - name: Headless analyze and export decompiled C
+        env:
+          LIB: ${{ matrix.lib }}
+          TIMEOUT_HOURS: ${{ inputs.timeout_hours }}
+        run: |
+          set -uxo pipefail
+          mkdir -p proj out decompiled_out
+          TIMEOUT_S=$(( ${TIMEOUT_HOURS:-5} * 3600 ))
+          export MAXMEM=6G
+          timeout "$TIMEOUT_S" "$HOME/ghidra/support/analyzeHeadless" \
+            "$PWD/proj" twoyi_proj \
+            -import "work/$LIB" \
+            -scriptPath "$GITHUB_WORKSPACE/ghidra" \
+            -postScript ExportDecompiled.java 1000000 \
+            -deleteProject 2>&1 | tee "out/$LIB.analyze.log"
+          echo "ANALYSIS_EXIT=$?"
+          ls -la decompiled_out || true
+
+      - name: Show export summary
+        if: always()
+        env:
+          LIB: ${{ matrix.lib }}
+        run: |
+          set +e
+          echo "=== decompiled_out ==="
+          ls -la decompiled_out 2>/dev/null
+          echo "=== summary.txt ==="
+          cat decompiled_out/summary.txt 2>/dev/null
+          echo "=== index head ==="
+          head -40 decompiled_out/index.tsv 2>/dev/null
+          echo "=== log tail ==="
+          tail -30 "out/$LIB.analyze.log" 2>/dev/null
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-${{ matrix.lib }}
+          path: |
+            decompiled_out
+            out
+          retention-days: 30
+
+      - name: Commit results
+        if: always()
+        env:
+          LIB: ${{ matrix.lib }}
+        run: |
+          set +e
+          if [ ! -d decompiled_out ]; then
+            echo "no output"; exit 0
+          fi
+          mkdir -p "native-decompiled/$LIB"
+          find decompiled_out -type f -size -40M -exec cp {} "native-decompiled/$LIB/" \;
+          ls -la "native-decompiled/$LIB"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A native-decompiled
+          git diff --cached --quiet && echo nothing || {
+            git commit -m "chore: ghidra decompile ${LIB}"
+            git pull --rebase -q origin main || true
+            git push
+          }

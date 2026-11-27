@@ -1,0 +1,263 @@
+address	name	size	signature	status
+00105e30	entry	20	undefined entry()	OK
+00105e44	FUN_00105e44	88	undefined FUN_00105e44()	OK
+00105e9c	FUN_00105e9c	20	undefined FUN_00105e9c()	OK
+00105eb0	FUN_00105eb0	28	undefined FUN_00105eb0()	OK
+00105ecc	FUN_00105ecc	84	undefined FUN_00105ecc()	OK
+00105f20	FUN_00105f20	2940	undefined FUN_00105f20()	OK
+00106a9c	FUN_00106a9c	2812	undefined FUN_00106a9c()	OK
+00107598	FUN_00107598	37488	undefined FUN_00107598()	OK
+00110808	FUN_00110808	6720	undefined FUN_00110808()	OK
+00112248	FUN_00112248	4120	undefined FUN_00112248()	OK
+00113260	FUN_00113260	392	undefined FUN_00113260()	OK
+001133e8	FUN_001133e8	24	undefined FUN_001133e8(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+00113400	FUN_00113400	28	undefined FUN_00113400(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+0011341c	FUN_0011341c	20	undefined FUN_0011341c()	OK
+00113430	FUN_00113430	24	undefined FUN_00113430()	OK
+00113448	FUN_00113448	20	undefined FUN_00113448()	OK
+0011345c	FUN_0011345c	12	undefined FUN_0011345c()	OK
+00113468	FUN_00113468	28	undefined FUN_00113468()	OK
+00113484	FUN_00113484	92	undefined FUN_00113484()	OK
+001134e0	FUN_001134e0	232	undefined FUN_001134e0()	OK
+001135c8	FUN_001135c8	292	undefined FUN_001135c8()	OK
+001136ec	FUN_001136ec	428	undefined FUN_001136ec()	OK
+00113898	FUN_00113898	52	undefined FUN_00113898()	OK
+001138cc	FUN_001138cc	420	undefined FUN_001138cc()	OK
+00113a70	FUN_00113a70	1860	undefined FUN_00113a70()	OK
+001141b4	FUN_001141b4	196	undefined FUN_001141b4()	OK
+00114278	FUN_00114278	184	undefined FUN_00114278()	OK
+00114330	FUN_00114330	560	undefined FUN_00114330()	OK
+00114560	FUN_00114560	1252	undefined FUN_00114560()	OK
+00114a44	FUN_00114a44	72	undefined FUN_00114a44()	OK
+00114a8c	FUN_00114a8c	484	undefined FUN_00114a8c()	OK
+00114c70	FUN_00114c70	12	undefined FUN_00114c70()	OK
+00114c7c	FUN_00114c7c	28	undefined FUN_00114c7c()	OK
+00114c98	FUN_00114c98	28	undefined FUN_00114c98(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+00114cb4	FUN_00114cb4	12	undefined FUN_00114cb4()	OK
+00114cc0	FUN_00114cc0	272	undefined FUN_00114cc0()	OK
+00114dd0	FUN_00114dd0	124	undefined FUN_00114dd0()	OK
+00114e4c	FUN_00114e4c	404	undefined FUN_00114e4c()	OK
+00114fe0	FUN_00114fe0	124	undefined FUN_00114fe0()	OK
+0011505c	FUN_0011505c	156	undefined FUN_0011505c()	OK
+001150f8	FUN_001150f8	948	undefined FUN_001150f8()	OK
+001154ac	FUN_001154ac	452	undefined FUN_001154ac()	OK
+00115670	FUN_00115670	816	undefined FUN_00115670()	OK
+001159a0	FUN_001159a0	164	undefined FUN_001159a0()	OK
+00115a44	FUN_00115a44	1324	undefined FUN_00115a44()	OK
+00115f70	FUN_00115f70	8	undefined FUN_00115f70()	OK
+00115f78	FUN_00115f78	8	undefined FUN_00115f78()	OK
+00115f80	FUN_00115f80	892	undefined FUN_00115f80()	OK
+001162fc	FUN_001162fc	80	undefined FUN_001162fc()	OK
+0011634c	FUN_0011634c	468	undefined FUN_0011634c()	OK
+00116520	FUN_00116520	2260	undefined FUN_00116520()	OK
+00116df4	FUN_00116df4	1044	undefined FUN_00116df4()	OK
+00117208	FUN_00117208	56	undefined FUN_00117208()	OK
+00117240	FUN_00117240	288	undefined FUN_00117240()	OK
+00117360	FUN_00117360	600	undefined FUN_00117360()	OK
+001175b8	FUN_001175b8	416	undefined FUN_001175b8()	OK
+00117758	FUN_00117758	616	undefined FUN_00117758()	OK
+001179c0	FUN_001179c0	64	undefined FUN_001179c0()	OK
+00117a00	FUN_00117a00	336	undefined FUN_00117a00()	OK
+00117b50	FUN_00117b50	28	undefined FUN_00117b50()	OK
+00117b6c	FUN_00117b6c	40	undefined FUN_00117b6c()	OK
+00117b94	FUN_00117b94	36	undefined FUN_00117b94(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+00117bb8	FUN_00117bb8	32	undefined FUN_00117bb8(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14)	OK
+00117bd8	FUN_00117bd8	20	undefined FUN_00117bd8()	OK
+00117bec	FUN_00117bec	8	undefined FUN_00117bec()	OK
+00117bf4	FUN_00117bf4	12	undefined FUN_00117bf4()	OK
+00117c00	FUN_00117c00	12	undefined FUN_00117c00()	OK
+00117c0c	FUN_00117c0c	16	undefined FUN_00117c0c()	OK
+00117c1c	FUN_00117c1c	24	undefined FUN_00117c1c(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+00117c34	FUN_00117c34	8	undefined FUN_00117c34()	OK
+00117c3c	FUN_00117c3c	396	undefined FUN_00117c3c()	OK
+00117dc8	FUN_00117dc8	608	undefined FUN_00117dc8()	OK
+00118028	FUN_00118028	4064	undefined FUN_00118028()	OK
+00119008	FUN_00119008	17828	undefined FUN_00119008()	OK
+0011d5ac	FUN_0011d5ac	20	undefined FUN_0011d5ac()	OK
+0011d5c0	FUN_0011d5c0	2276	undefined FUN_0011d5c0()	OK
+0011dea4	FUN_0011dea4	440	undefined FUN_0011dea4()	OK
+0011e05c	FUN_0011e05c	4524	undefined FUN_0011e05c()	OK
+0011f208	_INIT_0	2664	undefined _INIT_0()	OK
+0011fc70	FUN_0011fc70	4096	undefined FUN_0011fc70()	OK
+00120c70	FUN_00120c70	276	undefined FUN_00120c70()	OK
+00120d84	FUN_00120d84	776	undefined FUN_00120d84()	OK
+0012108c	FUN_0012108c	480	undefined FUN_0012108c()	OK
+0012126c	FUN_0012126c	404	undefined FUN_0012126c()	OK
+00121400	FUN_00121400	504	undefined FUN_00121400()	OK
+001215f8	FUN_001215f8	372	undefined FUN_001215f8()	OK
+0012176c	FUN_0012176c	3472	undefined FUN_0012176c()	OK
+001224fc	FUN_001224fc	1684	undefined FUN_001224fc()	OK
+00122b90	FUN_00122b90	1952	undefined FUN_00122b90()	OK
+00123330	FUN_00123330	736	undefined FUN_00123330()	OK
+00123610	FUN_00123610	2492	undefined FUN_00123610()	OK
+00123fcc	FUN_00123fcc	1464	undefined FUN_00123fcc()	OK
+00124584	FUN_00124584	2216	undefined FUN_00124584()	OK
+00124e2c	FUN_00124e2c	2060	undefined FUN_00124e2c()	OK
+00125638	FUN_00125638	28	undefined FUN_00125638()	OK
+00125654	FUN_00125654	36	undefined FUN_00125654(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+00125678	FUN_00125678	28	undefined FUN_00125678(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+00125694	FUN_00125694	16	undefined FUN_00125694()	OK
+001256a4	FUN_001256a4	56	undefined FUN_001256a4(undefined param_1, undefined param_2, undefined param_3, undefined param_4, undefined param_5, undefined param_6, undefined param_7, undefined param_8, undefined param_9, undefined param_10, undefined8 param_11, undefined8 param_12, undefined8 param_13, undefined8 param_14, undefined8 param_15)	OK
+001256dc	FUN_001256dc	8	undefined FUN_001256dc()	OK
+001256e4	FUN_001256e4	28	undefined FUN_001256e4()	OK
+00125700	FUN_00125700	28	undefined FUN_00125700()	OK
+0012571c	FUN_0012571c	28	undefined FUN_0012571c()	OK
+00125738	FUN_00125738	36	undefined FUN_00125738()	OK
+0012575c	FUN_0012575c	8	undefined FUN_0012575c()	OK
+00125764	FUN_00125764	28	undefined FUN_00125764()	OK
+00125780	FUN_00125780	28	undefined FUN_00125780()	OK
+0012579c	FUN_0012579c	16	undefined FUN_0012579c()	OK
+001257ac	FUN_001257ac	12	undefined FUN_001257ac()	OK
+001257b8	FUN_001257b8	16	undefined FUN_001257b8()	OK
+001257c8	FUN_001257c8	12	undefined FUN_001257c8()	OK
+001257d4	FUN_001257d4	24	undefined FUN_001257d4()	OK
+001257ec	FUN_001257ec	16	undefined FUN_001257ec()	OK
+001257fc	FUN_001257fc	12	undefined FUN_001257fc()	OK
+00125808	FUN_00125808	12	undefined FUN_00125808()	OK
+00125814	FUN_00125814	20	undefined FUN_00125814()	OK
+00125828	FUN_00125828	12	undefined FUN_00125828()	OK
+00125834	FUN_00125834	12	undefined FUN_00125834()	OK
+00125840	FUN_00125840	16	undefined FUN_00125840()	OK
+00125850	FUN_00125850	8	undefined FUN_00125850()	OK
+00125860	FUN_00125860	20	undefined FUN_00125860()	OK
+00125880	__libc_init	16	undefined __libc_init()	OK
+00125890	__cxa_atexit	16	undefined __cxa_atexit()	OK
+001258a0	__stack_chk_fail	16	undefined __stack_chk_fail()	OK
+001258b0	strlen	16	size_t strlen(char * __s)	OK
+001258c0	__memcpy_chk	16	undefined __memcpy_chk()	OK
+001258d0	dlopen	16	undefined dlopen()	OK
+001258e0	dlsym	16	undefined dlsym()	OK
+001258f0	dlclose	16	undefined dlclose()	OK
+00125900	getenv	16	char * getenv(char * __name)	OK
+00125910	strncmp	16	int strncmp(char * __s1, char * __s2, size_t __n)	OK
+00125920	__errno	16	undefined __errno()	OK
+00125930	memcmp	16	int memcmp(void * __s1, void * __s2, size_t __n)	OK
+00125940	close	16	int close(int __fd)	OK
+00125950	strnlen	16	size_t strnlen(char * __string, size_t __maxlen)	OK
+00125960	memset	16	void * memset(void * __s, int __c, size_t __n)	OK
+00125970	__open_2	16	undefined __open_2()	OK
+00125980	fstat	16	int fstat(int __fd, stat * __buf)	OK
+00125990	readlink	16	ssize_t readlink(char * __path, char * __buf, size_t __len)	OK
+001259a0	strstr	16	char * strstr(char * __haystack, char * __needle)	OK
+001259b0	__openat_2	16	undefined __openat_2()	OK
+001259c0	malloc	16	void * malloc(size_t __size)	OK
+001259d0	memchr	16	void * memchr(void * __s, int __c, size_t __n)	OK
+001259e0	free	16	void free(void * __ptr)	OK
+001259f0	pread64	16	ssize_t pread64(int __fd, void * __buf, size_t __nbytes, __off64_t __offset)	OK
+00125a00	mmap	16	void * mmap(void * __addr, size_t __len, int __prot, int __flags, int __fd, __off_t __offset)	OK
+00125a10	calloc	16	void * calloc(size_t __nmemb, size_t __size)	OK
+00125a20	mprotect	16	int mprotect(void * __addr, size_t __len, int __prot)	OK
+00125a30	munmap	16	int munmap(void * __addr, size_t __len)	OK
+00125a40	vsnprintf	16	int vsnprintf(char * __s, size_t __maxlen, char * __format, __gnuc_va_list __arg)	OK
+00125a50	memmove	16	void * memmove(void * __dest, void * __src, size_t __n)	OK
+00125a60	memcpy	16	void * memcpy(void * __dest, void * __src, size_t __n)	OK
+00125a70	opendir	16	DIR * opendir(char * __name)	OK
+00125a80	dirfd	16	int dirfd(DIR * __dirp)	OK
+00125a90	closedir	16	int closedir(DIR * __dirp)	OK
+00125aa0	readdir	16	dirent * readdir(DIR * __dirp)	OK
+00125ab0	fcntl	16	int fcntl(int __fd, int __cmd, ...)	OK
+00125ac0	sigaltstack	16	int sigaltstack(sigaltstack * __ss, sigaltstack * __oss)	OK
+00125ad0	syscall	16	long syscall(long __sysno, ...)	OK
+00125ae0	strtol	16	long strtol(char * __nptr, char * * __endptr, int __base)	OK
+00125af0	socketpair	16	int socketpair(int __domain, int __type, int __protocol, int * __fds)	OK
+00125b00	strtoul	16	ulong strtoul(char * __nptr, char * * __endptr, int __base)	OK
+00125b10	getsockname	16	int getsockname(int __fd, sockaddr * __addr, socklen_t * __len)	OK
+00125b20	getpeername	16	int getpeername(int __fd, sockaddr * __addr, socklen_t * __len)	OK
+00125b30	sendto	16	ssize_t sendto(int __fd, void * __buf, size_t __n, int __flags, sockaddr * __addr, socklen_t __addr_len)	OK
+00125b40	sendmsg	16	ssize_t sendmsg(int __fd, msghdr * __message, int __flags)	OK
+00125b50	recvmsg	16	ssize_t recvmsg(int __fd, msghdr * __message, int __flags)	OK
+00125b60	__cmsg_nxthdr	16	cmsghdr * __cmsg_nxthdr(msghdr * __mhdr, cmsghdr * __cmsg)	OK
+00125b70	getsockopt	16	int getsockopt(int __fd, int __level, int __optname, void * __optval, socklen_t * __optlen)	OK
+00125b80	dprintf	16	int dprintf(int __fd, char * __fmt, ...)	OK
+00125b90	vdprintf	16	int vdprintf(int __fd, char * __fmt, __gnuc_va_list __arg)	OK
+00125ba0	_exit	16	void _exit(int __status)	OK
+00125bb0	memalign	16	undefined memalign()	OK
+00125bc0	dlerror	16	undefined dlerror()	OK
+00130000	__libc_init	1	undefined __libc_init()	OK
+00130008	__cxa_atexit	1	undefined __cxa_atexit()	OK
+00130010	__stack_chk_fail	1	undefined __stack_chk_fail()	OK
+00130018	strlen	1	size_t strlen(char * __s)	OK
+00130020	__memcpy_chk	1	undefined __memcpy_chk()	OK
+00130028	dlopen	1	undefined dlopen()	OK
+00130030	dlsym	1	undefined dlsym()	OK
+00130038	dlclose	1	undefined dlclose()	OK
+00130040	getenv	1	char * getenv(char * __name)	OK
+00130048	strncmp	1	int strncmp(char * __s1, char * __s2, size_t __n)	OK
+00130050	__errno	1	undefined __errno()	OK
+00130058	memcmp	1	int memcmp(void * __s1, void * __s2, size_t __n)	OK
+00130060	close	1	int close(int __fd)	OK
+00130068	strnlen	1	size_t strnlen(char * __string, size_t __maxlen)	OK
+00130070	memset	1	void * memset(void * __s, int __c, size_t __n)	OK
+00130078	__open_2	1	undefined __open_2()	OK
+00130080	fstat	1	int fstat(int __fd, stat * __buf)	OK
+00130088	readlink	1	ssize_t readlink(char * __path, char * __buf, size_t __len)	OK
+00130090	strstr	1	char * strstr(char * __haystack, char * __needle)	OK
+00130098	__openat_2	1	undefined __openat_2()	OK
+001300a0	malloc	1	void * malloc(size_t __size)	OK
+001300a8	memchr	1	void * memchr(void * __s, int __c, size_t __n)	OK
+001300b0	free	1	void free(void * __ptr)	OK
+001300b8	pread64	1	ssize_t pread64(int __fd, void * __buf, size_t __nbytes, __off64_t __offset)	OK
+001300c0	mmap	1	void * mmap(void * __addr, size_t __len, int __prot, int __flags, int __fd, __off_t __offset)	OK
+001300c8	calloc	1	void * calloc(size_t __nmemb, size_t __size)	OK
+001300d0	mprotect	1	int mprotect(void * __addr, size_t __len, int __prot)	OK
+001300d8	munmap	1	int munmap(void * __addr, size_t __len)	OK
+001300e0	vsnprintf	1	int vsnprintf(char * __s, size_t __maxlen, char * __format, __gnuc_va_list __arg)	OK
+001300e8	memmove	1	void * memmove(void * __dest, void * __src, size_t __n)	OK
+001300f0	memcpy	1	void * memcpy(void * __dest, void * __src, size_t __n)	OK
+001300f8	opendir	1	DIR * opendir(char * __name)	OK
+00130100	dirfd	1	int dirfd(DIR * __dirp)	OK
+00130108	closedir	1	int closedir(DIR * __dirp)	OK
+00130110	readdir	1	dirent * readdir(DIR * __dirp)	OK
+00130118	fcntl	1	int fcntl(int __fd, int __cmd, ...)	OK
+00130120	sigaltstack	1	int sigaltstack(sigaltstack * __ss, sigaltstack * __oss)	OK
+00130128	syscall	1	long syscall(long __sysno, ...)	OK
+00130130	strtol	1	long strtol(char * __nptr, char * * __endptr, int __base)	OK
+00130138	socketpair	1	int socketpair(int __domain, int __type, int __protocol, int * __fds)	OK
+00130140	strtoul	1	ulong strtoul(char * __nptr, char * * __endptr, int __base)	OK
+00130148	getsockname	1	int getsockname(int __fd, sockaddr * __addr, socklen_t * __len)	OK
+00130150	getpeername	1	int getpeername(int __fd, sockaddr * __addr, socklen_t * __len)	OK
+00130158	sendto	1	ssize_t sendto(int __fd, void * __buf, size_t __n, int __flags, sockaddr * __addr, socklen_t __addr_len)	OK
+00130160	sendmsg	1	ssize_t sendmsg(int __fd, msghdr * __message, int __flags)	OK
+00130168	recvmsg	1	ssize_t recvmsg(int __fd, msghdr * __message, int __flags)	OK
+00130170	__cmsg_nxthdr	1	cmsghdr * __cmsg_nxthdr(msghdr * __mhdr, cmsghdr * __cmsg)	OK
+00130178	getsockopt	1	int getsockopt(int __fd, int __level, int __optname, void * __optval, socklen_t * __optlen)	OK
+00130180	dprintf	1	int dprintf(int __fd, char * __fmt, ...)	OK
+00130188	vdprintf	1	int vdprintf(int __fd, char * __fmt, __gnuc_va_list __arg)	OK
+00130190	_exit	1	void _exit(int __status)	OK
+00130198	memalign	1	undefined memalign()	OK
+001301a0	pthread_exit	1	void pthread_exit(void * __retval)	OK
+001301a8	pthread_getcpuclockid	1	int pthread_getcpuclockid(pthread_t __thread_id, __clockid_t * __clock_id)	OK
+001301b0	pthread_kill	1	int pthread_kill(pthread_t __threadid, int __signo)	OK
+001301b8	pthread_getschedparam	1	int pthread_getschedparam(pthread_t __target_thread, int * __policy, sched_param * __param)	OK
+001301c0	pthread_setschedparam	1	int pthread_setschedparam(pthread_t __target_thread, int __policy, sched_param * __param)	OK
+001301c8	pthread_setname_np	1	int pthread_setname_np(pthread_t __target_thread, char * __name)	OK
+001301d0	pthread_getattr_np	1	int pthread_getattr_np(pthread_t __th, pthread_attr_t * __attr)	OK
+001301d8	getpid	1	__pid_t getpid(void)	OK
+001301e0	gettid	1	undefined gettid()	OK
+001301e8	pthread_gettid_np	1	undefined pthread_gettid_np()	OK
+001301f0	fork	1	__pid_t fork(void)	OK
+001301f8	clone	1	int clone(__fn * __fn, void * __child_stack, int __flags, void * __arg, ...)	OK
+00130200	exit	1	void exit(int __status)	OK
+00130208	getaddrinfo	1	int getaddrinfo(char * __name, char * __service, addrinfo * __req, addrinfo * * __pai)	OK
+00130210	gethostbyname	1	hostent * gethostbyname(char * __name)	OK
+00130218	gethostbyname2	1	hostent * gethostbyname2(char * __name, int __af)	OK
+00130220	gethostbyaddr	1	hostent * gethostbyaddr(void * __addr, __socklen_t __len, int __type)	OK
+00130228	getnameinfo	1	int getnameinfo(sockaddr * __sa, socklen_t __salen, char * __host, socklen_t __hostlen, char * __serv, socklen_t __servlen, uint __flags)	OK
+00130230	pthread_self	1	pthread_t pthread_self(void)	OK
+00130238	dl_iterate_phdr	1	undefined dl_iterate_phdr()	OK
+00130240	mallinfo	1	undefined mallinfo()	OK
+00130248	malloc_usable_size	1	undefined malloc_usable_size()	OK
+00130250	posix_memalign	1	int posix_memalign(void * * __memptr, size_t __alignment, size_t __size)	OK
+00130258	realloc	1	void * realloc(void * __ptr, size_t __size)	OK
+00130260	pthread_key_create	1	int pthread_key_create(pthread_key_t * __key, __destr_function * __destr_function)	OK
+00130268	pthread_key_delete	1	int pthread_key_delete(pthread_key_t __key)	OK
+00130270	pthread_getspecific	1	void * pthread_getspecific(pthread_key_t __key)	OK
+00130278	pthread_setspecific	1	int pthread_setspecific(pthread_key_t __key, void * __pointer)	OK
+00130280	pthread_atfork	1	int pthread_atfork(__prepare * __prepare, __parent * __parent, __child * __child)	OK
+00130288	__pthread_cleanup_push	1	undefined __pthread_cleanup_push()	OK
+00130290	pthread_create	1	int pthread_create(pthread_t * __newthread, pthread_attr_t * __attr, __start_routine * __start_routine, void * __arg)	OK
+00130298	__pthread_cleanup_pop	1	undefined __pthread_cleanup_pop()	OK
+001302a0	dladdr	1	undefined dladdr()	OK
+001302a8	dlerror	1	undefined dlerror()	OK
+001302b0	pthread_join	1	int pthread_join(pthread_t __th, void * * __thread_return)	OK
+001302b8	pthread_detach	1	int pthread_detach(pthread_t __th)	OK
