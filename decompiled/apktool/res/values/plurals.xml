@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d new notifications</item>
+        <item quantity="one">%d new notification</item>
+    </plurals>
+    <plurals name="twin_settings_memory_count">
+        <item quantity="other">Remembers %1$d things</item>
+        <item quantity="one">Remembers %1$d thing</item>
+    </plurals>
+    <plurals name="twin_task_step_count">
+        <item quantity="other">%1$d steps</item>
+        <item quantity="one">%1$d step</item>
+    </plurals>
+    <plurals name="twin_thinking_done_seconds">
+        <item quantity="other">Thought for %1$d seconds</item>
+        <item quantity="one">Thought for %1$d second</item>
+    </plurals>
+</resources>

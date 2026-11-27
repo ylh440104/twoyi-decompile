@@ -1,0 +1,14 @@
+package u0;
+
+/* compiled from: r8-map-id-7bf9c8a41511711ea9494642f15e05c388791a88a4daf33624d11626852f77fa */
+/* loaded from: classes.dex */
+public final /* synthetic */ class i0 extends x8.h implements w8.e {
+
+    /* renamed from: p, reason: collision with root package name */
+    public static final i0 f11511p = new x8.h(2, z8.a.class, "min", "min(II)I", 1);
+
+    @Override // w8.e
+    public final Object h(Object obj, Object obj2) {
+        return Integer.valueOf(Math.min(((Number) obj).intValue(), ((Number) obj2).intValue()));
+    }
+}

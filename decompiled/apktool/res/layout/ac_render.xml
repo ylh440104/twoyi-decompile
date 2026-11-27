@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/root" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:id="@id/loadingLayout" android:background="@android:color/black" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ViewStub android:id="@id/bootlogStub" android:layout="@layout/boot_log" android:inflatedId="@id/bootlog" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/loadingText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" android:layout_alignParentBottom="true" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</FrameLayout>

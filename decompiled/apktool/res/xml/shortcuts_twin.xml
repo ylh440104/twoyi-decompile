@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/ic_settings" android:enabled="true" android:shortcutId="settings" android:shortcutShortLabel="@string/twin_settings_title" android:shortcutLongLabel="@string/twin_settings_title">
+        <intent android:targetPackage="io.twoyi" android:action="io.twoyi.action.OPEN_SETTINGS" android:targetClass="io.twoyi.ui.twin.MainActivity" />
+    </shortcut>
+</shortcuts>

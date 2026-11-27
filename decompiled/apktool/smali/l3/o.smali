@@ -1,0 +1,14 @@
+.class public interface abstract Ll3/o;
+.super Ljava/lang/Object;
+.source "r8-map-id-7bf9c8a41511711ea9494642f15e05c388791a88a4daf33624d11626852f77fa"
+
+
+# virtual methods
+.method public abstract a()F
+.end method
+
+.method public abstract b()J
+.end method
+
+.method public abstract c()Lv1/q;
+.end method

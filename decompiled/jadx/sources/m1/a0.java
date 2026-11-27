@@ -1,0 +1,13 @@
+package m1;
+
+/* compiled from: r8-map-id-7bf9c8a41511711ea9494642f15e05c388791a88a4daf33624d11626852f77fa */
+/* loaded from: classes.dex */
+public interface a0 {
+    c0 a();
+
+    default c0 b(c0 c0Var, c0 c0Var2, c0 c0Var3) {
+        return null;
+    }
+
+    void c(c0 c0Var);
+}

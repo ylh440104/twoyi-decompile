@@ -1,0 +1,320 @@
+.class public final Lu7/c;
+.super Ljava/lang/Object;
+.source "r8-map-id-7bf9c8a41511711ea9494642f15e05c388791a88a4daf33624d11626852f77fa"
+
+
+# static fields
+.field public static final c:[B
+
+
+# instance fields
+.field public final a:Ljava/security/PrivateKey;
+
+.field public final b:[B
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 1
+    const/16 v0, 0xec
+
+    .line 2
+    .line 3
+    new-array v1, v0, [B
+
+    .line 4
+    .line 5
+    fill-array-data v1, :array_0
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-static {v1, v0}, Ljava/util/Arrays;->copyOf([BI)[B
+
+    .line 9
+    .line 10
+    .line 11
+    move-result-object v0
+
+    .line 12
+    const-string v1, "copyOf(...)"
+
+    .line 13
+    .line 14
+    invoke-static {v0, v1}, Lx8/j;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 15
+    .line 16
+    .line 17
+    sput-object v0, Lu7/c;->c:[B
+
+    .line 18
+    .line 19
+    return-void
+
+    .line 20
+    nop
+
+    .line 21
+    :array_0
+    .array-data 1
+        0x0t
+        0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        -0x1t
+        0x0t
+        0x30t
+        0x21t
+        0x30t
+        0x9t
+        0x6t
+        0x5t
+        0x2bt
+        0xet
+        0x3t
+        0x2t
+        0x1at
+        0x5t
+        0x0t
+        0x4t
+        0x14t
+    .end array-data
+.end method
+
+.method public constructor <init>(Ljava/security/PrivateKey;[B)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Lu7/c;->a:Ljava/security/PrivateKey;
+
+    .line 5
+    .line 6
+    iput-object p2, p0, Lu7/c;->b:[B
+
+    .line 7
+    .line 8
+    return-void
+.end method

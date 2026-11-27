@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" package="io.twoyi" platformBuildVersionCode="36" platformBuildVersionName="16">
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:maxSdkVersion="28" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" android:usesPermissionFlags="neverForLocation"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
+    <permission android:name="io.twoyi.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="io.twoyi.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent>
+    </queries>
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="io.twoyi.TwoyiApplication" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/Theme.Twoyi" android:usesCleartextTraffic="true">
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:label="@string/app_name" android:launchMode="singleTop" android:name="io.twoyi.ui.twin.MainActivity" android:screenOrientation="portrait" android:supportsPictureInPicture="true" android:theme="@style/Theme.Twoyi.Twin" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts_twin"/>
+        </activity>
+        <activity android:label="@string/create_app_activity" android:name="io.twoyi.ui.SelectAppActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Twoyi.Twin" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_settings" android:name="io.twoyi.ui.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Twoyi.Twin"/>
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <provider android:authorities="io.twoyi.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <provider android:authorities="io.twoyi.documents" android:exported="true" android:grantUriPermissions="true" android:name="io.twoyi.provider.TwoyiDocumentsProvider" android:permission="android.permission.MANAGE_DOCUMENTS">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
+            </intent-filter>
+        </provider>
+        <provider android:authorities="io.twoyi.shizuku" android:enabled="true" android:exported="true" android:multiprocess="false" android:name="rikka.shizuku.ShizukuProvider" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+        <activity android:configChanges="density|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:enableOnBackInvokedCallback="false" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="io.twoyi.host.HostBackdropActivity" android:process=":guest0" android:taskAffinity="io.twoyi.backdrop" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <service android:exported="false" android:foregroundServiceType="specialUse" android:name="io.twoyi.host.HostDisplayService" android:process=":guest0">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Keeps the Twin's background display alive while it runs tasks"/>
+        </service>
+        <receiver android:exported="false" android:name="io.twoyi.receiver.TwoyiReceiver">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:foregroundServiceType="camera|location|specialUse" android:name="io.twoyi.GuestInstanceService$Slot0" android:process=":guest0">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Keeps the embedded guest Android session alive while it runs"/>
+        </service>
+        <service android:exported="false" android:foregroundServiceType="camera|location|specialUse" android:name="io.twoyi.GuestInstanceService$Slot1" android:process=":guest1">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Keeps the embedded guest Android session alive while it runs"/>
+        </service>
+        <service android:exported="false" android:foregroundServiceType="camera|location|specialUse" android:name="io.twoyi.GuestInstanceService$Slot2" android:process=":guest2">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Keeps the embedded guest Android session alive while it runs"/>
+        </service>
+        <service android:exported="false" android:foregroundServiceType="camera|location|specialUse" android:name="io.twoyi.GuestInstanceService$Slot3" android:process=":guest3">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Keeps the embedded guest Android session alive while it runs"/>
+        </service>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <provider android:authorities="io.twoyi.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <meta-data android:name="moe.shizuku.client.V3_SUPPORT" android:value="true"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
