@@ -109,6 +109,94 @@ strings the code uses are encrypted in `.data` and decoded at run time by
 it is not the *only* one — the 71-byte `.rodata` is the whole contract in one
 line.
 
+## RETRACTED: there is no .data decoder in this library
+
+An earlier revision of this document claimed the `.data` buffers that
+`FUN_00107598` hands to `getenv`/`dlopen`/`dlsym`/`strncmp` are "decoded at run
+time by a constructor". That is **wrong**, and the evidence against it is
+direct.
+
+`.init_array` has exactly one entry:
+
+```
+.init_array [0] vaddr=0x29be8  raw=0x0  type=1027(R_AARCH64_RELATIVE) -> 0x1f208
+```
+
+That resolves to `_INIT_0` at 0x1f208. Reading it, the whole function is an
+OLLVM flattened state machine whose only substantive action is filling a
+function-pointer table:
+
+```c
+_DAT_0012fa40 = FUN_0011fc70;
+DAT_0012fa48 = puVar5;                   /* PTR_dlclose */
+DAT_0012fa50 = FUN_00120c70;
+DAT_0012fa58 = FUN_00120d84;
+DAT_0012fa60 = PTR_dladdr_00129ed0;
+```
+
+`FUN_00113400`, the other candidate, is 28 bytes long and its entire body is
+`return;`.
+
+So nothing decodes `.data` at load time.
+
+### What .data actually measures
+
+| property | value |
+| --- | --- |
+| size | 6,212 bytes |
+| byte entropy | **7.55 bits/byte** |
+| distinct byte values | **256 / 256** |
+| zero bytes | 705 (11.3%) |
+| printable bytes in runs >= 6, as stored | 44 (0.7%) |
+
+And an exhaustive sweep of 769 candidate byte-wise transforms (every
+single-byte XOR, add and sub, plus repeating-key XOR against the one known
+plaintext) tops out at:
+
+```
+sub 0xbd   809 bytes printable (13.0%)
+add 0x43   809 bytes (13.0%)
+sub 0xba   808 bytes (13.0%)
+```
+
+13.0% is exactly what random bytes produce (95 of 256 values are printable =
+37.1% of positions, but runs of six or more are rare; the measured 13% matches
+the noise floor). Ratio over baseline is 18x, which sounds like a hit until you
+notice it is 809 out of 6,212 — scattered fragments, not text.
+
+Layout, for completeness, is a sequence of NUL-terminated blobs padded to
+8-byte alignment:
+
+```
+022340  81 c9 b5 60 5e 3a c6 d6 09 a4 67 1b 0f a3 65 8e
+022350  3b c7 d4 94 9a 19 5f 00 00 00 00 00 00 00 00 00
+022360  d4 82 03 9e 83 aa ae 50 33 76 3f 63 72 c0 fa cf
+022370  af e7 ed 0d 79 eb 9e 00 40 10 d5 7e ec ae 61 02
+```
+
+### The conclusion I can defend
+
+`.data` is high-entropy packed data. Three explanations remain, and the code
+evidence points at the third:
+
+1. An encrypted blob whose key is not in this file. Unlikely — the strings it
+   would produce are needed before any other code runs.
+2. Compressed data. Would need a decompressor; none is imported.
+3. **`&DAT_0012e360` is a decompiler artifact.** `FUN_00107598` is OLLVM
+   flattened, and Ghidra tracks the `ADRP`+`ADD` pairs that build those
+   operands through a register that the flattening rewrites. When it loses
+   track, it emits `&DAT_<something>` with a plausible but wrong address. The
+   fact that the address lands in high-entropy padding rather than at a string
+   is a symptom of that, not of a cipher.
+
+Reading 3 is the one that fits: the code is provably obfuscated in exactly the
+way that breaks data-flow recovery, the only plaintext contract in the library
+is 46 bytes in `.rodata`, and no decoder exists anywhere in `.init_array`.
+
+To settle it properly would need the disassembly rather than the decompilation
+— track the actual `ADRP`/`ADD` immediates in `FUN_00107598` and see what
+address they really produce. That has not been done.
+
 ## Method
 
 ```
