@@ -122,16 +122,21 @@ jobs:
         run: |
           set -euxo pipefail
           cd out
+          # Plain zip entries so the tree can be unpacked with any stock unzip.
+          zip -qr -1 ../jadx-sources.zip jadx
+          zip -qr -1 ../apktool-decoded.zip apktool-decoded
           7z a -mx=1 -mmt=4 ../jadx-sources.7z jadx >/dev/null
           7z a -mx=1 -mmt=4 ../apktool-decoded.7z apktool-decoded >/dev/null
           cd ..
-          ls -la *.7z
+          ls -la *.zip *.7z
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: twoyi-decompile-output
           path: |
+            jadx-sources.zip
+            apktool-decoded.zip
             jadx-sources.7z
             apktool-decoded.7z
             INVENTORY.md
