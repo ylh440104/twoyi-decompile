@@ -76,18 +76,7 @@ jobs:
       - name: Inspect APK contents
         run: |
           mkdir -p work
-          python3 - <<'PY'
-          import zipfile
-          z = zipfile.ZipFile("input/twoyi.apk")
-          names = z.namelist()
-          dex = [n for n in names if n.endswith(".dex")]
-          so = [n for n in names if n.endswith(".so")]
-          lines = ["entries: %d" % len(names), "", "dex:"] + ["  " + n for n in dex]
-          lines += ["", "native libs:"] + ["  %s  %d bytes" % (n, z.getinfo(n).file_size) for n in so]
-          text = "\n".join(lines)
-          open("work/apk-list.txt", "w").write(text)
-          print(text)
-          PY
+          python3 tools/inspect_apk.py input/twoyi.apk work/apk-list.txt
 
       - name: apktool decode (resources + smali + AndroidManifest)
         run: |
