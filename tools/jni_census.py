@@ -128,8 +128,13 @@ for _part in _RAW.replace("\n", "|").split("|"):
     _n, _name = _part.split(" ", 1)
     JNI[int(_n)] = _name
 
-# `(*local_78 + 0x548)` and `(*(long *)(x + 0x548))` styles
+# `(*local_78 + 0x548)` at the call site, AND `*local_f0 = *local_78 + 0x558`
+# where the compiler hoisted the function pointer into a local first. Without
+# the second pattern the census undercounts: the call site then reads `(**...)`
+# with no offset at all.
 OFF = re.compile(r"\(\*[A-Za-z_][A-Za-z0-9_]*\s*\+\s*(0x[0-9a-fA-F]+)\)")
+HOIST = re.compile(
+    r"\*[A-Za-z_][A-Za-z0-9_]*\s*=\s*\*[A-Za-z_][A-Za-z0-9_]*\s*\+\s*(0x[0-9a-fA-F]+)")
 MARK = re.compile(r"^// ---- ([0-9a-f]{6,8})\s+(\S+)\s+size=(\d+)")
 
 
@@ -156,7 +161,8 @@ def main():
             continue
         s, e, name, size = span[g]
         body = "\n".join(lines[s:e])
-        offs = sorted({int(x, 16) for x in OFF.findall(body)})
+        offs = sorted({int(x, 16) for x in OFF.findall(body)}
+                      | {int(x, 16) for x in HOIST.findall(body)})
         # only plausible JNIEnv slots
         idxs = sorted({o // 8 for o in offs if 0 < o // 8 <= 232})
         out.append((meth, vaddr, (name, size, e - s), idxs))
