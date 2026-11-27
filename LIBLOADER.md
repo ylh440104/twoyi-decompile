@@ -197,6 +197,103 @@ To settle it properly would need the disassembly rather than the decompilation
 — track the actual `ADRP`/`ADD` immediates in `FUN_00107598` and see what
 address they really produce. That has not been done.
 
+## SETTLED BY DISASSEMBLY: the addresses are real
+
+Both earlier hypotheses were wrong. The instruction stream settles it.
+
+The first attempt scanned for `ADRP`+`ADD` pairs and found nothing, because the
+compiler used **`ADR`** — a single instruction with a PC-relative ±1 MB range —
+not the two-instruction `ADRP`+`ADD` idiom. `ADR` differs only in bit 31:
+
+```
+ADR   0 immlo[2] 10000 immhi[19] Rd[5]     (0x10000000 mask 0x9F000000)
+ADRP  1 immlo[2] 10000 immhi[19] Rd[5]     (0x90000000 mask 0x9F000000)
+```
+
+Decoding the raw bytes at each `bl getenv` site (PLT slot 0x25900) gives:
+
+| call site | instruction | bytes | target |
+| --- | --- | --- | --- |
+| 0xe83c | `adr x0, 0x2e360` | `100fd940` | `.data` off 0x22360 |
+| 0x16504 | `adr x0, 0x2ef50` | `100c52c0` | `.data` off 0x22f50 |
+| 0x16a90 | `adr x0, 0x2efd0` | `100c2a60` | `.data` off 0x22fd0 |
+| 0x16b70 | `adr x0, 0x2ef90` | `100c2120` | `.data` off 0x22f90 |
+| 0x17f60 | `adr x0, 0x2f070` | `100b88a0` | `.data` off 0x23070 |
+
+So `&DAT_0012e360` in the C export **is exactly what the machine code does**.
+The "decompiler artifact" hypothesis is dead: the obfuscation did not fool
+Ghidra here, and the addresses are genuine.
+
+That removes the last easy explanation, and forces a harder conclusion: the
+library really does pass `.data` buffers to `getenv()`, those buffers are
+high-entropy at rest, and **no decoder exists inside the library**. Therefore
+the plaintext has to be written into `.data` from outside before the guest
+executes — the only candidate being the host side that materialises this file
+in the first place(`RomManager` extracts the rootfs and creates the `loader64`
+symlink, and the paths it would need are per-installation).
+
+I have not verified that write. It is now the single highest-value unknown in
+this library, and it is checkable: compare `.data` of the shipped
+`libloader.so` against the copy under `/data/data/io.twoyi/rootfs` on a device
+where the container has booted. If they differ, the host patches it.
+
+## FINAL: .data is opaque-predicate state, and those getenv calls are junk
+
+Tracing the full instruction window around the first `getenv` site settles it.
+
+```
+0xe7b4  adr  x1, 0x2e300          ; another .data blob
+0xe7b8  b    +0x-840              ; backward branch
+0xe7bc  adrp x8, 0x2e000
+0xe7c0  adrp x9, 0x2e000
+0xe7c8  ldr  w8, [x8, #0xa8c]     ; read a .data word
+0xe7cc  ldr  w9, [x9, #0xa90]
+0xe7e4  eor  w8, w8, w10
+0xe7e8  eor  w9, w9, w11
+0xe7ec  udiv w8, w8, w9
+0xe814  bic  w9, w9, w8
+0xe818  and  w8, w8, w10
+0xe81c  orr  w19, w9, w8          ; predicate result lands in w19
+0xe820  bl   getenv               ; getenv(0x2e360) -- return value DISCARDED
+0xe824  mov  w8, #0x6c6b
+0xe828  movk w8, #0xd5ad, lsl 16
+0xe82c  cmp  w19, w8              ; compares w19, never x0
+0xe830  b.lt ...
+0xe838  adr  x0, 0x2e360
+0xe83c  bl   getenv               ; same argument again
+```
+
+Two facts decide it:
+
+1. **`getenv`'s return value is never read.** Between `0xe820` and `0xe838`
+   there is no instruction that touches `x0`; the comparison at `0xe82c` uses
+   `w19`, which was computed entirely from the predicate arithmetic.
+2. **The same `getenv(0x2e360)` is called twice back to back** with nothing in
+   between.
+
+That is not string handling. It is obfuscator-inserted junk: calls whose only
+purpose is to make static analysis produce plausible-looking data references.
+
+And the `.data` words those `ldr` instructions read are the same high-entropy
+region. So `.data` is **not** a ciphertext table at all. It is randomised
+opaque-predicate state, consumed as integers (`ldr w8, [x8, #0xa8c]`), never as
+strings.
+
+### Resolution
+
+| question | answer |
+| --- | --- |
+| Is `.data` encrypted strings? | No. It is opaque-predicate state data. |
+| Is there a decoder? | No, and none is needed. |
+| Why does code pass `.data` to `getenv`? | Junk inserted by the obfuscator; the result is discarded. |
+| Where is the real protocol string? | `.rodata`, 71 bytes, plaintext: `TWOYI_ROOTFS_EXEC=GRB_V2:CODE_OPEN:EXEC_SEALED` |
+
+This also retroactively vindicates the very first analysis of this library,
+which concluded that the `DAT_` arithmetic was control-flow-flattening state
+machinery rather than a string table. The two intermediate hypotheses (a
+per-install host patch; a decompiler artifact) were both wrong, and both are
+recorded above rather than deleted.
+
 ## Method
 
 ```
