@@ -73,15 +73,16 @@ jobs:
           sha256sum input/twoyi.apk | tee input/twoyi.apk.sha256
           md5sum input/twoyi.apk | tee input/twoyi.apk.md5
 
-      - name: Split APK (multi-dex friendly, streaming)
+      - name: Inspect APK contents
         run: |
           set -euxo pipefail
-          mkdir -p work/apk
-          cd work/apk
-          unzip -q ../../input/twoyi.apk
-          find . -type f | wc -l
-          du -sh .
-          ls -la | head -30
+          mkdir -p work
+          7z l input/twoyi.apk > work/apk-list.txt
+          tail -40 work/apk-list.txt
+          echo "--- dex entries:"
+          grep -E '\.dex$' work/apk-list.txt || true
+          echo "--- native libs:"
+          grep -E '\.so$' work/apk-list.txt || true
 
       - name: apktool decode (resources + smali + AndroidManifest)
         run: |
@@ -121,9 +122,9 @@ jobs:
             echo "- Java files: $(find out/jadx -name '*.java' | wc -l)"
             echo "- Smali files: $(find out/apktool-decoded -name '*.smali' | wc -l)"
             echo "- Native libs:"
-            find work/apk/lib -name '*.so' -printf '  - %p (%s bytes)\n' 2>/dev/null || true
+            grep -E '\.so$' "$GITHUB_WORKSPACE/work/apk-list.txt" 2>/dev/null || echo "  (none listed)"
             echo "- Dex files:"
-            ls -la work/apk/*.dex 2>/dev/null || true
+            grep -E '\.dex$' "$GITHUB_WORKSPACE/work/apk-list.txt" 2>/dev/null || echo "  (none listed)"
           } > INVENTORY.md
           cat INVENTORY.md
 
