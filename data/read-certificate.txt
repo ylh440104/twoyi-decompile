@@ -1,0 +1,61 @@
+========================================================================
+OBJECT UNDER READING: libtwoyi.so
+========================================================================
+  file size                       : 9850096 B
+  .text                           : 0x1c52b0..0x8e0490 = 7451104 B
+  .rodata                         : 0x1d910..0x12433c   = 1075756 B
+  .data                           : 0x915830..0x96c388  = 355160 B
+
+  functions decompiled            : 12412
+  lines of decompiled C           : 829661
+
+========================================================================
+LEDGER 1 — source lines
+========================================================================
+  line_ledger.tsv rows            : 829661
+  reconciliation vs bodies        : OK
+  rows carrying a role            : 829661 / 829661  (OK)
+  rows with unknown role          : 0
+  distinct roles                  : 12 -> L:312246 S:232016 I:101593 M:76963 C:32829 W:22019 G:18756 R:18505 D:12566 B:1747 F:353 X:68
+
+========================================================================
+LEDGER 2 — functions
+========================================================================
+  func_ledger.tsv rows            : 12413 (incl. header)
+  functions covered               : 12412 / 12412  (OK)
+  sum of per-function line counts : 829661
+  reconciliation vs bodies        : OK
+  malformed rows                  : 0
+  functions with zero lines       : 0
+
+========================================================================
+LEDGER 3 — .data bytes
+========================================================================
+  data_ledger2.tsv   rows          : 45005
+  header                          : vaddr	section	kind	name	refs	users	value
+
+========================================================================
+LEDGER 4 — recovered strings
+========================================================================
+  strings_xref.tsv rows           : 416 (incl. header)
+  header                          : addr	string	writers	readers
+  strings with an address         : 415
+
+========================================================================
+CROSS-CHECKS (different scripts, same numbers)
+========================================================================
+  `do {` in bodies                : 12566   |  role D rows: 12566
+  loops in loops_v4.tsv           : 14666
+  loops with a verdict            : 14666
+  loops classified in loop_sem    : 14666
+
+  D-role vs do-count             : MATCH
+
+========================================================================
+HOLES
+========================================================================
+  none
+
+  CAVEAT: a role is a *classification of the line*, not a proof that a
+  human read its meaning.  What this certificate establishes is that no
+  line is unaccounted for; what it cannot establish is intent.
