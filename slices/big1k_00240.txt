@@ -1,0 +1,290 @@
+class >=1000 B : 672 functions; slice 240..280
+
+=== 005b46ac size=6772 nc=5 FUN_005b46ac
+  C: strerror, fsync, FUN_00527a58, __errno, __stack_chk_fail
+  | local_d8 = tpidr_el0;
+  | local_68 = *(long *)(local_d8 + 0x28);
+  | local_d0 = local_f0;
+  | local_88 = local_100;
+
+=== 005b6120 size=26120 nc=11 FUN_005b6120
+  C: block, __errno, fstatat, FUN_005afbe8, __stack_chk_fail, __openat_2, unlinkat, close, FUN_005c12a0, FUN_005bc728, renameat
+  | local_78 = param_3;
+  | local_17c = param_4;
+  | local_d4 = param_2;
+  | local_84 = param_1;
+
+=== 005bc728 size=19320 nc=10 FUN_005bc728
+  C: free, readdir, fdopendir, __errno, strdup, dup, closedir, realloc, close, __stack_chk_fail
+  | local_258 = tpidr_el0;
+  | local_70 = *(long *)(local_258 + 0x28);
+  | local_230 = local_270;
+  | local_b0 = local_280;
+
+=== 005c12a0 size=1580 nc=2 FUN_005c12a0
+  C: free, __stack_chk_fail
+  | local_80 = tpidr_el0;
+  | local_68 = *(long *)(local_80 + 0x28);
+  | local_78 = local_90;
+  | local_90[0] = param_1 == (void *)0x0;
+
+=== 005c18cc size=18848 nc=4 FUN_005c18cc
+  C: memcpy, memcmp, strlen, __stack_chk_fail
+  | local_110 = param_2;
+  | local_78 = param_1;
+  | local_210 = tpidr_el0;
+  | local_70 = *(long *)(local_210 + 0x28);
+
+=== 005c626c size=12780 nc=4 FUN_005c626c
+  C: strcmp, __stack_chk_fail, strrchr, strncmp
+  | local_98 = param_1;
+  | local_118 = tpidr_el0;
+  | local_70 = *(long *)(local_118 + 0x28);
+  | local_100 = local_130;
+
+=== 005c9458 size=12928 nc=7 FUN_005c9458
+  C: FUN_0063b550, strerror, FUN_00527a58, fstatat, __errno, close, __stack_chk_fail
+  | local_178 = tpidr_el0;
+  | local_70 = *(long *)(local_178 + 0x28);
+  | local_160 = local_190;
+  | local_e8 = local_1a0;
+
+=== 005cc6d8 size=9628 nc=4 FUN_005cc6d8
+  C: strdup, free, __stack_chk_fail, realloc
+  | void FUN_005cc6d8(long *param_1,char *param_2,char *param_3,undefined4 param_4,undefined4 param_5,
+  | local_d0 = param_7;
+  | local_d4 = param_6;
+  | local_148 = param_2;
+
+=== 005cec74 size=4148 nc=3 FUN_005cec74
+  C: __pread_chk, __errno, __stack_chk_fail
+  | local_98 = param_2;
+  | lStack_90 = param_4;
+  | local_9c = param_1;
+  | local_f8 = tpidr_el0;
+
+=== 005cfca8 size=11664 nc=7 FUN_005cfca8
+  C: __stack_chk_fail, free, strerror, pthread_create, __android_log_print, FUN_0099916c, malloc
+  | local_d8 = param_3;
+  | local_d0 = param_4;
+  | local_dc = param_2;
+  | local_78 = param_1;
+
+=== 0060e39c size=7276 nc=8 FUN_0060e39c
+  C: pthread_join, free, FUN_00527a58, strerror, FUN_009e0488, __stack_chk_fail, FUN_00999550, memcmp
+  | local_138 = tpidr_el0;
+  | local_120 = local_150;
+  | local_70 = *(long *)(local_138 + 0x28);
+  | local_e8 = acStack_160;
+
+=== 00610008 size=12432 nc=8 FUN_00610008
+  C: strerror, FUN_00527a58, pthread_join, free, FUN_00999550, memcmp, FUN_009e0488, __stack_chk_fail
+  | uVar11 = (in_w8 ^ in_w10) + (in_w9 ^ 0x14c0aa20);
+  | uVar11 = (uVar11 ^ 0x2ef32442) + (uVar11 & 0x2ef32442) * 2;
+  | uVar11 = (uVar11 + (uVar11 ^ 0xffffffff | 0xb25efab) + 0xf4da1055) / 0x4696ee91;
+  | bVar7 = 0x678342d7 < uVar11;
+
+=== 00613098 size=35584 nc=14 FUN_00613098
+  C: symlinkat, __errno, FUN_0063b550, FUN_00527a58, close, fstatat, utimensat, openat, strerror, fsync, FUN_0064aa04, __stack_chk_fail
+  | local_80 = param_1;
+  | local_2e0 = tpidr_el0;
+  | local_70 = *(long *)(local_2e0 + 0x28);
+  | local_2a8 = local_2f0;
+
+=== 0061bb98 size=44356 nc=15 FUN_0061bb98
+  C: FUN_0063b550, fsync, FUN_00527a58, close, FUN_005b46ac, openat, __errno, strerror, renameat, FUN_009e0418, __stack_chk_fail, FUN_005c9458
+  | local_110 = param_4;
+  | local_108 = param_5;
+  | local_1d8 = param_3;
+  | local_7c = param_2;
+
+=== 006268dc size=4812 nc=15 FUN_006268dc
+  C: FUN_0063b550, fsync, FUN_00527a58, close, FUN_005b46ac, openat, __errno, FUN_005c9458, __stack_chk_fail, strerror, renameat, FUN_009e0418
+  | uVar13 = ((in_w8 ^ in_w10) & (in_w9 ^ 0xe86a1e06)) + 0x6a43f316;
+  | uVar13 = uVar13 + (uVar13 ^ 0xffffffff | 0x758985e0) + 0x8a767a20;
+  | uVar13 = ((uVar13 ^ 0xffffffff) & 0x3b7b0f0d | uVar13 & 0xc484f0f2) ^ 0x342aa41;
+  | bVar9 = 0x91d22f20 < uVar13;
+
+=== 0063b550 size=19376 nc=11 FUN_0063b550
+  C: close, strtok_r, fcntl, __openat_2, __errno, dup, strlen, strcpy, __strcpy_chk, __stack_chk_fail, mkdirat
+  | local_200 = tpidr_el0;
+  | local_70 = *(long *)(local_200 + 0x28);
+  | local_1e0 = local_210;
+  | pcVar16 = (char *)0x997d2796;
+
+=== 00640100 size=9128 nc=4 FUN_00640100
+  C: __pread_chk, FUN_00999190, __stack_chk_fail, __errno
+  | local_1b0 = tpidr_el0;
+  | local_70 = *(long *)(local_1b0 + 0x28);
+  | local_1a8 = local_1c0;
+  | local_108 = local_1d0;
+
+=== 006424a8 size=18644 nc=9 FUN_006424a8
+  C: __errno, FUN_00527a58, close, __stack_chk_fail, fchmod, fsetxattr, strerror, futimens, fsync
+  | local_1c8 = tpidr_el0;
+  | local_70 = *(long *)(local_1c8 + 0x28);
+  | local_1b8 = local_1e0;
+  | local_e8 = local_1f0;
+
+=== 00646d7c size=9908 nc=1 FUN_00646d7c
+  C: __stack_chk_fail
+  | local_120 = param_3;
+  | local_148 = tpidr_el0;
+  | local_70 = *(long *)(local_148 + 0x28);
+  | local_130 = local_160;
+
+=== 00649430 size=5588 nc=2 FUN_00649430
+  C: __stack_chk_fail, memcpy
+  | local_a8 = param_3;
+  | local_a0 = param_4;
+  | local_110 = tpidr_el0;
+  | local_70 = *(long *)(local_110 + 0x28);
+
+=== 0064aa04 size=1808 nc=2 FUN_0064aa04
+  C: __vsnprintf_chk, __stack_chk_fail
+  | void FUN_0064aa04(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | undefined8 param_9,undefined8 param_10,undefined8 param_11,undefined8 param_12,
+  | local_158 = tpidr_el0;
+
+=== 0064b114 size=24240 nc=4 FUN_0064b114
+  C: memcmp, __stack_chk_fail, strlen, strchr
+  | local_90 = param_1;
+  | local_240 = tpidr_el0;
+  | local_70 = *(long *)(local_240 + 0x28);
+  | local_218 = local_250;
+
+=== 00650fc4 size=2264 nc=3 FUN_00650fc4
+  C: strrchr, memcmp, __stack_chk_fail
+  | local_b0 = tpidr_el0;
+  | local_68 = *(long *)(local_b0 + 0x28);
+  | local_a8 = local_c0;
+  | local_80 = local_d0;
+
+=== 0066db3c size=45820 nc=8 FUN_0066db3c
+  C: faccessat, FUN_00527a58, strerror, __errno, __openat_2, close, FUN_0067df64, __stack_chk_fail
+  | local_2c8 = tpidr_el0;
+  | local_70 = *(long *)(local_2c8 + 0x28);
+  | local_270 = local_2e0;
+  | piVar9 = (int *)0xb56f4732;
+
+=== 00678e38 size=11076 nc=6 FUN_00678e38
+  C: block, SUB84, close, __errno, __stack_chk_fail, FUN_0067b97c
+  | local_114 = SUB84(param_1,0);
+  | local_130 = tpidr_el0;
+  | local_70 = *(long *)(local_130 + 0x28);
+  | local_120 = local_140;
+
+=== 0067b97c size=9704 nc=7 FUN_0067b97c
+  C: fstatat, __errno, __stack_chk_fail, close, __openat_2, fchmod, mkdirat
+  | sStack_1b0.__unused[1] = tpidr_el0;
+  | local_70 = *(long *)(sStack_1b0.__unused[1] + 0x28);
+  | local_118 = &sStack_1b0;
+  | local_120 = local_1c0;
+
+=== 0067df64 size=14708 nc=10 FUN_0067df64
+  C: block, __errno, close, __openat_2, fstatat, FUN_009e0430, FUN_005bc728, faccessat, FUN_005c12a0, __stack_chk_fail
+  | local_98 = param_3;
+  | local_174 = param_4;
+  | local_ac = param_2;
+  | local_9c = param_1;
+
+=== 006818d8 size=24900 nc=11 FUN_006818d8
+  C: block, close, FUN_005c12a0, __errno, faccessat, FUN_005bc728, __openat_2, FUN_0067df64, FUN_009e0430, fstatat, __stack_chk_fail
+  | void FUN_006818d8(int param_1,int param_2,int param_3,int param_4,int param_5,int param_6,
+  | puVar13 = (undefined4 *)*in_x15;
+  | uVar8 = 0xc300fe7b;
+  | if (0x4f2e22a2 <
+
+=== 006886f0 size=1104 nc=10 FUN_006886f0
+  C: FUN_00688b40, fprintf, FUN_009e0490, FUN_00688e14, FUN_006ae6b0, FUN_006b15d0, thunk_FUN_006b2c28, free, FUN_006dad88, __stack_chk_fail
+  | long FUN_006886f0(undefined8 param_1,int param_2,int param_3,uint param_4,int param_5,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | local_70 = 0;
+
+=== 00689efc size=1240 nc=7 FUN_00689efc
+  C: FUN_006a4674, pthread_mutex_lock, FUN_0068ab88, pthread_mutex_unlock, FUN_006b45a0, FUN_006adb90, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | lVar6 = FUN_006a4674();
+  | if (*(long *)(lVar6 + 0x10) != 0) {
+
+=== 0068b5a0 size=1204 nc=19 FUN_0068b5a0
+  C: NEON_fmov, CONCAT44, CONCAT17, CONCAT16, CONCAT15, CONCAT14, SUB41, FUN_0068ba54, CONCAT13, CONCAT12, sincosf, NEON_bsl
+  | void FUN_0068b5a0(undefined8 *param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | uVar6 = DAT_0017be10;
+  | uVar5 = _UNK_0011df58;
+  | uVar4 = _DAT_0011df50;
+
+=== 0068be88 size=1400 nc=8 FUN_0068be88
+  C: FUN_009e0490, memcpy, FUN_0068d128, free, __stack_chk_fail, FUN_006cff78, FUN_0094046c, FUN_0094059c
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ setUpGraphicsPipeline
+  | void FUN_0068be88(long *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | local_2a8 = param_5;
+
+=== 0068c9e8 size=1136 nc=17 FUN_0068c9e8
+  C: free, FUN_0094046c, FUN_0068826c, FUN_0099fa10, FUN_0094059c, memset, FUN_0068e2fc, FUN_009e0330, FUN_009e0360, FUN_0099b070, __stack_chk_fail, FUN_009e0490
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ setComposition ~  layers. layers asked:  ~ Unsupported sampler(
+  | void FUN_0068c9e8(long *param_1,uint param_2,undefined8 *param_3,long param_4,long param_5,
+  | lVar5 = tpidr_el0;
+  | local_70 = *(long *)(lVar5 + 0x28);
+  | lVar7 = param_1[0x15];
+
+=== 0068f1b8 size=1828 nc=16 FUN_0068f1b8
+  C: pthread_mutex_lock, FUN_0094002c, FUN_0099e5c4, FUN_006cff78, FUN_0094046c, FUN_0094059c, pthread_mutex_unlock, FUN_009e0360, FUN_0099b070, free, FUN_00694d44, FUN_0068cfa4
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ VK_TIMEOUT returned from vkQueueWaitIdle with %u attemp ~ ~DisplayVk
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | ppVar9 = (pthread_mutex_t *)param_1[8];
+  | pthread_mutex_lock(ppVar9);
+
+=== 0068fc04 size=2524 nc=33 FUN_0068fc04
+  C: pthread_mutex_lock, FUN_0094002c, FUN_0099e5c4, FUN_006cff78, FUN_0094046c, FUN_0094059c, pthread_mutex_unlock, FUN_009e0360, FUN_00694e00, FUN_00695bf0, FUN_0068f8dc, FUN_0099b070
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ VK_TIMEOUT returned from vkQueueWaitIdle with %u attemp ~ bindToSurface ~ Failed to create VkSwapchainCreateInfoKHR.
+  | lVar4 = tpidr_el0;
+  | local_78 = *(long *)(lVar4 + 0x28);
+  | ppVar12 = (pthread_mutex_t *)param_1[5];
+  | pthread_mutex_lock(ppVar12);
+
+=== 00690654 size=2892 nc=28 FUN_00690654
+  C: FUN_009e0490, FUN_0099dff8, FUN_009e0360, FUN_0099e064, FUN_0099df40, fprintf, s, FUN_00691200, FUN_0068ddc4, FUN_00696828, FUN_009e0330, FUN_006a79d8
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ VK_IMAGE_TILING_OPTIMAL ~ VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT ~ VK_IMAGE_TILING_LINEAR ~ Unhandled VkImageTiling
+  | lVar3 = tpidr_el0;
+  | local_78 = *(long *)(lVar3 + 0x28);
+  | plVar7 = (long *)FUN_009e0490(0x78);
+  | *plVar7 = (long)&PTR_FUN_009e5d50;
+
+=== 00691200 size=1772 nc=14 FUN_00691200
+  C: FUN_00691958, FUN_00691ad0, FUN_0099c6c8, FUN_00694ac0, fprintf, s, FUN_00693fc4, FUN_00694018, FUN_006a79c0, FUN_00694420, format, image
+  L: VK_IMAGE_TILING_OPTIMAL ~ VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT ~ VK_IMAGE_TILING_LINEAR ~ Unhandled VkImageTiling ~ Unhandled VkFormatFeatureFlagBits
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | uVar4 = FUN_00691958(param_1,*(undefined4 *)(param_2 + 0x18),*(undefined4 *)(param_2 + 0x34));
+  | if ((uVar4 >> 10 & 1) == 0) {
+
+=== 00691ad0 size=3416 nc=0 FUN_00691ad0
+  C: 
+  L: VK_FORMAT_A1R5G5B5_UNORM_PACK16 ~ VK_FORMAT_UNDEFINED ~ VK_FORMAT_R4G4_UNORM_PACK8 ~ VK_FORMAT_R4G4B4A4_UNORM_PACK16 ~ VK_FORMAT_B4G4R4A4_UNORM_PACK16
+  | if (param_1 < 0x3b9b9cf2) {
+  | pcVar1 = "VK_FORMAT_A1R5G5B5_UNORM_PACK16";
+  | switch(param_1) {
+  | case 0:
+
+=== 00692910 size=3144 nc=42 FUN_00692910
+  C: FUN_009e0490, FUN_0099dff8, FUN_009e0360, FUN_0099e064, FUN_0099df40, fprintf, s, FUN_006935ac, FUN_0068b5a0, FUN_00696df4, FUN_0068ddb0, memcpy
+  L: compose ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ Failed to create CompositorVkRenderTarget for the targe ~ Invalid composeResourceFuture in m_postResourceFutures.
+  | void FUN_00692910(undefined *param_1,long *param_2,uint param_3,int *param_4,long *param_5,
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | plVar6 = (long *)FUN_009e0490(0x78);
+
+=== 00693af0 size=1236 nc=24 FUN_00693af0
+  C: FUN_0094046c, FUN_0068826c, FUN_0094059c, FUN_00697ba0, FUN_0099b0c8, NEON_cmeq, NEON_fcmeq, CONCAT16, CONCAT14, CONCAT12, CONCAT26, CONCAT24
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ compareAndSaveComposition
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | local_1a4 = param_2;
+  | if (*(long *)(param_1 + 0xf8) == 0) {

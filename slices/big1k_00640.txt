@@ -1,0 +1,238 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big1k_00640.txt pool 672
+009b10c0
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c
+  | long * FUN_009b10c0(long *param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_0099ea08(&local_80,param_4);
+  | puVar2 = PTR_DAT_00a0dce8;
+  | local_78 = PTR_DAT_00a0dce8;
+
+=== 009b1a54 size=1628 nc=12 FUN_009b1a54
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c, FUN_009b22b4, FUN_009a79b8, SEXT816, SUB164, FUN_009b24a4, CONCAT44, FUN_009b10c0, FUN_009b20c4
+  | undefined8
+  | FUN_009b1a54(long *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,uint *param_5,
+  | pppuVar13 = &local_a0;
+  | *param_5 = 0;
+
+=== 009b2ffc size=4388 nc=10 FUN_009b2ffc
+  C: FUN_009b482c, FUN_0099be5c, memcmp, malloc, realloc, FUN_0099b184, catch, FUN_002f65e8, FUN_009b4a54, free
+  | undefined4
+  | FUN_009b2ffc(long *param_1,long *param_2,uint param_3,undefined8 param_4,uint param_5,uint *param_6,
+  | plVar11 = (long *)*param_1;
+  | if (plVar11 == (long *)0x0) {
+
+=== 009b4e94 size=4656 nc=11 FUN_009b4e94
+  C: FUN_009b680c, memcmp, malloc, realloc, FUN_0099b184, FUN_0099cb10, CONCAT71, catch, FUN_002f65e8, FUN_009b4a54, free
+  | undefined4
+  | FUN_009b4e94(long *param_1,long *param_2,uint param_3,undefined8 param_4,uint param_5,uint *param_6,
+  | plVar11 = (long *)*param_1;
+  | if (plVar11 == (long *)0x0) {
+
+=== 009b71c0 size=1132 nc=1 FUN_009b71c0
+  C: memmove
+  | void FUN_009b71c0(long param_1,long *param_2,long *param_3,uint param_4,char *param_5,char *param_6,
+  | long *param_7,ulong param_8,long param_9,undefined param_10,undefined param_11,
+  | byte *param_12,byte *param_13,byte *param_14_00,int param_14)
+  | lVar19 = 0;
+
+=== 009b79b0 size=1000 nc=18 FUN_009b79b0
+  C: snprintf, FUN_009c0920, newlocale, FUN_009c0a64, FUN_009b6ee0, FUN_0099b184, malloc, catch, FUN_009c0b0c, FUN_009dbd00, FUN_0099ea08, FUN_0099a5c0
+  L: %.0Lf
+  | undefined8
+  | FUN_009b79b0(undefined8 param_1,undefined8 param_2,undefined8 param_3,uint param_4,long param_5,
+  | local_d8 = local_cc;
+  | uVar5 = snprintf(local_cc,100,"%.0Lf");
+
+=== 009b807c size=1176 nc=2 FUN_009b807c
+  C: memmove, CONCAT44
+  | void FUN_009b807c(undefined4 *param_1,long *param_2,long *param_3,uint param_4,undefined4 *param_5,
+  | undefined4 *param_6,long *param_7,uint param_8,long param_9,undefined4 param_10,
+  | lVar1 = 4;
+  | if ((param_8 & 1) == 0) {
+
+=== 009b8928 size=6984 nc=11 FUN_009b8928
+  C: FUN_0099a5c0, FUN_009e0330, FUN_009bf888, FUN_009e0360, FUN_009bb2c8, FUN_009bb8f4, FUN_009bd42c, FUN_009bd458, FUN_009c0920, newlocale, FUN_009c0a64
+  | *param_1 = &PTR_FUN_00a09628;
+  | param_1[1] = param_2 + -1;
+  | *(undefined *)(param_1 + 0x23) = 1;
+  | puVar10 = param_1 + 5;
+
+=== 009bd7f4 size=1080 nc=3 FUN_009bd7f4
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76f88 & 1) == 0) && (iVar2 = FUN_009c0920(&DAT_00a76f88), iVar2 != 0)) {
+  | __cxa_atexit(FUN_009bf9e4,0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76f88);
+  | if ((DAT_00a76e38 & 1) == 0) {
+
+=== 009bdfec size=1748 nc=3 FUN_009bdfec
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a77328 & 1) == 0) && (iVar2 = FUN_009c0920(&DAT_00a77328), iVar2 != 0)) {
+  | __cxa_atexit(FUN_009bfcc4,0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a77328);
+  | if ((DAT_00a770e8 & 1) == 0) {
+
+=== 009be740 size=1320 nc=4 FUN_009be740
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64, FUN_0099ca48
+  L: January ~ February ~ March ~ April ~ August
+  | if (((DAT_00a77570 & 1) == 0) && (iVar2 = FUN_009c0920(&DAT_00a77570), iVar2 != 0)) {
+  | __cxa_atexit(FUN_009bfd14,0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a77570);
+  | FUN_0099ca48(&DAT_00a77330,L"January",7);
+
+=== 009c23b8 size=1452 nc=10 FUN_009c23b8
+  C: strlen, FUN_009c3604, FUN_009c2ab0, FUN_009c3550, malloc, FUN_009c0c04, FUN_009c1130, realloc, abort, free
+  L: invocation function for block in  ~ %s:%d: %s ~ out/llvm-project/libcxxabi/src/cxa_demangle.cpp
+  | if ((param_1 == (byte *)0x0) || ((param_2 != (long *)0x0 && (param_3 == (ulong *)0x0)))) {
+  | if (param_4 == (undefined4 *)0x0) {
+  | return (long *)0x0;
+  | *param_4 = 0xfffffffd;
+
+=== 009c2ab0 size=2524 nc=32 FUN_009c2ab0
+  C: FUN_009c499c, FUN_009c4b44, FUN_009c1130, shrinkToSize, FUN_009c3604, ZEXT816, malloc, abort, memcpy, realloc, FUN_009c5718, FUN_009c86b4
+  L: %s:%d: %s ~ out/llvm-project/libcxxabi/src/demangle/ItaniumDemangle ~ initializer for module  ~ guard variable for  ~ thread-local wrapper routine for 
+  | FUN_009c499c(auStack_100,param_1);
+  | auVar8._8_8_ = local_140._8_8_;
+  | auVar8._0_8_ = local_140._0_8_;
+  | auVar33._8_8_ = local_140._8_8_;
+
+=== 009c3604 size=5016 nc=40 FUN_009c3604
+  C: FUN_009c86b4, FUN_009c34c4, FUN_009c8208, FUN_009d9534, FUN_009d7d14, CONCAT71, FUN_009d7648, FUN_009d75a8, decltype, FUN_009c4b44, FUN_009d76f4, FUN_009c7838
+  L:  auto ~  decltype(auto) ~ decltype(auto) ~ decimal64 ~ decimal128
+  | byte * FUN_009c3604(long *param_1)
+  | pcVar12 = (char *)*param_1;
+  | pbVar5 = (byte *)param_1[1];
+  | local_58 = (byte *)0x0;
+
+=== 009c4b44 size=1820 nc=18 FUN_009c4b44
+  C: FUN_009c6d8c, malloc, abort, memcpy, realloc, FUN_009c6efc, FUN_009c0c04, FUN_009c2ab0, FUN_009d5978, FUN_009d5a28, FUN_009d5ad4, FUN_009c499c
+  L: string literal
+  | pbVar2 = (byte *)*param_1;
+  | pbVar12 = (byte *)param_1[1];
+  | if (pbVar12 == pbVar2) {
+  | LAB_009c4bc4:
+
+=== 009c6efc size=1224 nc=8 FUN_009c6efc
+  C: malloc, abort, realloc, FUN_009c5278, memcpy, FUN_009c86b4, FUN_009c5718, FUN_009c0c04
+  | pcVar18 = (char *)*param_1;
+  | pcVar20 = (char *)param_1[1];
+  | if ((pcVar18 == pcVar20) || (*pcVar18 != 'I')) {
+  | return (undefined8 *)0x0;
+
+=== 009c7c48 size=1472 nc=13 FUN_009c7c48
+  C: FUN_009c647c, FUN_009c68e8, FUN_009cee58, malloc, abort, memcpy, realloc, FUN_009c5718, FUN_009c4b44, FUN_009d543c, FUN_009d4494, FUN_009d4b60
+  | local_68 = param_4;
+  | local_60 = param_3;
+  | uVar5 = FUN_009c647c(param_1,&local_68);
+  | if ((uVar5 & 1) != 0) goto LAB_009c7c84;
+
+=== 009c86b4 size=5008 nc=43 FUN_009c86b4
+  C: FUN_009caa08, strlen, malloc, FUN_009c7474, FUN_009ca088, FUN_009cadc4, abort, memcpy, realloc, FUN_009c5718, FUN_009cb02c, FUN_009cb0d0
+  L: throw ~ %s:%d: %s ~ out/llvm-project/libcxxabi/src/demangle/ItaniumDemangle
+  | pbVar16 = (byte *)*param_1;
+  | pbVar28 = (byte *)param_1[1];
+  | uVar21 = (long)pbVar28 - (long)pbVar16;
+  | if (uVar21 < 2) goto LAB_009c86e8;
+
+=== 009ca088 size=2432 nc=13 FUN_009ca088
+  C: FUN_009c3604, FUN_009cf678, FUN_009ced0c, FUN_009cedac, FUN_009cee58, FUN_009cf5d8, FUN_009c2ab0, FUN_009c2a50, CONCAT44, FUN_009cec64, malloc, FUN_009c0c04
+  L: nullptr ~ signed char ~ char ~ unsigned char ~ __int128
+  | psVar2 = (short *)*param_1;
+  | psVar3 = (short *)param_1[1];
+  | if (psVar2 == psVar3) {
+  | return (undefined8 *)0x0;
+
+=== 009cb2f8 size=1232 nc=10 FUN_009cb2f8
+  C: FUN_009c3604, malloc, abort, memcpy, realloc, FUN_009c5718, ZEXT816, FUN_009c86b4, FUN_009c4b44, FUN_009c0c04
+  | psVar7 = (short *)*param_1;
+  | psVar13 = (short *)param_1[1];
+  | if ((ulong)((long)psVar13 - (long)psVar7) < 2) {
+  | return (undefined8 *)0x0;
+
+=== 009cbfa4 size=1652 nc=7 FUN_009cbfa4
+  C: FUN_009d3f60, FUN_009c6efc, malloc, FUN_009c68e8, FUN_009d40e4, FUN_009c73cc, FUN_009c0c04
+  | psVar2 = (short *)*param_1;
+  | uVar11 = param_1[1] - (long)psVar2;
+  | if (uVar11 < 3) {
+  | if (uVar11 == 2) goto LAB_009cc008;
+
+=== 009cc6e4 size=1292 nc=3 FUN_009cc6e4
+  C: realloc, abort, memcpy
+  | if (*(int *)(param_2 + 4) == 0) {
+  | if (*(long *)(param_1 + 0x20) == 2) {
+  | if (**(short **)(param_1 + 0x18) == 0x3e3e) goto LAB_009ccb74;
+  | if ((*(long *)(param_1 + 0x20) != 1) || (*(char *)*(short **)(param_1 + 0x18) != '>'))
+
+=== 009ce190 size=1188 nc=2 FUN_009ce190
+  C: realloc, abort
+  | plVar6 = *(long **)(param_1 + 0x10);
+  | if ((*(ushort *)((long)plVar6 + 9) & 0x3f) < (*(ushort *)(param_1 + 9) & 0x3f)) {
+  | (**(code **)(*plVar6 + 0x20))(plVar6,param_2);
+  | if ((*(ushort *)((long)plVar6 + 9) & 0xc0) != 0x40) {
+
+=== 009cee58 size=1860 nc=14 FUN_009cee58
+  C: malloc, FUN_009c0c04, abort, memmove, realloc, memchr, FUN_009d016c, memcpy, FUN_009c5718, FUN_009c1130, FUN_009c3604, FUN_009c86b4
+  L: yptnk ~ %s:%d: %s ~ out/llvm-project/libcxxabi/src/demangle/ItaniumDemangle ~ Popping empty vector!
+  | if (param_2 != 0) {
+  | param_1[0x54] = param_1[0x53];
+  | psVar1 = (short *)*param_1;
+  | pbVar13 = (byte *)param_1[1];
+
+=== 009d016c size=2372 nc=13 FUN_009d016c
+  C: malloc, abort, memmove, realloc, FUN_009c0c04, FUN_009c4b44, memcpy, FUN_009c86b4, FUN_009c5718, FUN_009c1130, free, FUN_009d0d84
+  L: %s:%d: %s ~ out/llvm-project/libcxxabi/src/demangle/ItaniumDemangle
+  | psVar1 = (short *)*param_1;
+  | if ((ulong)(param_1[1] - (long)psVar1) < 2) {
+  | LAB_009d01a0:
+  | puVar3 = (undefined8 *)0x0;
+
+=== 009d2028 size=1916 nc=4 FUN_009d2028
+  C: realloc, abort, FUN_009d27ac, memcpy
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | uVar6 = lVar2 + 1;
+  | *(int *)(param_2 + 4) = *(int *)(param_2 + 4) + 1;
+
+=== 009d6400 size=1020 nc=3 FUN_009d6400
+  C: realloc, abort, FUN_009cda7c
+  | lVar6 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | uVar8 = lVar6 + 1;
+  | *(int *)(param_2 + 4) = *(int *)(param_2 + 4) + 1;
+
+=== 009d6978 size=1448 nc=8 FUN_009d6978
+  C: malloc, FUN_009c0c04, FUN_009c86b4, FUN_009c3604, abort, memcpy, realloc, FUN_009c5718
+  L: noexcept
+  | psVar14 = (short *)*param_1;
+  | psVar11 = (short *)param_1[1];
+  | if ((psVar14 == psVar11) || (*(char *)psVar14 != 'r')) {
+  | uVar18 = 0;
+
+=== 009db048 size=1436 nc=12 FUN_009db048
+  C: thunk_FUN_009dc068, FUN_009dbf34, FUN_009dbe78, FUN_009dbf04, FUN_009dbeac, FUN_009db5e4, FUN_009da718, FUN_009c0c04, FUN_009c0c58, abort, FUN_009da698, FUN_009db78c
+  | ulong * FUN_009db048(int param_1,uint param_2,byte **param_3,long param_4,long param_5)
+  | if (param_1 != 1) {
+  | return (ulong *)0x3;
+  | if (param_4 == 0) {
+
+=== 009dcd74 size=1136 nc=8 FUN_009dcd74
+  C: FUN_009dc1e4, memset, FUN_009dd208, FUN_009ddd80, memcpy, fprintf, FUN_009de618, FUN_009ddeb4
+  L: getRegister ~ unsupported arm64 register ~ getSavedFloatRegister ~ unsupported restore location for float register ~ setRegister
+  | undefined8
+  | FUN_009dcd74(undefined8 param_1,undefined8 param_2,undefined8 param_3,void *param_4,
+  | lVar6 = FUN_009dc1e4(param_1,param_3,auStack_b0,auStack_e8,0);
+  | if (lVar6 == 0) {
+
+=== 009dd208 size=2884 nc=7 FUN_009dd208
+  C: FUN_009de0c4, FUN_009de450, fwrite, fflush, memcpy, fprintf, reg
+  L: getSLEB128 ~ truncated sleb128 expression
+  | undefined8
+  | FUN_009dd208(undefined8 param_1,long *param_2,long *param_3,long param_4,int param_5,
+  | puVar5 = (undefined8 *)auStack_6f0;
+  | lVar19 = 0;
+
+=== 009de618 size=2380 nc=4 FUN_009de618
+  C: FUN_009de450, fprintf, NEON_ext, SUB168
+  L: evaluateExpression ~ DWARF opcode not implemented ~ getSLEB128 ~ truncated sleb128 expression ~ getRegister
+  | ulong FUN_009de618(byte *param_1,undefined8 param_2,long param_3,ulong param_4)
+  | local_68 = param_1;
+  | lVar12 = FUN_009de450(&local_68,param_1 + 0x14);
+  | auStack_380[0] = param_4;

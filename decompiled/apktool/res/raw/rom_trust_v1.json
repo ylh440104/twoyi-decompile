@@ -1,0 +1,15 @@
+{
+  "keys": [
+    {
+      "channel": "release",
+      "keyId": "sha256:6fe84bf0439d4000d7ec17ba1dc58fe4b48fce353d350ab850351fd964622d0e",
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUiHHAk7fQ_ZHyNf-mlL_hTBsAU-f7YmW6ccysAxsiRxKob4EQrL2Cy56x7efGUuSbM9O8ydXfKOwIh7BL26F9Q"
+    },
+    {
+      "channel": "debug",
+      "keyId": "sha256:7455cb98e9a4e5797e3c204ede295da1e2c32067170354d0ccaac69b6839728f",
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4RxvoTCPTLn4irCuARku7tXkdwGgvNDSrxK1CODSyg8LC9Q7aEJcKftySwmjZhbxCwCKCDucEbe7uYB3AERT2Q"
+    }
+  ],
+  "schemaVersion": 1
+}

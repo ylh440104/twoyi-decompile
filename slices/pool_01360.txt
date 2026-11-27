@@ -1,0 +1,561 @@
+pool 3502 slice 1360..1440
+
+=== 007f24b4 size=212 nc=2 FUN_007f24b4
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar6 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar6;
+
+=== 007f2588 size=168 nc=2 FUN_007f2588
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2630 size=168 nc=2 FUN_007f2630
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f26d8 size=168 nc=2 FUN_007f26d8
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2780 size=168 nc=2 FUN_007f2780
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2828 size=160 nc=2 FUN_007f2828
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar4 = *(undefined8 *)param_3;
+  | uVar3 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f28c8 size=168 nc=2 FUN_007f28c8
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2970 size=168 nc=2 FUN_007f2970
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2a18 size=168 nc=2 FUN_007f2a18
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2ac0 size=168 nc=2 FUN_007f2ac0
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2b68 size=168 nc=2 FUN_007f2b68
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2c10 size=344 nc=3 FUN_007f2c10
+  C: FUN_006f31f4, FUN_007e1b18, memcpy
+  | uVar10 = *(undefined8 *)param_3;
+  | uVar9 = *(undefined8 *)(param_3 + 6);
+  | uVar5 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f2d68 size=168 nc=2 FUN_007f2d68
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2e10 size=176 nc=2 FUN_007f2e10
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar7 = *(undefined8 *)(param_3 + 6);
+  | uVar6 = *(undefined8 *)(param_3 + 4);
+  | uVar3 = *(undefined8 *)(param_3 + 10);
+  | uVar2 = *(undefined8 *)(param_3 + 8);
+
+=== 007f2ec0 size=168 nc=2 FUN_007f2ec0
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f2f68 size=160 nc=2 FUN_007f2f68
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar4 = *(undefined8 *)param_3;
+  | uVar3 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f3008 size=168 nc=2 FUN_007f3008
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f30b0 size=168 nc=2 FUN_007f30b0
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3158 size=168 nc=2 FUN_007f3158
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3200 size=168 nc=2 FUN_007f3200
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f32a8 size=160 nc=2 FUN_007f32a8
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar4 = *(undefined8 *)param_3;
+  | uVar3 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f3348 size=168 nc=2 FUN_007f3348
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f33f0 size=220 nc=3 FUN_007f33f0
+  C: FUN_006f31f4, FUN_007e1b18, memcpy
+  | uVar6 = *(undefined8 *)param_3;
+  | uVar5 = *(undefined8 *)(param_3 + 6);
+  | uVar3 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f34cc size=168 nc=2 FUN_007f34cc
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3574 size=168 nc=2 FUN_007f3574
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f361c size=168 nc=2 FUN_007f361c
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar4 = *(undefined8 *)(param_3 + 4);
+  | uVar3 = *(undefined8 *)(param_3 + 10);
+  | uVar2 = *(undefined8 *)(param_3 + 8);
+  | uVar6 = *(undefined8 *)(param_3 + 2);
+
+=== 007f36c4 size=168 nc=2 FUN_007f36c4
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f376c size=216 nc=2 FUN_007f376c
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar5 = *(undefined8 *)param_3;
+  | uVar4 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f3844 size=168 nc=2 FUN_007f3844
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f38ec size=168 nc=2 FUN_007f38ec
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3994 size=168 nc=2 FUN_007f3994
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3a3c size=176 nc=2 FUN_007f3a3c
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar6 = *(undefined8 *)(param_3 + 2);
+  | uVar5 = *(undefined8 *)param_3;
+  | uVar4 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+
+=== 007f3aec size=168 nc=2 FUN_007f3aec
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3b94 size=220 nc=3 FUN_007f3b94
+  C: FUN_006f31f4, FUN_007e1b18, memcpy
+  | uVar6 = *(undefined8 *)param_3;
+  | uVar5 = *(undefined8 *)(param_3 + 6);
+  | uVar3 = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = *(undefined8 *)(param_3 + 2);
+
+=== 007f3c70 size=168 nc=2 FUN_007f3c70
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar5 = *(undefined8 *)(param_3 + 2);
+  | uVar4 = *(undefined8 *)param_3;
+  | uVar3 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+
+=== 007f3d18 size=168 nc=2 FUN_007f3d18
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar4 = *(undefined8 *)(param_3 + 8);
+  | uVar3 = *(undefined8 *)(param_3 + 0xe);
+  | uVar2 = *(undefined8 *)(param_3 + 0xc);
+  | uVar6 = *(undefined8 *)(param_3 + 2);
+
+=== 007f3dc0 size=168 nc=2 FUN_007f3dc0
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar5 = *(undefined8 *)(param_3 + 2);
+  | uVar4 = *(undefined8 *)param_3;
+  | uVar3 = *(undefined8 *)(param_3 + 6);
+  | uVar2 = *(undefined8 *)(param_3 + 4);
+
+=== 007f3e68 size=168 nc=2 FUN_007f3e68
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar4 = *(undefined8 *)(param_3 + 4);
+  | uVar3 = *(undefined8 *)(param_3 + 10);
+  | uVar2 = *(undefined8 *)(param_3 + 8);
+  | uVar6 = *(undefined8 *)(param_3 + 2);
+
+=== 007f3f10 size=168 nc=2 FUN_007f3f10
+  C: FUN_006f31f4, FUN_007e1b18
+  | uVar3 = *(undefined8 *)(param_3 + 2);
+  | uVar2 = *(undefined8 *)param_3;
+  | param_4[2] = *(undefined8 *)(param_3 + 4);
+  | param_4[1] = uVar3;
+
+=== 007f3fb8 size=64 nc=2 FUN_007f3fb8
+  C: FUN_009e0490, FUN_007f7714
+  | puVar1 = (undefined8 *)FUN_009e0490(0x98);
+  | puVar1[4] = 0;
+  | puVar1[1] = 0;
+  | *puVar1 = 0;
+
+=== 007f40c4 size=104 nc=4 FUN_007f40c4
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x4;
+
+=== 007f42f0 size=104 nc=4 FUN_007f42f0
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x4;
+
+=== 007f4514 size=104 nc=4 FUN_007f4514
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4680 size=104 nc=4 FUN_007f4680
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f47c8 size=104 nc=4 FUN_007f47c8
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4904 size=104 nc=4 FUN_007f4904
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4a4c size=104 nc=4 FUN_007f4a4c
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4b8c size=104 nc=4 FUN_007f4b8c
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4cc8 size=104 nc=4 FUN_007f4cc8
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4e04 size=104 nc=4 FUN_007f4e04
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f4f44 size=104 nc=4 FUN_007f4f44
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5080 size=104 nc=4 FUN_007f5080
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f51bc size=104 nc=4 FUN_007f51bc
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f53ec size=104 nc=4 FUN_007f53ec
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5528 size=104 nc=4 FUN_007f5528
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5664 size=104 nc=4 FUN_007f5664
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f57a0 size=104 nc=4 FUN_007f57a0
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f58dc size=104 nc=4 FUN_007f58dc
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5a18 size=72 nc=3 FUN_007f5a18
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | pthread_mutex_lock(__mutex);
+  | FUN_007f8e58(__mutex + 1,param_9,in_w7);
+  | iVar1 = pthread_mutex_unlock(__mutex);
+
+=== 007f5b38 size=104 nc=4 FUN_007f5b38
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5c74 size=104 nc=4 FUN_007f5c74
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5db4 size=104 nc=4 FUN_007f5db4
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f5ef8 size=72 nc=3 FUN_007f5ef8
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | pthread_mutex_lock(__mutex);
+  | FUN_007f8e58(__mutex + 1,in_x7,in_w6);
+  | iVar1 = pthread_mutex_unlock(__mutex);
+
+=== 007f61e4 size=104 nc=4 FUN_007f61e4
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f6320 size=104 nc=4 FUN_007f6320
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f63d0 size=104 nc=4 FUN_007f63d0
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f651c size=104 nc=4 FUN_007f651c
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f67a4 size=104 nc=4 FUN_007f67a4
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f6938 size=104 nc=4 FUN_007f6938
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f6b04 size=104 nc=4 FUN_007f6b04
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f6cf0 size=104 nc=4 FUN_007f6cf0
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f6e3c size=104 nc=4 FUN_007f6e3c
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f6f90 size=104 nc=4 FUN_007f6f90
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f71a8 size=104 nc=4 FUN_007f71a8
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f74e8 size=104 nc=4 FUN_007f74e8
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x6;
+
+=== 007f765c size=104 nc=4 FUN_007f765c
+  C: pthread_mutex_lock, FUN_007f8e58, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | local_30 = in_x5;
+
+=== 007f8980 size=132 nc=3 FUN_007f8980
+  C: FUN_007f8a04, free, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | pvStack_68 = (void *)0x0;
+  | local_70 = 0;
+
+=== 007f8a04 size=568 nc=4 FUN_007f8a04
+  C: FUN_007f9798, free, FUN_007d7eb4, FUN_007cdd08
+  | ulong FUN_007f8a04(long *param_1,ulong *param_2,long param_3)
+  | if (param_3 == 0) {
+  | return 0;
+  | if (param_1[4] == 0x100000000) {
+
+=== 007f8c90 size=272 nc=5 FUN_007f8c90
+  C: FUN_0068b54c, FUN_009e0490, memset, memcpy, free
+  | void FUN_007f8c90(undefined8 param_1,undefined4 *param_2,undefined4 param_3,void *param_4,
+  | ulong param_5)
+  | __src = *(void **)(param_2 + 2);
+  | pvVar1 = *(void **)(param_2 + 4);
+
+=== 007f8da0 size=184 nc=2 FUN_007f8da0
+  C: FUN_007fade4, FUN_007cdd08
+  | if ((param_2 != (ulong *)0x0) && (param_3 != 0)) {
+  | uVar4 = (ulong)param_3;
+  | do {
+  | lVar2 = *(long *)(param_1 + 0x28);

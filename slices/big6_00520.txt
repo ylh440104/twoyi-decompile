@@ -1,0 +1,560 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big6_00520.txt pool 2009
+24 nc=6 FUN_0075a498
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075a5dc size=544 nc=6 FUN_0075a5dc
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075a7fc size=604 nc=6 FUN_0075a7fc
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075b568 size=376 nc=7 FUN_0075b568
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075b6e0 size=484 nc=6 FUN_0075b6e0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075b8c4 size=364 nc=6 FUN_0075b8c4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075ba30 size=840 nc=9 FUN_0075ba30
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_0075b8c4, FUN_006d9f04, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075bd78 size=464 nc=6 FUN_0075bd78
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075bf48 size=708 nc=10 FUN_0075bf48
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_0075b6e0, FUN_0075ba30, FUN_0075bd78, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075c20c size=324 nc=6 FUN_0075c20c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075c350 size=288 nc=6 FUN_0075c350
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075c470 size=364 nc=6 FUN_0075c470
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075c5dc size=628 nc=6 FUN_0075c5dc
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075c850 size=344 nc=6 FUN_0075c850
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075c9a8 size=344 nc=6 FUN_0075c9a8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075cb00 size=644 nc=6 FUN_0075cb00
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075cd84 size=420 nc=8 FUN_0075cd84
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_006d9f04, memcpy, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075cf28 size=704 nc=6 FUN_0075cf28
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075d1e8 size=764 nc=6 FUN_0075d1e8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075d4e4 size=376 nc=7 FUN_0075d4e4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075d65c size=324 nc=6 FUN_0075d65c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075d7a0 size=416 nc=8 FUN_0075d7a0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_006d9f04, FUN_0075b8c4, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075d940 size=384 nc=6 FUN_0075d940
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075dac0 size=324 nc=6 FUN_0075dac0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075dc04 size=324 nc=6 FUN_0075dc04
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075dd48 size=324 nc=6 FUN_0075dd48
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075de8c size=344 nc=6 FUN_0075de8c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075dfe4 size=364 nc=6 FUN_0075dfe4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075e150 size=324 nc=6 FUN_0075e150
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075e294 size=476 nc=7 FUN_0075e294
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075e470 size=404 nc=7 FUN_0075e470
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_0075e294, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075e604 size=412 nc=7 FUN_0075e604
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4d80, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075e7a0 size=324 nc=6 FUN_0075e7a0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075e8e4 size=324 nc=6 FUN_0075e8e4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075ea28 size=324 nc=6 FUN_0075ea28
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075eb6c size=324 nc=6 FUN_0075eb6c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075ecb0 size=344 nc=6 FUN_0075ecb0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075ee08 size=324 nc=6 FUN_0075ee08
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075ef4c size=324 nc=6 FUN_0075ef4c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075f090 size=324 nc=6 FUN_0075f090
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075f1d4 size=344 nc=6 FUN_0075f1d4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075f32c size=536 nc=8 FUN_0075f32c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_006d9f04, memcpy, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075f544 size=492 nc=8 FUN_0075f544
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b62d0, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 0075f730 size=344 nc=7 FUN_0075f730
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b62d0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075f888 size=364 nc=6 FUN_0075f888
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075f9f4 size=320 nc=7 FUN_0075f9f4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4900, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075fb34 size=324 nc=6 FUN_0075fb34
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075fc78 size=324 nc=6 FUN_0075fc78
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075fdbc size=320 nc=7 FUN_0075fdbc
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4690, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00760038 size=724 nc=10 FUN_00760038
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6a50, FUN_006d9f04, memcpy, FUN_007b6bd0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0076030c size=684 nc=10 FUN_0076030c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b62d0, FUN_007b6bd0, memcpy, FUN_006d9f04, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 007605b8 size=320 nc=7 FUN_007605b8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6bd0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007606f8 size=344 nc=7 FUN_007606f8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6bd0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00760850 size=408 nc=9 FUN_00760850
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6bd0, FUN_007b62d0, FUN_007b6150, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007609e8 size=368 nc=6 FUN_007609e8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00760b58 size=396 nc=7 FUN_00760b58
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 00760ce4 size=324 nc=6 FUN_00760ce4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00760e28 size=384 nc=6 FUN_00760e28
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007612a4 size=488 nc=7 FUN_007612a4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6ed0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0076148c size=484 nc=6 FUN_0076148c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00761670 size=468 nc=7 FUN_00761670
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4d80, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00761844 size=700 nc=8 FUN_00761844
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_00761670, FUN_006d9f04, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 00761b00 size=436 nc=7 FUN_00761b00
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 00761cb4 size=324 nc=6 FUN_00761cb4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00761df8 size=476 nc=7 FUN_00761df8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, memcpy, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar6 = *param_4;
+
+=== 00761fd4 size=384 nc=7 FUN_00761fd4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4d80, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762154 size=344 nc=7 FUN_00762154
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4d80, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007622ac size=440 nc=8 FUN_007622ac
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_006d9f04, memcpy, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762464 size=344 nc=6 FUN_00762464
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007625bc size=344 nc=6 FUN_007625bc
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762714 size=324 nc=6 FUN_00762714
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762858 size=344 nc=7 FUN_00762858
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b4690, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007629b0 size=384 nc=7 FUN_007629b0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b62d0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762b30 size=344 nc=7 FUN_00762b30
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b62d0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762c88 size=324 nc=6 FUN_00762c88
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00762ee4 size=440 nc=8 FUN_00762ee4
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_006d9f04, FUN_00762dcc, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0076309c size=324 nc=6 FUN_0076309c
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007631e0 size=384 nc=7 FUN_007631e0
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6150, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00763360 size=344 nc=7 FUN_00763360
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b6150, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 007634b8 size=344 nc=6 FUN_007634b8
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;

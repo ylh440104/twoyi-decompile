@@ -1,0 +1,619 @@
+pool 3502 slice 800..880
+
+=== 0079e33c size=516 nc=5 FUN_0079e33c
+  C: FUN_007c4348, fprintf, FUN_007ca78c, free, __stack_chk_fail
+  L: dispatch_VkPhysicalDevice
+  | void FUN_0079e33c(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,
+  | lVar1 = tpidr_el0;
+  | local_70 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 0079eac4 size=272 nc=4 FUN_0079eac4
+  C: FUN_007c4348, fprintf, FUN_007ca978, __stack_chk_fail
+  L: dispatch_VkPhysicalDevice
+  | void FUN_0079eac4(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 0079f034 size=172 nc=2 FUN_0079f034
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkPhysicalDevice
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar3 = 0;
+  | else {
+
+=== 0079f4b0 size=292 nc=3 FUN_0079f4b0
+  C: FUN_007c4348, FUN_006da86c, fprintf
+  L: dispatch_VkPhysicalDevice
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar5 = 0;
+  | else {
+
+=== 007aa388 size=320 nc=5 FUN_007aa388
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  | undefined4
+  | FUN_007aa388(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,long param_5,
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | uVar2 = *(ulong *)(param_1 + 0x280);
+
+=== 007aa504 size=284 nc=5 FUN_007aa504
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | uVar2 = *(ulong *)(param_1 + 0x280);
+  | if (uVar2 != 0) {
+  | uVar3 = ((ulong)(uint)((int)param_2 << 3) + 8 ^ param_2 >> 0x20) * -0x622015f714c7d297;
+
+=== 007aa628 size=284 nc=5 FUN_007aa628
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | uVar2 = *(ulong *)(param_1 + 0x280);
+  | if (uVar2 != 0) {
+  | uVar3 = ((ulong)(uint)((int)param_2 << 3) + 8 ^ param_2 >> 0x20) * -0x622015f714c7d297;
+
+=== 007aa8fc size=304 nc=5 FUN_007aa8fc
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | uVar3 = *(ulong *)(param_1 + 0x280);
+  | if (uVar3 != 0) {
+  | uVar4 = ((ulong)(uint)((int)param_2 << 3) + 8 ^ param_2 >> 0x20) * -0x622015f714c7d297;
+
+=== 007aad88 size=136 nc=2 FUN_007aad88
+  C: FUN_006fa4e4, NEON_rev64
+  | plVar5 = (long *)*param_2;
+  | param_1[0] = 0;
+  | param_1[1] = 0;
+  | param_1[2] = 0;
+
+=== 007ac720 size=168 nc=3 FUN_007ac720
+  C: FUN_007c4348, FUN_009dfa88, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007ac720(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar3 = 0;
+
+=== 007ae2c8 size=128 nc=2 FUN_007ae2c8
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkCommandBuffer
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar3 = 0;
+  | else {
+
+=== 007ae348 size=128 nc=2 FUN_007ae348
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkCommandBuffer
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar3 = 0;
+  | else {
+
+=== 007ae538 size=188 nc=4 FUN_007ae538
+  C: FUN_007a1d4c, FUN_007c4348, fprintf, FUN_007a7adc
+  L: unbox_VkImage
+  | ulong FUN_007ae538(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | if (param_7 != (undefined8 *)0x0) {
+  | *param_7 = 0;
+  | param_7[1] = 0;
+
+=== 007ae600 size=276 nc=4 FUN_007ae600
+  C: FUN_007a14d8, FUN_007c4348, FUN_009dfa88, fprintf
+  L: dispatch_VkDevice ~ unbox_VkBuffer
+  | ulong FUN_007ae600(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | if (param_7 != (undefined8 *)0x0) {
+  | *param_7 = 0;
+  | param_7[1] = 0;
+
+=== 007b0810 size=312 nc=4 FUN_007b0810
+  C: pthread_mutex_lock, FUN_007d0b10, pthread_mutex_unlock, __stack_chk_fail
+  | void FUN_007b0810(long *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | lVar13 = *param_1;
+
+=== 007b0950 size=76 nc=2 FUN_007b0950
+  C: FUN_007ab088, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | lVar2 = *(long *)(lVar1 + 0x28);
+  | FUN_007ab088(*param_1);
+  | if (*(long *)(lVar1 + 0x28) == lVar2) {
+
+=== 007b0d4c size=220 nc=2 FUN_007b0d4c
+  C: FUN_007b0e28, __stack_chk_fail
+  | local_50 = alStack_70;
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | plVar4 = (long *)param_3[4];
+
+=== 007b1294 size=116 nc=2 FUN_007b1294
+  C: FUN_006ec0cc, FUN_006fe2b4
+  | uVar1 = FUN_006ec0cc();
+  | if (param_3 != 0) {
+  | uVar4 = (ulong)param_3;
+  | puVar3 = (uint *)(param_2 + 0x10);
+
+=== 007b28cc size=248 nc=5 FUN_007b28cc
+  C: FUN_009e0490, pthread_cond_init, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uStack_60 = 0;
+  | local_68 = param_2;
+
+=== 007b2a8c size=248 nc=5 FUN_007b2a8c
+  C: FUN_009e0490, pthread_cond_init, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uStack_60 = 0;
+  | local_68 = param_2;
+
+=== 007b2ba8 size=84 nc=2 FUN_007b2ba8
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkPhysicalDevice
+  | lVar1 = FUN_007c4348(&DAT_00a6d290);
+  | if (lVar1 != 0) {
+  | return *(undefined8 *)(lVar1 + 0x10);
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: err not found boxed %p\n","dispatch_VkPhysicalDevice",
+
+=== 007b2c04 size=248 nc=5 FUN_007b2c04
+  C: FUN_009e0490, pthread_cond_init, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uStack_60 = 0;
+  | local_68 = param_2;
+
+=== 007b2da0 size=68 nc=2 FUN_007b2da0
+  C: FUN_007c4348, FUN_009dfa88
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290);
+  | if (plVar1 != (long *)0x0) {
+  | plVar1 = (long *)*plVar1;
+  | plVar2 = (long *)FUN_009dfa88(&DAT_00a3ca08);
+
+=== 007b2de4 size=248 nc=5 FUN_007b2de4
+  C: FUN_009e0490, pthread_cond_init, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uStack_60 = 0;
+  | local_68 = param_2;
+
+=== 007b2fa4 size=248 nc=5 FUN_007b2fa4
+  C: FUN_009e0490, pthread_cond_init, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uStack_60 = 0;
+  | local_68 = param_2;
+
+=== 007b3164 size=192 nc=4 FUN_007b3164
+  C: FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_40 = 0;
+  | local_38 = 0;
+
+=== 007b3224 size=84 nc=2 FUN_007b3224
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDeviceMemory
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkDeviceMemory",
+  | param_2);
+
+=== 007b327c size=84 nc=2 FUN_007b327c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkBuffer
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkBuffer",param_2)
+  | ;
+
+=== 007b32d4 size=84 nc=2 FUN_007b32d4
+  C: FUN_007c4348, fprintf
+  L: unbox_VkBufferView
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkBufferView",
+  | param_2);
+
+=== 007b332c size=84 nc=2 FUN_007b332c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkImage
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkImage",param_2);
+
+=== 007b3384 size=84 nc=2 FUN_007b3384
+  C: FUN_007c4348, fprintf
+  L: unbox_VkImageView
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkImageView",
+  | param_2);
+
+=== 007b33dc size=84 nc=2 FUN_007b33dc
+  C: FUN_007c4348, fprintf
+  L: unbox_VkShaderModule
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkShaderModule",
+  | param_2);
+
+=== 007b3434 size=84 nc=2 FUN_007b3434
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorPool
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkDescriptorPool",
+  | param_2);
+
+=== 007b348c size=84 nc=2 FUN_007b348c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorSetLayout
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkDescriptorSetLayout",param_2);
+
+=== 007b34e4 size=84 nc=2 FUN_007b34e4
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorSet
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkDescriptorSet",
+  | param_2);
+
+=== 007b353c size=84 nc=2 FUN_007b353c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSampler
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSampler",param_2
+  | );
+
+=== 007b3594 size=84 nc=2 FUN_007b3594
+  C: FUN_007c4348, fprintf
+  L: unbox_VkPipeline
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkPipeline",
+  | param_2);
+
+=== 007b35ec size=84 nc=2 FUN_007b35ec
+  C: FUN_007c4348, fprintf
+  L: unbox_VkPipelineCache
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkPipelineCache",
+  | param_2);
+
+=== 007b3644 size=84 nc=2 FUN_007b3644
+  C: FUN_007c4348, fprintf
+  L: unbox_VkPipelineLayout
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkPipelineLayout",
+  | param_2);
+
+=== 007b369c size=84 nc=2 FUN_007b369c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkRenderPass
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkRenderPass",
+  | param_2);
+
+=== 007b36f4 size=84 nc=2 FUN_007b36f4
+  C: FUN_007c4348, fprintf
+  L: unbox_VkFramebuffer
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkFramebuffer",
+  | param_2);
+
+=== 007b374c size=84 nc=2 FUN_007b374c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkCommandPool
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkCommandPool",
+  | param_2);
+
+=== 007b37a4 size=84 nc=2 FUN_007b37a4
+  C: FUN_007c4348, fprintf
+  L: unbox_VkFence
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkFence",param_2);
+
+=== 007b37fc size=84 nc=2 FUN_007b37fc
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSemaphore
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSemaphore",
+  | param_2);
+
+=== 007b3854 size=84 nc=2 FUN_007b3854
+  C: FUN_007c4348, fprintf
+  L: unbox_VkEvent
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkEvent",param_2);
+
+=== 007b38ac size=84 nc=2 FUN_007b38ac
+  C: FUN_007c4348, fprintf
+  L: unbox_VkQueryPool
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkQueryPool",
+  | param_2);
+
+=== 007b3904 size=84 nc=2 FUN_007b3904
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSamplerYcbcrConversion
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkSamplerYcbcrConversion",param_2);
+
+=== 007b395c size=84 nc=2 FUN_007b395c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorUpdateTemplate
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkDescriptorUpdateTemplate",param_2);
+
+=== 007b39b4 size=84 nc=2 FUN_007b39b4
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSurfaceKHR
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSurfaceKHR",
+  | param_2);
+
+=== 007b3a0c size=84 nc=2 FUN_007b3a0c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSwapchainKHR
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSwapchainKHR",
+  | param_2);
+
+=== 007b3a64 size=84 nc=2 FUN_007b3a64
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDisplayKHR
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkDisplayKHR",
+  | param_2);
+
+=== 007b3abc size=84 nc=2 FUN_007b3abc
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDisplayModeKHR
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkDisplayModeKHR",
+  | param_2);
+
+=== 007b3b14 size=84 nc=2 FUN_007b3b14
+  C: FUN_007c4348, fprintf
+  L: unbox_VkValidationCacheEXT
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkValidationCacheEXT",param_2);
+
+=== 007b3b6c size=84 nc=2 FUN_007b3b6c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDebugReportCallbackEXT
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkDebugReportCallbackEXT",param_2);
+
+=== 007b3bc4 size=84 nc=2 FUN_007b3bc4
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDebugUtilsMessengerEXT
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkDebugUtilsMessengerEXT",param_2);
+
+=== 007b3c1c size=84 nc=2 FUN_007b3c1c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkAccelerationStructureNV
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkAccelerationStructureNV",param_2);
+
+=== 007b3c74 size=84 nc=2 FUN_007b3c74
+  C: FUN_007c4348, fprintf
+  L: unbox_VkIndirectCommandsLayoutNV
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkIndirectCommandsLayoutNV",param_2);
+
+=== 007b3ccc size=84 nc=2 FUN_007b3ccc
+  C: FUN_007c4348, fprintf
+  L: unbox_VkAccelerationStructureKHR
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+  | "unbox_VkAccelerationStructureKHR",param_2);
+
+=== 007b3d24 size=84 nc=2 FUN_007b3d24
+  C: FUN_007c4348, fprintf
+  L: unbox_VkCuModuleNVX
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkCuModuleNVX",
+  | param_2);
+
+=== 007b3d7c size=84 nc=2 FUN_007b3d7c
+  C: FUN_007c4348, fprintf
+  L: unbox_VkCuFunctionNVX
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+  | if (puVar1 != (undefined8 *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkCuFunctionNVX",
+  | param_2);
+
+=== 007b3dfc size=88 nc=2 FUN_007b3dfc
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkInstance
+  | lVar1 = FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (lVar1 != 0) {
+  | return *(undefined8 *)(lVar1 + 0x10);
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: err not found boxed %p\n","dispatch_VkInstance",param_1
+
+=== 007b415c size=88 nc=2 FUN_007b415c
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkPhysicalDevice
+  | lVar1 = FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (lVar1 != 0) {
+  | return *(undefined8 *)(lVar1 + 0x10);
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: err not found boxed %p\n","dispatch_VkPhysicalDevice",
+
+=== 007b41e4 size=88 nc=2 FUN_007b41e4
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkDevice
+  | lVar1 = FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (lVar1 != 0) {
+  | return *(undefined8 *)(lVar1 + 0x10);
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: err not found boxed %p\n","dispatch_VkDevice",param_1);
+
+=== 007b426c size=88 nc=2 FUN_007b426c
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkQueue
+  | lVar1 = FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (lVar1 != 0) {
+  | return *(undefined8 *)(lVar1 + 0x10);
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: err not found boxed %p\n","dispatch_VkQueue",param_1);
+
+=== 007b42f4 size=88 nc=2 FUN_007b42f4
+  C: FUN_007c4348, fprintf
+  L: dispatch_VkCommandBuffer
+  | lVar1 = FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (lVar1 != 0) {
+  | return *(undefined8 *)(lVar1 + 0x10);
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: err not found boxed %p\n","dispatch_VkCommandBuffer",
+
+=== 007b451c size=372 nc=5 FUN_007b451c
+  C: pthread_mutex_lock, FUN_007e14d8, FUN_007e1944, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_a0 = param_3;
+  | pthread_mutex_lock(param_1);
+
+=== 007b4690 size=92 nc=2 FUN_007b4690
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDeviceMemory
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b46f0 size=240 nc=5 FUN_007b46f0
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d268);
+  | if (DAT_00a6d348 != 0) {
+  | uVar7 = NEON_cnt(DAT_00a6d348,1);
+  | uVar6 = NEON_uaddlv(uVar7,1);
+
+=== 007b4900 size=92 nc=2 FUN_007b4900
+  C: FUN_007c4348, fprintf
+  L: unbox_VkBuffer
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkBuffer",
+
+=== 007b4a80 size=92 nc=2 FUN_007b4a80
+  C: FUN_007c4348, fprintf
+  L: unbox_VkBufferView
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkBufferView",
+
+=== 007b4c00 size=92 nc=2 FUN_007b4c00
+  C: FUN_007c4348, fprintf
+  L: unbox_VkImage
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkImage",
+
+=== 007b4d80 size=92 nc=2 FUN_007b4d80
+  C: FUN_007c4348, fprintf
+  L: unbox_VkImageView
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkImageView",
+
+=== 007b4f00 size=92 nc=2 FUN_007b4f00
+  C: FUN_007c4348, fprintf
+  L: unbox_VkShaderModule
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b5080 size=92 nc=2 FUN_007b5080
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorPool
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b5200 size=92 nc=2 FUN_007b5200
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorSetLayout
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b5380 size=92 nc=2 FUN_007b5380
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorSet
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b5500 size=92 nc=2 FUN_007b5500
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSampler
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSampler",
+
+=== 007b5680 size=92 nc=2 FUN_007b5680
+  C: FUN_007c4348, fprintf
+  L: unbox_VkPipeline
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkPipeline",
+
+=== 007b5800 size=92 nc=2 FUN_007b5800
+  C: FUN_007c4348, fprintf
+  L: unbox_VkPipelineCache
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b5980 size=224 nc=2 FUN_007b5980
+  C: FUN_007b451c, __stack_chk_fail
+  | local_50 = alStack_70;
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | plVar2 = (long *)param_3[4];

@@ -1,0 +1,311 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big1k_00360.txt pool 672
+0078f2e8
+  C: FUN_007872bc
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+  | if (param_2 == 0x7fffffff) {
+  | param_2 = *param_3;
+  | FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+
+=== 0078f7ac size=1412 nc=1 FUN_0078f7ac
+  C: FUN_007872bc
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+  | if (param_2 == 0x7fffffff) {
+  | param_2 = *param_3;
+  | FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+
+=== 0079cadc size=1212 nc=15 FUN_0079cadc
+  C: FUN_007fd720, FUN_006fa4e4, FUN_007f3fb8, FUN_006da86c, FUN_009e0490, CONCAT17, CONCAT71, FUN_006d9f7c, free, CONCAT16, CONCAT51, SUB81
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | uVar10 = FUN_007fd720(0);
+  | *param_1 = uVar10;
+
+=== 0079d2b0 size=1348 nc=26 FUN_0079d2b0
+  C: FUN_007c1964, CONCAT44, pthread_mutex_lock, FUN_006da84c, FUN_006da86c, strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memmove, FUN_006d85d4, FUN_0068ddb0
+  L: dispatch_VkInstance ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ on_vkCreateInstance ~ Cannot find vkSetMTLTextureMVK
+  | int FUN_0079d2b0(long *param_1,undefined8 param_2,undefined8 *param_3,undefined8 param_4,
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | FUN_007c1964(&local_200,param_1,*(undefined4 *)(param_3 + 6),param_3[7]);
+
+=== 0079d880 size=1548 nc=15 FUN_0079d880
+  C: FUN_007c4348, fprintf, FUN_009e0490, memset, pthread_mutex_lock, FUN_0068ddd8, free, FUN_007c99bc, memmove, FUN_007c9b54, FUN_007c9fbc, FUN_007b2a8c
+  L: dispatch_VkInstance ~ vkGetPhysicalDeviceProperties2KHR ~ vkGetPhysicalDeviceProperties2 ~ on_vkEnumeratePhysicalDevices
+  | void FUN_0079d880(long *param_1,undefined8 param_2,undefined8 param_3,uint *param_4,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | puVar4 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 0079e550 size=1368 nc=15 FUN_0079e550
+  C: FUN_007c4348, fprintf, FUN_007ca78c, CONCAT44, free, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c9b54, FUN_009e0490, CONCAT26
+  L: dispatch_VkPhysicalDevice ~ on_vkGetPhysicalDeviceImageFormatProperties2
+  | undefined4
+  | FUN_0079e550(long param_1,undefined8 param_2,undefined8 param_3,int *param_4,int *param_5)
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+
+=== 0079ebe4 size=1084 nc=15 FUN_0079ebe4
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c9b54, FUN_009e0490, CONCAT26, FUN_007ca5c0, free, FUN_007ca978
+  L: dispatch_VkPhysicalDevice ~ on_vkGetPhysicalDeviceFormatProperties2
+  | void FUN_0079ebe4(long param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar8 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 0079f5dc size=1028 nc=13 FUN_0079f5dc
+  C: FUN_007c4348, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c9b54, FUN_009e0490, CONCAT26, FUN_007ca5c0, free, memset, FUN_006da86c
+  L: dispatch_VkPhysicalDevice ~ on_vkGetPhysicalDeviceMemoryProperties2
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | puVar7 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar7 == (ulong *)0x0) {
+
+=== 0079fd74 size=4888 nc=37 FUN_0079fd74
+  C: fprintf, FUN_007c4348, FUN_007c1964, FUN_006ec0cc, FUN_00700914, NEON_cnt, NEON_uaddlv, CONCAT62, strcmp, FUN_009e0490, memcpy, free
+  L: on_vkCreateDevice ~ dispatch_VkPhysicalDevice ~ VK_KHR_external_memory ~ VK_KHR_dedicated_allocation ~ VK_KHR_get_memory_requirements2
+  | ulong FUN_0079fd74(long param_1,undefined8 param_2,undefined8 param_3,undefined8 *param_4,
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+  | if (*(char *)(param_1 + 0x1a) == '\x01') {
+
+=== 007a1d4c size=3496 nc=34 FUN_007a1d4c
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44, FUN_007ca78c, free, NEON_rev64, FUN_006f21dc
+  L: dispatch_VkDevice ~ supported ~ vkCreateImage-ahb-failed ~ ahb-image-not-supported ~ ordinary-fallback-not-supported
+  | int FUN_007a1d4c(long param_1,undefined8 param_2,undefined8 param_3,ulong *param_4,
+  | uVar25 = (undefined4)((ulong)in_stack_fffffffffffffb68 >> 0x20);
+  | lVar5 = tpidr_el0;
+  | local_78 = *(long *)(lVar5 + 0x28);
+
+=== 007a2eb8 size=1392 nc=11 FUN_007a2eb8
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock, FUN_007ce7d8, FUN_007ce680, fwrite
+  L: dispatch_VkDevice ~ vkBindImageMemory
+  | int FUN_007a2eb8(long *param_1,undefined8 param_2,undefined8 param_3,ulong param_4,ulong param_5,
+  | puVar3 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (ulong *)0x0) {
+  | uVar13 = 0;
+
+=== 007a3438 size=1084 nc=18 FUN_007a3438
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, pthread_mutex_unlock, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007cead0, FUN_0068ddb0, SUB168
+  L: dispatch_VkDevice ~ vkBindImageMemory2
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | uVar19 = (ulong)param_4;
+  | puVar4 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a3884 size=1084 nc=18 FUN_007a3884
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, pthread_mutex_unlock, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007cead0, FUN_0068ddb0, SUB168
+  L: dispatch_VkDevice ~ vkBindImageMemory2KHR
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | uVar19 = (ulong)param_4;
+  | puVar4 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a3cd0 size=1376 nc=15 FUN_007a3cd0
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007ca78c, CONCAT44, free, FUN_007ceae4, FUN_007e00d4
+  L: dispatch_VkDevice
+  | int FUN_007a3cd0(long param_1,undefined8 param_2,undefined8 param_3,undefined8 *param_4,
+  | lVar3 = tpidr_el0;
+  | local_78 = *(long *)(lVar3 + 0x28);
+  | puVar8 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a5a74 size=1128 nc=16 FUN_007a5a74
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007d0b10, FUN_007e00d4, FUN_007dfff0, FUN_007d0fa8, FUN_009e0490, memcpy, free, FUN_006da86c
+  L: dispatch_VkDevice
+  | void FUN_007a5a74(long param_1,undefined8 param_2,undefined8 param_3,undefined8 *param_4,
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a63cc size=1108 nc=12 FUN_007a63cc
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock, FUN_006da86c, FUN_007b3f48, FUN_007d20b0, FUN_007c6b34
+  L: dispatch_VkDevice
+  | ulong FUN_007a63cc(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar7 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar7 == (undefined8 *)0x0) {
+  | uVar21 = 0;
+
+=== 007a6920 size=1664 nc=10 FUN_007a6920
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d29a4, CONCAT44, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkCommandBuffer
+  | void FUN_007a6920(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,ulong param_5,
+  | lVar6 = tpidr_el0;
+  | local_68 = *(long *)(lVar6 + 0x28);
+  | local_78 = param_5;
+
+=== 007a6fb8 size=1608 nc=10 FUN_007a6fb8
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d29a4, CONCAT44, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkCommandBuffer
+  | void FUN_007a6fb8(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,
+  | undefined4 param_5,ulong param_6,undefined4 param_7,uint param_8,
+  | lVar6 = tpidr_el0;
+  | local_68 = *(long *)(lVar6 + 0x28);
+
+=== 007a7610 size=1212 nc=9 FUN_007a7610
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkCommandBuffer
+  | void FUN_007a7610(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,
+  | lVar6 = tpidr_el0;
+  | local_68 = *(long *)(lVar6 + 0x28);
+  | puVar9 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a7e70 size=5060 nc=26 FUN_007a7e70
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, CONCAT44, FUN_006ec088, FUN_006ef718, __android_log_print, FUN_007022d4
+  L: dispatch_VkCommandBuffer ~ TwoyiGfxstream ~ cannot stage external acquire image=%p cb=%u size=%ux%u ~ cannot GPU-copy foreign acquire image=%p cb=%u size=%ux
+  | void FUN_007a7e70(long param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,
+  | undefined4 param_5,undefined4 param_6,int param_7,undefined8 param_8,uint param_9,
+  | lVar5 = tpidr_el0;
+  | uVar41 = (ulong)param_9;
+
+=== 007a9244 size=4180 nc=44 FUN_007a9244
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_0094046c, FUN_0068826c, FUN_0094059c, FUN_006ec0cc, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44
+  L: dispatch_VkDevice ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ on_vkAllocateMemory ~ Export allocs are to be handled on the guest side / VkC ~ unknown
+  | int FUN_007a9244(long param_1,undefined8 param_2,undefined8 param_3,int *param_4,undefined8 param_5,
+  | uVar11 = (undefined4)((ulong)in_stack_fffffffffffffbb8 >> 0x20);
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+
+=== 007ab8c4 size=1720 nc=24 FUN_007ab8c4
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_006ec044, FUN_006fbce4, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, __android_log_print, FUN_007cc24c, FUN_009e0490
+  L: dispatch_VkDevice ~ gpu-copy ~ cpu-staging ~ direct-ahb ~ TwoyiGfxstream
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+  | plVar7 = (long *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (plVar7 == (long *)0x0) {
+
+=== 007ac8f8 size=1928 nc=19 FUN_007ac8f8
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c2e7c, FUN_007d6bb8, FUN_007d6ce0, FUN_007d6e90, FUN_009e0330, FUN_007d6fdc
+  L: dispatch_VkQueue
+  | int FUN_007ac8f8(long param_1,undefined8 param_2,undefined8 param_3,uint param_4,long param_5,
+  | ulong param_6)
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+
+=== 007aeb04 size=1632 nc=19 FUN_007aeb04
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d83f0, FUN_007d8580, FUN_009e0490, memcpy, free
+  L: dispatch_VkDevice
+  | int FUN_007aeb04(ulong param_1,undefined8 param_2,undefined8 param_3,undefined8 *param_4,
+  | lVar5 = tpidr_el0;
+  | local_70 = *(long *)(lVar5 + 0x28);
+  | if (param_4 == (undefined8 *)0x0) {
+
+=== 007af27c size=1532 nc=9 FUN_007af27c
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock, __stack_chk_fail, FUN_007d29a4
+  L: dispatch_VkCommandBuffer
+  | void FUN_007af27c(long param_1,undefined8 param_2,undefined8 param_3,long param_4,undefined4 param_5
+  | )
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+
+=== 007b03a8 size=1112 nc=18 FUN_007b03a8
+  C: pthread_mutex_lock, FUN_007c4348, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d2328, FUN_009e0490, memset, FUN_007df864, memcpy, free
+  L: dispatch_VkQueue ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ on_vkQueueCommitDescriptorSetUpdatesGOOGLE ~ queue  ~ (boxed: 
+  | void FUN_007b03a8(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,long param_5
+  | ,uint param_6,long param_7,long param_8,long param_9,long param_10,long param_11_00
+  | ,uint param_11,void *param_12)
+  | lVar4 = tpidr_el0;
+
+=== 007b1638 size=4756 nc=7 FUN_007b1638
+  C: FUN_006ec0cc, FUN_006fad60, FUN_0094002c, FUN_007dfd8c, free, FUN_0069421c, __stack_chk_fail
+  L: VK_FORMAT_A1R5G5B5_UNORM_PACK16 ~ VK_FORMAT_UNDEFINED ~ VK_FORMAT_R4G4_UNORM_PACK8 ~ VK_FORMAT_R4G4B4A4_UNORM_PACK16 ~ VK_FORMAT_B4G4R4A4_UNORM_PACK16
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | uVar6 = FUN_006ec0cc();
+  | if (param_3 != 0) {
+
+=== 007c0de4 size=1564 nc=9 FUN_007c0de4
+  C: FUN_007c14f0, free, FUN_007c15b4, FUN_007c1670, FUN_007c1768, FUN_009e0360, FUN_0099b070, pthread_cond_destroy, FUN_007c1400
+  | FUN_007c14f0(param_1 + 0x48);
+  | if (*(long *)(param_1 + 0x88) != 0) {
+  | puVar1 = (undefined8 *)*(void **)(param_1 + 0x80);
+  | while (puVar1 != (undefined8 *)0x0) {
+
+=== 007c1964 size=2088 nc=7 FUN_007c1964
+  C: FUN_007c218c, FUN_009e0490, memcpy, free, FUN_00700900, FUN_0068ddb0, strcmp
+  L: VK_KHR_external_memory_capabilities ~ VK_KHR_external_memory ~ VK_KHR_external_semaphore_capabilities ~ VK_KHR_external_semaphore ~ VK_ANDROID_external_memory_android_hardware_buffer
+  | *param_1 = 0;
+  | param_1[1] = 0;
+  | param_1[2] = 0;
+  | if (param_3 != 0) {
+
+=== 007c2a60 size=1052 nc=19 FUN_007c2a60
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c4334, FUN_0068ddb0, FUN_009e0490, memcpy, free, FUN_007c2e7c, pthread_mutex_unlock, FUN_007c32c8
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | local_88 = param_2;
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 4));
+
+=== 007c2e7c size=1100 nc=14 FUN_007c2e7c
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0068ddd8, FUN_007c4348, FUN_007c4600, FUN_006e85dc, FUN_007c4840, free, FUN_007c44c4, FUN_007c4bb4
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | pthread_mutex_lock(param_1);
+  | uVar7 = *(ulong *)((long)param_1 + 0x130);
+
+=== 007c32c8 size=3944 nc=33 FUN_007c32c8
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, memcpy, free, FUN_007c4334, FUN_007c582c, FUN_007c5840, FUN_007c4348, fprintf, FUN_007c4ce8
+  L: dispatch_VkDevice ~ TwoyiGfxstream ~ external-ahb instance cleanup idle failed device=%p res
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | plVar25 = *(long **)(param_1 + 0x1e8);
+  | local_88 = (long *)0x0;
+
+=== 007c4edc size=1000 nc=15 FUN_007c4edc
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0330, FUN_007c5f3c, fprintf, FUN_006da84c, munmap, close, FUN_007c60b0, __android_log_print, FUN_006ee528
+  L: freeMemoryLocked ~ TwoyiGfxstream ~ external-ahb memory free before image destroy; preservi
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | uVar4 = *(ulong *)(param_1 + 0x280);
+  | local_60 = param_4;
+
+=== 007c7390 size=1284 nc=15 FUN_007c7390
+  C: FUN_007c8240, FUN_009e0490, memcpy, free, FUN_0068ddb0, NEON_cnt, NEON_uaddlv, CONCAT62, close, FUN_007b3f48, FUN_007c8254, FUN_007c8388
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | plVar12 = *(long **)(param_1 + 0x2b0);
+  | local_98 = (ulong *)0x0;
+
+=== 007c7a50 size=1588 nc=24 FUN_007c7a50
+  C: FUN_007b309c, FUN_007c6734, FUN_007c1768, free, FUN_007c69ec, FUN_007c6b20, FUN_0068ddb0, FUN_009e0490, memcpy, FUN_007c52c8, FUN_007c6dd4, FUN_007c6ca0
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | plVar7 = (long *)*(long *)(param_1 + 0x198);
+  | while (plVar7 != (long *)0x0) {
+
+=== 007cc718 size=1284 nc=11 FUN_007cc718
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007b2ba8, FUN_007c4238, NEON_rev64, FUN_006bc56c, FUN_007ca5c0, free, FUN_0099c458, __stack_chk_fail
+  L: missing-host-ahb-fence-or-foreign-capability ~ missing-device-info ~ missing-physical-device-dispatch ~ missing-instance-info ~ VK_KHR_get_physical_device_properties2
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | uVar8 = *(ulong *)(param_1 + 0xa0);
+  | if (uVar8 != 0) {
+
+=== 007d2328 size=1660 nc=9 FUN_007d2328
+  C: thunk_FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, memcpy, free, __stack_chk_fail, CONCAT44
+  | void FUN_007d2328(long param_1,undefined8 param_2,long param_3,undefined8 param_4,uint param_5,
+  | lVar10 = tpidr_el0;
+  | uVar30 = (ulong)param_5;
+  | local_70 = *(long *)(lVar10 + 0x28);
+
+=== 007d31f8 size=2012 nc=10 FUN_007d31f8
+  C: FUN_0099c458, FUN_0099c6c8, strcmp, fprintf, CONCAT44, FUN_009e0490, FUN_0068e1d0, FUN_007d3e80, free, __stack_chk_fail
+  L: Etc2RGB8_ ~ 3D.spv ~ 2DArray.spv ~ 1DArray.spv ~ initDecomp
+  | lVar3 = tpidr_el0;
+  | local_78 = *(long *)(lVar3 + 0x28);
+  | if (*(long *)(param_1 + 0x130) != 0) {
+  | uVar7 = 0;
+
+=== 007d45ec size=1028 nc=16 FUN_007d45ec
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_009e0490, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d49f8, FUN_0068ddb0, SUB168, SEXT816
+  L: dispatch_VkDevice
+  | ulong FUN_007d45ec(long param_1,undefined8 param_2,uint param_3,long param_4,uint param_5)
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290);
+
+=== 007d95a8 size=24948 nc=133 FUN_007d95a8
+  C: FUN_007febc8, FUN_009e0490, FUN_0079cadc, FUN_0073f024, FUN_007fec88, FUN_007fec94, FUN_006da46c, FUN_006d9f04, FUN_007fe544, FUN_007c4348, fprintf, memcpy
+  L: vkCmdBeginTransformFeedbackEXT subdecode ~ unbox_VkBuffer ~ vkCmdPreprocessGeneratedCommandsNV subdecode ~ vkCmdBindInvocationMaskHUAWEI subdecode ~ unbox_VkImageView
+  | long FUN_007d95a8(undefined8 param_1,undefined8 param_2,long param_3,undefined8 param_4,
+  | lVar8 = tpidr_el0;
+  | local_70 = *(long *)(lVar8 + 0x28);
+  | uVar9 = FUN_007febc8(param_2);

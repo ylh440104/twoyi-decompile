@@ -1,0 +1,574 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big6_01160.txt pool 2009
+=196 nc=9 FUN_007f5cf0
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f5cf0(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f5e28 size=208 nc=10 FUN_007f5e28
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007b5f40, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,in_x7,*(undefined4 *)(in_x6 + 0x1c));
+  | uVar1 = *(undefined4 *)(in_x6 + 0x1c);
+  | uVar3 = FUN_007b5f40(*(undefined8 *)(in_x6 + 0x10));
+
+=== 007f604c size=196 nc=9 FUN_007f604c
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f604c(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_7,1);
+  | FUN_007f9208(param_1 + 1,param_7,1,param_5);
+
+=== 007f6120 size=196 nc=9 FUN_007f6120
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f6120(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f625c size=196 nc=9 FUN_007f625c
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f625c(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f6458 size=196 nc=9 FUN_007f6458
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f6458(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f65c0 size=172 nc=8 FUN_007f65c0
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_10,1);
+  | if (param_10 != 0) {
+  | uVar2 = FUN_007f8980(param_1 + 1);
+
+=== 007f66e0 size=196 nc=9 FUN_007f66e0
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f66e0(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f6874 size=196 nc=9 FUN_007f6874
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f6874(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f6a58 size=172 nc=8 FUN_007f6a58
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+  | if (param_9 != 0) {
+  | uVar2 = FUN_007f8980(param_1 + 1);
+
+=== 007f6c44 size=172 nc=8 FUN_007f6c44
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+  | if (param_9 != 0) {
+  | uVar2 = FUN_007f8980(param_1 + 1);
+
+=== 007f6d78 size=196 nc=9 FUN_007f6d78
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f6d78(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f6ec8 size=200 nc=9 FUN_007f6ec8
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f6ec8(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f70e0 size=200 nc=9 FUN_007f70e0
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f70e0(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f7268 size=192 nc=8 FUN_007f7268
+  C: pthread_mutex_lock, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007b46f0, FUN_007f94b0, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | __mutex = (pthread_mutex_t *)*param_1;
+  | pthread_mutex_lock(__mutex);
+
+=== 007f734c size=196 nc=9 FUN_007f734c
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f734c(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f7420 size=196 nc=9 FUN_007f7420
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f7420(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f7594 size=200 nc=9 FUN_007f7594
+  C: pthread_mutex_lock, FUN_007f8da0, FUN_007f9208, FUN_007f8980, FUN_007f8c3c, FUN_007f8c90, FUN_007f90c0, FUN_007f935c, pthread_mutex_unlock
+  | int FUN_007f7594(pthread_mutex_t *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | pthread_mutex_lock(param_1);
+  | FUN_007f8da0(param_1 + 1,param_9,1);
+
+=== 007f82d4 size=888 nc=13 FUN_007f82d4
+  C: FUN_0068ddd8, LZCOUNT, FUN_007fb958, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006daf00, FUN_0068ddb0, FUN_009e0490, memcpy, free, FUN_006d49f0
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | pcVar12 = *(char **)(param_2 + 0x40);
+  | pcVar2 = *(char **)(param_2 + 0x48);
+
+=== 007f864c size=816 nc=11 FUN_007f864c
+  C: free, FUN_006d9b20, FUN_009e0490, memset, FUN_0068b54c, memcpy, FUN_0070c3c4, FUN_0070c5c0, FUN_0070c5cc, FUN_0070c5ac, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | lVar11 = param_1[1] - *param_1;
+  | if (lVar11 != 0) {
+
+=== 007f90c0 size=328 nc=6 FUN_007f90c0
+  C: FUN_007fade4, FUN_006daf00, FUN_0068ddb0, FUN_009e0490, memcpy, free
+  | if ((param_2 != (uint *)0x0) && (param_3 != 0)) {
+  | uVar8 = (ulong)param_3;
+  | do {
+  | lVar4 = *(long *)(param_1 + 0x28);
+
+=== 007f9208 size=340 nc=6 FUN_007f9208
+  C: FUN_007fade4, FUN_006daf00, FUN_0068ddb0, FUN_009e0490, memcpy, free
+  | if (param_2 != (undefined8 *)0x0) {
+  | plVar4 = (long *)(param_1 + 0x28);
+  | lVar5 = *plVar4;
+  | param_4 = param_4 & 0xffffffff;
+
+=== 007f94b0 size=480 nc=7 FUN_007f94b0
+  C: FUN_007fb4bc, FUN_007cdd08, FUN_006daf00, FUN_0068ddb0, FUN_009e0490, memcpy, free
+  | if ((param_2 != (ulong *)0x0) && (param_3 != 0)) {
+  | uVar10 = (ulong)param_3;
+  | do {
+  | lVar3 = *(long *)(param_1 + 0x40);
+
+=== 007f9798 size=492 nc=6 FUN_007f9798
+  C: FUN_007f9784, FUN_0068ddb0, FUN_009e0490, FUN_007f9984, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | plVar7 = param_1 + 2;
+  | puVar5 = (undefined8 *)param_1[1];
+
+=== 007fa830 size=720 nc=7 FUN_007fa830
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_007e0be8, LZCOUNT
+  | uVar8 = param_1[1];
+  | uVar9 = *param_2;
+  | if (uVar8 != 0) {
+  | uVar11 = NEON_cnt(uVar8,1);
+
+=== 007fac58 size=396 nc=8 FUN_007fac58
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006daf00, FUN_0068ddb0, FUN_009e0490, memcpy, free
+  | uVar10 = *param_4;
+  | uVar4 = (*(long **)(param_1 + 0x10))[1];
+  | if (uVar4 != 0) {
+  | uVar14 = NEON_cnt(uVar4,1);
+
+=== 007fade4 size=380 nc=7 FUN_007fade4
+  C: FUN_007fb074, FUN_0068ddb0, FUN_009e0490, memset, FUN_007faf60, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | plVar5 = param_1 + 2;
+  | pvVar8 = (void *)param_1[1];
+
+=== 007fb088 size=720 nc=7 FUN_007fb088
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_007fb358, LZCOUNT
+  | uVar8 = param_1[1];
+  | uVar9 = *param_2;
+  | if (uVar8 != 0) {
+  | uVar11 = NEON_cnt(uVar8,1);
+
+=== 007fb358 size=352 nc=6 FUN_007fb358
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 007fb7c4 size=384 nc=6 FUN_007fb7c4
+  C: FUN_007fb944, FUN_0068ddb0, FUN_009e0490, FUN_006daf00, memcpy, free
+  | __ptr = (undefined8 *)*param_1;
+  | puVar4 = (undefined8 *)param_1[1];
+  | lVar11 = (long)puVar4 - (long)__ptr >> 5;
+  | uVar1 = lVar11 + 1;
+
+=== 007fdca4 size=392 nc=7 FUN_007fdca4
+  C: FUN_006d7dc0, FUN_007fe350, FUN_0068ddb0, FUN_009e0490, memcpy, free, fprintf
+  | puVar8 = param_1 + 1;
+  | if ((ulong)((long)(param_1[2] - *puVar8) >> 3) < *param_1) {
+  | pbVar6 = *(byte **)(param_2 + 0x10);
+  | if ((*param_2 & 1) == 0) {
+
+=== 007fe544 size=288 nc=7 FUN_007fe544
+  C: malloc, FUN_0074790c, FUN_0094046c, FUN_0068826c, FUN_0099fd30, FUN_0094059c, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ alloc ~ alloc failed. Wanted size: 
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if (param_3 == 0) {
+  | *param_2 = 0;
+
+=== 007fe664 size=268 nc=7 FUN_007fe664
+  C: FUN_006d9ef4, FUN_0094046c, FUN_0068826c, FUN_0094059c, FUN_007fe544, memcpy, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ loadStringInPlaceWithStreamPtr
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_17c = *(uint *)*param_3;
+  | *param_3 = (long)((uint *)*param_3 + 1);
+
+=== 007fe838 size=220 nc=6 FUN_007fe838
+  C: FUN_007fe914, FUN_0094046c, FUN_0068826c, FUN_0099fd30, FUN_0094059c, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ Could not read back  ~  bytes
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | FUN_007fe914();
+  | lVar2 = (**(code **)(**(long **)(param_1 + 0x80) + 0x18))
+
+=== 0080b074 size=532 nc=7 FUN_0080b074
+  C: pthread_mutex_lock, FUN_009c0920, FUN_009e0490, FUN_0080b854, FUN_009c0a64, memcpy, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d418);
+  | DAT_00a6d468 = param_2;
+  | DAT_00a6d478 = param_3;
+  | if (((DAT_00a6d490 & 1) == 0) && (iVar3 = FUN_009c0920(&DAT_00a6d490), iVar3 != 0)) {
+
+=== 0081df34 size=564 nc=9 FUN_0081df34
+  C: strchr, FUN_0099c7ac, memcpy, FUN_0069ad94, FUN_006d85d4, FUN_0068ddb0, FUN_009e0490, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | *param_1 = 0;
+  | param_1[1] = 0;
+
+=== 00820668 size=568 nc=8 FUN_00820668
+  C: strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memcpy, FUN_0069f6c0, free, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | __n = strlen(param_3);
+  | if (0xfffffffffffffff7 < __n) {
+
+=== 00820964 size=300 nc=6 FUN_00820964
+  C: FUN_0069d6d0, FUN_0068ddb0, FUN_009e0490, memset, memcpy, free
+  | __s_00 = (void *)param_1[1];
+  | if ((ulong)(param_1[2] - (long)__s_00 >> 2) < param_2) {
+  | __src = (void *)*param_1;
+  | lVar4 = (long)__s_00 - (long)__src >> 2;
+
+=== 00820a90 size=300 nc=6 FUN_00820a90
+  C: FUN_00820bbc, FUN_0068ddb0, FUN_009e0490, memset, memcpy, free
+  | __s_00 = (void *)param_1[1];
+  | if ((ulong)(param_1[2] - (long)__s_00 >> 2) < param_2) {
+  | __src = (void *)*param_1;
+  | lVar4 = (long)__s_00 - (long)__src >> 2;
+
+=== 008211a4 size=460 nc=14 FUN_008211a4
+  C: pthread_mutex_lock, FUN_00828f0c, pthread_mutex_unlock, FUN_0082912c, FUN_00828fd8, FUN_0086c964, FUN_0086c974, FUN_00821bd4, FUN_008248e4, FUN_008294dc, FUN_00824f2c, FUN_008254e8
+  L: createAndBindAuxiliaryContext
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | if (DAT_00a6d658 == 0) {
+
+=== 00821378 size=244 nc=9 FUN_00821378
+  C: pthread_mutex_lock, FUN_00828f0c, pthread_mutex_unlock, FUN_0082912c, FUN_00828fd8, FUN_008254e8, FUN_00824c24, FUN_00825324, fprintf
+  L: unbindAndDestroyAuxiliaryContext
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | if (DAT_00a6d658 == 0) {
+  | DAT_00a6d658 = FUN_00828f0c(0);
+  | pthread_mutex_unlock((pthread_mutex_t *)&DAT_00a6d660);
+
+=== 00821474 size=188 nc=7 FUN_00821474
+  C: pthread_mutex_lock, FUN_00828f0c, pthread_mutex_unlock, FUN_0082912c, FUN_00828fd8, FUN_008254e8, fprintf
+  L: bindAuxiliaryContext
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | if (DAT_00a6d658 == 0) {
+  | DAT_00a6d658 = FUN_00828f0c(0);
+  | pthread_mutex_unlock((pthread_mutex_t *)&DAT_00a6d660);
+
+=== 00821538 size=172 nc=7 FUN_00821538
+  C: pthread_mutex_lock, FUN_00828f0c, pthread_mutex_unlock, FUN_0082912c, FUN_00828fd8, FUN_008254e8, fprintf
+  L: unbindAuxiliaryContext
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | if (DAT_00a6d658 == 0) {
+  | DAT_00a6d658 = FUN_00828f0c(0);
+  | pthread_mutex_unlock((pthread_mutex_t *)&DAT_00a6d660);
+
+=== 008216d0 size=656 nc=10 FUN_008216d0
+  C: pthread_mutex_lock, FUN_00828f0c, pthread_mutex_unlock, FUN_008291a0, FUN_0086c974, FUN_0086c9d4, FUN_0094002c, thunk_FUN_008294b8, FUN_0088b6a0, FUN_0082c904
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ EGL failed to initialize GLESv%d; incompatible interfac
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | if (DAT_00a6d658 == 0) {
+  | DAT_00a6d658 = FUN_00828f0c(0);
+  | pthread_mutex_unlock((pthread_mutex_t *)&DAT_00a6d660);
+
+=== 00824514 size=260 nc=6 FUN_00824514
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d4f4, FUN_0086c844, FUN_0086a5ac
+  | lVar2 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar2 == 0) {
+  | piVar4 = (int *)FUN_0086c974();
+  | if (*piVar4 != 0x3000) {
+
+=== 00824618 size=636 nc=14 FUN_00824618
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d4f4, FUN_0086c88c, FUN_00937d08, pthread_mutex_lock, FUN_009e0490, FUN_00937e48, FUN_009e0330, FUN_0082e104, FUN_00824894
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | lVar2 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar2 == 0) {
+
+=== 008248e4 size=832 nc=15 FUN_008248e4
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d4f4, FUN_009e0490, FUN_0086c88c, FUN_0086c8ac, pthread_mutex_lock, FUN_009e0330, FUN_0082e104, FUN_00824894, pthread_mutex_unlock
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | lVar9 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar9 == 0) {
+
+=== 00824c24 size=360 nc=10 FUN_00824c24
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, pthread_mutex_lock, FUN_0082d558, FUN_0082926c, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 00824d8c size=408 nc=7 FUN_00824d8c
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d558, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 00825324 size=372 nc=10 FUN_00825324
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d694, pthread_mutex_lock, FUN_0082d980, pthread_mutex_unlock, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 00826050 size=600 nc=10 FUN_00826050
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d558, FUN_0086c7d8, FUN_009e0330, FUN_009383b4, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | lVar4 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar4 == 0) {
+
+=== 008262a8 size=272 nc=8 FUN_008262a8
+  C: pthread_mutex_lock, FUN_0086c7d8, FUN_009e0330, FUN_0082d694, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | iVar3 = pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | plVar4 = (long *)FUN_0086c7d8(iVar3);
+
+=== 008263b8 size=456 nc=9 FUN_008263b8
+  C: pthread_mutex_lock, FUN_0086c93c, FUN_0086c7d8, FUN_009e0330, FUN_0082d558, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d660);
+  | uVar7 = FUN_0086c93c(param_1);
+
+=== 00826eb4 size=584 nc=11 FUN_00826eb4
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, fprintf, FUN_0086c7d8, FUN_0082e5c8, FUN_0082e748, FUN_009e0330, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | lVar4 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar4 == 0) {
+
+=== 008273ec size=420 nc=7 FUN_008273ec
+  C: fprintf, FUN_0086c7d8, FUN_0082e5c8, FUN_009e0330, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if (param_2 >> 0x20 != 0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"(%s:%d) EmuGL:WARNING: bad generic pointer %p\n",
+
+=== 008275e0 size=360 nc=8 FUN_008275e0
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d694, FUN_00832c88, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if ((*(long *)(DAT_00a6d658 + 0x50) == 0) ||
+  | (*(long *)(*(long *)(DAT_00a6d658 + 0x50) + 0x80) == 0)) {
+
+=== 00827748 size=348 nc=8 FUN_00827748
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d694, FUN_00938c08, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 008278b8 size=348 nc=8 FUN_008278b8
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d694, FUN_00938c60, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 00827ae4 size=208 nc=7 FUN_00827ae4
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_006d9b20, FUN_0082db30, fwrite, FUN_0082db98
+  | lVar2 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar2 == 0) {
+  | piVar5 = (int *)FUN_0086c974();
+  | if (*piVar5 != 0x3000) {
+
+=== 00827de0 size=244 nc=9 FUN_00827de0
+  C: FUN_00828d8c, SUB31, FUN_006d9f7c, free, CONCAT17, CONCAT16, CONCAT51, FUN_00828ed4, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | FUN_00828d8c(param_1,param_2 == 1);
+  | local_68 = 0x2a;
+
+=== 00827fc4 size=400 nc=7 FUN_00827fc4
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_0082d694, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 00828154 size=484 nc=10 FUN_00828154
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, fprintf, FUN_0086c7d8, FUN_0082e5c8, FUN_009e0330, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 0082833c size=532 nc=12 FUN_0082833c
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, fprintf, FUN_0086c7d8, FUN_0082e5c8, FUN_009e0330, FUN_009e0360, FUN_0099b070, FUN_00864de4, FUN_00864e98, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ eglSetImageInfoANDROID
+  | void FUN_0082833c(undefined8 param_1,ulong param_2,undefined4 param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | lVar4 = FUN_008291a0(DAT_00a6d658,param_1);
+
+=== 00828564 size=408 nc=9 FUN_00828564
+  C: FUN_008291a0, FUN_0086c974, FUN_0082ca44, FUN_009e0490, FUN_009e0330, FUN_0082e42c, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_008291a0(DAT_00a6d658,param_1);
+  | if (lVar3 == 0) {
+
+=== 0082875c size=712 nc=7 FUN_0082875c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_00828a24, LZCOUNT
+  | uVar8 = param_1[1];
+  | uVar9 = (ulong)*param_2;
+  | if (uVar8 != 0) {
+  | uVar11 = NEON_cnt(uVar8,1);
+
+=== 00828a24 size=352 nc=6 FUN_00828a24
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00828d8c size=324 nc=8 FUN_00828d8c
+  C: FUN_0094046c, FUN_0094059c, FUN_008294a8, FUN_009c0920, FUN_009e0490, FUN_00829db8, FUN_009c0a64, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ setEgl2Egl
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if ((param_1 == 0) && ((param_2 & 1) != 0)) {
+  | FUN_0094046c(auStack_168,
+
+=== 00828fd8 size=340 nc=8 FUN_00828fd8
+  C: pthread_mutex_lock, FUN_009e0490, FUN_0082c83c, FUN_00829470, FUN_0068ddb0, memcpy, free, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0xf));
+  | puVar2 = (undefined8 *)*param_1;
+  | if (param_1[1] - (long)puVar2 != 0) {
+  | uVar4 = param_1[1] - (long)puVar2 >> 3;
+
+=== 0082926c size=252 nc=7 FUN_0082926c
+  C: pthread_mutex_lock, FUN_00829484, FUN_0068ddb0, FUN_009e0490, memcpy, free, pthread_mutex_unlock
+  | uVar3 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x78));
+  | uVar5 = (ulong)uVar3;
+  | puVar2 = *(undefined8 **)(param_1 + 0x20);
+  | if (puVar2 < *(undefined8 **)(param_1 + 0x28)) {
+
+=== 00829368 size=264 nc=7 FUN_00829368
+  C: pthread_mutex_lock, FUN_0082d558, FUN_0082d7d0, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | local_48 = *(long *)(lVar4 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x78));
+  | puVar8 = *(undefined8 **)(param_1 + 0x18);
+
+=== 0082a134 size=468 nc=10 FUN_0082a134
+  C: FUN_009c0920, FUN_009e0490, FUN_0082a328, FUN_009c0a64, FUN_006dad94, FUN_00698c7c, FUN_0068ddb0, memcpy, free, __stack_chk_fail
+  L: EGL_ANGLE_direct_composition
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | if (((DAT_00a6d770 & 1) == 0) && (iVar3 = FUN_009c0920(&DAT_00a6d770), iVar3 != 0)) {
+  | lVar6 = FUN_009e0490(0x128);
+
+=== 0082ba80 size=340 nc=7 FUN_0082ba80
+  C: FUN_0068b54c, FUN_009e0490, memset, memcpy, FUN_0082bbd4, free, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | local_70 = (void *)0x0;
+  | local_68 = (void *)0x0;
+
+=== 0082bbd4 size=996 nc=9 FUN_0082bbd4
+  C: FUN_0082c36c, FUN_0068b54c, FUN_009e0490, memcpy, memcmp, FUN_0082c580, FUN_0082c620, free, __stack_chk_fail
+  | uint FUN_0082bbd4(long param_1,undefined8 *param_2,long param_3,undefined8 *param_4,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | FUN_0082c36c();
+
+=== 0082bfb8 size=284 nc=7 FUN_0082bfb8
+  C: FUN_0068b54c, FUN_009e0490, memset, memcpy, FUN_0082c0d4, free, __stack_chk_fail
+  | ulong FUN_0082bfb8(void *param_1,size_t param_2,void *param_3,ulong param_4)
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | local_70 = (void *)0x0;
+
+=== 0082c0d4 size=548 nc=6 FUN_0082c0d4
+  C: FUN_0068b54c, FUN_009e0490, memcpy, memcmp, free, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | __src = (void *)*param_2;
+  | local_78 = (byte *)0x0;
+
+=== 0082c36c size=532 nc=6 FUN_0082c36c
+  C: FUN_0068b54c, FUN_009e0490, memcpy, free, FUN_0082c580, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | uVar13 = *(ulong *)(param_1 + 0x28);
+  | if ((*(ulong *)(param_1 + 0x40) <= uVar13) &&
+
+=== 0082c904 size=320 nc=6 FUN_0082c904
+  C: pthread_mutex_lock, FUN_0082d16c, LZCOUNT, FUN_0082ee30, pthread_mutex_unlock, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_38 = *(long *)(lVar5 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+  | *(undefined *)(param_1 + 0x10) = 1;
+
+=== 0082cbac size=732 nc=14 FUN_0082cbac
+  C: LZCOUNT, FUN_0082ee30, FUN_0086a368, FUN_0082ce88, FUN_0086a5ac, FUN_009e0490, FUN_0086a4ec, FUN_008301d8, free, FUN_008306b8, FUN_0068ddb0, memcpy
+  | void * FUN_0082cbac(long param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | plVar9 = (long *)(param_1 + 0x18);
+
+=== 0082ce88 size=628 nc=10 FUN_0082ce88
+  C: FUN_0086aa54, FUN_00830934, FUN_0068ddb0, FUN_009e0490, memcpy, free, LZCOUNT, FUN_0082dce0, FUN_00830948, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | puVar5 = *(undefined8 **)(param_1 + 0x18);
+  | local_88 = (undefined8 *)0x0;
+
+=== 0082d16c size=544 nc=8 FUN_0082d16c
+  C: FUN_0082cbac, FUN_009e0490, FUN_0086a458, FUN_008306b8, FUN_0068ddb0, memcpy, FUN_0083060c, __stack_chk_fail
+  | lVar6 = tpidr_el0;
+  | lVar10 = 0;
+  | local_68 = *(long *)(lVar6 + 0x28);
+  | lVar1 = param_1 + 0x28;

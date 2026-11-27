@@ -1,0 +1,588 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big6_01880.txt pool 2009
+=224 nc=6 FUN_0097ca4c
+  C: creat, FUN_0097cb2c, __write_chk, __errno, close, __stack_chk_fail
+  | local_50 = auStack_450;
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_48 = &local_50;
+
+=== 0097d190 size=208 nc=6 FUN_0097d190
+  C: __open_2, lseek, malloc, __read_chk, close, free
+  | if (param_2 != (ulong *)0x0) {
+  | *param_2 = 0;
+  | __fd = __open_2(param_1,0);
+  | if (-1 < __fd) {
+
+=== 0097e4c0 size=808 nc=9 FUN_0097e4c0
+  C: FUN_0097e388, FUN_0097c488, calloc, FUN_0097ed4c, FUN_0097d530, free, FUN_00981a94, FUN_009816d8, FUN_00981870
+  L: %s: from_port value %d is not valid ~ remote_call_generic ~ remote_call_alloc ~ localhost
+  | uVar3 = FUN_0097e388(param_2);
+  | uVar2 = param_3;
+  | if (param_3 - 0x15d1 < 0xffffffe1) {
+  | uVar2 = 0xffffffff;
+
+=== 0097e7fc size=392 nc=9 FUN_0097e7fc
+  C: FUN_0097e4c0, strlen, FUN_0097fec4, malloc, FUN_0097c488, free, FUN_00981870, memcpy, FUN_0097d530
+  L: %s: not enough memory to alloc %d bytes ~ remote_call_set_sms_pdu ~ sms pdu 
+  | __ptr = (undefined8 *)FUN_0097e4c0(5,param_1,param_2);
+  | if (__ptr == (undefined8 *)0x0) {
+  | LAB_0097e968:
+  | uVar6 = 0xffffffff;
+
+=== 0097e994 size=788 nc=12 FUN_0097e994
+  C: FUN_0097c488, call, FUN_00981738, FUN_009817d4, FUN_0097eca8, strlen, FUN_009816d8, __errno, strerror, free, FUN_00981870, __stack_chk_fail
+  L: remote_call_event
+  | puVar6 = PTR_DAT_00a0dbe8;
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | if (*PTR_DAT_00a0dbe8 == '\x01') {
+
+=== 0097f524 size=836 nc=7 FUN_0097f524
+  C: CONCAT11, __memcpy_chk, FUN_00980ac8, FUN_0097f868, FUN_00980b34, memcpy, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_48 = *(long *)(lVar5 + 0x28);
+  | pbVar1 = *(byte **)(param_1 + 8);
+  | pbVar2 = *(byte **)(param_1 + 0x10);
+
+=== 0097fb40 size=708 nc=13 FUN_0097fb40
+  C: FUN_0097f130, FUN_009810d8, FUN_00980e98, FUN_009812f4, calloc, FUN_00981048, FUN_00980f44, free, FUN_00980abc, FUN_0098073c, FUN_00980ac8, FUN_00980b78
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | if (param_4 == (undefined *)0x0) {
+  | param_4 = auStack_97;
+
+=== 00980504 size=568 nc=8 FUN_00980504
+  C: FUN_0097c488, FUN_009803e4, malloc, FUN_0097f524, FUN_0097f130, FUN_0097fb40, free, __stack_chk_fail
+  L: sms_receiver_create_deliver
+  | lVar2 = tpidr_el0;
+  | __ptr_00 = (undefined8 *)(param_1 + 8);
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar8 = __ptr_00;
+
+=== 00981a94 size=160 nc=8 FUN_00981a94
+  C: FUN_009828c8, FUN_00981b78, thunk_FUN_00982a98, FUN_00981bc0, FUN_00982838, FUN_0098286c, thunk_FUN_00984f78, FUN_00981bd4
+  | plVar5 = DAT_00a72ac8;
+  | if (DAT_00a72ac8 != (long *)0x0) {
+  | plVar1 = DAT_00a72ac8 + 1;
+  | DAT_00a72ac8 = (long *)DAT_00a72ac8[3];
+
+=== 00981c24 size=4 nc=8 thunk_FUN_00984f78
+  C: FUN_009868b0, FUN_00989118, FUN_00986938, pthread_getspecific, FUN_00983d78, FUN_009e0490, pthread_setspecific, free
+  | uVar1 = FUN_009868b0(&DAT_00a740e8);
+  | if ((uVar1 & 1) != 0) {
+  | DAT_00a740ec = 0;
+  | FUN_00989118(&DAT_00a740ec,FUN_0098504c);
+
+=== 0098297c size=284 nc=11 FUN_0098297c
+  C: FUN_00982680, __errno, FUN_0097d264, connect, FUN_0097d2cc, fcntl, FUN_00981c28, strerror, FUN_0097d2dc, FUN_00982a98, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | iVar2 = FUN_00982680(param_2,asStack_c0,&local_c4);
+  | if (-1 < iVar2) {
+
+=== 00982ba8 size=436 nc=8 FUN_00982ba8
+  C: FUN_00987a70, FUN_00982ea4, FUN_00982f70, FUN_00983094, FUN_00983d6c, FUN_009862b0, FUN_00982e60, __stack_chk_fail
+  L: ANDROID_EMULATOR_HOME ~ ANDROID_SDK_HOME ~ .android
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | plVar2 = (long *)FUN_00987a70();
+  | local_98 = "ANDROID_EMULATOR_HOME";
+
+=== 009830e8 size=384 nc=8 FUN_009830e8
+  C: FUN_009836bc, FUN_00983ac4, FUN_00983a10, FUN_00983b10, FUN_00982fb8, FUN_009836b0, capacity, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: newSize < kMaxCapacity.  ~ Check failed: newSize <= capacity(). 
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar6 = (ulong *)*param_1;
+  | if (puVar6 == (ulong *)0x0) {
+
+=== 00983ec0 size=192 nc=6 FUN_00983ec0
+  C: FUN_009850e0, FUN_009850fc, FUN_009852e0, FUN_009850d0, FUN_00983e30, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | puVar3 = param_1 + 7;
+  | *param_1 = &PTR_FUN_00a08358;
+
+=== 00983fac size=228 nc=6 FUN_00983fac
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: clockType == ClockType::kHost. 
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | iVar2 = FUN_009836bc();
+  | if (((iVar2 < 4) && (uVar3 = FUN_009836b0(), param_2 != 2)) && ((uVar3 & 1) != 0)) {
+
+=== 009840b4 size=192 nc=7 FUN_009840b4
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, gettimeofday, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: clockType == ClockType::kHost. 
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | iVar2 = FUN_009836bc();
+  | if (((iVar2 < 4) && (uVar3 = FUN_009836b0(), param_2 != 2)) && ((uVar3 & 1) != 0)) {
+
+=== 00984198 size=956 nc=15 FUN_00984198
+  C: FUN_00987a70, FUN_00987c80, FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, empty, FUN_00983b10, FUN_009850e0, FUN_009850fc, inQueue, FUN_009847c4
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: mPendingFdWatches.empty().  ~ Check failed: !mPending.  ~ /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: !link->inQueue(). 
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | *(undefined *)(param_1 + 0xe) = 0;
+  | do {
+
+=== 009845a4 size=336 nc=8 FUN_009845a4
+  C: FUN_009e0490, FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, FUN_00985324, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: clock == ClockType::kHost.  ~ Check failed: mCallback. 
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar5 = (undefined8 *)FUN_009e0490(0x48);
+  | *puVar5 = &PTR_FUN_00a083d0;
+
+=== 009847c4 size=188 nc=7 FUN_009847c4
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, inQueue, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: link->inQueue(). 
+  | lVar4 = tpidr_el0;
+  | local_38 = *(long *)(lVar4 + 0x28);
+  | iVar5 = FUN_009836bc();
+  | if (((iVar5 < 4) && (uVar6 = FUN_009836b0(), (uVar6 & 1) != 0)) &&
+
+=== 009848a4 size=204 nc=7 FUN_009848a4
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, inQueue, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: link->inQueue(). 
+  | lVar4 = tpidr_el0;
+  | local_38 = *(long *)(lVar4 + 0x28);
+  | if (*(char *)(param_1 + 0x30) == '\x01') {
+  | lVar7 = *(long *)(param_1 + 8);
+
+=== 00984994 size=180 nc=7 FUN_00984994
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, inQueue, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: !link->inQueue(). 
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | iVar2 = FUN_009836bc();
+  | if (((iVar2 < 4) && (uVar3 = FUN_009836b0(), (uVar3 & 1) != 0)) &&
+
+=== 00984ba0 size=372 nc=9 FUN_00984ba0
+  C: FUN_009847c4, FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, inQueue, FUN_00983b10, FUN_00984994, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: !link->inQueue().  ~ Check failed: insertLink->inQueue(). 
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (*(long *)(param_1 + 0x28) != 0x7fffffffffffffff) {
+  | FUN_009847c4(*(long *)(param_1 + 8) + 0x50,param_1);
+
+=== 00984f78 size=212 nc=8 FUN_00984f78
+  C: FUN_009868b0, FUN_00989118, FUN_00986938, pthread_getspecific, FUN_00983d78, FUN_009e0490, pthread_setspecific, free
+  | uVar1 = FUN_009868b0(&DAT_00a740e8);
+  | if ((uVar1 & 1) != 0) {
+  | DAT_00a740ec = 0;
+  | FUN_00989118(&DAT_00a740ec,FUN_0098504c);
+
+=== 00985148 size=368 nc=6 FUN_00985148
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: obj.  ~ Check failed: shift < 32U. 
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | iVar4 = FUN_009836bc();
+  | if (((iVar4 < 4) && (uVar5 = FUN_009836b0(), param_1 == 0)) && ((uVar5 & 1) != 0)) {
+
+=== 00985324 size=412 nc=8 FUN_00985324
+  C: FUN_009854e8, FUN_00985148, FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: pos < (1U << mShift).  ~ Check failed: result == obj. 
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (1 < param_2 + 1U) {
+  | if ((ulong)(uint)(1 << (ulong)(*param_1 & 0x1f)) <= *(ulong *)(param_1 + 2)) {
+
+=== 009854e8 size=344 nc=11 FUN_009854e8
+  C: FUN_0098578c, calloc, FUN_00985148, FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, validValue, FUN_00983b10, free, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: !validValue(newItems[slot]). 
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_0098578c(param_1[1],*param_1);
+  | lVar8 = *param_1;
+
+=== 00985664 size=260 nc=7 FUN_00985664
+  C: FUN_00985148, FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: pos < (1U << mShift). 
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (1 < param_2 + 1U) {
+  | uVar3 = (*param_3)(param_2);
+
+=== 009858b0 size=116 nc=6 FUN_009858b0
+  C: FUN_009836bc, FUN_009836b0, FUN_00983654, FUN_00985ea4, FUN_009835a8, FUN_00985c6c
+  | /* try { // try from 009858c0 to 00985913 has its CatchHandler @ 00985924 */
+  | iVar2 = FUN_009836bc();
+  | if (iVar2 < 4) {
+  | FUN_009836b0();
+
+=== 00985928 size=320 nc=10 FUN_00985928
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, FUN_00983654, FUN_00985cb4, FUN_009835a8, FUN_009835e0, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: index <= oldSize. 
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | iVar4 = FUN_009836bc();
+  | if (iVar4 < 4) {
+
+=== 00985ad4 size=168 nc=7 FUN_00985ad4
+  C: FUN_009836bc, FUN_009836b0, SUB168, FUN_00983ac4, FUN_00983a10, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: pos <= kMaxCapacity. 
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | iVar4 = FUN_009836bc();
+  | if (((iVar4 < 4) && (uVar5 = FUN_009836b0(), (uVar5 & 1) != 0)) &&
+
+=== 00985ba0 size=168 nc=7 FUN_00985ba0
+  C: FUN_009836bc, FUN_009836b0, SUB168, FUN_00983ac4, FUN_00983a10, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: pos <= kMaxCapacity. 
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | iVar4 = FUN_009836bc();
+  | if (((iVar4 < 4) && (uVar5 = FUN_009836b0(), (uVar5 & 1) != 0)) &&
+
+=== 00985cb4 size=436 nc=11 FUN_00985cb4
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, SBORROW4, FUN_009836c8, bytes, FUN_009837c4, FUN_00985ea4, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: itemSize > 0.  ~ Item size cannot be 0! ~ /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: newSize <= kMaxSize. 
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | iVar7 = FUN_009836bc();
+  | if (((iVar7 < 4) && (uVar8 = FUN_009836b0(), param_3 == 0)) && ((uVar8 & 1) != 0)) {
+
+=== 00985ea4 size=516 nc=16 FUN_00985ea4
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, FUN_00983b10, SBORROW4, FUN_009836c8, bytes, FUN_009837c4, free, realloc, __errno
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: itemSize > 0.  ~ Item size cannot be 0! ~ /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: newSize <= kMaxSize. 
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | iVar6 = FUN_009836bc();
+  | if (((iVar6 < 4) && (uVar7 = FUN_009836b0(), param_3 == 0)) && ((uVar7 & 1) != 0)) {
+
+=== 00986438 size=304 nc=6 FUN_00986438
+  C: FUN_00986108, FUN_00982e18, FUN_00983d6c, FUN_00985a8c, FUN_00982f70, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | uVar4 = param_2[1];
+  | *param_1 = 0;
+
+=== 009865a4 size=524 nc=10 FUN_009865a4
+  C: FUN_00982db4, FUN_009836bc, FUN_009836b0, FUN_00985ba0, FUN_00982fb8, FUN_00983d6c, FUN_00986108, FUN_009832ec, FUN_00983384, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | uVar6 = 0x5c;
+  | if (param_3 != 1) {
+
+=== 00986fe8 size=152 nc=6 FUN_00986fe8
+  C: FUN_009e0490, FUN_00986e2c, FUN_0098727c, FUN_00987210, free, FUN_00985324
+  | __ptr = (undefined4 *)FUN_009e0490(0x28);
+  | /* try { // try from 00987010 to 0098701b has its CatchHandler @ 00987084 */
+  | FUN_00986e2c(__ptr,param_2,*param_1,param_1);
+  | if (*(char *)(__ptr + 8) == '\x01') {
+
+=== 00987150 size=184 nc=6 FUN_00987150
+  C: FUN_00985664, FUN_0098724c, FUN_0098727c, FUN_00987210, free, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | __ptr = (undefined4 *)FUN_00985664(param_1,param_2,FUN_00984da4);
+  | if (__ptr != (undefined4 *)0x0) {
+
+=== 00987538 size=412 nc=10 FUN_00987538
+  C: FUN_009836bc, FUN_009836b0, FUN_00983ac4, FUN_00983a10, isValidFd, FUN_00983870, FUN_00983b10, __FD_CLR_chk, __FD_SET_chk, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Check failed: isValidFd(fd).  ~  max 
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | iVar2 = FUN_009836bc();
+  | if (((iVar2 < 4) && (uVar4 = FUN_009836b0(), 0x3ff < param_2)) && ((uVar4 & 1) != 0)) {
+
+=== 009876f8 size=584 nc=11 FUN_009876f8
+  C: __FD_ISSET_chk, select, __errno, FUN_009836bc, FUN_00983ac4, strerror, FUN_009836c8, FUN_00983a10, FUN_009837c4, FUN_00983b10, __stack_chk_fail
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | if ((*(byte *)(param_1 + 0x20c) & 1) == 0) {
+  | iVar4 = 0;
+
+=== 00987b30 size=276 nc=11 FUN_00987b30
+  C: opendir, readdir, closedir, FUN_009836bc, FUN_009836b0, thunk_FUN_00986958, __stack_chk_fail, FUN_00982dc4, FUN_00983d6c, FUN_00985a8c, FUN_00982f70
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | lVar5 = param_2[1];
+  | *param_1 = 0;
+
+=== 00987e0c size=596 nc=10 FUN_00987e0c
+  C: strlen, FUN_002fe1b8, CONCAT71, FUN_009e0490, memmove, FUN_003564b4, FUN_002fad20, memcpy, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | plVar4 = *(long **)PTR_environ_00a0db00;
+  | *param_1 = 0;
+
+=== 0098834c size=256 nc=10 FUN_0098834c
+  C: FUN_00987b30, FUN_0098623c, FUN_009836bc, FUN_009836b0, FUN_00982e60, FUN_00985ad4, FUN_009832ec, FUN_00982ea4, FUN_00982f70, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_88 = *param_3;
+  | uStack_80 = param_3[1];
+
+=== 00988544 size=560 nc=14 FUN_00988544
+  C: FUN_00982e60, FUN_00982dc4, FUN_00983d6c, FUN_00985a8c, FUN_009865a4, FUN_00986438, FUN_009836bc, FUN_009836b0, FUN_00983094, FUN_00985828, FUN_00982f70, FUN_00982ea4
+  L: emulator ~ <unknown-launcher-dir>
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (param_1[6] != 0) goto LAB_00988748;
+  | uVar3 = (**(code **)(*param_1 + 0x78))(param_1);
+
+=== 0098a9bc size=376 nc=6 FUN_0098a9bc
+  C: FUN_009899e0, FUN_0098bcb8, FUN_0098bca8, FUN_0098bc38, FUN_0098bebc, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | uVar4 = FUN_009899e0(param_1 + 0x74e8,param_2,param_3,*(undefined4 *)(param_1 + 0x7598));
+  | if (uVar4 < 0xffffffffffffff89) {
+
+=== 009924ec size=752 nc=8 FUN_009924ec
+  C: FUN_00992a84, CONCAT16, CONCAT15, CONCAT14, CONCAT13, CONCAT12, CONCAT11, LZCOUNT
+  | ulong FUN_009924ec(byte *param_1,ulong param_2,undefined8 *param_3,int *param_4,int *param_5,
+  | byte *param_6,ulong param_7,undefined8 param_8,undefined8 param_9)
+  | if (param_7 == 0) {
+  | return 0xffffffffffffffb8;
+
+=== 00994140 size=488 nc=7 FUN_00994140
+  C: FUN_00993570, FUN_00993da4, FUN_00994328, FUN_00996750, FUN_00997ce0, FUN_00994384, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (*(int *)(param_1 + 0x75e0) == 0) {
+  | if (param_5 < 0x20001) goto LAB_009941ac;
+
+=== 00999270 size=736 nc=12 FUN_00999270
+  C: getauxval, a64_TBL, ZEXT816, CONCAT17, CONCAT16, CONCAT15, CONCAT14, CONCAT13, CONCAT12, CONCAT11, FUN_009996b8, __stack_chk_fail
+  | lVar7 = tpidr_el0;
+  | local_70 = *(long *)(lVar7 + 0x28);
+  | uVar24 = getauxval(0x10);
+  | auVar19 = _DAT_0011e1c0;
+
+=== 009996b8 size=300 nc=6 FUN_009996b8
+  C: NEON_sha256su0, NEON_sha256su1, NEON_sha256h, NEON_sha256h2, CONCAT44, __stack_chk_fail
+  | lVar6 = tpidr_el0;
+  | local_18 = *(long *)(lVar6 + 0x28);
+  | if (param_3 != 0) {
+  | uVar16 = param_1[1];
+
+=== 0099b5ec size=448 nc=6 FUN_0099b5ec
+  C: FUN_002fe1b8, FUN_009e0490, memmove, free, memset, FUN_003bc394
+  | ulong * FUN_0099b5ec(ulong *param_1,ulong param_2,ulong param_3,int param_4)
+  | bVar3 = *(byte *)param_1;
+  | uVar2 = (ulong)(bVar3 >> 1);
+  | if ((bVar3 & 1) != 0) {
+
+=== 0099c7f8 size=384 nc=6 FUN_0099c7f8
+  C: FUN_009e0490, memmove, memcpy, free, FUN_0099c978, FUN_002fad20
+  | void FUN_0099c7f8(ulong *param_1,ulong param_2,ulong param_3,long param_4,long param_5,long param_6,
+  | if (param_3 <= 0x3ffffffffffffff6 - param_2) {
+  | __src = (byte *)((long)param_1 + 4);
+  | if ((*(byte *)param_1 & 1) != 0) {
+
+=== 0099d0cc size=292 nc=8 FUN_0099d0cc
+  C: __errno, strerror_r, abort, snprintf, strlen, FUN_002fe1b8, FUN_009e0490, memmove
+  L: Unknown error %d
+  | __s = acStack_440;
+  | piVar4 = (int *)__errno();
+  | iVar2 = *piVar4;
+  | pcVar5 = strerror_r(param_3,acStack_440,0x400);
+
+=== 0099d3f0 size=280 nc=8 FUN_0099d3f0
+  C: strlen, FUN_002fe1b8, CONCAT71, FUN_009e0490, memcpy, FUN_0099d31c, FUN_0099b310, free
+  | local_50 = param_2;
+  | uStack_48 = param_3;
+  | __n = strlen(param_4);
+  | if (0xfffffffffffffff7 < __n) {
+
+=== 0099d7c4 size=224 nc=7 FUN_0099d7c4
+  C: vfprintf, vasprintf, android_set_abort_message, openlog, syslog, closelog, abort
+  L: libc++
+  | void FUN_0099d7c4(char *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | uStack_68 = 0xffffff80ffffffc8;
+  | local_e8 = param_2;
+  | uStack_e0 = param_3;
+
+=== 0099ddc8 size=144 nc=6 FUN_0099ddc8
+  C: FUN_0099e4c4, FUN_0099a824, FUN_0099a848, FUN_0099d8e4, FUN_0099e4f0, FUN_0099dd38
+  | FUN_0099e4c4(param_1 + 0x18);
+  | if ((*(byte *)(param_1 + 0x70) & 1) == 0) {
+  | local_38 = 0;
+  | lVar1 = *(long *)(param_1 + 0x10);
+
+=== 0099e10c size=364 nc=13 FUN_0099e10c
+  C: FUN_0099a824, FUN_009c0920, FUN_009c0a64, FUN_0099d300, FUN_0099b1bc, free, FUN_009da6c8, FUN_009da7d8, FUN_0099b2d8, FUN_0099a898, FUN_0099ddc8, thunk_FUN_009c0f28
+  | plVar4 = (long *)*param_1;
+  | if (plVar4 != (long *)0x0) {
+  | if ((*(byte *)(plVar4 + 0xe) & 1) == 0) {
+  | lVar5 = plVar4[2];
+
+=== 0099f858 size=340 nc=6 FUN_0099f858
+  C: FUN_0099f74c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 0099f880 to 0099f88b has its CatchHandler @ 0099f9d8 */
+  | FUN_0099f74c(local_60,param_1);
+  | if (local_60[0] != '\0') {
+  | uVar2 = *(uint *)((long)param_1 + *(long *)(*param_1 + -0x18) + 8);
+
+=== 0099fa10 size=300 nc=6 FUN_0099fa10
+  C: FUN_0099f74c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 0099fa34 to 0099fa3f has its CatchHandler @ 0099fb68 */
+  | FUN_0099f74c(local_58,param_1);
+  | if (local_58[0] != '\0') {
+  | /* try { // try from 0099fa50 to 0099fa5b has its CatchHandler @ 0099fb54 */
+
+=== 0099fba0 size=300 nc=6 FUN_0099fba0
+  C: FUN_0099f74c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 0099fbc4 to 0099fbcf has its CatchHandler @ 0099fcf8 */
+  | FUN_0099f74c(local_58,param_1);
+  | if (local_58[0] != '\0') {
+  | /* try { // try from 0099fbe0 to 0099fbeb has its CatchHandler @ 0099fce4 */
+
+=== 0099fd30 size=300 nc=6 FUN_0099fd30
+  C: FUN_0099f74c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 0099fd54 to 0099fd5f has its CatchHandler @ 0099fe88 */
+  | FUN_0099f74c(local_58,param_1);
+  | if (local_58[0] != '\0') {
+  | /* try { // try from 0099fd70 to 0099fd7b has its CatchHandler @ 0099fe74 */
+
+=== 0099fec0 size=308 nc=6 FUN_0099fec0
+  C: FUN_0099f74c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 0099fee8 to 0099fef3 has its CatchHandler @ 009a0020 */
+  | FUN_0099f74c(local_58,param_2);
+  | if (local_58[0] != '\0') {
+  | /* try { // try from 0099ff04 to 0099ff0f has its CatchHandler @ 009a000c */
+
+=== 009a0058 size=300 nc=6 FUN_009a0058
+  C: FUN_0099f74c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 009a007c to 009a0087 has its CatchHandler @ 009a01b0 */
+  | FUN_0099f74c(local_58,param_1);
+  | if (local_58[0] != '\0') {
+  | /* try { // try from 009a0098 to 009a00a3 has its CatchHandler @ 009a019c */
+
+=== 009a2be0 size=924 nc=7 FUN_009a2be0
+  C: FUN_0099ed20, FUN_009ba94c, FUN_009ba98c, FUN_0099ebd8, FUN_009a302c, FUN_009a06dc, FUN_009a30d4
+  | FUN_0099ed20(&DAT_00a76758);
+  | puVar4 = PTR___sF_00a0dc70;
+  | DAT_00a76758 = &PTR_FUN_00a093c8;
+  | DAT_00a767a8 = &DAT_00a767c0;
+
+=== 009a42dc size=564 nc=6 FUN_009a42dc
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c, FUN_009a4568, free
+  | undefined8
+  | FUN_009a42dc(long *param_1,undefined8 param_2,undefined8 param_3,long param_4,undefined4 *param_5,
+  | local_58 = param_2;
+  | if ((*(byte *)(param_4 + 8) & 1) == 0) {
+
+=== 009a6344 size=968 nc=7 FUN_009a6344
+  C: FUN_009aaa54, FUN_0099bf90, CONCAT71, FUN_009aabec, FUN_009c05cc, FUN_009b4a54, free
+  | long * FUN_009a6344(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_009aaa54(local_a8,param_4,auStack_88,local_8c,local_90);
+  | local_c0 = 0;
+  | local_b8 = 0;
+
+=== 009a675c size=968 nc=7 FUN_009a675c
+  C: FUN_009aaa54, FUN_0099bf90, CONCAT71, FUN_009aabec, FUN_009c06e4, FUN_009b4a54, free
+  | long * FUN_009a675c(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_009aaa54(local_a8,param_4,auStack_88,local_8c,local_90);
+  | local_c0 = 0;
+  | local_b8 = 0;
+
+=== 009a6b74 size=968 nc=7 FUN_009a6b74
+  C: FUN_009aaa54, FUN_0099bf90, CONCAT71, FUN_009aabec, FUN_009c07fc, FUN_009b4a54, free
+  | long * FUN_009a6b74(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_009aaa54(local_a8,param_4,auStack_88,local_8c,local_90);
+  | local_c0 = 0;
+  | local_b8 = 0;
+
+=== 009a772c size=564 nc=6 FUN_009a772c
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c, FUN_009a79b8, free
+  | undefined8
+  | FUN_009a772c(long *param_1,undefined8 param_2,undefined8 param_3,long param_4,undefined4 *param_5,
+  | local_58 = param_2;
+  | if ((*(byte *)(param_4 + 8) & 1) == 0) {
+
+=== 009a7e34 size=992 nc=7 FUN_009a7e34
+  C: FUN_009ab3e8, FUN_0099bf90, CONCAT71, FUN_009aa898, FUN_009bfe40, FUN_009b4a54, free
+  | long * FUN_009a7e34(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar10 = 0;
+
+=== 009a8264 size=992 nc=7 FUN_009a8264
+  C: FUN_009ab3e8, FUN_0099bf90, CONCAT71, FUN_009aa898, FUN_009bff68, FUN_009b4a54, free
+  | long * FUN_009a8264(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar10 = 0;
+
+=== 009a8694 size=992 nc=7 FUN_009a8694
+  C: FUN_009ab3e8, FUN_0099bf90, CONCAT71, FUN_009aa898, FUN_009c0090, FUN_009b4a54, free
+  | long * FUN_009a8694(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar10 = 0;
+
+=== 009a8ac4 size=992 nc=7 FUN_009a8ac4
+  C: FUN_009ab3e8, FUN_0099bf90, CONCAT71, FUN_009aa898, FUN_009c01e8, FUN_009b4a54, free
+  | long * FUN_009a8ac4(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar6 = 0;
+
+=== 009a8ef4 size=992 nc=7 FUN_009a8ef4
+  C: FUN_009ab3e8, FUN_0099bf90, CONCAT71, FUN_009aa898, FUN_009c033c, FUN_009b4a54, free
+  | long * FUN_009a8ef4(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar10 = 0;
+
+=== 009a9324 size=992 nc=7 FUN_009a9324
+  C: FUN_009ab3e8, FUN_0099bf90, CONCAT71, FUN_009aa898, FUN_009c0484, FUN_009b4a54, free
+  | long * FUN_009a9324(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar10 = 0;
+
+=== 009a9754 size=956 nc=7 FUN_009a9754
+  C: FUN_009aafe8, FUN_0099bf90, CONCAT71, FUN_009ab180, FUN_009c05cc, FUN_009b4a54, free
+  | long * FUN_009a9754(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_009aafe8(local_108,param_4,auStack_e8,&uStack_ec,&local_f0);
+  | local_120 = 0;
+  | local_118 = 0;
+
+=== 009a9b60 size=956 nc=7 FUN_009a9b60
+  C: FUN_009aafe8, FUN_0099bf90, CONCAT71, FUN_009ab180, FUN_009c06e4, FUN_009b4a54, free
+  | long * FUN_009a9b60(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_009aafe8(local_108,param_4,auStack_e8,&uStack_ec,&local_f0);
+  | local_120 = 0;
+  | local_118 = 0;
+
+=== 009a9f6c size=956 nc=7 FUN_009a9f6c
+  C: FUN_009aafe8, FUN_0099bf90, CONCAT71, FUN_009ab180, FUN_009c07fc, FUN_009b4a54, free
+  | long * FUN_009a9f6c(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_009aafe8(local_108,param_4,auStack_e8,&uStack_ec,&local_f0);
+  | local_120 = 0;
+  | local_118 = 0;
+
+=== 009ab748 size=528 nc=8 FUN_009ab748
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_0099ea08, FUN_009ae5d0, FUN_009ba98c, FUN_009acc2c
+  | void FUN_009ab748(undefined8 param_1,undefined8 param_2,long param_3,undefined4 param_4,
+  | uVar1 = *(uint *)(param_3 + 8);
+  | local_28 = 0x25;
+  | pcVar3 = (char *)((ulong)&local_28 | 1);
+
+=== 009ab994 size=528 nc=8 FUN_009ab994
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_0099ea08, FUN_009ae5d0, FUN_009ba98c, FUN_009acc2c
+  | void FUN_009ab994(undefined8 param_1,undefined8 param_2,long param_3,undefined4 param_4,
+  | uVar1 = *(uint *)(param_3 + 8);
+  | local_28 = 0x25;
+  | pcVar3 = (char *)((ulong)&local_28 | 1);
+
+=== 009abbe0 size=500 nc=8 FUN_009abbe0
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_0099ea08, FUN_009ae5d0, FUN_009ba98c, FUN_009acc2c
+  | void FUN_009abbe0(undefined8 param_1,undefined8 param_2,long param_3,undefined4 param_4,
+  | uVar1 = *(uint *)(param_3 + 8);
+  | local_28 = 0x25;
+  | if ((uVar1 >> 9 & 1) == 0) {
+
+=== 009abe10 size=500 nc=8 FUN_009abe10
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_0099ea08, FUN_009ae5d0, FUN_009ba98c, FUN_009acc2c
+  | void FUN_009abe10(undefined8 param_1,undefined8 param_2,long param_3,undefined4 param_4,
+  | uVar1 = *(uint *)(param_3 + 8);
+  | local_28 = 0x25;
+  | if ((uVar1 >> 9 & 1) == 0) {

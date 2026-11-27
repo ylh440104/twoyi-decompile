@@ -1,0 +1,565 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_03360.txt
+C: malloc, FUN_009c0c04
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar4 + 8);
+  | puVar2 = (undefined8 *)pvVar4;
+  | if (lVar3 - 0xfe0U < 0xfffffffffffff010) {
+
+=== 009ced0c size=160 nc=2 FUN_009ced0c
+  C: malloc, FUN_009c0c04
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009cedac size=172 nc=3 FUN_009cedac
+  C: malloc, FUN_009c0c04, strlen
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009cf5d8 size=160 nc=2 FUN_009cf5d8
+  C: malloc, FUN_009c0c04
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009cf678 size=172 nc=2 FUN_009cf678
+  C: malloc, FUN_009c0c04
+  | pvVar3 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar3 + 8);
+  | puVar1 = (undefined8 *)pvVar3;
+  | if (lVar2 - 0xfc0U < 0xfffffffffffff010) {
+
+=== 009cf724 size=748 nc=3 FUN_009cf724
+  C: realloc, abort, memcpy
+  | if (3 < *(ulong *)(param_1 + 0x18)) {
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | uVar5 = lVar2 + 1;
+
+=== 009cfa18 size=168 nc=3 FUN_009cfa18
+  C: realloc, abort, memcpy
+  L: false ~ true
+  | cVar2 = *(char *)(param_1 + 0xb);
+  | __ptr = (void *)*param_2;
+  | __n = 4;
+  | if (cVar2 == '\0') {
+
+=== 009d0058 size=268 nc=2 FUN_009d0058
+  C: realloc, abort
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 2U) {
+  | sVar4 = param_2[2] * 2;
+
+=== 009d0ad8 size=224 nc=2 FUN_009d0ad8
+  C: malloc, FUN_009c0c04
+  | void FUN_009d0ad8(long param_1,undefined8 *param_2,undefined8 *param_3,undefined8 *param_4,
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+
+=== 009d0bb8 size=120 nc=2 FUN_009d0bb8
+  C: FUN_009c1130, free
+  L: %s:%d: %s ~ out/llvm-project/libcxxabi/src/demangle/ItaniumDemangle
+  | lVar1 = *param_1;
+  | if ((ulong)(*(long *)(lVar1 + 0x2a0) - *(long *)(lVar1 + 0x298) >> 3) < (ulong)param_1[1]) {
+  | /* try { // try from 009d0c10 to 009d0c2f has its CatchHandler @ 009d0c30 */
+  | FUN_009c1130("%s:%d: %s","out/llvm-project/libcxxabi/src/demangle/ItaniumDemangle.h",0xa4f,
+
+=== 009d0c34 size=328 nc=3 FUN_009d0c34
+  C: realloc, abort, memcpy
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 8U) {
+  | sVar4 = param_2[2] * 2;
+
+=== 009d0d84 size=160 nc=2 FUN_009d0d84
+  C: malloc, FUN_009c0c04
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d0e24 size=556 nc=3 FUN_009d0e24
+  C: realloc, abort, memcpy
+  | iVar2 = *(int *)(param_1 + 0xc);
+  | if (iVar2 == 2) {
+  | pvVar3 = (void *)*param_2;
+  | lVar5 = param_2[1];
+
+=== 009d1058 size=136 nc=2 FUN_009d1058
+  C: realloc, abort
+  | lVar3 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 9U) {
+  | __size = param_2[2] * 2;
+
+=== 009d1150 size=172 nc=2 FUN_009d1150
+  C: realloc, abort
+  | plVar3 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar3 + 0x20))(plVar3);
+  | if ((*(ushort *)((long)plVar3 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar3 + 0x28))(plVar3,param_2);
+
+=== 009d126c size=188 nc=2 FUN_009d126c
+  C: realloc, abort
+  | (**(code **)(**(long **)(param_1 + 0x18) + 0x20))();
+  | puVar1 = *(undefined8 **)(param_1 + 0x18);
+  | if ((*(byte *)((long)puVar1 + 9) & 0xc0) == 0x80) {
+  | uVar2 = (**(code **)*puVar1)(puVar1,param_2);
+
+=== 009d13a8 size=276 nc=3 FUN_009d13a8
+  C: realloc, abort, FUN_009cda7c
+  | lVar6 = param_2[1];
+  | pvVar5 = (void *)*param_2;
+  | uVar3 = *(undefined4 *)(param_2 + 4);
+  | *(undefined4 *)(param_2 + 4) = 0;
+
+=== 009d14c4 size=288 nc=2 FUN_009d14c4
+  C: realloc, abort
+  | plVar5 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar5 + 0x20))(plVar5);
+  | if ((*(ushort *)((long)plVar5 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar5 + 0x28))(plVar5,param_2);
+
+=== 009d15ec size=144 nc=2 FUN_009d15ec
+  C: realloc, abort
+  | (**(code **)(**(long **)(param_1 + 0x10) + 0x20))();
+  | lVar2 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 3U) {
+
+=== 009d1698 size=344 nc=4 FUN_009d1698
+  C: realloc, abort, memcpy, FUN_009d17f8
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 7U) {
+  | sVar4 = param_2[2] * 2;
+
+=== 009d17f8 size=856 nc=3 FUN_009d17f8
+  C: realloc, abort, FUN_009cda7c
+  | if (*(long *)(param_1 + 0x18) != 0) {
+  | lVar5 = param_2[1];
+  | pvVar4 = (void *)*param_2;
+  | uVar2 = *(undefined4 *)(param_2 + 4);
+
+=== 009d1b58 size=252 nc=3 FUN_009d1b58
+  C: realloc, abort, FUN_009d17f8
+  | lVar5 = param_2[1];
+  | pvVar4 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar5 + 2U) {
+  | sVar6 = param_2[2] * 2;
+
+=== 009d1c5c size=560 nc=3 FUN_009d1c5c
+  C: realloc, abort, memcpy
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | uVar5 = lVar2 + 1;
+  | *(int *)(param_2 + 4) = *(int *)(param_2 + 4) + 1;
+
+=== 009d1e94 size=160 nc=2 FUN_009d1e94
+  C: malloc, FUN_009c0c04
+  | pvVar3 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar3 + 8);
+  | puVar1 = (undefined8 *)pvVar3;
+  | if (lVar2 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d1f34 size=236 nc=3 FUN_009d1f34
+  C: realloc, abort, memcpy
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 2U) {
+  | sVar4 = param_2[2] * 2;
+
+=== 009d27ac size=424 nc=2 FUN_009d27ac
+  C: realloc, abort
+  | plVar8 = *(long **)(param_1 + 0x10);
+  | lVar10 = param_2[1];
+  | uVar2 = *(undefined4 *)(param_2 + 3);
+  | uVar3 = *(undefined4 *)((long)param_2 + 0x1c);
+
+=== 009d296c size=580 nc=2 FUN_009d296c
+  C: realloc, abort
+  | lVar3 = param_2[1];
+  | uVar1 = param_2[2];
+  | pvVar2 = (void *)*param_2;
+  | uVar5 = lVar3 + 1;
+
+=== 009d2bb8 size=612 nc=2 FUN_009d2bb8
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | uVar3 = lVar2 + 1;
+  | if ((ulong)param_2[2] < uVar3) {
+
+=== 009d2e24 size=276 nc=3 FUN_009d2e24
+  C: realloc, abort, FUN_009cda7c
+  | plVar5 = *(long **)(param_1 + 0x10);
+  | if ((plVar5 != (long *)0x0) &&
+  | ((**(code **)(*plVar5 + 0x20))(plVar5,param_2), (*(ushort *)((long)plVar5 + 9) & 0xc0) != 0x40)
+  | ) {
+
+=== 009d2f40 size=520 nc=2 FUN_009d2f40
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | uVar4 = lVar2 + 1;
+  | *(int *)(param_2 + 4) = *(int *)(param_2 + 4) + 1;
+
+=== 009d3150 size=740 nc=2 FUN_009d3150
+  C: realloc, abort
+  | lVar4 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar4 + 1U) {
+  | sVar7 = param_2[2] * 2;
+
+=== 009d343c size=284 nc=2 FUN_009d343c
+  C: realloc, abort
+  | lVar4 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar4 + 10U) {
+  | sVar6 = param_2[2] * 2;
+
+=== 009d3560 size=284 nc=2 FUN_009d3560
+  C: realloc, abort
+  | lVar4 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar4 + 10U) {
+  | sVar6 = param_2[2] * 2;
+
+=== 009d3684 size=848 nc=3 FUN_009d3684
+  C: realloc, abort, FUN_009cda7c
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 8U) {
+  | sVar5 = param_2[2] * 2;
+
+=== 009d39dc size=776 nc=3 FUN_009d39dc
+  C: realloc, abort, memcpy
+  | plVar8 = *(long **)(param_1 + 0x18);
+  | (**(code **)(*plVar8 + 0x20))(plVar8);
+  | if ((*(ushort *)((long)plVar8 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar8 + 0x28))(plVar8,param_2);
+
+=== 009d3cec size=376 nc=3 FUN_009d3cec
+  C: realloc, abort, FUN_009d27ac
+  | lVar4 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar4 + 9U) {
+  | sVar6 = param_2[2] * 2;
+
+=== 009d3e80 size=216 nc=2 FUN_009d3e80
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 6U) {
+  | __size = param_2[2] * 2;
+
+=== 009d4374 size=260 nc=2 FUN_009d4374
+  C: realloc, abort
+  | plVar3 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar3 + 0x20))(plVar3);
+  | if ((*(ushort *)((long)plVar3 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar3 + 0x28))(plVar3,param_2);
+
+=== 009d4494 size=884 nc=5 FUN_009d4494
+  C: FUN_009c3604, malloc, strlen, FUN_009c68e8, FUN_009c0c04
+  | pbVar2 = (byte *)*param_1;
+  | pbVar3 = (byte *)param_1[1];
+  | if (1 < (ulong)((long)pbVar3 - (long)pbVar2)) {
+  | bVar4 = *pbVar2;
+
+=== 009d4814 size=148 nc=2 FUN_009d4814
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 1U) {
+  | __size = param_2[2] * 2;
+
+=== 009d48b0 size=220 nc=2 FUN_009d48b0
+  C: realloc, abort
+  | lVar3 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 9U) {
+  | __size = param_2[2] * 2;
+
+=== 009d4994 size=224 nc=2 FUN_009d4994
+  C: realloc, abort
+  | lVar3 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 0xbU) {
+  | __size = param_2[2] * 2;
+
+=== 009d4a7c size=200 nc=2 FUN_009d4a7c
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 2U) {
+  | __size = param_2[2] * 2;
+
+=== 009d4b60 size=272 nc=3 FUN_009d4b60
+  C: FUN_009d5178, malloc, FUN_009c0c04
+  | pcVar3 = (char *)*param_1;
+  | puVar5 = param_2;
+  | if (pcVar3 != (char *)param_1[1]) {
+  | do {
+
+=== 009d4c70 size=440 nc=4 FUN_009d4c70
+  C: realloc, abort, FUN_009c1130, memcpy
+  L: allocator ~ basic_string ~ basic_istream ~ basic_ostream ~ basic_iostream
+  | lVar4 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar4 + 5U) {
+  | sVar5 = param_2[2] * 2;
+
+=== 009d51e0 size=340 nc=3 FUN_009d51e0
+  C: realloc, abort, memcpy
+  | (**(code **)(**(long **)(param_1 + 0x10) + 0x20))();
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 5U) {
+
+=== 009d5350 size=228 nc=3 FUN_009d5350
+  C: realloc, abort, FUN_009cda7c
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | uVar4 = lVar2 + 1;
+  | *(int *)(param_2 + 4) = *(int *)(param_2 + 4) + 1;
+
+=== 009d543c size=192 nc=2 FUN_009d543c
+  C: malloc, FUN_009c0c04
+  | pvVar6 = *(void **)(param_1 + 0x1330);
+  | lVar4 = *(long *)((long)pvVar6 + 8);
+  | puVar3 = (undefined8 *)pvVar6;
+  | if (lVar4 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d54fc size=260 nc=3 FUN_009d54fc
+  C: realloc, abort, memcpy
+  | if (*(char *)(param_1 + 0x18) != '\0') {
+  | lVar4 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar4 + 1U) {
+
+=== 009d5608 size=256 nc=2 FUN_009d5608
+  C: realloc, abort
+  | plVar3 = *(long **)(param_1 + 0x18);
+  | (**(code **)(*plVar3 + 0x20))(plVar3);
+  | if ((*(ushort *)((long)plVar3 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar3 + 0x28))(plVar3,param_2);
+
+=== 009d5724 size=280 nc=2 FUN_009d5724
+  C: realloc, abort
+  | plVar4 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar4 + 0x20))(plVar4);
+  | if ((*(ushort *)((long)plVar4 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar4 + 0x28))(plVar4,param_2);
+
+=== 009d5858 size=260 nc=2 FUN_009d5858
+  C: realloc, abort
+  | plVar3 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar3 + 0x20))(plVar3);
+  | if ((*(ushort *)((long)plVar3 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar3 + 0x28))(plVar3,param_2);
+
+=== 009d5a28 size=172 nc=3 FUN_009d5a28
+  C: malloc, FUN_009c0c04, strlen
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d5ad4 size=168 nc=2 FUN_009d5ad4
+  C: malloc, FUN_009c0c04
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+  | if (lVar2 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d5b7c size=260 nc=2 FUN_009d5b7c
+  C: realloc, abort
+  | plVar3 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar3 + 0x20))(plVar3);
+  | if ((*(ushort *)((long)plVar3 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar3 + 0x28))(plVar3,param_2);
+
+=== 009d5eb8 size=232 nc=3 FUN_009d5eb8
+  C: realloc, abort, FUN_009cda7c
+  | lVar4 = param_2[1];
+  | pvVar3 = (void *)*param_2;
+  | uVar2 = *(undefined4 *)(param_2 + 4);
+  | *(undefined4 *)(param_2 + 4) = 0;
+
+=== 009d6104 size=240 nc=3 FUN_009d6104
+  C: realloc, abort, FUN_009cda7c
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 0xcU) {
+  | sVar5 = param_2[2] * 2;
+
+=== 009d61fc size=216 nc=2 FUN_009d61fc
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 5U) {
+  | __size = param_2[2] * 2;
+
+=== 009d62f4 size=268 nc=2 FUN_009d62f4
+  C: realloc, abort
+  | plVar1 = *(long **)(param_1 + 0x10);
+  | if (plVar1 != (long *)0x0) {
+  | (**(code **)(*plVar1 + 0x20))(plVar1,param_2);
+  | puVar2 = *(undefined8 **)(param_1 + 0x10);
+
+=== 009d6804 size=364 nc=3 FUN_009d6804
+  C: realloc, abort, memcpy
+  | plVar5 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar5 + 0x20))(plVar5);
+  | if ((*(ushort *)((long)plVar5 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar5 + 0x28))(plVar5,param_2);
+
+=== 009d6f20 size=984 nc=4 FUN_009d6f20
+  C: malloc, FUN_009c6efc, FUN_009c3604, FUN_009c0c04
+  | pbVar10 = (byte *)*param_1;
+  | pbVar1 = (byte *)param_1[1];
+  | if (pbVar10 == pbVar1) {
+  | LAB_009d7070:
+
+=== 009d72f8 size=172 nc=3 FUN_009d72f8
+  C: malloc, FUN_009c0c04, strlen
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d73a4 size=172 nc=3 FUN_009d73a4
+  C: malloc, FUN_009c0c04, strlen
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d7450 size=172 nc=3 FUN_009d7450
+  C: malloc, FUN_009c0c04, strlen
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar1 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d74fc size=172 nc=2 FUN_009d74fc
+  C: malloc, FUN_009c0c04
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfc0U < 0xfffffffffffff010) {
+
+=== 009d75a8 size=160 nc=2 FUN_009d75a8
+  C: malloc, FUN_009c0c04
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d7648 size=172 nc=2 FUN_009d7648
+  C: malloc, FUN_009c0c04
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar2 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d76f4 size=172 nc=2 FUN_009d76f4
+  C: malloc, FUN_009c0c04
+  | pvVar3 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar3 + 8);
+  | puVar1 = (undefined8 *)pvVar3;
+  | if (lVar2 - 0xfc0U < 0xfffffffffffff010) {
+
+=== 009d7a5c size=336 nc=3 FUN_009d7a5c
+  C: FUN_009c4b44, malloc, FUN_009c0c04
+  L: struct ~ union ~ enum
+  | psVar1 = (short *)*param_1;
+  | if ((ulong)(param_1[1] - (long)psVar1) < 2) {
+  | LAB_009d7a84:
+  | puVar2 = (undefined8 *)FUN_009c4b44(param_1,0);
+
+=== 009d7bac size=172 nc=2 FUN_009d7bac
+  C: malloc, FUN_009c0c04
+  | pvVar5 = *(void **)(param_1 + 0x1330);
+  | lVar3 = *(long *)((long)pvVar5 + 8);
+  | puVar2 = (undefined8 *)pvVar5;
+  | if (lVar3 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d7c58 size=188 nc=2 FUN_009d7c58
+  C: malloc, FUN_009c0c04
+  | pvVar6 = *(void **)(param_1 + 0x1330);
+  | lVar4 = *(long *)((long)pvVar6 + 8);
+  | puVar3 = (undefined8 *)pvVar6;
+  | if (lVar4 - 0xfd0U < 0xfffffffffffff010) {
+
+=== 009d7d14 size=176 nc=2 FUN_009d7d14
+  C: malloc, FUN_009c0c04
+  L:  complex
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfc0U < 0xfffffffffffff010) {
+
+=== 009d7dc4 size=176 nc=2 FUN_009d7dc4
+  C: malloc, FUN_009c0c04
+  L:  imaginary
+  | pvVar4 = *(void **)(param_1 + 0x1330);
+  | lVar2 = *(long *)((long)pvVar4 + 8);
+  | puVar1 = (undefined8 *)pvVar4;
+  | if (lVar2 - 0xfc0U < 0xfffffffffffff010) {
+
+=== 009d7e74 size=624 nc=2 FUN_009d7e74
+  C: realloc, abort
+  | lVar2 = param_2[1];
+  | pvVar1 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 8U) {
+  | sVar5 = param_2[2] * 2;
+
+=== 009d80ec size=328 nc=3 FUN_009d80ec
+  C: realloc, abort, FUN_009cda7c
+  | lVar3 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar3 + 5U) {
+  | sVar5 = param_2[2] * 2;
+
+=== 009d8254 size=132 nc=2 FUN_009d8254
+  C: realloc, abort
+  | (**(code **)(**(long **)(param_1 + 0x10) + 0x20))();
+  | lVar2 = param_2[1];
+  | __ptr = (void *)*param_2;
+  | if ((ulong)param_2[2] < lVar2 + 1U) {
+
+=== 009d82d8 size=916 nc=3 FUN_009d82d8
+  C: realloc, abort, FUN_009cda7c
+  | lVar4 = param_2[1];
+  | pvVar2 = (void *)*param_2;
+  | uVar6 = lVar4 + 1;
+  | *(int *)(param_2 + 4) = *(int *)(param_2 + 4) + 1;
+
+=== 009d8674 size=364 nc=3 FUN_009d8674
+  C: realloc, abort, memcpy
+  | plVar5 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar5 + 0x20))(plVar5);
+  | if ((*(ushort *)((long)plVar5 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar5 + 0x28))(plVar5,param_2);
+
+=== 009d87e8 size=364 nc=3 FUN_009d87e8
+  C: realloc, abort, memcpy
+  | plVar5 = *(long **)(param_1 + 0x10);
+  | (**(code **)(*plVar5 + 0x20))(plVar5);
+  | if ((*(ushort *)((long)plVar5 + 9) & 0xc0) != 0x40) {
+  | (**(code **)(*plVar5 + 0x28))(plVar5,param_2);
+
+=== 009d89ec size=376 nc=2 FUN_009d89ec
+  C: realloc, abort
+  | (**(code **)(**(long **)(param_1 + 0x10) + 0x20))();
+  | uVar4 = *(uint *)(param_1 + 0xc);
+  | if ((uVar4 & 1) != 0) {
+  | lVar5 = param_2[1];

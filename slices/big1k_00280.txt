@@ -1,0 +1,306 @@
+class >=1000 B : 672 functions; slice 280..320
+
+=== 00694f64 size=2012 nc=9 FUN_00694f64
+  C: FUN_0068ddb0, FUN_009e0490, free, SCARRY8, memmove, FUN_00695a5c, FUN_006958c8, __stack_chk_fail, FUN_00695740
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | puVar16 = (undefined8 *)param_1[2];
+  | uVar21 = param_1[4];
+
+=== 00698414 size=1908 nc=13 FUN_00698414
+  C: fprintf, thunk_FUN_009e0490, FUN_006da86c, FUN_006bcdc8, FUN_009e0490, memset, memcpy, FUN_006dad20, free, FUN_006dad88, FUN_00698c7c, FUN_0068ddb0
+  L: chooseConfig
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | local_7c = 0;
+  | iVar4 = (**(code **)(PTR_DAT_00a0df98 + 0x28))(*(undefined8 *)(param_1 + 4),0,0,&local_7c);
+
+=== 0069ae9c size=2804 nc=3 FUN_0069ae9c
+  C: FUN_0069b990, FUN_0099bba0, FUN_0099c6c8
+  L: GL_CHROMIUM_texture_filtering_hint ~ GL_NV_fence ~ GL_NV_framebuffer_blit ~ GL_NV_read_depth
+  | bVar1 = *param_2;
+  | uVar3 = (ulong)(bVar1 >> 1);
+  | if ((bVar1 & 1) != 0) {
+  | uVar3 = *(ulong *)(param_2 + 8);
+
+=== 0069bb10 size=1200 nc=26 FUN_0069bb10
+  C: FUN_0068ddd8, FUN_00689328, FUN_006daf98, FUN_006ae1c4, FUN_006daf58, NEON_fmsub, FUN_0068a564, FUN_0068a5f0, CONCAT44, FUN_0068ad30, FUN_006ae620, FUN_0068a5e8
+  | lVar3 = tpidr_el0;
+  | local_98 = *(long *)(lVar3 + 0x28);
+  | if (((*(byte *)(param_1 + 10) & 1) == 0) && (*(char *)(param_1 + 8) == '\x01')) {
+  | if ((long *)param_1[6] == (long *)0x0) {
+
+=== 0069c380 size=2384 nc=35 FUN_0069c380
+  C: FUN_009e0490, FUN_0099dff8, FUN_009e0360, FUN_0099e064, FUN_0099df40, FUN_006c56dc, FUN_006daf98, FUN_0068ace8, FUN_006ae1c4, FUN_0069c234, FUN_0068a574, FUN_006ae620
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ composev2Impl ~ Failed to retrieve the composition target buffer
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | plVar11 = (long *)FUN_009e0490(0x78);
+  | *plVar11 = (long)&PTR_FUN_009e5f88;
+
+=== 006a2264 size=2012 nc=9 FUN_006a2264
+  C: FUN_0068ddb0, FUN_009e0490, free, SCARRY8, memmove, FUN_006a2d5c, FUN_006a2bc8, __stack_chk_fail, FUN_006a2a40
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | puVar16 = (undefined8 *)param_1[2];
+  | uVar21 = param_1[4];
+
+=== 006a332c size=1264 nc=7 FUN_006a332c
+  C: FUN_006a1b30, FUN_0068ddb0, FUN_009e0490, FUN_006a3aa4, free, FUN_006a381c, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+  | if (0 < param_5) {
+  | plVar15 = param_1 + 2;
+
+=== 006a3f20 size=1100 nc=9 FUN_006a3f20
+  C: FUN_0068ddb0, FUN_009e0490, free, FUN_006a2d5c, FUN_006a2a40, FUN_006a2bc8, SCARRY8, memmove, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | if ((ulong)param_1[4] < 0x200) {
+  | puVar16 = (undefined8 *)param_1[1];
+
+=== 006a6b68 size=3532 nc=27 FUN_006a6b68
+  C: FUN_006cff78, FUN_0094046c, FUN_0094059c, FUN_009e0490, memset, FUN_0094002c, FUN_006a7c80, FUN_006a7dac, NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ createSwapChainCi ~ VK_INCOMPLETE returned by vkGetPhysicalDeviceSurfaceFor ~ VK_INCOMPLETE still returned by vkGetPhysicalDeviceSurf ~ VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT
+  | void FUN_006a6b68(long param_1,long param_2,undefined8 param_3,undefined8 param_4,uint param_5,
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | local_1d4 = 0;
+
+=== 006adb90 size=1060 nc=5 FUN_006adb90
+  C: fprintf, pthread_mutex_lock, NEON_smax, pthread_mutex_unlock, __stack_chk_fail
+  L: drawImpl
+  | void FUN_006adb90(float param_1,undefined4 param_2,undefined4 param_3,long param_4,
+  | puVar4 = PTR_DAT_00a0df90;
+  | lVar3 = tpidr_el0;
+  | local_88 = *(long *)(lVar3 + 0x28);
+
+=== 006b10ec size=1200 nc=13 FUN_006b10ec
+  C: FUN_009e0490, FUN_0099c6c8, main, alignment, texture2D, FUN_006b0920, fprintf, FUN_006da86c, texture, mat3, vec4, free
+  L: #version 300 es ~ isInterleaved ~ createYUVGLShader ~ uYWidthCutoff ~ uCWidthCutoff
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | iVar7 = *(int *)(param_1 + 8);
+  | if ((iVar7 == 4) && (*(char *)(param_1 + 0x4c) != '\x01')) goto LAB_006b14fc;
+
+=== 006b1608 size=1652 nc=9 FUN_006b1608
+  C: FUN_006b1c8c, fprintf, FUN_006da86c, FUN_006b0a1c, FUN_006b0bf0, FUN_006b0dc4, FUN_006dad58, FUN_006b10ec, __stack_chk_fail
+  L: getGlPixelFormat ~ getGlPixelType ~ getGlTextureFormat ~ isInterleaved
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | FUN_006b1c8c(param_2,param_3,param_1[2],auStack_70,auStack_74,auStack_78,&local_7c,&local_80);
+  | puVar5 = PTR_DAT_00a0df90;
+
+=== 006b2468 size=1960 nc=9 FUN_006b2468
+  C: FUN_006b2c28, FUN_006b1608, FUN_006b1c8c, NEON_fmov, fprintf, FUN_006da86c, FUN_006b0bf0, FUN_006b0dc4, __stack_chk_fail
+  L: updateCutoffs ~ getGlPixelType ~ getGlPixelFormat ~ isInterleaved
+  | void FUN_006b2468(int *param_1,undefined4 param_2,undefined4 param_3,int param_4,int param_5,
+  | puVar12 = PTR_DAT_00a0df90;
+  | lVar11 = tpidr_el0;
+  | local_78 = *(long *)(lVar11 + 0x28);
+
+=== 006b3804 size=2020 nc=49 FUN_006b3804
+  C: FUN_006a43fc, FUN_006ebd98, FUN_006ebdac, FUN_0080b074, FUN_0081ae40, FUN_006b4b10, FUN_00687a1c, FUN_0069fcc8, FUN_0069fd04, FUN_006ba864, FUN_006fa4e4, FUN_009e0490
+  L: RENDERER_DUMP_DIR ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ ERROR: RenderThread exiting with current context/surfac ~ Error: RenderThread @%p failed to eglReleaseThread() ~ Error: fail loading a RenderThread @%p
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | if ((*(byte *)(param_1 + 0x5c) & 1) == 0) {
+  | FUN_006a43fc(auStack_2210);
+
+=== 006b3ff0 size=1124 nc=10 FUN_006b3ff0
+  C: block, FUN_0069a8dc, malloc, abort, free, FUN_0094002c, context, FUN_009e0490, FUN_006b4454, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ Failed to create context (EGL_NO_CONTEXT result)
+  | undefined8
+  | FUN_006b3ff0(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,int param_5
+  | ,long param_6)
+  | lVar1 = tpidr_el0;
+
+=== 006b5098 size=3148 nc=18 FUN_006b5098
+  C: FUN_006a4674, FUN_006b45a0, FUN_0099c6c8, FUN_006bcdc8, FUN_0069a93c, free, CONCAT44, CONCAT13, CONCAT12, CONCAT11, FUN_006da86c, FUN_0079cf98
+  L: ANDROID_EMU_native_sync_v2 ~ ANDROID_EMU_native_sync_v3 ~ ANDROID_EMU_native_sync_v4 ~ ANDROID_EMU_dma_v1 ~ ANDROID_EMU_dma_v2
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+  | lVar26 = FUN_006a4674();
+  | local_a0 = 0;
+
+=== 006baa00 size=1428 nc=18 FUN_006baa00
+  C: FUN_009c0920, FUN_009e0490, pthread_cond_init, FUN_009c0a64, pthread_mutex_lock, pthread_cond_broadcast, pthread_mutex_unlock, FUN_006baff0, FUN_009e0360, FUN_0099b070, free, ANativeWindow_release
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ Cannot remove native sub-window in this configuration
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if (((DAT_00a6c940 & 1) == 0) && (iVar6 = FUN_009c0920(&DAT_00a6c940), iVar6 != 0)) {
+  | ppVar7 = (pthread_mutex_t *)FUN_009e0490(0x58);
+
+=== 006bb26c size=4836 nc=55 FUN_006bb26c
+  C: block, FUN_006da3b4, FUN_009e0490, FUN_006bcdd4, CONCAT31, SUB84, SUB81, SUB31, FUN_006d9f7c, free, CONCAT17, CONCAT16
+  L: librenderdoc.so ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ RenderDoc integration enabled. ~ initialize ~ Failed to initialize global Vulkan emulation. Disable t
+  | puVar28 = PTR_DAT_00a0dfd8;
+  | lVar3 = tpidr_el0;
+  | local_78 = *(long *)(lVar3 + 0x28);
+  | if (*(long *)PTR_DAT_00a0dfd8 != 0) {
+
+=== 006bd4fc size=1576 nc=23 FUN_006bd4fc
+  C: FUN_006baa00, FUN_006bdb24, FUN_0099e064, CONCAT44, FUN_009e0360, FUN_0099b070, free, FUN_006adfb8, FUN_00698394, FUN_006da780, FUN_0069cd7c, FUN_0069ecf8
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | FUN_006baa00();
+  | if (*(char *)(param_1 + 0x610) == '\x01') {
+
+=== 006be2a4 size=1708 nc=14 FUN_006be2a4
+  C: pthread_mutex_lock, CONCAT44, FUN_006bb15c, FUN_0099df40, FUN_006c9e3c, FUN_006daf98, FUN_0094002c, FUN_009e0490, FUN_0069f6c0, thunk_FUN_009e0490, FUN_006da59c, FUN_0099e064
+  L: display %d not exist, cancelling OnPost callback ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ display %d already configured for recording
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | local_6c = param_4;
+  | iVar3 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x38));
+
+=== 006be950 size=1408 nc=21 FUN_006be950
+  C: FUN_0094002c, pthread_mutex_lock, FUN_006d25b0, FUN_006be084, FUN_009e0360, FUN_0099b070, free, FUN_0099df40, FUN_006bef50, FUN_0099e064, FUN_006bf600, ANativeWindow_release
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ setupSubWindow ~ Cannot remove native sub-window in this configuration
+  | undefined4
+  | FUN_006be950(float param_1,float param_2,int *param_3,undefined8 param_4,int param_5,int param_6,
+  | lVar1 = tpidr_el0;
+  | local_80 = *(long *)(lVar1 + 0x28);
+
+=== 006bef50 size=1712 nc=25 FUN_006bef50
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0068a5e8, FUN_0068ab88, pthread_mutex_unlock, FUN_00689328, FUN_0068a564, FUN_006be084, FUN_009e0360, FUN_0099b070
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ Cannot find post callback function for display %d ~ Failed to find colorbuffer %d, skip onPost ~ Failed to get color buffer for display %d, skip onPost
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | uVar10 = param_1;
+  | if ((param_3 & 1) != 0) {
+
+=== 006c07e4 size=1312 nc=19 FUN_006c07e4
+  C: FUN_006a4674, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44, FUN_006c0d04, FUN_009e0490, memcpy, free, pthread_mutex_unlock, FUN_006fc5f8
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | if (((*(byte *)(param_1 + 0x4d8) & 1) == 0) &&
+  | (lVar7 = FUN_006a4674(), *(long *)(lVar7 + 0x1d00) != 0)) {
+
+=== 006c120c size=1304 nc=17 FUN_006c120c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44, FUN_006c0d04, FUN_0069d6d0, FUN_009e0490, memcpy, free, FUN_006cd4bc, FUN_0068ddb0, FUN_006cc138
+  | lVar7 = tpidr_el0;
+  | local_68 = *(long *)(lVar7 + 0x28);
+  | uVar12 = *(ulong *)(param_2 + 0xf0);
+  | param_1[1] = 0;
+
+=== 006c1fbc size=1208 nc=15 FUN_006c1fbc
+  C: FUN_006a4694, usleep, pthread_mutex_lock, pthread_mutex_unlock, FUN_006c2474, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006cc900, FUN_006ccae4, free, FUN_006cccf0
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | do {
+  | local_d4[0] = 0;
+
+=== 006c2474 size=2628 nc=18 FUN_006c2474
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44, FUN_006cd4bc, FUN_009e0490, memcpy, free, FUN_006c0d04, FUN_0069d6d0, FUN_006cc138, FUN_009e0360
+  | lVar8 = tpidr_el0;
+  | local_68 = *(long *)(lVar8 + 0x28);
+  | plVar25 = *(long **)(param_2 + 0x1a0);
+  | *param_1 = 0;
+
+=== 006c3180 size=1096 nc=16 FUN_006c3180
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0094002c, pthread_mutex_unlock, __stack_chk_fail, FUN_009e0330, FUN_006b018c, FUN_009e0360, FUN_0099b070, FUN_0068a5e8
+  L: bad window surface handle %#x ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ bad color buffer handle %#x
+  | lVar4 = tpidr_el0;
+  | local_48 = *(long *)(lVar4 + 0x28);
+  | local_58 = param_2;
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x38));
+
+=== 006c4654 size=1884 nc=15 FUN_006c4654
+  C: pthread_mutex_lock, FUN_006baff0, FUN_0094002c, FUN_006a4674, FUN_009e0330, FUN_006b024c, FUN_009e0360, FUN_0099b070, FUN_006b45a0, NEON_cnt, NEON_uaddlv, CONCAT62
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ eglMakeCurrent failed
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | if ((*(byte *)(param_1 + 0x4d8) & 1) != 0) {
+  | uVar23 = 0;
+
+=== 006c67d8 size=3804 nc=44 FUN_006c67d8
+  C: pthread_mutex_lock, FUN_006baff0, FUN_006c2474, FUN_006cd6cc, free, FUN_006cc900, FUN_006ccae4, FUN_006cccf0, FUN_006c1de0, pthread_mutex_unlock, FUN_006fc5f8, FUN_0068ddd8
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ warning: on load, stale colorbuffers: %zu
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x38));
+  | FUN_006baff0(param_1);
+
+=== 006d0058 size=1464 nc=2 FUN_006d0058
+  C: FUN_009e0490, FUN_0069f6c0
+  | bool FUN_006d0058(uint param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4,
+  | puVar1 = PTR_DAT_00a0e108;
+  | puVar6 = *(undefined8 **)(PTR_DAT_00a0e108 + 8);
+  | puVar9 = (undefined8 *)(PTR_DAT_00a0e108 + 8);
+
+=== 006d0b18 size=1032 nc=3 FUN_006d0b18
+  C: FUN_009e0490, FUN_0069f6c0, fprintf
+  | undefined8
+  | FUN_006d0b18(uint param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | puVar1 = PTR_DAT_00a0e108;
+  | puVar4 = *(undefined8 **)(PTR_DAT_00a0e108 + 8);
+
+=== 006d1a50 size=1252 nc=33 FUN_006d1a50
+  C: FUN_006da868, FUN_006da890, FUN_0079cfec, FUN_0079d034, FUN_007fd720, FUN_0099c458, FUN_006dbab4, FUN_006e6f30, FUN_006e7814, FUN_006dbc10, FUN_0069ffe4, FUN_006dbe68
+  L: failed to load host Vulkan ~ gfxstream initLibrary failed ~ gfxstream console agents are incomplete ~ TwoyiGfxstream ~ G5 ready socket=%s GLES=%d.%d hostCallbacks=v5 mappedSh
+  | uint FUN_006d1a50(long *param_1,undefined8 param_2,undefined4 param_3,undefined4 param_4,
+  | lVar3 = tpidr_el0;
+  | local_78 = *(long *)(lVar3 + 0x28);
+  | local_1e8 = param_2;
+
+=== 006d2cd8 size=1852 nc=32 FUN_006d2cd8
+  C: FUN_0099c458, __memcpy_chk, socket, __errno, strerror, strlen, FUN_006d4928, catch, free, FUN_006d35e4, FUN_009dbd00, CONCAT71
+  L: socket path must be absolute ~ socket path is too long ~ socket() failed:  ~ listen() failed:  ~ chmod() failed: 
+  | ulong FUN_006d2cd8(byte *param_1,byte *param_2)
+  | lVar8 = tpidr_el0;
+  | local_100.__unused[2] = *(long *)(lVar8 + 0x28);
+  | bVar6 = *param_1;
+
+=== 006d4224 size=1128 nc=18 FUN_006d4224
+  C: FUN_0099e4c4, FUN_006d56bc, FUN_006d5530, free, FUN_0099e4f0, __android_log_print, __stack_chk_fail, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006d5250, FUN_006d49bc
+  L: TwoyiGfxstream ~ cleaning resources for exited pid=%u puid=%lu
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | local_a0 = (ulong *)0x0;
+  | local_98 = (ulong *)0x0;
+
+=== 006d5ef4 size=1176 nc=17 FUN_006d5ef4
+  C: recvfrom, __android_log_print, __errno, FUN_009e0240, shutdown, FUN_0099e4c4, FUN_0099e4f0, FUN_0099d8e4, FUN_009e0300, FUN_006d5af8, malloc, abort
+  L: TwoyiGfxstream ~ puid=%lu context=%lu: guest socket reached EOF channel_ ~ puid=%lu context=%lu: guest socket read failed errno=%d ~ puid=%lu context=%lu: non-zero guest client flags ~ puid=%lu context=%lu: %s
+  | lVar4 = tpidr_el0;
+  | lVar10 = *(long *)(lVar4 + 0x28);
+  | if ((*(byte *)(param_1 + 0x1c) & 1) != 0) {
+  | do {
+
+=== 006d63d4 size=1280 nc=14 FUN_006d63d4
+  C: FUN_006d5d88, sendto, __errno, __android_log_print, sendmsg, close, free, FUN_009e0240, shutdown, FUN_0099e4c4, FUN_0099e4f0, FUN_0099d8e4
+  L: TwoyiGfxstream ~ puid=%lu context=%lu: host reply write failed errno=%d ~ puid=%lu context=%lu: host reply channel stopped result ~ coherent-shadow ~ unknown
+  | lVar3 = tpidr_el0;
+  | local_88 = *(long *)(lVar3 + 0x28);
+  | LAB_006d643c:
+  | if ((*(byte *)(param_1 + 0x1c) & 1) != 0) {
+
+=== 006d87a0 size=1080 nc=1 FUN_006d87a0
+  C: CONCAT11
+  | ulong FUN_006d87a0(undefined8 param_1,ulong *param_2,ulong param_3)
+  | if (param_3 < 0x21) {
+  | if (param_3 < 0x11) {
+  | if (8 < param_3) {
+
+=== 006dbf7c size=1064 nc=14 FUN_006dbf7c
+  C: FUN_006e92b8, FUN_006e87fc, FUN_006e9d64, FUN_006e6f24, FUN_006dae94, FUN_006df858, FUN_009e0360, FUN_0099b070, FUN_006e6b8c, FUN_006dc3a4, FUN_006e2e78, FUN_006dc6b0
+  L: %s: gpu info ~ android_startOpenglesRenderer
+  | void FUN_006dbf7c(undefined4 param_1,undefined4 param_2,uint param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_70 = *(long *)(lVar2 + 0x28);
+  | uVar6 = 0xffffffff;
+
+=== 006e2f8c size=1844 nc=10 FUN_006e2f8c
+  C: FUN_009c0920, FUN_009e0490, FUN_009c0a64, FUN_006dc3a4, FUN_006d722c, FUN_006e50f0, FUN_006d74ec, FUN_006d76ac, CONCAT71, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | puVar1 = PTR_DAT_00a0e430 + 0x10;
+  | *(undefined4 *)(param_1 + 1) = 1;
+
+=== 006e36c0 size=1020 nc=15 FUN_006e36c0
+  C: FUN_006d7300, FUN_006d73c4, FUN_0068ddd8, FUN_009c0920, FUN_009e0490, FUN_009c0a64, pthread_mutex_lock, FUN_006e5950, FUN_006e5acc, FUN_006e4754, pthread_mutex_unlock, pthread_cond_destroy
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | *param_1 = &PTR_FUN_009e7878;
+  | if (param_1[100] != 0) {

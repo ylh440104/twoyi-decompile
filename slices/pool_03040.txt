@@ -1,0 +1,517 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_03040.txt
+C: FUN_009e0490, memmove, free, FUN_0099c978, FUN_002fad20
+  | void FUN_0099cb10(ulong *param_1,ulong param_2,ulong param_3,long param_4,long param_5,long param_6,
+  | uVar2 = 0x3ffffffffffffff7;
+  | if (param_3 <= 0x3ffffffffffffff7 - param_2) {
+  | __src = (byte *)((long)param_1 + 4);
+
+=== 0099cc50 size=196 nc=4 FUN_0099cc50
+  C: FUN_0099cd14, FUN_009e0490, memcpy, FUN_002fe1b8
+  | puVar2 = (undefined *)FUN_0099cd14(auStack_3b,param_2);
+  | __n = (long)puVar2 - (long)auStack_3b;
+  | if (__n < 0xfffffffffffffff8) {
+  | if (__n < 0x17) {
+
+=== 0099d200 size=104 nc=2 FUN_0099d200
+  C: FUN_009e0490, FUN_0099d0cc
+  | if (0xfff < param_3) {
+  | pcVar7 = (char *)FUN_009e0490(0x28);
+  | param_1[2] = pcVar7;
+  | uVar6 = s_unspecified_generic_category_err_00133c7f._24_8_;
+
+=== 0099d278 size=100 nc=2 FUN_0099d278
+  C: FUN_009e0490, FUN_0099d0cc
+  | if (0xfff < param_3) {
+  | pcVar7 = (char *)FUN_009e0490(0x28);
+  | param_1[2] = pcVar7;
+  | uVar6 = s_unspecified_system_category_erro_00121944._24_8_;
+
+=== 0099d31c size=184 nc=3 FUN_0099d31c
+  C: FUN_0099c6c8, FUN_0099d668, free
+  | iVar2 = *param_2;
+  | if (iVar2 != 0) {
+  | uVar1 = (ulong)(*param_3 >> 1);
+  | if ((*param_3 & 1) != 0) {
+
+=== 0099d55c size=44 nc=2 FUN_0099d55c
+  C: thunk_FUN_009c0fb8, free
+  | thunk_FUN_009c0fb8();
+  | free(param_1);
+
+=== 0099d588 size=32 nc=4 FUN_0099d588
+  C: FUN_0099d5a8, FUN_009da6c8, FUN_0099d3f0, FUN_009da8b0
+  | auVar2 = FUN_0099d5a8(param_1,&PTR_PTR_FUN_00a6c280,param_2);
+  | uVar1 = FUN_009da6c8(0x20);
+  | FUN_0099d3f0(uVar1,auVar2._0_8_,auVar2._8_8_,param_2);
+  | FUN_009da8b0(uVar1,PTR_PTR_00a0dc68,PTR_thunk_FUN_009c0fb8_00a0dc60);
+
+=== 0099d5a8 size=84 nc=3 FUN_0099d5a8
+  C: FUN_009da6c8, FUN_0099d3f0, FUN_009da8b0
+  | uVar1 = FUN_009da6c8(0x20);
+  | /* try { // try from 0099d5d4 to 0099d5e3 has its CatchHandler @ 0099d5fc */
+  | FUN_0099d3f0(uVar1,param_1,param_2,param_3);
+  | FUN_009da8b0(uVar1,PTR_PTR_00a0dc68,PTR_thunk_FUN_009c0fb8_00a0dc60);
+
+=== 0099d610 size=44 nc=2 FUN_0099d610
+  C: FUN_0099d748, free
+  | FUN_0099d748();
+  | free(param_1);
+
+=== 0099d63c size=44 nc=2 FUN_0099d63c
+  C: FUN_0099d748, free
+  | FUN_0099d748();
+  | free(param_1);
+
+=== 0099d668 size=224 nc=2 FUN_0099d668
+  C: FUN_0099b480, memmove
+  | ulong * FUN_0099d668(ulong *param_1,byte *param_2)
+  | __src = *(byte **)(param_2 + 0x10);
+  | bVar4 = (*param_2 & 1) == 0;
+  | if (bVar4) {
+
+=== 0099d904 size=72 nc=2 FUN_0099d904
+  C: pthread_cond_wait, FUN_0099d588
+  L: condition_variable::wait: mutex not locked ~ condition_variable wait failed
+  | if (*(char *)(param_2 + 1) == '\0') {
+  | pcVar2 = "condition_variable::wait: mutex not locked";
+  | iVar1 = 1;
+  | else {
+
+=== 0099d950 size=156 nc=2 FUN_0099d950
+  C: pthread_cond_timedwait, FUN_0099d588
+  L: condition_variable::timed wait: mutex not locked ~ condition_variable timed_wait failed
+  | if (*(char *)(param_2 + 1) == '\0') {
+  | pcVar2 = "condition_variable::timed wait: mutex not locked";
+  | iVar1 = 1;
+  | else {
+
+=== 0099da00 size=396 nc=3 FUN_0099da00
+  C: FUN_009e0490, CONCAT26, CONCAT62
+  | if (param_3 < 2) {
+  | if (param_3 == 0) {
+  | LAB_0099da84:
+  | pcVar8 = (char *)FUN_009e0490(0x60);
+
+=== 0099db8c size=80 nc=2 FUN_0099db8c
+  C: FUN_009c0920, FUN_009c0a64
+  | if (((DAT_00a76218 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76218), iVar1 != 0)) {
+  | FUN_009c0a64(&DAT_00a76218);
+  | return &PTR_PTR_FUN_00a6c288;
+
+=== 0099dbdc size=112 nc=3 FUN_0099dbdc
+  C: FUN_0099d300, FUN_0099b1bc, free
+  | local_30 = param_2;
+  | uStack_28 = param_3;
+  | FUN_0099d300(local_48,&local_30);
+  | /* try { // try from 0099dc04 to 0099dc0f has its CatchHandler @ 0099dc4c */
+
+=== 0099dc70 size=44 nc=2 FUN_0099dc70
+  C: thunk_FUN_009c0f28, free
+  | thunk_FUN_009c0f28();
+  | free(param_1);
+
+=== 0099dcac size=120 nc=5 FUN_0099dcac
+  C: FUN_0099e4c4, FUN_0099a824, FUN_0099d8e4, FUN_0099e4f0, FUN_0099dd38
+  | FUN_0099e4c4(param_1 + 0x18);
+  | if ((*(byte *)(param_1 + 0x70) & 1) == 0) {
+  | lVar1 = *(long *)(param_1 + 0x10);
+  | local_28 = 0;
+
+=== 0099dd38 size=124 nc=5 FUN_0099dd38
+  C: FUN_009da6c8, FUN_009c0920, FUN_009c0a64, FUN_0099dbdc, FUN_009da8b0
+  | uVar2 = FUN_009da6c8(0x20);
+  | if (((DAT_00a76218 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76218), iVar1 != 0)) {
+  | FUN_009c0a64(&DAT_00a76218);
+  | /* try { // try from 0099dd74 to 0099dd7b has its CatchHandler @ 0099ddb4 */
+
+=== 0099de6c size=68 nc=3 FUN_0099de6c
+  C: FUN_0099e4c4, FUN_0099d8e4, FUN_0099e4f0
+  | FUN_0099e4c4(param_1 + 0x18);
+  | *(uint *)(param_1 + 0x70) = *(uint *)(param_1 + 0x70) | 4;
+  | FUN_0099d8e4(param_1 + 0x40);
+  | FUN_0099e4f0(param_1 + 0x18);
+
+=== 0099deb0 size=144 nc=3 FUN_0099deb0
+  C: FUN_0099e4f0, FUN_0099d588, FUN_0099d904
+  L: unique_lock::unlock: not locked
+  | uVar1 = *(uint *)(param_1 + 0xe);
+  | if ((uVar1 >> 2 & 1) == 0) {
+  | if ((uVar1 >> 3 & 1) != 0) {
+  | bVar2 = *(byte *)(param_2 + 1);
+
+=== 0099df40 size=164 nc=3 FUN_0099df40
+  C: FUN_0099e4c4, FUN_0099e4f0, FUN_0099d904
+  | plVar1 = param_1 + 3;
+  | local_28 = '\x01';
+  | local_30 = plVar1;
+  | FUN_0099e4c4(plVar1);
+
+=== 0099dff8 size=88 nc=4 FUN_0099dff8
+  C: FUN_0099e4c4, FUN_009e0330, FUN_0099e4f0, FUN_0099dd38
+  | *param_1 = param_2;
+  | FUN_0099e4c4(param_2 + 0x18);
+  | uVar1 = *(uint *)(param_2 + 0x70);
+  | if ((uVar1 >> 1 & 1) == 0) {
+
+=== 0099e2a0 size=40 nc=2 FUN_0099e2a0
+  C: FUN_0099dff8, FUN_0099dd38
+  | if (*param_2 != 0) {
+  | FUN_0099dff8(param_1);
+  | FUN_0099dd38(3);
+
+=== 0099e2c8 size=36 nc=2 FUN_0099e2c8
+  C: FUN_0099dcac, FUN_0099dd38
+  | if (*param_1 != 0) {
+  | FUN_0099dcac();
+  | FUN_0099dd38(3);
+
+=== 0099e340 size=120 nc=2 FUN_0099e340
+  C: FUN_009e0330, FUN_009e0360
+  | if (*param_2 != 0) {
+  | FUN_009e0330(1,*param_2 + 8);
+  | plVar2 = (long *)*param_1;
+  | if ((plVar2 != (long *)0x0) && (lVar1 = FUN_009e0360(0xffffffffffffffff,plVar2 + 1), lVar1 == 0))
+
+=== 0099e3b8 size=84 nc=4 FUN_0099e3b8
+  C: FUN_0099d8a4, FUN_0099e4a4, FUN_0099a824, FUN_0099b068
+  | *param_1 = (long)(PTR_DAT_00a0db30 + 0x10);
+  | FUN_0099d8a4(param_1 + 8);
+  | FUN_0099e4a4(param_1 + 3);
+  | FUN_0099a824(param_1 + 2);
+
+=== 0099e40c size=92 nc=5 FUN_0099e40c
+  C: FUN_0099d8a4, FUN_0099e4a4, FUN_0099a824, FUN_0099b068, free
+  | *param_1 = (long)(PTR_DAT_00a0db30 + 0x10);
+  | FUN_0099d8a4(param_1 + 8);
+  | FUN_0099e4a4(param_1 + 3);
+  | FUN_0099a824(param_1 + 2);
+
+=== 0099e468 size=44 nc=2 FUN_0099e468
+  C: FUN_0099d748, free
+  | FUN_0099d748();
+  | free(param_1);
+
+=== 0099e4c4 size=44 nc=2 FUN_0099e4c4
+  C: pthread_mutex_lock, FUN_0099d588
+  L: mutex lock failed
+  | iVar1 = pthread_mutex_lock(param_1);
+  | if (iVar1 == 0) {
+  | FUN_0099d588(iVar1,"mutex lock failed");
+
+=== 0099e530 size=76 nc=2 FUN_0099e530
+  C: pthread_join, FUN_0099d588
+  L: thread::join failed
+  | if (*param_1 == 0) {
+  | iVar1 = 0x16;
+  | else {
+  | iVar1 = pthread_join(*param_1,(void **)0x0);
+
+=== 0099e57c size=72 nc=2 FUN_0099e57c
+  C: pthread_detach, FUN_0099d588
+  L: thread::detach failed
+  | if (*param_1 == 0) {
+  | iVar1 = 0x16;
+  | else {
+  | iVar1 = pthread_detach(*param_1);
+
+=== 0099e5c4 size=128 nc=2 FUN_0099e5c4
+  C: nanosleep, __errno
+  | local_20.tv_nsec = *param_1;
+  | if (0 < local_20.tv_nsec) {
+  | local_20.tv_sec = (ulong)local_20.tv_nsec / 1000000000;
+  | local_20.tv_nsec = (ulong)local_20.tv_nsec % 1000000000;
+
+=== 0099e644 size=108 nc=3 FUN_0099e644
+  C: FUN_009c0920, FUN_0099e6c8, FUN_009c0a64
+  | if (((DAT_00a76230 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76230), iVar1 != 0)) {
+  | FUN_0099e6c8(&DAT_00a76220);
+  | DAT_00a76228 = &DAT_00a76220;
+  | FUN_009c0a64(&DAT_00a76230);
+
+=== 0099e6c8 size=52 nc=2 FUN_0099e6c8
+  C: pthread_key_create, FUN_0099d588
+  L: __thread_specific_ptr construction failed
+  | iVar1 = pthread_key_create(param_1,FUN_0099e848);
+  | if (iVar1 == 0) {
+  | FUN_0099d588(iVar1,"__thread_specific_ptr construction failed");
+
+=== 0099e6fc size=200 nc=5 FUN_0099e6fc
+  C: FUN_0099d8e4, FUN_0099e4f0, FUN_0099de6c, FUN_009e0360, free
+  | puVar1 = (undefined8 *)param_1[4];
+  | for (puVar5 = (undefined8 *)param_1[3]; puVar5 != puVar1; puVar5 = puVar5 + 2) {
+  | FUN_0099d8e4(*puVar5);
+  | FUN_0099e4f0(puVar5[1]);
+
+=== 0099e804 size=68 nc=2 FUN_0099e804
+  C: FUN_0099e6fc, free
+  | __ptr = (void *)*param_1;
+  | if (__ptr != (void *)0x0) {
+  | FUN_0099e6fc(__ptr);
+  | free(__ptr);
+
+=== 0099e848 size=56 nc=2 FUN_0099e848
+  C: FUN_0099e804, free
+  | if (param_1 != (void *)0x0) {
+  | FUN_0099e804();
+  | free(param_1);
+
+=== 0099e890 size=116 nc=2 FUN_0099e890
+  C: FUN_0099d0cc, FUN_009e0490
+  | if ((param_3 != 1) && (param_3 < 0x1000)) {
+  | FUN_0099d0cc();
+  | pcVar7 = (char *)FUN_009e0490(0x28);
+  | param_1[2] = pcVar7;
+
+=== 0099e94c size=44 nc=2 FUN_0099e94c
+  C: thunk_FUN_009c0fb8, free
+  | thunk_FUN_009c0fb8();
+  | free(param_1);
+
+=== 0099e978 size=124 nc=2 FUN_0099e978
+  C: FUN_009ba94c, FUN_009ba9ec
+  | FUN_009ba94c(param_1,param_2 + 0x30);
+  | FUN_009ba9ec(param_2 + 0x30,param_3);
+  | if (*(long *)(param_2 + 0x48) != 0) {
+  | lVar1 = *(long *)(param_2 + 0x48) + -1;
+
+=== 0099ea18 size=176 nc=2 FUN_0099ea18
+  C: FUN_009ba98c, free
+  | *param_1 = (long)(PTR_DAT_00a0dca0 + 0x10);
+  | if (param_1[6] != 0) {
+  | if (param_1[9] != 0) {
+  | lVar1 = param_1[9] + -1;
+
+=== 0099eacc size=44 nc=2 FUN_0099eacc
+  C: FUN_0099ea18, free
+  | FUN_0099ea18();
+  | free(param_1);
+
+=== 0099eb38 size=140 nc=5 FUN_0099eb38
+  C: FUN_009da6c8, FUN_009c0920, FUN_009c0a64, FUN_0099e904, FUN_009da8b0
+  | uVar2 = FUN_009da6c8(0x20);
+  | if (((DAT_00a76238 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76238), iVar1 != 0)) {
+  | FUN_009c0a64(&DAT_00a76238);
+  | local_30 = 1;
+
+=== 0099ec24 size=44 nc=3 FUN_0099ec24
+  C: FUN_009daa78, FUN_0099d748, free
+  | *(uint *)(param_1 + 0x20) = *(uint *)(param_1 + 0x20) | 1;
+  | if ((*(byte *)(param_1 + 0x24) & 1) == 0) {
+  | lVar1 = FUN_009daa78();
+  | *(uint *)(lVar1 + 0x20) = *(uint *)(lVar1 + 0x20) | 4;
+
+=== 0099ec50 size=44 nc=3 FUN_0099ec50
+  C: FUN_009daa78, FUN_0099d748, free
+  | *(uint *)(param_1 + 0x20) = *(uint *)(param_1 + 0x20) | 4;
+  | if ((*(byte *)(param_1 + 0x24) >> 2 & 1) == 0) {
+  | __ptr = (void *)FUN_009daa78();
+  | FUN_0099d748();
+
+=== 0099ec7c size=44 nc=2 FUN_0099ec7c
+  C: FUN_0099d748, free
+  | FUN_0099d748();
+  | free(param_1);
+
+=== 0099ecb0 size=44 nc=2 FUN_0099ecb0
+  C: thunk_FUN_0099ea18, free
+  | thunk_FUN_0099ea18();
+  | free(param_1);
+
+=== 0099ecf4 size=44 nc=2 FUN_0099ecf4
+  C: FUN_0099ecdc, free
+  | FUN_0099ecdc();
+  | free(param_1);
+
+=== 0099efe4 size=48 nc=2 FUN_0099efe4
+  C: FUN_0099ea18, free
+  | FUN_0099ea18((long)param_1 + 0x10);
+  | free(param_1);
+
+=== 0099f014 size=56 nc=2 FUN_0099f014
+  C: FUN_0099ea18, free
+  | __ptr = (void *)((long)param_1 + *(long *)(*param_1 + -0x18));
+  | FUN_0099ea18((long)__ptr + 0x10);
+  | free(__ptr);
+
+=== 0099f04c size=452 nc=5 FUN_0099f04c
+  C: FUN_0099eaf8, FUN_0099f224, FUN_0099ea08, FUN_009bab04, FUN_009ba98c
+  | lVar4 = *param_2;
+  | *param_1 = 0;
+  | lVar3 = (long)param_2 + *(long *)(lVar4 + -0x18);
+  | if (*(uint *)(lVar3 + 0x20) != 0) {
+
+=== 0099f224 size=156 nc=3 FUN_0099f224
+  C: FUN_0099f74c, FUN_0099eaf8, FUN_0099f7b0
+  | if (*(long *)((long)param_1 + *(long *)(*param_1 + -0x18) + 0x28) != 0) {
+  | /* try { // try from 0099f250 to 0099f25b has its CatchHandler @ 0099f2d0 */
+  | FUN_0099f74c(local_30,param_1);
+  | /* try { // try from 0099f27c to 0099f29f has its CatchHandler @ 0099f2c0 */
+
+=== 0099f310 size=260 nc=5 FUN_0099f310
+  C: FUN_0099f04c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8
+  | local_24 = 0;
+  | FUN_0099f04c(local_28,param_1,0);
+  | if (local_28[0] == '\0') {
+  | /* try { // try from 0099f350 to 0099f35b has its CatchHandler @ 0099f414 */
+
+=== 0099f48c size=192 nc=5 FUN_0099f48c
+  C: FUN_0099f04c, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_0099eaf8
+  | local_24 = 0;
+  | FUN_0099f04c(local_28,param_1,0);
+  | if (local_28[0] != '\0') {
+  | /* try { // try from 0099f4cc to 0099f4d7 has its CatchHandler @ 0099f54c */
+
+=== 0099f5bc size=164 nc=3 FUN_0099f5bc
+  C: FUN_0099f04c, ZEXT816, FUN_0099eaf8
+  | FUN_0099f04c(local_14,param_1,1);
+  | if (local_14[0] == '\0') {
+  | auVar3 = ZEXT816(0xffffffffffffffff) << 0x40;
+  | else {
+
+=== 0099f6e4 size=48 nc=2 FUN_0099f6e4
+  C: FUN_0099ea18, free
+  | FUN_0099ea18((long)param_1 + 8);
+  | free(param_1);
+
+=== 0099f714 size=56 nc=2 FUN_0099f714
+  C: FUN_0099ea18, free
+  | __ptr = (void *)((long)param_1 + *(long *)(*param_1 + -0x18));
+  | FUN_0099ea18((long)__ptr + 8);
+  | free(__ptr);
+
+=== 0099f7b0 size=152 nc=2 FUN_0099f7b0
+  C: FUN_0099a800, FUN_0099eaf8
+  | plVar3 = *(long **)(param_1 + 8);
+  | lVar4 = *(long *)(*plVar3 + -0x18);
+  | /* try { // try from 0099f810 to 0099f837 has its CatchHandler @ 0099f848 */
+  | if ((((*(long *)((long)plVar3 + lVar4 + 0x28) != 0) &&
+
+=== 009a01e8 size=340 nc=3 FUN_009a01e8
+  C: FUN_0099f74c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 009a0208 to 009a0213 has its CatchHandler @ 009a0340 */
+  | FUN_0099f74c(local_40,param_1);
+  | if (local_40[0] != '\0') {
+  | lVar5 = (long)param_1 + *(long *)(*param_1 + -0x18);
+
+=== 009a03b0 size=176 nc=3 FUN_009a03b0
+  C: FUN_0099f74c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 009a03cc to 009a03d7 has its CatchHandler @ 009a0470 */
+  | FUN_0099f74c(local_30,param_1);
+  | if (local_30[0] == '\0') goto LAB_009a0440;
+  | lVar4 = *(long *)(*param_1 + -0x18);
+
+=== 009a04a8 size=164 nc=3 FUN_009a04a8
+  C: FUN_0099f74c, FUN_0099eaf8, FUN_0099f7b0
+  | /* try { // try from 009a04cc to 009a04d7 has its CatchHandler @ 009a055c */
+  | FUN_0099f74c(local_40,param_1);
+  | /* try { // try from 009a04fc to 009a0527 has its CatchHandler @ 009a054c */
+  | if (((param_3 != 0) && (local_40[0] != '\0')) &&
+
+=== 009a05cc size=48 nc=2 FUN_009a05cc
+  C: FUN_0099ea18, free
+  | FUN_0099ea18((long)param_1 + 0x18);
+  | free(param_1);
+
+=== 009a05fc size=48 nc=2 FUN_009a05fc
+  C: FUN_0099ea18, free
+  | FUN_0099ea18(param_1 + 8);
+  | free((void *)(param_1 + -0x10));
+
+=== 009a062c size=56 nc=2 FUN_009a062c
+  C: FUN_0099ea18, free
+  | __ptr = (void *)((long)param_1 + *(long *)(*param_1 + -0x18));
+  | FUN_0099ea18((long)__ptr + 0x18);
+  | free(__ptr);
+
+=== 009a066c size=44 nc=2 FUN_009a066c
+  C: thunk_FUN_0099ea18, free
+  | thunk_FUN_0099ea18();
+  | free(param_1);
+
+=== 009a06b0 size=44 nc=2 FUN_009a06b0
+  C: FUN_009a0698, free
+  | FUN_009a0698();
+  | free(param_1);
+
+=== 009a09a0 size=48 nc=2 FUN_009a09a0
+  C: FUN_0099ea18, free
+  | FUN_0099ea18((long)param_1 + 0x10);
+  | free(param_1);
+
+=== 009a09d0 size=56 nc=2 FUN_009a09d0
+  C: FUN_0099ea18, free
+  | __ptr = (void *)((long)param_1 + *(long *)(*param_1 + -0x18));
+  | FUN_0099ea18((long)__ptr + 0x10);
+  | free(__ptr);
+
+=== 009a0a08 size=156 nc=3 FUN_009a0a08
+  C: FUN_009a0b78, FUN_0099eaf8, FUN_009a0bdc
+  | if (*(long *)((long)param_1 + *(long *)(*param_1 + -0x18) + 0x28) != 0) {
+  | /* try { // try from 009a0a34 to 009a0a3f has its CatchHandler @ 009a0ab4 */
+  | FUN_009a0b78(local_30,param_1);
+  | /* try { // try from 009a0a60 to 009a0a83 has its CatchHandler @ 009a0aa4 */
+
+=== 009a0b10 size=48 nc=2 FUN_009a0b10
+  C: FUN_0099ea18, free
+  | FUN_0099ea18((long)param_1 + 8);
+  | free(param_1);
+
+=== 009a0b40 size=56 nc=2 FUN_009a0b40
+  C: FUN_0099ea18, free
+  | __ptr = (void *)((long)param_1 + *(long *)(*param_1 + -0x18));
+  | FUN_0099ea18((long)__ptr + 8);
+  | free(__ptr);
+
+=== 009a0bdc size=152 nc=2 FUN_009a0bdc
+  C: FUN_0099a800, FUN_0099eaf8
+  | plVar3 = *(long **)(param_1 + 8);
+  | lVar4 = *(long *)(*plVar3 + -0x18);
+  | /* try { // try from 009a0c3c to 009a0c63 has its CatchHandler @ 009a0c74 */
+  | if ((((*(long *)((long)plVar3 + lVar4 + 0x28) != 0) &&
+
+=== 009a0c84 size=564 nc=2 FUN_009a0c84
+  C: FUN_009e0490, FUN_002fe1b8
+  | if ((*(uint *)(param_2 + 0x60) >> 4 & 1) == 0) {
+  | if ((*(uint *)(param_2 + 0x60) >> 3 & 1) == 0) {
+  | *param_1 = 0;
+  | param_1[1] = 0;
+
+=== 009a0f80 size=424 nc=2 FUN_009a0f80
+  C: FUN_0099be5c, FUN_0099bf90
+  | ulong FUN_009a0f80(long *param_1,uint param_2)
+  | if (param_2 == 0xffffffff) {
+  | uVar5 = 0;
+  | else {
+
+=== 009a1230 size=164 nc=4 FUN_009a1230
+  C: FUN_009a1634, fopen, fseek, fclose
+  | if (*(long *)(param_1 + 0x78) != 0) {
+  | return (char *)0x0;
+  | __modes = (char *)FUN_009a1634(param_3);
+  | if (__modes != (char *)0x0) {
+
+=== 009a12d4 size=176 nc=5 FUN_009a12d4
+  C: FUN_009a1634, fopen, fseek, fclose, FUN_0099eaf8
+  | if (param_1[0x10] == 0) {
+  | __modes = (char *)FUN_009a1634(param_3 | 0x10);
+  | if (__modes != (char *)0x0) {
+  | __stream = fopen(param_2,__modes);
+
+=== 009a1384 size=244 nc=5 FUN_009a1384
+  C: FUN_009ba8a4, FUN_009ba94c, FUN_009baa74, FUN_009ba98c, FUN_009bab04
+  | *param_1 = (long)(PTR_DAT_00a0dcb0 + 0x10);
+  | FUN_009ba8a4(param_1 + 1);
+  | puVar1 = PTR_DAT_00a0dd08;
+  | param_1[9] = 0;
+
+=== 009a14a8 size=172 nc=4 FUN_009a14a8
+  C: FUN_009a1e88, fclose, free, FUN_009ba98c
+  | __stream = (FILE *)param_1[0xf];
+  | *param_1 = (long)(PTR_DAT_00a0dd08 + 0x10);
+  | if (__stream != (FILE *)0x0) {
+  | /* try { // try from 009a14d8 to 009a14df has its CatchHandler @ 009a155c */
+
+=== 009a1608 size=44 nc=2 FUN_009a1608
+  C: FUN_009a14a8, free
+  | FUN_009a14a8();
+  | free(param_1);

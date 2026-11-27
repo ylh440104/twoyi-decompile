@@ -1,0 +1,304 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big1k_00560.txt pool 672
+_009386bc
+  C: FUN_0086c7d8, FUN_009e0330, FUN_0082d694, FUN_009e0360, FUN_0099b070, FUN_009381ec, NEON_rev64, FUN_00833d10, FUN_00938194, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | plVar4 = (long *)FUN_0086c7d8();
+  | lVar7 = *plVar4;
+
+=== 00938d28 size=3244 nc=0 FUN_00938d28
+  C: 
+  | puVar2 = PTR_FUN_00a0f408;
+  | puVar1 = PTR_FUN_00a0f400;
+  | if ((*(byte *)(param_1 + 0x117) & 1) == 0) {
+  | *param_1 = PTR_FUN_00a0f3e8;
+
+=== 00939b98 size=4600 nc=0 FUN_00939b98
+  C: 
+  | puVar2 = PTR_FUN_00a0f9f8;
+  | puVar1 = PTR_FUN_00a0f9d8;
+  | if ((*(byte *)(param_1 + 0x188) & 1) == 0) {
+  | *param_1 = PTR_FUN_00a0f9c0;
+
+=== 0093b0c4 size=7856 nc=1 FUN_0093b0c4
+  C: strcmp
+  L: glActiveTexture ~ glBindBuffer ~ glBindTexture ~ glBlendFunc ~ glBlendEquation
+  | iVar3 = strcmp("glActiveTexture",param_1);
+  | puVar2 = PTR_DAT_00a0dfa0;
+  | uVar4 = *(undefined8 *)PTR_DAT_00a0dfa0;
+  | if (iVar3 != 0) {
+
+=== 0093cf74 size=11020 nc=1 FUN_0093cf74
+  C: strcmp
+  L: glActiveTexture ~ glBindBuffer ~ glBindTexture ~ glBlendFunc ~ glBlendEquation
+  | iVar3 = strcmp("glActiveTexture",param_1);
+  | puVar2 = PTR_DAT_00a0df90;
+  | uVar4 = *(undefined8 *)PTR_DAT_00a0df90;
+  | if (iVar3 != 0) {
+
+=== 009413a0 size=1572 nc=35 FUN_009413a0
+  C: FUN_00943c34, free, FUN_009442e8, FUN_009450c0, FUN_00944b64, FUN_00945204, FUN_009425b0, FUN_00944d5c, FUN_00942630, FUN_00944810, FUN_009448e0, FUN_00945348
+  | lVar5 = tpidr_el0;
+  | local_78 = *(long *)(lVar5 + 0x28);
+  | FUN_00943c34(&local_d0);
+  | if ((char)local_d0 == '\x01') {
+
+=== 00942630 size=1448 nc=17 FUN_00942630
+  C: FUN_00698c7c, FUN_0068ddb0, FUN_009e0490, memcpy, free, CONCAT44, NEON_ushl, CONCAT17, CONCAT16, CONCAT15, CONCAT14, CONCAT13
+  | lVar9 = tpidr_el0;
+  | local_68 = *(long *)(lVar9 + 0x28);
+  | param_1[1] = 0;
+  | param_1[2] = 0;
+
+=== 00942f70 size=2376 nc=15 FUN_00942f70
+  C: FUN_00945cd4, memcpy, NEON_smin, NEON_smax, ZEXT816, CONCAT44, NEON_cmtst, CONCAT14, CONCAT13, CONCAT12, CONCAT11, CONCAT17
+  | void FUN_00942f70(long *param_1,undefined4 param_2,int param_3,undefined (*param_4) [16],
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (param_3 < 8) {
+
+=== 009456d0 size=1540 nc=10 FUN_009456d0
+  C: FUN_009c0920, FUN_009e0490, FUN_009461fc, FUN_009464b8, FUN_00946868, FUN_00946b14, FUN_00946c94, FUN_00946ce4, FUN_009c0a64, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (((DAT_00a708b0 & 1) == 0) && (iVar3 = FUN_009c0920(&DAT_00a708b0), iVar3 != 0)) {
+  | puVar5 = (undefined8 *)FUN_009e0490(0x18);
+
+=== 00945d1c size=1168 nc=10 FUN_00945d1c
+  C: FUN_009c0920, FUN_009e0490, FUN_00946fe4, FUN_00947394, FUN_0094764c, FUN_00946b14, FUN_00946c94, FUN_00946ce4, FUN_009c0a64, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (((DAT_00a708c0 & 1) == 0) && (iVar3 = FUN_009c0920(&DAT_00a708c0), iVar3 != 0)) {
+  | puVar5 = (undefined8 *)FUN_009e0490(0x18);
+
+=== 0094c540 size=1208 nc=19 FUN_0094c540
+  C: vsnprintf, thunk_FUN_009e0490, free, __strncpy_chk2, FUN_009c0920, isatty, FUN_009c0a64, FUN_006b75d4, strlen, memset, __android_log_print, clock_gettime
+  L: [printf format error] ~ %s:%s ~ perfetto ~ %s %s ~ /data/twoyi-13/device/generic/vulkan-cereal/third-party
+  | void FUN_0094c540(uint param_1,char *param_2,undefined4 param_3,char *param_4,undefined8 param_5,
+  | lVar1 = tpidr_el0;
+  | uVar11 = 0x200;
+  | local_68 = *(undefined8 *)(lVar1 + 0x28);
+
+=== 0094d298 size=1080 nc=12 FUN_0094d298
+  C: FUN_0094d138, FUN_0094fd9c, FUN_0094fe00, FUN_0094ec70, FUN_0094ea78, FUN_0094eb30, FUN_0094e760, FUN_0094f380, FUN_0094e7f0, FUN_0094f40c, FUN_0094f174, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | uVar5 = FUN_0094d138();
+  | if ((int)uVar5 == 0) {
+
+=== 0094daa8 size=1352 nc=14 FUN_0094daa8
+  C: __openat_2, fstat, __errno, close, FUN_0094fb40, memset, FUN_0094e228, strncmp, memcpy, FUN_0094f4f4, FUN_002fad20, FUN_009e0490
+  L: .allowlist
+  | lVar1 = tpidr_el0;
+  | local_78 = *(long *)(lVar1 + 0x28);
+  | do {
+  | iVar3 = __openat_2(*(undefined4 *)(param_1 + 4),".allowlist",0x88000);
+
+=== 0094e364 size=1020 nc=9 FUN_0094e364
+  C: FUN_003bd4f4, catch, free, FUN_009dbd00, FUN_009e0490, memset, memcpy, FUN_0094f878, __stack_chk_fail
+  L: .allowlist
+  | ulong FUN_0094e364(long param_1,undefined8 *param_2)
+  | lVar6 = tpidr_el0;
+  | local_78 = *(long *)(lVar6 + 0x28);
+  | iVar3 = *(int *)(param_1 + 4);
+
+=== 0094ed0c size=1128 nc=5 FUN_0094ed0c
+  C: memset, memcpy, CONCAT26, CONCAT62, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | if (param_4 == (undefined8 *)0x0) {
+  | uVar3 = 0xe;
+
+=== 00952284 size=33008 nc=18 FUN_00952284
+  C: FUN_009515b0, FUN_00951654, FUN_0095a374, FUN_0095a37c, FUN_00951728, FUN_0095a384, FUN_0095a3e8, calloc, memcpy, FUN_0095a500, FUN_0095a508, FUN_0095a510
+  | lVar2 = tpidr_el0;
+  | local_a0 = *(long *)(lVar2 + 0x28);
+  | if (param_3 < 8) {
+  | lVar30 = 0;
+
+=== 0095a528 size=5872 nc=0 FUN_0095a528
+  C: 
+  L: glAlphaFunc ~ glClearColor ~ glClearDepthf ~ glClipPlanef ~ glColor4f
+  | uVar1 = (*param_2)("glAlphaFunc",param_3);
+  | *(undefined8 *)(param_1 + 8) = uVar1;
+  | uVar1 = (*param_2)("glClearColor",param_3);
+  | *(undefined8 *)(param_1 + 0x10) = uVar1;
+
+=== 0095bc18 size=27040 nc=17 FUN_0095bc18
+  C: FUN_009515b0, FUN_00951654, FUN_0095a374, FUN_00951728, FUN_0095a384, FUN_0095a37c, FUN_0095a508, FUN_0095a3e8, FUN_0095a500, FUN_0095a510, calloc, memcpy
+  | lVar7 = tpidr_el0;
+  | local_90 = *(long *)(lVar7 + 0x28);
+  | if (param_3 < 8) {
+  | lVar41 = 0;
+
+=== 009625b8 size=4212 nc=0 FUN_009625b8
+  C: 
+  L: glActiveTexture ~ glAttachShader ~ glBindAttribLocation ~ glBindBuffer ~ glBindFramebuffer
+  | uVar1 = (*param_2)("glActiveTexture",param_3);
+  | *(undefined8 *)(param_1 + 8) = uVar1;
+  | uVar1 = (*param_2)("glAttachShader",param_3);
+  | *(undefined8 *)(param_1 + 0x10) = uVar1;
+
+=== 0096362c size=5624 nc=13 FUN_0096362c
+  C: FUN_009515b0, FUN_00951654, FUN_00951728, FUN_0095a3e8, FUN_0095a374, calloc, memcpy, FUN_009516a0, free, FUN_0095a500, malloc, FUN_00964c24
+  | if (param_3 < 8) {
+  | lVar27 = 0;
+  | else {
+  | lVar27 = 0;
+
+=== 00964c2c size=1128 nc=5 FUN_00964c2c
+  C: getenv, FUN_009504cc, printf, FUN_00950868, __stack_chk_fail
+  L: ANDROID_EGL_LIB ~ libEGL ~ eglGetError ~ eglGetDisplay ~ eglInitialize
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | pcVar3 = getenv("ANDROID_EGL_LIB");
+  | pcVar1 = "libEGL";
+
+=== 00965094 size=3964 nc=5 FUN_00965094
+  C: getenv, FUN_009504cc, FUN_00950868, __stack_chk_fail, fprintf
+  L: ANDROID_GLESv1_LIB ~ libGLESv1_CM ~ glActiveTexture ~ glBindBuffer ~ glBindTexture
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | pcVar4 = getenv("ANDROID_GLESv1_LIB");
+  | pcVar1 = "libGLESv1_CM";
+
+=== 00966074 size=4132 nc=5 FUN_00966074
+  C: getenv, FUN_009504cc, FUN_00950868, __stack_chk_fail, fprintf
+  L: ANDROID_GLESv2_LIB ~ libGLESv2 ~ glActiveTexture ~ glBindBuffer ~ glBindTexture
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | pcVar4 = getenv("ANDROID_GLESv2_LIB");
+  | pcVar1 = "libGLESv2";
+
+=== 009670fc size=1456 nc=8 FUN_009670fc
+  C: FUN_009e0490, FUN_0096fad0, FUN_0096fe40, free, calloc, FUN_00975f78, FUN_00967718, __stack_chk_fail
+  L: m_eglImage: %ld ~ ColorBuffer: cannot bind host AHB EGLImage to texture: 
+  | undefined8 *
+  | FUN_009670fc(undefined8 param_1,int param_2,int param_3,int param_4,uint param_5,long param_6,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+
+=== 0096823c size=1588 nc=3 FUN_0096823c
+  C: FUN_00970218, FUN_00968870, __stack_chk_fail
+  L: ColorBuffer: eglReleaseTexImage failed: %#x
+  | puVar2 = PTR_DAT_00a10ec8;
+  | lVar1 = tpidr_el0;
+  | puVar6 = (undefined4 *)0x0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+
+=== 00968a5c size=1160 nc=5 FUN_00968a5c
+  C: FUN_009742a8, FUN_0096823c, fprintf, FUN_00975b90, __stack_chk_fail
+  L: ColorBuffer: cross-context copy fence wait failed
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | if (param_4 != (int *)0x0) {
+  | *param_4 = -1;
+
+=== 0096969c size=1088 nc=6 FUN_0096969c
+  C: fprintf, thunk_FUN_009e0490, memcpy, NEON_cmeq, free, __stack_chk_fail
+  L: chooseConfig
+  | puVar6 = PTR_DAT_00a10ec8;
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | local_7c = 0;
+
+=== 00969d84 size=2244 nc=14 FUN_00969d84
+  C: FUN_009e0490, pthread_mutex_init, fwrite, FUN_0096a6b4, free, fprintf, strdup, strstr, extension, FUN_009693e0, FUN_00975824, FUN_00975f78
+  L: FrameBuffer::initialize ~ call eglInitialize ~ Failed to eglInitialize ~ egl: %d %d ~ getGLES1ExtensionString
+  | void FUN_00969d84(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | puVar3 = PTR_PTR_FUN_00a10ec0;
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+
+=== 0096aee4 size=1428 nc=12 FUN_0096aee4
+  C: pthread_mutex_lock, FUN_009670fc, FUN_00950880, FUN_009e0490, FUN_0096efd0, FUN_009508e4, FUN_00967718, free, FUN_009742a8, FUN_00950970, pthread_mutex_unlock, __stack_chk_fail
+  L: createColorBuffer: %d
+  | ulong FUN_0096aee4(long param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+  | lVar3 = tpidr_el0;
+  | local_68[2] = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+
+=== 0096d7f0 size=1320 nc=13 FUN_0096d7f0
+  C: pthread_mutex_lock, FUN_00950880, FUN_009742a8, FUN_009508e4, FUN_00976fec, free, FUN_009508b8, FUN_009773ac, FUN_00950970, FUN_00970180, fwrite, pthread_mutex_unlock
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | local_58 = (undefined8 *)0x0;
+
+=== 0096de60 size=1016 nc=11 FUN_0096de60
+  C: pthread_mutex_lock, FUN_00976e54, FUN_00969140, NEON_scvtf, CONCAT44, FUN_00968ff4, FUN_0096d380, fwrite, post, pthread_mutex_unlock, __stack_chk_fail
+  L: can not found color buffer: %d, need_lock: %d ~ No subwin exist, return!!!
+  | uint FUN_0096de60(ulong param_1,ulong param_2,int param_3,int param_4,int param_5,int param_6,
+  | lVar3 = tpidr_el0;
+  | local_88 = *(long *)(lVar3 + 0x28);
+  | uVar8 = param_1;
+
+=== 0096e744 size=1296 nc=22 FUN_0096e744
+  C: FUN_0096f79c, pthread_mutex_lock, fwrite, post, close, FUN_0096e58c, draw, FUN_00977668, FUN_00977670, FUN_00977680, FUN_0096de60, FUN_0096d578
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | FUN_0096f79c(param_1 + 0x1a0,*param_2,param_2[1],param_2[1] - *param_2 >> 6);
+  | iVar6 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+
+=== 00970218 size=1116 nc=4 FUN_00970218
+  C: main, vec4, texture2D, __stack_chk_fail
+  L: RenderContext: pbuffer blit shader compile failed: %s ~ position ~ inCoord ~ RenderContext: pbuffer blit program link failed: %s ~ source
+  | puVar2 = PTR_DAT_00a10ee0;
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if ((*(char *)(param_1 + 0x10) != '\x01') || ((*(byte *)(param_1 + 0x4c) & 1) != 0)) {
+
+=== 00972464 size=2324 nc=22 FUN_00972464
+  C: FUN_0099ebd8, FUN_0099ed20, CONCAT44, memchr, FUN_0096fa90, FUN_009e0490, memmove, FUN_0096fa0c, FUN_00970808, FUN_00972d8c, FUN_0099d7c4, memcpy
+  L: basic_string
+  | puVar9 = PTR_PTR_00a0db40;
+  | puVar8 = PTR_DAT_00a0db38;
+  | lVar7 = tpidr_el0;
+  | local_70 = *(long *)(lVar7 + 0x28);
+
+=== 00976328 size=1032 nc=12 FUN_00976328
+  C: FUN_0099ebd8, FUN_0099ed20, CONCAT44, FUN_00972da4, FUN_0099fa10, FUN_009a0c84, FUN_00976988, free, FUN_0099ecdc, FUN_0099f6b8, thunk_FUN_0099ea18, __stack_chk_fail
+  L: #define FACTOR 
+  | puVar1 = PTR_DAT_00a10ee0;
+  | lVar5 = tpidr_el0;
+  | local_70 = *(long *)(lVar5 + 0x28);
+  | if (param_1[2] != param_2) {
+
+=== 00978654 size=2248 nc=19 FUN_00978654
+  C: FUN_00982ae8, FUN_0097d530, strdup, FUN_0097c534, FUN_0097c488, FUN_0097c9c0, FUN_0097c624, FUN_0097ca4c, FUN_0097c57c, FUN_00979d3c, d, FUN_0097c5d8
+  L: modem-nv-ram- ~ modem_technology ~ oper_name_index ~ Setting value of %s to %d (%s) ~ selection_mode
+  | undefined1 *
+  | FUN_00978654(undefined4 param_1,undefined8 param_2,undefined4 param_3,undefined8 param_4)
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+
+=== 00979448 size=1516 nc=24 FUN_00979448
+  C: FUN_0097c488, FUN_00979a34, strlen, memcmp, strcmp, __strcat_chk, FUN_00979b14, FUN_0097fe04, FUN_0097f494, FUN_0097f390, strncmp, __memcpy_chk
+  L: %CPHS=1 ~ ERROR: UNSUPPORTED ~ handleSendSMSText ~ +CMS ERROR: INVALID SMS PDU ~ +CMS ERROR: BAD SMS RECEIVER ADDRESS
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | if (param_1 == 0) {
+  | if (DAT_00a72448 == 1) {
+
+=== 0097bdfc size=1452 nc=10 FUN_0097bdfc
+  C: FUN_00979d3c, sscanf, __strlen_chk, FUN_0097e0d0, malloc, FUN_00979b14, strdup, free, d, __stack_chk_fail
+  L: +CGLA=%%d,%%d,%%%ds%%c ~ +CGLA: %d,%d ~ +CME ERROR: %d ~ +CGLA: 144,0,%02x ~ +CGLA: 144,0
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | local_4f8 = 0xffffffff;
+  | local_4f4 = 0xffffffff;
+
+=== 0097cb2c size=1060 nc=6 FUN_0097cb2c
+  C: FUN_0097cf50, FUN_0097d0cc, memcpy, __write_chk, __errno, __stack_chk_fail
+  | puVar8 = local_70;
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+  | FUN_0097cf50(param_1,param_3);
+
+=== 0097d648 size=1212 nc=15 FUN_0097d648
+  C: getenv, strchr, fprintf, access, strdup, strlen, FUN_0097d530, readlink, stat, FUN_0097dbd0, memcmp, FUN_0097d5f4
+  L: get_zoneinfo_timezone ~ TZDIR ~ /usr/share/zoneinfo/ ~ /etc/localtime ~ %s/%s
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | if ((DAT_00a72560 & 1) == 0) {
+  | pcVar5 = getenv("TZ");

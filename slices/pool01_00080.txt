@@ -1,0 +1,623 @@
+pool01 6229 slice 80..200
+
+=== 0068e4ec size=44 nc=1 _INIT_14
+  C: __cxa_atexit
+  | DAT_00a6ca00 = 0x3f800000;
+  | uRam0000000000a6c9e8 = 0;
+  | _DAT_00a6c9e0 = 0;
+  | uRam0000000000a6c9f8 = 0;
+
+=== 0068e5e8 size=28 nc=1 _INIT_17
+  C: __cxa_atexit
+  | __cxa_atexit(FUN_006dbbc0,&DAT_00a6cd40,&PTR_LOOP_009e57e0);
+
+=== 0068e604 size=44 nc=1 _INIT_18
+  C: __cxa_atexit
+  | DAT_00a6cdc0 = 0x3f800000;
+  | uRam0000000000a6cda8 = 0;
+  | _DAT_00a6cda0 = 0;
+  | uRam0000000000a6cdb8 = 0;
+
+=== 0068e630 size=36 nc=1 _INIT_19
+  C: __cxa_atexit
+  | DAT_00a6cde8 = 0;
+  | DAT_00a6cdf0 = 0;
+  | DAT_00a6cdf8 = 0;
+  | __cxa_atexit(FUN_006df0b4,&DAT_00a6cde8,&PTR_LOOP_009e57e0);
+
+=== 0068e654 size=92 nc=1 _INIT_20
+  C: __cxa_atexit
+  | DAT_00a6ce40 = 0;
+  | DAT_00a6ce38 = 0;
+  | DAT_00a6ce30 = &DAT_00a6ce38;
+  | __cxa_atexit(FUN_006e15ec,&DAT_00a6ce30,&PTR_LOOP_009e57e0);
+
+=== 0068e6b0 size=36 nc=1 _INIT_21
+  C: FUN_009e0490
+  | DAT_00a6d118 = FUN_009e0490(0x30);
+  | *(undefined8 *)(DAT_00a6d118 + 0x20) = 0;
+
+=== 0068e6d4 size=52 nc=1 _INIT_22
+  C: __cxa_atexit
+  | DAT_00a6d170 = 0;
+  | _DAT_00a6d158 = 0;
+  | _DAT_00a6d150 = 0;
+  | DAT_00a6d168 = 0;
+
+=== 0068e708 size=28 nc=1 _INIT_23
+  C: __cxa_atexit
+  | __cxa_atexit(PTR_FUN_00a0dad0,&DAT_00a6d190,&PTR_LOOP_009e57e0);
+
+=== 0068e724 size=52 nc=1 _INIT_24
+  C: __cxa_atexit
+  | DAT_00a6d228 = 0;
+  | DAT_00a6d230 = 0x3f800000;
+  | uRam0000000000a6d1f0 = 0;
+  | _DAT_00a6d1e8 = 0;
+
+=== 0068e8dc size=208 nc=1 _INIT_26
+  C: __cxa_atexit
+  | __cxa_atexit(pthread_mutex_destroy,&DAT_00a6d660,&PTR_LOOP_009e57e0);
+  | __cxa_atexit(pthread_mutex_destroy,&DAT_00a6d688,&PTR_LOOP_009e57e0);
+  | DAT_00a6d6b0 = FUN_00821168;
+  | DAT_00a6d6b8 = FUN_0082682c;
+
+=== 0068e9ac size=128 nc=1 _INIT_27
+  C: __cxa_atexit
+  | DAT_00a6d780 = 0;
+  | DAT_00a6d778 = &DAT_00a6d780;
+  | DAT_00a6d788 = 0;
+  | DAT_00a6d790 = &DAT_00a6d790;
+
+=== 0068ea2c size=56 nc=1 _INIT_28
+  C: FUN_009e0490
+  | DAT_00a6d7d8 = (undefined8 *)FUN_009e0490(0x10);
+  | *DAT_00a6d7d8 = 0;
+  | DAT_00a6d7d8[1] = 0;
+  | DAT_00a6d7e0 = (undefined8 *)FUN_009e0490(0x10);
+
+=== 0068ed78 size=28 nc=1 _INIT_31
+  C: __cxa_atexit
+  | __cxa_atexit(pthread_mutex_destroy,&DAT_00a6f280,&PTR_LOOP_009e57e0);
+
+=== 0068ed94 size=28 nc=1 _INIT_32
+  C: __cxa_atexit
+  | __cxa_atexit(FUN_00940430,&DAT_00a70810,&PTR_LOOP_009e57e0);
+
+=== 0068ef5c size=60 nc=1 _INIT_34
+  C: __cxa_atexit
+  | DAT_00a70908 = 0;
+  | DAT_00a70910 = 0x3f800000;
+  | DAT_00a70928 = 0;
+  | uRam0000000000a708d0 = 0;
+
+=== 0068ef98 size=20 nc=1 FUN_0068ef98
+  C: FUN_0068b560
+  L: basic_string
+  | FUN_0068b560("basic_string");
+
+=== 00693fc4 size=84 nc=0 FUN_00693fc4
+  C: -
+  | if ((param_1 + 0xc462d4a0U < 0x22) &&
+  | ((1L << ((ulong)(param_1 + 0xc462d4a0U) & 0x3f) & 0x3fff9fe7fU) != 0)) {
+  | return param_1 + 0xc4602cf0U < 4;
+
+=== 00694018 size=516 nc=1 FUN_00694018
+  C: FUN_0099c6c8
+  L: VK_IMAGE_USAGE_TRANSFER_SRC_BIT ~ VK_IMAGE_USAGE_TRANSFER_DST_BIT
+  | param_1[0] = 0;
+  | param_1[1] = 0;
+  | param_1[2] = 0;
+  | param_1[3] = 0;
+
+=== 0069421c size=516 nc=1 FUN_0069421c
+  C: FUN_0099c6c8
+  L: VK_IMAGE_USAGE_TRANSFER_SRC_BIT ~ VK_IMAGE_USAGE_TRANSFER_DST_BIT
+  | param_1[0] = 0;
+  | param_1[1] = 0;
+  | param_1[2] = 0;
+  | param_1[3] = 0;
+
+=== 00694420 size=52 nc=0 FUN_00694420
+  C: -
+  | switch(param_1) {
+  | case 0xe:
+  | case 0x15:
+  | case 0x1c:
+
+=== 00694454 size=52 nc=0 FUN_00694454
+  C: -
+  | switch(param_1) {
+  | case 0xd:
+  | case 0x14:
+  | case 0x1b:
+
+=== 006945a4 size=68 nc=1 FUN_006945a4
+  C: FUN_0099b070
+  | (**(code **)(*param_1 + 0x1d0))(param_1[1],param_1[0xe],0);
+  | if (param_1[0x10] != 0) {
+  | FUN_0099b070();
+
+=== 00694858 size=108 nc=0 FUN_00694858
+  C: -
+  | (**(code **)(param_1[4] + 0x2c8))(param_1[5],param_1[6],1,param_1 + 3);
+  | (**(code **)(param_1[4] + 0x120))(param_1[5],*param_1,0);
+  | (**(code **)(param_1[4] + 0x148))(param_1[5],param_1[1],0);
+  | (**(code **)(param_1[4] + 0x148))(param_1[5],param_1[2],0);
+
+=== 006948c4 size=20 nc=0 FUN_006948c4
+  C: -
+  | void FUN_006948c4(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | *param_1 = param_5;
+  | param_1[1] = param_6;
+  | param_1[2] = param_7;
+
+=== 00694a6c size=68 nc=0 FUN_00694a6c
+  C: -
+  | (**(code **)(param_1[2] + 0x2c8))(param_1[3],param_1[4],1,param_1 + 1);
+  | (**(code **)(param_1[2] + 0x120))(param_1[3],*param_1,0);
+
+=== 00694ab0 size=16 nc=0 FUN_00694ab0
+  C: -
+  | void FUN_00694ab0(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | *param_1 = param_5;
+  | param_1[1] = param_6;
+  | param_1[2] = param_2;
+
+=== 00694ac0 size=644 nc=0 FUN_00694ac0
+  C: -
+  L: VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT ~ VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT
+  | if (param_1 < 0x2000) {
+  | if (param_1 < 0x40) {
+  | if (param_1 < 8) {
+  | if (param_1 == 1) {
+
+=== 006964f8 size=20 nc=1 FUN_006964f8
+  C: FUN_0099d7c4
+  L: future_error was thrown in -fno-exceptio
+  | FUN_0099d7c4("future_error was thrown in -fno-exceptions mode");
+
+=== 006967cc size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 00696df4 size=20 nc=1 FUN_00696df4
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 00696e64 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 00697ea0 size=20 nc=1 FUN_00697ea0
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 00698070 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 00698074 size=16 nc=1 FUN_00698074
+  C: free
+  | if (*(void **)(param_1 + 8) != (void *)0x0) {
+  | free(*(void **)(param_1 + 8));
+
+=== 00698b90 size=28 nc=0 FUN_00698b90
+  C: -
+  | if (param_2 != (undefined4 *)0x0) {
+  | *param_2 = *param_1;
+  | if (param_3 != (undefined4 *)0x0) {
+  | *param_3 = 0x22;
+
+=== 00698bac size=208 nc=0 FUN_00698bac
+  C: -
+  | ulong FUN_00698bac(uint *param_1,uint param_2,undefined8 *param_3)
+  | uVar11 = _UNK_0017d0d0;
+  | uVar10 = _DAT_0017d0c8;
+  | uVar9 = _UNK_0017d0c0;
+
+=== 00698c7c size=20 nc=1 FUN_00698c7c
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 00699148 size=28 nc=0 FUN_00699148
+  C: -
+  | (**(code **)(PTR_DAT_00a0df98 + 0xd0))
+  | (*(undefined8 *)(param_1 + 8),*(undefined8 *)(param_1 + 0x10),0);
+
+=== 00699164 size=116 nc=1 FUN_00699164
+  C: __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | iVar2 = (**(code **)(PTR_DAT_00a0df98 + 0x110))
+  | (*(undefined8 *)(param_1 + 8),*(undefined8 *)(param_1 + 0x10),0x30f1,&local_2c);
+
+=== 006991d8 size=24 nc=0 FUN_006991d8
+  C: -
+  | (*DAT_00a6d580)(*(undefined8 *)(param_1 + 8),*(undefined8 *)(param_1 + 0x10));
+
+=== 0069978c size=4 nc=0 FUN_0069978c
+  C: -
+
+=== 00699790 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 00699794 size=60 nc=1 FUN_00699794
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | *(undefined4 *)(puVar1 + 1) = *(undefined4 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e5eb0;
+
+=== 006997d0 size=28 nc=0 FUN_006997d0
+  C: -
+  | *(undefined4 *)(param_2 + 1) = *(undefined4 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e5eb0;
+
+=== 006997ec size=4 nc=0 FUN_006997ec
+  C: -
+
+=== 006997f0 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069ae18 size=20 nc=1 FUN_0069ae18
+  C: FUN_0069ae2c
+  L: basic_string
+  | FUN_0069ae2c("basic_string");
+
+=== 0069ae2c size=24 nc=1 FUN_0069ae2c
+  C: FUN_0099d7c4
+  | FUN_0099d7c4("out_of_range was thrown in -fno-exceptions mode with message \"%s\"",param_1);
+
+=== 0069ae44 size=4 nc=0 FUN_0069ae44
+  C: -
+
+=== 0069ae48 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069ae4c size=52 nc=1 FUN_0069ae4c
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e5ef8;
+  | puVar1[1] = uVar2;
+
+=== 0069ae80 size=20 nc=0 FUN_0069ae80
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e5ef8;
+  | param_2[1] = uVar1;
+
+=== 0069ae94 size=4 nc=0 FUN_0069ae94
+  C: -
+
+=== 0069ae98 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069ba0c size=256 nc=1 FUN_0069ba0c
+  C: FUN_006daf58
+  | void FUN_0069ba0c(undefined8 *param_1,long *param_2,byte param_3,undefined8 param_4,
+  | plVar1 = (long *)param_2[4];
+  | *param_1 = *(undefined8 *)PTR_DAT_00a0dfd8;
+  | if (plVar1 == (long *)0x0) {
+
+=== 0069bb0c size=4 nc=0 FUN_0069bb0c
+  C: -
+
+=== 0069d658 size=4 nc=0 FUN_0069d658
+  C: -
+
+=== 0069d65c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069d660 size=56 nc=1 FUN_0069d660
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e5f40;
+  | puVar1[1] = uVar2;
+
+=== 0069d698 size=24 nc=0 FUN_0069d698
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e5f40;
+  | param_2[1] = uVar1;
+
+=== 0069d6b0 size=4 nc=0 FUN_0069d6b0
+  C: -
+
+=== 0069d6b4 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069d6b8 size=24 nc=0 FUN_0069d6b8
+  C: -
+  | (**(code **)(param_1 + 8))(*param_2,*param_3,*param_4);
+
+=== 0069d6d0 size=20 nc=1 FUN_0069d6d0
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 0069d898 size=20 nc=1 FUN_0069d898
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 0069d9ec size=20 nc=1 FUN_0069d9ec
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 0069dcb8 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069dcbc size=24 nc=0 FUN_0069dcbc
+  C: -
+  | *param_2 = &PTR_FUN_009e5fb8;
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | param_2[2] = *(undefined8 *)(param_1 + 0x10);
+  | param_2[1] = uVar1;
+
+=== 0069dcd4 size=4 nc=0 FUN_0069dcd4
+  C: -
+
+=== 0069dcd8 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069dcdc size=12 nc=1 FUN_0069dcdc
+  C: FUN_0069bb10
+  | FUN_0069bb10(*(undefined8 *)(param_1 + 0x10),*(undefined8 *)(param_1 + 8));
+
+=== 0069dce8 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069dcec size=24 nc=0 FUN_0069dcec
+  C: -
+  | *param_2 = &PTR_FUN_009e5ff8;
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | param_2[2] = *(undefined8 *)(param_1 + 0x10);
+  | param_2[1] = uVar1;
+
+=== 0069dd04 size=4 nc=0 FUN_0069dd04
+  C: -
+
+=== 0069dd08 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069deac size=68 nc=0 FUN_0069deac
+  C: -
+  | param_2[1] = 0;
+  | param_2[2] = 0;
+  | param_2[3] = 0;
+  | uVar2 = *(undefined8 *)(param_1 + 0x10);
+
+=== 0069e6b4 size=68 nc=0 FUN_0069e6b4
+  C: -
+  | param_2[1] = 0;
+  | param_2[2] = 0;
+  | param_2[3] = 0;
+  | uVar2 = *(undefined8 *)(param_1 + 0x10);
+
+=== 0069e8cc size=4 nc=0 FUN_0069e8cc
+  C: -
+
+=== 0069e8d0 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069e8d4 size=20 nc=0 FUN_0069e8d4
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e60e8;
+  | param_2[1] = uVar1;
+
+=== 0069e8e8 size=4 nc=0 FUN_0069e8e8
+  C: -
+
+=== 0069e8ec size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 0069ec38 size=88 nc=1 FUN_0069ec38
+  C: FUN_009e0490
+  | uVar2 = _UNK_0011e318;
+  | uVar1 = _DAT_0011e310;
+  | *(undefined *)(param_1 + 2) = 0;
+  | param_1[1] = uVar2;
+
+=== 0069ec90 size=104 nc=1 FUN_0069ec90
+  C: FUN_006c554c
+  | uVar1 = *(undefined8 *)PTR_DAT_00a0dfd8;
+  | *(undefined8 *)(param_1 + 0x20) = uVar1;
+  | FUN_006c554c(uVar1,param_1,param_1 + 0x10);
+  | FUN_006c554c(*(undefined8 *)(param_1 + 0x20),param_1 + 8,param_1 + 0x18);
+
+=== 0069f670 size=80 nc=1 FUN_0069f670
+  C: free
+  | if (param_2 != (undefined8 *)0x0) {
+  | FUN_0069f670(param_1,*param_2);
+  | FUN_0069f670(param_1,param_2[1]);
+  | __ptr = (void *)param_2[8];
+
+=== 0069f6c0 size=412 nc=0 FUN_0069f6c0
+  C: -
+  | bVar1 = param_2 == param_1;
+  | *(bool *)(param_2 + 3) = bVar1;
+  | while( true ) {
+  | if (bVar1) {
+
+=== 0069f938 size=912 nc=0 FUN_0069f938
+  C: -
+  | plVar5 = (long *)*param_2;
+  | plVar8 = param_2;
+  | if (plVar5 == (long *)0x0) {
+  | LAB_0069f958:
+
+=== 0069fcc8 size=52 nc=1 FUN_0069fcc8
+  C: malloc
+  | param_1[4] = 0;
+  | param_1[5] = 0;
+  | param_1[2] = param_2;
+  | pvVar1 = malloc(param_2);
+
+=== 0069fcfc size=8 nc=1 FUN_0069fcfc
+  C: free
+  | free((void *)*param_1);
+
+=== 0069fd04 size=8 nc=0 FUN_0069fd04
+  C: -
+  | *(undefined8 *)(param_1 + 0x28) = param_2;
+
+=== 0069feb8 size=28 nc=0 FUN_0069feb8
+  C: -
+  | *(long *)(param_1 + 0x18) = *(long *)(param_1 + 0x18) - param_2;
+  | *(long *)(param_1 + 8) = *(long *)(param_1 + 8) + param_2;
+
+=== 0069fed4 size=80 nc=1 FUN_0069fed4
+  C: FUN_006d9ac4
+  | FUN_006d9ac4(param_2,*(undefined4 *)(param_1 + 0x10));
+  | FUN_006d9ac4(param_2,*(undefined4 *)(param_1 + 0x18));
+  | (**(code **)(*param_2 + 0x18))
+  | (param_2,*(undefined8 *)(param_1 + 8),*(undefined8 *)(param_1 + 0x18));
+
+=== 0069ff98 size=76 nc=1 FUN_0069ff98
+  C: printf
+  L: printStats
+  | iVar1 = printf("ReadBuffer::%s: tail move time %f ms\n",
+  | (double)((float)*(ulong *)(param_1 + 0x20) / 1000.0),"printStats");
+  | *(undefined8 *)(param_1 + 0x20) = 0;
+
+=== 006a09b0 size=12 nc=1 FUN_006a09b0
+  C: FUN_006a09bc
+  | FUN_006a09bc(param_1,param_2,0,0);
+
+=== 006a15fc size=8 nc=0 FUN_006a15fc
+  C: -
+  | return *(undefined8 *)(param_1 + 0x40);
+
+=== 006a1b30 size=20 nc=1 FUN_006a1b30
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006a1eec size=388 nc=1 FUN_006a1eec
+  C: FUN_006a2264
+  | lVar9 = *(long *)(param_1 + 8);
+  | lVar11 = *(long *)(param_1 + 0x10);
+  | lVar8 = *(long *)(param_1 + 0x28);
+  | uVar14 = lVar8 + *(long *)(param_1 + 0x20);
+
+=== 006a381c size=648 nc=1 FUN_006a381c
+  C: free
+  | plVar20 = *(long **)(param_1 + 8);
+  | plVar10 = (long *)((long)param_2 + ((long)plVar20 - (long)param_4));
+  | plVar5 = plVar20;
+  | if (plVar10 < param_3) {
+
+=== 006a3aa4 size=728 nc=1 FUN_006a3aa4
+  C: free
+  | plVar19 = (long *)param_1[1];
+  | uVar18 = param_2[1];
+  | if (plVar19 != param_3) {
+  | plVar10 = (long *)param_2[2];
+
+=== 006a3d7c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006a3d80 size=36 nc=1 FUN_006a3d80
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | *puVar1 = &PTR_FUN_009e6180;
+
+=== 006a3da4 size=16 nc=0 FUN_006a3da4
+  C: -
+  | *param_2 = &PTR_FUN_009e6180;
+
+=== 006a3db4 size=4 nc=0 FUN_006a3db4
+  C: -
+
+=== 006a3db8 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006a3dbc size=4 nc=0 FUN_006a3dbc
+  C: -
+
+=== 006a3dc0 size=352 nc=1 FUN_006a3dc0
+  C: __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (param_2 != param_1) {
+  | plVar2 = (long *)param_1[4];
+
+=== 006a436c size=4 nc=0 FUN_006a436c
+  C: -
+
+=== 006a4370 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006a4374 size=36 nc=1 FUN_006a4374
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | *puVar1 = &PTR_FUN_009e61c8;
+
+=== 006a4398 size=16 nc=0 FUN_006a4398
+  C: -
+  | *param_2 = &PTR_FUN_009e61c8;
+
+=== 006a43a8 size=4 nc=0 FUN_006a43a8
+  C: -
+
+=== 006a43ac size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006a43b0 size=4 nc=0 FUN_006a43b0
+  C: -
+
+=== 006a4670 size=4 nc=0 FUN_006a4670
+  C: -
+
+=== 006a4674 size=32 nc=1 FUN_006a4674
+  C: FUN_009dfa88
+  | puVar1 = (undefined8 *)FUN_009dfa88(&DAT_00a3c768);
+
+=== 006a4ca0 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006a5648 size=288 nc=0 FUN_006a5648
+  C: -
+  | puVar1 = PTR_DAT_00a0e010;
+  | param_1[2] = param_4;
+  | param_1[3] = 0;
+  | *param_1 = (long)(puVar1 + 0x10);
+
+=== 006a5768 size=196 nc=1 FUN_006a5768
+  C: free
+  | if (*(void **)(param_1 + 0x318) != (void *)(param_1 + 0x330)) {
+  | free(*(void **)(param_1 + 0x318));
+  | if (*(void **)(param_1 + 0x100) != (void *)(param_1 + 0x118)) {
+  | free(*(void **)(param_1 + 0x100));
+
+=== 006a6060 size=20 nc=0 FUN_006a6060
+  C: -
+  | (**(code **)PTR_PTR_FUN_00a0df80)(param_2);
+
+=== 006a6074 size=20 nc=0 FUN_006a6074
+  C: -
+  | (**(code **)PTR_PTR_FUN_00a0df88)(param_2);

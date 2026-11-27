@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/ic_settings" android:enabled="true" android:shortcutId="settings" android:shortcutShortLabel="@string/title_settings" android:shortcutLongLabel="@string/title_settings">
+        <categories android:name="android.shortcut.conversation" />
+        <intent android:targetPackage="io.twoyi" android:action="android.intent.action.VIEW" android:targetClass="io.twoyi.ui.SettingsActivity" />
+    </shortcut>
+</shortcuts>

@@ -1,0 +1,295 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big1k_00520.txt pool 672
+_0090caac
+  C: FUN_008c8278, FUN_008f8670, FUN_008bbcb8, FUN_008bd304, FUN_008f85b8, FUN_008f8820, FUN_008f88c0, FUN_008bcfd0, FUN_008f876c, FUN_008cccac, FUN_008c7710, FUN_008c6c28
+  | FUN_008c8278();
+  | *(undefined2 *)(param_1 + 0x9a) = 0x100;
+  | plVar5 = *(long **)(param_2 + 0x20);
+  | if (((plVar5 == (long *)0x0) ||
+
+=== 0090dfc4 size=1004 nc=7 FUN_0090dfc4
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008d4294, FUN_008cb600, FUN_008bcfd0, FUN_009028b4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | plVar4 = (long *)(**(code **)(*param_3 + 0xd8))(param_3);
+  | if ((ulong)(plVar4[1] - *plVar4) < 9) goto LAB_0090e360;
+
+=== 0091067c size=2916 nc=11 FUN_0091067c
+  C: FUN_008c0be0, FUN_008bcfd0, FUN_008bbcb8, FUN_008bd304, FUN_008c05c8, FUN_008f8670, FUN_008f8820, FUN_008f876c, FUN_008f8504, FUN_008cc4a8, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | (**(code **)(*param_2 + 0xf8))(param_2);
+  | uVar8 = FUN_008c0be0();
+
+=== 0091173c size=1612 nc=20 FUN_0091173c
+  C: FUN_008ca918, FUN_008bc814, memcmp, FUN_008bc7f0, strcmp, FUN_008d9cc0, FUN_0099c458, FUN_008d9d0c, FUN_00912650, FUN_008d9d60, FUN_00912694, FUN_00912598
+  L: gl_DepthRange
+  | lVar6 = tpidr_el0;
+  | local_58 = *(long *)(lVar6 + 0x28);
+  | if ((*(byte *)(param_2[3] + 0x14) & 0xfe) == 2) goto switchD_0091196c_caseD_4;
+  | local_90 = FUN_008ca918(param_2);
+
+=== 00912108 size=1168 nc=17 FUN_00912108
+  C: FUN_008bc834, FUN_008d9cc0, FUN_00913210, FUN_008bcd98, FUN_008bc814, FUN_008bf144, FUN_008bc880, FUN_008d9e08, FUN_009130b8, FUN_008d9d60, FUN_008da190, FUN_008ca918
+  | byte FUN_00912108(long param_1,undefined8 param_2,long *param_3)
+  | lVar5 = tpidr_el0;
+  | local_70 = *(long *)(lVar5 + 0x28);
+  | plVar7 = (long *)(**(code **)(*param_3 + 0xd8))(param_3);
+
+=== 00913470 size=2220 nc=16 FUN_00913470
+  C: FUN_00913d1c, FUN_008da0c4, LZCOUNT, FUN_00914164, FUN_006f2cb8, FUN_009133d0, CONCAT17, CONCAT16, CONCAT15, CONCAT14, CONCAT13, CONCAT12
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | lVar27 = *param_2;
+  | lVar31 = param_2[1];
+
+=== 00914164 size=3560 nc=10 FUN_00914164
+  C: FUN_008dac28, FUN_008da0c4, FUN_008d9e08, FUN_008d9fc0, FUN_008d9d60, FUN_0091517c, FUN_00915698, FUN_00914f4c, FUN_009153e4, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | LAB_009141a8:
+  | puVar9 = param_2 + -0x2c;
+
+=== 00915b60 size=1016 nc=13 FUN_00915b60
+  C: FUN_00915f58, FUN_008bbcb8, FUN_008bd304, FUN_008c2094, FUN_008ca8d4, FUN_008c3f1c, FUN_008c02d8, FUN_008c9fdc, FUN_008bcfd0, FUN_008f8b1c, FUN_008cc4a8, FUN_0090c5b4
+  L: gl_PointSize
+  | lVar3 = tpidr_el0;
+  | local_80 = *(long *)(lVar3 + 0x28);
+  | local_110 = "gl_PointSize";
+  | uStack_108 = 0xc;
+
+=== 00916070 size=1340 nc=14 FUN_00916070
+  C: FUN_00915f58, FUN_008bbcb8, FUN_008bd304, FUN_008c2070, FUN_008ca8d4, FUN_008c02d8, FUN_008f80a8, FUN_008c3f1c, FUN_008c9fdc, FUN_008bcfd0, FUN_008f8b1c, FUN_008cc4a8
+  L: gl_FragDepth ~ clamp
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | local_100 = "gl_FragDepth";
+  | uStack_f8 = 0xc;
+
+=== 00916660 size=1048 nc=7 FUN_00916660
+  C: FUN_008cbe80, FUN_008bbcb8, FUN_008bd304, FUN_008cc4a8, FUN_008bcfd0, FUN_009028b4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | lVar3 = (**(code **)(**(long **)(param_3 + 0xb8) + 0x68))(*(long **)(param_3 + 0xb8));
+  | plVar10 = *(long **)(*(long *)(param_1 + 0x70) + -0x10);
+
+=== 009175c0 size=1276 nc=11 FUN_009175c0
+  C: FUN_008c7864, FUN_008c742c, FUN_009191dc, FUN_008bbcb8, FUN_008bd304, FUN_008bcfd0, FUN_008ca83c, FUN_008d6404, FUN_0091a97c, FUN_008c7e68, __stack_chk_fail
+  | uint FUN_009175c0(long *param_1,undefined8 param_2,long *param_3,undefined8 param_4,
+  | lVar2 = tpidr_el0;
+  | local_70 = *(long *)(lVar2 + 0x28);
+  | FUN_008c7864(local_190,1,0,0,param_4);
+
+=== 00917c3c size=1760 nc=32 FUN_00917c3c
+  C: FUN_008f8924, FUN_008c6c28, FUN_008f876c, FUN_008c7744, FUN_0068ddd8, FUN_008c552c, FUN_0091831c, FUN_008bbcb8, FUN_008bd304, memcpy, free, FUN_00918f88
+  L: Performance: dynamic indexing of vectors and matrices i
+  | byte FUN_00917c3c(long param_1,undefined8 param_2,ulong param_3)
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | if ((*(byte *)(param_1 + 0xd0) & 1) != 0) {
+
+=== 00918b80 size=1032 nc=5 FUN_00918b80
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008f876c, FUN_008bcfd0, FUN_008ca92c
+  | uVar5 = FUN_008bbcb8();
+  | plVar6 = (long *)FUN_008bd304(uVar5,0x18);
+  | plVar6[1] = 0;
+  | plVar6[2] = 0;
+
+=== 009191dc size=6048 nc=15 FUN_009191dc
+  C: FUN_0091831c, FUN_008f8004, FUN_008bbcb8, FUN_008bd304, FUN_008ca8d4, FUN_008c3f1c, FUN_008c02d8, FUN_008c9fdc, FUN_008f8504, FUN_008cc4a8, FUN_008ccf28, FUN_008cce20
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+  | uVar21 = (uint)*(byte *)(param_1 + 0x54);
+  | FUN_0091831c(local_118);
+
+=== 0091b558 size=1144 nc=7 FUN_0091b558
+  C: FUN_008c5b18, FUN_0099c6c8, FUN_008c5684, FUN_008c3f24, FUN_008c5a08, FUN_008c564c, __stack_chk_fail
+  L: comma ~ add ~ subtract ~ component-wise multiply ~ divide
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | uVar8 = *(undefined8 *)(param_1 + 0x98);
+  | iVar3 = *(int *)(param_1 + 0xa0) +
+
+=== 0091f314 size=1324 nc=11 FUN_0091f314
+  C: FUN_008c05c8, FUN_0099c6c8, FUN_008c1154, FUN_008c5a08, length, clamp, webgl_int_clamp, FUN_008c3f24, FUN_0091f840, FUN_008c564c, __stack_chk_fail
+  L: ), 0.0, float( ~ , 0,  ~ .length() - 1 ~ )))] ~ [int(clamp(float(
+  | undefined local_c8 [5] [16];
+  | auVar37._8_8_ = local_c8[0]._8_8_;
+  | auVar37._0_8_ = local_c8[0]._0_8_;
+  | auVar36._8_8_ = local_c8[0]._8_8_;
+
+=== 00920984 size=1408 nc=29 FUN_00920984
+  C: FUN_00920f04, FUN_00920fc0, FUN_008d7624, FUN_008d4498, FUN_008d7648, FUN_0099c6c8, FUN_00921a38, FUN_00922344, FUN_00922508, FUN_008d7300, FUN_008d761c, FUN_008d9820
+  L: gl_FragCoord ~ invariant  ~ gl_PointCoord ~ gl_PointSize ~ out vec4 angle_SecondaryFragData[
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+  | FUN_00920f04();
+  | FUN_00920fc0(param_1,param_2,param_3);
+
+=== 00920fc0 size=1288 nc=12 FUN_00920fc0
+  C: FUN_008d6980, FUN_0099c6c8, FUN_008c6178, FUN_008c61a4, FUN_008d78d4, FUN_0092817c, FUN_009281e4, FUN_0099bba0, FUN_009281ec, FUN_00921504, FUN_008c7e68, __stack_chk_fail
+  L: #extension GL_ARB_shader_texture_lod :  ~ #extension GL_ARB_geometry_shader4 :  ~ #extension GL_ARB_draw_buffers :  ~ #extension GL_ARB_texture_multisample :  ~ #extension 
+  | lVar2 = tpidr_el0;
+  | local_70 = *(long *)(lVar2 + 0x28);
+  | local_78 = param_3;
+  | puVar6 = (undefined8 *)FUN_008d6980();
+
+=== 00921b34 size=2064 nc=13 FUN_00921b34
+  C: FUN_008bdc00, strcmp, FUN_008bbcb8, FUN_008bd304, FUN_008c0268, FUN_008f80a8, FUN_008bcfd0, FUN_008caa1c, FUN_008cc4a8, FUN_008d4294, FUN_008f8b1c, FUN_008c7710
+  L: texelFetchOffset ~ texelFetch
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | if ((*(byte *)(param_1 + 0xa4) & 1) != 0) {
+  | uVar7 = 0;
+
+=== 009226e4 size=7676 nc=44 FUN_009226e4
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_008ca918, FUN_008c3f08, FUN_008bbcb8, FUN_008bd304, memcmp, __stack_chk_fail, FUN_00924d28, FUN_008c05c8, FUN_008c14c4
+  L: transpose
+  | lVar9 = tpidr_el0;
+  | local_70 = *(long *)(lVar9 + 0x28);
+  | if ((*(long *)(param_1 + 0x158) == 0) || (*(char *)(param_1 + 0x160) == '\x01')) {
+  | uVar49 = param_2[3];
+
+=== 00924508 size=2080 nc=21 FUN_00924508
+  C: FUN_008c09a4, FUN_00925bbc, FUN_008c09bc, FUN_008bbcb8, FUN_008bd304, FUN_008c05c8, FUN_00927280, FUN_009277e0, FUN_008c3f08, CONCAT44, FUN_008bdc00, FUN_008be210
+  | auVar7._8_8_ = local_150._8_8_;
+  | auVar7._0_8_ = local_150._0_8_;
+  | lVar5 = tpidr_el0;
+  | uVar9 = 1;
+
+=== 00925390 size=1672 nc=16 FUN_00925390
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008f8b1c, memset, FUN_00925fd0, FUN_00926174, FUN_008cc4a8, FUN_008bcfd0, FUN_008c0268, FUN_008caa1c, FUN_00925bbc, FUN_009264c8
+  L: transpose
+  | void FUN_00925390(long param_1,long *param_2,long *param_3,long *param_4,long *param_5,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | local_70 = param_5;
+
+=== 00925bbc size=1044 nc=8 FUN_00925bbc
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0068ddb0, free, LZCOUNT
+  | uVar15 = *param_2;
+  | uVar14 = param_1[1];
+  | uVar6 = ((ulong)(uint)((int)uVar15 << 3) + 8 ^ uVar15 >> 0x20) * -0x622015f714c7d297;
+  | uVar6 = (uVar15 >> 0x20 ^ uVar6 >> 0x2f ^ uVar6) * -0x622015f714c7d297;
+
+=== 009264c8 size=1380 nc=19 FUN_009264c8
+  C: block, FUN_008bbcb8, FUN_008bd304, FUN_008c04d4, FUN_008bdf2c, FUN_008ca8d4, FUN_008cb600, FUN_008cb498, FUN_008f8504, FUN_008cc4a8, FUN_00926a2c, FUN_008c17b0
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | uVar8 = FUN_008bbcb8();
+  | uVar8 = FUN_008bd304(uVar8,0x90);
+
+=== 00926df0 size=1168 nc=8 FUN_00926df0
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c05c8, FUN_008c046c, FUN_008c17b0, FUN_008bcfd0, FUN_008caa1c, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | uVar6 = FUN_008bbcb8();
+  | uVar6 = FUN_008bd304(uVar6,0x90);
+
+=== 00927280 size=1376 nc=17 FUN_00927280
+  C: FUN_008c09a4, FUN_008bbcb8, FUN_008bd304, FUN_008c05c8, FUN_008c12a4, FUN_008c12bc, FUN_00925bbc, FUN_008c3f08, FUN_008bdf2c, FUN_008bdc00, FUN_008bdfb8, FUN_008c04d4
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | lVar27 = *param_2;
+  | uVar7 = FUN_008c09a4(lVar27);
+
+=== 00928b30 size=1544 nc=17 FUN_00928b30
+  C: FUN_0083b464, FUN_008b7360, FUN_006d9b20, FUN_006d9e20, CONCAT44, CONCAT71, FUN_0092f0f8, free, FUN_00928844, FUN_0092f5f8, FUN_0092fa60, FUN_0092fd2c
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | FUN_0083b464();
+  | *param_1 = &PTR_FUN_00a071a8;
+
+=== 009294b0 size=1340 nc=21 FUN_009294b0
+  C: FUN_006d6ffc, FUN_009e0490, memset, FUN_00929138, strlen, FUN_0068ef98, CONCAT71, memmove, FUN_0069ad94, FUN_0099c3b4, free, FUN_0099c49c
+  | puVar10 = PTR_DAT_00a0eb28;
+  | lVar9 = tpidr_el0;
+  | local_70 = *(long *)(lVar9 + 0x28);
+  | local_19c = 0;
+
+=== 009299ec size=1676 nc=18 FUN_009299ec
+  C: FUN_006d994c, FUN_0083b4a4, FUN_0092a078, FUN_0083b4c0, FUN_0092a140, FUN_006d9ac4, FUN_006d9d80, FUN_009294b0, FUN_0092d5f8, free, thunk_FUN_009e0490, FUN_006d85d4
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | FUN_006d994c(param_2,1);
+  | FUN_0083b4a4(param_1,param_2,param_3);
+
+=== 0092a378 size=2520 nc=14 FUN_0092a378
+  C: FUN_0083b4b8, CONCAT62, CONCAT44, FUN_0093084c, FUN_008294b8, FUN_008294dc, FUN_008b7f88, free, FUN_00930c78, FUN_0092ad54, FUN_009306a4, fprintf
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | FUN_0083b4b8();
+  | plVar11 = *(long **)(param_3 + 0x20);
+
+=== 0092b2f8 size=3276 nc=22 FUN_0092b2f8
+  C: CONCAT44, strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memmove, FUN_0092d90c, free, FUN_00696064, FUN_0099ebd8, FUN_0099ed20, FUN_00688420
+  L: exceeded max vertex attribs. ~  Wanted (from vertex shader):  ~  Limit:  ~ interface block  ~ specified with different layout qualifiers in different
+  | byte FUN_0092b2f8(long param_1,long param_2,long param_3)
+  | puVar15 = PTR_PTR_00a0db58;
+  | lVar9 = tpidr_el0;
+  | local_78 = *(long *)(lVar9 + 0x28);
+
+=== 0092bfd4 size=2364 nc=25 FUN_0092bfd4
+  C: free, CONCAT44, FUN_0093084c, FUN_008b6c64, FUN_0099c49c, FUN_008b7b8c, FUN_008b970c, FUN_009e0490, memcpy, FUN_008294b8, FUN_006d6ffc, memset
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+  | *(bool *)(param_1 + 0x341) = param_2 != 0;
+  | if (*(long *)(param_1 + 0x3b8) != 0) {
+
+=== 0092cc88 size=1472 nc=13 FUN_0092cc88
+  C: strlen, CONCAT71, FUN_009e0490, memcpy, FUN_00931258, free, FUN_0068ef98, FUN_009317c0, CONCAT44, FUN_009306a4, FUN_0093084c, FUN_0092ad54
+  | ulong FUN_0092cc88(long param_1,char *param_2)
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | if (*(char *)(param_1 + 0x40c) == '\x01') {
+
+=== 0092dac4 size=1164 nc=11 FUN_0092dac4
+  C: FUN_0099ebd8, FUN_0099ed20, strlen, FUN_00688420, FUN_0092b1ec, free, FUN_0099ecdc, FUN_0099f6b8, thunk_FUN_0099ea18, strcmp, __stack_chk_fail
+  L: uniform ~ specified with different precision in different shaders ~ varying ~ specified with different type in different shaders.
+  | byte FUN_0092dac4(undefined8 param_1,int param_2,int *param_3,int *param_4)
+  | puVar4 = PTR_PTR_00a0db58;
+  | puVar2 = PTR_DAT_00a0db50;
+  | lVar3 = tpidr_el0;
+
+=== 0092df50 size=1856 nc=12 FUN_0092df50
+  C: strlen, FUN_009e0490, memset, FUN_006b7530, CONCAT71, memcpy, free, FUN_006d6ffc, FUN_0068ef98, FUN_0092caa8, FUN_0092c918, __stack_chk_fail
+  L: %s.%s ~ %s[%d].%s ~ %s[%d]
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | if (*(int *)(param_3 + 0x18) == 0) {
+  | if (*(int *)(param_3 + 0x30) != 0) {
+
+=== 00932728 size=3824 nc=0 FUN_00932728
+  C: 
+  | if (param_2 == param_3) {
+  | if (*(int *)(param_1 + 0x1d8) < 3) {
+  | if (param_3 < 0x1908) {
+  | if (param_3 != 0x1903) {
+
+=== 009336c4 size=1044 nc=0 FUN_009336c4
+  C: 
+  | if (param_1 < 0x8f94) {
+  | if (param_1 < 0x8814) {
+  | if (param_1 < 0x8058) {
+  | if (param_1 == 0x8051) {
+
+=== 0093474c size=1228 nc=6 FUN_0093474c
+  C: FUN_009e0490, memset, FUN_0084a510, FUN_0083f78c, free, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_90[0] = 0;
+  | local_48 = param_2;
+
+=== 00934c68 size=2604 nc=24 FUN_00934c68
+  C: FUN_00833554, FUN_009e0360, FUN_0099b070, FUN_008330e0, CONCAT44, FUN_006f2cb8, FUN_0084921c, FUN_0084866c, FUN_0084be0c, FUN_0084be1c, FUN_0084bd80, FUN_0084bd78
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | FUN_00833554(&local_d0,param_1[0x3c],5,*(undefined4 *)(param_1 + 0x4e));
+  | plVar22 = plStack_c8;
+
+=== 009359bc size=1332 nc=9 FUN_009359bc
+  C: FUN_0083fa50, FUN_00844450, FUN_008294b8, FUN_0084289c, FUN_008431d8, FUN_00935838, FUN_0083ef6c, FUN_006ebf5c, __stack_chk_fail
+  L: drawWithEmulations has corrupt call parameters!
+  | void FUN_009359bc(long *param_1,int param_2,int param_3,undefined4 param_4,int param_5,int param_6,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | if (*(int *)(param_1 + 0x3b) < 3) {

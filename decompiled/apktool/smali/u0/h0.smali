@@ -1,0 +1,99 @@
+.class public final synthetic Lu0/h0;
+.super Lx8/h;
+.source "r8-map-id-7bf9c8a41511711ea9494642f15e05c388791a88a4daf33624d11626852f77fa"
+
+# interfaces
+.implements Lw8/e;
+
+
+# static fields
+.field public static final p:Lu0/h0;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 6
+
+    .line 1
+    new-instance v0, Lu0/h0;
+
+    .line 2
+    .line 3
+    const-string v4, "min(II)I"
+
+    .line 4
+    .line 5
+    const/4 v5, 0x1
+
+    .line 6
+    const/4 v1, 0x2
+
+    .line 7
+    const-class v2, Lz8/a;
+
+    .line 8
+    .line 9
+    const-string v3, "min"
+
+    .line 10
+    .line 11
+    invoke-direct/range {v0 .. v5}, Lx8/h;-><init>(ILjava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
+
+    .line 12
+    .line 13
+    .line 14
+    sput-object v0, Lu0/h0;->p:Lu0/h0;
+
+    .line 15
+    .line 16
+    return-void
+.end method
+
+
+# virtual methods
+.method public final h(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    check-cast p1, Ljava/lang/Number;
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
+
+    .line 4
+    .line 5
+    .line 6
+    move-result p1
+
+    .line 7
+    check-cast p2, Ljava/lang/Number;
+
+    .line 8
+    .line 9
+    invoke-virtual {p2}, Ljava/lang/Number;->intValue()I
+
+    .line 10
+    .line 11
+    .line 12
+    move-result p2
+
+    .line 13
+    invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
+
+    .line 14
+    .line 15
+    .line 16
+    move-result p1
+
+    .line 17
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    .line 18
+    .line 19
+    .line 20
+    move-result-object p1
+
+    .line 21
+    return-object p1
+.end method

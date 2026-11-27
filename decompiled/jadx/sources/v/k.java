@@ -1,0 +1,18 @@
+package v;
+
+/* compiled from: r8-map-id-7bf9c8a41511711ea9494642f15e05c388791a88a4daf33624d11626852f77fa */
+/* loaded from: classes.dex */
+public final class k {
+
+    /* renamed from: a, reason: collision with root package name */
+    public r.t f12312a;
+
+    /* renamed from: b, reason: collision with root package name */
+    public final v1 f12313b;
+
+    public k(r.t tVar) {
+        v1 v1Var = z1.f12511c;
+        this.f12312a = tVar;
+        this.f12313b = v1Var;
+    }
+}

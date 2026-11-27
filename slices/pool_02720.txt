@@ -1,0 +1,568 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_02720.txt
+C: __read_chk, __errno
+  | if (param_3 != 0) {
+  | do {
+  | /* try { // try from 0094fb60 to 0094fb73 has its CatchHandler @ 0094fbb8 */
+  | while (lVar1 = __read_chk(param_1,param_2,param_3,0xffffffffffffffff), lVar1 < 0) {
+
+=== 0094fbf4 size=44 nc=2 FUN_0094fbf4
+  C: close, FUN_0099e4a4
+  | if (-1 < *param_1) {
+  | /* try { // try from 0094fc0c to 0094fc0f has its CatchHandler @ 0094fc20 */
+  | close(*param_1);
+  | FUN_0099e4a4(param_1 + 1);
+
+=== 0094fd9c size=80 nc=3 FUN_0094fd9c
+  C: FUN_0099e4c4, FUN_0094fc24, FUN_0099e4f0
+  | FUN_0099e4c4(param_1 + 4);
+  | if (param_2 < 0) {
+  | bVar1 = false;
+  | else {
+
+=== 0094fe00 size=60 nc=3 FUN_0094fe00
+  C: FUN_0099e4c4, FUN_0094fc24, FUN_0099e4f0
+  | FUN_0099e4c4(param_1 + 4);
+  | /* try { // try from 0094fe18 to 0094fe1f has its CatchHandler @ 0094fe3c */
+  | uVar1 = FUN_0094fc24(param_1);
+  | FUN_0099e4f0(param_1 + 4);
+
+=== 00950178 size=160 nc=4 FUN_00950178
+  C: strlen, FUN_002fe1b8, FUN_009e0490, memmove
+  | __n = strlen(param_2);
+  | if (0xfffffffffffffff7 < __n) {
+  | FUN_002fe1b8(param_1);
+  | if (__n < 0x17) {
+
+=== 00950264 size=176 nc=2 FUN_00950264
+  C: __android_log_vprint, __stack_chk_fail
+  L: CLIENT_EGL
+  | void FUN_00950264(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | ppuStack_68 = &local_70;
+  | lVar1 = tpidr_el0;
+  | lVar2 = *(long *)(lVar1 + 0x28);
+
+=== 0095034c size=68 nc=2 FUN_0095034c
+  C: pthread_mutex_init, pthread_cond_init
+  | *param_1 = 0;
+  | param_1[1] = 0;
+  | param_1[2] = param_2;
+  | pthread_mutex_init((pthread_mutex_t *)(param_1 + 3),(pthread_mutexattr_t *)0x0);
+
+=== 00950390 size=48 nc=2 FUN_00950390
+  C: pthread_cond_destroy, pthread_mutex_destroy
+  | pthread_cond_destroy((pthread_cond_t *)(param_1 + 0x70));
+  | pthread_cond_destroy((pthread_cond_t *)(param_1 + 0x40));
+  | iVar1 = pthread_mutex_destroy((pthread_mutex_t *)(param_1 + 0x18));
+
+=== 009503c0 size=84 nc=2 FUN_009503c0
+  C: pthread_mutex_lock, pthread_cond_wait
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 3));
+  | while( true ) {
+  | uVar3 = param_1[2];
+  | if ((ulong)param_1[1] < uVar3) break;
+
+=== 00950414 size=52 nc=2 FUN_00950414
+  C: pthread_cond_signal, pthread_mutex_unlock
+  | *(long *)(param_1 + 8) = *(long *)(param_1 + 8) + 1;
+  | pthread_cond_signal((pthread_cond_t *)(param_1 + 0x40));
+  | iVar1 = pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x18));
+
+=== 00950448 size=68 nc=2 FUN_00950448
+  C: pthread_mutex_lock, pthread_cond_wait
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 3));
+  | lVar1 = param_1[1];
+  | while (lVar1 == 0) {
+  | pthread_cond_wait((pthread_cond_t *)(param_1 + 8),(pthread_mutex_t *)(param_1 + 3));
+
+=== 0095048c size=64 nc=2 FUN_0095048c
+  C: pthread_cond_signal, pthread_mutex_unlock
+  | lVar1 = 0;
+  | if (*param_1 + 1 != param_1[2]) {
+  | lVar1 = *param_1 + 1;
+  | *param_1 = lVar1;
+
+=== 009505b8 size=168 nc=2 FUN_009505b8
+  C: __vsnprintf_chk, __stack_chk_fail
+  | void FUN_009505b8(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | ppuStack_68 = &local_70;
+  | lVar1 = tpidr_el0;
+
+=== 00950660 size=168 nc=2 FUN_00950660
+  C: __vsnprintf_chk, __stack_chk_fail
+  | void FUN_00950660(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | ppuStack_68 = &local_70;
+  | lVar1 = tpidr_el0;
+
+=== 00950708 size=168 nc=2 FUN_00950708
+  C: __vsnprintf_chk, __stack_chk_fail
+  L: %s/%s
+  | void FUN_00950708(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | ppuStack_68 = &local_70;
+  | lVar1 = tpidr_el0;
+
+=== 009507b0 size=168 nc=2 FUN_009507b0
+  C: __vsnprintf_chk, __stack_chk_fail
+  | void FUN_009507b0(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | ppuStack_68 = &local_70;
+  | lVar1 = tpidr_el0;
+
+=== 009508e4 size=140 nc=2 FUN_009508e4
+  C: FUN_009e0300, free
+  | __ptr = (void *)param_1[1];
+  | if (__ptr == (void *)0x0) {
+  | uVar3 = 0;
+  | else {
+
+=== 00950970 size=84 nc=2 FUN_00950970
+  C: FUN_009e0300, free
+  | __ptr = (void *)param_1[1];
+  | if (__ptr == (void *)0x0) {
+  | uVar2 = 0;
+  | else {
+
+=== 009509c4 size=92 nc=2 FUN_009509c4
+  C: setsockopt, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_2c = 1;
+  | iVar2 = setsockopt(param_1,6,1,&local_2c,4);
+
+=== 00950a20 size=172 nc=3 FUN_00950a20
+  C: getsockname, __errno, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | uStack_30 = 0;
+  | local_38 = 0;
+
+=== 00950acc size=208 nc=4 FUN_00950acc
+  C: strlen, __memcpy_chk, FUN_00950b9c, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if ((param_1 == (char *)0x0) || (*param_1 == '\0')) {
+  | uVar3 = 0xffffffea;
+
+=== 00950cd4 size=208 nc=4 FUN_00950cd4
+  C: strlen, __memcpy_chk, FUN_00950da4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if ((param_1 == (char *)0x0) || (*param_1 == '\0')) {
+  | uVar3 = 0xffffffea;
+
+=== 00950ec4 size=148 nc=2 FUN_00950ec4
+  C: FUN_00950b9c, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | if ((param_1 & 0xffff0000) == 0) {
+  | local_96 = (ushort)(param_1 >> 8) & 0xff | (ushort)((param_1 & 0xff00ff) << 8);
+
+=== 00950f58 size=148 nc=2 FUN_00950f58
+  C: FUN_00950da4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | if ((param_1 & 0xffff0000) == 0) {
+  | local_96 = (ushort)(param_1 >> 8) & 0xff | (ushort)((param_1 & 0xff00ff) << 8);
+
+=== 00950fec size=72 nc=2 FUN_00950fec
+  C: accept, __errno
+  | do {
+  | iVar1 = accept(param_1,(sockaddr *)0x0,(socklen_t *)0x0);
+  | if (-1 < iVar1) {
+  | piVar2 = (int *)__errno();
+
+=== 00951034 size=68 nc=3 FUN_00951034
+  C: pthread_key_create, strerror, fprintf
+  | __errnum = pthread_key_create(param_1,param_2);
+  | if (__errnum == 0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+  | pcVar1 = strerror(__errnum);
+
+=== 00951080 size=152 nc=2 FUN_00951080
+  C: FUN_009e0190, sched_yield
+  | uVar2 = 0;
+  | if (*param_1 != 2) {
+  | iVar1 = FUN_009e0190(0,1,param_1);
+  | if (iVar1 == 0) {
+
+=== 00951180 size=96 nc=3 FUN_00951180
+  C: pthread_mutex_lock, pthread_create, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)((long)param_1 + 0x10));
+  | *(undefined *)((long)param_1 + 0x48) = 1;
+  | iVar1 = pthread_create((pthread_t *)((long)param_1 + 8),(pthread_attr_t *)0x0,FUN_009511e0,param_1
+  | );
+
+=== 009511e0 size=72 nc=2 FUN_009511e0
+  C: pthread_mutex_lock, pthread_mutex_unlock
+  | lVar1 = (**(code **)(*param_1 + 0x10))();
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 2));
+  | *(undefined *)(param_1 + 9) = 0;
+  | param_1[8] = lVar1;
+
+=== 00951228 size=236 nc=4 FUN_00951228
+  C: pthread_mutex_lock, pthread_join, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x10));
+  | if ((*(byte *)(param_1 + 0x48) & 1) == 0) {
+
+=== 00951314 size=108 nc=3 FUN_00951314
+  C: pthread_mutex_lock, pthread_join, pthread_mutex_unlock
+  | byte FUN_00951314(long param_1,undefined8 *param_2)
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x10));
+  | bVar1 = *(byte *)(param_1 + 0x48);
+  | if ((bVar1 & 1) == 0) {
+
+=== 0095143c size=204 nc=3 FUN_0095143c
+  C: CONCAT44, memcmp, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | iVar1 = *param_1;
+  | if (param_3 == (ulong)(iVar1 == 1) * 8) {
+
+=== 00951508 size=92 nc=4 FUN_00951508
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_setspecific
+  | *(undefined4 *)(param_1 + 2) = 0;
+  | *param_1 = 0;
+  | *(undefined8 *)((long)param_1 + 5) = 0;
+  | uVar2 = FUN_00951080(&DAT_00a70980);
+
+=== 00951564 size=76 nc=4 FUN_00951564
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_setspecific
+  | uVar2 = FUN_00951080(&DAT_00a70980);
+  | if ((uVar2 & 1) != 0) {
+  | FUN_00951034(&DAT_00a70988,0);
+  | FUN_00951118(&DAT_00a70980);
+
+=== 009515b0 size=80 nc=4 FUN_009515b0
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_getspecific
+  | uVar1 = FUN_00951080(&DAT_00a70980);
+  | if ((uVar1 & 1) != 0) {
+  | FUN_00951034(&DAT_00a70988,0);
+  | FUN_00951118(&DAT_00a70980);
+
+=== 00951600 size=84 nc=5 FUN_00951600
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_getspecific, FUN_00951380
+  | uVar1 = FUN_00951080(&DAT_00a70980);
+  | if ((uVar1 & 1) != 0) {
+  | FUN_00951034(&DAT_00a70988,0);
+  | FUN_00951118(&DAT_00a70980);
+
+=== 00951654 size=76 nc=5 FUN_00951654
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_getspecific, FUN_009513ac
+  | uVar1 = FUN_00951080(&DAT_00a70980);
+  | if ((uVar1 & 1) != 0) {
+  | FUN_00951034(&DAT_00a70988,0);
+  | FUN_00951118(&DAT_00a70980);
+
+=== 009517f8 size=68 nc=2 FUN_009517f8
+  C: FUN_00950858, free
+  | __ptr = (void *)param_1[0x125];
+  | *param_1 = &PTR_FUN_00a07780;
+  | if (__ptr != (void *)0x0) {
+  | FUN_00950858(__ptr);
+
+=== 0095183c size=68 nc=2 FUN_0095183c
+  C: FUN_00950858, free
+  | __ptr = (void *)param_1[0x125];
+  | *param_1 = &PTR_FUN_00a07780;
+  | if (__ptr != (void *)0x0) {
+  | FUN_00950858(__ptr);
+
+=== 00951f34 size=68 nc=2 FUN_00951f34
+  C: FUN_00950858, free
+  | __ptr = (void *)param_1[0xd2];
+  | *param_1 = &PTR_FUN_00a077a0;
+  | if (__ptr != (void *)0x0) {
+  | FUN_00950858(__ptr);
+
+=== 00951f78 size=68 nc=2 FUN_00951f78
+  C: FUN_00950858, free
+  | __ptr = (void *)param_1[0xd2];
+  | *param_1 = &PTR_FUN_00a077a0;
+  | if (__ptr != (void *)0x0) {
+  | FUN_00950858(__ptr);
+
+=== 00952034 size=164 nc=2 FUN_00952034
+  C: fprintf, __stack_chk_fail
+  L: s_glGetCompressedTextureFormats
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_3c = 0;
+  | (**(code **)(param_1 + 0x200))(0x86a2,&local_3c);
+
+=== 0095a384 size=100 nc=2 FUN_0095a384
+  C: malloc, memcpy
+  | *param_1 = param_2;
+  | *(undefined *)(param_1 + 1) = 0;
+  | if ((param_4 - 1U & (ulong)param_2) != 0) {
+  | __dest = malloc(param_3);
+
+=== 0095a3e8 size=272 nc=3 FUN_0095a3e8
+  C: fwrite, fprintf, Alloc
+  | lVar2 = param_1[1];
+  | uVar4 = param_1[3];
+  | if (((lVar2 == 0) || (param_2 <= uVar4)) || (param_1[2] - uVar4 == 0)) {
+  | uVar3 = param_1[2];
+
+=== 00967718 size=744 nc=5 FUN_00967718
+  C: FUN_0096fd90, FUN_00976114, free, FUN_0096fe40, __stack_chk_fail
+  L: unavailable ~ bound ~ ColorBuffer: teardown-begin cb=%#x object=%p tex=%u bli ~ ColorBuffer: teardown-preserved cb=%#x reason=no-helper ~ ColorBuffer: preserving teardown after EGLImage failure
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | plVar12 = (long *)param_1[9];
+  | uVar10 = (**(code **)(*plVar12 + 0x28))(plVar12);
+
+=== 00967a00 size=756 nc=2 FUN_00967a00
+  C: fprintf, __stack_chk_fail
+  | bool FUN_00967a00(undefined4 *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | plVar9 = *(long **)(param_1 + 0x12);
+
+=== 00967f18 size=796 nc=3 FUN_00967f18
+  C: FUN_00967d24, fprintf, __stack_chk_fail
+  | bool FUN_00967f18(undefined4 *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | plVar9 = *(long **)(param_1 + 0x12);
+
+=== 00968ff4 size=296 nc=3 FUN_00968ff4
+  C: FUN_009761c8, FUN_00975ba4, fprintf
+  | void FUN_00968ff4(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 *param_4,
+  | uVar1 = param_4[6];
+  | if ((((-1 < (int)(param_6 | param_5)) && ((int)param_5 < (int)param_7)) &&
+  | ((int)param_6 < (int)param_8)) && ((param_7 <= uVar1 && (param_8 <= (uint)param_4[7])))) {
+
+=== 00969bb0 size=292 nc=5 FUN_00969bb0
+  C: FUN_0096ee28, pthread_mutex_lock, pthread_mutex_unlock, FUN_0096ee84, FUN_0096eee0
+  L: ================ FrameBuffer finalize ============
+  | FUN_0096ee28(param_1 + 0xb0,*(undefined8 *)(param_1 + 0xb8));
+  | *(undefined8 *)(param_1 + 0xc0) = 0;
+  | puVar2 = PTR_DAT_00a10ec8;
+  | *(undefined8 **)(param_1 + 0xb0) = (undefined8 *)(param_1 + 0xb8);
+
+=== 00969cd4 size=168 nc=3 FUN_00969cd4
+  C: pthread_mutex_lock, pthread_mutex_unlock, fprintf
+  L: removeSubWindow
+  | if ((*(byte *)(param_1 + 0x2c) & 1) != 0) {
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | puVar1 = PTR_DAT_00a10ec8;
+  | lVar2 = *(long *)(param_1 + 0x120);
+
+=== 0096a808 size=136 nc=4 FUN_0096a808
+  C: pthread_mutex_lock, malloc, fwrite, pthread_mutex_unlock
+  L: out of memory, cancelling OnPost callback
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | *(long *)(param_1 + 0x168) = param_2;
+  | *(undefined8 *)(param_1 + 0x170) = param_3;
+  | if ((param_2 != 0) && (*(long *)(param_1 + 0x178) == 0)) {
+
+=== 0096abb8 size=196 nc=3 FUN_0096abb8
+  C: FUN_009761c8, FUN_00975b90, FUN_00976e54
+  | uVar2 = *(undefined8 *)(param_1 + 0x128);
+  | uVar3 = FUN_009761c8(*(undefined8 *)(param_1 + 0x130));
+  | FUN_00975b90(0,0,0,uVar2,uVar3);
+  | (*DAT_00a70a48)(*(undefined8 *)(param_1 + 0x78),*(undefined8 *)(param_1 + 0xe8));
+
+=== 0096ac7c size=288 nc=5 FUN_0096ac7c
+  C: pthread_mutex_lock, pthread_mutex_unlock, FUN_0096a890, FUN_0096ada0, fprintf
+  L: removeSubWindow
+  | uint FUN_0096ac7c(undefined4 param_1,undefined4 param_2,long param_3,undefined8 param_4,
+  | undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8,
+  | if ((*(byte *)(param_3 + 0x2c) & 1) != 0) {
+  | pthread_mutex_lock((pthread_mutex_t *)(param_3 + 0x30));
+
+=== 0096bb78 size=280 nc=5 FUN_0096bb78
+  C: pthread_mutex_lock, FUN_009742a8, FUN_0096f168, FUN_0096f5cc, pthread_mutex_unlock
+  | iVar5 = pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | lVar6 = FUN_009742a8(iVar5);
+  | if (*(long *)(lVar6 + 0x1168) != 0) {
+  | plVar9 = *(long **)(lVar6 + 0x1158);
+
+=== 0096beb8 size=280 nc=3 FUN_0096beb8
+  C: fprintf, FUN_0096c8e4, FUN_0096f6f8
+  L: ColorBuffer: teardown-deferred cb=%#x leases=%u
+  | plVar5 = (long *)(param_1 + 0xb8);
+  | plVar3 = (long *)*plVar5;
+  | if (plVar3 != (long *)0x0) {
+  | uVar2 = (ulong)param_2;
+
+=== 0096cabc size=168 nc=4 FUN_0096cabc
+  C: pthread_mutex_lock, FUN_0097744c, pthread_mutex_unlock, fprintf
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar3 = (long *)(param_1 + 0xa0);
+  | plVar4 = (long *)*plVar3;
+  | plVar2 = plVar3;
+
+=== 0096ccd0 size=204 nc=3 FUN_0096ccd0
+  C: pthread_mutex_lock, FUN_00967a00, pthread_mutex_unlock
+  | int FUN_0096ccd0(long param_1,uint param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar2 = (long *)(param_1 + 0xb8);
+  | plVar5 = (long *)*plVar2;
+
+=== 0096cd9c size=288 nc=3 FUN_0096cd9c
+  C: pthread_mutex_lock, FUN_00967a00, pthread_mutex_unlock
+  | uint FUN_0096cd9c(long param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar3 = (long *)(param_1 + 0xb8);
+  | plVar5 = (long *)*plVar3;
+
+=== 0096cebc size=224 nc=3 FUN_0096cebc
+  C: pthread_mutex_lock, FUN_00967f18, pthread_mutex_unlock
+  | uint FUN_0096cebc(long param_1,uint param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5
+  | ,undefined4 param_6,undefined4 param_7,undefined4 param_8,undefined8 param_9)
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar2 = (long *)(param_1 + 0xb8);
+
+=== 0096cf9c size=300 nc=3 FUN_0096cf9c
+  C: pthread_mutex_lock, FUN_00967f18, pthread_mutex_unlock
+  | uint FUN_0096cf9c(long param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar3 = (long *)(param_1 + 0xb8);
+  | plVar5 = (long *)*plVar3;
+
+=== 0096d0c8 size=304 nc=4 FUN_0096d0c8
+  C: pthread_mutex_lock, FUN_009676ac, FUN_009676c4, pthread_mutex_unlock
+  L: ColorBuffer: lease-acquire cb=%#x leases=%u refs=%u ahb
+  | undefined4
+  | FUN_0096d0c8(long param_1,uint param_2,int param_3,int param_4,int param_5,undefined8 *param_6)
+  | if (param_6 == (undefined8 *)0x0) {
+  | return 0;
+
+=== 0096d1f8 size=312 nc=5 FUN_0096d1f8
+  C: pthread_mutex_lock, FUN_0096c8e4, fprintf, FUN_0096f6f8, pthread_mutex_unlock
+  L: ColorBuffer: lease-release cb=%#x leases=%u refs=%u
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | puVar2 = PTR_PTR_FUN_00a10ec0;
+  | plVar6 = (long *)(param_1 + 0xb8);
+  | plVar4 = (long *)*plVar6;
+
+=== 0096d33c size=68 nc=3 FUN_0096d33c
+  C: pthread_mutex_lock, FUN_0096c8e4, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | uVar1 = FUN_0096c8e4(param_1,param_2);
+  | pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x30));
+  | return uVar1 & 1;
+
+=== 0096d578 size=348 nc=4 FUN_0096d578
+  C: fwrite, createNativeFence, fprintf, __stack_chk_fail
+  | puVar3 = PTR_DAT_00a10ee0;
+  | puVar2 = PTR_DAT_00a10ec8;
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+
+=== 0096d6e0 size=136 nc=3 FUN_0096d6e0
+  C: pthread_mutex_lock, FUN_00968f14, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar3 = (long *)(param_1 + 0xb8);
+  | plVar5 = (long *)*plVar3;
+  | if (plVar5 != (long *)0x0) {
+
+=== 0096d768 size=136 nc=3 FUN_0096d768
+  C: pthread_mutex_lock, FUN_00968f84, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | plVar3 = (long *)(param_1 + 0xb8);
+  | plVar5 = (long *)*plVar3;
+  | if (plVar5 != (long *)0x0) {
+
+=== 0096e550 size=60 nc=3 FUN_0096e550
+  C: pthread_mutex_lock, close, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | if (-1 < *(int *)(param_1 + 0x1b8)) {
+  | close(*(int *)(param_1 + 0x1b8));
+  | *(undefined4 *)(param_1 + 0x1b8) = param_2;
+
+=== 0096e58c size=424 nc=5 FUN_0096e58c
+  C: close, fwrite, draw, fprintf, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | iVar3 = *(int *)(param_1 + 0x1b8);
+  | *(undefined4 *)(param_1 + 0x1b8) = 0xffffffff;
+
+=== 0096ecac size=60 nc=2 FUN_0096ecac
+  C: pthread_mutex_lock, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x30));
+  | uVar1 = *(undefined4 *)(param_1 + 0x1bc);
+  | *(undefined4 *)(param_1 + 0x1bc) = 0xffffffff;
+  | pthread_mutex_unlock((pthread_mutex_t *)(param_1 + 0x30));
+
+=== 0096ee28 size=92 nc=3 FUN_0096ee28
+  C: FUN_00950970, FUN_00967718, free
+  | if (param_2 != (undefined8 *)0x0) {
+  | FUN_0096ee28(param_1,*param_2);
+  | FUN_0096ee28(param_1,param_2[1]);
+  | __ptr = (void *)FUN_00950970(param_2 + 5);
+
+=== 0096ee84 size=92 nc=3 FUN_0096ee84
+  C: FUN_00950970, FUN_00976fec, free
+  | if (param_2 != (undefined8 *)0x0) {
+  | FUN_0096ee84(param_1,*param_2);
+  | FUN_0096ee84(param_1,param_2[1]);
+  | __ptr = (void *)FUN_00950970(param_2 + 5);
+
+=== 0096eee0 size=92 nc=3 FUN_0096eee0
+  C: FUN_00950970, FUN_00970180, free
+  | if (param_2 != (undefined8 *)0x0) {
+  | FUN_0096eee0(param_1,*param_2);
+  | FUN_0096eee0(param_1,param_2[1]);
+  | __ptr = (void *)FUN_00950970(param_2 + 5);
+
+=== 0096ef3c size=80 nc=2 FUN_0096ef3c
+  C: FUN_0096f6b4, free
+  | if (param_2 != (undefined8 *)0x0) {
+  | FUN_0096ef3c(param_1,*param_2);
+  | FUN_0096ef3c(param_1,param_2[1]);
+  | FUN_0096f6b4(param_2 + 5,param_2[6]);
+
+=== 0096f168 size=164 nc=4 FUN_0096f168
+  C: FUN_0096f20c, FUN_00950970, FUN_00970180, free
+  | puVar3 = param_2;
+  | puVar1 = (undefined8 *)param_2[1];
+  | if ((undefined8 *)param_2[1] == (undefined8 *)0x0) {
+  | do {
+
+=== 0096f610 size=164 nc=4 FUN_0096f610
+  C: FUN_0096f20c, FUN_00950970, FUN_00976fec, free
+  | puVar3 = param_2;
+  | puVar1 = (undefined8 *)param_2[1];
+  | if ((undefined8 *)param_2[1] == (undefined8 *)0x0) {
+  | do {
+
+=== 0096f6f8 size=164 nc=4 FUN_0096f6f8
+  C: FUN_0096f20c, FUN_00950970, FUN_00967718, free
+  | puVar3 = param_2;
+  | puVar1 = (undefined8 *)param_2[1];
+  | if ((undefined8 *)param_2[1] == (undefined8 *)0x0) {
+  | do {
+
+=== 0096fa0c size=132 nc=3 FUN_0096fa0c
+  C: FUN_0096fa90, FUN_009e0490, memmove
+  | if (param_3 < 0x17) {
+  | __dest = (undefined *)((long)param_1 + 1);
+  | *(char *)param_1 = (char)((int)param_3 << 1);
+  | else {
+
+=== 0096ff84 size=268 nc=4 FUN_0096ff84
+  C: memmove, realloc, fprintf, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (param_2 != (long *)0x0) {
+  | __n = param_1[3];
+
+=== 009700ac size=212 nc=3 FUN_009700ac
+  C: FUN_009e0490, FUN_00970674, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | lVar4 = *(long *)(lVar1 + 0x28);
+  | puVar2 = (undefined8 *)(*DAT_00a70a18)();
+  | puVar3 = puVar2;
+
+=== 009708e4 size=104 nc=2 FUN_009708e4
+  C: FUN_00977654, free
+  | pvVar2 = (void *)*param_1;
+  | if (pvVar2 != (void *)0x0) {
+  | pvVar1 = (void *)param_1[1];
+  | __ptr = pvVar2;

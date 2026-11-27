@@ -1,0 +1,301 @@
+class >=1000 B : 672 functions; slice 320..360
+
+=== 006e4120 size=1080 nc=9 FUN_006e4120
+  C: FUN_006d9b20, FUN_006e4558, FUN_009c0920, FUN_009e0490, FUN_009c0a64, FUN_006d74ec, FUN_006d76ac, FUN_0068ddd8, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_70 = *(long *)(lVar1 + 0x28);
+  | iVar3 = FUN_006d9b20(param_2);
+  | *(bool *)(param_1 + 1000) = iVar3 != 0;
+
+=== 006e47f8 size=1240 nc=5 FUN_006e47f8
+  C: FUN_006e4cd0, FUN_006e4e30, FUN_006cf128, FUN_006e4f90, __stack_chk_fail
+  | local_50 = alStack_70;
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | plVar2 = (long *)param_2[4];
+
+=== 006e6f30 size=1704 nc=10 FUN_006e6f30
+  C: strcmp, FUN_006e7654, FUN_006b720c, disabled, FUN_006e7c50, FUN_0099c6c8, FUN_0099bba0, fprintf, FUN_006e6db4, __stack_chk_fail
+  L: enable ~ host ~ guest ~ off ~ auto
+  | void FUN_006e6f30(undefined8 *param_1,uint param_2,char *param_3,byte *param_4,int param_5,
+  | lVar12 = tpidr_el0;
+  | local_68 = *(long *)(lVar12 + 0x28);
+  | *(undefined8 *)((long)param_1 + 0x144) = 0;
+
+=== 006e7814 size=1080 nc=22 FUN_006e7814
+  C: SUB81, FUN_006da03c, free, CONCAT44, CONCAT13, CONCAT21, SUB85, FUN_006e7654, strcmp, FUN_006e7ee0, FUN_006e829c, SUB71
+  L: host ~ angle_indirect ~ swiftshader_indirect ~ mesa ~ ANDROID_GL_LIB
+  | cVar5 = cStack_40;
+  | uVar4 = uStack_47;
+  | cVar3 = cStack_48;
+  | uVar2 = uStack_4f;
+
+=== 006e87fc size=1716 nc=15 FUN_006e87fc
+  C: FUN_0099ebd8, FUN_0099ed20, FUN_00688420, FUN_0099fa10, FUN_0099ea08, FUN_009bab04, FUN_009ba98c, FUN_009a03b0, FUN_0099f224, FUN_009a0c84, free, FUN_0099ecdc
+  L: GPU # ~   Make:  ~   Model:  ~   Device ID:  ~   Revision ID: 
+  | puVar8 = PTR_PTR_00a0db40;
+  | puVar7 = PTR_DAT_00a0db38;
+  | lVar6 = tpidr_el0;
+  | local_70 = *(long *)(lVar6 + 0x28);
+
+=== 006e8eb0 size=1032 nc=7 FUN_006e8eb0
+  C: FUN_006e9334, strlen, FUN_006e86e8, FUN_0069ae18, memcmp, memchr, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_70 = *(long *)(lVar5 + 0x28);
+  | lVar11 = *param_1;
+  | lVar3 = param_1[1];
+
+=== 006ea220 size=4828 nc=6 FUN_006ea220
+  C: FUN_006eb98c, CONCAT26, free, CONCAT62, FUN_006eb4fc, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | lVar7 = *(long *)(lVar4 + 0x28);
+  | local_f4 = param_4;
+  | do {
+
+=== 006eb4fc size=1168 nc=3 FUN_006eb4fc
+  C: CONCAT26, FUN_006eb98c, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | uVar8 = (long)param_2 - (long)param_1 >> 5;
+  | lVar10 = *(long *)(lVar4 + 0x28);
+  | if ((long)uVar8 < 3) {
+
+=== 006ec110 size=1272 nc=8 FUN_006ec110
+  C: FUN_0099c458, FUN_0099e4c4, FUN_0099e4f0, FUN_006ec608, AHardwareBuffer_describe, FUN_006ec750, FUN_006ec860, __stack_chk_fail
+  L: invalid-import-arguments ~ extent-or-layer-mismatch ~ vkGetAndroidHardwareBufferPropertiesANDROID ~ missing-ahb-properties-dispatch ~ vkGetAndroidHardwareBufferProperties-failed
+  | void FUN_006ec110(long param_1,long param_2,long param_3,int param_4,ulong param_5,int param_6,
+  | int param_7,uint param_8,int param_9,uint *param_10,undefined8 *param_11,
+  | lVar1 = tpidr_el0;
+  | local_78 = *(long *)(lVar1 + 0x28);
+
+=== 006ecc1c size=1160 nc=4 FUN_006ecc1c
+  C: FUN_0099c458, AHardwareBuffer_describe, CONCAT44, __stack_chk_fail
+  L: missing-output-storage ~ vkGetAndroidHardwareBufferPropertiesANDROID ~ invalid-image-shape-or-missing-ahb-dispatch ~ vk-format-mismatch ~ allocate-or-bind-ahb-memory-failed
+  | void FUN_006ecc1c(long param_1,undefined8 param_2,undefined8 *param_3,uint param_4,uint *param_5,
+  | lVar1 = tpidr_el0;
+  | local_70 = *(long *)(lVar1 + 0x28);
+  | if ((param_7 == (undefined8 *)0x0) || (param_8 == (long *)0x0)) {
+
+=== 006edc44 size=2260 nc=28 FUN_006edc44
+  C: FUN_0069d6d0, FUN_0068ddb0, FUN_009e0490, memcpy, free, NEON_rev64, FUN_0099e4c4, FUN_0099e4f0, FUN_006ec608, FUN_0099c458, FUN_0099c49c, FUN_006fa9f4
+  L: legacy-color-buffer-ahb-acquire-failed ~ prepareAndroidNativeBufferImage ~ %s:%d VK_ANDROID_native_buffer: could not bind image me ~ TwoyiGfxstream ~ cb=%u mode=cpu-staging reason=%s/%s
+  | void FUN_006edc44(long param_1,long param_2,undefined8 *param_3,long param_4,undefined8 param_5,
+  | lVar2 = tpidr_el0;
+  | uVar6 = 0xfffffffd;
+  | local_70 = *(long *)(lVar2 + 0x28);
+
+=== 006ee528 size=1536 nc=10 FUN_006ee528
+  C: FUN_006eeefc, FUN_006eeff8, FUN_009e0360, FUN_0099b070, __android_log_print, FUN_0099e4c4, FUN_0099e4f0, AHardwareBuffer_release, FUN_006eda18, free
+  L: gpu-copy ~ cpu-staging ~ direct-ahb ~ TwoyiGfxstream ~ cb=%u device-idle=complete mode=%s
+  | lVar11 = param_2[0x14];
+  | lVar10 = param_2[0x13];
+  | uVar12 = param_2[1];
+  | lVar13 = param_2[0xf];
+
+=== 006f013c size=3992 nc=39 FUN_006f013c
+  C: CONCAT44, FUN_006f10d4, FUN_006ef1c8, FUN_009e0330, CONCAT71, FUN_0099e4c4, FUN_0099d904, FUN_006f1874, FUN_0099e4f0, FUN_006f18c4, FUN_006f197c, pthread_mutex_lock
+  L: Twoyi AHB release fence completion ~ TwoyiGfxstream ~ %s:%d Failed to invalidate Twoyi staging memory: %d ~ syncImageToColorBuffer ~ %s:%d Twoyi staging image exceeds allocation cb=%u byte
+  | void FUN_006f013c(long param_1,uint param_2,long param_3,pthread_mutex_t *param_4,int param_5,
+  | lVar15 = DAT_00a6c8f8;
+  | lVar6 = tpidr_el0;
+  | local_78 = *(long *)(lVar6 + 0x28);
+
+=== 006f31f4 size=6312 nc=0 FUN_006f31f4
+  C: 
+  | if (param_2 == (uint *)0x0) {
+  | return 0;
+  | uVar1 = *param_2;
+  | uVar2 = 0x20;
+
+=== 006f4a9c size=6336 nc=0 FUN_006f4a9c
+  C: 
+  | if (param_3 == (uint *)0x0) {
+  | return 0;
+  | uVar1 = *param_3;
+  | uVar2 = 0x20;
+
+=== 006f63a8 size=1024 nc=12 FUN_006f63a8
+  C: FUN_006f6818, fprintf, FUN_0099ebd8, FUN_0099ed20, FUN_00688420, FUN_0099fa10, FUN_009a0c84, CONCAT44, pthread_mutex_lock, FUN_00700494, pthread_mutex_unlock, __stack_chk_fail
+  L: getStagingMemoryTypeIndex ~ Could not find suitable memory type index  ~ for staging buffer. Memory type bits:  ~ Available host visible memory type indices: ~ Host visible memory type index: %u
+  | lVar12 = tpidr_el0;
+  | local_78 = *(long *)(lVar12 + 0x28);
+  | local_1a0 = param_2;
+  | uVar8 = FUN_006f6818(local_80,&DAT_00a6d1e8,&local_1a0);
+
+=== 006f6948 size=10456 nc=48 FUN_006f6948
+  C: pthread_mutex_lock, FUN_007fd820, FUN_0094002c, FUN_009e0490, FUN_00700914, FUN_006f9964, FUN_00700ab0, free, FUN_006a6a30, FUN_00700900, CONCAT44, FUN_00704a38
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ Dispatch is invalid. ~ VK_KHR_external_memory_capabilities ~ VK_KHR_get_physical_device_properties2 ~ createGlobalVkEmulation
+  | lVar17 = tpidr_el0;
+  | local_78 = *(long *)(lVar17 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d238);
+  | puVar24 = DAT_00a6d260;
+
+=== 006fae54 size=3728 nc=2 FUN_006fae54
+  C: FUN_009e0490, FUN_0094002c
+  L: VK_FORMAT_A1R5G5B5_UNORM_PACK16 ~ VK_FORMAT_UNDEFINED ~ VK_FORMAT_R4G4_UNORM_PACK8 ~ VK_FORMAT_R4G4B4A4_UNORM_PACK16 ~ VK_FORMAT_B4G4R4A4_UNORM_PACK16
+  | for (piVar1 = *(int **)(DAT_00a6d260 + 0xb0); piVar1 != *(int **)(DAT_00a6d260 + 0xb8);
+  | piVar1 = piVar1 + 0x30) {
+  | if ((*piVar1 == param_2) && ((*(byte *)(piVar1 + 5) & 1) != 0)) {
+  | if (piVar1 + 10 != (int *)0x0) {
+
+=== 006fbce4 size=1960 nc=24 FUN_006fbce4
+  C: FUN_006fa9f4, FUN_006c40c0, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006fac04, fprintf, FUN_006fae54, NEON_rev64, FUN_006f9dac, CONCAT44
+  L: setupVkColorBuffer
+  | undefined4
+  | FUN_006fbce4(uint param_1,uint param_2,uint param_3,undefined *param_4,long *param_5,uint *param_6,
+  | ulong *param_7)
+  | lVar4 = tpidr_el0;
+
+=== 006fcd60 size=1720 nc=15 FUN_006fcd60
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006c3fb8, fprintf, x, CONCAT44, FUN_009e0490, free, FUN_00701bf4, FUN_0068ddb0
+  L: updateVkImageFromColorBuffer
+  | lVar8 = tpidr_el0;
+  | local_88 = *(long *)(lVar8 + 0x28);
+  | if ((DAT_00a6d260 == (char *)0x0) || (*DAT_00a6d260 != '\x01')) {
+  | uVar15 = 0;
+
+=== 006fdaf0 size=1176 nc=12 FUN_006fdaf0
+  C: fwrite, FUN_006c4234, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006f9dac, CONCAT44, fprintf, FUN_00701c08, pthread_mutex_unlock, __stack_chk_fail
+  L: setupVkBuffer
+  | uint FUN_006fdaf0(uint param_1,ulong param_2,uint param_3,undefined *param_4,long *param_5,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | local_128 = param_1;
+
+=== 006fe370 size=3580 nc=34 FUN_006fe370
+  C: CONCAT44, FUN_006c8240, FUN_007022ac, FUN_009e0490, memcpy, free, FUN_0068ddb0, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, fprintf
+  L: acquireColorBuffersForHostComposing ~ : submitting commands to issue acquire queue transfer f ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ allocateQueueTransferCommandBuffer_locked ~ Host Vulkan device lost
+  | puVar1 = PTR_DAT_00a0dfd8;
+  | lVar38 = tpidr_el0;
+  | local_88 = *(long *)(lVar38 + 0x28);
+  | if ((DAT_00a6d260 == (byte *)0x0) || ((*DAT_00a6d260 & 1) == 0)) goto LAB_006ff030;
+
+=== 006ff174 size=1032 nc=11 FUN_006ff174
+  C: FUN_006cff78, FUN_00700480, FUN_0068ddb0, FUN_009e0490, memcpy, free, FUN_006da07c, fprintf, __stack_chk_fail, FUN_0094046c, FUN_0094059c
+  L: allocateQueueTransferCommandBuffer_locked ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar11 = *(undefined8 **)(DAT_00a6d260 + 0x858);
+  | lVar10 = *(long *)(DAT_00a6d260 + 0x38);
+
+=== 006ff584 size=2804 nc=29 FUN_006ff584
+  C: FUN_0094046c, FUN_0068826c, FUN_0094059c, pthread_mutex_lock, FUN_0099ebd8, FUN_0099ed20, FUN_006ff174, FUN_00688420, ColorBuffer, FUN_009a0c84, free, FUN_006da4c0
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ doReleaseColorBufferForGuestRendering ~ Host Vulkan device lost ~ : submitting commands to issue release queue transfer f
+  | lVar11 = tpidr_el0;
+  | local_88 = *(long *)(lVar11 + 0x28);
+  | if ((DAT_00a6d260 == (byte *)0x0) || ((*DAT_00a6d260 & 1) == 0)) {
+  | LAB_006ffef4:
+
+=== 007022e8 size=10064 nc=1 FUN_007022e8
+  C: memset
+  L: vkDestroyInstance ~ vkEnumeratePhysicalDevices ~ vkGetPhysicalDeviceFeatures ~ vkGetPhysicalDeviceFormatProperties ~ vkGetPhysicalDeviceImageFormatProperties
+  | memset(param_3,0,0xf00);
+  | lVar1 = (*param_1)();
+  | if (lVar1 != 0) {
+  | uVar2 = (*param_2)(lVar1,"vkDestroyInstance");
+
+=== 00704a38 size=11580 nc=1 FUN_00704a38
+  C: memset
+  L: vkDestroyInstance ~ vkEnumeratePhysicalDevices ~ vkGetPhysicalDeviceFeatures ~ vkGetPhysicalDeviceFormatProperties ~ vkGetPhysicalDeviceImageFormatProperties
+  | memset(param_3,0,0xf00);
+  | uVar1 = (**(code **)(param_1 + 0x48))(param_2,"vkDestroyInstance");
+  | pcVar2 = *(code **)(param_1 + 0x48);
+  | param_3[1] = uVar1;
+
+=== 00707774 size=11436 nc=1 FUN_00707774
+  C: memset
+  L: vkDestroyInstance ~ vkEnumeratePhysicalDevices ~ vkGetPhysicalDeviceFeatures ~ vkGetPhysicalDeviceFormatProperties ~ vkGetPhysicalDeviceImageFormatProperties
+  | memset(param_3,0,0xf00);
+  | uVar1 = (**(code **)(param_1 + 0x50))(param_2,"vkDestroyInstance");
+  | pcVar2 = *(code **)(param_1 + 0x50);
+  | param_3[1] = uVar1;
+
+=== 0070a808 size=6228 nc=1 FUN_0070a808
+  C: fwrite
+  | lVar1 = *(long *)(param_1 + 0x88);
+  | if (lVar1 == 0) {
+  | fwrite("VK_VERSION_1_0 check failed: vkGetDeviceQueue not found\n",0x38,1,
+  | *(FILE **)PTR_stderr_00a0db18);
+
+=== 00747f08 size=16736 nc=304 FUN_00747f08
+  C: FUN_007febc0, FUN_006f4a9c, FUN_006f31ec, FUN_0075a5dc, FUN_0075a7fc, FUN_0075aa58, FUN_0075af34, FUN_0076148c, FUN_00769e3c, FUN_0076a024, FUN_0076a1d4, FUN_0076a788
+  | uVar4 = FUN_007febc0();
+  | iVar3 = FUN_006f4a9c(uVar4,param_2,param_3);
+  | bVar1 = iVar3 == 0;
+  | bVar2 = param_3 != 0;
+
+=== 0074cbcc size=1108 nc=0 FUN_0074cbcc
+  C: 
+  | *param_3 = *(undefined4 *)*param_4;
+  | lVar1 = *param_4;
+  | *param_4 = lVar1 + 4;
+  | param_3[1] = *(undefined4 *)(lVar1 + 4);
+
+=== 0074d020 size=2192 nc=1 FUN_0074d020
+  C: FUN_006d9f04
+  | *param_3 = *(undefined4 *)*param_4;
+  | lVar1 = *param_4;
+  | *param_4 = lVar1 + 4;
+  | param_3[1] = *(undefined4 *)(lVar1 + 4);
+
+=== 00751a48 size=1484 nc=20 FUN_00751a48
+  C: FUN_007febc0, FUN_006d9ef4, FUN_007fe544, FUN_006f4a9c, FUN_00747f08, FUN_00750348, FUN_006d9f04, FUN_007506a4, FUN_00750920, FUN_00750a8c, FUN_00750c64, FUN_00750f74
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | local_5c = 1;
+  | uVar3 = FUN_007febc0();
+
+=== 00752d80 size=1000 nc=12 FUN_00752d80
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, FUN_007b5380, FUN_006d9f04, FUN_007b5500, FUN_007b4d80, FUN_007b4900, FUN_007b4a80, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar8 = *param_4;
+
+=== 0075aa58 size=1244 nc=6 FUN_0075aa58
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 0075af34 size=1588 nc=6 FUN_0075af34
+  C: FUN_006d9ef4, FUN_007fe544, FUN_007febc0, FUN_006f4a9c, FUN_00747f08, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | *param_3 = *(int *)*param_4;
+  | lVar5 = *param_4;
+
+=== 00781274 size=6612 nc=13 FUN_00781274
+  C: FUN_006f31ec, FUN_007b11e8, FUN_007b142c, FUN_00785214, FUN_007b1344, FUN_007b1294, FUN_007b13b8, FUN_0078567c, FUN_00786614, FUN_007867a4, FUN_007855dc, FUN_00785c58
+  | if (param_2 == 0) {
+  | do {
+  | uVar1 = FUN_006f31ec(param_2);
+  | if ((int)uVar1 < 0x3b9db030) {
+
+=== 00782c48 size=6612 nc=13 FUN_00782c48
+  C: FUN_006f31ec, FUN_007b1220, FUN_007b1480, FUN_0078524c, FUN_007b137c, FUN_007b1308, FUN_007b13f0, FUN_007856fc, FUN_007866dc, FUN_007867ec, FUN_0078562c, FUN_00785ca8
+  | if (param_2 == 0) {
+  | do {
+  | uVar1 = FUN_006f31ec(param_2);
+  | if ((int)uVar1 < 0x3b9db030) {
+
+=== 007872bc size=16780 nc=305 FUN_007872bc
+  C: FUN_007febc0, FUN_006f4a9c, FUN_006d9ac4, FUN_006f31ec, FUN_0078efa8, FUN_0078f124, FUN_0078f2e8, FUN_0078f7ac, FUN_00792074, FUN_00794758, FUN_00794854, FUN_0079490c
+  | uVar4 = FUN_007febc0();
+  | lVar5 = FUN_006f4a9c(uVar4,param_2,param_3);
+  | bVar1 = lVar5 == 0;
+  | bVar2 = param_3 != 0;
+
+=== 0078b568 size=1344 nc=0 FUN_0078b568
+  C: 
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3 + 8,4);
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3 + 0xc,4);
+
+=== 0078baa8 size=2556 nc=1 FUN_0078baa8
+  C: FUN_006d9b80
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3 + 8,4);
+  | (**(code **)(*param_1 + 0x18))(param_1,param_3 + 0xc,4);

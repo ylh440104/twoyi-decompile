@@ -1,0 +1,307 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big1k_00480.txt pool 672
+008d4b14
+  C: FUN_008c5c6c, FUN_00688420, FUN_0099f858, FUN_009a0c84, free, FUN_0099ecdc, FUN_0099f6b8, thunk_FUN_0099ea18, __stack_chk_fail
+  L: :MaxVertexAttribs: ~ :MaxVertexUniformVectors: ~ :MaxVaryingVectors: ~ :MaxVertexTextureImageUnits: ~ :MaxCombinedTextureImageUnits:
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | FUN_008c5c6c(&local_150);
+  | uVar3 = FUN_00688420(&local_150,":MaxVertexAttribs:",0x12);
+
+=== 008d5a1c size=2452 nc=69 FUN_008d5a1c
+  C: FUN_008c2064, FUN_008bf0bc, FUN_008c20a0, FUN_008bef2c, FUN_008bef24, sets, and, FUN_0090212c, FUN_009023f0, FUN_008bcd84, FUN_008c61a4, FUN_00902a28
+  L: cannot use both output variable sets (gl_FragData, gl_S ~ cannot use both gl_FragData and gl_FragColor ~ Precision emulation not supported for this output type. ~ too many uniforms ~ Expression too complex.
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | uVar8 = (uint)param_4;
+  | if ((uVar8 >> 0xb & 1) == 0) {
+
+=== 008d8b64 size=1228 nc=13 FUN_008d8b64
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008be06c, FUN_008d9030, FUN_00688420, FUN_008c1e00, FUN_009a0c84, FUN_008c51d4, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18
+  L: Recursive function call in the following call chain:
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | if ((*(byte *)(param_2 + 0x38) & 1) != 0) {
+  | uVar15 = 0;
+
+=== 008dae1c size=4636 nc=2 FUN_008dae1c
+  C: FUN_009e0490, FUN_0069f6c0
+  | if (*(int *)(param_1 + 0x20) != 0) {
+  | plVar3 = param_2 + 1;
+  | plVar2 = (long *)*plVar3;
+  | plVar4 = plVar3;
+
+=== 008dcf0c size=1336 nc=17 FUN_008dcf0c
+  C: FUN_0099c458, FUN_008c0240, FUN_0099c6c8, FUN_008bf084, FUN_008be06c, FUN_00688420, FUN_006bc904, FUN_008ca918, FUN_008c1e00, FUN_009a0c84, FUN_008c5360, free
+  L:  l-value required ~ l-value required ~  l-value of swizzle cannot have duplicate components
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | lVar4 = (**(code **)(*param_4 + 0x60))(param_4);
+  | joined_r0x008dcf54:
+
+=== 008dd6d0 size=1504 nc=9 FUN_008dd6d0
+  C: FUN_008bf0a0, FUN_009e0490, FUN_008c0240, FUN_0099c6c8, FUN_008c5360, free, FUN_008c0be0, FUN_008c1190, __stack_chk_fail
+  L: constructor does not have any arguments ~ constructor ~ cannot convert a variable with writeonly ~ cannot convert a void ~ Structure constructor arguments do not match structure 
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | puVar22 = (undefined8 *)*param_3;
+  | puVar2 = (undefined8 *)param_3[1];
+
+=== 008deeac size=1464 nc=17 FUN_008deeac
+  C: FUN_008c5dc4, scope, FUN_008c5360, FUN_008c0240, strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memmove, FUN_0099c6c8, FUN_008c0340, FUN_008c1154
+  L: cannot declare buffer variables at global scope(outside ~ cannot be used with a structure ~ s must be uniform ~ cannot be used with a yuvCscStandardEXT ~ Uniform location out of range
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+  | uVar10 = (ulong)(uint)param_2[0x1c];
+  | if ((uint)param_2[0x1c] < 0x34) {
+
+=== 008dff30 size=2296 nc=8 FUN_008dff30
+  C: FUN_008d43c4, FUN_008e8e38, FUN_008bcdd8, FUN_008bce34, FUN_008d43e0, FUN_008c092c, FUN_008c0aa4, FUN_008c5360
+  L: Invalid operation for variables with writeonly ~ Invalid operation for structs ~ Invalid operation for interface blocks ~ array / non-array mismatch ~ Invalid operation for arrays
+  | uVar18 = param_2 & 0xffffffff;
+  | piVar4 = (int *)(**(code **)(*param_3 + 0xf8))(param_3);
+  | uVar17 = (uint)param_2;
+  | if ((*piVar4 == 6) || (*piVar4 - 8U < 0x4f)) {
+
+=== 008e0954 size=1040 nc=9 FUN_008e0954
+  C: FUN_008bf0a0, FUN_008c5360, FUN_008bbcb8, FUN_008bd304, FUN_008f8a18, FUN_008cccac, FUN_008cb600, FUN_008cb498, FUN_008cc4a8
+  L: boolean expression expected
+  | long * FUN_008e0954(undefined8 *param_1,int param_2,undefined8 param_3,long *param_4,long *param_5,
+  | plVar3 = param_4;
+  | if (param_4 == (long *)0x0) {
+  | plVar3 = (long *)0x0;
+
+=== 008e30a8 size=2132 nc=31 FUN_008e30a8
+  C: block, FUN_008f6b88, FUN_008bccbc, FUN_008bccfc, FUN_008c5360, NEON_cmeq, NEON_umaxv, CONCAT26, CONCAT11, CONCAT24, CONCAT22, FUN_008da468
+  L: Cannot be qualified as invariant. ~ invariant ~ Error during layout qualifier parsing. ~ invalid layout qualifier: only valid when used with a f ~ index
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | FUN_008f6b88(&local_bc,param_2,param_1[0xf]);
+  | uStack_f8 = uStack_b4;
+
+=== 008e4988 size=2924 nc=33 FUN_008e4988
+  C: FUN_008dd590, FUN_008f6b88, FUN_008c5dc4, FUN_008c5360, FUN_008de9d8, FUN_008ddf60, CONCAT44, FUN_008da540, FUN_008da550, CONCAT71, FUN_008c0240, FUN_0099c6c8
+  L: invalid qualifier: interface blocks must be uniform in  ~ invalid qualifier: interface blocks must be uniform or  ~ invalid qualifier on interface block member ~ invariant ~ invalid layout qualifier: only valid when used with a f
+  | long * FUN_008e4988(undefined8 *param_1,undefined8 param_2,undefined (*param_3) [16],
+  | undefined8 *param_4,long *param_5,undefined8 *param_6,undefined8 param_7,
+  | lVar7 = tpidr_el0;
+  | local_78 = *(long *)(lVar7 + 0x28);
+
+=== 008e5700 size=1764 nc=18 FUN_008e5700
+  C: FUN_008ca918, FUN_008c61a4, FUN_008c5360, FUN_008c3f24, FUN_008c3f2c, FUN_008c5408, FUN_008c1154, FUN_008e5de4, FUN_008bbcb8, FUN_008bd304, FUN_008c3f1c, FUN_008c02d8
+  L: expression ~ array indexes for shader storage block arrays must be c ~ array indexes for uniform block arrays must be constant ~ array indexes for fragment outputs must be constant int ~ array index for gl_FragData must be constant zero
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | lVar9 = (**(code **)(*param_2 + 0xf8))(param_2);
+  | if (((*(long *)(lVar9 + 0x60) == 0) &&
+
+=== 008e5fc4 size=1084 nc=10 FUN_008e5fc4
+  C: FUN_008dc86c, FUN_008eb4dc, FUN_008bbcb8, FUN_008bd304, FUN_008cc1fc, memcmp, FUN_008f8504, FUN_008cc4a8, FUN_008c5360, __stack_chk_fail
+  L: structure has no fields ~ Internal Error ~  no such field in structure ~ interface block has no fields ~  no such field in interface block
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | lVar6 = (**(code **)(*param_2 + 0xf8))(param_2);
+  | if (*(long *)(lVar6 + 0x60) == 0) {
+
+=== 008e6400 size=2508 nc=4 FUN_008e6400
+  C: strcmp, FUN_008c5360, FUN_008dc200, __stack_chk_fail
+  L: shared ~ Only std140 layout is allowed in WebGL ~ packed ~ std430 ~ invalid layout qualifier: not supported
+  | uVar6 = _UNK_002141d4;
+  | uVar5 = _DAT_002141cc;
+  | uVar4 = _DAT_002141bc;
+  | lVar3 = tpidr_el0;
+
+=== 008e702c size=1160 nc=11 FUN_008e702c
+  C: FUN_008e74b4, strcmp, FUN_008c5360, FUN_008dc2ec, CONCAT11, FUN_008dc200, FUN_008e6fa8, FUN_008e6fec, FUN_008e6dcc, free, __stack_chk_fail
+  L: location ~ out of range: location must be non-negative ~ binding ~ invalid layout qualifier: not supported ~ out of range: binding must be non-negative
+  | void FUN_008e702c(uint *param_1,long param_2,undefined8 *param_3,undefined8 param_4,uint param_5,
+  | uVar7 = _UNK_002141e4;
+  | uVar6 = _DAT_002141dc;
+  | uVar5 = _UNK_002141d4;
+
+=== 008eafb8 size=1052 nc=10 FUN_008eafb8
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008ccbd8, FUN_008dce70, FUN_008e5f5c, FUN_0099c6c8, FUN_008c5684, FUN_008c5360, free, __stack_chk_fail
+  L: ternary operator is not allowed for opaque types ~ ternary operator is not allowed for interface blocks ~ ternary operator is not allowed for void ~ ternary operator is not allowed for structures or array ~ ternary operator is not allowed for variables with writ
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | piVar3 = (int *)(**(code **)(*param_2 + 0xf8))(param_2);
+  | if ((((*piVar3 == 5) &&
+
+=== 008eb6f8 size=1140 nc=9 FUN_008eb6f8
+  C: builtin_strncpy, strlen, FUN_0069ae18, memcmp, FUN_008c5228, invariant, FUN_0069b990, FUN_008c55d8, __stack_chk_fail
+  L: all ~ #pragma STDGL invariant(all) can not be used in fragmen ~ off
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if ((param_5 & 1) != 0) {
+  | bVar8 = *param_3;
+
+=== 008ebb6c size=1228 nc=12 FUN_008ebb6c
+  C: builtin_strncpy, strlen, FUN_0069ae18, memcmp, FUN_008c5e20, FUN_008c5228, FUN_008c52c4, SUB81, free, CONCAT62, CONCAT11, __stack_chk_fail
+  L: all ~ disable ~ behavior invalid ~ extension is not supported
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | builtin_strncpy(local_8c,"all",4);
+  | local_8c[4] = 0x72;
+
+=== 008ec430 size=8380 nc=21 FUN_008ec430
+  C: FUN_008ee4ec, FUN_008ee57c, FUN_008ee684, strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memcpy, FUN_008c55d8, free, FUN_006bc56c, FUN_008ee6e4
+  L: fatal flex scanner internal error--no action found ~ Integer overflow on line number ~ EOF while in a comment ~ fatal flex scanner internal error--end of buffer missed ~ fatal error - scanner input buffer overflow
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | param_3[0x12] = param_1;
+  | param_3[0x13] = param_2;
+
+=== 008efa9c size=1644 nc=24 FUN_008efa9c
+  C: FUN_008f14d4, SUB84, CONCAT13, CONCAT21, FUN_008c55d8, memcpy, memchr, FUN_009e0490, FUN_008f1d94, FUN_0099c49c, memcmp, FUN_0069ad94
+  | lVar7 = tpidr_el0;
+  | local_68 = *(long *)(lVar7 + 0x28);
+  | (**(code **)(**(long **)(param_1 + 0x28) + 0x10))();
+  | if (*param_2 != 0x102) {
+
+=== 008f33a8 size=1616 nc=15 FUN_008f33a8
+  C: FUN_008f2a24, FUN_008f4440, free, FUN_008f24a4, FUN_008c55d8, FUN_009e0490, FUN_0069ad94, FUN_008ef14c, FUN_008f174c, FUN_008f2590, FUN_008f26fc, FUN_008f25d0
+  | lVar2 = tpidr_el0;
+  | local_70 = *(long *)(lVar2 + 0x28);
+  | local_80 = (void *)0x0;
+  | uStack_98 = 0;
+
+=== 008f4af0 size=4124 nc=22 FUN_008f4af0
+  C: NEON_ext, FUN_008ef3ac, FUN_008ef18c, FUN_008c55d8, FUN_008f5b0c, free, __stack_chk_fail, FUN_0099ebd8, FUN_0099ed20, FUN_0099f858, FUN_00688420, FUN_009a0c84
+  L: syntax error ~ memory exhausted
+  | void FUN_008f4af0(undefined (*param_1) [16],uint *param_2,uint *param_3,byte param_4,ulong *param_5,
+  | lVar8 = tpidr_el0;
+  | uVar21 = 0;
+  | uVar24 = 0;
+
+=== 008f6200 size=1336 nc=7 FUN_008f6200
+  C: FUN_008c5dc4, FUN_008bbcb8, FUN_008bd304, FUN_008bd4c8, FUN_008bd5dc, FUN_008c5360, __stack_chk_fail
+  L: The invariant qualifier specified multiple times. ~ The precise qualifier specified multiple times. ~ The interpolation qualifier specified multiple times. ~ The layout qualifier specified multiple times. ~ The layout qualifier and invariant qualifier cannot coe
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | lVar15 = *param_1;
+  | lVar13 = param_1[1];
+
+=== 008f7954 size=1712 nc=1 FUN_008f7954
+  C: memmove
+  | void FUN_008f7954(undefined8 *param_1,undefined8 *param_2,undefined8 *param_3,long param_4,
+  | if (param_5 == 0) {
+  | while ((param_7 < param_5 && (param_7 < param_4))) {
+  | if (param_4 == 0) {
+
+=== 008f80a8 size=1116 nc=10 FUN_008f80a8
+  C: FUN_008c05c8, FUN_008c0be0, FUN_008bbcb8, FUN_008bd304, FUN_008c3f1c, FUN_008c9fdc, FUN_008c14a0, FUN_008bcfd0, FUN_008caa1c, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | FUN_008c05c8(auStack_100,param_1);
+  | local_f8 = 2;
+
+=== 008f8eb8 size=1684 nc=19 FUN_008f8eb8
+  C: FUN_009e0490, memcpy, free, FUN_008f9704, FUN_00698c7c, FUN_008f98a4, strlen, FUN_0068ef98, CONCAT71, FUN_0099be5c, FUN_008c14dc, FUN_0099c6c8
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+  | lVar14 = *param_3;
+  | lVar11 = param_3[1];
+
+=== 008fa4e4 size=6600 nc=37 FUN_008fa4e4
+  C: FUN_008fbeac, FUN_008fbf3c, NEON_rev64, FUN_008fc084, FUN_008fc044, FUN_008fc25c, FUN_008fc35c, FUN_008fc3c4, FUN_008fc150, FUN_008fc5b8, FUN_008fc81c, FUN_008fc190
+  L: Illegal use of reserved word ~ Illegal character at fieldname start ~ fatal flex scanner internal error--no action found ~ fatal flex scanner internal error--end of buffer missed ~ fatal error - scanner input buffer overflow
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | plVar32 = param_3 + 0x13;
+  | *plVar32 = param_2;
+
+=== 008fd508 size=13592 nc=106 FUN_008fd508
+  C: malloc, memcpy, free, FUN_008fd300, FUN_008fa4e4, __stack_chk_fail, CONCAT44, FUN_008df994, FUN_008bbcb8, FUN_008bd304, FUN_008c3f1c, FUN_008df7d0
+  L: memory exhausted ~ syntax error ~ unsupported value ~ methods supported in GLSL ES 3.00 and above only ~ bit-wise operator supported in GLSL ES 3.00 and above o
+  | undefined (*pauVar8) [16];
+  | auVar40._8_8_ = auStack_8cb8._8_8_;
+  | auVar40._0_8_ = auStack_8cb8._0_8_;
+  | local_8e6c = 0;
+
+=== 009018bc size=1592 nc=11 FUN_009018bc
+  C: FUN_008c0240, FUN_008ca90c, FUN_008ca918, FUN_008d43c4, FUN_008c5360, FUN_00698c7c, FUN_0068ddb0, FUN_009e0490, memcpy, free, __stack_chk_fail
+  L: Missing init declaration ~ Invalid type for loop index ~ Missing condition ~ Expected loop index ~ Invalid relational operator
+  | lVar7 = tpidr_el0;
+  | local_58 = *(long *)(lVar7 + 0x28);
+  | if (*(int *)(param_3 + 0x18) == 0) {
+  | plVar23 = *(long **)(param_3 + 0x20);
+
+=== 00902a28 size=1624 nc=23 FUN_00902a28
+  C: FUN_008bbcb8, FUN_008bd304, FUN_009034e8, FUN_00903094, FUN_00903080, FUN_0068ddb0, FUN_009e0490, memcpy, free, FUN_008cc4a8, FUN_008bcfd0, FUN_008be300
+  | uint FUN_00902a28(undefined8 param_1,long *param_2,ulong param_3,uint param_4,uint param_5,
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | uVar8 = FUN_008bbcb8();
+
+=== 00903094 size=1108 nc=4 FUN_00903094
+  C: memmove, FUN_008bcfd0, FUN_008bbcb8, FUN_008bd304
+  | undefined8 *
+  | FUN_00903094(long *param_1,undefined8 *param_2,undefined8 *param_3,undefined8 *param_4,long param_5)
+  | if (param_5 < 1) {
+  | puVar1 = (undefined8 *)param_1[1];
+
+=== 00903554 size=1748 nc=13 FUN_00903554
+  C: FUN_008c092c, FUN_008c090c, FUN_008f80a8, FUN_008bbcb8, FUN_008bd304, FUN_008cc4a8, FUN_008f8504, FUN_008f8670, FUN_008f876c, FUN_008f8820, FUN_008cc3e4, FUN_008cccac
+  | lVar6 = (**(code **)(*param_1 + 0xf8))();
+  | lVar30 = *(long *)(lVar6 + 0x60);
+  | lVar6 = (**(code **)(*param_1 + 0xf8))(param_1);
+  | if (lVar30 == 0) {
+
+=== 009054c8 size=1304 nc=15 FUN_009054c8
+  C: FUN_008c10b8, FUN_009e0490, FUN_0069f6c0, FUN_008be06c, FUN_00688420, FUN_008ca918, FUN_008c1e00, FUN_009a0c84, FUN_008c5360, free, FUN_0099ecdc, FUN_009a0594
+  | lVar13 = tpidr_el0;
+  | local_70 = *(long *)(lVar13 + 0x28);
+  | puVar32 = (undefined8 *)*param_2;
+  | puVar5 = (undefined8 *)param_2[1];
+
+=== 00905a24 size=1284 nc=19 FUN_00905a24
+  C: FUN_008c6664, FUN_008c61a4, FUN_008c6454, FUN_00906388, FUN_008d7b1c, free, FUN_008c7e68, FUN_009e0490, memset, FUN_008ca918, FUN_008c5360, FUN_008be06c
+  L: output location must be < MAX_DRAW_BUFFERS ~ output array locations would exceed MAX_DRAW_BUFFERS ~ must explicitly specify all locations when using multip ~ not allowed to specify yuv qualifier when using depth o
+  | ulong FUN_00905a24(undefined8 param_1,undefined8 param_2,int param_3,long param_4)
+  | lVar6 = tpidr_el0;
+  | local_70 = *(long *)(lVar6 + 0x28);
+  | FUN_008c6664(local_2b8,1,0,0,0);
+
+=== 009067a4 size=1080 nc=8 FUN_009067a4
+  C: FUN_009065a0, FUN_008c07a0, FUN_00908eec, FUN_00906bdc, FUN_009e0490, FUN_0069f6c0, FUN_008c7710, __stack_chk_fail
+  | byte FUN_009067a4(long param_1,int param_2,long *param_3)
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+  | bVar3 = *(byte *)(param_3 + 0x15);
+
+=== 00906bdc size=1636 nc=18 FUN_00906bdc
+  C: FUN_008be06c, FUN_00688420, strlen, FUN_009a0c84, FUN_008bbcb8, FUN_008bd304, memcpy, free, FUN_008bcfd0, FUN_008c05c8, FUN_008bdf2c, FUN_008be964
+  L: angle_compound_
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | FUN_008be06c(local_180);
+  | lVar6 = (**(code **)(*param_2 + 0xf8))(param_2);
+
+=== 009074dc size=1364 nc=2 FUN_009074dc
+  C: FUN_009e0490, FUN_00907a30
+  L: angle_frm ~ angle_frl
+  | plVar5 = (long *)FUN_009e0490(0x10);
+  | ppuVar1 = &PTR_FUN_00a04cb0;
+  | if (param_4 != 0x8b45) {
+  | ppuVar1 = &PTR_FUN_00a04cf0;
+
+=== 00909124 size=3448 nc=23 FUN_00909124
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c02d8, FUN_008bdf2c, FUN_008bc92c, FUN_008c20b8, FUN_00904154, FUN_008c207c, FUN_008c3f1c, FUN_008c9fdc, FUN_008ca8d4, FUN_008bcfd0
+  | uint FUN_00909124(undefined8 param_1,undefined8 param_2,undefined4 param_3,int param_4,ulong param_5
+  | ,undefined8 param_6,undefined8 param_7)
+  | lVar2 = tpidr_el0;
+  | local_70 = *(long *)(lVar2 + 0x28);
+
+=== 00909f44 size=1872 nc=14 FUN_00909f44
+  C: FUN_008f8670, FUN_008f85b8, FUN_008f8820, FUN_008f88c0, FUN_008bbcb8, FUN_008bd304, FUN_008cc3e4, FUN_008cce20, FUN_008bcfd0, FUN_008f876c, FUN_008bc9f8, FUN_008cccac
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | plVar6 = (long *)(**(code **)(*param_3 + 0xd8))(param_3);
+  | lVar7 = *plVar6;
+
+=== 0090bc34 size=1008 nc=19 FUN_0090bc34
+  C: FUN_008d9cc0, FUN_008c6664, FUN_008c6454, FUN_008c742c, FUN_008c7e68, FUN_008d9e08, FUN_008bb580, FUN_008bbcb8, FUN_008bd304, FUN_008bdf2c, FUN_008ca8d4, FUN_0099c458
+  L: angle_BaseInstance ~ angle_BaseVertex
+  | undefined4
+  | FUN_0090bc34(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4,ulong param_5,
+  | ulong param_6)
+  | lVar1 = tpidr_el0;

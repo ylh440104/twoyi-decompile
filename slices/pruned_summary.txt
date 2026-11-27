@@ -1,0 +1,212 @@
+210 pruned blocks: length, terminator, class histogram
+func      name                 fsize   gap        n  terminator              classes
+002c5310  JNI_OnLoad            94920  002dc2dc   2  b 0x2d260c             str=1 br=1
+002e006c  FUN_002e006c           6120  002e09a4  38  b 0x2d260c             ldr=5 str=1 mov=17 alu=14 br=1
+002e9cf8  FUN_002e9cf8          22420  002ead18  18  b 0x2ea160             ldr=2 str=5 mov=7 alu=3 br=1
+002e9cf8  FUN_002e9cf8          22420  002eee7c  24  b 0x2ee9bc             ldr=1 str=1 mov=14 alu=6 br=2
+002ef978  FUN_002ef978          14844  002f0930  48  strb x8, [x28, #0x7]   ldr=9 str=8 mov=6 alu=25
+002fea3c  FUN_002fea3c          10352  00300b74  13  b.ne 0x300bbc          mov=4 alu=7 br=2
+00303040  FUN_00303040          22068  00307d10  31  b.ls 0x307d90          ldr=2 mov=16 alu=11 br=2
+0030889c  FUN_0030889c          21128  0030c184  31  b.hi 0x30c1d8          ldr=1 mov=16 alu=13 br=1
+0030f1dc  FUN_0030f1dc          11820  00311a74   1  b.eq 0x311bbc          br=1
+0031a400  FUN_0031a400            868  0031a6f8  48  strb x2, [x10, #0xa]   ldr=8 str=8 mov=9 alu=23
+0031a9f8  FUN_0031a9f8           9744  0031d094  48  movz x9, #0x8ce1       ldr=2 str=4 mov=26 alu=16
+0031a9f8  FUN_0031a9f8           9744  0031d09c  48  stur x8, [x29, #-200]  ldr=2 str=5 mov=26 alu=15
+0031d008  FUN_0031d008            984  0031d094  48  movz x9, #0x8ce1       ldr=2 str=4 mov=26 alu=16
+0031d008  FUN_0031d008            984  0031d09c  48  stur x8, [x29, #-200]  ldr=2 str=5 mov=26 alu=15
+00323764  FUN_00323764           2980  00323a58   5  b.hi 0x323b10          mov=2 alu=2 br=1
+003245d4  FUN_003245d4           2956  00324614  35  b.hi 0x324688          mov=16 alu=18 br=1
+00325160  FUN_00325160          12388  00325200  19  b.cc 0x325228          mov=3 alu=15 br=1
+0032a270  FUN_0032a270          26748  0032ec60  48  movz x2, #0x2d         ldr=9 str=6 mov=14 alu=19
+0032a270  FUN_0032a270          26748  0032f928  48  ldrb x8, [x12, #0x26]  ldr=10 str=9 mov=7 alu=22
+0033110c  FUN_0033110c          13212  00331ab0  43  b 0x3316ec             ldr=1 str=1 mov=20 alu=20 br=1
+0033110c  FUN_0033110c          13212  0033202c   2  b 0x331d2c             str=1 br=1
+0033110c  FUN_0033110c          13212  00332618  48  movz x22, #0x51        ldr=3 str=6 mov=29 alu=10
+0033110c  FUN_0033110c          13212  00333044  18  b.eq 0x333084          mov=14 alu=3 br=1
+00336fd8  FUN_00336fd8           4532  00337280  48  movz x6, #0x75         ldr=11 str=10 mov=9 alu=18
+00338ee8  FUN_00338ee8          12320  0033aec0  31  b.hi 0x33af28          ldr=1 mov=15 alu=14 br=1
+00338ee8  FUN_00338ee8          12320  00339f78   6  b.hi 0x339f88          mov=2 alu=3 br=1
+0033cb08  FUN_0033cb08           8308  0033e524  10  b.eq 0x33e514          ldr=1 str=1 alu=7 br=1
+00340198  FUN_00340198          14628  00340714   6  b.ne 0x340734          mov=2 alu=3 br=1
+00340198  FUN_00340198          14628  00342194  48  orr x9, x9, #imm(n=0,r ldr=4 str=2 mov=29 alu=13
+00340198  FUN_00340198          14628  00343d04  25  b.ne 0x343d70          ldr=1 mov=14 alu=9 br=1
+00340198  FUN_00340198          14628  00342964  48  movk x7, #0x6200, lsl  ldr=2 mov=37 alu=9
+00344048  FUN_00344048           4036  003443bc   3  b.cc 0x344468          mov=1 alu=1 br=1
+00344048  FUN_00344048           4036  00344578   7  b.eq 0x344560          alu=6 br=1
+00345574  FUN_00345574           5324  00346590   3  b.hi 0x346594          mov=1 alu=1 br=1
+0034d128  FUN_0034d128          15516  0034dd0c   8  b.eq 0x34dcfc          alu=7 br=1
+0034d128  FUN_0034d128          15516  0034d9c4   2  b 0x34d93c             br=2
+0034d128  FUN_0034d128          15516  0034eb30  20  b.hi 0x34eb60          mov=11 alu=8 br=1
+0034d128  FUN_0034d128          15516  00350aac   4  b 0x3521a8             str=1 mov=2 br=1
+003678f8  FUN_003678f8           7552  00368744  33  b.cc 0x3687ac          ldr=4 mov=17 alu=11 br=1
+00372f04  FUN_00372f04          33568  0037a198  48  eor x12, x15, x7, lsl  ldr=10 str=10 mov=6 alu=22
+00372f04  FUN_00372f04          33568  0037ab14  48  add x12, x12, #0xf     str=4 mov=8 alu=36
+00372f04  FUN_00372f04          33568  0037aeb4  48  movk x14, #0x4fee, lsl mov=13 alu=35
+00372f04  FUN_00372f04          33568  0037a898  48  movk x12, #0x66bf, lsl ldr=2 str=6 mov=17 alu=23
+0037b3a8  FUN_0037b3a8            492  0037b3e0  48  movk x8, #0xcfaa, lsl  mov=10 alu=38
+0037ed90  FUN_0037ed90           6924  0037f27c  48  add x13, x13, #0x465   str=6 mov=25 alu=17
+00381314  FUN_00381314          38732  00381364  10  b.hi 0x38137c          ldr=1 mov=5 alu=3 br=1
+00381314  FUN_00381314          38732  00383a14  14  b.ne 0x383a64          mov=6 alu=7 br=1
+00381314  FUN_00381314          38732  00387854  41  b.cs 0x3878cc          ldr=4 str=2 mov=16 alu=17 br=2
+0038b610  FUN_0038b610           9152  0038c6e0  28  b.eq 0x38c690          mov=11 alu=15 br=2
+00391220  FUN_00391220          43436  00393df0   4  b.eq 0x393d98          mov=2 alu=1 br=1
+00391220  FUN_00391220          43436  00392680  19  b.hi 0x392624          mov=8 alu=10 br=1
+00391220  FUN_00391220          43436  0039cb08  39  b 0x39c89c             ldr=2 mov=20 alu=15 br=2
+00391220  FUN_00391220          43436  0039573c   2  b.eq 0x3956b0          alu=1 br=1
+003a13bc  FUN_003a13bc          15340  003a193c  42  b 0x3a0b7c             ldr=3 str=1 mov=22 alu=15 br=1
+003a5ae0  FUN_003a5ae0          35640  003aaca8  18  b 0x3b0a30             ldr=1 mov=11 alu=5 br=1
+003b18d8  FUN_003b18d8          28236  003b5b6c   8  b 0x3b1508             ldr=1 str=1 mov=3 alu=2 br=1
+003b18d8  FUN_003b18d8          28236  003b72e8  13  b 0x3b79e8             mov=4 alu=8 br=1
+003bccf8  FUN_003bccf8           2044  003bd104   2  b.eq 0x3c124c          alu=1 br=1
+003bccf8  FUN_003bccf8           2044  003bd46c  29  b 0x3c4c84             ldr=5 str=1 mov=10 alu=12 br=1
+003bccf8  FUN_003bccf8           2044  003bd3b4   9  b 0x3bad58             ldr=1 mov=4 alu=3 br=1
+003bd4f4  FUN_003bd4f4           1772  003bdb54  35  b 0x3c4640             ldr=2 mov=15 alu=17 br=1
+003beaf4  FUN_003beaf4           5324  003bf328  13  b 0x3bad60             ldr=1 str=1 mov=6 alu=4 br=1
+003bffc0  FUN_003bffc0            832  003bffdc  48  orr x8, x11, x10, lsl  ldr=9 str=8 mov=10 alu=21
+003e7730  FUN_003e7730           1288  003e7c20  23  b 0x3e3814             str=1 mov=20 alu=1 br=1
+003e7c38  FUN_003e7c38           1308  003e7e98   3  b 0x3e3814             str=1 mov=1 br=1
+003f3388  FUN_003f3388           5824  003f3538   5  b.eq 0x3f36b8          mov=2 alu=2 br=1
+0041f7d8  FUN_0041f7d8           1980  0041fbbc   2  b.le 0x4212a4          alu=1 br=1
+00420078  FUN_00420078           4168  004200b8  48  strb x10, [x1, #0x12]  ldr=9 str=10 mov=8 alu=21
+00420078  FUN_00420078           4168  004210b0   6  b 0x41fba8             ldr=1 str=3 alu=1 br=1
+004259fc  FUN_004259fc          17424  0042863c  41  b 0x427c88             ldr=4 str=2 mov=19 alu=14 br=1 other=1
+00441bec  FUN_00441bec          15600  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+00441bec  FUN_00441bec          15600  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+00441bec  FUN_00441bec          15600  00444d3c   2  b 0x433b30             str=1 br=1
+004458dc  FUN_004458dc           9700  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+004458dc  FUN_004458dc           9700  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+004458dc  FUN_004458dc           9700  00444d3c   2  b 0x433b30             str=1 br=1
+0044817c  FUN_0044817c           4912  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+0044817c  FUN_0044817c           4912  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+0044817c  FUN_0044817c           4912  00444d3c   2  b 0x433b30             str=1 br=1
+004494b4  FUN_004494b4            108  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+004494b4  FUN_004494b4            108  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+004494b4  FUN_004494b4            108  00444d3c   2  b 0x433b30             str=1 br=1
+00449520  FUN_00449520            228  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+00449520  FUN_00449520            228  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+00449520  FUN_00449520            228  00444d3c   2  b 0x433b30             str=1 br=1
+00449604  FUN_00449604            108  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+00449604  FUN_00449604            108  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+00449604  FUN_00449604            108  00444d3c   2  b 0x433b30             str=1 br=1
+00449670  FUN_00449670           1668  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+00449670  FUN_00449670           1668  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+00449670  FUN_00449670           1668  00444d3c   2  b 0x433b30             str=1 br=1
+00449df0  FUN_00449df0            140  00446fb0  48  movz x26, #0x964       ldr=17 str=3 mov=15 alu=12 br=1
+00449df0  FUN_00449df0            140  00447af0  23  b 0x433b30             str=1 mov=21 br=1
+00449df0  FUN_00449df0            140  00444d3c   2  b 0x433b30             str=1 br=1
+0044a950  FUN_0044a950           4016  0044b3ac   4  b 0x433b30             str=1 mov=2 br=1
+00453b54  FUN_00453b54           2936  00453eac  47  b 0x433b30             ldr=2 str=2 mov=38 alu=3 br=2
+004594c8  FUN_004594c8           7512  0045a5ec   7  b 0x433b30             str=1 mov=4 alu=1 br=1
+0045b38c  FUN_0045b38c          56488  0046c544  48  movz x11, #0x59        ldr=9 str=8 mov=9 alu=22
+0045b38c  FUN_0045b38c          56488  0046cc20  48  bic x9, x15, x11, lsl  ldr=8 str=9 mov=8 alu=23
+0045b38c  FUN_0045b38c          56488  00468b38  48  orr x8, x9, x10, lsl # ldr=10 str=10 mov=8 alu=20
+004698d8  FUN_004698d8           6076  0046c544  48  movz x11, #0x59        ldr=9 str=8 mov=9 alu=22
+004698d8  FUN_004698d8           6076  0046cc20  48  bic x9, x15, x11, lsl  ldr=8 str=9 mov=8 alu=23
+0046b600  FUN_0046b600            676  0046b724  25  b 0x433b30             ldr=1 str=1 mov=14 alu=8 br=1
+0046b600  FUN_0046b600            676  0046b794  41  b 0x433b30             ldr=3 str=1 mov=34 alu=1 br=2
+0046b600  FUN_0046b600            676  0046b79c  39  b 0x433b30             ldr=2 str=1 mov=34 alu=1 br=1
+0046b600  FUN_0046b600            676  0046b848   1  b 0x433b30             br=1
+0046b600  FUN_0046b600            676  00465c9c  37  b 0x433b30             ldr=1 str=1 mov=20 alu=14 br=1
+0046b600  FUN_0046b600            676  00465cf0  16  b 0x433b30             ldr=1 str=1 mov=8 alu=5 br=1
+0046b600  FUN_0046b600            676  00465cf8  14  b 0x433b30             ldr=1 str=1 mov=8 alu=3 br=1
+0046b600  FUN_0046b600            676  00465d24   3  b 0x433b30             str=1 mov=1 br=1
+0046b600  FUN_0046b600            676  00465d68   1  b 0x433b30             br=1
+0046b600  FUN_0046b600            676  00465d80   9  b 0x433b30             ldr=1 str=2 mov=4 alu=1 br=1
+0046b600  FUN_0046b600            676  00465d84   8  b 0x433b30             ldr=1 str=2 mov=3 alu=1 br=1
+0046b600  FUN_0046b600            676  00465de0  43  b 0x433b30             ldr=6 str=4 mov=14 alu=18 br=1
+0046b600  FUN_0046b600            676  0045fa10  45  b 0x433b30             ldr=2 str=2 mov=37 alu=3 br=1
+0046b600  FUN_0046b600            676  0045fa84  16  b 0x433b30             str=1 mov=14 br=1
+0046b600  FUN_0046b600            676  0045fa8c  14  b 0x433b30             str=1 mov=12 br=1
+0046b600  FUN_0046b600            676  0045fae8  33  b 0x433b30             ldr=1 str=1 mov=18 alu=12 br=1
+0046b600  FUN_0046b600            676  0045fb38  13  b 0x433b30             ldr=1 str=1 mov=7 alu=3 br=1
+0046b600  FUN_0046b600            676  0045fba0  48  b 0x433b30             ldr=1 str=1 mov=25 alu=20 br=1
+0046b600  FUN_0046b600            676  0045fbbc  41  b 0x433b30             ldr=1 str=1 mov=20 alu=18 br=1
+0046b600  FUN_0046b600            676  0045fbf0  28  b 0x433b30             ldr=1 str=1 mov=15 alu=10 br=1
+0046b600  FUN_0046b600            676  0045fc48   6  b 0x433b30             ldr=1 str=1 mov=2 alu=1 br=1
+0046b600  FUN_0046b600            676  0045fc50   4  b 0x433b30             str=1 mov=1 alu=1 br=1
+0046b600  FUN_0046b600            676  0045fcb0  34  b 0x433b30             ldr=4 str=2 mov=16 alu=11 br=1
+0046b600  FUN_0046b600            676  0045fcc4  29  b 0x433b30             ldr=4 str=2 mov=12 alu=10 br=1
+0046b600  FUN_0046b600            676  00464094  42  b 0x433b30             ldr=2 str=1 mov=24 alu=14 br=1
+0046b600  FUN_0046b600            676  00464170  37  b 0x433b30             ldr=1 str=1 mov=20 alu=14 br=1
+0046b600  FUN_0046b600            676  004641bc  18  b 0x433b30             ldr=1 str=1 mov=10 alu=5 br=1
+0046b600  FUN_0046b600            676  004641c4  16  b 0x433b30             ldr=1 str=1 mov=9 alu=4 br=1
+0046b600  FUN_0046b600            676  004641d8  11  b 0x433b30             ldr=1 str=1 mov=6 alu=2 br=1
+0046b600  FUN_0046b600            676  0046597c  26  b 0x433b30             ldr=6 str=4 mov=6 alu=9 br=1
+0046b600  FUN_0046b600            676  0046415c  42  b 0x433b30             ldr=1 str=1 mov=23 alu=16 br=1
+0046b8a4  FUN_0046b8a4           5944  0046c544  48  movz x11, #0x59        ldr=9 str=8 mov=9 alu=22
+0046b8a4  FUN_0046b8a4           5944  0046cc20  48  bic x9, x15, x11, lsl  ldr=8 str=9 mov=8 alu=23
+0046f588  FUN_0046f588          15012  00472a74   1  b.eq 0x47db94          br=1
+0048e1ac  FUN_0048e1ac           1756  0048e428  48  csel x9, x24, x9, ls   ldr=2 str=1 mov=31 alu=13 br=1
+0049f398  FUN_0049f398           4840  004a0084   4  b 0x4886c8             str=1 mov=2 br=1
+004a56f8  FUN_004a56f8           3464  004a57d8   1  b 0x4886c8             br=1
+004a6480  FUN_004a6480           7768  004a7bd8   1  b 0x4886c8             br=1
+004b0efc  FUN_004b0efc          21768  004b3b14  37  b 0x4b45a8             ldr=7 str=1 mov=18 alu=10 br=1
+004b0efc  FUN_004b0efc          21768  004b6354  48  stur x1, [x19, #-256]  str=13 alu=35
+004b6404  FUN_004b6404           5744  004b67b8   3  b.gt 0x4b6a54          mov=1 alu=1 br=1
+004b81d4  FUN_004b81d4           5132  004b923c  38  b 0x4bc6c4             ldr=1 mov=19 alu=17 br=1
+004b96a8  FUN_004b96a8           3744  004b9b60  26  b 0x4b66b4             ldr=2 str=2 mov=18 alu=3 br=1
+004c53f0  FUN_004c53f0          20620  004c7a4c  10  b 0x4c8bf0             ldr=2 mov=4 alu=3 br=1
+004cb2f0  FUN_004cb2f0           5608  004cbf1c  24  b 0x4cc328             ldr=6 str=1 mov=8 alu=8 br=1
+004cd888  FUN_004cd888          11168  004ce784   4  b 0x4cea94             mov=3 br=1
+004cd888  FUN_004cd888          11168  004cfe10  31  b 0x4cfeac             str=5 mov=23 alu=2 br=1
+004d5fb0  FUN_004d5fb0          22320  004d8bb0   4  b.le 0x4da6cc          mov=2 alu=1 br=1
+004d5fb0  FUN_004d5fb0          22320  004db504   2  b.eq 0x4fcf58          alu=1 br=1
+004dbf38  FUN_004dbf38           3120  004dc2b8   4  b.eq 0x504b04          mov=2 alu=1 br=1
+004dbf38  FUN_004dbf38           3120  004dc340   3  b.ne 0x4d7148          mov=1 alu=1 br=1
+004dcbd0  FUN_004dcbd0           4768  004ddb24  11  b 0x4d7148             ldr=1 str=1 mov=6 alu=2 br=1
+004de0fc  FUN_004de0fc           6400  004df74c   4  b.eq 0x4f3640          mov=2 alu=1 br=1
+004e8eb8  FUN_004e8eb8           6812  004e97ec  11  b 0x4d7148             ldr=2 str=2 mov=4 alu=2 br=1
+004e8eb8  FUN_004e8eb8           6812  004ead0c  21  b 0x4d7148             ldr=2 str=1 mov=10 alu=7 br=1
+004ec8d4  FUN_004ec8d4          36728  004f064c  39  b 0x4d7148             ldr=4 str=8 mov=18 alu=8 br=1
+004ec8d4  FUN_004ec8d4          36728  004f0d28   4  b.eq 0x4f8a94          mov=2 alu=1 br=1
+004f58d8  FUN_004f58d8           2044  004f064c  39  b 0x4d7148             ldr=4 str=8 mov=18 alu=8 br=1
+004f58d8  FUN_004f58d8           2044  004f0d28   4  b.eq 0x4f8a94          mov=2 alu=1 br=1
+004f6ac0  FUN_004f6ac0           4800  004f7780  11  b 0x4d7148             str=1 mov=9 br=1
+004f9884  FUN_004f9884          16836  004fd708  48  movz x10, #0x5a        ldr=11 str=11 mov=6 alu=20
+004fe214  FUN_004fe214          24484  004ff2ac  18  b 0x4d7148             ldr=1 str=1 mov=11 alu=4 br=1
+0050a21c  FUN_0050a21c           4976  0050ae94   1  b 0x4d7148             br=1
+00510428  FUN_00510428          20372  005138f4  37  b 0x5137d4             ldr=1 str=1 mov=18 alu=16 br=1
+00510428  FUN_00510428          20372  005149b0   5  b 0x51a618             mov=4 br=1
+00519ef4  FUN_00519ef4           4968  0051b1dc  32  b 0x5137d4             ldr=1 str=1 mov=17 alu=12 br=1
+005b6120  FUN_005b6120          26120  005ba0a8   4  b 0x5c8254             ldr=1 alu=2 br=1
+00678e38  FUN_00678e38          11076  0067b2b8  15  b.ne 0x67b2f8          ldr=4 str=3 mov=1 alu=6 br=1
+0067df64  FUN_0067df64          14708  006861d0   2  ret                    str=1 br=1
+0067df64  FUN_0067df64          14708  00686b00   3  cbz x1, 0x686b20       ldr=1 br=2
+0067df64  FUN_0067df64          14708  0067eed8  34  b.ne 0x67ef7c          ldr=12 str=6 alu=11 br=5
+0067df64  FUN_0067df64          14708  00680018   8  b.ne 0x68003c          ldr=3 str=3 alu=1 br=1
+006818d8  FUN_006818d8          24900  006861d0   2  ret                    str=1 br=1
+006818d8  FUN_006818d8          24900  00686b00   3  cbz x1, 0x686b20       ldr=1 br=2
+006818d8  FUN_006818d8          24900  00680018   8  b.ne 0x68003c          ldr=3 str=3 alu=1 br=1
+006818d8  FUN_006818d8          24900  0067eed8  34  b.ne 0x67ef7c          ldr=12 str=6 alu=11 br=5
+006b3ff0  FUN_006b3ff0           1124  006b413c   5  cbz x0, 0x6b4154       mov=1 alu=2 br=2
+006bb26c  FUN_006bb26c           4836  006bbfc0  13  cbz x0, 0x6bc02c       ldr=2 str=2 mov=1 alu=5 br=3
+006bb26c  FUN_006bb26c           4836  006bbfcc  10  cbz x0, 0x6bc02c       ldr=2 str=1 alu=5 br=2
+006bb26c  FUN_006bb26c           4836  006bbfd8   7  cbz x0, 0x6bc02c       ldr=2 alu=3 br=2
+006bb26c  FUN_006bb26c           4836  006bc098   3  cbz x19, 0x6bc14c      ldr=1 str=1 br=1
+006bb26c  FUN_006bb26c           4836  006bc0a0   1  cbz x19, 0x6bc14c      br=1
+006bb26c  FUN_006bb26c           4836  006bc0d4   3  cbz x25, 0x6bc0bc      ldr=1 str=1 br=1
+006bb26c  FUN_006bb26c           4836  006bc104  12  cbz x0, 0x6bc168       ldr=1 str=2 mov=1 alu=4 br=4
+006bb26c  FUN_006bb26c           4836  006bc110   9  cbz x0, 0x6bc168       ldr=1 str=2 mov=1 alu=3 br=2
+006bb26c  FUN_006bb26c           4836  006bc0e0   4  cbnz x8, 0x6bc124      ldr=1 mov=1 alu=1 br=1
+006bb26c  FUN_006bb26c           4836  006bc1b8   9  cbz x19, 0x6bc280      ldr=3 str=1 alu=3 br=1 other=1
+006bb26c  FUN_006bb26c           4836  006bc1d0   3  cbz x19, 0x6bc280      ldr=1 str=1 br=1
+006bb26c  FUN_006bb26c           4836  006bc1d8   1  cbz x19, 0x6bc280      br=1
+006bb26c  FUN_006bb26c           4836  006bc204   4  cbz x24, 0x6bc1f4      ldr=2 str=1 br=1
+006bb26c  FUN_006bb26c           4836  006bc234  13  cbz x0, 0x6bc29c       ldr=1 str=2 mov=2 alu=4 br=4
+006bb26c  FUN_006bb26c           4836  006bc240  10  cbz x0, 0x6bc29c       ldr=1 str=2 mov=1 alu=3 br=3
+006bb26c  FUN_006bb26c           4836  006bc210   1  cbz x24, 0x6bc1f4      br=1
+006bb26c  FUN_006bb26c           4836  006bc254   5  cbz x0, 0x6bc29c       ldr=1 alu=2 br=2
+006bb26c  FUN_006bb26c           4836  006bc26c   5  b 0x6bc1f4             str=1 alu=2 br=2
+006bb26c  FUN_006bb26c           4836  006bc274   3  b 0x6bc1f4             str=1 br=2
+006bb26c  FUN_006bb26c           4836  006bc1a4  14  cbz x19, 0x6bc280      ldr=4 str=2 alu=6 br=1 other=1
+006bb26c  FUN_006bb26c           4836  006bc1b0  11  cbz x19, 0x6bc280      ldr=4 str=1 alu=4 br=1 other=1
+006bb26c  FUN_006bb26c           4836  006bc2d4  17  cbz x19, 0x6bc3dc      ldr=4 str=4 alu=7 br=1 other=1
+006bb26c  FUN_006bb26c           4836  006bc2e0  14  cbz x19, 0x6bc3dc      ldr=4 str=1 alu=7 br=1 other=1
+006bb26c  FUN_006bb26c           4836  006bc314   1  cbz x19, 0x6bc3dc      br=1
+006bb26c  FUN_006bb26c           4836  006bc318   7  b 0x6bc344             str=1 mov=2 alu=3 br=1
+006d92cc  FUN_006d92cc            360  006d9430   4  ret                    ldr=1 str=2 br=1
+008268ec  FUN_008268ec           1168  00826d54  17  b 0x826b74             str=6 mov=2 alu=4 br=5
+008e30a8  FUN_008e30a8           2132  008e34f0   1  <unmapped>             other=1
+009264c8  FUN_009264c8           1380  00926748  39  b 0x3f329fc            ldr=5 str=4 mov=2 alu=12 br=2 simd=2 other=12
+0097ff50  FUN_0097ff50           1172  00980208   1  <unmapped>             other=1
+009810d8  FUN_009810d8            236  00981188   1  <unmapped>             other=1

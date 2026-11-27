@@ -1,0 +1,606 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big6_00920.txt pool 2009
+484 nc=10 FUN_007a4348
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007cf094, FUN_007cf508, pthread_mutex_unlock, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a4348(long param_1,undefined8 param_2,undefined8 param_3,long param_4,undefined8 param_5
+  | ,undefined8 *param_6)
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+
+=== 007a4534 size=256 nc=7 FUN_007a4534
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007cf640, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007a4534(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_50 = param_4;
+
+=== 007a463c size=528 nc=9 FUN_007a463c
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007cf7ac, FUN_007e00d4, FUN_007dfff0, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a463c(long param_1,undefined8 param_2,undefined8 param_3,undefined8 *param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a4854 size=528 nc=11 FUN_007a4854
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c8724, free, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a4854(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | puVar4 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a4a6c size=608 nc=9 FUN_007a4a6c
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_007e00d4, FUN_007dfff0, pthread_mutex_lock, FUN_007cfc30, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a4a6c(long param_1,undefined8 param_2,undefined8 param_3,int *param_4,undefined8 param_5
+  | ,undefined8 *param_6)
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+
+=== 007a4cd4 size=232 nc=6 FUN_007a4cd4
+  C: FUN_007c4348, FUN_009dfa88, dup, CONCAT44, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (undefined8 *)0x0) {
+
+=== 007a4dcc size=304 nc=7 FUN_007a4dcc
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007cfc30, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a4dcc(long param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a4f04 size=524 nc=12 FUN_007a4f04
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, close, FUN_007c8254, free, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a4f04(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a5120 size=448 nc=9 FUN_007a5120
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007d00a4, FUN_007e00d4, FUN_007dfff0, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007a5120(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a52f0 size=596 nc=12 FUN_007a52f0
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_006f29ec, FUN_0068ddb0, FUN_009e0490, memcpy, free, pthread_mutex_lock, FUN_007d00a4, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | undefined8
+  | FUN_007a52f0(long param_1,undefined8 param_2,undefined8 param_3,uint param_4,long *param_5)
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+
+=== 007a5554 size=252 nc=7 FUN_007a5554
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007d0524, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007a5554(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_50 = param_4;
+
+=== 007a5660 size=772 nc=14 FUN_007a5660
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007d0680, FUN_007e00d4, FUN_007dfff0, FUN_007d0afc, FUN_0068ddb0, FUN_009e0490, memcpy, free
+  L: dispatch_VkDevice
+  | void FUN_007a5660(long param_1,undefined8 param_2,undefined8 param_3,undefined8 *param_4,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007a596c size=256 nc=7 FUN_007a596c
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007c70f0, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007a596c(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_50 = param_4;
+
+=== 007a5ee4 size=272 nc=8 FUN_007a5ee4
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007c52c8, FUN_007c6dd4, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007a5ee4(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_50 = param_4;
+
+=== 007a5ffc size=228 nc=6 FUN_007a5ffc
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007c52c8, pthread_mutex_unlock, fprintf
+  L: dispatch_VkDevice
+  | ulong FUN_007a5ffc(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar4 = 0;
+
+=== 007a60e8 size=724 nc=13 FUN_007a60e8
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007d0fbc, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007e00d4, FUN_007dfff0, FUN_007d1328, pthread_mutex_unlock
+  L: dispatch_VkDevice
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar5 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar5 == (undefined8 *)0x0) {
+
+=== 007a6828 size=232 nc=6 FUN_007a6828
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007d2328, pthread_mutex_unlock, fprintf
+  L: dispatch_VkDevice
+  | int FUN_007a6828(long param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar2 == (undefined8 *)0x0) {
+  | uVar4 = 0;
+
+=== 007a7adc size=216 nc=6 FUN_007a7adc
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007d2e0c, pthread_mutex_unlock, fprintf
+  L: dispatch_VkDevice
+  | int FUN_007a7adc(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar2 == (undefined8 *)0x0) {
+  | uVar4 = 0;
+
+=== 007a7bbc size=632 nc=16 FUN_007a7bbc
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007cae70, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, CONCAT71, CONCAT17, FUN_007d302c
+  L: dispatch_VkDevice ~ on_vkGetImageMemoryRequirements2
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar5 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar5 == (undefined8 *)0x0) {
+
+=== 007aa2b0 size=200 nc=6 FUN_007aa2b0
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007c4edc, pthread_mutex_unlock, fprintf
+  L: dispatch_VkDevice
+  | int FUN_007aa2b0(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar2 == (undefined8 *)0x0) {
+  | uVar4 = 0;
+
+=== 007aa758 size=408 nc=7 FUN_007aa758
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  L: unbox_VkDeviceMemory
+  | if (param_3 != (long *)0x0) {
+  | *param_3 = 0;
+  | puVar3 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_2);
+  | if (puVar3 == (ulong *)0x0) {
+
+=== 007aaa34 size=400 nc=7 FUN_007aaa34
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, DataMemoryBarrier, memcpy, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | uVar2 = *(ulong *)(param_1 + 0x280);
+  | if (uVar2 != 0) {
+  | uVar3 = ((ulong)(uint)((int)param_2 << 3) + 8 ^ param_2 >> 0x20) * -0x622015f714c7d297;
+
+=== 007aabcc size=400 nc=7 FUN_007aabcc
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, DataMemoryBarrier, memcpy, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | uVar2 = *(ulong *)(param_1 + 0x280);
+  | if (uVar2 != 0) {
+  | uVar3 = ((ulong)(uint)((int)param_2 << 3) + 8 ^ param_2 >> 0x20) * -0x622015f714c7d297;
+
+=== 007aae3c size=564 nc=11 FUN_007aae3c
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d4a0c, FUN_006ef458, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice ~ on_vkAcquireImageANDROID
+  | undefined4
+  | FUN_007aae3c(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,undefined8 param_5,
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+
+=== 007ab088 size=960 nc=15 FUN_007ab088
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d4db4, FUN_007d4eb4, FUN_007d4fb4, FUN_009e0330, FUN_006f013c, FUN_009e0360
+  L: dispatch_VkQueue
+  | undefined4
+  | FUN_007ab088(long param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4,
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+
+=== 007ab458 size=588 nc=11 FUN_007ab458
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_006da86c, fwrite, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d5550, pthread_mutex_unlock
+  L: dispatch_VkDevice ~ on_vkMapMemoryIntoAddressSpaceGOOGLE
+  | undefined4
+  | FUN_007ab458(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,long *param_5)
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar2 == (undefined8 *)0x0) {
+
+=== 007ab6b8 size=480 nc=8 FUN_007ab6b8
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006da84c, fprintf, pthread_mutex_unlock, __stack_chk_fail
+  L: on_vkGetMemoryHostAddressInfoGOOGLE
+  | undefined8
+  | FUN_007ab6b8(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,ulong *param_5,
+  | ulong *param_6,long *param_7)
+  | lVar4 = tpidr_el0;
+
+=== 007abfcc size=708 nc=10 FUN_007abfcc
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007d5e50, FUN_007d5d1c, free, FUN_007b2fa4, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+  | puVar4 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar4 == (undefined8 *)0x0) {
+
+=== 007ac2a0 size=564 nc=11 FUN_007ac2a0
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, FUN_007d63dc, FUN_007d685c, free, FUN_007e00d4, FUN_007dfff0, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007ac2a0(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | puVar2 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007ac4dc size=580 nc=12 FUN_007ac4dc
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007c65d8, FUN_007c69ec, free, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007ac4dc(long param_1,undefined8 param_2,undefined8 param_3,ulong param_4,
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar4 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007ac7d0 size=288 nc=7 FUN_007ac7d0
+  C: FUN_007c4348, pthread_mutex_lock, FUN_007d5e50, FUN_007d694c, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkCommandBuffer
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | param_4 = param_4 & 0xffffffff;
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007ad090 size=436 nc=7 FUN_007ad090
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  L: dispatch_VkQueue
+  | puVar3 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (ulong *)0x0) {
+  | uVar11 = 0;
+  | else {
+
+=== 007ad254 size=624 nc=7 FUN_007ad254
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, FUN_007d5e50, free, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkCommandBuffer
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (undefined8 *)0x0) {
+
+=== 007ad4cc size=800 nc=13 FUN_007ad4cc
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock, __stack_chk_fail, FUN_007d717c, FUN_007c6734, FUN_007c1768
+  L: dispatch_VkDevice
+  | void FUN_007ad4cc(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,uint param_5
+  | ,long param_6)
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+
+=== 007ad8d0 size=456 nc=9 FUN_007ad8d0
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_007d73f4, FUN_007d77bc, FUN_007e00d4, FUN_007dfff0, free, __stack_chk_fail
+  L: dispatch_VkDevice
+  | int FUN_007ad8d0(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007adaa8 size=456 nc=9 FUN_007adaa8
+  C: FUN_007c4348, FUN_009dfa88, fprintf, FUN_007d73f4, FUN_007d77bc, FUN_007e00d4, FUN_007dfff0, free, __stack_chk_fail
+  L: dispatch_VkDevice
+  | int FUN_007adaa8(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007adc80 size=256 nc=7 FUN_007adc80
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007d7fdc, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007adc80(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007add88 size=256 nc=7 FUN_007add88
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007d7fdc, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007add88(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007adeac size=548 nc=9 FUN_007adeac
+  C: FUN_007c4348, FUN_009dfa88, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, memcpy, pthread_mutex_unlock
+  L: dispatch_VkDevice
+  | int FUN_007adeac(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,ulong param_5
+  | ,uint param_6,uint param_7,ulong param_8)
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (undefined8 *)0x0) {
+
+=== 007ae0e0 size=480 nc=7 FUN_007ae0e0
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, FUN_007d5e50, free, pthread_mutex_unlock, __stack_chk_fail
+  L: dispatch_VkCommandBuffer
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar3 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (undefined8 *)0x0) {
+
+=== 007ae3e0 size=336 nc=10 FUN_007ae3e0
+  C: FUN_006da094, FUN_007c4348, FUN_009e0300, pthread_mutex_lock, pthread_cond_signal, pthread_cond_destroy, pthread_mutex_destroy, free, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | lVar4 = FUN_006da094();
+  | uVar5 = FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007ae720 size=436 nc=7 FUN_007ae720
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  L: dispatch_VkCommandBuffer
+  | ulong FUN_007ae720(long param_1,undefined8 param_2,undefined8 param_3,int param_4,long param_5)
+  | puVar3 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (ulong *)0x0) {
+  | uVar11 = 0;
+
+=== 007ae8ec size=528 nc=8 FUN_007ae8ec
+  C: FUN_007c4348, fprintf, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d8150, pthread_mutex_unlock
+  L: dispatch_VkCommandBuffer
+  | ulong FUN_007ae8ec(long param_1,undefined8 param_2,undefined8 param_3,int param_4,long param_5,
+  | undefined4 param_6,uint param_7,long param_8,undefined4 param_9,
+  | puVar3 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_3);
+  | if (puVar3 == (ulong *)0x0) {
+
+=== 007af174 size=256 nc=7 FUN_007af174
+  C: FUN_007c4348, FUN_009dfa88, pthread_mutex_lock, FUN_007d8a0c, pthread_mutex_unlock, __stack_chk_fail, fprintf
+  L: dispatch_VkDevice
+  | void FUN_007af174(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_50 = param_4;
+
+=== 007af888 size=336 nc=10 FUN_007af888
+  C: FUN_006da094, FUN_007c4348, FUN_009e0300, pthread_mutex_lock, pthread_cond_signal, pthread_cond_destroy, pthread_mutex_destroy, free, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | lVar4 = FUN_006da094();
+  | uVar5 = FUN_007c4348(&DAT_00a6d290,param_3);
+
+=== 007af9f0 size=896 nc=6 FUN_007af9f0
+  C: FUN_007c4348, fprintf, CONCAT44, FUN_006f2cb8, free, __stack_chk_fail
+  L: dispatch_VkQueue
+  | void FUN_007af9f0(undefined8 param_1,undefined8 param_2,undefined8 param_3,uint param_4,long param_5
+  | ,undefined8 param_6)
+  | lVar2 = tpidr_el0;
+  | local_78 = *(long *)(lVar2 + 0x28);
+
+=== 007afd80 size=608 nc=7 FUN_007afd80
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, CONCAT44, FUN_007affe8, FUN_007d8b7c, __stack_chk_fail
+  | void FUN_007afd80(long param_1,undefined8 param_2,undefined8 param_3,uint param_4,
+  | uVar9 = DAT_0017bf58;
+  | uVar8 = _UNK_0011e3a8;
+  | uVar7 = _DAT_0011e3a0;
+
+=== 007affe8 size=596 nc=7 FUN_007affe8
+  C: FUN_007d8fb0, FUN_007c4348, FUN_009dfa88, fprintf, CONCAT44, FUN_007d90e8, __stack_chk_fail
+  L: dispatch_VkDevice
+  | void FUN_007affe8(long param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_68 = *(ulong *)(param_4 + 0x1c);
+
+=== 007b0248 size=304 nc=7 FUN_007b0248
+  C: FUN_007c4348, pthread_mutex_lock, FUN_009e0490, FUN_007febd0, pthread_mutex_unlock, FUN_007d95a8, fprintf
+  L: dispatch_VkCommandBuffer
+  | void FUN_007b0248(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar1 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_4);
+  | if (puVar1 == (undefined8 *)0x0) {
+  | uVar4 = 0;
+
+=== 007b09a4 size=932 nc=13 FUN_007b09a4
+  C: pthread_mutex_lock, FUN_007c4348, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007d00a4, pthread_mutex_unlock, FUN_007dfb44, __stack_chk_fail, FUN_0094046c, FUN_0068826c
+  L: unbox_VkFence ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ waitForFence ~ Fence was destroyed before vkWaitForFences call.
+  | lVar2 = tpidr_el0;
+  | local_70 = *(long *)(lVar2 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | puVar3 = (ulong *)FUN_007c4348(&DAT_00a6d290,param_2);
+
+=== 007b0e28 size=920 nc=16 FUN_007b0e28
+  C: pthread_mutex_lock, FUN_007c4348, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_007cd790, FUN_009e0330, pthread_mutex_unlock, FUN_0099e4c4, FUN_007dfc70, FUN_006f2084
+  L: unbox_VkImage ~ registerQsriCallback
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x20));
+  | puVar5 = (undefined8 *)FUN_007c4348(&DAT_00a6d290,param_2);
+
+=== 007b29c4 size=164 nc=7 FUN_007b29c4
+  C: FUN_007c4348, FUN_009e0300, pthread_cond_destroy, pthread_mutex_destroy, free, FUN_007b3e5c, FUN_007b3f48
+  | if ((param_2 != 0) && (lVar2 = FUN_007c4348(&DAT_00a6d290), lVar2 != 0)) {
+  | __ptr = *(void **)(lVar2 + 0x20);
+  | if ((__ptr != (void *)0x0) && (iVar1 = FUN_009e0300(0xffffffff,(long)__ptr + 0x5c), iVar1 == 1))
+  | pthread_cond_destroy((pthread_cond_t *)((long)__ptr + 0x2c));
+
+=== 007b2cfc size=164 nc=7 FUN_007b2cfc
+  C: FUN_007c4348, FUN_009e0300, pthread_cond_destroy, pthread_mutex_destroy, free, FUN_007b3e5c, FUN_007b3f48
+  | if ((param_2 != 0) && (lVar2 = FUN_007c4348(&DAT_00a6d290), lVar2 != 0)) {
+  | __ptr = *(void **)(lVar2 + 0x20);
+  | if ((__ptr != (void *)0x0) && (iVar1 = FUN_009e0300(0xffffffff,(long)__ptr + 0x5c), iVar1 == 1))
+  | pthread_cond_destroy((pthread_cond_t *)((long)__ptr + 0x2c));
+
+=== 007b2edc size=164 nc=7 FUN_007b2edc
+  C: FUN_007c4348, FUN_009e0300, pthread_cond_destroy, pthread_mutex_destroy, free, FUN_007b3e5c, FUN_007b3f48
+  | if ((param_2 != 0) && (lVar2 = FUN_007c4348(&DAT_00a6d290), lVar2 != 0)) {
+  | __ptr = *(void **)(lVar2 + 0x20);
+  | if ((__ptr != (void *)0x0) && (iVar1 = FUN_009e0300(0xffffffff,(long)__ptr + 0x5c), iVar1 == 1))
+  | pthread_cond_destroy((pthread_cond_t *)((long)__ptr + 0x2c));
+
+=== 007b309c size=164 nc=7 FUN_007b309c
+  C: FUN_007c4348, FUN_009e0300, pthread_cond_destroy, pthread_mutex_destroy, free, FUN_007b3e5c, FUN_007b3f48
+  | if ((param_2 != 0) && (lVar2 = FUN_007c4348(&DAT_00a6d290), lVar2 != 0)) {
+  | __ptr = *(void **)(lVar2 + 0x20);
+  | if ((__ptr != (void *)0x0) && (iVar1 = FUN_009e0300(0xffffffff,(long)__ptr + 0x5c), iVar1 == 1))
+  | pthread_cond_destroy((pthread_cond_t *)((long)__ptr + 0x2c));
+
+=== 007b3e5c size=236 nc=7 FUN_007b3e5c
+  C: pthread_mutex_lock, FUN_007c0dd0, FUN_0068ddb0, FUN_009e0490, memcpy, free, pthread_mutex_unlock
+  | uVar4 = pthread_mutex_lock(param_1);
+  | uVar6 = (ulong)uVar4;
+  | puVar3 = *(undefined8 **)((long)param_1 + 0x30);
+  | if (puVar3 < *(undefined8 **)((long)param_1 + 0x38)) {
+
+=== 007b3f48 size=492 nc=12 FUN_007b3f48
+  C: FUN_007c4348, pthread_mutex_lock, FUN_007c4600, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006e85dc, FUN_007c4840, free, pthread_mutex_unlock, FUN_007c44c4, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | local_58 = param_2;
+  | puVar3 = (undefined8 *)FUN_007c4348(param_1 + 1);
+
+=== 007b4354 size=168 nc=7 FUN_007b4354
+  C: FUN_007c4348, FUN_009e0300, pthread_cond_destroy, pthread_mutex_destroy, free, FUN_007b3e5c, FUN_007b3f48
+  | if ((param_1 != 0) && (lVar2 = FUN_007c4348(&DAT_00a6d290,param_1), lVar2 != 0)) {
+  | __ptr = *(void **)(lVar2 + 0x20);
+  | if ((__ptr != (void *)0x0) && (iVar1 = FUN_009e0300(0xffffffff,(long)__ptr + 0x5c), iVar1 == 1))
+  | pthread_cond_destroy((pthread_cond_t *)((long)__ptr + 0x2c));
+
+=== 007b43fc size=264 nc=6 FUN_007b43fc
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b47e0 size=264 nc=6 FUN_007b47e0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b4960 size=264 nc=6 FUN_007b4960
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b4ae0 size=264 nc=6 FUN_007b4ae0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b4c60 size=264 nc=6 FUN_007b4c60
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b4de0 size=264 nc=6 FUN_007b4de0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b4f60 size=264 nc=6 FUN_007b4f60
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b50e0 size=264 nc=6 FUN_007b50e0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b5260 size=264 nc=6 FUN_007b5260
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b53e0 size=264 nc=6 FUN_007b53e0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b5560 size=264 nc=6 FUN_007b5560
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b56e0 size=264 nc=6 FUN_007b56e0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b5860 size=264 nc=6 FUN_007b5860
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b5ac0 size=264 nc=6 FUN_007b5ac0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b5c40 size=264 nc=6 FUN_007b5c40
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b5dc0 size=264 nc=6 FUN_007b5dc0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b6030 size=264 nc=6 FUN_007b6030
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b61b0 size=264 nc=6 FUN_007b61b0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b6330 size=264 nc=6 FUN_007b6330
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b64b0 size=264 nc=6 FUN_007b64b0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b6630 size=264 nc=6 FUN_007b6630
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);
+
+=== 007b67b0 size=264 nc=6 FUN_007b67b0
+  C: FUN_009e0490, FUN_0079cadc, FUN_009dfa88, FUN_007e00d4, FUN_007dfff0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d3f8 == (long *)0x0) {
+  | plVar2 = (long *)FUN_009e0490(8);

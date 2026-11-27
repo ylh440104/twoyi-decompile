@@ -1,0 +1,508 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_03200.txt
+C: FUN_009c0920, newlocale, FUN_009c0a64
+  | puVar4 = param_2;
+  | if (param_2 != param_3) {
+  | do {
+  | uVar1 = *param_2;
+
+=== 009bae7c size=140 nc=3 FUN_009bae7c
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | if (param_2 < 0x80) {
+  | if (((DAT_00a76b30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76b30), iVar1 != 0)) {
+  | /* try { // try from 009baedc to 009baeef has its CatchHandler @ 009baf08 */
+  | DAT_00a76b28 = newlocale(0x1fbf,"C",(__locale_t)0x0);
+
+=== 009baf20 size=188 nc=3 FUN_009baf20
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | puVar4 = param_2;
+  | if (param_2 != param_3) {
+  | do {
+  | uVar1 = *param_2;
+
+=== 009bb000 size=304 nc=2 FUN_009bb000
+  C: a64_TBL, ZEXT816
+  | undefined (*pauVar8) [16];
+  | auVar11 = _DAT_0011e490;
+  | auVar10 = _DAT_0011e1c0;
+  | auVar2 = _DAT_0011ded0;
+
+=== 009bb300 size=84 nc=2 FUN_009bb300
+  C: free, FUN_0099b068
+  | *param_1 = &PTR_FUN_00a09650;
+  | if (((void *)param_1[2] != (void *)0x0) && (*(char *)(param_1 + 3) != '\0')) {
+  | free((void *)param_1[2]);
+  | FUN_0099b068(param_1);
+
+=== 009bb354 size=44 nc=2 FUN_009bb354
+  C: FUN_009bb300, free
+  | FUN_009bb300();
+  | free(param_1);
+
+=== 009bb380 size=140 nc=3 FUN_009bb380
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | if ((param_2 >> 7 & 1) == 0) {
+  | if (((DAT_00a76b30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76b30), iVar1 != 0)) {
+  | /* try { // try from 009bb3e0 to 009bb3f3 has its CatchHandler @ 009bb40c */
+  | DAT_00a76b28 = newlocale(0x1fbf,"C",(__locale_t)0x0);
+
+=== 009bb424 size=188 nc=3 FUN_009bb424
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | byte * FUN_009bb424(undefined8 param_1,byte *param_2,byte *param_3)
+  | pbVar4 = param_2;
+  | if (param_2 != param_3) {
+  | do {
+
+=== 009bb4f8 size=140 nc=3 FUN_009bb4f8
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | if ((param_2 >> 7 & 1) == 0) {
+  | if (((DAT_00a76b30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76b30), iVar1 != 0)) {
+  | /* try { // try from 009bb558 to 009bb56b has its CatchHandler @ 009bb584 */
+  | DAT_00a76b28 = newlocale(0x1fbf,"C",(__locale_t)0x0);
+
+=== 009bb59c size=188 nc=3 FUN_009bb59c
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | byte * FUN_009bb59c(undefined8 param_1,byte *param_2,byte *param_3)
+  | pbVar4 = param_2;
+  | if (param_2 != param_3) {
+  | do {
+
+=== 009bb858 size=44 nc=2 FUN_009bb858
+  C: thunk_FUN_0099b068, free
+  | thunk_FUN_0099b068();
+  | free(param_1);
+
+=== 009bb8f4 size=140 nc=3 FUN_009bb8f4
+  C: FUN_009c0920, newlocale, FUN_009c0a64
+  | *param_1 = (long)(PTR_DAT_00a0df10 + 0x10);
+  | param_1[1] = param_2 + -1;
+  | if (((DAT_00a76b30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76b30), iVar1 != 0)) {
+  | /* try { // try from 009bb958 to 009bb96b has its CatchHandler @ 009bb980 */
+
+=== 009bb9a0 size=44 nc=2 FUN_009bb9a0
+  C: FUN_009bf3e0, free
+  | FUN_009bf3e0();
+  | free(param_1);
+
+=== 009bb9cc size=668 nc=3 FUN_009bb9cc
+  C: uselocale, wcsnrtombs, wcrtomb
+  | undefined FUN_009bb9cc(long param_1,mbstate_t *param_2,wchar_t *param_3,wchar_t *param_4,
+  | wchar_t **param_5,char *param_6,char *param_7,long *param_8)
+  | pwVar7 = param_3;
+  | pwVar6 = param_3;
+
+=== 009bbc90 size=652 nc=3 FUN_009bbc90
+  C: uselocale, mbsnrtowcs, mbrtowc
+  | bool FUN_009bbc90(long param_1,mbstate_t *param_2,char *param_3,char *param_4,char **param_5,
+  | wchar_t *param_6,wchar_t *param_7,long *param_8)
+  | pcVar6 = param_4;
+  | pcVar4 = param_3;
+
+=== 009bbf44 size=200 nc=2 FUN_009bbf44
+  C: uselocale, wcrtomb
+  | *param_5 = param_3;
+  | __dataset = uselocale(*(__locale_t *)(param_1 + 0x10));
+  | /* try { // try from 009bbf7c to 009bbf8b has its CatchHandler @ 009bc010 */
+  | local_38 = __dataset;
+
+=== 009bc024 size=160 nc=3 FUN_009bc024
+  C: uselocale, mbtowc, __ctype_get_mb_cur_max
+  | ulong FUN_009bc024(long param_1)
+  | /* try { // try from 009bc040 to 009bc043 has its CatchHandler @ 009bc0e4 */
+  | p_Var2 = uselocale(*(__locale_t *)(param_1 + 0x10));
+  | /* try { // try from 009bc04c to 009bc05b has its CatchHandler @ 009bc0d0 */
+
+=== 009bc0f4 size=224 nc=2 FUN_009bc0f4
+  C: uselocale, mbrlen
+  | iVar3 = 0;
+  | if ((param_5 != 0) && (param_3 != param_4)) {
+  | iVar3 = 0;
+  | uVar4 = 1;
+
+=== 009bc1ec size=92 nc=2 FUN_009bc1ec
+  C: uselocale, __ctype_get_mb_cur_max
+  | ulong FUN_009bc1ec(long param_1)
+  | if (*(__locale_t *)(param_1 + 0x10) == (__locale_t)0x0) {
+  | sVar1 = 1;
+  | else {
+
+=== 009bc264 size=44 nc=2 FUN_009bc264
+  C: thunk_FUN_0099b068, free
+  | thunk_FUN_0099b068();
+  | free(param_1);
+
+=== 009bcaa0 size=44 nc=2 FUN_009bcaa0
+  C: thunk_FUN_0099b068, free
+  | thunk_FUN_0099b068();
+  | free(param_1);
+
+=== 009bcbec size=44 nc=2 FUN_009bcbec
+  C: thunk_FUN_0099b068, free
+  | thunk_FUN_0099b068();
+  | free(param_1);
+
+=== 009bd220 size=44 nc=2 FUN_009bd220
+  C: thunk_FUN_0099b068, free
+  | thunk_FUN_0099b068();
+  | free(param_1);
+
+=== 009bd488 size=80 nc=2 FUN_009bd488
+  C: free, FUN_0099b068
+  | *param_1 = &PTR_FUN_00a09718;
+  | if ((*(byte *)(param_1 + 3) & 1) != 0) {
+  | free((void *)param_1[5]);
+  | FUN_0099b068(param_1);
+
+=== 009bd4d8 size=44 nc=2 FUN_009bd4d8
+  C: FUN_009bd488, free
+  | FUN_009bd488();
+  | free(param_1);
+
+=== 009bd504 size=80 nc=2 FUN_009bd504
+  C: free, FUN_0099b068
+  | *param_1 = &PTR_FUN_00a09768;
+  | if ((*(byte *)(param_1 + 3) & 1) != 0) {
+  | free((void *)param_1[5]);
+  | FUN_0099b068(param_1);
+
+=== 009bd554 size=44 nc=2 FUN_009bd554
+  C: FUN_009bd504, free
+  | FUN_009bd504();
+  | free(param_1);
+
+=== 009bd654 size=188 nc=5 FUN_009bd654
+  C: wcslen, FUN_0099c978, FUN_002fad20, FUN_009e0490, memmove
+  | sVar2 = wcslen(param_2);
+  | if (0x3ffffffffffffff7 < sVar2) {
+  | FUN_0099c978(param_1);
+  | LAB_009bd70c:
+
+=== 009bd788 size=108 nc=3 FUN_009bd788
+  C: FUN_009c0920, FUN_009bd7f4, FUN_009c0a64
+  | if (((DAT_00a76d40 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d40), iVar1 != 0)) {
+  | FUN_009bd7f4();
+  | DAT_00a76d38 = &DAT_00a76e38;
+  | FUN_009c0a64(&DAT_00a76d40);
+
+=== 009bdc2c size=104 nc=3 FUN_009bdc2c
+  C: FUN_009c0920, FUN_009bdcac, FUN_009c0a64
+  | if (((DAT_00a76d50 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d50), iVar1 != 0)) {
+  | /* try { // try from 009bdc74 to 009bdc77 has its CatchHandler @ 009bdc94 */
+  | FUN_009bdcac();
+  | DAT_00a76d48 = &DAT_00a76f90;
+
+=== 009bdcac size=724 nc=4 FUN_009bdcac
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64, FUN_0099ca48
+  L: Sunday ~ Monday ~ Tuesday ~ Wednesday ~ Thursday
+  | if (((DAT_00a770e0 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a770e0), iVar1 != 0)) {
+  | __cxa_atexit(FUN_009bfb54,0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a770e0);
+  | FUN_0099ca48(&DAT_00a76f90,L"Sunday",6);
+
+=== 009bdf80 size=108 nc=3 FUN_009bdf80
+  C: FUN_009c0920, FUN_009bdfec, FUN_009c0a64
+  | if (((DAT_00a76d60 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d60), iVar1 != 0)) {
+  | FUN_009bdfec();
+  | DAT_00a76d58 = &DAT_00a770e8;
+  | FUN_009c0a64(&DAT_00a76d60);
+
+=== 009be6c0 size=104 nc=3 FUN_009be6c0
+  C: FUN_009c0920, FUN_009be740, FUN_009c0a64
+  | if (((DAT_00a76d70 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d70), iVar1 != 0)) {
+  | /* try { // try from 009be708 to 009be70b has its CatchHandler @ 009be728 */
+  | FUN_009be740();
+  | DAT_00a76d68 = &DAT_00a77330;
+
+=== 009bec68 size=108 nc=3 FUN_009bec68
+  C: FUN_009c0920, FUN_009becd4, FUN_009c0a64
+  | if (((DAT_00a76d80 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d80), iVar1 != 0)) {
+  | FUN_009becd4();
+  | DAT_00a76d78 = &DAT_00a77578;
+  | FUN_009c0a64(&DAT_00a76d80);
+
+=== 009becd4 size=224 nc=3 FUN_009becd4
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a775a8 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a775a8), iVar1 != 0)) {
+  | __cxa_atexit(FUN_009bfd64,0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a775a8);
+  | if ((DAT_00a77578 & 1) == 0) {
+
+=== 009bedb4 size=108 nc=3 FUN_009bedb4
+  C: FUN_009c0920, FUN_009bee20, FUN_009c0a64
+  | if (((DAT_00a76d90 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d90), iVar1 != 0)) {
+  | FUN_009bee20();
+  | DAT_00a76d88 = &DAT_00a775b0;
+  | FUN_009c0a64(&DAT_00a76d90);
+
+=== 009bee20 size=228 nc=3 FUN_009bee20
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a775e0 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a775e0), iVar1 != 0)) {
+  | __cxa_atexit(FUN_009bfdb0,0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a775e0);
+  | if ((DAT_00a775b0 & 1) == 0) {
+
+=== 009bef04 size=108 nc=3 FUN_009bef04
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76d98 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76d98), iVar1 != 0)) {
+  | __cxa_atexit(PTR_FUN_00a0dad8,&DAT_00a6c298,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76d98);
+  | return &DAT_00a6c298;
+
+=== 009bef70 size=136 nc=4 FUN_009bef70
+  C: FUN_009c0920, FUN_009bd654, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76db8 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76db8), iVar1 != 0)) {
+  | FUN_009bd654(&DAT_00a76da0,&DAT_002222a4);
+  | __cxa_atexit(PTR_FUN_00a0dc50,&DAT_00a76da0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76db8);
+
+=== 009bf010 size=108 nc=3 FUN_009bf010
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76dc0 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76dc0), iVar1 != 0)) {
+  | __cxa_atexit(PTR_FUN_00a0dad8,&DAT_00a6c2b0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76dc0);
+  | return &DAT_00a6c2b0;
+
+=== 009bf07c size=136 nc=4 FUN_009bf07c
+  C: FUN_009c0920, FUN_009bd654, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76de0 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76de0), iVar1 != 0)) {
+  | FUN_009bd654(&DAT_00a76dc8,&DAT_00222114);
+  | __cxa_atexit(PTR_FUN_00a0dc50,&DAT_00a76dc8,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76de0);
+
+=== 009bf11c size=108 nc=3 FUN_009bf11c
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76de8 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76de8), iVar1 != 0)) {
+  | __cxa_atexit(PTR_FUN_00a0dad8,s___a__b__d__H__M__S__Y_00a6c2c8,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76de8);
+
+=== 009bf188 size=136 nc=4 FUN_009bf188
+  C: FUN_009c0920, FUN_009bd654, __cxa_atexit, FUN_009c0a64
+  L: %a %b %d %H:%M:%S %Y
+  | if (((DAT_00a76e08 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76e08), iVar1 != 0)) {
+  | FUN_009bd654(&DAT_00a76df0,L"%a %b %d %H:%M:%S %Y");
+  | __cxa_atexit(PTR_FUN_00a0dc50,&DAT_00a76df0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76e08);
+
+=== 009bf228 size=108 nc=3 FUN_009bf228
+  C: FUN_009c0920, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76e10 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76e10), iVar1 != 0)) {
+  | __cxa_atexit(PTR_FUN_00a0dad8,&DAT_00a6c2e0,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76e10);
+  | return &DAT_00a6c2e0;
+
+=== 009bf294 size=136 nc=4 FUN_009bf294
+  C: FUN_009c0920, FUN_009bd654, __cxa_atexit, FUN_009c0a64
+  | if (((DAT_00a76e30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76e30), iVar1 != 0)) {
+  | FUN_009bd654(&DAT_00a76e18,&DAT_0022204c);
+  | __cxa_atexit(PTR_FUN_00a0dc50,&DAT_00a76e18,&PTR_LOOP_009e57e0);
+  | FUN_009c0a64(&DAT_00a76e30);
+
+=== 009bf334 size=144 nc=4 FUN_009bf334
+  C: FUN_009c0920, newlocale, FUN_009c0a64, freelocale
+  | p_Var2 = (__locale_t)*param_1;
+  | if (((DAT_00a76b30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76b30), iVar1 != 0)) {
+  | /* try { // try from 009bf39c to 009bf3af has its CatchHandler @ 009bf3c4 */
+  | DAT_00a76b28 = newlocale(0x1fbf,"C",(__locale_t)0x0);
+
+=== 009bf3e0 size=164 nc=5 FUN_009bf3e0
+  C: FUN_009c0920, newlocale, FUN_009c0a64, freelocale, FUN_0099b068
+  | p_Var2 = (__locale_t)param_1[2];
+  | *param_1 = (long)(PTR_DAT_00a0df10 + 0x10);
+  | if (((DAT_00a76b30 & 1) == 0) && (iVar1 = FUN_009c0920(&DAT_00a76b30), iVar1 != 0)) {
+  | /* try { // try from 009bf45c to 009bf46f has its CatchHandler @ 009bf484 */
+
+=== 009bf4a0 size=44 nc=2 FUN_009bf4a0
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf4cc size=44 nc=2 FUN_009bf4cc
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf4f8 size=44 nc=2 FUN_009bf4f8
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf524 size=44 nc=2 FUN_009bf524
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf558 size=44 nc=2 FUN_009bf558
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf58c size=44 nc=2 FUN_009bf58c
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf5b8 size=56 nc=3 FUN_009bf5b8
+  C: FUN_009bf334, FUN_0099b068, free
+  | FUN_009bf334((long)param_1 + 0x10);
+  | FUN_0099b068(param_1);
+  | free(param_1);
+
+=== 009bf5f0 size=56 nc=3 FUN_009bf5f0
+  C: FUN_009bf334, FUN_0099b068, free
+  | FUN_009bf334((long)param_1 + 0x10);
+  | FUN_0099b068(param_1);
+  | free(param_1);
+
+=== 009bf628 size=48 nc=2 FUN_009bf628
+  C: FUN_009bf334, FUN_0099b068
+  | FUN_009bf334(param_1 + 0x10);
+  | FUN_0099b068(param_1);
+
+=== 009bf658 size=48 nc=2 FUN_009bf658
+  C: FUN_009bf334, FUN_0099b068
+  | FUN_009bf334(param_1 + 0x10);
+  | FUN_0099b068(param_1);
+
+=== 009bf688 size=44 nc=2 FUN_009bf688
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf6b4 size=44 nc=2 FUN_009bf6b4
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf6e0 size=44 nc=2 FUN_009bf6e0
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf70c size=44 nc=2 FUN_009bf70c
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf738 size=44 nc=2 FUN_009bf738
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf764 size=44 nc=2 FUN_009bf764
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf790 size=44 nc=2 FUN_009bf790
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf7bc size=44 nc=2 FUN_009bf7bc
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf7e8 size=44 nc=2 FUN_009bf7e8
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bf814 size=44 nc=2 FUN_009bf814
+  C: FUN_0099b068, free
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 009bfe40 size=272 nc=5 FUN_009bfe40
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtoll_l
+  | longlong FUN_009bfe40(char *param_1,char *param_2,undefined4 *param_3,int param_4)
+  | if (param_1 != param_2) {
+  | piVar3 = (int *)__errno();
+  | iVar1 = *piVar3;
+
+=== 009bff68 size=272 nc=5 FUN_009bff68
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtoll_l
+  | longlong FUN_009bff68(char *param_1,char *param_2,undefined4 *param_3,int param_4)
+  | if (param_1 != param_2) {
+  | piVar3 = (int *)__errno();
+  | iVar1 = *piVar3;
+
+=== 009c0090 size=320 nc=5 FUN_009c0090
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtoull_l
+  | if ((param_1 == param_2) ||
+  | ((cVar1 = *param_1, cVar1 == '-' && (param_1 = param_1 + 1, param_1 == param_2)))) {
+  | LAB_009c0158:
+  | iVar2 = 0;
+
+=== 009c01e8 size=316 nc=5 FUN_009c01e8
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtoull_l
+  | if ((param_1 == param_2) ||
+  | ((cVar1 = *param_1, cVar1 == '-' && (param_1 = param_1 + 1, param_1 == param_2)))) {
+  | LAB_009c02a0:
+  | iVar2 = 0;
+
+=== 009c033c size=304 nc=5 FUN_009c033c
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtoull_l
+  | ulonglong FUN_009c033c(char *param_1,char *param_2,undefined4 *param_3,int param_4)
+  | if ((param_1 != param_2) &&
+  | ((cVar2 = *param_1, cVar2 != '-' || (param_1 = param_1 + 1, param_1 != param_2)))) {
+  | piVar4 = (int *)__errno();
+
+=== 009c0484 size=304 nc=5 FUN_009c0484
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtoull_l
+  | ulonglong FUN_009c0484(char *param_1,char *param_2,undefined4 *param_3,int param_4)
+  | if ((param_1 != param_2) &&
+  | ((cVar2 = *param_1, cVar2 != '-' || (param_1 = param_1 + 1, param_1 != param_2)))) {
+  | piVar4 = (int *)__errno();
+
+=== 009c05cc size=256 nc=5 FUN_009c05cc
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtof
+  | float FUN_009c05cc(char *param_1,char *param_2,undefined4 *param_3)
+  | if (param_1 == param_2) {
+  | fVar5 = 0.0;
+  | else {
+
+=== 009c06e4 size=256 nc=5 FUN_009c06e4
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtod
+  | double FUN_009c06e4(char *param_1,char *param_2,undefined4 *param_3)
+  | if (param_1 == param_2) {
+  | dVar5 = 0.0;
+  | else {
+
+=== 009c07fc size=268 nc=5 FUN_009c07fc
+  C: __errno, FUN_009c0920, newlocale, FUN_009c0a64, strtold_l
+  | double FUN_009c07fc(char *param_1,char *param_2,undefined4 *param_3)
+  | dVar5 = _DAT_0011e360;
+  | if (param_1 == param_2) {
+  | *param_3 = 4;
+
+=== 009c0920 size=296 nc=5 FUN_009c0920
+  C: pthread_mutex_lock, FUN_009c1130, syscall, pthread_cond_wait, pthread_mutex_unlock
+  L: %s failed to acquire mutex ~ __cxa_guard_acquire ~ __cxa_guard_acquire detected recursive initialization:  ~ %s failed to release mutex
+  | if (*param_1 == '\0') {
+  | iVar4 = pthread_mutex_lock((pthread_mutex_t *)&DAT_00a77840);
+  | if (iVar4 != 0) {
+  | FUN_009c1130("%s failed to acquire mutex","__cxa_guard_acquire");
+
+=== 009c0a64 size=164 nc=4 FUN_009c0a64
+  C: pthread_mutex_lock, pthread_mutex_unlock, FUN_009c1130, pthread_cond_broadcast
+  L: %s failed to release mutex ~ __cxa_guard_release ~ %s failed to broadcast ~ %s failed to acquire mutex
+  | *param_1 = 1;
+  | iVar2 = pthread_mutex_lock((pthread_mutex_t *)&DAT_00a77840);
+  | if (iVar2 == 0) {
+  | bVar1 = *(byte *)((long)param_1 + 1);
+
+=== 009c0b0c size=152 nc=4 FUN_009c0b0c
+  C: pthread_mutex_lock, pthread_mutex_unlock, FUN_009c1130, pthread_cond_broadcast
+  L: %s failed to release mutex ~ __cxa_guard_abort ~ %s failed to broadcast ~ %s failed to acquire mutex
+  | iVar2 = pthread_mutex_lock((pthread_mutex_t *)&DAT_00a77840);
+  | if (iVar2 == 0) {
+  | bVar1 = *(byte *)(param_1 + 1);
+  | *(undefined4 *)(param_1 + 4) = 0;
+
+=== 009c0ba8 size=68 nc=2 FUN_009c0ba8
+  C: pthread_mutex_unlock, FUN_009c1130
+  L: %s failed to release mutex
+  | /* try { // try from 009c0bbc to 009c0beb has its CatchHandler @ 009c0bec */
+  | iVar1 = pthread_mutex_unlock((pthread_mutex_t *)&DAT_00a77840);
+  | if (iVar1 == 0) {
+  | FUN_009c1130("%s failed to release mutex",*param_1);

@@ -1,0 +1,106 @@
+function	n	strings
+FUN_00372f04	25	system/etc/ld.config | /javalib/ | apex/com.android.runtime/ | system/bin/init | system/bin/linker | system/bin/bootstrap/ | system/lib64/bootstrap/ | apex/com.android.art/ | system/etc/init/ | ystem/etc/selinux/ | system/etc/classpaths/ | system/etc/linker | system/bin/ | system/lib64/ | system/framework/framework-res.apk | W/lib64/ | vendor/ | system/framework/boot | system/framework/ | ).Oqsystem/usr/ | system/framework/oat/arm64/services. | >system/etcl | data/system | priv-app/SystemUI | priv-app/Launcher
+FUN_004ba5a8	20	/data/data/io.twoyi/rootfs | /storage | /storage/emu | /storage/self | /dev/.coldboot_done | /dev/__properties__ | /dev/input | /dev/__kmsg__ | /dev/__kmsg2__ | /dev/l{g | /dev/socket/logd | /dev/socket/logdw | /dev/socket/logdr | /dev/socket | /dev/vbinder | /dev/vndbinder | /dev/hwbinder | /dev/vid | /sys/fs/selinux | /sys/class/android_usb
+FUN_0051fa44	17	invalid arguments | i/o error | bad zstd frame | unacceptable content size | insufficient disk space | zstd decode error | truncated input | bad tar header | bad tar member name | unsupported tar member type | bad tar s | ze field | path conflict | out of memory | ROM payload identity mismatch | ROM payload hash mismatch | unknown error
+JNI_OnLoad	15	roid/view/Mo | getRuntime | unable to register DirectLauncher natives | unable to register KernelSuHal natives | dalvik/system/VMRuntime | getPointerCount | ()Ldalvik/system/VMRuntime; | setHiddenApiExemptions | ([Ljava/lang/String;)V | java/lang/String | Landroid/view/MotionEvent | ro.build.version.sdk | JNI_OnLoad: %s | getAction | ~getPressure
+FUN_0032a270	11	CLIENT_EGL | cannot create input writer thread | cannot detach input writer thread | cannot create input accept thread | cannot detach input accept thread | input socket path is too long | cannot create input listener | cannot configure input listener | cannot remove s.ale input socket | cannot bind input listener | cannot listen on input socket
+FUN_00434d6c	9	/data/dataGio.twoyi/files/seccomp_user_notif.enable | twoyi seccomp disabled: create %s after device acceptance | twoyi seccomp capability probe failed; wrapper-only session | twoyi seccomp endpoint unavailable; wrapper-only session | twoyi seccomp native opener unavailable; wrapper-only session | twoyi seccomp broker enabled | /dev/null | 0123456789abcdef | twoyi.seccomp.
+FUN_00528f48	8	data_dir | rootfs.zst.rollback | rootfs.zst.old |  rootfs  | rootfs  | : rollback  | rootfs.zst.tmp |  rootfs staging 
+FUN_0066db3c	8	rootfs.zst.rollback | rootfs | ~8/!dev | storage |  rename/merge: %s |  rootfs  | rootfs  |  rename: %s
+FUN_003ef218	7	io/twoyi/BootPrefetch | nativeStart | (Ljava/lang/String;Ljava/la&g/String;Ljava/lang/String;)I | nativeCancel | nativeRecord | (Ljava/lang/String;Ljava/lang/St | ing;Ljava/lang/String;)Z
+FUN_00301328	6	tRenderer endpoint unavailable after startup: %s | mOpenGL renderer core initialization returned %d | opengles2 | opengles3 | Renderer endpoint path too long: %s/ | opengles
+FUN_00303040	6	Unable to | Legacy direct runtime waiting for Activity window | Invalid direct runtime request: display=%dx%d dpi=%.2fx%.2f fps=%d loader_empty=%d | /data/data/io.twoyi/rootfs/system/bin/init | Unable  | o inspect rootfs init layout: %s
+FUN_0033cb08	6	cannot accept input client | CLIENT_EGL | cannot config | re input client | cannot send i | put device descri
+FUN_005c626c	6	rootfs/system/ | rootfs/vend/r/ | rootfs/product/ | rootfs/system_ext/ | rootfs/odm/ | rootfs/oem/
+FUN_00613098	6	user.twoyi.meta | lower metadata xattr  | phase=%d | tar: symlink  | tar: symlink  | s-%016llx-%016llx
+FUN_006268dc	6	.rootfs.repair.pending | ROM artifact disappeared during\repair; retry: %s | repair pending | repair parent missing: %s | repair publish failed: %s: %s | repair complete
+FUN_0030889c	5	Unable to start legacy rootf | Legacy direct runtime launched after Activity window attach | Renderer window arrived  | Unable to update input dimensions for attached window | Unable to bind required input listeners
+FUN_00351408	5	native %s rootfs fajled: %d (%s): %s | repair | extract | nativeExtr | ctRootfs ok
+FUN_0045b38c	5	init lifecycle channel lost | libGLESv1_CM.s | libGLESv3.so | /proc/%d/maps | twoyi seccomp listener active pid=%d
+FUN_0060e39c	5	_3%s compressed frame  |  SHA-256  |  %s compressed frame  |  SHA-256  | %s compressed frame SHA-256 
+FUN_0030f1dc	4	Invalid renderer reset request | Renderer reset received for a detached window | resetSubWindow returned %d | Unable to update input surface dimensions
+FUN_003153cc	4	/data/data/io.twoyi/rootfs | twoyi_hal | TWOYI_SOCK | /data/data/io.twoyi/rootfs/gfxstream-vulkan
+FUN_00325160	4	<vtouch  | <keyboar | invalid input surface dimensions | CLIENT_EGL
+FUN_003a5ae0	4	system | system_ext | eproduct | vendor
+FUN_004259fc	4	rootfs init %d killed by signal %d | Direct guest process group %d did not disappear | rootfs init %d exited with status %d | waitpid(%d) failed: %s
+FUN_004eb0f0	4	 (deleted) | twoyi-opener | /data/data/io.twoyi/rootfs | /proc/self/fd/%d
+FUN_005cfca8	4	drom_extract | compressed | SHA-256 worker buffer unavailable; using inline fallback | compressed SHA-256 worker unavailable (%s); rsing inline fallback
+FUN_0064b114	4	Vstorage | config | linkerconfig | .twoyi-
+FUN_002ddf80	3	java/lang/RuntimeEx | eption | Renderer.prepare failed
+FUN_002e9cf8	3	java/lang/RuntimeException | Renderer.configureEndpoints received an empty endpoint | host endpoints are already configured differently
+FUN_002ef978	3	java/lang/RuntimeException | DirectLauncher.prepare received null loader | DirectLauncher.prepare failed
+FUN_002fea3c	3	Twoyi host runtime ready: %dx%d@%d | Invalid host runtime request: display=%dx%d dpi=%.2fx%.2f fps=%d | Unable to bind required input listeners
+FUN_00334f6c	3	unsupported Android keycode | key input queue full; reconnecting client | CLIENT_EGL
+FUN_00338ee8	3	CLIENT_EGL | cannot duplicate input client | input client disconnected during write
+FUN_0036eaf8	3	io/twoyi/hal/ | woyiResol=erHal | nativeResolve
+FUN_00391220	3	k/framework-res.apk | system/framework/framework.jar | thread constructor failed
+FUN_0042c8b8	3	gfxstream host start failed: %s | no detail | p"Dstatically linked gfxstream Vulkan host listening on %s with G5 direct-AHB/shared-shadow bridge
+FUN_0042e6e4	3	skipping legacy cleanup for live/reused pid=%u puid=%llu | skipping legacy cleanup after pid probe error pid=%u puid=%llu errno=%d | released %u legacy ColorBuffer refs for pid=%u puid=%llu
+FUN_00441bec	3	/proc/%d/stat | broker accept failed | thread constructor failed
+FUN_004a231c	3	NSt6__ndk120__shared_ptr_emplaceIN5tw | yi12_GLOBAL__N_113Li | tenerStateENS_9allocatorIS3_EEEE
+FUN_0050e600	3	 (deleted) | /data/da | a/io.twoyi/rootfs
+FUN_002e006c	2	java/lang/RuntimeException | Renderer.attachWindow failed
+FUN_002e1e9c	2	java/lang/RuntimeException | Renderer.resetWindow failed
+FUN_0030dd98	2	resetSubWindow returned %d | setNativeWindow returned %d
+FUN_00312160	2	removeSubWindow returned %d | setNativeWindow(nullptr) returned %d
+FUN_0033110c	2	touch input queue full; reconnecting client | CLIENT_EGL
+FUN_0034ada0	2	native | ecoverRootfs failed: %d (%s): %s
+FUN_0037ed90	2	twoyi-boot-prefetch | end %zu
+FUN_003a13bc	2	boot prefetch: %zu files, %lu MiB listed, %lu MiB read ahead, %ld ms%s |  (cancelled)
+FUN_003af860	2	data/media | data/local/tmp
+FUN_0041990c	2	Refusing invalid direct guest process group %d | Unable to stop direct guest process group %d: %s
+FUN_0042a888	2	Invalid gfxstream host start request | Unable to initialize gfxstream 'ost once-state
+FUN_004c53f0	2	/data/data/io.twoyi/rootfs | /proc/%d/cwd
+FUN_004cb2f0	2	/data/data/io.twoyi/rootfs | %s/dev/vid/%d
+FUN_0050a21c	2	/proc/self/fdinfo/%d | \Ymnt_id:
+FUN_005c9458	2	cannot check ROM artifact: %s (%s) | 1ot a regA_ar file
+FUN_0061bb98	2	repair publish failed: %s: %s | ROM artifact still missing after repair: %s
+FUN_006424a8	2	user.twoyi.meta | lower metadatahxattr 
+FUN_00678e38	2	st:rage | bmulated
+FUN_002dd5a4	1	JNI_OnLoad: %s
+FUN_002e3fe4	1	Renderer.removeWindow failed
+FUN_002e529c	1	Renderer.handleTouch failed
+FUN_002e90b8	1	Renderer.sendKeycode failed
+FUN_002f5f8c	1	CLIENT_EGL
+FUN_002f6f80	1	java/lang/RuntimeException
+FUN_002f8330	1	Renderer received a null Surface
+FUN_002fa1b8	1	vector
+FUN_002fe1b8	1	basic_string
+FUN_0033818c	1	vector
+FUN_003564b4	1	vector
+FUN_0035907c	1	vector
+FUN_00381314	1	twoyi-boot-prefetch
+FUN_003e8154	1	NSt6__ndk120__shared_ptr_emplaceIN5twoyi13boot_prefetch12_GLOBAL__N_16ReplayENS_9allocatorIS4_EEEE
+FUN_003e9d30	1	NSt6__ndk120__shared_ptr_emplaceIN5twoyi13boot_prefetch12_GLOBAL__N_16ReplayENS_9allocatorIS4_EEEE
+FUN_003bc394	1	basic_string
+FUN_003bd4f4	1	vector
+FUN_003bffc0	1	vector
+FUN_003e7730	1	vector
+FUN_003e7c38	1	vector
+FUN_00412024	1	twoyi: unable to execute legacy rootfs
+FUN_0041b9a0	1	Unable to detach rootfs reaper: %d
+FUN_00423d78	1	/proc/self/fd
+FUN_0042a0b0	1	vector
+FUN_004321b4	1	/proc/%d/stat
+FUN_0044a950	1	thread constructor failed
+FUN_0044ce50	1	rootfs init %d exited while seccomp listener was active
+FUN_004594c8	1	twoyi seccomp fatal: %s
+FUN_0046f588	1	%llx-%llx %4s %*s kx:%x %llu %n
+FUN_0047302c	1	 Cdeteted)
+FUN_0047687c	1	vector
+FUN_0049f398	1	thread constructor
+FUN_004a56f8	1	NOTIF_SEND failed
+FUN_004a6480	1	Q/proc/%d/status
+FUN_004b7cf0	1	vector
+FUN_004cd888	1	NOTIF_SEND failed
+FUN_004f6ac0	1	thread constructor failed
+FUN_00518518	1	NSt6__ndk120__shared_ptr_emplaceIN5twoyi12_GLOBAL__N_17OpenJobENS_9allocatorIS3_EEEE
+FUN_00519ef4	1	NSt6__ndk120__shared_ptr_emplaceIN5twoyi12_GLOBAL__N_17OpenJobENS_9allocatorIS3_EEEE
+FUN_0051b83c	1	NSt6__ndk120__shared_ptr_emplaceIN5twoyi12_GLOBAL__N_19AccessJobENS_9allocatorIS3_EEEE
+FUN_0051d2cc	1	NSt6__ndk120__shared_ptr_emplaceIN5twoyi12_GLOBAL__N_19AccessJobENS_9allocatorIS3_EEEE
+FUN_0050cb80	1	/procuself/fd/%do
+FUN_00510428	1	/data/data/io.twoyi/rootfs
+FUN_005159c0	1	user.twoyi.owner
+FUN_00523d38	1	 data_dir: %s
+FUN_00527a58	1	rom_ex
+FUN_00610008	1	 %s compre

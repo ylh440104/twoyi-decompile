@@ -1,0 +1,570 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big6_01240.txt pool 2009
+=360 nc=6 FUN_0082d38c
+  C: FUN_009e0490, FUN_0086a368, FUN_008301d8, FUN_0082e944, FUN_0082d0fc, __stack_chk_fail
+  | lVar7 = tpidr_el0;
+  | local_68 = *(long *)(lVar7 + 0x28);
+  | iVar1 = *param_2;
+  | if ((((iVar1 < 9) && (iVar2 = param_2[1], iVar2 < 9)) && (iVar3 = param_2[2], iVar3 < 9)) &&
+
+=== 0082d558 size=308 nc=7 FUN_0082d558
+  C: pthread_mutex_lock, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0330, pthread_mutex_unlock
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | pthread_mutex_lock((pthread_mutex_t *)(param_2 + 0x118));
+  | if (param_3 >> 0x20 != 0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"(%s:%d) EmuGL:WARNING: bad generic pointer %p\n",
+  | "/data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglDisplay.cpp"
+
+=== 0082d694 size=308 nc=7 FUN_0082d694
+  C: pthread_mutex_lock, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0330, pthread_mutex_unlock
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | pthread_mutex_lock((pthread_mutex_t *)(param_2 + 0x118));
+  | if (param_3 >> 0x20 != 0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"(%s:%d) EmuGL:WARNING: bad generic pointer %p\n",
+  | "/data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglDisplay.cpp"
+
+=== 0082d7d0 size=424 nc=11 FUN_0082d7d0
+  C: pthread_mutex_lock, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_008306cc, FUN_009e0360, FUN_0099b070, free, pthread_mutex_unlock, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+  | if (param_2 >> 0x20 != 0) {
+
+=== 0082d980 size=424 nc=11 FUN_0082d980
+  C: pthread_mutex_lock, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00830800, FUN_009e0360, FUN_0099b070, free, pthread_mutex_unlock, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+  | if (param_2 >> 0x20 != 0) {
+
+=== 0082e104 size=404 nc=10 FUN_0082e104
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00831968, FUN_009e0330, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | ulong FUN_0082e104(long param_1,long *param_2)
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+
+=== 0082e298 size=404 nc=10 FUN_0082e298
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00831d9c, FUN_009e0330, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | ulong FUN_0082e298(long param_1,long *param_2)
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+
+=== 0082e42c size=412 nc=10 FUN_0082e42c
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_008321d0, FUN_009e0330, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | lVar6 = tpidr_el0;
+  | local_58 = *(long *)(lVar6 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+  | uVar3 = *(ulong *)(param_1 + 0x148);
+
+=== 0082e5c8 size=376 nc=8 FUN_0082e5c8
+  C: pthread_mutex_lock, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0083d468, FUN_009e0330, pthread_mutex_unlock
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | pthread_mutex_lock((pthread_mutex_t *)(param_2 + 0x118));
+  | if (param_3 >> 0x20 != 0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"(%s:%d) EmuGL:WARNING: bad generic pointer %p\n",
+  | "/data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestranslator/EGL/EglDisplay.cpp"
+
+=== 0082e748 size=424 nc=11 FUN_0082e748
+  C: pthread_mutex_lock, fprintf, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00832604, FUN_009e0360, FUN_0099b070, free, pthread_mutex_unlock, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+  | if (param_2 >> 0x20 != 0) {
+
+=== 0082e944 size=308 nc=6 FUN_0082e944
+  C: FUN_008306b8, FUN_0068ddb0, FUN_009e0490, memcpy, FUN_0083060c, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | puVar3 = param_1 + 2;
+  | puVar5 = (undefined8 *)*puVar3;
+
+=== 0082ea78 size=248 nc=6 FUN_0082ea78
+  C: pthread_mutex_lock, FUN_0083d468, FUN_00836afc, FUN_00836c38, FUN_006d9ac4, pthread_mutex_unlock
+  | int FUN_0082ea78(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,code *param_5
+  | )
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x118));
+  | for (plVar4 = *(long **)(param_1 + 0x150); plVar4 != (long *)0x0; plVar4 = (long *)*plVar4) {
+
+=== 0082eb70 size=696 nc=15 FUN_0082eb70
+  C: fwrite, FUN_009e0360, FUN_0099b070, free, pthread_mutex_lock, FUN_00828f0c, FUN_009e0330, FUN_00836e04, FUN_006d9b20, FUN_009e0490, FUN_00835230, CONCAT44
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if ((*(long *)(param_1 + 0x158) != 0) &&
+  | (fwrite("Warning: unreleased EGL image handles\n",0x26,1,*(FILE **)PTR_stderr_00a0db18),
+
+=== 0082ee30 size=948 nc=11 FUN_0082ee30
+  C: FUN_0086a774, FUN_0082f478, NEON_ext, FUN_0082fb04, FUN_0082f340, FUN_0082f1e4, FUN_0082fc28, FUN_0082fe00, FUN_0082f558, FUN_0082f6e8, FUN_0082f880
+  | void FUN_0082ee30(undefined (*param_1) [16],undefined (*param_2) [16],undefined8 param_3,
+  | undefined (*pauVar6) [16];
+  | undefined (*pauVar7) [16];
+  | LAB_0082ee60:
+
+=== 008301d8 size=724 nc=10 FUN_008301d8
+  C: FUN_0086a984, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0086a8a4, FUN_009e0490, FUN_0086a458, FUN_0099a8bc, FUN_008304ac, LZCOUNT
+  | uVar3 = FUN_0086a984(param_2);
+  | uVar13 = param_1[1];
+  | uVar11 = (ulong)uVar3;
+  | if (uVar13 != 0) {
+
+=== 008304ac size=352 nc=6 FUN_008304ac
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00831968 size=724 nc=7 FUN_00831968
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_00831c3c, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar14 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 00831c3c size=352 nc=6 FUN_00831c3c
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00831d9c size=724 nc=7 FUN_00831d9c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_00832070, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar14 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 00832070 size=352 nc=6 FUN_00832070
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 008321d0 size=724 nc=7 FUN_008321d0
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_008324a4, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar14 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 008324a4 size=352 nc=6 FUN_008324a4
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00832738 size=728 nc=7 FUN_00832738
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_008324a4, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar11 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 00832ec8 size=316 nc=6 FUN_00832ec8
+  C: pthread_mutex_lock, FUN_009e0210, FUN_00835344, free, pthread_mutex_unlock, pthread_mutex_destroy
+  | pthread_mutex_lock(param_1);
+  | do {
+  | uVar2 = FUN_009e0210(1,param_1 + 4);
+  | } while ((uVar2 & 1) != 0);
+
+=== 008332dc size=216 nc=7 FUN_008332dc
+  C: pthread_mutex_lock, FUN_009e0330, FUN_0083668c, FUN_009e0360, FUN_0099b070, pthread_mutex_unlock, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (param_2 < 10) {
+  | pthread_mutex_lock(param_1);
+
+=== 008333b4 size=228 nc=6 FUN_008333b4
+  C: FUN_009e0210, FUN_009e0330, FUN_0083529c, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | do {
+  | uVar3 = FUN_009e0210(1,param_1 + 0xa0);
+
+=== 008335d8 size=552 nc=14 FUN_008335d8
+  C: pthread_mutex_lock, FUN_009e0210, FUN_00835f48, FUN_00836934, FUN_00836a44, FUN_009e0330, fprintf, FUN_00836844, FUN_00833498, FUN_008359e8, FUN_009e0490, FUN_0083529c
+  L: ensureObjectOnBind
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | pthread_mutex_lock(param_1);
+  | do {
+
+=== 0083383c size=560 nc=13 FUN_0083383c
+  C: pthread_mutex_lock, FUN_008340b4, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0083451c, FUN_00832a10, FUN_009e0360, FUN_0099b070, FUN_009e0330, pthread_mutex_unlock
+  | void FUN_0083383c(undefined8 *param_1,long param_2,undefined8 param_3,ulong param_4,
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | local_70 = param_3;
+
+=== 00833a6c size=628 nc=10 FUN_00833a6c
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0330, FUN_00834a24, FUN_009e0490, FUN_0083451c, pthread_mutex_unlock, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | local_50 = param_3;
+  | pthread_mutex_lock((pthread_mutex_t *)(param_2 + 5));
+
+=== 00833d10 size=440 nc=11 FUN_00833d10
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00834d30, FUN_00834e80, FUN_009e0360, FUN_0099b070, free, pthread_mutex_unlock, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 5));
+  | uVar5 = param_1[1];
+
+=== 008340b4 size=776 nc=7 FUN_008340b4
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_008343bc, LZCOUNT
+  | uVar2 = *param_2;
+  | uVar10 = param_1[1];
+  | uVar6 = ((ulong)(uint)((int)uVar2 << 3) + 8 ^ uVar2 >> 0x20) * -0x622015f714c7d297;
+  | uVar6 = (uVar2 >> 0x20 ^ uVar6 >> 0x2f ^ uVar6) * -0x622015f714c7d297;
+
+=== 008343bc size=352 nc=6 FUN_008343bc
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00834640 size=528 nc=6 FUN_00834640
+  C: FUN_0099a8bc, FUN_00834850, NEON_cnt, NEON_uaddlv, CONCAT62, LZCOUNT
+  | uVar9 = param_1[1];
+  | if ((uVar9 != 0) && ((float)(param_1[3] + 1) <= *(float *)(param_1 + 4) * (float)uVar9))
+  | if (uVar9 < 3) {
+  | uVar4 = 1;
+
+=== 00834850 size=372 nc=6 FUN_00834850
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00834a24 size=780 nc=8 FUN_00834a24
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_009e0330, FUN_0099a8bc, FUN_008343bc, LZCOUNT
+  | uVar3 = *param_2;
+  | uVar12 = param_1[1];
+  | uVar7 = ((ulong)(uint)((int)uVar3 << 3) + 8 ^ uVar3 >> 0x20) * -0x622015f714c7d297;
+  | uVar7 = (uVar3 >> 0x20 ^ uVar7 >> 0x2f ^ uVar7) * -0x622015f714c7d297;
+
+=== 00834d30 size=336 nc=6 FUN_00834d30
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_006d5398, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | uVar4 = param_1[1];
+  | if (uVar4 != 0) {
+
+=== 00834fb4 size=636 nc=13 FUN_00834fb4
+  C: FUN_006d9b20, FUN_006d9bdc, FUN_0068ddd8, FUN_0083aad0, CONCAT44, FUN_0083a3e0, FUN_009e0330, FUN_0083a9dc, FUN_0083aad8, FUN_009e0360, FUN_0099b070, FUN_00838e84
+  | void FUN_00834fb4(undefined8 *param_1,undefined2 param_2,long param_3,undefined8 *******param_4,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | param_1[1] = 0;
+
+=== 00835580 size=416 nc=10 FUN_00835580
+  C: FUN_0083b4c0, FUN_0083aa38, FUN_0083d420, FUN_009e0330, FUN_006ebf5c, FUN_00835720, FUN_009e0360, FUN_0099b070, FUN_0083aad8, __stack_chk_fail
+  L: fatal: null global texture object in NameSpace::touchTe
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | plVar8 = *(long **)(param_1 + 0x58);
+  | if (plVar8 != (long *)0x0) {
+
+=== 00835720 size=460 nc=10 FUN_00835720
+  C: FUN_00837df4, FUN_00836050, CONCAT44, FUN_00837f1c, FUN_009e0330, FUN_009e0360, FUN_0099b070, FUN_00837818, FUN_008379c0, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | puVar4 = (undefined8 *)FUN_00837df4(param_1 + 8);
+  | if ((puVar4 == (undefined8 *)0x0) || ((uint *)*puVar4 == (uint *)0x0)) {
+
+=== 008359e8 size=620 nc=11 FUN_008359e8
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_00869c38, FUN_00836050, FUN_00837818, FUN_008379c0, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  | ulong FUN_008359e8(ulong *param_1,undefined8 param_2,ulong param_3,ulong param_4)
+  | lVar4 = tpidr_el0;
+  | local_48 = *(long *)(lVar4 + 0x28);
+  | if ((param_4 & 1) != 0) {
+
+=== 00835ca0 size=332 nc=9 FUN_00835ca0
+  C: pthread_mutex_lock, FUN_0083aad0, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0083aa38, FUN_008396ec, pthread_mutex_unlock, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | pthread_mutex_lock(param_1);
+  | uVar4 = FUN_0083aad0(param_2);
+
+=== 00836050 size=400 nc=6 FUN_00836050
+  C: FUN_0083723c, FUN_009e0330, FUN_009e0360, FUN_0099b070, FUN_008373e8, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | local_60 = param_2;
+  | if (param_2 >> 4 < 0x271) {
+
+=== 008363f8 size=424 nc=10 FUN_008363f8
+  C: FUN_00837df4, CONCAT44, FUN_00837f1c, FUN_009e0330, FUN_009e0360, FUN_0099b070, FUN_0083815c, FUN_008383e4, FUN_0083866c, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | local_58 = param_2;
+  | puVar4 = (undefined8 *)FUN_00837df4(param_1 + 8);
+
+=== 0083668c size=440 nc=9 FUN_0083668c
+  C: FUN_00837df4, CONCAT44, FUN_00837f1c, FUN_009e0330, FUN_009e0360, FUN_0099b070, FUN_00837818, FUN_008379c0, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | puVar4 = (undefined8 *)FUN_00837df4(param_1 + 8);
+  | if ((puVar4 != (undefined8 *)0x0) && ((uint *)*puVar4 != (uint *)0x0)) {
+
+=== 00836afc size=316 nc=8 FUN_00836afc
+  C: FUN_006ebf5c, pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, FUN_008392b4, pthread_mutex_unlock, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | local_38 = *(long *)(lVar4 + 0x28);
+  | puVar7 = *(uint **)(param_2 + 0x18);
+  | if (puVar7 == (uint *)0x0) {
+
+=== 00836e04 size=888 nc=12 FUN_00836e04
+  C: FUN_0099b0c8, fwrite, FUN_006ebf5c, FUN_009e0330, FUN_006d9b20, CONCAT44, FUN_0099b070, FUN_009e0490, FUN_00839a48, FUN_009e0360, FUN_006da500, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | if (param_3[1] == 0) {
+  | plVar6 = (long *)0x0;
+
+=== 0083723c size=408 nc=7 FUN_0083723c
+  C: FUN_008373d4, FUN_0068ddb0, FUN_009e0490, memset, FUN_009e0360, FUN_0099b070, free
+  | __s = (undefined8 *)param_1[1];
+  | if ((ulong)(param_1[2] - (long)__s >> 5) < param_2) {
+  | __ptr = (undefined8 *)*param_1;
+  | lVar8 = (long)__s - (long)__ptr >> 5;
+
+=== 008373e8 size=720 nc=7 FUN_008373e8
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_008376b8, LZCOUNT
+  | uVar8 = param_1[1];
+  | uVar9 = *param_2;
+  | if (uVar8 != 0) {
+  | uVar11 = NEON_cnt(uVar8,1);
+
+=== 008376b8 size=352 nc=6 FUN_008376b8
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00837818 size=404 nc=6 FUN_00837818
+  C: FUN_008379ac, FUN_0068ddb0, FUN_009e0490, memset, memcpy, free
+  | pvVar5 = (void *)param_1[1];
+  | if ((ulong)((param_1[2] - (long)pvVar5 >> 3) * -0x5555555555555555) < param_2) {
+  | __src = (void *)*param_1;
+  | sVar4 = (long)pvVar5 - (long)__src;
+
+=== 008379c0 size=724 nc=7 FUN_008379c0
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_00837c94, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar14 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 00837c94 size=352 nc=6 FUN_00837c94
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00837f1c size=268 nc=6 FUN_00837f1c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00838028, free, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | local_28 = *(long *)(lVar4 + 0x28);
+  | uVar6 = param_1[1];
+  | if (uVar6 != 0) {
+
+=== 0083815c size=340 nc=8 FUN_0083815c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_008382b0, FUN_009e0360, FUN_0099b070, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | uVar4 = param_1[1];
+  | if (uVar4 != 0) {
+
+=== 008383e4 size=340 nc=8 FUN_008383e4
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00838538, FUN_009e0360, FUN_0099b070, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | uVar4 = param_1[1];
+  | if (uVar4 != 0) {
+
+=== 0083866c size=268 nc=6 FUN_0083866c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00838778, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_28 = *(long *)(lVar2 + 0x28);
+  | uVar3 = param_1[1];
+  | if (uVar3 != 0) {
+
+=== 008388ac size=404 nc=6 FUN_008388ac
+  C: FUN_00838a40, FUN_0068ddb0, FUN_009e0490, memset, memcpy, free
+  | pvVar5 = (void *)param_1[1];
+  | if ((ulong)((param_1[2] - (long)pvVar5 >> 3) * -0x5555555555555555) < param_2) {
+  | __src = (void *)*param_1;
+  | sVar4 = (long)pvVar5 - (long)__src;
+
+=== 00838a54 size=720 nc=7 FUN_00838a54
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_00838d24, LZCOUNT
+  | uVar8 = param_1[1];
+  | uVar9 = *param_2;
+  | if (uVar8 != 0) {
+  | uVar11 = NEON_cnt(uVar8,1);
+
+=== 00838d24 size=352 nc=6 FUN_00838d24
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 00838e84 size=720 nc=7 FUN_00838e84
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_00839154, LZCOUNT
+  | uVar8 = param_1[1];
+  | uVar9 = *param_2;
+  | if (uVar8 != 0) {
+  | uVar11 = NEON_cnt(uVar8,1);
+
+=== 00839154 size=352 nc=6 FUN_00839154
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 008392b4 size=728 nc=8 FUN_008392b4
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_009e0330, FUN_0099a8bc, FUN_0083958c, LZCOUNT
+  | uVar14 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar12 = (ulong)uVar1;
+  | if (uVar14 != 0) {
+
+=== 0083958c size=352 nc=6 FUN_0083958c
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 008396ec size=728 nc=8 FUN_008396ec
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_009e0330, FUN_0099a8bc, FUN_0083958c, LZCOUNT
+  | uVar14 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar12 = (ulong)uVar1;
+  | if (uVar14 != 0) {
+
+=== 00839a48 size=728 nc=7 FUN_00839a48
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0083958c, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar11 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 0083a3e0 size=724 nc=7 FUN_0083a3e0
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0083958c, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar14 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 0083ad48 size=716 nc=7 FUN_0083ad48
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0083b014, LZCOUNT
+  | uVar10 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar11 = (ulong)uVar1;
+  | if (uVar10 != 0) {
+
+=== 0083b014 size=352 nc=6 FUN_0083b014
+  C: free, FUN_0068ddb0, FUN_009e0490, NEON_cnt, NEON_uaddlv, CONCAT62
+  | if (param_2 == 0) {
+  | pvVar3 = (void *)*param_1;
+  | *param_1 = 0;
+  | if (pvVar3 != (void *)0x0) {
+
+=== 0083b174 size=720 nc=7 FUN_0083b174
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0083b014, LZCOUNT
+  | uVar12 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar13 = (ulong)uVar1;
+  | if (uVar12 != 0) {
+
+=== 0083d468 size=216 nc=6 FUN_0083d468
+  C: pthread_mutex_lock, FUN_0083cad8, pthread_mutex_unlock, FUN_009e0330, FUN_009e0360, FUN_0099b070
+  | ulong FUN_0083d468(char *param_1,long param_2)
+  | pthread_mutex_lock((pthread_mutex_t *)(param_1 + 4));
+  | if (*param_1 == '\x01') {
+  | FUN_0083cad8(param_1);
+
+=== 0083e39c size=724 nc=7 FUN_0083e39c
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0083b014, LZCOUNT
+  | uVar13 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar14 = (ulong)uVar1;
+  | if (uVar13 != 0) {
+
+=== 0083e670 size=716 nc=7 FUN_0083e670
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_009e0490, FUN_0099a8bc, FUN_0083b014, LZCOUNT
+  | uVar11 = param_1[1];
+  | uVar1 = *param_2;
+  | uVar12 = (ulong)uVar1;
+  | if (uVar11 != 0) {
+
+=== 0083ea20 size=556 nc=10 FUN_0083ea20
+  C: FUN_006d9b20, free, FUN_0084bef8, FUN_008496c4, FUN_006d9bdc, FUN_009e0490, FUN_0084985c, FUN_0083ec4c, FUN_006d99a4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | *(undefined *)((long)param_1 + 0x3a) = 0;
+  | *(undefined8 *)(param_1 + 0x10) = 0;
+
+=== 0083f2fc size=464 nc=7 FUN_0083f2fc
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_0084a510, free, FUN_0084a958, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_38 = *(long *)(lVar3 + 0x28);
+  | local_48 = param_2;
+  | if ((param_2 != 0) && (uVar6 = *(ulong *)(param_1 + 0x18), uVar6 != 0)) {
+
+=== 0083f4cc size=704 nc=8 FUN_0083f4cc
+  C: FUN_009e0490, FUN_0084a244, FUN_00849268, free, memset, FUN_0084a510, FUN_0083f78c, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | local_68 = param_2;
+  | puVar4 = (undefined8 *)FUN_009e0490(0x28);
+
+=== 0083fae4 size=596 nc=10 FUN_0083fae4
+  C: pthread_mutex_lock, FUN_0099c458, FUN_0099c6c8, FUN_0099b5ec, FUN_0099be5c, FUN_0083fd38, free, FUN_009e0490, pthread_mutex_unlock, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if (DAT_00a6d720 == 0) {
+  | DAT_00a6d720 = param_1;
+
+=== 00842538 size=668 nc=9 FUN_00842538
+  C: NEON_cnt, NEON_uaddlv, CONCAT62, FUN_00849290, FUN_0084be34, fprintf, FUN_008334e8, FUN_0084be5c, __stack_chk_fail
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | void FUN_00842538(long param_1,uint param_2,uint param_3,ulong param_4,ulong param_5,ulong param_6,
+  | ulong param_7,uint param_8,byte param_9)
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+
+=== 00842b9c size=796 nc=12 FUN_00842b9c
+  C: FUN_0084bd38, FUN_0084bd40, FUN_0083f010, FUN_0084bd48, FUN_0084bd50, FUN_00849b34, NEON_scvtf, CONCAT44, CONCAT26, CONCAT24, CONCAT22, __stack_chk_fail
+  | void FUN_00842b9c(undefined8 param_1,long param_2,int param_3,int param_4,undefined8 param_5,
+  | undefined (*pauVar1) [16];
+  | lVar4 = tpidr_el0;
+  | local_58 = *(long *)(lVar4 + 0x28);
+
+=== 00842eb8 size=800 nc=14 FUN_00842eb8
+  C: FUN_0084bd40, FUN_0084bd48, FUN_0084bd58, FUN_0084ca40, FUN_0084be04, CONCAT44, FUN_0084c7c8, FUN_0084bef0, thunk_FUN_009e0490, FUN_00842a1c, NEON_scvtf, free
+  | void FUN_00842eb8(undefined8 param_1,long param_2,int param_3,uint param_4,undefined8 param_5,
+  | undefined (*pauVar16) [16];
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+
+=== 00843c34 size=920 nc=15 FUN_00843c34
+  C: FUN_0084bd40, FUN_0084bd48, FUN_0084bd58, FUN_0084ca40, FUN_0084be04, FUN_0094002c, CONCAT44, FUN_0084c7c8, FUN_0084bef0, thunk_FUN_009e0490, FUN_00842a1c, NEON_scvtf
+  L: /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ **** ERROR unknown type 0x%x
+  | void FUN_00843c34(undefined8 param_1,long param_2,uint param_3,int param_4,long param_5,
+  | undefined (*pauVar15) [16];
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d 条新通知</item>
+        <item quantity="one">%d 条新通知</item>
+    </plurals>
+    <plurals name="twin_settings_memory_count">
+        <item quantity="other">记得 %1$d 件事</item>
+    </plurals>
+    <plurals name="twin_task_step_count">
+        <item quantity="other">%1$d 步</item>
+    </plurals>
+    <plurals name="twin_thinking_done_seconds">
+        <item quantity="other">已思考 %1$d 秒</item>
+    </plurals>
+</resources>

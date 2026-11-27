@@ -1,0 +1,625 @@
+pool 3502 slice 880..960
+
+=== 007b5a60 size=92 nc=2 FUN_007b5a60
+  C: FUN_007c4348, fprintf
+  L: unbox_VkPipelineLayout
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b5be0 size=92 nc=2 FUN_007b5be0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkRenderPass
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkRenderPass",
+
+=== 007b5d60 size=92 nc=2 FUN_007b5d60
+  C: FUN_007c4348, fprintf
+  L: unbox_VkFramebuffer
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkFramebuffer"
+
+=== 007b5ee0 size=92 nc=2 FUN_007b5ee0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkCommandPool
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkCommandPool"
+
+=== 007b5f40 size=240 nc=5 FUN_007b5f40
+  C: pthread_mutex_lock, NEON_cnt, NEON_uaddlv, CONCAT62, pthread_mutex_unlock
+  | pthread_mutex_lock((pthread_mutex_t *)&DAT_00a6d268);
+  | if (DAT_00a6d348 != 0) {
+  | uVar7 = NEON_cnt(DAT_00a6d348,1);
+  | uVar6 = NEON_uaddlv(uVar7,1);
+
+=== 007b6150 size=92 nc=2 FUN_007b6150
+  C: FUN_007c4348, fprintf
+  L: unbox_VkFence
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkFence",
+
+=== 007b62d0 size=92 nc=2 FUN_007b62d0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSemaphore
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSemaphore",
+
+=== 007b6450 size=92 nc=2 FUN_007b6450
+  C: FUN_007c4348, fprintf
+  L: unbox_VkEvent
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkEvent",
+
+=== 007b65d0 size=92 nc=2 FUN_007b65d0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkQueryPool
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkQueryPool",
+
+=== 007b6750 size=92 nc=2 FUN_007b6750
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSamplerYcbcrConversion
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b68d0 size=92 nc=2 FUN_007b68d0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDescriptorUpdateTemplate
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b6a50 size=92 nc=2 FUN_007b6a50
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSurfaceKHR
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkSurfaceKHR",
+
+=== 007b6bd0 size=92 nc=2 FUN_007b6bd0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkSwapchainKHR
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b6d50 size=92 nc=2 FUN_007b6d50
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDisplayKHR
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n","unbox_VkDisplayKHR",
+
+=== 007b6ed0 size=92 nc=2 FUN_007b6ed0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDisplayModeKHR
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b7050 size=92 nc=2 FUN_007b7050
+  C: FUN_007c4348, fprintf
+  L: unbox_VkValidationCacheEXT
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b71d0 size=92 nc=2 FUN_007b71d0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDebugReportCallbackEXT
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b7350 size=92 nc=2 FUN_007b7350
+  C: FUN_007c4348, fprintf
+  L: unbox_VkDebugUtilsMessengerEXT
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b74d0 size=92 nc=2 FUN_007b74d0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkAccelerationStructureNV
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b7650 size=92 nc=2 FUN_007b7650
+  C: FUN_007c4348, fprintf
+  L: unbox_VkIndirectCommandsLayoutNV
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b77d0 size=92 nc=2 FUN_007b77d0
+  C: FUN_007c4348, fprintf
+  L: unbox_VkAccelerationStructureKHR
+  | if (param_1 != 0) {
+  | plVar1 = (long *)FUN_007c4348(&DAT_00a6d290,param_1);
+  | if (plVar1 == (long *)0x0) {
+  | fprintf(*(FILE **)PTR_stderr_00a0db18,"%s: unbox %p failed, not found\n",
+
+=== 007b7a70 size=224 nc=3 FUN_007b7a70
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b7b50 size=240 nc=3 FUN_007b7b50
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b7c40 size=236 nc=3 FUN_007b7c40
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b7d2c size=224 nc=3 FUN_007b7d2c
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b7e0c size=240 nc=3 FUN_007b7e0c
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b7efc size=236 nc=3 FUN_007b7efc
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b7fe8 size=252 nc=4 FUN_007b7fe8
+  C: FUN_009dfa88, FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b80e4 size=260 nc=4 FUN_007b80e4
+  C: FUN_009dfa88, FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b81e8 size=256 nc=4 FUN_007b81e8
+  C: FUN_009dfa88, FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b82e8 size=224 nc=3 FUN_007b82e8
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b83c8 size=240 nc=3 FUN_007b83c8
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b84b8 size=236 nc=3 FUN_007b84b8
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b85a4 size=224 nc=3 FUN_007b85a4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b8684 size=240 nc=3 FUN_007b8684
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b8774 size=236 nc=3 FUN_007b8774
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b8860 size=304 nc=5 FUN_007b8860
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDeviceMemory
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b8994 size=348 nc=5 FUN_007b8994
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDeviceMemory
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b8af4 size=312 nc=5 FUN_007b8af4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDeviceMemory
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b8c30 size=304 nc=5 FUN_007b8c30
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkBuffer
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b8d64 size=348 nc=5 FUN_007b8d64
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkBuffer
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b8ec4 size=312 nc=5 FUN_007b8ec4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkBuffer
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9000 size=304 nc=5 FUN_007b9000
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkBufferView
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b9134 size=348 nc=5 FUN_007b9134
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkBufferView
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9294 size=312 nc=5 FUN_007b9294
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkBufferView
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b93d0 size=304 nc=5 FUN_007b93d0
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkImage
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b9504 size=348 nc=5 FUN_007b9504
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkImage
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9664 size=312 nc=5 FUN_007b9664
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkImage
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b97a0 size=304 nc=5 FUN_007b97a0
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkImageView
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b98d4 size=348 nc=5 FUN_007b98d4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkImageView
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9a34 size=312 nc=5 FUN_007b9a34
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkImageView
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9b70 size=304 nc=5 FUN_007b9b70
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkShaderModule
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007b9ca4 size=348 nc=5 FUN_007b9ca4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkShaderModule
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9e04 size=312 nc=5 FUN_007b9e04
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkShaderModule
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007b9f40 size=304 nc=5 FUN_007b9f40
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorPool
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007ba074 size=348 nc=5 FUN_007ba074
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorPool
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007ba1d4 size=312 nc=5 FUN_007ba1d4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorPool
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007ba310 size=304 nc=5 FUN_007ba310
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorSetLayout
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007ba444 size=348 nc=5 FUN_007ba444
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorSetLayout
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007ba5a4 size=312 nc=5 FUN_007ba5a4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorSetLayout
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007ba6e0 size=304 nc=5 FUN_007ba6e0
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorSet
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007ba814 size=348 nc=5 FUN_007ba814
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorSet
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007ba974 size=312 nc=5 FUN_007ba974
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkDescriptorSet
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007baab0 size=304 nc=5 FUN_007baab0
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkSampler
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007babe4 size=348 nc=5 FUN_007babe4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkSampler
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bad44 size=312 nc=5 FUN_007bad44
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkSampler
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bae80 size=304 nc=5 FUN_007bae80
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipeline
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007bafb4 size=348 nc=5 FUN_007bafb4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipeline
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bb114 size=312 nc=5 FUN_007bb114
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipeline
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bb250 size=304 nc=5 FUN_007bb250
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipelineCache
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007bb384 size=348 nc=5 FUN_007bb384
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipelineCache
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bb4e4 size=312 nc=5 FUN_007bb4e4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipelineCache
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bb620 size=304 nc=5 FUN_007bb620
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipelineLayout
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007bb754 size=348 nc=5 FUN_007bb754
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipelineLayout
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bb8b4 size=312 nc=5 FUN_007bb8b4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkPipelineLayout
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bb9f0 size=304 nc=5 FUN_007bb9f0
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkRenderPass
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007bbb24 size=348 nc=5 FUN_007bbb24
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkRenderPass
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bbc84 size=312 nc=5 FUN_007bbc84
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkRenderPass
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {
+
+=== 007bbdc0 size=304 nc=5 FUN_007bbdc0
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkFramebuffer
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_3 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_3 != 0) {
+
+=== 007bbef4 size=348 nc=5 FUN_007bbef4
+  C: FUN_009e0490, FUN_0079cadc, FUN_007c4348, fprintf, FUN_007b3f48
+  L: unbox_VkFramebuffer
+  | uVar1 = (**(code **)(**(long **)(param_1 + 0x10) + 0x10))(*(long **)(param_1 + 0x10),param_4 << 3)
+  | ;
+  | **(undefined8 **)(param_1 + 0x18) = uVar1;
+  | if (param_4 != 0) {

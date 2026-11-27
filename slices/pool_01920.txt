@@ -1,0 +1,638 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_01920.txt
+C: fprintf, FUN_0083320c
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDeleteBuffers ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | uVar3 = (ulong)param_1;
+
+=== 0088faf4 size=308 nc=3 FUN_0088faf4
+  C: fprintf, FUN_0088c004, FUN_00846630
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDeleteFramebuffers ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | uVar4 = (ulong)param_1;
+
+=== 0088fc40 size=300 nc=3 FUN_0088fc40
+  C: fprintf, FUN_0083320c, FUN_0088fd84
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDeleteRenderbuffers ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | uVar3 = (ulong)param_1;
+
+=== 0088ffe0 size=520 nc=5 FUN_0088ffe0
+  C: fprintf, FUN_00845b40, FUN_00845c3c, FUN_0088fd84, FUN_0083320c
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDeleteTextures ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | uVar5 = (ulong)param_1;
+
+=== 008904d0 size=472 nc=5 FUN_008904d0
+  C: FUN_008330e0, fprintf, FUN_008334e8, FUN_008b722c, FUN_0083320c
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDeleteShader ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar6 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 008906cc size=180 nc=2 FUN_008906cc
+  C: FUN_0084533c, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDepthFunc
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00890780 size=180 nc=2 FUN_00890780
+  C: FUN_00845344, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDepthMask
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00890834 size=232 nc=3 FUN_00890834
+  C: FUN_0084534c, FUN_008294b8, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDepthRangef
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00890be0 size=232 nc=3 FUN_00890be0
+  C: FUN_008294dc, FUN_00844f98, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDisable
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00890cc8 size=260 nc=2 FUN_00890cc8
+  C: FUN_009322e8, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glDisableVertexAttribArray ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | plVar1 = (long *)(*(code *)*DAT_00a6d730)();
+
+=== 00891818 size=232 nc=3 FUN_00891818
+  C: FUN_008294dc, FUN_00844f98, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glEnable
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00891900 size=260 nc=2 FUN_00891900
+  C: FUN_009322e8, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glEnableVertexAttribArray ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | plVar1 = (long *)(*(code *)*DAT_00a6d730)();
+
+=== 00892420 size=180 nc=2 FUN_00892420
+  C: FUN_00845334, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glFrontFace
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00892760 size=300 nc=5 FUN_00892760
+  C: FUN_009320bc, FUN_0086f210, log2, FUN_0083ac34, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGenerateMipmap ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 00892d6c size=276 nc=2 FUN_00892d6c
+  C: fprintf, FUN_00833004
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGenTextures ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | uVar4 = (ulong)param_1;
+
+=== 00892e98 size=648 nc=5 FUN_00892e98
+  C: fprintf, FUN_008330e0, FUN_008334e8, FUN_00893184, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetActiveAttrib ~ null ctx
+  | void FUN_00892e98(undefined4 param_1,uint param_2,int param_3,undefined8 param_4,undefined8 param_5,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+
+=== 008933ec size=648 nc=5 FUN_008933ec
+  C: fprintf, FUN_008330e0, FUN_008334e8, FUN_00893184, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetActiveUniform ~ null ctx
+  | void FUN_008933ec(undefined4 param_1,uint param_2,int param_3,undefined8 param_4,undefined8 param_5,
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+
+=== 008936d8 size=576 nc=5 FUN_008936d8
+  C: fprintf, FUN_008330e0, FUN_008334e8, FUN_00833148, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetAttachedShaders ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 0089463c size=200 nc=3 FUN_0089463c
+  C: FUN_00840bc0, FUN_00840bc8, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetError
+  | ulong FUN_0089463c(void)
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+
+=== 00895d38 size=880 nc=4 FUN_00895d38
+  C: fprintf, FUN_00845de0, FUN_008689a4, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetFramebufferAttachmentParameteriv ~ null ctx
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 008960c0 size=604 nc=5 FUN_008960c0
+  C: fprintf, FUN_008668e4, FUN_00931d80, FUN_008334e8, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetRenderbufferParameteriv ~ null ctx
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 00896d68 size=388 nc=3 FUN_00896d68
+  C: FUN_00932290, FUN_009322d4, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetShaderPrecisionFormat ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00896f08 size=468 nc=5 FUN_00896f08
+  C: FUN_008330e0, FUN_008334e8, FUN_008b6c64, strncpy, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetShaderSource ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar8 = "null s_eglIface";
+  | else {
+  | lVar5 = (*(code *)*DAT_00a6d730)();
+
+=== 00897104 size=404 nc=5 FUN_00897104
+  C: FUN_00845528, FUN_00845568, FUN_008455a8, FUN_008454b8, fprintf
+  L: null s_eglIface ~ OpenGL ES GLSL ES 3.10 ~ OpenGL ES GLSL ES 1.0.17 ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetString
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 008975b8 size=452 nc=4 FUN_008975b8
+  C: FUN_008330e0, fprintf, FUN_008334e8, FUN_0092d248
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetUniformfv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar5 = "null s_eglIface";
+  | else {
+  | lVar3 = (*(code *)*DAT_00a6d730)();
+
+=== 008977a4 size=452 nc=4 FUN_008977a4
+  C: FUN_008330e0, fprintf, FUN_008334e8, FUN_0092d248
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetUniformiv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar5 = "null s_eglIface";
+  | else {
+  | lVar3 = (*(code *)*DAT_00a6d730)();
+
+=== 00897990 size=340 nc=4 FUN_00897990
+  C: FUN_008330e0, FUN_008334e8, FUN_0092cc88, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glGetUniformLocation ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 008981a4 size=440 nc=5 FUN_008981a4
+  C: fprintf, FUN_00932208, FUN_008294dc, FUN_006cd08c, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glHint ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 0089843c size=188 nc=2 FUN_0089843c
+  C: FUN_008334e8, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glIsBuffer
+  | ulong FUN_0089843c(int param_1)
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+
+=== 008984f8 size=200 nc=3 FUN_008984f8
+  C: FUN_0084656c, FUN_00845de0, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glIsFramebuffer
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 008985c0 size=332 nc=5 FUN_008985c0
+  C: fprintf, FUN_00833554, FUN_009e0360, FUN_0099b070, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glIsRenderbuffer ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+
+=== 0089870c size=176 nc=2 FUN_0089870c
+  C: FUN_0086ceb8, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glIsTexture
+  | ulong FUN_0089870c(int param_1)
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+
+=== 008987bc size=232 nc=3 FUN_008987bc
+  C: FUN_00833278, FUN_008330e0, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glIsProgram
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 008988a4 size=232 nc=3 FUN_008988a4
+  C: FUN_00833278, FUN_008330e0, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glIsShader
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089898c size=180 nc=2 FUN_0089898c
+  C: FUN_00845358, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glLineWidth
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00898e08 size=408 nc=3 FUN_00898e08
+  C: FUN_00932230, fprintf, FUN_008452bc
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glPixelStorei ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00898fc4 size=192 nc=2 FUN_00898fc4
+  C: FUN_00844f90, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glPolygonOffset
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00899618 size=388 nc=3 FUN_00899618
+  C: fprintf, FUN_008999b4, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glRenderbufferStorage ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 008998f0 size=196 nc=3 FUN_008998f0
+  C: getenv, strcmp, fprintf
+  L: ANDROID_GL_LIB ~ mesa ~ null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv
+  | pcVar2 = getenv("ANDROID_GL_LIB");
+  | if ((pcVar2 != (char *)0x0) && (iVar1 = strcmp(pcVar2,"mesa"), iVar1 == 0)) {
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+
+=== 008999b4 size=448 nc=5 FUN_008999b4
+  C: fprintf, FUN_008294b8, FUN_008334e8, FUN_009e0360, FUN_0099b070
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ sPrepareRenderbufferStorage ~ null ctx
+  | int FUN_008999b4(int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar6 = "null s_eglIface";
+  | LAB_00899b68:
+
+=== 00899b7c size=204 nc=2 FUN_00899b7c
+  C: FUN_00845360, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glSampleCoverage
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00899c48 size=228 nc=2 FUN_00899c48
+  C: FUN_00844f7c, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glScissor
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 00899d2c size=484 nc=3 FUN_00899d2c
+  C: fprintf, FUN_008330e0, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glShaderBinary ~ null ctx
+  | void FUN_00899d2c(uint param_1,undefined4 *param_2,undefined4 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+
+=== 0089a280 size=220 nc=2 FUN_0089a280
+  C: FUN_0084536c, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glStencilFunc
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089a35c size=228 nc=2 FUN_0089a35c
+  C: FUN_0084536c, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glStencilFuncSeparate
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089a440 size=184 nc=2 FUN_0089a440
+  C: FUN_008453c8, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glStencilMask
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089a4f8 size=192 nc=2 FUN_0089a4f8
+  C: FUN_008453c8, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glStencilMaskSeparate
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089a5b8 size=220 nc=2 FUN_0089a5b8
+  C: FUN_0084540c, fprintf
+  L: null s_eglIface ~ null ctx ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glStencilOp
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089a694 size=316 nc=2 FUN_0089a694
+  C: FUN_0084540c, fprintf
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glStencilOpSeparate ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar2 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089afc8 size=320 nc=5 FUN_0089afc8
+  C: fprintf, FUN_00863934, FUN_0083ab50, FUN_008639f4, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ sEmulateUserTextureSwizzle ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 0089c5cc size=312 nc=4 FUN_0089c5cc
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform1f ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089c728 size=320 nc=4 FUN_0089c728
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform1fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089c88c size=312 nc=4 FUN_0089c88c
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform1i ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089c9e8 size=320 nc=4 FUN_0089c9e8
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform1iv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089cb4c size=320 nc=4 FUN_0089cb4c
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform2f ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089ccb0 size=320 nc=4 FUN_0089ccb0
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform2fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089ce14 size=320 nc=4 FUN_0089ce14
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform2i ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089cf78 size=320 nc=4 FUN_0089cf78
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform2iv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089d0dc size=340 nc=4 FUN_0089d0dc
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform3f ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089d258 size=320 nc=4 FUN_0089d258
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform3fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089d3bc size=340 nc=4 FUN_0089d3bc
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform3i ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089d538 size=320 nc=4 FUN_0089d538
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform3iv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089d69c size=348 nc=4 FUN_0089d69c
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform4f ~ null ctx
+  | void FUN_0089d69c(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+
+=== 0089d820 size=320 nc=4 FUN_0089d820
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform4fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089d984 size=348 nc=4 FUN_0089d984
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform4i ~ null ctx
+  | void FUN_0089d984(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+
+=== 0089db08 size=320 nc=4 FUN_0089db08
+  C: FUN_00936478, fprintf, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ s_getHostLocOrSetError ~ glUniform4iv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089dc6c size=412 nc=4 FUN_0089dc6c
+  C: fprintf, FUN_00936478, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glUniformMatrix2fv ~ s_getHostLocOrSetError ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089de3c size=412 nc=4 FUN_0089de3c
+  C: fprintf, FUN_00936478, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glUniformMatrix3fv ~ s_getHostLocOrSetError ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089e00c size=412 nc=4 FUN_0089e00c
+  C: fprintf, FUN_00936478, FUN_0092d248, SCARRY4
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glUniformMatrix4fv ~ s_getHostLocOrSetError ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+  | lVar2 = (*(code *)*DAT_00a6d730)();
+
+=== 0089e970 size=404 nc=5 FUN_0089e970
+  C: fprintf, FUN_009322e8, FUN_00935818, FUN_009342ac, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib1f ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_3c = param_1;
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+
+=== 0089eb34 size=320 nc=4 FUN_0089eb34
+  C: FUN_009322e8, fprintf, FUN_00935818, FUN_009342ac
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib1fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089ec8c size=412 nc=5 FUN_0089ec8c
+  C: fprintf, FUN_009322e8, FUN_00935818, FUN_009342ac, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib2f ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 0089ee58 size=316 nc=4 FUN_0089ee58
+  C: FUN_009322e8, fprintf, FUN_00935818, FUN_009342ac
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib2fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089efac size=436 nc=5 FUN_0089efac
+  C: fprintf, FUN_009322e8, FUN_00935818, FUN_009342ac, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib3f ~ null ctx
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | __stream = *(FILE **)PTR_stderr_00a0db18;
+
+=== 0089f194 size=316 nc=4 FUN_0089f194
+  C: FUN_009322e8, fprintf, FUN_00935818, FUN_009342ac
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib3fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089f2e8 size=444 nc=5 FUN_0089f2e8
+  C: fprintf, FUN_009322e8, FUN_00935818, FUN_009342ac, __stack_chk_fail
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib4f ~ null ctx
+  | void FUN_0089f2e8(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+
+=== 0089f4d8 size=312 nc=4 FUN_0089f4d8
+  C: FUN_009322e8, fprintf, FUN_00935818, FUN_009342ac
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttrib4fv ~ null ctx
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar3 = "null s_eglIface";
+  | else {
+  | lVar1 = (*(code *)*DAT_00a6d730)();
+
+=== 0089f628 size=424 nc=4 FUN_0089f628
+  C: FUN_009322e8, fprintf, FUN_0089f7f4, FUN_00844450
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttribPointer ~ null ctx
+  | void FUN_0089f628(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4,
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {
+
+=== 0089f7f4 size=292 nc=5 FUN_0089f7f4
+  C: FUN_00936210, FUN_00933c38, FUN_00844574, FUN_00936238, FUN_00842538
+  | void FUN_0089f7f4(long *param_1,ulong param_2,int param_3,int param_4,uint param_5,int param_6,
+  | uVar4 = param_2 & 0xffffffff;
+  | FUN_00936210(param_1,param_2,param_2 & 0xffffffff);
+  | iVar2 = param_6;
+
+=== 0089f918 size=428 nc=4 FUN_0089f918
+  C: FUN_009322e8, fprintf, FUN_0089f7f4, FUN_00844450
+  L: null s_eglIface ~ /data/twoyi-13/device/generic/vulkan-cereal/stream-serv ~ glVertexAttribPointerWithDataSize ~ null ctx
+  | void FUN_0089f918(undefined4 param_1,undefined4 param_2,int param_3,undefined4 param_4,
+  | if (DAT_00a6d730 == (undefined8 *)0x0) {
+  | pcVar4 = "null s_eglIface";
+  | else {

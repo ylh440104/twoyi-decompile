@@ -1,0 +1,560 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_02880.txt
+C: vfprintf, __stack_chk_fail
+  | void FUN_0097c488(char *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | lVar3 = *(long *)(lVar1 + 0x28);
+  | ppuStack_68 = &local_70;
+
+=== 0097c57c size=92 nc=2 FUN_0097c57c
+  C: strcmp, strtol
+  | ulong FUN_0097c57c(long param_1,char *param_2,ulong param_3)
+  | param_3 = param_3 & 0xffffffff;
+  | plVar2 = (long *)(param_1 + 8);
+  | do {
+
+=== 0097c624 size=140 nc=2 FUN_0097c624
+  C: calloc, strcmp
+  | puVar4 = (undefined8 *)(param_1 + 8);
+  | do {
+  | puVar4 = (undefined8 *)*puVar4;
+  | if (puVar4 == (undefined8 *)0x0) {
+
+=== 0097c854 size=364 nc=3 FUN_0097c854
+  C: calloc, strcmp, FUN_0097c6b0
+  | pcVar7 = *(char **)(param_1 + 8);
+  | puVar5 = (undefined8 *)(param_2 + 8);
+  | do {
+  | puVar5 = (undefined8 *)*puVar5;
+
+=== 0097c9c0 size=140 nc=4 FUN_0097c9c0
+  C: FUN_0097d190, FUN_0097c6b0, FUN_0097c854, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | lVar3 = FUN_0097d190(param_2,0);
+  | if (lVar3 == 0) {
+
+=== 0097cf50 size=380 nc=3 FUN_0097cf50
+  C: memcpy, __write_chk, __errno
+  L:           
+  | if (9 < param_2) {
+  | iVar7 = param_2;
+  | do {
+  | pvVar4 = *(void **)((long)param_1 + 0x400);
+
+=== 0097d0cc size=196 nc=4 FUN_0097d0cc
+  C: strlen, memcpy, __write_chk, __errno
+  | sVar3 = strlen(param_2);
+  | if (0 < (int)sVar3) {
+  | __dest = *(void **)((long)param_1 + 0x400);
+  | do {
+
+=== 0097d264 size=104 nc=4 FUN_0097d264
+  C: sigemptyset, sigaddset, pthread_sigmask, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(ulong *)(lVar1 + 0x28);
+  | sigemptyset((sigset_t *)&stack0xffffffffffffffd0);
+  | sigaddset((sigset_t *)&stack0xffffffffffffffd0,0xe);
+
+=== 0097d2dc size=224 nc=4 FUN_0097d2dc
+  C: fwrite, vfprintf, fputc, __stack_chk_fail
+  L: emulator: 
+  | void FUN_0097d2dc(char *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puVar2 = PTR_stdout_00a0db28;
+  | lVar1 = tpidr_el0;
+  | lVar4 = *(long *)(lVar1 + 0x28);
+
+=== 0097d3bc size=172 nc=2 FUN_0097d3bc
+  C: vfprintf, __stack_chk_fail
+  | void FUN_0097d3bc(char *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | lVar3 = *(long *)(lVar1 + 0x28);
+  | ppuStack_68 = &local_70;
+
+=== 0097d468 size=200 nc=3 FUN_0097d468
+  C: FUN_0097d3bc, vfprintf, __stack_chk_fail
+  L: emulator: ERROR: 
+  | void FUN_0097d468(char *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_b8 = param_2;
+
+=== 0097d530 size=196 nc=2 FUN_0097d530
+  C: vsnprintf, __stack_chk_fail
+  | void FUN_0097d530(char *param_1,char *param_2,char *param_3,undefined8 param_4,undefined8 param_5,
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | puStack_58 = &stack0xffffffffffffff80;
+
+=== 0097db40 size=144 nc=5 FUN_0097db40
+  C: localtime, mktime, gmtime, difftime, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | ptVar2 = localtime(param_1);
+  | local_70.tm_hour = ptVar2->tm_hour;
+
+=== 0097e02c size=164 nc=2 FUN_0097e02c
+  C: vsnprintf, __stack_chk_fail
+  | puStack_60 = &local_90;
+  | lVar1 = tpidr_el0;
+  | lVar3 = *(long *)(lVar1 + 0x28);
+  | ppuStack_68 = &local_70;
+
+=== 0097e128 size=204 nc=3 FUN_0097e128
+  C: FUN_00978418, FUN_00978654, FUN_00982da8
+  | lVar4 = DAT_00a72980;
+  | puVar3 = PTR_DAT_00a0dbe8;
+  | puVar2 = PTR_DAT_00a0dbe0;
+  | uVar1 = *(uint *)PTR_DAT_00a0dbb0;
+
+=== 0097e1f4 size=56 nc=2 FUN_0097e1f4
+  C: strlen, FUN_00982d9c
+  | sVar1 = strlen(param_2);
+  | FUN_00982d9c(*param_1,param_2,sVar1);
+
+=== 0097e23c size=332 nc=3 FUN_0097e23c
+  C: FUN_00979448, strlen, FUN_00982d9c
+  | if (0 < param_3) {
+  | pcVar1 = param_2 + param_3;
+  | puVar2 = param_1 + 2;
+  | do {
+
+=== 0097e388 size=248 nc=3 FUN_0097e388
+  C: strlen, strtol, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_28 = *(long *)(lVar2 + 0x28);
+  | sVar4 = strlen((char *)param_1);
+  | iVar3 = (int)sVar4;
+
+=== 0097eca8 size=164 nc=2 FUN_0097eca8
+  C: __vsprintf_chk, __stack_chk_fail
+  | void FUN_0097eca8(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | puStack_60 = auStack_a0;
+  | lVar1 = tpidr_el0;
+  | lVar2 = *(long *)(lVar1 + 0x28);
+
+=== 0097ed4c size=84 nc=2 FUN_0097ed4c
+  C: strdup, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_40 = 0;
+  | uStack_38 = 0;
+
+=== 0097eec4 size=160 nc=2 FUN_0097eec4
+  C: strcmp, strncpy
+  | if (*param_1 != 4) {
+  | return 0;
+  | iVar1 = strcmp((char *)((long)param_1 + 9),param_2);
+  | if (iVar1 == 0) {
+
+=== 0097ef64 size=304 nc=2 FUN_0097ef64
+  C: strcmp, FUN_0097f094
+  L: +CRSM=178,28480,1,4,32 ~ +CRSM=192,28436,0,0,15 ~ ERROR: BAD COMMAND
+  | iVar2 = strcmp("+CRSM=178,28480,1,4,32",param_2);
+  | if (iVar2 == 0) {
+  | pcVar4 = (char *)(param_1 + 0x1c);
+  | FUN_0097f094(pcVar4);
+
+=== 0097f094 size=156 nc=2 FUN_0097f094
+  C: vsnprintf, __stack_chk_fail
+  L: +CRSM: 144,0,ffffffffffffffffffffffffffffffffffff078151
+  | puStack_60 = &local_90;
+  | lVar1 = tpidr_el0;
+  | lVar3 = *(long *)(lVar1 + 0x28);
+  | ppuStack_68 = &local_70;
+
+=== 0097f130 size=388 nc=5 FUN_0097f130
+  C: time, gmtime, localtime, FUN_009809c0, __stack_chk_fail
+  | lVar11 = tpidr_el0;
+  | local_68 = *(long *)(lVar11 + 0x28);
+  | local_70 = time((time_t *)0x0);
+  | ptVar14 = gmtime(&local_70);
+
+=== 0097f868 size=328 nc=3 FUN_0097f868
+  C: FUN_00980ddc, FUN_00980d34, FUN_009811c4
+  | pbVar5 = (byte *)*param_1;
+  | if (param_2 <= pbVar5) {
+  | return 0xffffffff;
+  | pbVar6 = pbVar5 + 1;
+
+=== 0097fe04 size=192 nc=5 FUN_0097fe04
+  C: calloc, SCARRY4, malloc, FUN_00980a0c, free
+  | __ptr = (undefined8 *)calloc(0x18,1);
+  | if (__ptr != (undefined8 *)0x0) {
+  | uVar1 = param_2 + 2;
+  | if (param_2 + 1 < 0 == SCARRY4(param_2,1)) {
+
+=== 009803e4 size=288 nc=2 FUN_009803e4
+  C: FUN_0097c488, FUN_0097f524
+  L: sms_receiver_get_text_message
+  | plVar5 = (long *)(param_1 + 8);
+  | do {
+  | plVar5 = (long *)*plVar5;
+  | if (plVar5 == (long *)0x0) {
+
+=== 0098073c size=644 nc=5 FUN_0098073c
+  C: FUN_00980bd4, FUN_00980c78, FUN_00980e98, FUN_00980d34, FUN_009812f4
+  | void FUN_0098073c(long *param_1,undefined8 param_2,undefined4 param_3,int param_4,byte *param_5,
+  | FUN_00980bd4(param_1,0);
+  | uVar4 = 0x60;
+  | if (param_8 < 2) {
+
+=== 00980b78 size=92 nc=2 FUN_00980b78
+  C: malloc, memcpy
+  | pvVar2 = (void *)*param_1;
+  | iVar1 = *(int *)((long)param_1 + 0xc);
+  | *param_2 = iVar1;
+  | if (pvVar2 == (void *)((long)param_1 + 0x14)) {
+
+=== 00980c78 size=188 nc=2 FUN_00980c78
+  C: realloc, memcpy
+  | pvVar1 = (void *)*param_1;
+  | if ((pvVar1 != (void *)0x0) && (*(int *)(param_1 + 2) == 0)) {
+  | iVar3 = *(int *)(param_1 + 1);
+  | iVar2 = *(int *)((long)param_1 + 0xc);
+
+=== 009815a4 size=24 nc=2 FUN_009815a4
+  C: thunk_FUN_00984f78, FUN_00981b34
+  | uVar1 = thunk_FUN_00984f78();
+  | FUN_00981b34(uVar1,0);
+
+=== 009815dc size=172 nc=5 FUN_009815dc
+  C: FUN_00981b40, FUN_00981b58, thunk_FUN_00984f78, FUN_00981b6c, FUN_00981b4c
+  | lVar1 = *param_1;
+  | if (param_3 == 0) {
+  | if (lVar1 != 0) {
+  | FUN_00981b40();
+
+=== 00981694 size=68 nc=2 FUN_00981694
+  C: FUN_00981b40, FUN_00981b58
+  | if (*param_1 != 0) {
+  | FUN_00981b40();
+  | FUN_00981b58(*param_1);
+  | *param_1 = 0;
+
+=== 00981738 size=156 nc=3 FUN_00981738
+  C: FUN_00981b78, FUN_009827c4, __errno
+  | iVar4 = param_3;
+  | if (0 < param_3) {
+  | do {
+  | while( true ) {
+
+=== 009817d4 size=156 nc=3 FUN_009817d4
+  C: FUN_00981b78, FUN_00982610, __errno
+  | iVar4 = param_3;
+  | if (0 < param_3) {
+  | do {
+  | while( true ) {
+
+=== 00981870 size=72 nc=3 FUN_00981870
+  C: FUN_00981b78, thunk_FUN_00982a98, FUN_00981bc0
+  | if (*param_1 != 0) {
+  | FUN_00981b78();
+  | thunk_FUN_00982a98();
+  | FUN_00981bc0(*param_1);
+
+=== 00982350 size=452 nc=5 FUN_00982350
+  C: getaddrinfo, __errno, FUN_00982514, freeaddrinfo, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uVar5 = 0;
+  | if (param_4 != 0) {
+
+=== 00982514 size=252 nc=3 FUN_00982514
+  C: memchr, strdup, __errno
+  | sVar1 = *param_2;
+  | if (sVar1 == 1) {
+  | if ((0x6d < param_3) && (pvVar4 = memchr(param_2 + 1,0,0x6c), pvVar4 != (void *)0x0)) {
+  | *param_1 = 3;
+
+=== 00982610 size=112 nc=2 FUN_00982610
+  C: __errno, sendto
+  | piVar2 = (int *)__errno();
+  | *piVar2 = 0;
+  | do {
+  | sVar3 = sendto(param_1,param_2,(long)param_3,0,(sockaddr *)0x0,0);
+
+=== 00982680 size=324 nc=3 FUN_00982680
+  C: strlen, memcpy, __errno
+  | iVar2 = *param_1;
+  | if (iVar2 == 3) {
+  | sVar3 = strlen(*(char **)(param_1 + 4));
+  | iVar2 = (int)sVar3;
+
+=== 009827c4 size=112 nc=2 FUN_009827c4
+  C: __errno, recvfrom
+  | piVar2 = (int *)__errno();
+  | *piVar2 = 0;
+  | do {
+  | sVar3 = recvfrom(param_1,param_2,(long)param_3,0,(sockaddr *)0x0,(socklen_t *)0x0);
+
+=== 00982834 size=4 nc=3 thunk_FUN_00982a98
+  C: FUN_00987284, FUN_00987098, FUN_009870a8
+  | if (param_1 < 0) {
+  | FUN_00987284();
+  | if (DAT_00a740d0 != 0) {
+  | FUN_00987098(DAT_00a740d0,param_1);
+
+=== 0098286c size=92 nc=2 FUN_0098286c
+  C: setsockopt, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_2c = 1;
+  | iVar2 = setsockopt(param_1,6,1,&local_2c,4);
+
+=== 009828c8 size=180 nc=5 FUN_009828c8
+  C: FUN_00982350, __errno, socket, FUN_0098297c, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | iVar2 = FUN_00982350(auStack_58,param_1,param_2,0);
+  | if (-1 < iVar2) {
+
+=== 00982a98 size=80 nc=3 FUN_00982a98
+  C: FUN_00987284, FUN_00987098, FUN_009870a8
+  | if (param_1 < 0) {
+  | FUN_00987284();
+  | if (DAT_00a740d0 != 0) {
+  | FUN_00987098(DAT_00a740d0,param_1);
+
+=== 00982ae8 size=156 nc=4 FUN_00982ae8
+  C: FUN_00982ba8, FUN_0097d530, FUN_00982f70, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | FUN_00982ba8(local_58);
+  | /* try { // try from 00982b20 to 00982b33 has its CatchHandler @ 00982b80 */
+
+=== 00982dc4 size=84 nc=3 FUN_00982dc4
+  C: strlen, FUN_009830e8, memmove
+  | *param_1 = (long)(param_1 + 2);
+  | param_1[1] = 0;
+  | __n = strlen(param_2);
+  | FUN_009830e8(param_1,__n);
+
+=== 00982e18 size=72 nc=2 FUN_00982e18
+  C: FUN_009830e8, memmove
+  | *param_1 = (long)(param_1 + 2);
+  | param_1[1] = 0;
+  | FUN_009830e8(param_1,param_3);
+  | memmove((void *)*param_1,param_2,param_3);
+
+=== 00982e60 size=68 nc=2 FUN_00982e60
+  C: FUN_009830e8, memmove
+  | *param_1 = (long)(param_1 + 2);
+  | param_1[1] = 0;
+  | __src = (void *)*param_2;
+  | __n = param_2[1];
+
+=== 00982ea4 size=68 nc=2 FUN_00982ea4
+  C: FUN_009830e8, memmove
+  | __src = (void *)*param_2;
+  | __n = param_2[1];
+  | FUN_009830e8(param_1,__n);
+  | memmove((void *)*param_1,__src,__n);
+
+=== 00982ee8 size=68 nc=2 FUN_00982ee8
+  C: FUN_009830e8, memmove
+  | __src = (void *)*param_2;
+  | __n = param_2[1];
+  | *param_1 = (long)(param_1 + 2);
+  | param_1[1] = 0;
+
+=== 00982f2c size=68 nc=2 FUN_00982f2c
+  C: FUN_009830e8, memmove
+  | __src = (void *)*param_2;
+  | __n = param_2[1];
+  | FUN_009830e8(param_1,__n);
+  | memmove((void *)*param_1,__src,__n);
+
+=== 00982fb8 size=220 nc=4 FUN_00982fb8
+  C: memcpy, free, realloc, memset
+  | __src_00 = (ulong *)*param_1;
+  | if (__src_00 == (ulong *)0x0) {
+  | __src_00 = (ulong *)(param_1 + 2);
+  | *param_1 = (long)__src_00;
+
+=== 00983094 size=84 nc=3 FUN_00983094
+  C: strlen, FUN_009830e8, memmove
+  | __n = strlen(param_2);
+  | FUN_009830e8(param_1,__n);
+  | memmove((void *)*param_1,param_2,__n);
+
+=== 00983290 size=92 nc=3 FUN_00983290
+  C: strlen, FUN_009830e8, memmove
+  | __n = strlen(param_2);
+  | lVar1 = param_1[1];
+  | FUN_009830e8(param_1,lVar1 + __n);
+  | memmove((void *)(*param_1 + lVar1),param_2,__n);
+
+=== 009832ec size=76 nc=2 FUN_009832ec
+  C: FUN_009830e8, memmove
+  | __src = (void *)*param_2;
+  | __n = param_2[1];
+  | lVar1 = param_1[1];
+  | FUN_009830e8(param_1,lVar1 + __n);
+
+=== 00983338 size=76 nc=2 FUN_00983338
+  C: FUN_009830e8, memmove
+  | __src = (void *)*param_2;
+  | __n = param_2[1];
+  | lVar1 = param_1[1];
+  | FUN_009830e8(param_1,lVar1 + __n);
+
+=== 009836c8 size=252 nc=3 FUN_009836c8
+  C: malloc, __vsnprintf_chk, __stack_chk_fail
+  | void FUN_009836c8(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_70 = *(long *)(lVar1 + 0x28);
+  | *param_1 = 0;
+
+=== 009837cc size=164 nc=2 FUN_009837cc
+  C: __vsnprintf_chk, __stack_chk_fail
+  | void FUN_009837cc(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | lVar1 = tpidr_el0;
+  | lVar2 = *(long *)(lVar1 + 0x28);
+
+=== 00983870 size=228 nc=4 FUN_00983870
+  C: FUN_009837cc, realloc, memcpy, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | iVar3 = FUN_009837cc(auStack_4c,0x14,0x14,&DAT_0015df06,param_2);
+  | __n = (size_t)iVar3;
+
+=== 00983954 size=188 nc=2 FUN_00983954
+  C: realloc, memcpy
+  | __n = param_2[1];
+  | if ((__n != 0) && (0xffffffff80000000 < __n - 0x80000000)) {
+  | lVar3 = *(long *)(param_1 + 0x18);
+  | uVar4 = *(ulong *)(param_1 + 0x20);
+
+=== 00983a10 size=180 nc=3 FUN_00983a10
+  C: strlen, realloc, memcpy
+  | if (((param_2 != (char *)0x0) && (*param_2 != '\0')) &&
+  | (__n = strlen(param_2), 0xffffffff80000000 < __n - 0x80000000)) {
+  | lVar3 = *(long *)(param_1 + 0x18);
+  | uVar4 = *(ulong *)(param_1 + 0x20);
+
+=== 00983b10 size=208 nc=2 FUN_00983b10
+  C: free, fprintf
+  L: UNKNOWN
+  | puVar2 = (undefined8 *)*param_1;
+  | puVar1 = &DAT_00133d0f;
+  | if ((undefined1 *)puVar2[2] != (undefined1 *)0x0) {
+  | puVar1 = (undefined1 *)puVar2[2];
+
+=== 00983c54 size=248 nc=5 FUN_00983c54
+  C: FUN_00983a10, strerror, free, __errno, fprintf
+  L: Error message:  ~ UNKNOWN
+  | lVar6 = *param_1;
+  | FUN_00983a10(lVar6,"Error message: ");
+  | /* try { // try from 00983c80 to 00983d67 has its CatchHandler @ 00983d68 */
+  | pcVar3 = strerror(*(int *)(param_1 + 1));
+
+=== 00983d78 size=116 nc=3 FUN_00983d78
+  C: FUN_009e0490, FUN_009872b8, FUN_00985098
+  | puVar1 = (undefined8 *)FUN_009e0490(0x78);
+  | *puVar1 = &PTR_FUN_00a08358;
+  | /* try { // try from 00983d9c to 00983d9f has its CatchHandler @ 00983e1c */
+  | uVar2 = FUN_009872b8();
+
+=== 00983e30 size=136 nc=5 FUN_00983e30
+  C: FUN_009850e0, FUN_009850fc, FUN_009852e0, FUN_009850d0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | /* try { // try from 00983e50 to 00983e5b has its CatchHandler @ 00983eb8 */
+  | FUN_009850e0(auStack_40,param_1);
+
+=== 00983f88 size=36 nc=2 FUN_00983f88
+  C: FUN_00983ec0, free
+  | FUN_00983ec0();
+  | free(param_1);
+
+=== 00984734 size=124 nc=2 FUN_00984734
+  C: FUN_009e0490, FUN_00985324
+  | puVar1 = (undefined8 *)FUN_009e0490(0x48);
+  | *(undefined4 *)(puVar1 + 2) = param_2;
+  | puVar1[3] = param_3;
+  | puVar1[4] = param_4;
+
+=== 00984a6c size=104 nc=2 FUN_00984a6c
+  C: FUN_009847c4, FUN_00985664
+  | *param_1 = &PTR_FUN_00a083d0;
+  | if (*(char *)(param_1 + 6) == '\x01') {
+  | /* try { // try from 00984a98 to 00984ac7 has its CatchHandler @ 00984ad4 */
+  | FUN_009847c4(param_1[1] + 0x60,param_1);
+
+=== 00984ad8 size=108 nc=3 FUN_00984ad8
+  C: FUN_009847c4, FUN_00985664, free
+  | *param_1 = &PTR_FUN_00a083d0;
+  | if (*(char *)(param_1 + 6) == '\x01') {
+  | /* try { // try from 00984b04 to 00984b33 has its CatchHandler @ 00984b44 */
+  | FUN_009847c4(param_1[1] + 0x60,param_1);
+
+=== 00984da8 size=148 nc=2 FUN_00984da8
+  C: FUN_009848a4, FUN_00985664
+  | uVar1 = *(uint *)(param_1 + 5) & 0xfffffffd;
+  | ppuVar2 = &PTR_FUN_00a08448;
+  | *param_1 = &PTR_FUN_00a08448;
+  | if (uVar1 != *(uint *)(param_1 + 5)) {
+
+=== 00984e40 size=152 nc=3 FUN_00984e40
+  C: FUN_009848a4, FUN_00985664, free
+  | uVar1 = *(uint *)(param_1 + 5) & 0xfffffffd;
+  | ppuVar2 = &PTR_FUN_00a08448;
+  | *param_1 = &PTR_FUN_00a08448;
+  | if (uVar1 != *(uint *)(param_1 + 5)) {
+
+=== 00985828 size=136 nc=5 FUN_00985828
+  C: FUN_009836bc, FUN_009836b0, FUN_00983654, FUN_00985cb4, FUN_009835a8
+  | iVar3 = FUN_009836bc();
+  | if (iVar3 < 4) {
+  | FUN_009836b0();
+  | lVar1 = *param_1;
+
+=== 00985a8c size=72 nc=4 FUN_00985a8c
+  C: FUN_009836bc, FUN_009836b0, FUN_00985928, FUN_00982f2c
+  | iVar1 = FUN_009836bc();
+  | if (iVar1 < 4) {
+  | FUN_009836b0();
+  | uVar2 = FUN_00985928(param_1,(ulong)(param_1[1] - *param_1) >> 5);
+
+=== 00985c6c size=72 nc=2 FUN_00985c6c
+  C: memset, free
+  | __s = (void *)*param_1;
+  | if (__s != (void *)0x0) {
+  | memset(__s,0xee,param_1[1] - (long)__s);
+  | free((void *)*param_1);
+
+=== 0098623c size=96 nc=2 FUN_0098623c
+  C: FUN_00982ee8, FUN_00983384
+  | FUN_00982ee8(param_1,param_2);
+  | if ((param_1[1] != 0) && (*(char *)(*param_1 + param_1[1] + -1) != '/')) {
+  | uVar1 = 0x5c;
+  | if (param_3 != 1) {
+
+=== 009862b0 size=356 nc=5 FUN_009862b0
+  C: FUN_00986108, FUN_00982ee8, FUN_00983384, FUN_00983338, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | lVar7 = param_2[1];
+  | plVar3 = param_2;
+
+=== 009868b0 size=136 nc=2 FUN_009868b0
+  C: FUN_009e0190, sched_yield
+  | if (*param_1 != 2) {
+  | iVar1 = FUN_009e0190(0,1,param_1);
+  | if (iVar1 == 0) {
+  | return 1;
+
+=== 00986954 size=4 nc=3 thunk_FUN_00986958
+  C: strcmp, FUN_009833c4, FUN_00986958
+  | while (puVar1 = param_1 + param_2 * 4, 6 < param_2) {
+  | puVar7 = param_1 + (param_2 >> 1) * 4;
+  | if (param_2 == 7) {
+  | lVar9 = 6;
+
+=== 00986e2c size=268 nc=4 FUN_00986e2c
+  C: FUN_00987274, __errno, FUN_0098724c, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | *param_1 = param_2;
+  | *(long **)(param_1 + 2) = param_3;

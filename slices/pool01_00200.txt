@@ -1,0 +1,660 @@
+pool01 6229 slice 200..320
+
+=== 006a6150 size=120 nc=1 FUN_006a6150
+  C: FUN_006d9ac4
+  | FUN_006d9ac4(param_2,*(undefined4 *)(param_1 + 0x530));
+  | (**(code **)(*param_2 + 0x18))(param_2,*(long *)(param_1 + 0x108) - *(long *)(param_1 + 0x530));
+  | FUN_006d9ac4(param_2,*(int *)(param_1 + 800) - *(int *)(param_1 + 0x318));
+  | (**(code **)(*param_2 + 0x18))
+
+=== 006a61c8 size=72 nc=1 FUN_006a61c8
+  C: FUN_00688360
+  | FUN_00688360(param_2,param_1 + 0x100);
+  | *(long *)(param_1 + 0x530) = *(long *)(param_1 + 0x108) - *(long *)(param_1 + 0x100);
+  | FUN_00688360(param_2,param_1 + 0x318);
+  | return *(undefined8 *)(param_1 + 0x318);
+
+=== 006a6210 size=8 nc=0 FUN_006a6210
+  C: -
+  | return 0;
+
+=== 006a6344 size=20 nc=1 FUN_006a6344
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006a69a4 size=140 nc=1 FUN_006a69a4
+  C: free
+  | puVar1 = (undefined8 *)param_1[7];
+  | for (puVar3 = (undefined8 *)param_1[6]; puVar3 != puVar1; puVar3 = puVar3 + 1) {
+  | (**(code **)(*param_1 + 0x1d0))(param_1[1],*puVar3,0);
+  | (**(code **)(*param_1 + 0x5c0))(param_1[1],param_1[2],0);
+
+=== 006a6a30 size=56 nc=1 FUN_006a6a30
+  C: FUN_009e0490
+  L: VK_KHR_surface
+  | puVar1 = (undefined8 *)FUN_009e0490(8);
+  | *param_1 = puVar1;
+  | *puVar1 = "VK_KHR_surface";
+  | param_1[1] = puVar1 + 1;
+
+=== 006a6a68 size=56 nc=1 FUN_006a6a68
+  C: FUN_009e0490
+  L: VK_KHR_swapchain
+  | puVar1 = (undefined8 *)FUN_009e0490(8);
+  | *param_1 = puVar1;
+  | *puVar1 = "VK_KHR_swapchain";
+  | param_1[1] = puVar1 + 1;
+
+=== 006a79c0 size=8 nc=0 FUN_006a79c0
+  C: -
+  | return 0x2c;
+
+=== 006a79c8 size=8 nc=0 FUN_006a79c8
+  C: -
+  | return param_1 + 0x18;
+
+=== 006a79d0 size=8 nc=0 FUN_006a79d0
+  C: -
+  | return param_1 + 0x30;
+
+=== 006a79d8 size=8 nc=0 FUN_006a79d8
+  C: -
+  | return *(undefined8 *)(param_1 + 0x10);
+
+=== 006a7b18 size=20 nc=1 FUN_006a7b18
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006a7b2c size=20 nc=1 FUN_006a7b2c
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006a7c6c size=20 nc=1 FUN_006a7c6c
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006aacb8 size=4 nc=0 FUN_006aacb8
+  C: -
+
+=== 006aad74 size=4 nc=0 FUN_006aad74
+  C: -
+
+=== 006aad78 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006aad7c size=56 nc=1 FUN_006aad7c
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e62c8;
+  | puVar1[1] = uVar2;
+
+=== 006aadb4 size=24 nc=0 FUN_006aadb4
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e62c8;
+  | param_2[1] = uVar1;
+
+=== 006aadcc size=4 nc=0 FUN_006aadcc
+  C: -
+
+=== 006aadd0 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006aadd4 size=20 nc=0 FUN_006aadd4
+  C: -
+  | (**(code **)(param_1 + 8))(param_2,*param_3);
+
+=== 006aade8 size=352 nc=1 FUN_006aade8
+  C: __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if (param_2 != param_1) {
+  | plVar2 = (long *)param_1[4];
+
+=== 006aaf48 size=20 nc=1 FUN_006aaf48
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006ab28c size=4 nc=0 FUN_006ab28c
+  C: -
+
+=== 006ab290 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ab294 size=56 nc=1 FUN_006ab294
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e6310;
+  | puVar1[1] = uVar2;
+
+=== 006ab2cc size=24 nc=0 FUN_006ab2cc
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e6310;
+  | param_2[1] = uVar1;
+
+=== 006ab2e4 size=4 nc=0 FUN_006ab2e4
+  C: -
+
+=== 006ab2e8 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ab2ec size=8 nc=1 FUN_006ab2ec
+  C: FUN_006ab2f4
+  | FUN_006ab2f4(param_1 + 8);
+
+=== 006ab49c size=4 nc=0 FUN_006ab49c
+  C: -
+
+=== 006ab4a0 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ab4a4 size=56 nc=1 FUN_006ab4a4
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e6358;
+  | puVar1[1] = uVar2;
+
+=== 006ab4dc size=24 nc=0 FUN_006ab4dc
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e6358;
+  | param_2[1] = uVar1;
+
+=== 006ab4f4 size=4 nc=0 FUN_006ab4f4
+  C: -
+
+=== 006ab4f8 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ab4fc size=28 nc=1 FUN_006ab4fc
+  C: FUN_006ab518
+  | FUN_006ab518(*(undefined8 *)(param_1 + 8));
+  | return 0;
+
+=== 006ab718 size=20 nc=1 FUN_006ab718
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 006ab9b4 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ab9b8 size=64 nc=1 FUN_006ab9b8
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x20);
+  | uVar4 = *(undefined8 *)(param_1 + 0x10);
+  | uVar3 = *(undefined8 *)(param_1 + 8);
+  | uVar2 = *(undefined8 *)(param_1 + 0x18);
+
+=== 006ab9f8 size=32 nc=0 FUN_006ab9f8
+  C: -
+  | *param_2 = &PTR_FUN_009e63a0;
+  | uVar2 = *(undefined8 *)(param_1 + 0x10);
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | param_2[3] = *(undefined8 *)(param_1 + 0x18);
+
+=== 006aba18 size=4 nc=0 FUN_006aba18
+  C: -
+
+=== 006aba1c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abaac size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abab0 size=52 nc=1 FUN_006abab0
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e63e8;
+  | puVar1[1] = uVar2;
+
+=== 006abae4 size=20 nc=0 FUN_006abae4
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e63e8;
+  | param_2[1] = uVar1;
+
+=== 006abaf8 size=4 nc=0 FUN_006abaf8
+  C: -
+
+=== 006abafc size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abb00 size=24 nc=0 FUN_006abb00
+  C: -
+  | (**(code **)PTR_PTR_FUN_00a0e058)(*(undefined8 *)(param_1 + 8),1);
+
+=== 006abb18 size=4 nc=0 FUN_006abb18
+  C: -
+
+=== 006abb1c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abb20 size=56 nc=1 FUN_006abb20
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x18);
+  | uVar3 = *(undefined8 *)(param_1 + 0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e6430;
+
+=== 006abb58 size=24 nc=0 FUN_006abb58
+  C: -
+  | *param_2 = &PTR_FUN_009e6430;
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | param_2[2] = *(undefined8 *)(param_1 + 0x10);
+  | param_2[1] = uVar1;
+
+=== 006abb70 size=4 nc=0 FUN_006abb70
+  C: -
+
+=== 006abb74 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abc2c size=4 nc=0 FUN_006abc2c
+  C: -
+
+=== 006abc30 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abc34 size=52 nc=1 FUN_006abc34
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e6478;
+  | puVar1[1] = uVar2;
+
+=== 006abc68 size=20 nc=0 FUN_006abc68
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e6478;
+  | param_2[1] = uVar1;
+
+=== 006abc7c size=4 nc=0 FUN_006abc7c
+  C: -
+
+=== 006abc80 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abc84 size=24 nc=0 FUN_006abc84
+  C: -
+  | (**(code **)PTR_PTR_FUN_00a0e058)(*(undefined8 *)(param_1 + 8),1);
+
+=== 006abc9c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abca0 size=56 nc=1 FUN_006abca0
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x18);
+  | uVar3 = *(undefined8 *)(param_1 + 0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e64c0;
+
+=== 006abcd8 size=24 nc=0 FUN_006abcd8
+  C: -
+  | *param_2 = &PTR_FUN_009e64c0;
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | param_2[2] = *(undefined8 *)(param_1 + 0x10);
+  | param_2[1] = uVar1;
+
+=== 006abcf0 size=4 nc=0 FUN_006abcf0
+  C: -
+
+=== 006abcf4 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006abd50 size=64 nc=0 FUN_006abd50
+  C: -
+  | plVar1 = (long *)param_1[8];
+  | *param_1 = &PTR_FUN_009e6508;
+  | if (plVar1 == param_1 + 4) {
+  | lVar2 = 0x20;
+
+=== 006abd90 size=88 nc=1 FUN_006abd90
+  C: free
+  | plVar1 = (long *)param_1[8];
+  | *param_1 = &PTR_FUN_009e6508;
+  | if (plVar1 == param_1 + 4) {
+  | lVar2 = 0x20;
+
+=== 006abde8 size=140 nc=1 FUN_006abde8
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x60);
+  | uVar3 = *(undefined8 *)(param_1 + 0x10);
+  | plVar2 = *(long **)(param_1 + 0x40);
+  | *puVar1 = &PTR_FUN_009e6508;
+
+=== 006abe74 size=132 nc=0 FUN_006abe74
+  C: -
+  | uVar2 = *(undefined8 *)(param_1 + 0x10);
+  | plVar1 = *(long **)(param_1 + 0x40);
+  | *param_2 = &PTR_FUN_009e6508;
+  | param_2[2] = uVar2;
+
+=== 006abef8 size=52 nc=0 FUN_006abef8
+  C: -
+  | plVar1 = *(long **)(param_1 + 0x40);
+  | if (plVar1 == (long *)(param_1 + 0x20)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006abf2c size=76 nc=1 FUN_006abf2c
+  C: free
+  | plVar1 = *(long **)((long)param_1 + 0x40);
+  | if (plVar1 == (long *)((long)param_1 + 0x20)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac050 size=64 nc=0 FUN_006ac050
+  C: -
+  | plVar1 = (long *)param_1[8];
+  | *param_1 = &PTR_FUN_009e6550;
+  | if (plVar1 == param_1 + 4) {
+  | lVar2 = 0x20;
+
+=== 006ac090 size=88 nc=1 FUN_006ac090
+  C: free
+  | plVar1 = (long *)param_1[8];
+  | *param_1 = &PTR_FUN_009e6550;
+  | if (plVar1 == param_1 + 4) {
+  | lVar2 = 0x20;
+
+=== 006ac0e8 size=152 nc=1 FUN_006ac0e8
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x50);
+  | uVar3 = *(undefined8 *)(param_1 + 0x10);
+  | plVar2 = *(long **)(param_1 + 0x40);
+  | *puVar1 = &PTR_FUN_009e6550;
+
+=== 006ac180 size=128 nc=0 FUN_006ac180
+  C: -
+  | uVar2 = *(undefined8 *)(param_1 + 0x10);
+  | plVar1 = *(long **)(param_1 + 0x40);
+  | *param_2 = &PTR_FUN_009e6550;
+  | param_2[2] = uVar2;
+
+=== 006ac200 size=52 nc=0 FUN_006ac200
+  C: -
+  | plVar1 = *(long **)(param_1 + 0x40);
+  | if (plVar1 == (long *)(param_1 + 0x20)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac234 size=76 nc=1 FUN_006ac234
+  C: free
+  | plVar1 = *(long **)((long)param_1 + 0x40);
+  | if (plVar1 == (long *)((long)param_1 + 0x20)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac368 size=64 nc=0 FUN_006ac368
+  C: -
+  | plVar1 = (long *)param_1[8];
+  | *param_1 = &PTR_FUN_009e6598;
+  | if (plVar1 == param_1 + 4) {
+  | lVar2 = 0x20;
+
+=== 006ac3a8 size=88 nc=1 FUN_006ac3a8
+  C: free
+  | plVar1 = (long *)param_1[8];
+  | *param_1 = &PTR_FUN_009e6598;
+  | if (plVar1 == param_1 + 4) {
+  | lVar2 = 0x20;
+
+=== 006ac400 size=152 nc=1 FUN_006ac400
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x50);
+  | uVar3 = *(undefined8 *)(param_1 + 0x10);
+  | plVar2 = *(long **)(param_1 + 0x40);
+  | *puVar1 = &PTR_FUN_009e6598;
+
+=== 006ac498 size=128 nc=0 FUN_006ac498
+  C: -
+  | uVar2 = *(undefined8 *)(param_1 + 0x10);
+  | plVar1 = *(long **)(param_1 + 0x40);
+  | *param_2 = &PTR_FUN_009e6598;
+  | param_2[2] = uVar2;
+
+=== 006ac518 size=52 nc=0 FUN_006ac518
+  C: -
+  | plVar1 = *(long **)(param_1 + 0x40);
+  | if (plVar1 == (long *)(param_1 + 0x20)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac54c size=76 nc=1 FUN_006ac54c
+  C: free
+  | plVar1 = *(long **)((long)param_1 + 0x40);
+  | if (plVar1 == (long *)((long)param_1 + 0x20)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac67c size=68 nc=0 FUN_006ac67c
+  C: -
+  | plVar1 = (long *)param_1[6];
+  | *param_1 = (long)(PTR_DAT_00a0e040 + 0x10);
+  | if (plVar1 == param_1 + 2) {
+  | lVar2 = 0x20;
+
+=== 006ac6c0 size=92 nc=1 FUN_006ac6c0
+  C: free
+  | plVar1 = (long *)param_1[6];
+  | *param_1 = (long)(PTR_DAT_00a0e040 + 0x10);
+  | if (plVar1 == param_1 + 2) {
+  | lVar2 = 0x20;
+
+=== 006ac71c size=148 nc=1 FUN_006ac71c
+  C: FUN_009e0490
+  | plVar1 = (long *)FUN_009e0490(0x50);
+  | plVar3 = *(long **)(param_1 + 0x30);
+  | *plVar1 = (long)(PTR_DAT_00a0e040 + 0x10);
+  | if (plVar3 == (long *)0x0) {
+
+=== 006ac7b0 size=120 nc=0 FUN_006ac7b0
+  C: -
+  | plVar2 = *(long **)(param_1 + 0x30);
+  | *param_2 = (long)(PTR_DAT_00a0e040 + 0x10);
+  | if (plVar2 == (long *)0x0) {
+  | param_2[6] = 0;
+
+=== 006ac828 size=52 nc=0 FUN_006ac828
+  C: -
+  | plVar1 = *(long **)(param_1 + 0x30);
+  | if (plVar1 == (long *)(param_1 + 0x10)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac85c size=76 nc=1 FUN_006ac85c
+  C: free
+  | plVar1 = *(long **)((long)param_1 + 0x30);
+  | if (plVar1 == (long *)((long)param_1 + 0x10)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ac8a8 size=32 nc=1 FUN_006ac8a8
+  C: FUN_0068ddd8
+  | if (*(long **)(param_1 + 0x30) != (long *)0x0) {
+  | (**(code **)(**(long **)(param_1 + 0x30) + 0x30))();
+  | FUN_0068ddd8();
+
+=== 006ac8c8 size=4 nc=0 FUN_006ac8c8
+  C: -
+
+=== 006ac8cc size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ac8d0 size=52 nc=1 FUN_006ac8d0
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+  | *puVar1 = &PTR_FUN_009e6628;
+  | puVar1[1] = uVar2;
+
+=== 006ac904 size=20 nc=0 FUN_006ac904
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e6628;
+  | param_2[1] = uVar1;
+
+=== 006ac918 size=4 nc=0 FUN_006ac918
+  C: -
+
+=== 006ac91c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ac920 size=128 nc=1 FUN_006ac920
+  C: FUN_0093af24
+  | lVar4 = *(long *)(param_1 + 8);
+  | if ((*(byte *)(lVar4 + 0x140) & 1) == 0) {
+  | uVar2 = *param_2;
+  | lVar3 = FUN_0093af24();
+
+=== 006aceb0 size=68 nc=0 FUN_006aceb0
+  C: -
+  | plVar1 = (long *)param_1[6];
+  | *param_1 = (long)(PTR_DAT_00a0e038 + 0x10);
+  | if (plVar1 == param_1 + 2) {
+  | lVar2 = 0x20;
+
+=== 006acef4 size=92 nc=1 FUN_006acef4
+  C: free
+  | plVar1 = (long *)param_1[6];
+  | *param_1 = (long)(PTR_DAT_00a0e038 + 0x10);
+  | if (plVar1 == param_1 + 2) {
+  | lVar2 = 0x20;
+
+=== 006acf50 size=84 nc=0 FUN_006acf50
+  C: -
+  | lVar1 = *(long *)(param_1 + 0x30);
+  | *param_2 = &PTR_FUN_009e6670;
+  | if (lVar1 == 0) {
+  | param_2[6] = 0;
+
+=== 006acfa4 size=52 nc=0 FUN_006acfa4
+  C: -
+  | plVar1 = *(long **)(param_1 + 0x30);
+  | if (plVar1 == (long *)(param_1 + 0x10)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006acfd8 size=76 nc=1 FUN_006acfd8
+  C: free
+  | plVar1 = *(long **)((long)param_1 + 0x30);
+  | if (plVar1 == (long *)((long)param_1 + 0x10)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ad0dc size=12 nc=0 FUN_006ad0dc
+  C: -
+  | (**(code **)(*param_1 + 8))();
+
+=== 006ad19c size=64 nc=0 FUN_006ad19c
+  C: -
+  | plVar1 = (long *)param_1[6];
+  | *param_1 = &PTR_FUN_009e66e0;
+  | if (plVar1 == param_1 + 2) {
+  | lVar2 = 0x20;
+
+=== 006ad1dc size=88 nc=1 FUN_006ad1dc
+  C: free
+  | plVar1 = (long *)param_1[6];
+  | *param_1 = &PTR_FUN_009e66e0;
+  | if (plVar1 == param_1 + 2) {
+  | lVar2 = 0x20;
+
+=== 006ad234 size=80 nc=0 FUN_006ad234
+  C: -
+  | lVar1 = *(long *)(param_1 + 0x30);
+  | *param_2 = &PTR_FUN_009e66e0;
+  | if (lVar1 == 0) {
+  | param_2[6] = 0;
+
+=== 006ad284 size=52 nc=0 FUN_006ad284
+  C: -
+  | plVar1 = *(long **)(param_1 + 0x30);
+  | if (plVar1 == (long *)(param_1 + 0x10)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ad2b8 size=76 nc=1 FUN_006ad2b8
+  C: free
+  | plVar1 = *(long **)((long)param_1 + 0x30);
+  | if (plVar1 == (long *)((long)param_1 + 0x10)) {
+  | lVar2 = 0x20;
+  | else {
+
+=== 006ad36c size=4 nc=0 FUN_006ad36c
+  C: -
+
+=== 006ad370 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ad374 size=20 nc=0 FUN_006ad374
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009e6720;
+  | param_2[1] = uVar1;
+
+=== 006ad388 size=4 nc=0 FUN_006ad388
+  C: -
+
+=== 006ad38c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 006ae1c4 size=292 nc=1 FUN_006ae1c4
+  C: fprintf
+  L: prepareForDrawLayer
+  | puVar1 = PTR_DAT_00a0df90;
+  | if (*(int *)(param_1 + 8) != 0) {
+  | (**(code **)(PTR_DAT_00a0df90 + 0x548))();
+  | (**(code **)(puVar1 + 8))(0x8892,*(undefined4 *)(param_1 + 0x34));
+
+=== 006ae620 size=144 nc=0 FUN_006ae620
+  C: -
+  | puVar1 = PTR_DAT_00a0df90;
+  | (**(code **)(PTR_DAT_00a0df90 + 0x468))(0x3f800000,*(undefined4 *)(param_1 + 0xc));
+  | (**(code **)(puVar1 + 0x478))(*(undefined4 *)(param_1 + 0x10),2);
+  | (**(code **)(puVar1 + 0x488))(0,0,*(undefined4 *)(param_1 + 0x30));
+
+=== 006aefbc size=756 nc=1 FUN_006aefbc
+  C: __stack_chk_fail
+  | puVar5 = PTR_DAT_00a0df90;
+  | lVar4 = tpidr_el0;
+  | local_38 = *(long *)(lVar4 + 0x28);
+  | (**(code **)(PTR_DAT_00a0df90 + 8))(0x8892,param_1[0xd]);
+
+=== 006af338 size=624 nc=1 FUN_006af338
+  C: __stack_chk_fail
+  | puVar3 = PTR_DAT_00a0df90;
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if ((param_1[0xb] != param_3) || (param_1[0xc] != param_4)) {

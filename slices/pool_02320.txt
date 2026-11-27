@@ -1,0 +1,589 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_02320.txt
+C: FUN_008f5c14, strstr, underscores, FUN_008c5360
+  L: reserved built-in name ~ gl_ ~ webgl_ ~ _webgl_ ~ identifiers containing two consecutive underscores (__)
+  | __haystack = "";
+  | pcVar3 = __haystack;
+  | if ((char *)*param_3 != (char *)0x0) {
+  | pcVar3 = (char *)*param_3;
+
+=== 008ddf60 size=352 nc=4 FUN_008ddf60
+  C: FUN_008c3f2c, FUN_008bcd84, FUN_008c3f24, FUN_008c5360
+  L: array size must be a constant integer expression ~ array size too large ~ array size must be non-negative ~ array size must be greater than zero
+  | plVar2 = (long *)(**(code **)(*param_3 + 0x28))(param_3);
+  | auVar6 = (**(code **)(*param_3 + 0xf8))(param_3);
+  | pcVar5 = "array size must be a constant integer expression";
+  | if ((plVar2 == (long *)0x0) || (*(int *)(auVar6._0_8_ + 8) != 2)) goto LAB_008de034;
+
+=== 008de190 size=268 nc=4 FUN_008de190
+  C: FUN_008c0340, FUN_008c5dc4, FUN_008c5360, __stack_chk_fail
+  L: fragment shader output cannot be an array of arrays ~ fragment shader input cannot be an array of arrays ~ vertex shader output cannot be an array of arrays
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | if (*(ulong *)(param_4 + 0x60) < 2) {
+  | LAB_008de208:
+
+=== 008de3ec size=272 nc=5 FUN_008de3ec
+  C: FUN_008c092c, FUN_008c5360, FUN_008c1154, FUN_008c1228, __stack_chk_fail
+  L: structures containing arrays may not be declared consta ~ implicitly sized arrays need to be initialized
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | if (*(int *)(param_4 + 8) == 2) {
+  | iVar2 = *(int *)(param_1 + 0x20);
+
+=== 008de888 size=80 nc=2 FUN_008de888
+  C: FUN_008dc200, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_2c[0] = param_3;
+  | uVar2 = FUN_008dc200(param_1,param_2,local_2c);
+
+=== 008de8d8 size=256 nc=5 FUN_008de8d8
+  C: FUN_008f6738, FUN_008c0240, FUN_008c5360, FUN_008de9d8, __stack_chk_fail
+  L: opaque types cannot be output parameters
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | FUN_008f6738(auStack_ac,param_3,*(undefined8 *)(param_1 + 0x78));
+  | iVar2 = *param_4;
+
+=== 008df464 size=164 nc=3 FUN_008df464
+  C: FUN_008da540, FUN_008da550, FUN_008c5360
+  L: dimension out of bounds
+  | lVar2 = FUN_008da540(param_3 + 0x10);
+  | if (lVar2 != 0) {
+  | uVar5 = 0;
+  | do {
+
+=== 008df508 size=504 nc=4 FUN_008df508
+  C: FUN_008bf0a0, FUN_008cae78, FUN_008dcf0c, FUN_008c5360
+  L: assign
+  | if (*(long *)(param_2 + 0x28) != 0) {
+  | uVar10 = 0;
+  | do {
+  | uVar1 = *(uint *)(*(long *)(*(long *)(*(long *)(param_2 + 0x20) + uVar10 * 8) + 0x18) + 8);
+
+=== 008df700 size=208 nc=4 FUN_008df700
+  C: FUN_008da540, FUN_008da550, FUN_008da548, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_48 = 0xffffffffffffffff;
+  | local_40 = 0xffffffff;
+
+=== 008df7d0 size=168 nc=5 FUN_008df7d0
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c02d8, FUN_008c9fdc, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uVar2 = FUN_008bbcb8();
+  | puVar3 = (undefined8 *)FUN_008bd304(uVar2,0xb0);
+
+=== 008df878 size=284 nc=3 FUN_008df878
+  C: FUN_008dc200, FUN_008c5360, __stack_chk_fail
+  L: undeclared identifier ~ It is an error to use gl_WorkGroupSize before declaring ~ gl_WorkGroupSize ~ variable expected
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | if (param_4 == 0) {
+  | puVar5 = (undefined1 *)*param_3;
+
+=== 008e1030 size=112 nc=4 FUN_008e1030
+  C: FUN_008dcd74, FUN_008c044c, FUN_008c5360, FUN_008c175c
+  L: not supported ~ first-class array
+  | FUN_008dcd74(param_1,param_2 + 4,param_2[0x1e],*param_2);
+  | if ((*(int *)(param_1 + 0x20) < 300) && (uVar1 = FUN_008c044c(param_2), (uVar1 & 1) != 0)) {
+  | FUN_008c5360(*(undefined8 *)(param_1 + 0x78),param_2 + 4,"not supported","first-class array");
+  | FUN_008c175c(param_2);
+
+=== 008e1478 size=520 nc=5 FUN_008e1478
+  C: FUN_008c5dc4, FUN_008c5360, FUN_008c044c, FUN_008c173c, FUN_008c1724
+  L: cannot be bool ~ cannot be matrix ~ cannot be array ~ cannot be an array of structures ~ cannot be a structure containing an array
+  | if (*param_3 == 5) {
+  | uVar1 = FUN_008c5dc4(param_2);
+  | FUN_008c5360(*(undefined8 *)(param_1 + 0x78),param_4,"cannot be bool",uVar1);
+  | if (param_2 == 9) {
+
+=== 008e1680 size=144 nc=3 FUN_008e1680
+  C: FUN_008beae4, FUN_008c5dc4, FUN_008c5360
+  L: Local variables can only use the const storage qualifie
+  | iVar2 = (**(code **)(*param_2 + 0x10))(param_2);
+  | if ((((iVar2 == 4) && ((*(byte *)(param_1 + 0x20) & 1) == 0)) && (*(int *)(param_2 + 3) != 2)) &&
+  | (uVar3 = FUN_008beae4(*param_1), (uVar3 & 1) == 0)) {
+  | puVar4 = (undefined1 *)FUN_008c5dc4(*(undefined4 *)(param_2 + 3));
+
+=== 008e1a2c size=264 nc=5 FUN_008e1a2c
+  C: FUN_008bc858, FUN_008bee00, FUN_008bef1c, FUN_008c127c, FUN_008c5360
+  L: Geometry shader input variable must be declared as an a ~ layout ~ Missing a valid input primitive declaration before decl
+  | uVar1 = FUN_008bc858(*(undefined4 *)((long)param_1 + 0xc),*(undefined4 *)(param_4 + 8));
+  | if ((uVar1 & 1) == 0) {
+  | if (*(long *)(param_4 + 0x60) == 0) {
+  | pcVar6 = (char *)*param_3;
+
+=== 008e1df4 size=328 nc=3 FUN_008e1df4
+  C: FUN_008c5360, FUN_009e0490, FUN_0069f6c0
+  L: atomic counter binding greater than gl_MaxAtomicCounter ~ binding ~ Requires both binding and offset ~ layout
+  | iVar6 = *(int *)(param_2 + 0x44);
+  | if (*(int *)(param_1 + 0xf8) <= iVar6) {
+  | FUN_008c5360(*(undefined8 *)(param_1 + 0x78),param_3,
+  | "atomic counter binding greater than gl_MaxAtomicCounterBindings","binding");
+
+=== 008e2ce4 size=112 nc=3 FUN_008e2ce4
+  C: FUN_008c02d8, FUN_008f80a8, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | FUN_008c02d8(auStack_b8,3,2,0,1,1);
+  | lVar2 = FUN_008f80a8(auStack_b8);
+
+=== 008e2d54 size=236 nc=4 FUN_008e2d54
+  C: FUN_008c5360, FUN_008c1764, FUN_008bf464, FUN_008c0240
+  L: precision is not supported in fragment shader ~ highp ~ illegal type argument for default precision qualifier
+  | if ((((param_2 == 3) && (*(int *)((long)param_1 + 0xc) == 0x8b30)) &&
+  | ((*(byte *)((long)param_1 + 0x4a) & 1) == 0)) && (*(int *)(param_1 + 4) < 300)) {
+  | FUN_008c5360(param_1[0xf],param_4,"precision is not supported in fragment shader","highp");
+  | iVar3 = *param_3;
+
+=== 008e2e40 size=368 nc=2 FUN_008e2e40
+  C: FUN_008bee00, FUN_008c5360
+  L: layout ~ invocations contradicts to the earlier declaration
+  | if (*(int *)(param_2 + 0x38) != -1) {
+  | uVar2 = param_1[0xf];
+  | pcVar5 = "max_vertices can only be declared in \'out\' layout in a geometry shader";
+  | iVar1 = *(int *)(param_2 + 0x30);
+
+=== 008e3b54 size=268 nc=5 FUN_008e3b54
+  C: FUN_008becc4, FUN_008bdc00, FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: function does not return a value:
+  | if (*(char *)(param_1 + 0x27) == '\x01') {
+  | *(undefined *)(param_1 + 0x27) = 0;
+  | FUN_008becc4(*param_1);
+  | if ((*(int *)param_1[8] != 0) && ((*(byte *)(param_1 + 9) & 1) == 0)) {
+
+=== 008e44d0 size=236 nc=5 FUN_008e44d0
+  C: FUN_008c1154, FUN_008c5360, FUN_008c1228, FUN_008dd590, __stack_chk_fail
+  L: function parameter array must specify a size
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | uVar3 = FUN_008c1154(param_2);
+  | if ((uVar3 & 1) != 0) {
+
+=== 008e45bc size=96 nc=4 FUN_008e45bc
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008e44d0
+  | uVar1 = FUN_008bbcb8();
+  | uVar1 = FUN_008bd304(uVar1,0x90);
+  | FUN_008c0340(uVar1,param_2);
+  | FUN_008e44d0(param_1,uVar1,param_3,param_4);
+
+=== 008e7638 size=152 nc=4 FUN_008e7638
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008beae4, FUN_008f5fc0
+  | uVar4 = FUN_008bbcb8();
+  | uVar4 = FUN_008bd304(uVar4,0x20);
+  | uVar5 = FUN_008bbcb8();
+  | plVar6 = (long *)FUN_008bd304(uVar5,0x20);
+
+=== 008e76d0 size=152 nc=5 FUN_008e76d0
+  C: FUN_008c5dc4, FUN_008beae4, FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: only allowed at global scope
+  | uVar2 = FUN_008c5dc4(param_2);
+  | uVar3 = FUN_008beae4(*param_1);
+  | if ((uVar3 & 1) == 0) {
+  | FUN_008c5360(param_1[0xf],param_3,"only allowed at global scope",uVar2);
+
+=== 008e7768 size=156 nc=4 FUN_008e7768
+  C: FUN_008beae4, FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: only allowed at global scope ~ varying
+  | iVar1 = *(int *)((long)param_1 + 0xc);
+  | uVar3 = FUN_008beae4(*param_1);
+  | if ((uVar3 & 1) == 0) {
+  | FUN_008c5360(param_1[0xf],param_2,"only allowed at global scope","varying");
+
+=== 008e7804 size=364 nc=4 FUN_008e7804
+  C: FUN_008c5360, FUN_008c61a4, FUN_008bbcb8, FUN_008bd304
+  L: storage qualifier supported in GLSL ES 3.00 and above o
+  | if ((*(byte *)(param_1 + 0x100) & 1) != 0) {
+  | uVar6 = 0xc;
+  | iVar1 = *(int *)(param_1 + 0xc);
+  | if (iVar1 < 0x8dd9) {
+
+=== 008e7970 size=352 nc=3 FUN_008e7970
+  C: FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: storage qualifier supported in GLSL ES 3.00 and above o
+  | if ((*(byte *)(param_1 + 0x100) & 1) == 0) {
+  | iVar1 = *(int *)(param_1 + 0xc);
+  | if (iVar1 < 0x8dd9) {
+  | if (iVar1 == 0x8b30) {
+
+=== 008e7ad0 size=124 nc=3 FUN_008e7ad0
+  C: FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: invalid qualifier: can be only used with function param ~ inout
+  | if ((*(byte *)(param_1 + 0x100) & 1) == 0) {
+  | FUN_008c5360(*(undefined8 *)(param_1 + 0x78),param_2,
+  | "invalid qualifier: can be only used with function parameters","inout");
+  | uVar2 = FUN_008bbcb8();
+
+=== 008e7b4c size=120 nc=2 FUN_008e7b4c
+  C: FUN_008f5c54, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | uStack_68 = param_2[1];
+  | local_70 = *param_2;
+
+=== 008e7bc4 size=84 nc=4 FUN_008e7bc4
+  C: FUN_008dd590, FUN_008bbcb8, FUN_008bd304, FUN_008f9cec
+  | FUN_008dd590(param_1,param_3,param_2);
+  | uVar1 = FUN_008bbcb8();
+  | uVar1 = FUN_008bd304(uVar1,0x28);
+  | FUN_008f9cec(uVar1,param_2,param_3);
+
+=== 008e7c18 size=92 nc=4 FUN_008e7c18
+  C: FUN_008dd590, FUN_008bbcb8, FUN_008bd304, FUN_008f9d04
+  | FUN_008dd590(param_1,param_3,param_2);
+  | uVar1 = FUN_008bbcb8();
+  | uVar1 = FUN_008bd304(uVar1,0x28);
+  | FUN_008f9d04(uVar1,param_2,param_4,param_3);
+
+=== 008e7c74 size=232 nc=2 FUN_008e7c74
+  C: memcmp, FUN_008c5360
+  L: duplicate field name in structure
+  | plVar5 = (long *)*param_2;
+  | plVar2 = (long *)param_2[1];
+  | if (plVar5 != plVar2) {
+  | do {
+
+=== 008e7f84 size=192 nc=3 FUN_008e7f84
+  C: FUN_008f6b88, FUN_008e8044, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | FUN_008f6b88(&local_9c,param_2,*(undefined8 *)(param_1 + 0x78));
+  | *(undefined8 *)(param_3 + 0x30) = uStack_94;
+
+=== 008e884c size=420 nc=3 FUN_008e884c
+  C: FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: case labels need to be inside switch statements ~ case label must be a scalar integer ~ case label must be constant ~ case label must have a condition
+  | if (*(int *)(param_1 + 0x38) == 0) {
+  | uVar4 = *(undefined8 *)(param_1 + 0x78);
+  | pcVar6 = "case labels need to be inside switch statements";
+  | else {
+
+=== 008e89f0 size=112 nc=3 FUN_008e89f0
+  C: FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: default labels need to be inside switch statements ~ default
+  | if (*(int *)(param_1 + 0x38) == 0) {
+  | FUN_008c5360(*(undefined8 *)(param_1 + 0x78),param_2,
+  | "default labels need to be inside switch statements","default");
+  | puVar2 = (undefined8 *)0x0;
+
+=== 008e8dcc size=108 nc=3 FUN_008e8dcc
+  C: FUN_008d43c4, FUN_008dcf0c, FUN_008e8a60
+  | uVar1 = FUN_008d43c4(param_2);
+  | FUN_008dcf0c(param_1,param_4,uVar1,param_3);
+  | lVar2 = FUN_008e8a60(param_1,param_2,param_3,param_4,0);
+  | if (lVar2 != 0) {
+
+=== 008e9300 size=144 nc=3 FUN_008e9300
+  C: FUN_008e8fc8, FUN_008d43c4, FUN_008dcc6c
+  | long * FUN_008e9300(undefined8 param_1,undefined4 param_2,long *param_3,long *param_4,
+  | plVar1 = (long *)FUN_008e8fc8();
+  | if (plVar1 == (long *)0x0) {
+  | uVar2 = FUN_008d43c4(param_2);
+
+=== 008e9390 size=156 nc=4 FUN_008e9390
+  C: FUN_008e8fc8, FUN_008d43c4, FUN_008dcc6c, FUN_008f85b8
+  | void FUN_008e9390(undefined8 param_1,undefined4 param_2,long *param_3,long *param_4,
+  | lVar1 = FUN_008e8fc8();
+  | if (lVar1 == 0) {
+  | uVar2 = FUN_008d43c4(param_2);
+
+=== 008e9678 size=572 nc=4 FUN_008e9678
+  C: FUN_008c092c, FUN_008c5360, FUN_008ccabc, FUN_008bf0a0
+  L: sequence operator is not allowed for void, arrays, or s
+  | if (*(int *)(param_1 + 2) == 3) {
+  | lVar2 = (**(code **)(*param_2 + 0xf8))(param_2);
+  | if ((*(long *)(lVar2 + 0x60) == 0) &&
+  | (piVar5 = (int *)(**(code **)(*param_2 + 0xf8))(param_2), *piVar5 != 0)) {
+
+=== 008e98b4 size=280 nc=3 FUN_008e98b4
+  C: FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: discard supported in fragment shaders only ~ discard ~ non-void function must return a value ~ return ~ break statement only allowed in loops and switch statem
+  | if (param_2 < 0x87) {
+  | if (param_2 == 0x85) {
+  | if (*(int *)(param_1 + 0xc) == 0x8b30) goto LAB_008e9990;
+  | uVar1 = *(undefined8 *)(param_1 + 0x78);
+
+=== 008e99cc size=460 nc=4 FUN_008e99cc
+  C: FUN_008bf0a0, FUN_008c5360, FUN_008bbcb8, FUN_008bd304
+  L: void function cannot return a value ~ function return is not matching type: ~ return
+  | plVar11 = param_3;
+  | if (param_3 != (long *)0x0) {
+  | while( true ) {
+  | while (lVar1 = (**(code **)(*plVar11 + 0x60))(plVar11), lVar1 != 0) {
+
+=== 008e9b98 size=192 nc=2 FUN_008e9b98
+  C: FUN_008bf0a0, FUN_008cb498
+  | plVar2 = param_3;
+  | if (param_3 == (long *)0x0) {
+  | while( true ) {
+  | while (lVar1 = (**(code **)(*plVar2 + 0x60))(plVar2), lVar1 != 0) {
+
+=== 008e9c58 size=412 nc=3 FUN_008e9c58
+  C: FUN_008bdc00, FUN_008c3f24, FUN_008c5360
+  L: Texture component must be a constant expression ~ Component must be in the range [0;3]
+  | lVar12 = param_2[0x1b];
+  | iVar2 = *(int *)(lVar12 + 0x10);
+  | if (0x42 < iVar2 - 0xc7dU) {
+  | plVar4 = (long *)(**(code **)(*param_2 + 0x100))(param_2);
+
+=== 008e9df4 size=836 nc=5 FUN_008e9df4
+  C: FUN_008bdc00, FUN_008c0be0, FUN_008ea138, FUN_008c61a4, FUN_008c5360
+  L: Texture offsets must be a constant expression ~ Texture offsets must be an array of 4 elements ~ Texture offset must be a constant expression
+  | lVar17 = param_2[0x1b];
+  | plVar8 = (long *)(**(code **)(*param_2 + 0x100))(param_2);
+  | uVar2 = *(uint *)(lVar17 + 0x10);
+  | if (((uVar2 - 0xca2 < 0x10) || (uVar2 - 0xc16 < 0x46)) || ((uVar2 & 0xfffffff8) == 0xcb8)) {
+
+=== 008ea2b0 size=300 nc=2 FUN_008ea2b0
+  C: FUN_008bdc00, FUN_008c5360
+  L: The value passed to the mem argument of an atomic memor
+  | lVar7 = param_2[0x1b];
+  | if (*(int *)(lVar7 + 0x10) - 0xcd0U < 0x12) {
+  | puVar2 = (undefined8 *)(**(code **)(*param_2 + 0x100))(param_2);
+  | plVar3 = *(long **)*puVar2;
+
+=== 008ea3dc size=520 nc=2 FUN_008ea3dc
+  C: FUN_008ca918, FUN_008c5360
+  L: image
+  | lVar9 = param_2[0x1b];
+  | if (*(int *)(lVar9 + 0x10) - 0xce2U < 0x3c) {
+  | puVar2 = (undefined8 *)(**(code **)(*param_2 + 0x100))(param_2);
+  | plVar3 = (long *)(**(code **)(**(long **)*puVar2 + 0x20))();
+
+=== 008ea5e4 size=996 nc=2 FUN_008ea5e4
+  C: FUN_008ca918, FUN_008c5360
+  L: image
+  | plVar4 = (long *)(**(code **)(*param_3 + 0x108))(param_3);
+  | lVar7 = *plVar4;
+  | if (plVar4[1] != lVar7) {
+  | uVar10 = 0;
+
+=== 008ea9c8 size=136 nc=5 FUN_008ea9c8
+  C: FUN_008f9588, FUN_008eaa50, FUN_008f9568, FUN_008e47bc, FUN_008eac90
+  | lVar1 = FUN_008f9588(param_2);
+  | if (lVar1 != 0) {
+  | FUN_008eaa50(param_1,param_2,param_3);
+  | uVar2 = FUN_008f9568(param_2);
+
+=== 008eb3d4 size=156 nc=4 FUN_008eb3d4
+  C: FUN_008fd31c, FUN_008fd394, FUN_00901518, FUN_008fd36c
+  | if (((param_1 != 0) && (param_2 != 0)) && (iVar1 = FUN_008fd31c(param_4), iVar1 == 0)) {
+  | iVar1 = FUN_008fd394(param_1,param_2,param_3,param_4);
+  | if (iVar1 == 0) {
+  | iVar1 = FUN_00901518(param_4);
+
+=== 008eb4dc size=424 nc=4 FUN_008eb4dc
+  C: memset, FUN_008d3e18, FUN_008bbcb8, FUN_008bd304
+  | __s_00 = (undefined4 *)param_1[1];
+  | if (param_2 <= (ulong)(param_1[2] - (long)__s_00 >> 2)) {
+  | if (param_2 != 0) {
+  | memset(__s_00,0,param_2 * 4);
+
+=== 008eb6b4 size=36 nc=2 FUN_008eb6b4
+  C: thunk_FUN_008ec17c, free
+  | thunk_FUN_008ec17c();
+  | free(param_1);
+
+=== 008ec180 size=164 nc=4 FUN_008ec180
+  C: FUN_009e0490, FUN_008ee960, FUN_008ef418, FUN_008f2590
+  | puVar1 = (undefined8 *)FUN_009e0490(0x160);
+  | *puVar1 = param_2;
+  | puVar1[3] = 0;
+  | puVar1[2] = 0;
+
+=== 008ec224 size=84 nc=5 FUN_008ec224
+  C: FUN_008f25d0, FUN_008ef450, FUN_008ee9a4, FUN_008ec3a4, free
+  | __ptr = (void *)*param_1;
+  | if (__ptr != (void *)0x0) {
+  | FUN_008f25d0((long)__ptr + 0xe8);
+  | FUN_008ef450((long)__ptr + 0x90);
+
+=== 008ec278 size=164 nc=2 FUN_008ec278
+  C: FUN_008f2078, FUN_008eea10
+  L: __LINE__ ~ __FILE__ ~ __VERSION__ ~ GL_ES
+  | FUN_008f2078(*param_1 + 8,"__LINE__",0);
+  | FUN_008f2078(*param_1 + 8,"__FILE__",0);
+  | FUN_008f2078(*param_1 + 8,"__VERSION__",100);
+  | FUN_008f2078(*param_1 + 8,"GL_ES",1);
+
+=== 008ec328 size=112 nc=2 FUN_008ec328
+  C: FUN_008f26fc, FUN_008c55d8
+  | do {
+  | do {
+  | FUN_008f26fc(*param_1 + 0xe8,param_2);
+  | iVar1 = *param_2;
+
+=== 008ec3a4 size=140 nc=3 FUN_008ec3a4
+  C: FUN_009e0360, FUN_0099b070, free
+  | if (param_2 != (undefined8 *)0x0) {
+  | FUN_008ec3a4(param_1,*param_2);
+  | FUN_008ec3a4(param_1,param_2[1]);
+  | plVar3 = (long *)param_2[8];
+
+=== 008ee4ec size=144 nc=4 FUN_008ee4ec
+  C: malloc, FUN_008ee684, yyensure_buffer_stack, realloc
+  L: out of dynamic memory in yyensure_buffer_stack()
+  | if (*(void **)(param_1 + 0x28) == (void *)0x0) {
+  | puVar4 = (undefined8 *)malloc(8);
+  | *(undefined8 **)(param_1 + 0x28) = puVar4;
+  | if (puVar4 == (undefined8 *)0x0) {
+
+=== 008ee57c size=264 nc=4 FUN_008ee57c
+  C: malloc, __errno, FUN_008ee684, yy_create_buffer
+  L: out of dynamic memory in yy_create_buffer()
+  | puVar3 = (undefined8 *)malloc(0x40);
+  | if (puVar3 != (undefined8 *)0x0) {
+  | *(int *)(puVar3 + 3) = param_2;
+  | puVar4 = (undefined2 *)malloc((long)(param_2 + 2));
+
+=== 008ee6e4 size=356 nc=3 FUN_008ee6e4
+  C: FUN_008ee4ec, FUN_008ee57c, __errno
+  | if ((*(long *)(param_2 + 0x28) == 0) ||
+  | (puVar11 = *(undefined8 **)(*(long *)(param_2 + 0x28) + *(long *)(param_2 + 0x18) * 8),
+  | puVar11 == (undefined8 *)0x0)) {
+  | FUN_008ee4ec(param_2);
+
+=== 008ee9a4 size=72 nc=3 FUN_008ee9a4
+  C: FUN_008ee848, FUN_008eec48, FUN_008ef024
+  | *param_1 = (long)(PTR_DAT_00a0e368 + 0x10);
+  | if (param_1[1] != 0) {
+  | FUN_008ee848();
+  | param_1[1] = 0;
+
+=== 008ee9ec size=36 nc=2 FUN_008ee9ec
+  C: FUN_008ee9a4, free
+  | FUN_008ee9a4();
+  | free(param_1);
+
+=== 008eeb6c size=200 nc=5 FUN_008eeb6c
+  C: FUN_008ec430, FUN_008c55d8, FUN_0099c2a8, FUN_008ef13c, FUN_008ef14c
+  | iVar3 = FUN_008ec430(param_2 + 4,param_2 + 2,*(undefined8 *)(param_1 + 8));
+  | if (iVar3 == -1) {
+  | FUN_008c55d8(*(undefined8 *)(param_1 + 0x10),0x2b,param_2 + 2,param_2 + 4);
+  | iVar3 = 0;
+
+=== 008eee10 size=532 nc=2 FUN_008eee10
+  C: FUN_008eedc4, memcpy
+  | ulong FUN_008eee10(ulong *param_1,undefined *param_2,ulong param_3,int *param_4)
+  | uVar9 = 0;
+  | if (param_3 != 0) {
+  | uVar3 = param_1[5];
+
+=== 008ef450 size=132 nc=2 FUN_008ef450
+  C: free, FUN_008ef024
+  | pbVar2 = (byte *)param_1[2];
+  | *param_1 = (long)(PTR_DAT_00a0e350 + 0x10);
+  | if (pbVar2 != (byte *)0x0) {
+  | pbVar1 = (byte *)param_1[3];
+
+=== 008ef4d4 size=36 nc=2 FUN_008ef4d4
+  C: FUN_008ef450, free
+  | FUN_008ef450();
+  | free(param_1);
+
+=== 008ef4f8 size=212 nc=2 FUN_008ef4f8
+  C: FUN_008c55d8, FUN_008ef5cc
+  | LAB_008ef520:
+  | do {
+  | (**(code **)(**(long **)(param_1 + 0x28) + 0x10))(*(long **)(param_1 + 0x28),param_2);
+  | iVar2 = *param_2;
+
+=== 008ef7d8 size=708 nc=3 FUN_008ef7d8
+  C: CONCAT13, FUN_0069b990, __stack_chk_fail
+  | lVar4 = tpidr_el0;
+  | local_28 = *(long *)(lVar4 + 0x28);
+  | uVar6 = 0;
+  | local_48 = 0x65736c65;
+
+=== 008f0108 size=300 nc=3 FUN_008f0108
+  C: FUN_008f18fc, FUN_008c55d8, FUN_008f1b04
+  | (**(code **)(**(long **)(param_1 + 0x28) + 0x10))();
+  | if (*param_2 == 0x102) {
+  | lVar2 = FUN_008f18fc(*(undefined8 *)(param_1 + 0x30),param_2 + 4);
+  | if (*(long *)(param_1 + 0x30) + 8 == lVar2) {
+
+=== 008f03b8 size=380 nc=2 FUN_008f03b8
+  C: FUN_008c55d8, FUN_008f12ac
+  | lVar1 = *(long *)(param_1 + 0x18);
+  | if (*(long *)(param_1 + 0x10) == lVar1) {
+  | FUN_008c55d8(*(undefined8 *)(param_1 + 0x38),0x1a,param_2 + 2,param_2 + 4);
+  | plVar3 = *(long **)(param_1 + 0x28);
+
+=== 008f0534 size=256 nc=2 FUN_008f0534
+  C: FUN_008c55d8, free
+  | lVar1 = *(long *)(param_1 + 0x18);
+  | if (*(long *)(param_1 + 0x10) == lVar1) {
+  | FUN_008c55d8(*(undefined8 *)(param_1 + 0x38),0x17,param_2 + 2,param_2 + 4);
+  | plVar3 = *(long **)(param_1 + 0x28);
+
+=== 008f07ec size=528 nc=4 FUN_008f07ec
+  C: FUN_0099c49c, FUN_008c55d8, free, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_58 = *(long *)(lVar5 + 0x28);
+  | local_70 = 0;
+  | uStack_68 = 0;
+
+=== 008f09fc size=572 nc=4 FUN_008f09fc
+  C: FUN_008c55d8, FUN_0099c49c, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | local_60 = 0;
+  | uStack_58 = 0;
+
+=== 008f0c38 size=752 nc=4 FUN_008f0c38
+  C: FUN_008c55d8, FUN_008f2078, FUN_008ef18c, __stack_chk_fail
+  L: __VERSION__
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | if (*(char *)(param_1 + 8) == '\x01') {
+  | FUN_008c55d8(*(undefined8 *)(param_1 + 0x38),0x23,param_2 + 2,param_2 + 4);
+
+=== 008f13c4 size=272 nc=2 FUN_008f13c4
+  C: FUN_008f18fc, FUN_008c55d8
+  | (**(code **)(**(long **)(param_1 + 0x28) + 0x10))();
+  | if (*param_2 == 0x102) {
+  | lVar3 = FUN_008f18fc(*(undefined8 *)(param_1 + 0x30),param_2 + 4);
+  | bVar2 = *(long *)(param_1 + 0x30) + 8 != lVar3;
+
+=== 008f15ec size=52 nc=2 FUN_008f15ec
+  C: FUN_0099b068, free
+  | *param_1 = (long)(PTR_DAT_00a0e358 + 0x10);
+  | FUN_0099b068();
+  | free(param_1);
+
+=== 008f174c size=412 nc=5 FUN_008f174c
+  C: FUN_008f18e8, FUN_0068ddb0, FUN_009e0490, FUN_0069ad94, free
+  | __ptr = (undefined8 *)*param_1;
+  | puVar8 = (undefined8 *)param_1[1];
+  | lVar9 = (long)puVar8 - (long)__ptr;
+  | uVar1 = (lVar9 >> 3) * -0x3333333333333333 + 1;
+
+=== 008f1b04 size=212 nc=4 FUN_008f1b04
+  C: FUN_0069f938, FUN_009e0360, FUN_0099b070, free
+  | puVar5 = param_2;
+  | puVar2 = (undefined8 *)param_2[1];
+  | if ((undefined8 *)param_2[1] == (undefined8 *)0x0) {
+  | do {
+
+=== 008f1bd8 size=424 nc=5 FUN_008f1bd8
+  C: FUN_008f1d80, FUN_0068ddb0, FUN_009e0490, FUN_0069ad94, free
+  | __ptr = (byte *)*param_1;
+  | pbVar10 = (byte *)param_1[1];
+  | lVar11 = (long)pbVar10 - (long)__ptr;
+  | uVar1 = (lVar11 >> 3) * -0x3333333333333333 + 1;
+
+=== 008f1e84 size=500 nc=2 FUN_008f1e84
+  C: memcmp, FUN_008ef04c
+  | if (*(int *)(param_1 + 8) != *(int *)(param_2 + 8)) {
+  | return 0;
+  | bVar7 = *(byte *)(param_1 + 0x10);
+  | bVar8 = *(byte *)(param_2 + 0x10);
+
+=== 008f24b4 size=220 nc=2 FUN_008f24b4
+  C: FUN_009e0360, FUN_0099b070
+  | lVar8 = *param_1;
+  | plVar1 = *(long **)(lVar8 + 0x60);
+  | plVar9 = *(long **)(lVar8 + 0x68);
+  | *(undefined *)(lVar8 + 0x58) = 0;

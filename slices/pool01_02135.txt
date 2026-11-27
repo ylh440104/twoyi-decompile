@@ -1,0 +1,741 @@
+pool01 6229 slice 2135..2335 lim=2
+
+=== 007b7a58 size=24 nc=1 FUN_007b7a58
+  C: FUN_007b3f48
+  | if (param_1 != 0) {
+  | FUN_007b3f48(&DAT_00a6d268,param_1);
+
+=== 007c0a00 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007c0a04 size=20 nc=1 FUN_007c0a04
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c0dd0 size=20 nc=1 FUN_007c0dd0
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c14f0 size=196 nc=1 FUN_007c14f0
+  C: free
+  | if (param_1[3] != 0) {
+  | __ptr = (undefined8 *)param_1[2];
+
+=== 007c15b4 size=188 nc=1 FUN_007c15b4
+  C: free
+  | pbVar3 = *(byte **)(param_1 + 0x30);
+  | if (pbVar3 != (byte *)0x0) {
+
+=== 007c1768 size=212 nc=1 FUN_007c1768
+  C: free
+  | __ptr = (undefined8 *)param_1[0x11];
+  | while (__ptr != (undefined8 *)0x0) {
+
+=== 007c188c size=216 nc=1 FUN_007c188c
+  C: free
+  | if (param_1[3] != 0) {
+  | __ptr = (undefined8 *)param_1[2];
+
+=== 007c218c size=336 nc=1 FUN_007c218c
+  C: strcmp
+  L: VK_ANDROID_external_memory_android ~ VK_ANDROID_native_buffer
+  | iVar2 = strcmp("VK_ANDROID_external_memory_android_hardware_buffer",param_2);
+  | if (((((iVar2 == 0) || (iVar2 = strcmp("VK_ANDROID_native_buffer",param_2), iVar2 == 0)) ||
+
+=== 007c29c4 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007c29c8 size=56 nc=1 FUN_007c29c8
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x18);
+  | uVar3 = *(undefined8 *)(param_1 + 0x10);
+
+=== 007c2a00 size=24 nc=0 FUN_007c2a00
+  C: -
+  | *param_2 = &PTR_FUN_009ea0b0;
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+
+=== 007c2a18 size=4 nc=0 FUN_007c2a18
+  C: -
+
+=== 007c2a1c size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007c4334 size=20 nc=1 FUN_007c4334
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c582c size=20 nc=1 FUN_007c582c
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c65b0 size=20 nc=1 FUN_007c65b0
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c65c4 size=20 nc=1 FUN_007c65c4
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c6b20 size=20 nc=1 FUN_007c6b20
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c7054 size=136 nc=1 FUN_007c7054
+  C: free
+  | if (*(char *)(param_1 + 8) == '\x01') {
+  | pvVar1 = *(void **)((long)param_2 + 0x98);
+
+=== 007c70dc size=20 nc=1 FUN_007c70dc
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007c8240 size=20 nc=1 FUN_007c8240
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007ca5ac size=20 nc=1 FUN_007ca5ac
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007ca78c size=492 nc=0 FUN_007ca78c
+  C: -
+  | *(undefined8 *)(param_1 + 0x100) = 0;
+  | *(undefined8 *)(param_1 + 0xf8) = 0;
+
+=== 007cab18 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cab1c size=52 nc=1 FUN_007cab1c
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+
+=== 007cab50 size=20 nc=0 FUN_007cab50
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009ea0f8;
+
+=== 007cab64 size=4 nc=0 FUN_007cab64
+  C: -
+
+=== 007cab68 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cab6c size=24 nc=0 FUN_007cab6c
+  C: -
+  | (**(code **)(*(long *)(param_1 + 8) + 0x20))(*param_2,*param_3,*param_4);
+
+=== 007cad24 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cad28 size=52 nc=1 FUN_007cad28
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+
+=== 007cad5c size=20 nc=0 FUN_007cad5c
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009ea140;
+
+=== 007cad70 size=4 nc=0 FUN_007cad70
+  C: -
+
+=== 007cad74 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cad78 size=24 nc=0 FUN_007cad78
+  C: -
+  | (**(code **)(*(long *)(param_1 + 8) + 0x4a8))(*param_2,*param_3,*param_4);
+
+=== 007cad90 size=4 nc=0 FUN_007cad90
+  C: -
+
+=== 007cad94 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cad98 size=52 nc=1 FUN_007cad98
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+
+=== 007cadcc size=20 nc=0 FUN_007cadcc
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009ea188;
+
+=== 007cade0 size=4 nc=0 FUN_007cade0
+  C: -
+
+=== 007cade4 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cade8 size=24 nc=0 FUN_007cade8
+  C: -
+  | (**(code **)(*(long *)(param_1 + 8) + 0x660))(*param_2,*param_3,*param_4);
+
+=== 007cae00 size=4 nc=0 FUN_007cae00
+  C: -
+
+=== 007cae04 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cae08 size=52 nc=1 FUN_007cae08
+  C: FUN_009e0490
+  | puVar1 = (undefined8 *)FUN_009e0490(0x10);
+  | uVar2 = *(undefined8 *)(param_1 + 8);
+
+=== 007cae3c size=20 nc=0 FUN_007cae3c
+  C: -
+  | uVar1 = *(undefined8 *)(param_1 + 8);
+  | *param_2 = &PTR_FUN_009ea1d0;
+
+=== 007cae50 size=4 nc=0 FUN_007cae50
+  C: -
+
+=== 007cae54 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cae58 size=24 nc=0 FUN_007cae58
+  C: -
+  | (**(code **)(*(long *)(param_1 + 8) + 0x20))(*param_2,*param_3,*param_4);
+
+=== 007cb710 size=20 nc=1 FUN_007cb710
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007cce74 size=168 nc=1 FUN_007cce74
+  C: FUN_007e5c18
+  | FUN_007e5c18(*(undefined8 *)*param_1,0x7fffffff,*(undefined8 *)param_1[1],param_1[2]);
+  | piVar3 = (int *)param_1[2];
+
+=== 007cdd04 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007cead0 size=20 nc=1 FUN_007cead0
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d0afc size=20 nc=1 FUN_007d0afc
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d0fa8 size=20 nc=1 FUN_007d0fa8
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d3e80 size=44 nc=1 FUN_007d3e80
+  C: FUN_007d3eac
+  | uVar1 = param_1[1] - *param_1 >> 3;
+  | if (param_2 >= uVar1 && param_2 - uVar1 != 0) {
+
+=== 007d4110 size=16 nc=1 FUN_007d4110
+  C: FUN_0099b068
+  | *param_1 = &PTR_FUN_009ea470;
+  | FUN_0099b068();
+
+=== 007d4150 size=8 nc=1 FUN_007d4150
+  C: FUN_007ccf1c
+  | FUN_007ccf1c(param_1 + 0x18);
+
+=== 007d4158 size=4 nc=0 free
+  C: -
+  | free(__ptr);
+
+=== 007d49f8 size=20 nc=1 FUN_007d49f8
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d62ec size=240 nc=1 FUN_007d62ec
+  C: free
+  | if (param_1[3] != 0) {
+  | __ptr = (undefined8 *)param_1[2];
+
+=== 007d685c size=240 nc=1 FUN_007d685c
+  C: free
+  | if (param_1[3] != 0) {
+  | __ptr = (undefined8 *)param_1[2];
+
+=== 007d6fc8 size=20 nc=1 FUN_007d6fc8
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d78d8 size=20 nc=1 FUN_007d78d8
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d856c size=20 nc=1 FUN_007d856c
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007d89f8 size=20 nc=1 FUN_007d89f8
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007dfd8c size=612 nc=1 FUN_007dfd8c
+  C: FUN_0099c6c8
+  L: VK_IMAGE_CREATE_SPARSE_BINDING_BIT ~ VK_IMAGE_CREATE_SPARSE_RESIDENCY_B
+  | param_1[0] = 0;
+  | param_1[1] = 0;
+
+=== 007e02e4 size=500 nc=1 FUN_007e02e4
+  C: FUN_007c0a18
+  | ulong FUN_007e02e4(long *param_1,ulong param_2,ulong *param_3,long param_4)
+  | if ((param_4 == 0) || (param_1[4] == 0x100000000)) {
+
+=== 007e1334 size=420 nc=1 FUN_007e1334
+  C: FUN_007c0a18
+  | if ((param_3 == 0) || (param_1[4] == 0x100000000)) {
+  | return 0;
+
+=== 007e1b04 size=20 nc=1 FUN_007e1b04
+  C: FUN_0068b560
+  L: vector
+  | FUN_0068b560("vector");
+
+=== 007f3ff8 size=12 nc=1 FUN_007f3ff8
+  C: FUN_007f772c
+  | FUN_007f772c(*param_1 + 0x28);
+
+=== 007f4004 size=12 nc=1 FUN_007f4004
+  C: FUN_007f864c
+  | FUN_007f864c(*param_1 + 0x28);
+
+=== 007f4010 size=8 nc=1 FUN_007f4010
+  C: FUN_007f4018
+  | FUN_007f4018(*param_1);
+
+=== 007f412c size=8 nc=1 FUN_007f412c
+  C: FUN_007f4134
+  | FUN_007f4134(*param_1);
+
+=== 007f41fc size=4 nc=0 FUN_007f41fc
+  C: -
+
+=== 007f4200 size=4 nc=0 FUN_007f4200
+  C: -
+
+=== 007f4204 size=4 nc=0 FUN_007f4204
+  C: -
+
+=== 007f4208 size=4 nc=0 FUN_007f4208
+  C: -
+
+=== 007f420c size=4 nc=0 FUN_007f420c
+  C: -
+
+=== 007f4210 size=4 nc=0 FUN_007f4210
+  C: -
+
+=== 007f4214 size=4 nc=0 FUN_007f4214
+  C: -
+
+=== 007f4218 size=4 nc=0 FUN_007f4218
+  C: -
+
+=== 007f421c size=16 nc=1 FUN_007f421c
+  C: FUN_007f422c
+  | FUN_007f422c(*param_1);
+
+=== 007f4358 size=4 nc=0 FUN_007f4358
+  C: -
+
+=== 007f435c size=4 nc=0 FUN_007f435c
+  C: -
+
+=== 007f4360 size=4 nc=0 FUN_007f4360
+  C: -
+
+=== 007f4364 size=4 nc=0 FUN_007f4364
+  C: -
+
+=== 007f4368 size=8 nc=1 FUN_007f4368
+  C: FUN_007f4370
+  | FUN_007f4370(*param_1);
+
+=== 007f4434 size=4 nc=0 FUN_007f4434
+  C: -
+
+=== 007f4438 size=4 nc=0 FUN_007f4438
+  C: -
+
+=== 007f443c size=4 nc=0 FUN_007f443c
+  C: -
+
+=== 007f4440 size=16 nc=1 FUN_007f4440
+  C: FUN_007f4450
+  | FUN_007f4450(*param_1);
+
+=== 007f457c size=4 nc=0 FUN_007f457c
+  C: -
+
+=== 007f4580 size=4 nc=0 FUN_007f4580
+  C: -
+
+=== 007f4584 size=4 nc=0 FUN_007f4584
+  C: -
+
+=== 007f4588 size=4 nc=0 FUN_007f4588
+  C: -
+
+=== 007f458c size=4 nc=0 FUN_007f458c
+  C: -
+
+=== 007f4590 size=4 nc=0 FUN_007f4590
+  C: -
+
+=== 007f4594 size=4 nc=0 FUN_007f4594
+  C: -
+
+=== 007f4598 size=4 nc=0 FUN_007f4598
+  C: -
+
+=== 007f459c size=4 nc=0 FUN_007f459c
+  C: -
+
+=== 007f45a0 size=4 nc=0 FUN_007f45a0
+  C: -
+
+=== 007f45a4 size=4 nc=0 FUN_007f45a4
+  C: -
+
+=== 007f45a8 size=4 nc=0 FUN_007f45a8
+  C: -
+
+=== 007f45ac size=16 nc=1 FUN_007f45ac
+  C: FUN_007f45bc
+  | FUN_007f45bc(*param_1);
+
+=== 007f46e8 size=4 nc=0 FUN_007f46e8
+  C: -
+
+=== 007f46ec size=4 nc=0 FUN_007f46ec
+  C: -
+
+=== 007f46f0 size=4 nc=0 FUN_007f46f0
+  C: -
+
+=== 007f46f4 size=16 nc=1 FUN_007f46f4
+  C: FUN_007f4704
+  | FUN_007f4704(*param_1);
+
+=== 007f4830 size=16 nc=1 FUN_007f4830
+  C: FUN_007f4840
+  | FUN_007f4840(*param_1);
+
+=== 007f496c size=4 nc=0 FUN_007f496c
+  C: -
+
+=== 007f4970 size=4 nc=0 FUN_007f4970
+  C: -
+
+=== 007f4974 size=4 nc=0 FUN_007f4974
+  C: -
+
+=== 007f4978 size=16 nc=1 FUN_007f4978
+  C: FUN_007f4988
+  | FUN_007f4988(*param_1);
+
+=== 007f4ab4 size=4 nc=0 FUN_007f4ab4
+  C: -
+
+=== 007f4ab8 size=16 nc=1 FUN_007f4ab8
+  C: FUN_007f4ac8
+  | FUN_007f4ac8(*param_1);
+
+=== 007f4bf4 size=16 nc=1 FUN_007f4bf4
+  C: FUN_007f4c04
+  | FUN_007f4c04(*param_1);
+
+=== 007f4d30 size=16 nc=1 FUN_007f4d30
+  C: FUN_007f4d40
+  | FUN_007f4d40(*param_1);
+
+=== 007f4e6c size=4 nc=0 FUN_007f4e6c
+  C: -
+
+=== 007f4e70 size=16 nc=1 FUN_007f4e70
+  C: FUN_007f4e80
+  | FUN_007f4e80(*param_1);
+
+=== 007f4fac size=16 nc=1 FUN_007f4fac
+  C: FUN_007f4fbc
+  | FUN_007f4fbc(*param_1);
+
+=== 007f50e8 size=16 nc=1 FUN_007f50e8
+  C: FUN_007f50f8
+  | FUN_007f50f8(*param_1);
+
+=== 007f5224 size=4 nc=0 FUN_007f5224
+  C: -
+
+=== 007f5228 size=4 nc=0 FUN_007f5228
+  C: -
+
+=== 007f522c size=24 nc=1 FUN_007f522c
+  C: FUN_007f5244
+  | FUN_007f5244(*param_1);
+
+=== 007f530c size=24 nc=1 FUN_007f530c
+  C: FUN_007f5324
+  | FUN_007f5324(*param_1);
+
+=== 007f5454 size=16 nc=1 FUN_007f5454
+  C: FUN_007f5464
+  | FUN_007f5464(*param_1);
+
+=== 007f5590 size=16 nc=1 FUN_007f5590
+  C: FUN_007f55a0
+  | FUN_007f55a0(*param_1);
+
+=== 007f56cc size=16 nc=1 FUN_007f56cc
+  C: FUN_007f56dc
+  | FUN_007f56dc(*param_1);
+
+=== 007f5808 size=16 nc=1 FUN_007f5808
+  C: FUN_007f5818
+  | FUN_007f5818(*param_1);
+
+=== 007f5944 size=4 nc=0 FUN_007f5944
+  C: -
+
+=== 007f5948 size=8 nc=1 FUN_007f5948
+  C: FUN_007f5950
+  | FUN_007f5950(*param_1);
+
+=== 007f5a60 size=4 nc=0 FUN_007f5a60
+  C: -
+
+=== 007f5a64 size=16 nc=1 FUN_007f5a64
+  C: FUN_007f5a74
+  | FUN_007f5a74(*param_1);
+
+=== 007f5ba0 size=16 nc=1 FUN_007f5ba0
+  C: FUN_007f5bb0
+  | FUN_007f5bb0(*param_1);
+
+=== 007f5cdc size=4 nc=0 FUN_007f5cdc
+  C: -
+
+=== 007f5ce0 size=16 nc=1 FUN_007f5ce0
+  C: FUN_007f5cf0
+  | FUN_007f5cf0(*param_1);
+
+=== 007f5e1c size=4 nc=0 FUN_007f5e1c
+  C: -
+
+=== 007f5e20 size=8 nc=1 FUN_007f5e20
+  C: FUN_007f5e28
+  | FUN_007f5e28(*param_1);
+
+=== 007f5f40 size=4 nc=0 FUN_007f5f40
+  C: -
+
+=== 007f5f44 size=4 nc=0 FUN_007f5f44
+  C: -
+
+=== 007f5f48 size=4 nc=0 FUN_007f5f48
+  C: -
+
+=== 007f5f4c size=4 nc=0 FUN_007f5f4c
+  C: -
+
+=== 007f5f50 size=4 nc=0 FUN_007f5f50
+  C: -
+
+=== 007f5f54 size=4 nc=0 FUN_007f5f54
+  C: -
+
+=== 007f5f58 size=4 nc=0 FUN_007f5f58
+  C: -
+
+=== 007f5f5c size=4 nc=0 FUN_007f5f5c
+  C: -
+
+=== 007f5f60 size=4 nc=0 FUN_007f5f60
+  C: -
+
+=== 007f5f64 size=4 nc=0 FUN_007f5f64
+  C: -
+
+=== 007f5f68 size=4 nc=0 FUN_007f5f68
+  C: -
+
+=== 007f5f6c size=4 nc=0 FUN_007f5f6c
+  C: -
+
+=== 007f5f70 size=4 nc=0 FUN_007f5f70
+  C: -
+
+=== 007f5f74 size=4 nc=0 FUN_007f5f74
+  C: -
+
+=== 007f5f78 size=4 nc=0 FUN_007f5f78
+  C: -
+
+=== 007f5f7c size=4 nc=0 FUN_007f5f7c
+  C: -
+
+=== 007f5f80 size=4 nc=0 FUN_007f5f80
+  C: -
+
+=== 007f5f84 size=4 nc=0 FUN_007f5f84
+  C: -
+
+=== 007f5f88 size=4 nc=0 FUN_007f5f88
+  C: -
+
+=== 007f5f8c size=4 nc=0 FUN_007f5f8c
+  C: -
+
+=== 007f5f90 size=4 nc=0 FUN_007f5f90
+  C: -
+
+=== 007f5f94 size=4 nc=0 FUN_007f5f94
+  C: -
+
+=== 007f5f98 size=4 nc=0 FUN_007f5f98
+  C: -
+
+=== 007f5f9c size=4 nc=0 FUN_007f5f9c
+  C: -
+
+=== 007f5fa0 size=4 nc=0 FUN_007f5fa0
+  C: -
+
+=== 007f5fa4 size=4 nc=0 FUN_007f5fa4
+  C: -
+
+=== 007f5fa8 size=4 nc=0 FUN_007f5fa8
+  C: -
+
+=== 007f5fac size=4 nc=0 FUN_007f5fac
+  C: -
+
+=== 007f5fb0 size=4 nc=0 FUN_007f5fb0
+  C: -
+
+=== 007f5fb4 size=4 nc=0 FUN_007f5fb4
+  C: -
+
+=== 007f5fb8 size=4 nc=0 FUN_007f5fb8
+  C: -
+
+=== 007f5fbc size=4 nc=0 FUN_007f5fbc
+  C: -
+
+=== 007f5fc0 size=4 nc=0 FUN_007f5fc0
+  C: -
+
+=== 007f5fc4 size=4 nc=0 FUN_007f5fc4
+  C: -
+
+=== 007f5fc8 size=4 nc=0 FUN_007f5fc8
+  C: -
+
+=== 007f5fcc size=4 nc=0 FUN_007f5fcc
+  C: -
+
+=== 007f5fd0 size=4 nc=0 FUN_007f5fd0
+  C: -
+
+=== 007f5fd4 size=4 nc=0 FUN_007f5fd4
+  C: -
+
+=== 007f5fd8 size=4 nc=0 FUN_007f5fd8
+  C: -
+
+=== 007f5fdc size=4 nc=0 FUN_007f5fdc
+  C: -
+
+=== 007f5fe0 size=4 nc=0 FUN_007f5fe0
+  C: -
+
+=== 007f5fe4 size=4 nc=0 FUN_007f5fe4
+  C: -
+
+=== 007f5fe8 size=4 nc=0 FUN_007f5fe8
+  C: -
+
+=== 007f5fec size=4 nc=0 FUN_007f5fec
+  C: -
+
+=== 007f5ff0 size=4 nc=0 FUN_007f5ff0
+  C: -
+
+=== 007f5ff4 size=4 nc=0 FUN_007f5ff4
+  C: -
+
+=== 007f5ff8 size=4 nc=0 FUN_007f5ff8
+  C: -
+
+=== 007f5ffc size=4 nc=0 FUN_007f5ffc
+  C: -
+
+=== 007f6000 size=4 nc=0 FUN_007f6000
+  C: -
+
+=== 007f6004 size=4 nc=0 FUN_007f6004
+  C: -
+
+=== 007f6008 size=4 nc=0 FUN_007f6008
+  C: -
+
+=== 007f600c size=4 nc=0 FUN_007f600c
+  C: -
+
+=== 007f6010 size=4 nc=0 FUN_007f6010
+  C: -
+
+=== 007f6014 size=4 nc=0 FUN_007f6014
+  C: -
+
+=== 007f6018 size=4 nc=0 FUN_007f6018
+  C: -
+
+=== 007f601c size=4 nc=0 FUN_007f601c
+  C: -
+
+=== 007f6020 size=4 nc=0 FUN_007f6020
+  C: -
+
+=== 007f6024 size=4 nc=0 FUN_007f6024
+  C: -
+
+=== 007f6028 size=4 nc=0 FUN_007f6028
+  C: -
+
+=== 007f602c size=4 nc=0 FUN_007f602c
+  C: -

@@ -1,0 +1,284 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big1k_00600.txt pool 672
+_0097dbd0
+  C: opendir, fprintf, readdir, FUN_0097d530, lstat, strchr, stat, __errno, strerror, __open_2, close, read
+  L: scan_timezone_dir ~ %s: comparing %s: ~ compare_timezone_to_localtime
+  | lVar1 = tpidr_el0;
+  | local_70 = *(long *)(lVar1 + 0x28);
+  | __dirp = opendir((char *)(param_1 + 0x13));
+  | pbVar14 = PTR_DAT_00a0dbb0;
+
+=== 0097ff50 size=1172 nc=12 FUN_0097ff50
+  C: block, __memcpy_chk, FUN_0097f9b0, memcmp, calloc, CONCAT62, CONCAT11, __strlen_chk, FUN_0097c488, free, large, __stack_chk_fail
+  L: 0123456789*#,N% ~ sms_receiver_add_submit_pdu
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | pbVar8 = *(byte **)(param_2 + 8);
+  | pbVar1 = *(byte **)(param_2 + 0x10);
+
+=== 00981c28 size=1832 nc=3 FUN_00981c28
+  C: strlen, __memcpy_chk, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_48 = *(long *)(lVar5 + 0x28);
+  | iVar2 = *param_1;
+  | if (iVar2 == 3) {
+
+=== 00986958 size=1236 nc=2 FUN_00986958
+  C: strcmp, FUN_009833c4
+  | while (puVar1 = param_1 + param_2 * 4, 6 < param_2) {
+  | puVar7 = param_1 + (param_2 >> 1) * 4;
+  | if (param_2 == 7) {
+  | lVar9 = 6;
+
+=== 00988b34 size=1272 nc=34 FUN_00988b34
+  C: sigemptyset, sigaddset, pthread_sigmask, FUN_009836bc, FUN_009836b0, thunk_FUN_009e0490, FUN_00985ba0, FUN_00982dc4, FUN_00983094, FUN_009832ec, FUN_00983290, __umask_chk
+  L: /data/twoyi-8.1.0/twoyi/runtime/src/main/cpp/modem/andr ~ Failed to fork for command  ~ /dev/null ~ Error running command  ~ . waitpid failed with |
+  | void FUN_00988b34(undefined8 param_1,long *param_2,uint param_3,long param_4,uint *param_5,
+  | __pid_t *param_6,undefined8 *param_7)
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+
+=== 00989e28 size=1408 nc=17 FUN_00989e28
+  C: FUN_0098bba0, FUN_0098bba8, FUN_0098ae6c, FUN_0098afec, FUN_009986bc, FUN_0098a9bc, FUN_0099351c, FUN_00994140, memmove, memset, FUN_0098bf08, FUN_0098c0b8
+  | void FUN_00989e28(long param_1,byte *param_2,long param_3,uint *param_4,ulong param_5,
+  | lVar6 = tpidr_el0;
+  | local_80 = *(long *)(lVar6 + 0x28);
+  | if (param_8 != 0) {
+
+=== 0098a43c size=1408 nc=15 FUN_0098a43c
+  C: FUN_009986bc, memcpy, FUN_0099351c, FUN_0098a9bc, FUN_0098c0b8, FUN_0098bca8, CONCAT44, FUN_0098bba8, ZSTD_trace_decompress_end, memmove, memset, FUN_00994140
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | if (*(int *)(param_1 + 0x752c) - 3U < 2) {
+  | uVar8 = *(ulong *)(param_1 + 0x74e0);
+
+=== 0098b158 size=2632 nc=15 FUN_0098b158
+  C: memcpy, FUN_0098a43c, FUN_009899e0, FUN_0098bcb8, FUN_0098bca8, FUN_0098bc38, FUN_00989cac, FUN_0098afec, FUN_0098a9bc, free, malloc, FUN_0098a3a8
+  | lVar10 = tpidr_el0;
+  | local_68 = *(long *)(lVar10 + 0x28);
+  | uVar6 = param_3[1];
+  | uVar8 = param_3[2];
+
+=== 0098c238 size=3264 nc=14 FUN_0098c238
+  C: FUN_009924ec, NEON_cmeq, CONCAT17, CONCAT16, CONCAT15, CONCAT14, CONCAT13, CONCAT12, CONCAT11, memset, CONCAT19, CONCAT18
+  | void FUN_0098c238(uint *param_1,undefined8 param_2,undefined8 param_3,int *param_4,ulong param_5,
+  | undefined (*pauVar41) [16];
+  | lVar6 = tpidr_el0;
+  | local_68 = *(long *)(lVar6 + 0x28);
+
+=== 0098cef8 size=1448 nc=6 FUN_0098cef8
+  C: FUN_009924ec, NEON_neg, NEON_ushl, FUN_00991340, CONCAT44, __stack_chk_fail
+  | void FUN_0098cef8(uint *param_1,undefined8 param_2,undefined8 param_3,int *param_4,ulong param_5,
+  | lVar12 = tpidr_el0;
+  | local_70 = *(long *)(lVar12 + 0x28);
+  | if (param_5 < 0x84c) {
+
+=== 0098d4a0 size=1272 nc=1 FUN_0098d4a0
+  C: LZCOUNT
+  | ulong FUN_0098d4a0(undefined2 *param_1,ulong param_2,ulong *param_3,ulong param_4,uint *param_5)
+  | if (param_4 == 0) {
+  | return 0xffffffffffffffb8;
+  | lVar11 = param_4 - 8;
+
+=== 0098dcfc size=8324 nc=5 FUN_0098dcfc
+  C: FUN_00992064, LZCOUNT, FUN_00991f44, CONCAT44, __stack_chk_fail
+  | void FUN_0098dcfc(ulong *param_1,ulong param_2,ushort *param_3,ulong param_4,uint *param_5,
+  | lVar24 = tpidr_el0;
+  | local_70 = *(long *)(lVar24 + 0x28);
+  | if ((param_6 >> 5 & 1) == 0) {
+
+=== 0098fd80 size=5264 nc=5 FUN_0098fd80
+  C: FUN_00992064, LZCOUNT, FUN_00991f44, CONCAT44, __stack_chk_fail
+  | void FUN_0098fd80(ulong *param_1,ulong param_2,ushort *param_3,ulong param_4,long param_5,
+  | lVar19 = tpidr_el0;
+  | local_70 = *(long *)(lVar19 + 0x28);
+  | if ((param_6 >> 5 & 1) == 0) {
+
+=== 00991340 size=3076 nc=7 FUN_00991340
+  C: NEON_cmeq, ZEXT416, ZEXT816, a64_TBL, NEON_bit, NEON_bif, CONCAT44
+  | void FUN_00991340(undefined (*param_1) [16],undefined (*param_2) [16],undefined (*param_3) [16],
+  | undefined (*pauVar19) [16];
+  | undefined (*pauVar21) [16];
+  | auVar42 = _DAT_0011e490;
+
+=== 00992a84 size=2256 nc=6 FUN_00992a84
+  C: FUN_009921f4, FUN_009927dc, FUN_00993354, FUN_00993474, LZCOUNT, __stack_chk_fail
+  | ulong FUN_00992a84(undefined *param_1,long param_2,long param_3,long param_4,uint param_5,
+  | lVar11 = tpidr_el0;
+  | local_58 = *(long *)(lVar11 + 0x28);
+  | local_a8 = 0xff;
+
+=== 00993570 size=1484 nc=8 FUN_00993570
+  C: Hint_Prefetch, FUN_0098dcec, FUN_0098da24, FUN_00991210, FUN_0098d998, memcpy, memmove, memset
+  | ulong FUN_00993570(long param_1,uint *param_2,ulong param_3,long param_4,ulong param_5,int param_6)
+  | if (param_3 < 2) {
+  | return 0xffffffffffffffec;
+  | bVar5 = *(byte *)param_2;
+
+=== 00994384 size=9164 nc=8 FUN_00994384
+  C: memmove, LZCOUNT, Hint_Prefetch, SCARRY8, FUN_009986ec, FUN_00998e3c, CONCAT44, __stack_chk_fail
+  | ulong FUN_00994384(long *param_1,undefined8 *param_2,ulong param_3,ulong *param_4,ulong param_5,
+  | lVar13 = tpidr_el0;
+  | local_70 = *(long *)(lVar13 + 0x28);
+  | if (*(int *)(param_1 + 0xed4) == 1) {
+
+=== 00996750 size=5520 nc=9 FUN_00996750
+  C: LZCOUNT, FUN_00998e3c, memmove, SCARRY8, Hint_Prefetch, FUN_009986ec, CONCAT44, memcpy, __stack_chk_fail
+  | ulong FUN_00996750(long *param_1,undefined8 *param_2,ulong param_3,ulong *param_4,ulong param_5,
+  | lVar11 = tpidr_el0;
+  | local_88[3] = *(long *)(lVar11 + 0x28);
+  | local_100 = (undefined8 *)param_1[0xeb5];
+
+=== 00997ce0 size=2524 nc=7 FUN_00997ce0
+  C: LZCOUNT, Hint_Prefetch, FUN_009986ec, memmove, CONCAT44, memcpy, __stack_chk_fail
+  | void FUN_00997ce0(long *param_1,undefined8 *param_2,ulong param_3,ulong *param_4,ulong param_5,
+  | lVar12 = tpidr_el0;
+  | local_88[3] = *(long *)(lVar12 + 0x28);
+  | if (*(int *)(param_1 + 0xed4) == 0) {
+
+=== 00998a3c size=1024 nc=0 FUN_00998a3c
+  C: 
+  | void FUN_00998a3c(undefined8 *param_1,undefined8 *param_2,undefined8 *param_3,ulong param_4,
+  | uVar7 = (long)param_1 - (long)param_3;
+  | puVar1 = (undefined8 *)((long)param_1 + param_4);
+  | if ((long)param_4 < 8) {
+
+=== 00999804 size=1784 nc=3 FUN_00999804
+  C: FUN_0099a19c, FUN_0099a2c4, FUN_00999efc
+  | param_5 = param_5 & 0xffffffff;
+  | local_34[0] = param_3;
+  | LAB_00999838:
+  | do {
+
+=== 0099a8bc size=1824 nc=4 FUN_0099a8bc
+  C: FUN_0099afdc, FUN_009da6c8, FUN_0099b030, FUN_009da8b0
+  L: __next_prime overflow
+  | ulong FUN_0099a8bc(ulong param_1)
+  | if (param_1 < 0xd4) {
+  | uVar5 = 0x30;
+  | puVar4 = (uint *)&UNK_00220e0c;
+
+=== 009a4568 size=1088 nc=3 FUN_009a4568
+  C: malloc, FUN_0099b184, free
+  | byte * FUN_009a4568(long *param_1,long *param_2,byte *param_3,byte *param_4,long *param_5,
+  | __size = ((long)param_4 - (long)param_3 >> 3) * -0x5555555555555555;
+  | if (100 < __size) {
+  | __ptr = (char *)malloc(__size);
+
+=== 009a49dc size=1004 nc=7 FUN_009a49dc
+  C: FUN_009aae68, FUN_0099bf90, CONCAT71, FUN_009a74b8, FUN_009bfe40, FUN_009b4a54, free
+  | long * FUN_009a49dc(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar11 = 0;
+
+=== 009a4e18 size=1004 nc=7 FUN_009a4e18
+  C: FUN_009aae68, FUN_0099bf90, CONCAT71, FUN_009a74b8, FUN_009bff68, FUN_009b4a54, free
+  | long * FUN_009a4e18(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar11 = 0;
+
+=== 009a5254 size=1004 nc=7 FUN_009a5254
+  C: FUN_009aae68, FUN_0099bf90, CONCAT71, FUN_009a74b8, FUN_009c0090, FUN_009b4a54, free
+  | long * FUN_009a5254(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar11 = 0;
+
+=== 009a5690 size=1004 nc=7 FUN_009a5690
+  C: FUN_009aae68, FUN_0099bf90, CONCAT71, FUN_009a74b8, FUN_009c01e8, FUN_009b4a54, free
+  | long * FUN_009a5690(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar5 = 0;
+
+=== 009a5acc size=1004 nc=7 FUN_009a5acc
+  C: FUN_009aae68, FUN_0099bf90, CONCAT71, FUN_009a74b8, FUN_009c033c, FUN_009b4a54, free
+  | long * FUN_009a5acc(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar11 = 0;
+
+=== 009a5f08 size=1004 nc=7 FUN_009a5f08
+  C: FUN_009aae68, FUN_0099bf90, CONCAT71, FUN_009a74b8, FUN_009c0484, FUN_009b4a54, free
+  | long * FUN_009a5f08(undefined8 param_1,long *param_2,long *param_3,long param_4,uint *param_5,
+  | uVar1 = *(uint *)(param_4 + 8) & 0x4a;
+  | if (uVar1 == 0) {
+  | uVar11 = 0;
+
+=== 009a6f84 size=1248 nc=12 FUN_009a6f84
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c, FUN_0099bf90, CONCAT71, memchr, FUN_009c0920, newlocale, FUN_009c0a64, FUN_009a7678, free
+  | long * FUN_009a6f84(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | /* try { // try from 009a6fbc to 009a6fc3 has its CatchHandler @ 009a747c */
+  | FUN_0099ea08(&local_98,param_4);
+  | puVar11 = PTR_DAT_00a0db20;
+
+=== 009a79b8 size=1096 nc=3 FUN_009a79b8
+  C: malloc, FUN_0099b184, free
+  | byte * FUN_009a79b8(long *param_1,long *param_2,byte *param_3,byte *param_4,long *param_5,
+  | __size = ((long)param_4 - (long)param_3 >> 3) * -0x5555555555555555;
+  | if (100 < __size) {
+  | __ptr = (char *)malloc(__size);
+
+=== 009aa370 size=1236 nc=12 FUN_009aa370
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c, FUN_0099bf90, CONCAT71, wmemchr, FUN_009c0920, newlocale, FUN_009c0a64, FUN_009a7678, free
+  | long * FUN_009aa370(undefined8 param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | /* try { // try from 009aa3a8 to 009aa3af has its CatchHandler @ 009aa85c */
+  | FUN_0099ea08(&local_e8,param_4);
+  | puVar9 = PTR_DAT_00a0dce8;
+
+=== 009ac040 size=1032 nc=12 FUN_009ac040
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_009b6ee0, FUN_0099b184, malloc, FUN_0099ea08, FUN_009ae9c4, FUN_009ba98c, FUN_009acc2c, free
+  | undefined8
+  | FUN_009ac040(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | uVar2 = *(uint *)(param_4 + 8);
+  | local_68 = 0x25;
+
+=== 009ac4d0 size=1024 nc=12 FUN_009ac4d0
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_009b6ee0, FUN_0099b184, malloc, FUN_0099ea08, FUN_009ae9c4, FUN_009ba98c, FUN_009acc2c, free
+  | undefined8
+  | FUN_009ac4d0(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | uVar2 = *(uint *)(param_4 + 8);
+  | local_48 = 0x25;
+
+=== 009ad898 size=1032 nc=12 FUN_009ad898
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_009b6ee0, FUN_0099b184, malloc, FUN_0099ea08, FUN_009af3b8, FUN_009ba98c, FUN_009ae3d0, free
+  | undefined8
+  | FUN_009ad898(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | uVar2 = *(uint *)(param_4 + 8);
+  | local_68 = 0x25;
+
+=== 009add28 size=1024 nc=12 FUN_009add28
+  C: FUN_009c0920, newlocale, FUN_009c0a64, FUN_009acb6c, FUN_009b6ee0, FUN_0099b184, malloc, FUN_0099ea08, FUN_009af3b8, FUN_009ba98c, FUN_009ae3d0, free
+  | undefined8
+  | FUN_009add28(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4,
+  | uVar2 = *(uint *)(param_4 + 8);
+  | local_68 = 0x25;
+
+=== 009ae9c4 size=1460 nc=6 FUN_009ae9c4
+  C: FUN_0099a5c0, FUN_009c0920, newlocale, FUN_009c0a64, free, FUN_009a19b4
+  | void FUN_009ae9c4(byte *param_1,byte *param_2,byte *param_3,ulong param_4,ulong *param_5,
+  | ulong *param_6,long *param_7)
+  | puVar8 = PTR_DAT_00a0db20;
+  | lVar15 = *param_7;
+
+=== 009af3b8 size=1460 nc=6 FUN_009af3b8
+  C: FUN_0099a5c0, FUN_009c0920, newlocale, FUN_009c0a64, free, FUN_009a19b4
+  | void FUN_009af3b8(byte *param_1,byte *param_2,byte *param_3,ulong param_4,ulong *param_5,
+  | ulong *param_6,long *param_7)
+  | puVar6 = PTR_DAT_00a0dce8;
+  | lVar20 = *param_7;
+
+=== 009af9b0 size=1220 nc=4 FUN_009af9b0
+  C: FUN_0099ea08, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c
+  | long * FUN_009af9b0(long *param_1,long *param_2,long *param_3,undefined8 param_4,uint *param_5,
+  | FUN_0099ea08(&local_80,param_4);
+  | puVar2 = PTR_DAT_00a0db20;
+  | local_78 = PTR_DAT_00a0db20;
+
+=== 009b0328 size=1644 nc=15 FUN_009b0328
+  C: FUN_0099ea08, SUB84, FUN_0099a5c0, FUN_009a19b4, FUN_009ba98c, FUN_009b0b90, FUN_009a4568, SEXT816, SUB164, FUN_009b0d7c, FUN_009af9b0, FUN_009b09a8
+  | undefined8
+  | FUN_009b0328(long *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,uint *param_5,
+  | pbVar11 = (byte *)&local_80;
+  | *param_5 = 0;

@@ -1,0 +1,4878 @@
+only the pruned blocks, decoded from the ELF
+
+### 002c5310 gap=002dc2dc JNI_OnLoad size=94920
+  002dc2dc  str x9, [x8, #0x0]
+  002dc2e0  b 0x2d260c
+
+### 002e006c gap=002e09a4 FUN_002e006c size=6120
+  002e09a4  ldr x8, [x8, #0xfe0]
+  002e09a8  movk x10, #0x7228, lsl #16
+  002e09ac  ldr x9, [x9, #0xfe4]
+  002e09b0  movz x11, #0xa466
+  002e09b4  movz x26, #0x2121
+  002e09b8  eor x8, x8, x10, lsl #0
+  002e09bc  sub x10, x29, #0x9b4
+  002e09c0  movk x11, #0xfbc8, lsl #16
+  002e09c4  ldur x10, [x10, #-256]
+  002e09c8  movk x26, #0xa000, lsl #16
+  002e09cc  eor x9, x10, x9, lsl #0
+  002e09d0  movz x10, #0x2573
+  002e09d4  udiv x8, x8, x9
+  002e09d8  add x9, x11, #0x1
+  002e09dc  movk x10, #0xe501, lsl #16
+  002e09e0  eor x9, x11, x9, lsl #0
+  002e09e4  sub x11, x29, #0x9b8
+  002e09e8  ldur x11, [x11, #-256]
+  002e09ec  and x10, x8, x10, lsl #0
+  002e09f0  and x8, x8, x26, lsl #0
+  002e09f4  eor x8, x11, x8, lsl #0
+  002e09f8  add x9, x10, x9, lsl #0
+  002e09fc  movz x10, #0xbcb9
+  002e0a00  add x8, x9, x8, lsl #0
+  002e0a04  movz x9, #0xe835
+  002e0a08  movk x10, #0xdcc, lsl #16
+  002e0a0c  movk x9, #0x920a, lsl #16
+  002e0a10  movz x11, #0x70be
+  002e0a14  subs xzr, x8, x9, lsl #0
+  002e0a18  movz x9, #0xa0b
+  002e0a1c  ldr x8, [x6, #0x0]
+  002e0a20  movk x9, #0x2ab1, lsl #16
+  002e0a24  movk x11, #0xc4f, lsl #16
+  002e0a28  csel x9, x9, x10, eq
+  002e0a2c  movz x10, #0x4c1a
+  002e0a30  movk x10, #0x4f6f, lsl #16
+  002e0a34  str x9, [x8, #0x0]
+  002e0a38  b 0x2d260c
+
+### 002e9cf8 gap=002ead18 FUN_002e9cf8 size=22420
+  002ead18  strb x8, [x25, #0x2f]
+  002ead1c  movz x8, #0x9a
+  002ead20  eor x8, x10, x8, lsl #0
+  002ead24  ldrb x10, [x27, #0x31]
+  002ead28  movz x27, #0x22a6
+  002ead2c  strb x8, [x25, #0x30]
+  002ead30  movz x8, #0x43
+  002ead34  movk x27, #0x4012, lsl #16
+  002ead38  eor x8, x9, x8, lsl #0
+  002ead3c  ldr x9, [x20, #0x0]
+  002ead40  strb x8, [x25, #0x31]
+  002ead44  movz x8, #0xd2
+  002ead48  eor x8, x10, x8, lsl #0
+  002ead4c  strb x8, [x25, #0x32]
+  002ead50  movz x8, #0x83dd
+  002ead54  movk x8, #0xb24e, lsl #16
+  002ead58  str x8, [x9, #0x0]
+  002ead5c  b 0x2ea160
+
+### 002e9cf8 gap=002eee7c FUN_002e9cf8 size=22420
+  002eee7c  msub x8, x9, x10, x8
+  002eee80  movz x9, #0x83ed
+  002eee84  movz x10, #0x445c
+  002eee88  movk x9, #0x4b93, lsl #16
+  002eee8c  movk x10, #0xd1db, lsl #16
+  002eee90  madd x8, x8, x9, x10
+  002eee94  movz x9, #0x98c1
+  002eee98  movk x9, #0xe429, lsl #16
+  002eee9c  madd x8, x8, x9, xzr
+  002eeea0  ubfm x25, x8, #63, #63
+  002eeea4  bl 0x8da688
+  002eeea8  movz x8, #0xa9c6
+  002eeeac  movz x12, #0x489f
+  002eeeb0  movz x9, #0xd958
+  002eeeb4  movk x8, #0x4935, lsl #16
+  002eeeb8  movk x12, #0x532b, lsl #16
+  002eeebc  movk x9, #0xe34c, lsl #16
+  002eeec0  subs xzr, x25, x8, lsl #0
+  002eeec4  ldr x8, [x21, #0x0]
+  002eeec8  movz x25, #0x654
+  002eeecc  csel x9, x12, x9, hi
+  002eeed0  movk x25, #0xb428, lsl #16
+  002eeed4  str x9, [x8, #0x0]
+  002eeed8  b 0x2ee9bc
+
+### 002ef978 gap=002f0930 FUN_002ef978 size=14844
+  002f0930  and x9, x10, x11, lsl #0
+  002f0934  movz x11, #0x92
+  002f0938  strb x8, [x28, #0x0]
+  002f093c  bic x10, x11, x10, lsl #0
+  002f0940  ldrb x11, [x3, #0x4]
+  002f0944  orr x8, x9, x10, lsl #0
+  002f0948  ldrb x9, [x3, #0x2]
+  002f094c  ldrb x10, [x3, #0x3]
+  002f0950  orn x8, xzr, x8, lsl #0
+  002f0954  strb x8, [x28, #0x1]
+  002f0958  movz x8, #0x69
+  002f095c  eor x8, x9, x8, lsl #0
+  002f0960  ldrb x9, [x3, #0x5]
+  002f0964  strb x8, [x28, #0x2]
+  002f0968  eor x8, x10, x12, lsl #0
+  002f096c  movz x10, #0x6
+  002f0970  movz x12, #0x1e
+  002f0974  bic x10, x10, x11, lsl #0
+  002f0978  and x11, x11, #imm(n=0,r=29,s=29)
+  002f097c  bic x12, x12, x9, lsl #0
+  002f0980  and x9, x9, #imm(n=0,r=27,s=27)
+  002f0984  strb x8, [x28, #0x3]
+  002f0988  orr x8, x10, x11, lsl #0
+  002f098c  orr x9, x12, x9, lsl #0
+  002f0990  ldrb x11, [x3, #0x8]
+  002f0994  strb x8, [x28, #0x4]
+  002f0998  eor x8, x9, x2, lsl #0
+  002f099c  ldrb x9, [x3, #0x6]
+  002f09a0  strb x8, [x28, #0x5]
+  002f09a4  ldrb x8, [x3, #0x7]
+  002f09a8  movz x12, #0x5
+  002f09ac  orr x10, x9, x26, lsl #0
+  002f09b0  orn x9, x27, x9, lsl #0
+  002f09b4  and x9, x10, x9, lsl #0
+  002f09b8  movz x10, #0xfa
+  002f09bc  bic x10, x10, x8, lsl #0
+  002f09c0  and x8, x8, x12, lsl #0
+  002f09c4  orn x9, xzr, x9, lsl #0
+  002f09c8  orr x8, x10, x8, lsl #0
+  002f09cc  orn x10, xzr, x11, lsl #0
+  002f09d0  and x11, x11, #imm(n=0,r=31,s=3)
+  002f09d4  and x10, x10, #imm(n=0,r=27,s=27)
+  002f09d8  ldrb x12, [x3, #0x9]
+  002f09dc  strb x9, [x28, #0x6]
+  002f09e0  eor x8, x8, #imm(n=0,r=30,s=30)
+  002f09e4  orr x9, x10, x11, lsl #0
+  002f09e8  ldrb x10, [x3, #0xa]
+  002f09ec  strb x8, [x28, #0x7]
+
+### 002fea3c gap=00300b74 FUN_002fea3c size=10352
+  00300b74  orr x0, xzr, x26, lsl #0
+  00300b78  orr x1, xzr, x20, lsl #0
+  00300b7c  orr x2, xzr, x21, lsl #0
+  00300b80  eor x8, x8, x10, lsl #0
+  00300b84  movz x10, #0x7ce7
+  00300b88  movk x10, #0xccff, lsl #16
+  00300b8c  eor x9, x9, x10, lsl #0
+  00300b90  and x27, x8, x9, lsl #0
+  00300b94  bl 0x8e0990
+  00300b98  movz x8, #0x8da
+  00300b9c  movk x8, #0xeac4, lsl #16
+  00300ba0  subs xzr, x27, x8, lsl #0
+  00300ba4  b.ne 0x300bbc
+
+### 00303040 gap=00307d10 FUN_00303040 size=22068
+  00307d10  add x1, x1, #0x370
+  00307d14  orr x0, xzr, x20, lsl #0
+  00307d18  orr x2, xzr, x19, lsl #0
+  00307d1c  bl 0x8e0630
+  00307d20  adrp x8, 0x925000
+  00307d24  adrp x9, 0x925000
+  00307d28  movz x10, #0x4978
+  00307d2c  ldr x8, [x8, #0x1b8]
+  00307d30  ldr x9, [x9, #0x1bc]
+  00307d34  movz x11, #0x760b
+  00307d38  movk x10, #0x596e, lsl #16
+  00307d3c  movk x11, #0x3ba4, lsl #16
+  00307d40  eor x8, x8, x10, lsl #0
+  00307d44  eor x9, x9, x11, lsl #0
+  00307d48  movz x10, #0x5732
+  00307d4c  and x8, x8, x9, lsl #0
+  00307d50  movz x9, #0xaf2
+  00307d54  movk x10, #0xca4e, lsl #16
+  00307d58  movk x9, #0x744d, lsl #16
+  00307d5c  madd x8, x8, x9, x10
+  00307d60  movz x9, #0x3297
+  00307d64  movz x10, #0xc19f
+  00307d68  movk x9, #0x7e23, lsl #16
+  00307d6c  movk x10, #0x2814, lsl #16
+  00307d70  madd x8, x8, x9, xzr
+  00307d74  movz x9, #0x5b5b
+  00307d78  movk x9, #0xf673, lsl #16
+  00307d7c  eor x9, x10, x9, lsl #0
+  00307d80  ubfm x8, x8, #62, #63
+  00307d84  subs xzr, x8, x9, lsl #0
+  00307d88  b.ls 0x307d90
+
+### 0030889c gap=0030c184 FUN_0030889c size=21128
+  0030c184  eor x8, x8, x10, lsl #0
+  0030c188  eor x9, x9, x11, lsl #0
+  0030c18c  movz x10, #0xfe77
+  0030c190  udiv x8, x8, x9
+  0030c194  movk x10, #0x787c, lsl #16
+  0030c198  movz x9, #0x4a30
+  0030c19c  movz x11, #0x6a47
+  0030c1a0  movz x12, #0xd96
+  0030c1a4  movz x13, #0x4204
+  0030c1a8  ldur x26, [x14, #-256]
+  0030c1ac  movz x0, #0xa2c1
+  0030c1b0  movz x19, #0x6596
+  0030c1b4  movz x25, #0xcec9
+  0030c1b8  movk x9, #0x4f31, lsl #16
+  0030c1bc  movk x11, #0x1217, lsl #16
+  0030c1c0  movk x12, #0x17fc, lsl #16
+  0030c1c4  movk x13, #0xa73c, lsl #16
+  0030c1c8  movk x0, #0x2b49, lsl #16
+  0030c1cc  movk x19, #0x30, lsl #16
+  0030c1d0  movk x25, #0x6d1d, lsl #16
+  0030c1d4  orn x10, x10, x8, lsl #0
+  0030c1d8  add x14, x9, #0x1
+  0030c1dc  eor x14, x14, x9, lsl #0
+  0030c1e0  add x14, x8, x14, lsl #0
+  0030c1e4  add x14, x10, x14, lsl #0
+  0030c1e8  ubfm x14, x14, #1, #31
+  0030c1ec  madd x14, x14, x11, xzr
+  0030c1f0  ubfm x14, x14, #59, #63
+  0030c1f4  orr x14, x14, x12, lsl #0
+  0030c1f8  subs xzr, x14, x13, lsl #0
+  0030c1fc  b.hi 0x30c1d8
+
+### 0030f1dc gap=00311a74 FUN_0030f1dc size=11820
+  00311a74  b.eq 0x311bbc
+
+### 0031a400 gap=0031a6f8 FUN_0031a400 size=868
+  0031a6f8  movz x0, #0x8a
+  0031a6fc  bic x2, x2, x22, lsl #0
+  0031a700  orr x20, x7, x6, lsl #0
+  0031a704  orn x0, x0, x7, lsl #0
+  0031a708  ldrb x7, [x13, #0x4]
+  0031a70c  and x0, x20, x0, lsl #0
+  0031a710  movz x20, #0xeb
+  0031a714  orn x0, xzr, x0, lsl #0
+  0031a718  and x20, x7, x20, lsl #0
+  0031a71c  bic x7, x21, x7, lsl #0
+  0031a720  strb x0, [x10, #0x3]
+  0031a724  orr x0, x20, x7, lsl #0
+  0031a728  ldrb x7, [x13, #0x5]
+  0031a72c  orn x0, xzr, x0, lsl #0
+  0031a730  movz x20, #0x85
+  0031a734  ldrb x21, [x13, #0x6]
+  0031a738  strb x0, [x10, #0x4]
+  0031a73c  bic x0, x20, x7, lsl #0
+  0031a740  movz x20, #0x7a
+  0031a744  and x7, x7, x20, lsl #0
+  0031a748  and x20, x21, #imm(n=0,r=27,s=27)
+  0031a74c  sub x20, x21, x20, lsl #1
+  0031a750  movz x21, #0x53
+  0031a754  orr x0, x0, x7, lsl #0
+  0031a758  and x7, x22, x21, lsl #0
+  0031a75c  strb x0, [x10, #0x5]
+  0031a760  movz x21, #0x5b
+  0031a764  sub x0, x20, #0x1f
+  0031a768  orr x2, x7, x2, lsl #0
+  0031a76c  ldrb x7, [x13, #0x9]
+  0031a770  strb x0, [x10, #0x6]
+  0031a774  orn x0, xzr, x2, lsl #0
+  0031a778  ldrb x2, [x13, #0x8]
+  0031a77c  strb x0, [x10, #0x7]
+  0031a780  movz x0, #0x73
+  0031a784  ldrb x20, [x13, #0xc]
+  0031a788  eor x2, x2, x0, lsl #0
+  0031a78c  eor x3, x7, x3, lsl #0
+  0031a790  ldrb x7, [x13, #0xb]
+  0031a794  strb x2, [x10, #0x8]
+  0031a798  ldrb x2, [x13, #0xa]
+  0031a79c  and x21, x20, x21, lsl #0
+  0031a7a0  strb x3, [x10, #0x9]
+  0031a7a4  sub x3, x20, x21, lsl #1
+  0031a7a8  movz x20, #0xa1
+  0031a7ac  eor x2, x2, x4, lsl #0
+  0031a7b0  movz x21, #0xe9
+  0031a7b4  strb x2, [x10, #0xa]
+
+### 0031a9f8 gap=0031d094 FUN_0031a9f8 size=9744
+  0031d094  add sp, x10, #0x0
+  0031d098  adrp x10, 0x925000
+  0031d09c  adrp x11, 0x925000
+  0031d0a0  movz x12, #0x46ec
+  0031d0a4  ldr x10, [x10, #0xfb0]
+  0031d0a8  ldr x11, [x11, #0xfb4]
+  0031d0ac  movz x13, #0x76dd
+  0031d0b0  movk x12, #0x944, lsl #16
+  0031d0b4  movk x13, #0x17c5, lsl #16
+  0031d0b8  eor x10, x10, x12, lsl #0
+  0031d0bc  eor x11, x11, x13, lsl #0
+  0031d0c0  add x10, x11, x10, lsl #0
+  0031d0c4  movz x11, #0x37c0
+  0031d0c8  movk x11, #0x3446, lsl #16
+  0031d0cc  and x10, x10, x11, lsl #0
+  0031d0d0  movz x11, #0x31d2
+  0031d0d4  movk x11, #0x2002, lsl #16
+  0031d0d8  eor x10, x10, x11, lsl #0
+  0031d0dc  stur x10, [x9, #-16]
+  0031d0e0  add x9, xzr, #0x0
+  0031d0e4  sub x23, x9, #0x10
+  0031d0e8  add sp, x23, #0x0
+  0031d0ec  add x10, xzr, #0x0
+  0031d0f0  sub x22, x10, #0x10
+  0031d0f4  add sp, x22, #0x0
+  0031d0f8  movz x11, #0x9a1a
+  0031d0fc  stur x23, [x10, #-16]
+  0031d100  movz x10, #0x434a
+  0031d104  movk x11, #0x34ae, lsl #16
+  0031d108  add x8, x8, #0xd5b
+  0031d10c  movk x10, #0xe848, lsl #16
+  0031d110  stur x11, [x9, #-16]
+  0031d114  movz x9, #0x20a1
+  0031d118  eor x8, x8, x10, lsl #0
+  0031d11c  movk x9, #0x9724, lsl #16
+  0031d120  movz x20, #0x8a5f
+  0031d124  movz x19, #0x6ad3
+  0031d128  eor x9, x14, x9, lsl #0
+  0031d12c  movz x24, #0xd43
+  0031d130  movz x13, #0xa96
+  0031d134  stur x9, [x29, #-196]
+  0031d138  movz x9, #0xc34a
+  0031d13c  movz x14, #0x43c0
+  0031d140  movk x9, #0xeac9, lsl #16
+  0031d144  movz x28, #0xe97
+  0031d148  movz x17, #0x4954
+  0031d14c  and x8, x8, x9, lsl #0
+  0031d150  movz x9, #0x8ce1
+
+### 0031a9f8 gap=0031d09c FUN_0031a9f8 size=9744
+  0031d09c  adrp x11, 0x925000
+  0031d0a0  movz x12, #0x46ec
+  0031d0a4  ldr x10, [x10, #0xfb0]
+  0031d0a8  ldr x11, [x11, #0xfb4]
+  0031d0ac  movz x13, #0x76dd
+  0031d0b0  movk x12, #0x944, lsl #16
+  0031d0b4  movk x13, #0x17c5, lsl #16
+  0031d0b8  eor x10, x10, x12, lsl #0
+  0031d0bc  eor x11, x11, x13, lsl #0
+  0031d0c0  add x10, x11, x10, lsl #0
+  0031d0c4  movz x11, #0x37c0
+  0031d0c8  movk x11, #0x3446, lsl #16
+  0031d0cc  and x10, x10, x11, lsl #0
+  0031d0d0  movz x11, #0x31d2
+  0031d0d4  movk x11, #0x2002, lsl #16
+  0031d0d8  eor x10, x10, x11, lsl #0
+  0031d0dc  stur x10, [x9, #-16]
+  0031d0e0  add x9, xzr, #0x0
+  0031d0e4  sub x23, x9, #0x10
+  0031d0e8  add sp, x23, #0x0
+  0031d0ec  add x10, xzr, #0x0
+  0031d0f0  sub x22, x10, #0x10
+  0031d0f4  add sp, x22, #0x0
+  0031d0f8  movz x11, #0x9a1a
+  0031d0fc  stur x23, [x10, #-16]
+  0031d100  movz x10, #0x434a
+  0031d104  movk x11, #0x34ae, lsl #16
+  0031d108  add x8, x8, #0xd5b
+  0031d10c  movk x10, #0xe848, lsl #16
+  0031d110  stur x11, [x9, #-16]
+  0031d114  movz x9, #0x20a1
+  0031d118  eor x8, x8, x10, lsl #0
+  0031d11c  movk x9, #0x9724, lsl #16
+  0031d120  movz x20, #0x8a5f
+  0031d124  movz x19, #0x6ad3
+  0031d128  eor x9, x14, x9, lsl #0
+  0031d12c  movz x24, #0xd43
+  0031d130  movz x13, #0xa96
+  0031d134  stur x9, [x29, #-196]
+  0031d138  movz x9, #0xc34a
+  0031d13c  movz x14, #0x43c0
+  0031d140  movk x9, #0xeac9, lsl #16
+  0031d144  movz x28, #0xe97
+  0031d148  movz x17, #0x4954
+  0031d14c  and x8, x8, x9, lsl #0
+  0031d150  movz x9, #0x8ce1
+  0031d154  movz x26, #0x9a19
+  0031d158  stur x8, [x29, #-200]
+
+### 0031d008 gap=0031d094 FUN_0031d008 size=984
+  0031d094  add sp, x10, #0x0
+  0031d098  adrp x10, 0x925000
+  0031d09c  adrp x11, 0x925000
+  0031d0a0  movz x12, #0x46ec
+  0031d0a4  ldr x10, [x10, #0xfb0]
+  0031d0a8  ldr x11, [x11, #0xfb4]
+  0031d0ac  movz x13, #0x76dd
+  0031d0b0  movk x12, #0x944, lsl #16
+  0031d0b4  movk x13, #0x17c5, lsl #16
+  0031d0b8  eor x10, x10, x12, lsl #0
+  0031d0bc  eor x11, x11, x13, lsl #0
+  0031d0c0  add x10, x11, x10, lsl #0
+  0031d0c4  movz x11, #0x37c0
+  0031d0c8  movk x11, #0x3446, lsl #16
+  0031d0cc  and x10, x10, x11, lsl #0
+  0031d0d0  movz x11, #0x31d2
+  0031d0d4  movk x11, #0x2002, lsl #16
+  0031d0d8  eor x10, x10, x11, lsl #0
+  0031d0dc  stur x10, [x9, #-16]
+  0031d0e0  add x9, xzr, #0x0
+  0031d0e4  sub x23, x9, #0x10
+  0031d0e8  add sp, x23, #0x0
+  0031d0ec  add x10, xzr, #0x0
+  0031d0f0  sub x22, x10, #0x10
+  0031d0f4  add sp, x22, #0x0
+  0031d0f8  movz x11, #0x9a1a
+  0031d0fc  stur x23, [x10, #-16]
+  0031d100  movz x10, #0x434a
+  0031d104  movk x11, #0x34ae, lsl #16
+  0031d108  add x8, x8, #0xd5b
+  0031d10c  movk x10, #0xe848, lsl #16
+  0031d110  stur x11, [x9, #-16]
+  0031d114  movz x9, #0x20a1
+  0031d118  eor x8, x8, x10, lsl #0
+  0031d11c  movk x9, #0x9724, lsl #16
+  0031d120  movz x20, #0x8a5f
+  0031d124  movz x19, #0x6ad3
+  0031d128  eor x9, x14, x9, lsl #0
+  0031d12c  movz x24, #0xd43
+  0031d130  movz x13, #0xa96
+  0031d134  stur x9, [x29, #-196]
+  0031d138  movz x9, #0xc34a
+  0031d13c  movz x14, #0x43c0
+  0031d140  movk x9, #0xeac9, lsl #16
+  0031d144  movz x28, #0xe97
+  0031d148  movz x17, #0x4954
+  0031d14c  and x8, x8, x9, lsl #0
+  0031d150  movz x9, #0x8ce1
+
+### 0031d008 gap=0031d09c FUN_0031d008 size=984
+  0031d09c  adrp x11, 0x925000
+  0031d0a0  movz x12, #0x46ec
+  0031d0a4  ldr x10, [x10, #0xfb0]
+  0031d0a8  ldr x11, [x11, #0xfb4]
+  0031d0ac  movz x13, #0x76dd
+  0031d0b0  movk x12, #0x944, lsl #16
+  0031d0b4  movk x13, #0x17c5, lsl #16
+  0031d0b8  eor x10, x10, x12, lsl #0
+  0031d0bc  eor x11, x11, x13, lsl #0
+  0031d0c0  add x10, x11, x10, lsl #0
+  0031d0c4  movz x11, #0x37c0
+  0031d0c8  movk x11, #0x3446, lsl #16
+  0031d0cc  and x10, x10, x11, lsl #0
+  0031d0d0  movz x11, #0x31d2
+  0031d0d4  movk x11, #0x2002, lsl #16
+  0031d0d8  eor x10, x10, x11, lsl #0
+  0031d0dc  stur x10, [x9, #-16]
+  0031d0e0  add x9, xzr, #0x0
+  0031d0e4  sub x23, x9, #0x10
+  0031d0e8  add sp, x23, #0x0
+  0031d0ec  add x10, xzr, #0x0
+  0031d0f0  sub x22, x10, #0x10
+  0031d0f4  add sp, x22, #0x0
+  0031d0f8  movz x11, #0x9a1a
+  0031d0fc  stur x23, [x10, #-16]
+  0031d100  movz x10, #0x434a
+  0031d104  movk x11, #0x34ae, lsl #16
+  0031d108  add x8, x8, #0xd5b
+  0031d10c  movk x10, #0xe848, lsl #16
+  0031d110  stur x11, [x9, #-16]
+  0031d114  movz x9, #0x20a1
+  0031d118  eor x8, x8, x10, lsl #0
+  0031d11c  movk x9, #0x9724, lsl #16
+  0031d120  movz x20, #0x8a5f
+  0031d124  movz x19, #0x6ad3
+  0031d128  eor x9, x14, x9, lsl #0
+  0031d12c  movz x24, #0xd43
+  0031d130  movz x13, #0xa96
+  0031d134  stur x9, [x29, #-196]
+  0031d138  movz x9, #0xc34a
+  0031d13c  movz x14, #0x43c0
+  0031d140  movk x9, #0xeac9, lsl #16
+  0031d144  movz x28, #0xe97
+  0031d148  movz x17, #0x4954
+  0031d14c  and x8, x8, x9, lsl #0
+  0031d150  movz x9, #0x8ce1
+  0031d154  movz x26, #0x9a19
+  0031d158  stur x8, [x29, #-200]
+
+### 00323764 gap=00323a58 FUN_00323764 size=2980
+  00323a58  add x8, x8, x9, lsl #0
+  00323a5c  movz x9, #0x23be
+  00323a60  movk x9, #0x3591, lsl #16
+  00323a64  subs xzr, x8, x9, lsl #0
+  00323a68  b.hi 0x323b10
+
+### 003245d4 gap=00324614 FUN_003245d4 size=2956
+  00324614  movk x12, #0x9c79, lsl #16
+  00324618  movk x9, #0x1851, lsl #16
+  0032461c  movk x10, #0x6aef, lsl #16
+  00324620  movk x13, #0x1604, lsl #16
+  00324624  eor x9, x8, x9, lsl #0
+  00324628  eor x8, x8, x11, lsl #0
+  0032462c  orr x11, x10, #imm(n=0,r=0,s=1)
+  00324630  and x12, x9, x12, lsl #0
+  00324634  add x8, x9, x8, lsl #0
+  00324638  movz x9, #0x6494
+  0032463c  sub x12, x8, x12, lsl #0
+  00324640  movk x9, #0xe9fb, lsl #16
+  00324644  eor x8, x11, x10, lsl #0
+  00324648  bic x9, x9, x12, lsl #0
+  0032464c  and x10, x12, x13, lsl #0
+  00324650  movz x11, #0x210a
+  00324654  movz x13, #0x459e
+  00324658  orr x10, x9, x10, lsl #0
+  0032465c  movk x11, #0x4a07, lsl #16
+  00324660  movk x13, #0xa3fc, lsl #16
+  00324664  eor x10, x10, x11, lsl #0
+  00324668  movz x9, #0x67bc
+  0032466c  and x11, x12, x13, lsl #0
+  00324670  movz x12, #0xdd10
+  00324674  movk x9, #0xe2f0, lsl #16
+  00324678  orr x10, x10, x11, lsl #0
+  0032467c  movz x11, #0x8353
+  00324680  movk x12, #0xf8c8, lsl #16
+  00324684  movk x11, #0xa055, lsl #16
+  00324688  add x13, x9, #0x1
+  0032468c  eor x13, x13, x9, lsl #0
+  00324690  sub x13, x10, x13, lsl #0
+  00324694  add x13, x13, x11, lsl #0
+  00324698  subs xzr, x13, x12, lsl #0
+  0032469c  b.hi 0x324688
+
+### 00325160 gap=00325200 FUN_00325160 size=12388
+  00325200  movk x8, #0x969a, lsl #16
+  00325204  eor x8, x10, x8, lsl #0
+  00325208  eor x10, x10, x12, lsl #0
+  0032520c  movz x12, #0xcd81
+  00325210  movk x12, #0xb947, lsl #16
+  00325214  eor x9, x11, x9, lsl #0
+  00325218  eor x11, x11, x12, lsl #0
+  0032521c  and x10, x9, x10, lsl #0
+  00325220  and x11, x8, x11, lsl #0
+  00325224  madd x10, x11, x10, xzr
+  00325228  and x11, x8, x9, lsl #0
+  0032522c  orr x12, x8, x9, lsl #0
+  00325230  madd x11, x12, x11, x10
+  00325234  eor x12, x11, x25, lsl #0
+  00325238  and x11, x11, x26, lsl #0
+  0032523c  and x11, x11, x12, lsl #0
+  00325240  add x11, x11, x27, lsl #0
+  00325244  subs xzr, x11, x19, lsl #0
+  00325248  b.cc 0x325228
+
+### 0032a270 gap=0032ec60 FUN_0032a270 size=26748
+  0032ec60  orn x2, x2, x3, lsl #0
+  0032ec64  orr x3, x3, x4, lsl #0
+  0032ec68  ldrb x4, [x17, #0x4]
+  0032ec6c  adrp x1, 0x926000
+  0032ec70  and x2, x2, x3, lsl #0
+  0032ec74  movz x3, #0x43
+  0032ec78  movz x5, #0xbc
+  0032ec7c  ldr x1, [x1, #0xd90]
+  0032ec80  eor x8, x8, x0, lsl #0
+  0032ec84  movz x0, #0xe6ce
+  0032ec88  orn x3, x3, x4, lsl #0
+  0032ec8c  orr x4, x4, x5, lsl #0
+  0032ec90  ldrb x5, [x17, #0x5]
+  0032ec94  movk x0, #0x50f9, lsl #16
+  0032ec98  strb x2, [x16, #0x4]
+  0032ec9c  and x2, x3, x4, lsl #0
+  0032eca0  movz x3, #0xad
+  0032eca4  eor x0, x1, x0, lsl #0
+  0032eca8  eor x1, x5, x3, lsl #0
+  0032ecac  strb x2, [x16, #0x5]
+  0032ecb0  orr x8, x8, x0, lsl #0
+  0032ecb4  strb x1, [x16, #0x6]
+  0032ecb8  ldrb x1, [x17, #0x7]
+  0032ecbc  ldrb x0, [x17, #0x6]
+  0032ecc0  ldrb x2, [x17, #0x8]
+  0032ecc4  movz x4, #0xde
+  0032ecc8  movz x5, #0x21
+  0032eccc  movz x3, #0x85
+  0032ecd0  orr x4, x1, x4, lsl #0
+  0032ecd4  orn x1, x5, x1, lsl #0
+  0032ecd8  and x5, x2, #imm(n=0,r=1,s=60)
+  0032ecdc  eor x0, x0, x3, lsl #0
+  0032ece0  and x1, x4, x1, lsl #0
+  0032ece4  sub x2, x2, x5, lsl #1
+  0032ece8  movz x3, #0x4bed
+  0032ecec  strb x0, [x16, #0x7]
+  0032ecf0  orn x0, xzr, x1, lsl #0
+  0032ecf4  movz x1, #0x6b43
+  0032ecf8  movk x3, #0x51f5, lsl #16
+  0032ecfc  movk x1, #0x443, lsl #16
+  0032ed00  strb x0, [x16, #0x8]
+  0032ed04  add x0, x2, #0x2a
+  0032ed08  madd x8, x8, x3, x1
+  0032ed0c  ldrb x1, [x17, #0xa]
+  0032ed10  ldrb x3, [x17, #0xb]
+  0032ed14  strb x0, [x16, #0x9]
+  0032ed18  ldrb x0, [x17, #0x9]
+  0032ed1c  movz x2, #0x2d
+
+### 0032a270 gap=0032f928 FUN_0032a270 size=26748
+  0032f928  orr x8, x8, x2, lsl #0
+  0032f92c  movz x2, #0x5d
+  0032f930  orn x4, xzr, x5, lsl #0
+  0032f934  eor x8, x8, x2, lsl #0
+  0032f938  and x4, x4, #imm(n=0,r=0,s=56)
+  0032f93c  and x5, x5, #imm(n=0,r=3,s=58)
+  0032f940  strb x8, [x3, #0x1d]
+  0032f944  orr x8, x4, x5, lsl #0
+  0032f948  ldrb x4, [x12, #0x20]
+  0032f94c  strb x8, [x3, #0x1e]
+  0032f950  ldrb x8, [x12, #0x1f]
+  0032f954  movz x5, #0x3b
+  0032f958  and x17, x4, x17, lsl #0
+  0032f95c  movz x7, #0xa3
+  0032f960  sub x17, x4, x17, lsl #1
+  0032f964  movz x4, #0x5c
+  0032f968  eor x8, x8, x5, lsl #0
+  0032f96c  bic x4, x4, x6, lsl #0
+  0032f970  and x5, x6, x7, lsl #0
+  0032f974  strb x8, [x3, #0x1f]
+  0032f978  add x8, x17, #0x5
+  0032f97c  orr x17, x4, x5, lsl #0
+  0032f980  ldrb x4, [x12, #0x24]
+  0032f984  strb x8, [x3, #0x20]
+  0032f988  eor x8, x17, x16, lsl #0
+  0032f98c  ldrb x16, [x12, #0x22]
+  0032f990  strb x8, [x3, #0x21]
+  0032f994  ldrb x17, [x12, #0x25]
+  0032f998  and x15, x4, x15, lsl #0
+  0032f99c  eor x8, x16, #imm(n=0,r=27,s=27)
+  0032f9a0  ldrb x16, [x12, #0x23]
+  0032f9a4  strb x8, [x3, #0x22]
+  0032f9a8  movz x8, #0x67
+  0032f9ac  and x5, x17, #imm(n=0,r=0,s=60)
+  0032f9b0  eor x8, x16, x8, lsl #0
+  0032f9b4  movz x16, #0xd4
+  0032f9b8  sub x17, x17, x5, lsl #1
+  0032f9bc  bic x16, x16, x4, lsl #0
+  0032f9c0  strb x8, [x3, #0x23]
+  0032f9c4  movz x4, #0x27
+  0032f9c8  orr x8, x16, x15, lsl #0
+  0032f9cc  ldrb x16, [x12, #0x28]
+  0032f9d0  ldrb x15, [x12, #0x27]
+  0032f9d4  strb x8, [x3, #0x24]
+  0032f9d8  sub x8, x17, #0x2b
+  0032f9dc  ldrb x5, [x12, #0x29]
+  0032f9e0  strb x8, [x3, #0x25]
+  0032f9e4  ldrb x8, [x12, #0x26]
+
+### 0033110c gap=00331ab0 FUN_0033110c size=13212
+  00331ab0  movk x11, #0x6ac9, lsl #16
+  00331ab4  movk x12, #0x9536, lsl #16
+  00331ab8  eor x11, x9, x11, lsl #0
+  00331abc  eor x9, x9, x12, lsl #0
+  00331ac0  movz x12, #0x3732
+  00331ac4  and x8, x8, x11, lsl #0
+  00331ac8  and x9, x10, x9, lsl #0
+  00331acc  movz x10, #0xc623
+  00331ad0  sub x8, x9, x8, lsl #0
+  00331ad4  movz x9, #0x39dc
+  00331ad8  movk x10, #0x5e3a, lsl #16
+  00331adc  movk x9, #0xa1c5, lsl #16
+  00331ae0  and x10, x8, x10, lsl #0
+  00331ae4  movz x11, #0x2205
+  00331ae8  bic x9, x9, x8, lsl #0
+  00331aec  movk x11, #0x6239, lsl #16
+  00331af0  movk x12, #0x916f, lsl #16
+  00331af4  orr x9, x9, x10, lsl #0
+  00331af8  movz x10, #0xc076
+  00331afc  movk x10, #0xcf60, lsl #16
+  00331b00  eor x9, x9, x10, lsl #0
+  00331b04  movz x10, #0xf9aa
+  00331b08  movk x10, #0x6ea5, lsl #16
+  00331b0c  and x8, x8, x10, lsl #0
+  00331b10  movz x10, #0xc8cd
+  00331b14  orr x8, x9, x8, lsl #0
+  00331b18  add x9, x11, #0x2
+  00331b1c  movk x10, #0x6e90, lsl #16
+  00331b20  eor x10, x8, x10, lsl #0
+  00331b24  and x8, x8, x12, lsl #0
+  00331b28  eor x9, x11, x9, lsl #0
+  00331b2c  sub x10, xzr, x10, lsl #0
+  00331b30  madd x8, x9, x8, x10
+  00331b34  movz x9, #0xcb44
+  00331b38  movk x9, #0x3d, lsl #16
+  00331b3c  orr x8, x8, x9, lsl #0
+  00331b40  movz x9, #0x95a8
+  00331b44  movk x9, #0x98ca, lsl #16
+  00331b48  subs xzr, x8, x9, lsl #0
+  00331b4c  ldr x8, [x26, #0x0]
+  00331b50  csel x9, x27, x22, ne
+  00331b54  str x9, [x8, #0x0]
+  00331b58  b 0x3316ec
+
+### 0033110c gap=0033202c FUN_0033110c size=13212
+  0033202c  str x9, [x8, #0x0]
+  00332030  b 0x331d2c
+
+### 0033110c gap=00332618 FUN_0033110c size=13212
+  00332618  add x11, x11, #0x5b
+  0033261c  strb x12, [x10, #0x2]
+  00332620  ldrb x12, [x9, #0x4]
+  00332624  eor x13, x13, x14, lsl #0
+  00332628  strb x11, [x10, #0x0]
+  0033262c  movz x11, #0xd7
+  00332630  movz x14, #0x28
+  00332634  ldrb x15, [x9, #0x6]
+  00332638  orr x11, x12, x11, lsl #0
+  0033263c  orn x12, x14, x12, lsl #0
+  00332640  movz x14, #0x51
+  00332644  and x11, x11, x12, lsl #0
+  00332648  ldrb x12, [x9, #0x5]
+  0033264c  and x14, x15, x14, lsl #0
+  00332650  strb x13, [x10, #0x3]
+  00332654  sub x13, x15, x14, lsl #1
+  00332658  orn x11, xzr, x11, lsl #0
+  0033265c  strb x11, [x10, #0x4]
+  00332660  eor x11, x12, #imm(n=0,r=28,s=3)
+  00332664  strb x11, [x10, #0x5]
+  00332668  add x11, x13, #0x51
+  0033266c  strb x11, [x10, #0x6]
+  00332670  movz x11, #0x8ee
+  00332674  movz x12, #0x5304
+  00332678  movz x14, #0x531c
+  0033267c  movz x16, #0xf162
+  00332680  movz x17, #0xb1b3
+  00332684  movz x0, #0x4e4c
+  00332688  movz x2, #0xd2a7
+  0033268c  movz x3, #0xd818
+  00332690  movz x23, #0x6746
+  00332694  movk x11, #0x5db4, lsl #16
+  00332698  movk x12, #0x4dd4, lsl #16
+  0033269c  adrp x13, 0x928000
+  003326a0  movk x14, #0xf71f, lsl #16
+  003326a4  adrp x15, 0x928000
+  003326a8  movk x16, #0xa5d2, lsl #16
+  003326ac  movk x17, #0x2914, lsl #16
+  003326b0  movk x0, #0x56eb, lsl #16
+  003326b4  movk x2, #0x9f72, lsl #16
+  003326b8  movk x3, #0xb23d, lsl #16
+  003326bc  movz x5, #0xa4
+  003326c0  movz x6, #0x5b
+  003326c4  movz x7, #0x74
+  003326c8  movz x19, #0x6f
+  003326cc  movz x20, #0xe
+  003326d0  movz x21, #0x26
+  003326d4  movz x22, #0x51
+
+### 0033110c gap=00333044 FUN_0033110c size=13212
+  00333044  movz x9, #0x2eef
+  00333048  movk x10, #0x3ca, lsl #48
+  0033304c  movk x9, #0x8937, lsl #16
+  00333050  movk x12, #0xa870, lsl #16
+  00333054  eor x8, x8, x9, lsl #0
+  00333058  movz x9, #0x4860
+  0033305c  movk x9, #0xa4b6, lsl #16
+  00333060  madd x11, x8, x9, xzr
+  00333064  movz x8, #0xd945
+  00333068  movz x9, #0x76b9
+  0033306c  movk x8, #0x17c8, lsl #16
+  00333070  movk x9, #0x2b4e, lsl #16
+  00333074  movk x8, #0xb667, lsl #32
+  00333078  movk x9, #0x2719, lsl #32
+  0033307c  movk x8, #0x3ad7, lsl #48
+  00333080  movk x9, #0x433, lsl #48
+  00333084  subs xzr, x11, x12, lsl #0
+  00333088  b.eq 0x333084
+
+### 00336fd8 gap=00337280 FUN_00336fd8 size=4532
+  00337280  strb x10, [x22, #0x5]
+  00337284  orr x10, x16, x3, lsl #0
+  00337288  movz x16, #0xed
+  0033728c  bic x3, x14, x6, lsl #0
+  00337290  and x16, x6, x16, lsl #0
+  00337294  ldrb x6, [x24, #0x8]
+  00337298  strb x10, [x22, #0x6]
+  0033729c  orr x10, x3, x16, lsl #0
+  003372a0  ldrb x16, [x5, #0x0]
+  003372a4  strb x10, [x22, #0x7]
+  003372a8  movz x10, #0xf6
+  003372ac  ldrb x3, [x24, #0x9]
+  003372b0  eor x10, x6, x10, lsl #0
+  003372b4  movz x14, #0x59
+  003372b8  strb x10, [x22, #0x8]
+  003372bc  and x10, x16, x27, lsl #0
+  003372c0  bic x6, x14, x3, lsl #0
+  003372c4  sub x10, x16, x10, lsl #1
+  003372c8  and x3, x3, x7, lsl #0
+  003372cc  movz x14, #0x2c
+  003372d0  orr x16, x6, x3, lsl #0
+  003372d4  ldrb x3, [x5, #0x1]
+  003372d8  ldrb x6, [x5, #0x3]
+  003372dc  add x10, x10, #0x2b
+  003372e0  strb x16, [x22, #0x9]
+  003372e4  ldrb x16, [x5, #0x2]
+  003372e8  strb x10, [x15, #0x0]
+  003372ec  movz x10, #0x51
+  003372f0  ldrb x7, [x5, #0x9]
+  003372f4  eor x10, x3, x10, lsl #0
+  003372f8  and x3, x6, x14, lsl #0
+  003372fc  movz x14, #0x23
+  00337300  strb x10, [x15, #0x1]
+  00337304  eor x10, x16, #imm(n=0,r=31,s=5)
+  00337308  sub x16, x6, x3, lsl #1
+  0033730c  strb x10, [x15, #0x2]
+  00337310  ldrb x10, [x5, #0x4]
+  00337314  movz x3, #0xf4
+  00337318  sub x16, x16, #0x54
+  0033731c  ldrb x6, [x5, #0x5]
+  00337320  eor x10, x10, x3, lsl #0
+  00337324  strb x16, [x15, #0x3]
+  00337328  ldrb x16, [x5, #0x6]
+  0033732c  strb x10, [x15, #0x4]
+  00337330  movz x10, #0x79
+  00337334  ldrb x3, [x5, #0xa]
+  00337338  eor x10, x6, x10, lsl #0
+  0033733c  movz x6, #0x75
+
+### 00338ee8 gap=0033aec0 FUN_00338ee8 size=12320
+  0033aec0  ldr x9, [x9, #0x410]
+  0033aec4  movz x11, #0x83b1
+  0033aec8  movk x10, #0xc077, lsl #16
+  0033aecc  movk x11, #0x6cb8, lsl #16
+  0033aed0  orr x19, xzr, x0, lsl #0
+  0033aed4  eor x8, x8, x10, lsl #0
+  0033aed8  eor x9, x9, x11, lsl #0
+  0033aedc  movz x10, #0x171b
+  0033aee0  movk x10, #0xa02e, lsl #16
+  0033aee4  orr x8, x8, x9, lsl #0
+  0033aee8  movz x9, #0x8009
+  0033aeec  add x8, x8, x10, lsl #0
+  0033aef0  movz x10, #0x3ee4
+  0033aef4  movk x9, #0x359, lsl #16
+  0033aef8  movk x10, #0x78a4, lsl #16
+  0033aefc  eor x11, x8, x9, lsl #0
+  0033af00  movz x9, #0xae2d
+  0033af04  eor x8, x8, x10, lsl #0
+  0033af08  movz x10, #0x51d2
+  0033af0c  movk x9, #0x73fd, lsl #16
+  0033af10  movk x10, #0x8c02, lsl #16
+  0033af14  and x11, x11, x9, lsl #0
+  0033af18  and x10, x8, x10, lsl #0
+  0033af1c  madd x10, x11, x10, xzr
+  0033af20  movz x11, #0x2373
+  0033af24  movk x11, #0xdc89, lsl #16
+  0033af28  and x12, x8, x9, lsl #0
+  0033af2c  orr x13, x8, x9, lsl #0
+  0033af30  madd x12, x13, x12, x10
+  0033af34  subs xzr, x12, x11, lsl #0
+  0033af38  b.hi 0x33af28
+
+### 00338ee8 gap=00339f78 FUN_00338ee8 size=12320
+  00339f78  eor x9, x8, x9, lsl #0
+  00339f7c  and x8, x9, x8, lsl #0
+  00339f80  movz x9, #0x7f27
+  00339f84  movk x9, #0xe703, lsl #16
+  00339f88  subs xzr, x8, x9, lsl #0
+  00339f8c  b.hi 0x339f88
+
+### 0033cb08 gap=0033e524 FUN_0033cb08 size=8308
+  0033e524  udiv x16, x16, x17
+  0033e528  eor x16, x16, x12, lsl #0
+  0033e52c  madd x17, x16, x13, xzr
+  0033e530  ubfm x17, x17, #32, #63
+  0033e534  sub x16, x16, x17, lsl #0
+  0033e538  add x16, x17, x16, lsr #1
+  0033e53c  subs xzr, x15, x16, lsr #30
+  0033e540  ldur x16, [x29, #-168]
+  0033e544  str x14, [x16, #0x10]
+  0033e548  b.eq 0x33e514
+
+### 00340198 gap=00340714 FUN_00340198 size=14628
+  00340714  eor x9, x10, x9, lsl #0
+  00340718  add x8, x8, x9, lsl #0
+  0034071c  movz x9, #0x1a5d
+  00340720  movk x9, #0xa712, lsl #16
+  00340724  subs xzr, x8, x9, lsl #0
+  00340728  b.ne 0x340734
+
+### 00340198 gap=00342194 FUN_00340198 size=14628
+  00342194  movz x8, #0xa2
+  00342198  bic x11, x11, x15, lsl #0
+  0034219c  bic x8, x8, x9, lsl #0
+  003421a0  and x9, x9, x16, lsl #0
+  003421a4  and x15, x15, x17, lsl #0
+  003421a8  orr x8, x8, x9, lsl #0
+  003421ac  orr x9, x11, x15, lsl #0
+  003421b0  movz x11, #0xa4
+  003421b4  strb x8, [x10, #0x3]
+  003421b8  eor x8, x9, x11, lsl #0
+  003421bc  strb x8, [x10, #0x4]
+  003421c0  movz x8, #0x5961
+  003421c4  movz x11, #0xdf3
+  003421c8  movz x1, #0xb51a
+  003421cc  movk x8, #0xfd1a, lsl #16
+  003421d0  movk x11, #0x1bdb, lsl #16
+  003421d4  movz x2, #0xc2ff
+  003421d8  add x8, x8, #0xe19
+  003421dc  movz x3, #0x9576
+  003421e0  movk x1, #0x7027, lsl #16
+  003421e4  eor x5, x8, x11, lsl #0
+  003421e8  movz x11, #0x91cb
+  003421ec  movk x2, #0x3399, lsl #16
+  003421f0  movk x3, #0x113e, lsl #16
+  003421f4  movz x6, #0xc9
+  003421f8  movz x7, #0x36
+  003421fc  movz x19, #0x86
+  00342200  movz x20, #0xac
+  00342204  movz x21, #0x53
+  00342208  movz x24, #0x9d
+  0034220c  movz x25, #0x97
+  00342210  movz x26, #0x68
+  00342214  movz x27, #0x84
+  00342218  movz x28, #0xc2
+  0034221c  movz x30, #0x3d
+  00342220  movz x8, #0xde
+  00342224  adrp x4, 0x927000
+  00342228  add x4, x4, #0x2c0
+  0034222c  movz x22, #0x16
+  00342230  movz x23, #0xa2
+  00342234  movk x11, #0xddf3, lsl #16
+  00342238  ldrb x9, [x12, #0x0]
+  0034223c  ldrb x10, [x12, #0x1]
+  00342240  ldrb x16, [x12, #0x3]
+  00342244  ldrb x15, [x12, #0x2]
+  00342248  orn x17, xzr, x9, lsl #0
+  0034224c  orn x0, xzr, x10, lsl #0
+  00342250  orr x9, x9, #imm(n=0,r=31,s=6)
+
+### 00340198 gap=00343d04 FUN_00340198 size=14628
+  00343d04  movk x11, #0x114e, lsl #16
+  00343d08  ldur x9, [x29, #-88]
+  00343d0c  adrp x14, 0x928000
+  00343d10  adrp x15, 0x928000
+  00343d14  movk x16, #0x22ad, lsl #16
+  00343d18  movk x17, #0xef85, lsl #16
+  00343d1c  movk x0, #0x1a10, lsl #16
+  00343d20  udiv x8, x8, x9
+  00343d24  movz x9, #0xa7cf
+  00343d28  movk x1, #0x1bdb, lsl #16
+  00343d2c  movk x9, #0xeeb1, lsl #16
+  00343d30  movk x2, #0x6646, lsl #16
+  00343d34  and x9, x8, x9, lsl #0
+  00343d38  bic x10, x11, x8, lsl #0
+  00343d3c  madd x9, x10, x9, xzr
+  00343d40  and x10, x8, x11, lsl #0
+  00343d44  orr x8, x8, x11, lsl #0
+  00343d48  madd x8, x8, x10, x9
+  00343d4c  movz x9, #0x87b0
+  00343d50  movk x9, #0xd971, lsl #16
+  00343d54  and x8, x8, x9, lsl #0
+  00343d58  movz x9, #0x18ac
+  00343d5c  movk x9, #0x9a2, lsl #16
+  00343d60  subs xzr, x8, x9, lsl #0
+  00343d64  b.ne 0x343d70
+
+### 00340198 gap=00342964 FUN_00340198 size=14628
+  00342964  sub x8, xzr, #0x10
+  00342968  add sp, x8, #0x0
+  0034296c  sub x8, xzr, #0x20
+  00342970  add sp, x8, #0x0
+  00342974  sub x8, xzr, #0x10
+  00342978  add sp, x8, #0x0
+  0034297c  adrp x8, 0x928000
+  00342980  adrp x9, 0x928000
+  00342984  movz x10, #0x6b8
+  00342988  ldr x8, [x8, #0xaac]
+  0034298c  ldr x9, [x9, #0xab0]
+  00342990  movz x11, #0x6d15
+  00342994  movk x10, #0xb491, lsl #16
+  00342998  movk x11, #0x5e2c, lsl #16
+  0034299c  movz x22, #0x685c
+  003429a0  eor x8, x8, x10, lsl #0
+  003429a4  eor x9, x9, x11, lsl #0
+  003429a8  movz x21, #0x71c2
+  003429ac  udiv x8, x8, x9
+  003429b0  movz x9, #0x1953
+  003429b4  movz x11, #0x29c2
+  003429b8  movz x12, #0xa6d0
+  003429bc  movz x13, #0x6faa
+  003429c0  movz x15, #0x5eb2
+  003429c4  movz x16, #0xca84
+  003429c8  movz x17, #0x3a2
+  003429cc  movz x0, #0xc5c0
+  003429d0  movz x1, #0x98c6
+  003429d4  movz x2, #0xd5c6
+  003429d8  movk x22, #0x1fa6, lsl #16
+  003429dc  movz x3, #0x2780
+  003429e0  movz x4, #0x823c
+  003429e4  movk x9, #0x714e, lsl #16
+  003429e8  movk x21, #0x7da6, lsl #16
+  003429ec  movz x7, #0x199e
+  003429f0  movz x26, #0x6c35
+  003429f4  movk x11, #0xf32e, lsl #16
+  003429f8  movk x12, #0xf2a4, lsl #16
+  003429fc  movk x13, #0xe72f, lsl #16
+  00342a00  movk x15, #0xbf0b, lsl #16
+  00342a04  movk x16, #0xbaa0, lsl #16
+  00342a08  movk x17, #0xb4c6, lsl #16
+  00342a0c  movk x0, #0x97ad, lsl #16
+  00342a10  movk x1, #0x491a, lsl #16
+  00342a14  movk x2, #0x24e3, lsl #16
+  00342a18  movk x3, #0xe22, lsl #16
+  00342a1c  movk x4, #0x6b7, lsl #16
+  00342a20  movk x7, #0x6200, lsl #16
+
+### 00344048 gap=003443bc FUN_00344048 size=4036
+  003443bc  movk x9, #0x1d14, lsl #16
+  003443c0  subs xzr, x8, x9, lsl #0
+  003443c4  b.cc 0x344468
+
+### 00344048 gap=00344578 FUN_00344048 size=4036
+  00344578  bic x13, x16, x11, lsl #0
+  0034457c  madd x12, x13, x12, xzr
+  00344580  and x13, x11, x17, lsl #0
+  00344584  orr x11, x11, x16, lsl #0
+  00344588  madd x11, x11, x13, x12
+  0034458c  subs xzr, x11, x14, lsl #0
+  00344590  b.eq 0x344560
+
+### 00345574 gap=00346590 FUN_00345574 size=5324
+  00346590  movk x8, #0x27d2, lsl #16
+  00346594  subs xzr, xzr, x8, lsl #0
+  00346598  b.hi 0x346594
+
+### 0034d128 gap=0034dd0c FUN_0034d128 size=15516
+  0034dd0c  madd x16, x16, x17, xzr
+  0034dd10  and x17, x10, x11, lsl #0
+  0034dd14  madd x16, x1, x17, x16
+  0034dd18  orr x16, x16, x8, lsl #0
+  0034dd1c  add x16, x16, x9, lsl #0
+  0034dd20  orr x16, x16, x14, lsl #0
+  0034dd24  subs xzr, x16, x15, lsl #0
+  0034dd28  b.eq 0x34dcfc
+
+### 0034d128 gap=0034d9c4 FUN_0034d128 size=15516
+  0034d9c4  bl 0x89e4c4
+  0034d9c8  b 0x34d93c
+
+### 0034d128 gap=0034eb30 FUN_0034d128 size=15516
+  0034eb30  movk x11, #0xa83b, lsl #16
+  0034eb34  movk x8, #0x9486, lsl #16
+  0034eb38  movz x10, #0xf0a3
+  0034eb3c  movz x13, #0x4e38
+  0034eb40  movk x8, #0xd566, lsl #32
+  0034eb44  movz x14, #0x1721
+  0034eb48  movk x10, #0x57c4, lsl #16
+  0034eb4c  movk x8, #0xd4a0, lsl #48
+  0034eb50  and x11, x9, x11, lsl #0
+  0034eb54  movk x12, #0x46a6, lsl #16
+  0034eb58  movk x13, #0x61ed, lsl #16
+  0034eb5c  movk x14, #0xf649, lsl #16
+  0034eb60  bic x15, x10, x9, lsl #0
+  0034eb64  and x16, x9, x10, lsl #0
+  0034eb68  orr x17, x9, x10, lsl #0
+  0034eb6c  madd x15, x11, x15, xzr
+  0034eb70  madd x15, x17, x16, x15
+  0034eb74  madd x15, x15, x12, x13
+  0034eb78  subs xzr, x15, x14, lsl #0
+  0034eb7c  b.hi 0x34eb60
+
+### 0034d128 gap=00350aac FUN_0034d128 size=15516
+  00350aac  movz x9, #0x880a
+  00350ab0  movk x9, #0x9ed2, lsl #16
+  00350ab4  str x9, [x8, #0x0]
+  00350ab8  b 0x3521a8
+
+### 003678f8 gap=00368744 FUN_003678f8 size=7552
+  00368744  adrp x10, 0x92a000
+  00368748  movz x11, #0x2bf2
+  0036874c  ldr x9, [x9, #0x2d4]
+  00368750  ldr x10, [x10, #0x2d8]
+  00368754  movz x12, #0xbd79
+  00368758  movk x11, #0x2b67, lsl #16
+  0036875c  movk x12, #0x3ab6, lsl #16
+  00368760  movz x13, #0xd753
+  00368764  eor x9, x9, x11, lsl #0
+  00368768  eor x10, x10, x12, lsl #0
+  0036876c  movz x12, #0x3971
+  00368770  udiv x11, x9, x10
+  00368774  movz x14, #0xb81
+  00368778  ldur x9, [x29, #-40]
+  0036877c  movk x12, #0x1b3c, lsl #16
+  00368780  movk x13, #0xb0b3, lsl #16
+  00368784  movk x14, #0x612b, lsl #16
+  00368788  movz x10, #0xc9c4
+  0036878c  ldr x9, [x9, #0x3c]
+  00368790  eor x12, x12, x14, lsl #0
+  00368794  movz x14, #0xf84d
+  00368798  movk x10, #0x680a, lsl #16
+  0036879c  movk x14, #0xc4a2, lsl #16
+  003687a0  orr x11, x11, x13, lsl #0
+  003687a4  movz x13, #0xd290
+  003687a8  movk x13, #0x3680, lsl #16
+  003687ac  add x15, x10, #0x1
+  003687b0  eor x15, x10, x15, lsl #0
+  003687b4  sub x15, xzr, x15, lsl #0
+  003687b8  madd x15, x11, x12, x15
+  003687bc  add x15, x15, x13, lsl #0
+  003687c0  subs xzr, x15, x14, lsl #0
+  003687c4  b.cc 0x3687ac
+
+### 00372f04 gap=0037a198 FUN_00372f04 size=33568
+  0037a198  ldrb x15, [x11, #0x7]
+  0037a19c  eor x13, x13, x10, lsl #0
+  0037a1a0  eor x14, x14, #imm(n=0,r=3,s=58)
+  0037a1a4  strb x13, [x0, #0x4]
+  0037a1a8  ldrb x13, [x11, #0x6]
+  0037a1ac  and x16, x15, x1, lsl #0
+  0037a1b0  strb x14, [x0, #0x5]
+  0037a1b4  movz x14, #0x61
+  0037a1b8  eor x13, x13, x14, lsl #0
+  0037a1bc  sub x14, x15, x16, lsl #1
+  0037a1c0  and x15, x17, x22, lsl #0
+  0037a1c4  strb x13, [x0, #0x6]
+  0037a1c8  bic x13, x25, x17, lsl #0
+  0037a1cc  ldrb x16, [x11, #0xa]
+  0037a1d0  orr x13, x13, x15, lsl #0
+  0037a1d4  add x14, x14, #0x57
+  0037a1d8  ldrb x15, [x11, #0x9]
+  0037a1dc  strb x14, [x0, #0x7]
+  0037a1e0  movz x14, #0xa5
+  0037a1e4  ldrb x17, [x11, #0x17]
+  0037a1e8  eor x13, x13, x14, lsl #0
+  0037a1ec  bic x14, x19, x15, lsl #0
+  0037a1f0  and x15, x15, x21, lsl #0
+  0037a1f4  strb x13, [x0, #0x8]
+  0037a1f8  orr x13, x14, x15, lsl #0
+  0037a1fc  ldrb x14, [x11, #0xb]
+  0037a200  strb x13, [x0, #0x9]
+  0037a204  movz x13, #0xb2
+  0037a208  eor x13, x16, x13, lsl #0
+  0037a20c  bic x15, x24, x14, lsl #0
+  0037a210  and x14, x14, x4, lsl #0
+  0037a214  ldrb x16, [x11, #0xc]
+  0037a218  strb x13, [x0, #0xa]
+  0037a21c  orr x13, x15, x14, lsl #0
+  0037a220  ldrb x14, [x11, #0xd]
+  0037a224  strb x13, [x0, #0xb]
+  0037a228  movz x13, #0xf6
+  0037a22c  movz x15, #0x9
+  0037a230  eor x12, x16, x12, lsl #0
+  0037a234  movz x16, #0x13
+  0037a238  bic x13, x13, x14, lsl #0
+  0037a23c  and x14, x14, x15, lsl #0
+  0037a240  ldrb x15, [x11, #0xe]
+  0037a244  strb x12, [x0, #0xc]
+  0037a248  orr x12, x13, x14, lsl #0
+  0037a24c  ldrb x13, [x11, #0xf]
+  0037a250  strb x12, [x0, #0xd]
+  0037a254  eor x12, x15, x7, lsl #0
+
+### 00372f04 gap=0037ab14 FUN_00372f04 size=33568
+  0037ab14  add x12, x8, #0x1
+  0037ab18  eor x12, x12, x8, lsl #0
+  0037ab1c  ubfm x12, x12, #61, #31
+  0037ab20  add x12, x12, #0xf
+  0037ab24  and x12, x12, #imm(n=1,r=60,s=31)
+  0037ab28  sub x8, x13, x12, lsl #0
+  0037ab2c  stur x8, [x29, #-168]
+  0037ab30  add sp, x8, #0x0
+  0037ab34  movz x8, #0x36ee
+  0037ab38  add x13, xzr, #0x0
+  0037ab3c  movk x8, #0xcb44, lsl #16
+  0037ab40  add x12, x8, #0x1
+  0037ab44  eor x12, x8, x12, lsl #0
+  0037ab48  madd x12, x12, x11, xzr
+  0037ab4c  add x12, x12, #0xf
+  0037ab50  and x12, x12, #imm(n=1,r=60,s=33)
+  0037ab54  sub x8, x13, x12, lsl #0
+  0037ab58  stur x8, [x29, #-160]
+  0037ab5c  add sp, x8, #0x0
+  0037ab60  movz x8, #0xe946
+  0037ab64  add x13, xzr, #0x0
+  0037ab68  movk x8, #0x1d94, lsl #16
+  0037ab6c  add x12, x8, #0x1
+  0037ab70  eor x12, x12, x8, lsl #0
+  0037ab74  madd x12, x12, x11, xzr
+  0037ab78  add x12, x12, #0xf
+  0037ab7c  and x12, x12, #imm(n=1,r=60,s=31)
+  0037ab80  sub x8, x13, x12, lsl #0
+  0037ab84  stur x8, [x29, #-152]
+  0037ab88  add sp, x8, #0x0
+  0037ab8c  movz x8, #0x9068
+  0037ab90  add x13, xzr, #0x0
+  0037ab94  movk x8, #0xa5bb, lsl #16
+  0037ab98  add x12, x8, #0x1
+  0037ab9c  eor x12, x12, x8, lsl #0
+  0037aba0  madd x12, x12, x11, xzr
+  0037aba4  add x12, x12, #0xf
+  0037aba8  and x12, x12, #imm(n=1,r=60,s=33)
+  0037abac  sub x8, x13, x12, lsl #0
+  0037abb0  stur x8, [x29, #-128]
+  0037abb4  add sp, x8, #0x0
+  0037abb8  movz x8, #0x93c
+  0037abbc  add x13, xzr, #0x0
+  0037abc0  movk x8, #0xce37, lsl #16
+  0037abc4  add x12, x8, #0x1
+  0037abc8  eor x12, x8, x12, lsl #0
+  0037abcc  add x12, x12, x12, lsl #12
+  0037abd0  add x12, x12, #0xf
+
+### 00372f04 gap=0037aeb4 FUN_00372f04 size=33568
+  0037aeb4  and x12, x12, #imm(n=1,r=60,s=31)
+  0037aeb8  sub x3, x13, x12, lsl #0
+  0037aebc  add sp, x3, #0x0
+  0037aec0  movz x13, #0x360c
+  0037aec4  movk x13, #0x3c5a, lsl #16
+  0037aec8  add x12, x13, #0x1
+  0037aecc  eor x12, x13, x12, lsl #0
+  0037aed0  add x13, xzr, #0x0
+  0037aed4  ubfm x12, x12, #61, #60
+  0037aed8  add x12, x12, #0xf
+  0037aedc  and x12, x12, #imm(n=1,r=60,s=30)
+  0037aee0  sub x4, x13, x12, lsl #0
+  0037aee4  add sp, x4, #0x0
+  0037aee8  movz x13, #0x3188
+  0037aeec  movk x13, #0x4f12, lsl #16
+  0037aef0  add x12, x13, #0x1
+  0037aef4  eor x12, x13, x12, lsl #0
+  0037aef8  add x13, xzr, #0x0
+  0037aefc  sub x5, x13, x12, lsl #6
+  0037af00  add sp, x5, #0x0
+  0037af04  movz x13, #0x1db6
+  0037af08  movk x13, #0xcc58, lsl #16
+  0037af0c  add x12, x13, #0x1
+  0037af10  eor x12, x12, x13, lsl #0
+  0037af14  add x13, xzr, #0x0
+  0037af18  sub x6, x13, x12, lsl #12
+  0037af1c  add sp, x6, #0x0
+  0037af20  movz x13, #0x4df6
+  0037af24  add x14, xzr, #0x0
+  0037af28  movk x13, #0xedbb, lsl #16
+  0037af2c  add x12, x13, #0x2e4
+  0037af30  add x13, x13, #0x2e5
+  0037af34  eor x13, x13, x12, lsl #0
+  0037af38  movz x12, #0x38
+  0037af3c  madd x13, x13, x12, xzr
+  0037af40  add x13, x13, #0xf
+  0037af44  and x13, x13, #imm(n=1,r=60,s=34)
+  0037af48  sub x27, x14, x13, lsl #0
+  0037af4c  add sp, x27, #0x0
+  0037af50  movz x14, #0x87d0
+  0037af54  movk x14, #0x9d8e, lsl #16
+  0037af58  add x13, x14, #0x1
+  0037af5c  eor x13, x13, x14, lsl #0
+  0037af60  add x14, xzr, #0x0
+  0037af64  sub x7, x14, x13, lsl #6
+  0037af68  add sp, x7, #0x0
+  0037af6c  movz x14, #0x9a2
+  0037af70  movk x14, #0x4fee, lsl #16
+
+### 00372f04 gap=0037a898 FUN_00372f04 size=33568
+  0037a898  sub x8, x29, #0x8b0
+  0037a89c  movk x13, #0x2d22, lsl #16
+  0037a8a0  stur x1, [x8, #-256]
+  0037a8a4  sub x8, x29, #0x848
+  0037a8a8  movz x14, #0xa739
+  0037a8ac  stur x0, [x8, #-256]
+  0037a8b0  sub x8, x29, #0x950
+  0037a8b4  movk x14, #0xd41b, lsl #16
+  0037a8b8  stur x17, [x8, #-256]
+  0037a8bc  sub x8, x29, #0x818
+  0037a8c0  stur x30, [x8, #-256]
+  0037a8c4  adrp x8, 0x7c000
+  0037a8c8  add x8, x8, #0xd8
+  0037a8cc  add x9, x8, #0x30
+  0037a8d0  add x8, x8, #0x18
+  0037a8d4  stur x9, [x10, #-256]
+  0037a8d8  sub x9, x29, #0x2b8
+  0037a8dc  movz x10, #0x6e7f
+  0037a8e0  stur x8, [x9, #-256]
+  0037a8e4  adrp x8, 0x92a000
+  0037a8e8  adrp x9, 0x92a000
+  0037a8ec  ldr x8, [x8, #0xe34]
+  0037a8f0  ldr x9, [x9, #0xe38]
+  0037a8f4  movk x10, #0x33df, lsl #16
+  0037a8f8  eor x8, x8, x11, lsl #0
+  0037a8fc  eor x9, x9, x12, lsl #0
+  0037a900  orr x11, x13, #imm(n=0,r=0,s=0)
+  0037a904  and x12, x9, x8, lsl #0
+  0037a908  add x8, x8, x9, lsl #0
+  0037a90c  eor x9, x11, x13, lsl #0
+  0037a910  orn x11, xzr, x12, lsl #0
+  0037a914  add x8, x8, x9, lsl #0
+  0037a918  add x9, x14, #0xe5
+  0037a91c  add x8, x8, x11, lsl #0
+  0037a920  eor x9, x9, x10, lsl #0
+  0037a924  movz x10, #0x60a1
+  0037a928  sub x8, x8, x9, lsl #0
+  0037a92c  movz x9, #0xe5e
+  0037a930  movz x11, #0x9b50
+  0037a934  movk x9, #0x4430, lsl #16
+  0037a938  movk x10, #0x228f, lsl #16
+  0037a93c  movk x11, #0x9940, lsl #16
+  0037a940  orr x9, x8, x9, lsl #0
+  0037a944  movz x12, #0x64af
+  0037a948  movz x13, #0x6eff
+  0037a94c  bic x10, x10, x8, lsl #0
+  0037a950  and x11, x9, x11, lsl #0
+  0037a954  movk x12, #0x66bf, lsl #16
+
+### 0037b3a8 gap=0037b3e0 FUN_0037b3a8 size=492
+  0037b3e0  add x11, x11, x11, lsl #12
+  0037b3e4  add x11, x11, #0xf
+  0037b3e8  and x11, x11, #imm(n=1,r=60,s=41)
+  0037b3ec  sub x11, x12, x11, lsl #0
+  0037b3f0  add sp, x11, #0x0
+  0037b3f4  movz x8, #0xc946
+  0037b3f8  add x12, xzr, #0x0
+  0037b3fc  movk x8, #0x7d8e, lsl #16
+  0037b400  add x11, x8, #0x1
+  0037b404  eor x11, x8, x11, lsl #0
+  0037b408  ubfm x11, x11, #61, #31
+  0037b40c  add x11, x11, #0xf
+  0037b410  and x11, x11, #imm(n=1,r=60,s=31)
+  0037b414  sub x11, x12, x11, lsl #0
+  0037b418  add sp, x11, #0x0
+  0037b41c  movz x8, #0x6f66
+  0037b420  add x12, xzr, #0x0
+  0037b424  movk x8, #0xbe12, lsl #16
+  0037b428  add x11, x8, #0x1
+  0037b42c  eor x11, x8, x11, lsl #0
+  0037b430  ubfm x11, x11, #61, #31
+  0037b434  add x11, x11, #0xf
+  0037b438  and x11, x11, #imm(n=1,r=60,s=31)
+  0037b43c  sub x11, x12, x11, lsl #0
+  0037b440  add sp, x11, #0x0
+  0037b444  movz x8, #0x7fee
+  0037b448  add x12, xzr, #0x0
+  0037b44c  movk x8, #0x318d, lsl #16
+  0037b450  add x11, x8, #0x1
+  0037b454  eor x11, x11, x8, lsl #0
+  0037b458  madd x11, x11, x10, xzr
+  0037b45c  add x11, x11, #0xf
+  0037b460  and x11, x11, #imm(n=1,r=60,s=32)
+  0037b464  sub x11, x12, x11, lsl #0
+  0037b468  add sp, x11, #0x0
+  0037b46c  movz x8, #0xbf06
+  0037b470  add x12, xzr, #0x0
+  0037b474  movk x8, #0xbea, lsl #16
+  0037b478  add x11, x8, #0x1
+  0037b47c  eor x11, x8, x11, lsl #0
+  0037b480  add x11, x11, x11, lsl #12
+  0037b484  add x11, x11, #0xf
+  0037b488  and x11, x11, #imm(n=1,r=60,s=38)
+  0037b48c  sub x11, x12, x11, lsl #0
+  0037b490  add sp, x11, #0x0
+  0037b494  movz x8, #0x8f78
+  0037b498  add x12, xzr, #0x0
+  0037b49c  movk x8, #0xcfaa, lsl #16
+
+### 0037ed90 gap=0037f27c FUN_0037ed90 size=6924
+  0037f27c  movk x14, #0x48eb, lsl #16
+  0037f280  eor x13, x14, x13, lsl #0
+  0037f284  sub x14, x29, #0x408
+  0037f288  stur x13, [x14, #-256]
+  0037f28c  movz x13, #0x1cf5
+  0037f290  movz x14, #0x479f
+  0037f294  movk x13, #0x779d, lsl #16
+  0037f298  movk x14, #0xd8a6, lsl #16
+  0037f29c  add x13, x13, #0x4d1
+  0037f2a0  eor x13, x14, x13, lsl #0
+  0037f2a4  sub x14, x29, #0x2f0
+  0037f2a8  stur x13, [x14, #-256]
+  0037f2ac  movz x13, #0x2300
+  0037f2b0  movz x14, #0x4cfd
+  0037f2b4  movk x13, #0x1014, lsl #16
+  0037f2b8  movk x14, #0xadc2, lsl #16
+  0037f2bc  eor x13, x14, x13, lsl #0
+  0037f2c0  sub x14, x29, #0x40c
+  0037f2c4  stur x13, [x14, #-256]
+  0037f2c8  movz x13, #0xbc3e
+  0037f2cc  movz x14, #0x9316
+  0037f2d0  movk x13, #0x2583, lsl #16
+  0037f2d4  movk x14, #0x7a1e, lsl #16
+  0037f2d8  add x13, x13, #0xef8
+  0037f2dc  eor x13, x13, x14, lsl #0
+  0037f2e0  sub x14, x29, #0x404
+  0037f2e4  stur x13, [x14, #-256]
+  0037f2e8  movz x13, #0xe3d7
+  0037f2ec  movz x14, #0x1543
+  0037f2f0  movk x13, #0x7535, lsl #16
+  0037f2f4  movk x14, #0x8aca, lsl #16
+  0037f2f8  add x13, x13, #0x6e5
+  0037f2fc  eor x13, x13, x14, lsl #0
+  0037f300  sub x14, x29, #0x6f8
+  0037f304  stur x13, [x14, #-256]
+  0037f308  movz x13, #0x446a
+  0037f30c  movz x14, #0x2a9c
+  0037f310  movk x13, #0x80da, lsl #16
+  0037f314  movk x14, #0xf28f, lsl #16
+  0037f318  add x13, x13, #0x5d2
+  0037f31c  eor x13, x13, x14, lsl #0
+  0037f320  sub x14, x29, #0x6fc
+  0037f324  stur x13, [x14, #-256]
+  0037f328  movz x13, #0x45cc
+  0037f32c  movz x14, #0x952d
+  0037f330  movk x13, #0x78d3, lsl #16
+  0037f334  movk x14, #0x8429, lsl #16
+  0037f338  add x13, x13, #0x465
+
+### 00381314 gap=00381364 FUN_00381314 size=38732
+  00381364  movk x10, #0x4a17, lsl #16
+  00381368  ldr x8, [x0, #0x0]
+  0038136c  and x9, x9, x10, lsl #0
+  00381370  movz x10, #0x93e2
+  00381374  movk x10, #0xe6b, lsl #16
+  00381378  eor x9, x9, x10, lsl #0
+  0038137c  movz x10, #0xb06
+  00381380  movk x10, #0xbe30, lsl #16
+  00381384  subs xzr, x9, x10, lsl #0
+  00381388  b.hi 0x38137c
+
+### 00381314 gap=00383a14 FUN_00381314 size=38732
+  00383a14  madd x10, x11, x10, xzr
+  00383a18  and x11, x8, x9, lsl #0
+  00383a1c  orr x8, x8, x9, lsl #0
+  00383a20  madd x8, x8, x11, x10
+  00383a24  movz x9, #0xb75e
+  00383a28  movk x9, #0x146d, lsl #16
+  00383a2c  add x8, x8, x9, lsl #0
+  00383a30  movz x9, #0xf1ae
+  00383a34  movk x9, #0xeff5, lsl #16
+  00383a38  orr x8, x8, x9, lsl #0
+  00383a3c  movz x9, #0xa015
+  00383a40  movk x9, #0xdcb6, lsl #16
+  00383a44  subs xzr, x8, x9, lsl #0
+  00383a48  b.ne 0x383a64
+
+### 00381314 gap=00387854 FUN_00381314 size=38732
+  00387854  bl 0x3a4668
+  00387858  adrp x8, 0x92b000
+  0038785c  movz x10, #0x6308
+  00387860  adrp x9, 0x92b000
+  00387864  ldr x8, [x8, #0x5e4]
+  00387868  movk x10, #0x9d39, lsl #16
+  0038786c  ldr x9, [x9, #0x5e8]
+  00387870  movz x12, #0x714f
+  00387874  movz x13, #0xf9ce
+  00387878  movz x14, #0xd074
+  0038787c  eor x8, x8, x10, lsl #0
+  00387880  movz x10, #0xba43
+  00387884  movz x15, #0x7e93
+  00387888  movk x10, #0xfda, lsl #16
+  0038788c  movk x12, #0xaead, lsl #16
+  00387890  movk x13, #0x51c7, lsl #16
+  00387894  eor x9, x9, x10, lsl #0
+  00387898  sub x10, x29, #0xe8
+  0038789c  movk x14, #0xf744, lsl #16
+  003878a0  orr x8, x8, x9, lsl #0
+  003878a4  sub x9, x29, #0x9fc
+  003878a8  ldur x10, [x10, #-256]
+  003878ac  ldur x9, [x9, #-256]
+  003878b0  movk x15, #0x95, lsl #16
+  003878b4  stnp xzr, xzr, [x10, #48]
+  003878b8  add x8, x9, x8, lsl #0
+  003878bc  movz x9, #0x748e
+  003878c0  str x19, [x10, #0x28]
+  003878c4  movk x9, #0x5200, lsl #16
+  003878c8  eor x8, x8, x9, lsl #0
+  003878cc  add x9, x12, #0x753
+  003878d0  orr x11, x8, x13, lsl #0
+  003878d4  eor x9, x9, x15, lsl #0
+  003878d8  orr x10, x8, x9, lsl #0
+  003878dc  and x9, x8, x9, lsl #0
+  003878e0  orn x10, xzr, x10, lsl #0
+  003878e4  madd x9, x10, x9, xzr
+  003878e8  and x10, x8, x13, lsl #0
+  003878ec  madd x9, x11, x10, x9
+  003878f0  subs xzr, x9, x14, lsl #0
+  003878f4  b.cs 0x3878cc
+
+### 0038b610 gap=0038c6e0 FUN_0038b610 size=9152
+  0038c6e0  and x9, x10, x9, lsl #0
+  0038c6e4  movk x12, #0x552c, lsl #16
+  0038c6e8  madd x8, x9, x8, xzr
+  0038c6ec  and x9, x10, x11, lsl #0
+  0038c6f0  orr x10, x10, x11, lsl #0
+  0038c6f4  madd x8, x10, x9, x8
+  0038c6f8  movz x9, #0x472a
+  0038c6fc  movz x11, #0xff8d
+  0038c700  movk x9, #0x5fd2, lsl #16
+  0038c704  movk x11, #0xe66e, lsl #16
+  0038c708  movz x10, #0xe7cf
+  0038c70c  movk x10, #0xaad3, lsl #16
+  0038c710  add x8, x8, x9, lsl #0
+  0038c714  add x9, x11, #0x2
+  0038c718  eor x10, x8, x10, lsl #0
+  0038c71c  and x8, x8, x12, lsl #0
+  0038c720  eor x9, x9, x11, lsl #0
+  0038c724  sub x10, xzr, x10, lsl #0
+  0038c728  madd x8, x9, x8, x10
+  0038c72c  movz x9, #0xafdb
+  0038c730  movk x9, #0x84d4, lsl #16
+  0038c734  madd x8, x8, x9, xzr
+  0038c738  ubfm x19, x8, #60, #63
+  0038c73c  bl 0x8e06a0
+  0038c740  movz x8, #0x2db8
+  0038c744  movk x8, #0xea32, lsl #16
+  0038c748  subs xzr, x19, x8, lsl #0
+  0038c74c  b.eq 0x38c690
+
+### 00391220 gap=00393df0 FUN_00391220 size=43436
+  00393df0  movz x11, #0xc3fd
+  00393df4  movk x11, #0x3e94, lsl #16
+  00393df8  subs xzr, x11, x10, lsr #28
+  00393dfc  b.eq 0x393d98
+
+### 00391220 gap=00392680 FUN_00391220 size=43436
+  00392680  and x11, x11, x13, lsl #0
+  00392684  movz x13, #0x4005
+  00392688  sub x11, x11, x12, lsl #0
+  0039268c  movz x12, #0x4245
+  00392690  movk x13, #0x20e7, lsl #16
+  00392694  movk x12, #0xeae7, lsl #16
+  00392698  and x13, x11, x13, lsl #0
+  0039269c  and x12, x11, x12, lsl #0
+  003926a0  bic x14, x15, x12, lsl #0
+  003926a4  orr x12, x12, x15, lsl #0
+  003926a8  madd x13, x14, x13, xzr
+  003926ac  movz x14, #0x240
+  003926b0  movk x14, #0xca00, lsl #16
+  003926b4  and x11, x11, x14, lsl #0
+  003926b8  madd x11, x12, x11, x13
+  003926bc  movz x12, #0x540a
+  003926c0  movk x12, #0xbf0a, lsl #16
+  003926c4  subs xzr, x11, x12, lsl #0
+  003926c8  b.hi 0x392624
+
+### 00391220 gap=0039cb08 FUN_00391220 size=43436
+  0039cb08  movz x9, #0xea47
+  0039cb0c  movk x9, #0x1b50, lsl #16
+  0039cb10  madd x9, x8, x9, xzr
+  0039cb14  ubfm x9, x9, #32, #63
+  0039cb18  sub x8, x8, x9, lsl #0
+  0039cb1c  add x8, x9, x8, lsr #1
+  0039cb20  movz x9, #0xed33
+  0039cb24  movk x9, #0xa365, lsl #16
+  0039cb28  subs xzr, x9, x8, lsr #29
+  0039cb2c  bl 0x3594c8
+  0039cb30  adrp x8, 0x92b000
+  0039cb34  adrp x9, 0x92b000
+  0039cb38  movz x10, #0xb61c
+  0039cb3c  ldr x8, [x8, #0xe6c]
+  0039cb40  ldr x9, [x9, #0xe70]
+  0039cb44  movz x11, #0xcbd1
+  0039cb48  movz x12, #0x2ea2
+  0039cb4c  movk x10, #0xb43c, lsl #16
+  0039cb50  movk x11, #0x7d76, lsl #16
+  0039cb54  movk x12, #0x9155, lsl #16
+  0039cb58  eor x8, x8, x10, lsl #0
+  0039cb5c  eor x9, x9, x11, lsl #0
+  0039cb60  orr x10, x12, #imm(n=0,r=0,s=0)
+  0039cb64  movz x11, #0xcf79
+  0039cb68  add x8, x8, x9, lsl #0
+  0039cb6c  eor x10, x10, x12, lsl #0
+  0039cb70  movk x11, #0x5e5b, lsl #16
+  0039cb74  add x9, x10, x11, lsl #0
+  0039cb78  movz x10, #0x3553
+  0039cb7c  movz x11, #0x8428
+  0039cb80  movk x10, #0xd77a, lsl #16
+  0039cb84  movk x11, #0xeac3, lsl #16
+  0039cb88  add x8, x8, x9, lsl #0
+  0039cb8c  eor x9, x11, x10, lsl #0
+  0039cb90  udiv x8, x8, x9
+  0039cb94  movz x9, #0x5062
+  0039cb98  movk x9, #0x25e, lsl #16
+  0039cb9c  and x8, x8, #imm(n=0,r=30,s=30)
+  0039cba0  b 0x39c89c
+
+### 00391220 gap=0039573c FUN_00391220 size=43436
+  0039573c  subs xzr, x19, x8, lsl #0
+  00395740  b.eq 0x3956b0
+
+### 003a13bc gap=003a193c FUN_003a13bc size=15340
+  003a193c  movz x10, #0x7cc0
+  003a1940  adrp x9, 0x92c000
+  003a1944  ldr x8, [x8, #0x774]
+  003a1948  movk x10, #0x2251, lsl #16
+  003a194c  ldr x9, [x9, #0x778]
+  003a1950  movz x11, #0xcd8
+  003a1954  movz x12, #0xc522
+  003a1958  eor x8, x8, x10, lsl #0
+  003a195c  movz x10, #0xea2a
+  003a1960  movk x11, #0x722c, lsl #16
+  003a1964  movk x10, #0x9e95, lsl #16
+  003a1968  movk x12, #0xc, lsl #16
+  003a196c  eor x9, x9, x10, lsl #0
+  003a1970  add x10, x11, #0x2
+  003a1974  orr x8, x8, x9, lsl #0
+  003a1978  movz x9, #0x200b
+  003a197c  eor x10, x11, x10, lsl #0
+  003a1980  movk x9, #0x7787, lsl #16
+  003a1984  movz x11, #0xb617
+  003a1988  madd x8, x8, x9, xzr
+  003a198c  movz x9, #0x7b37
+  003a1990  movk x11, #0x47d2, lsl #16
+  003a1994  movk x9, #0x501e, lsl #16
+  003a1998  ubfm x8, x8, #61, #63
+  003a199c  bic x8, x9, x8, lsl #0
+  003a19a0  movz x9, #0x8402
+  003a19a4  eor x9, x8, x9, lsl #0
+  003a19a8  eor x8, x8, x11, lsl #0
+  003a19ac  and x9, x9, x12, lsl #0
+  003a19b0  msub x8, x10, x9, x8
+  003a19b4  movz x9, #0xd566
+  003a19b8  movk x9, #0x801e, lsl #16
+  003a19bc  add x8, x8, x9, lsl #0
+  003a19c0  movz x9, #0x25c7
+  003a19c4  movk x9, #0xf284, lsl #16
+  003a19c8  subs xzr, x8, x9, lsl #0
+  003a19cc  movz x9, #0x821a
+  003a19d0  ldr x8, [x22, #0x0]
+  003a19d4  movk x9, #0xfc76, lsl #16
+  003a19d8  csel x9, x6, x9, hi
+  003a19dc  str x9, [x8, #0x0]
+  003a19e0  b 0x3a0b7c
+
+### 003a5ae0 gap=003aaca8 FUN_003a5ae0 size=35640
+  003aaca8  movk x21, #0xebf8, lsl #16
+  003aacac  eor x15, x15, x21, lsl #0
+  003aacb0  movz x21, #0x9e7e
+  003aacb4  udiv x9, x9, x15
+  003aacb8  movz x15, #0x4032
+  003aacbc  movk x21, #0x58a2, lsl #16
+  003aacc0  movk x15, #0xd085, lsl #16
+  003aacc4  eor x9, x9, x15, lsl #0
+  003aacc8  movz x15, #0x93c2
+  003aaccc  movk x15, #0xdaa6, lsl #16
+  003aacd0  add x9, x9, x15, lsl #0
+  003aacd4  movz x15, #0x8437
+  003aacd8  movk x15, #0xe262, lsl #16
+  003aacdc  subs xzr, x9, x15, lsl #0
+  003aace0  ldr x9, [x27, #0x0]
+  003aace4  movz x15, #0x7cf9
+  003aace8  movk x15, #0x9a75, lsl #16
+  003aacec  b 0x3b0a30
+
+### 003b18d8 gap=003b5b6c FUN_003b18d8 size=28236
+  003b5b6c  movk x17, #0xd629, lsl #16
+  003b5b70  subs xzr, x16, x17, lsl #0
+  003b5b74  movz x17, #0xce1
+  003b5b78  ldr x16, [x19, #0x0]
+  003b5b7c  movk x17, #0x7cca, lsl #16
+  003b5b80  csel x17, x2, x17, hi
+  003b5b84  str x17, [x16, #0x0]
+  003b5b88  b 0x3b1508
+
+### 003b18d8 gap=003b72e8 FUN_003b18d8 size=28236
+  003b72e8  add x9, x8, #0x1
+  003b72ec  eor x8, x9, x8, lsl #0
+  003b72f0  movz x9, #0x2580
+  003b72f4  movk x9, #0xb5db, lsl #16
+  003b72f8  lsrv x8, x27, x8
+  003b72fc  movk x9, #0x1bc7, lsl #32
+  003b7300  movk x9, #0xc647, lsl #48
+  003b7304  add x8, x8, #0x1
+  003b7308  orr x10, x9, #imm(n=1,r=0,s=0)
+  003b730c  eor x9, x10, x9, lsl #0
+  003b7310  lsrv x8, x8, x9
+  003b7314  sub x23, x23, x8, lsl #3
+  003b7318  b 0x3b79e8
+
+### 003bccf8 gap=003bd104 FUN_003bccf8 size=2044
+  003bd104  subs xzr, x8, x9, lsl #0
+  003bd108  b.eq 0x3c124c
+
+### 003bccf8 gap=003bd46c FUN_003bccf8 size=2044
+  003bd46c  bic x8, x10, x8, lsl #0
+  003bd470  movz x10, #0x2c99
+  003bd474  orr x8, x9, x8, lsl #0
+  003bd478  movk x10, #0xccca, lsl #16
+  003bd47c  and x9, x8, x11, lsl #0
+  003bd480  bic x10, x10, x8, lsl #0
+  003bd484  madd x9, x10, x9, xzr
+  003bd488  bic x10, x11, x8, lsl #0
+  003bd48c  orn x8, x11, x8, lsl #0
+  003bd490  madd x8, x8, x10, x9
+  003bd494  ldur x9, [x29, #-40]
+  003bd498  movz x10, #0xe018
+  003bd49c  movk x10, #0x2fcb, lsl #16
+  003bd4a0  ldr x9, [x9, #0x0]
+  003bd4a4  orr x8, x8, x10, lsl #0
+  003bd4a8  ldur x10, [x29, #-24]
+  003bd4ac  add x9, x10, x9, lsl #0
+  003bd4b0  movz x10, #0xf1a
+  003bd4b4  movk x10, #0x2818, lsl #16
+  003bd4b8  sub x9, x9, #0x1
+  003bd4bc  subs xzr, x8, x10, lsl #0
+  003bd4c0  ldur x10, [x29, #-144]
+  003bd4c4  ldr x8, [x26, #0x0]
+  003bd4c8  str x9, [x10, #0x0]
+  003bd4cc  movz x9, #0xb100
+  003bd4d0  movz x10, #0xd641
+  003bd4d4  movk x9, #0x10f1, lsl #16
+  003bd4d8  movk x10, #0x2a87, lsl #16
+  003bd4dc  b 0x3c4c84
+
+### 003bccf8 gap=003bd3b4 FUN_003bccf8 size=2044
+  003bd3b4  madd x8, x8, x9, xzr
+  003bd3b8  movz x9, #0x1eb0
+  003bd3bc  movk x9, #0xd99e, lsl #16
+  003bd3c0  ubfm x8, x8, #61, #63
+  003bd3c4  subs xzr, x8, x9, lsl #0
+  003bd3c8  ldr x8, [x26, #0x0]
+  003bd3cc  movz x9, #0xc46d
+  003bd3d0  movk x9, #0x1490, lsl #16
+  003bd3d4  b 0x3bad58
+
+### 003bd4f4 gap=003bdb54 FUN_003bd4f4 size=1772
+  003bdb54  movk x10, #0xbcd9, lsl #16
+  003bdb58  eor x9, x9, x10, lsl #0
+  003bdb5c  movz x10, #0xaf0a
+  003bdb60  movk x10, #0xe016, lsl #16
+  003bdb64  madd x8, x8, x9, x10
+  003bdb68  movz x10, #0xdb86
+  003bdb6c  movk x10, #0xb6db, lsl #16
+  003bdb70  add x9, x10, #0x1
+  003bdb74  eor x9, x10, x9, lsl #0
+  003bdb78  sub x10, x29, #0x13c
+  003bdb7c  ldur x10, [x10, #-256]
+  003bdb80  and x10, x10, x8, lsl #0
+  003bdb84  add x8, x8, x9, lsl #0
+  003bdb88  orn x9, xzr, x10, lsl #0
+  003bdb8c  movz x10, #0xf644
+  003bdb90  movk x10, #0x1fde, lsl #16
+  003bdb94  add x8, x8, x10, lsl #0
+  003bdb98  movz x10, #0x187f
+  003bdb9c  add x8, x8, x9, lsl #0
+  003bdba0  movk x10, #0x9c77, lsl #16
+  003bdba4  bic x9, x11, x8, lsl #0
+  003bdba8  and x10, x8, x10, lsl #0
+  003bdbac  madd x9, x10, x9, xzr
+  003bdbb0  and x10, x8, x11, lsl #0
+  003bdbb4  orr x8, x8, x11, lsl #0
+  003bdbb8  madd x8, x8, x10, x9
+  003bdbbc  movz x9, #0x27cc
+  003bdbc0  movz x10, #0x8cbe
+  003bdbc4  movk x9, #0xe35f, lsl #16
+  003bdbc8  movk x10, #0xc7c4, lsl #16
+  003bdbcc  subs xzr, x8, x9, lsl #0
+  003bdbd0  ldr x8, [x26, #0x0]
+  003bdbd4  movz x9, #0x2531
+  003bdbd8  movk x9, #0x366a, lsl #16
+  003bdbdc  b 0x3c4640
+
+### 003beaf4 gap=003bf328 FUN_003beaf4 size=5324
+  003bf328  movz x9, #0xc7ff
+  003bf32c  movk x9, #0x6063, lsl #16
+  003bf330  madd x8, x8, x9, xzr
+  003bf334  movz x9, #0x5845
+  003bf338  movk x9, #0x6ae2, lsl #16
+  003bf33c  ubfm x8, x8, #56, #63
+  003bf340  subs xzr, x8, x9, lsl #0
+  003bf344  movz x9, #0x9d0
+  003bf348  ldr x8, [x26, #0x0]
+  003bf34c  movk x9, #0x9cfa, lsl #16
+  003bf350  csel x9, x9, x1, eq
+  003bf354  str x9, [x8, #0x0]
+  003bf358  b 0x3bad60
+
+### 003bffc0 gap=003bffdc FUN_003bffc0 size=832
+  003bffdc  eor x8, x10, #imm(n=0,r=27,s=2)
+  003bffe0  ldrb x10, [x14, #0xd]
+  003bffe4  strb x8, [x16, #0xb]
+  003bffe8  eor x8, x9, x19, lsl #0
+  003bffec  movz x9, #0xab
+  003bfff0  strb x8, [x16, #0xc]
+  003bfff4  movz x8, #0x54
+  003bfff8  and x9, x10, x9, lsl #0
+  003bfffc  bic x8, x8, x10, lsl #0
+  003c0000  ldrb x10, [x15, #0x0]
+  003c0004  orr x8, x8, x9, lsl #0
+  003c0008  ldrb x9, [x14, #0xe]
+  003c000c  adrp x14, 0x927000
+  003c0010  add x14, x14, #0xd2c
+  003c0014  strb x8, [x16, #0xd]
+  003c0018  and x11, x10, #imm(n=0,r=0,s=57)
+  003c001c  orn x8, x24, x9, lsl #0
+  003c0020  orr x9, x9, x5, lsl #0
+  003c0024  movz x24, #0xd1c2
+  003c0028  and x8, x8, x9, lsl #0
+  003c002c  sub x9, x10, x11, lsl #1
+  003c0030  ldrb x10, [x15, #0x3]
+  003c0034  strb x8, [x16, #0xe]
+  003c0038  ldrb x8, [x15, #0x1]
+  003c003c  movz x16, #0x32
+  003c0040  add x9, x9, #0x33
+  003c0044  ldrb x11, [x15, #0x2]
+  003c0048  and x12, x10, x16, lsl #0
+  003c004c  strb x9, [x14, #0x0]
+  003c0050  movz x9, #0xb3
+  003c0054  movk x24, #0x5aa1, lsl #16
+  003c0058  eor x8, x8, x9, lsl #0
+  003c005c  sub x9, x10, x12, lsl #1
+  003c0060  ldrb x10, [x15, #0x4]
+  003c0064  strb x8, [x14, #0x1]
+  003c0068  eor x8, x11, x4, lsl #0
+  003c006c  adrp x15, 0x927000
+  003c0070  add x15, x15, #0xdcc
+  003c0074  movz x11, #0x3a
+  003c0078  movz x12, #0xc5
+  003c007c  strb x8, [x14, #0x2]
+  003c0080  add x8, x9, #0x32
+  003c0084  ldrb x9, [x15, #0x0]
+  003c0088  bic x11, x11, x10, lsl #0
+  003c008c  and x10, x10, x12, lsl #0
+  003c0090  ldrb x12, [x15, #0x2]
+  003c0094  strb x8, [x14, #0x3]
+  003c0098  orr x8, x11, x10, lsl #0
+
+### 003e7730 gap=003e7c20 FUN_003e7730 size=1288
+  003e7c20  movz x1, #0x8080
+  003e7c24  movz x0, #0x6b8a
+  003e7c28  movz x17, #0xb732
+  003e7c2c  movz x3, #0xf95a
+  003e7c30  movz x2, #0xa28c
+  003e7c34  movz x16, #0xad30
+  003e7c38  movk x9, #0x381b, lsl #16
+  003e7c3c  movk x13, #0x5f9c, lsl #16
+  003e7c40  movk x14, #0x6697, lsl #16
+  003e7c44  movk x30, #0x7981, lsl #16
+  003e7c48  movk x7, #0xecb0, lsl #16
+  003e7c4c  movk x6, #0x195a, lsl #16
+  003e7c50  movk x5, #0x1e0e, lsl #16
+  003e7c54  movk x4, #0xe8cb, lsl #16
+  003e7c58  movk x1, #0x2a5c, lsl #16
+  003e7c5c  movk x0, #0x3e3b, lsl #16
+  003e7c60  movk x17, #0x9105, lsl #16
+  003e7c64  movk x3, #0xa9fe, lsl #16
+  003e7c68  movk x2, #0xcc20, lsl #16
+  003e7c6c  movk x16, #0x1340, lsl #16
+  003e7c70  orr x15, xzr, x24, lsl #0
+  003e7c74  str x9, [x8, #0x0]
+  003e7c78  b 0x3e3814
+
+### 003e7c38 gap=003e7e98 FUN_003e7c38 size=1308
+  003e7e98  movk x9, #0x6a6, lsl #16
+  003e7e9c  str x9, [x8, #0x0]
+  003e7ea0  b 0x3e3814
+
+### 003f3388 gap=003f3538 FUN_003f3388 size=5824
+  003f3538  eor x8, x9, x8, lsl #0
+  003f353c  movz x9, #0x9071
+  003f3540  movk x9, #0x89aa, lsl #16
+  003f3544  subs xzr, x8, x9, lsl #0
+  003f3548  b.eq 0x3f36b8
+
+### 0041f7d8 gap=0041fbbc FUN_0041f7d8 size=1980
+  0041fbbc  subs xzr, x28, x14, lsl #0
+  0041fbc0  b.le 0x4212a4
+
+### 00420078 gap=004200b8 FUN_00420078 size=4168
+  004200b8  orr x11, x11, #imm(n=0,r=28,s=30)
+  004200bc  strb x10, [x1, #0x9]
+  004200c0  sub x15, x15, x7, lsl #1
+  004200c4  and x10, x11, x13, lsl #0
+  004200c8  ldrb x11, [x19, #0xd]
+  004200cc  strb x10, [x1, #0xa]
+  004200d0  movz x5, #0xdc
+  004200d4  movz x9, #0x23
+  004200d8  sub x10, x15, #0x3e
+  004200dc  and x13, x11, x5, lsl #0
+  004200e0  bic x11, x9, x11, lsl #0
+  004200e4  strb x10, [x1, #0xb]
+  004200e8  ldrb x10, [x19, #0xc]
+  004200ec  ldrb x15, [x19, #0xf]
+  004200f0  movz x9, #0x31
+  004200f4  orr x11, x13, x11, lsl #0
+  004200f8  ldrb x13, [x19, #0xe]
+  004200fc  eor x10, x10, x9, lsl #0
+  00420100  movz x9, #0x1d
+  00420104  movz x0, #0xa9
+  00420108  strb x10, [x1, #0xc]
+  0042010c  orn x10, xzr, x11, lsl #0
+  00420110  and x11, x15, #imm(n=0,r=31,s=1)
+  00420114  sub x11, x15, x11, lsl #1
+  00420118  strb x10, [x1, #0xd]
+  0042011c  eor x10, x13, x5, lsl #0
+  00420120  strb x10, [x1, #0xe]
+  00420124  ldrb x10, [x19, #0x11]
+  00420128  ldrb x15, [x19, #0x12]
+  0042012c  sub x11, x11, #0x7a
+  00420130  ldrb x13, [x19, #0x10]
+  00420134  adrp x23, 0x931000
+  00420138  add x23, x23, #0xb14
+  0042013c  strb x11, [x1, #0xf]
+  00420140  movz x11, #0x21
+  00420144  bic x11, x11, x10, lsl #0
+  00420148  and x10, x10, x26, lsl #0
+  0042014c  eor x13, x13, x12, lsl #0
+  00420150  orr x10, x11, x10, lsl #0
+  00420154  sub x11, x15, x15, lsl #1
+  00420158  strb x13, [x1, #0x10]
+  0042015c  eor x10, x10, #imm(n=0,r=26,s=30)
+  00420160  ldrb x13, [x19, #0x13]
+  00420164  movz x15, #0xfa
+  00420168  strb x10, [x1, #0x11]
+  0042016c  add x10, x11, #0x7f
+  00420170  ldrb x11, [x19, #0x14]
+  00420174  strb x10, [x1, #0x12]
+
+### 00420078 gap=004210b0 FUN_00420078 size=4168
+  004210b0  strb x10, [x9, #0x5]
+  004210b4  and x10, x11, x13, lsl #0
+  004210b8  ldr x11, [x22, #0x0]
+  004210bc  strb x10, [x9, #0x6]
+  004210c0  str x25, [x11, #0x0]
+  004210c4  b 0x41fba8
+
+### 004259fc gap=0042863c FUN_004259fc size=17424
+  0042863c  adrp x8, 0x935000
+  00428640  movz x12, #0xdada
+  00428644  adrp x9, 0x935000
+  00428648  ldr x8, [x8, #0x6c8]
+  0042864c  movk x12, #0x88c, lsl #16
+  00428650  ldr x9, [x9, #0x6cc]
+  00428654  movz x11, #0x9818
+  00428658  eor x8, x8, x12, lsl #0
+  0042865c  movz x12, #0x2312
+  00428660  movk x11, #0x983c, lsl #16
+  00428664  movk x12, #0x9ad6, lsl #16
+  00428668  add x10, x11, #0x1
+  0042866c  eor x9, x9, x12, lsl #0
+  00428670  eor x10, x10, x11, lsl #0
+  00428674  sub x8, x8, x9, lsl #0
+  00428678  movz x9, #0x172e
+  0042867c  movk x9, #0x1e96, lsl #16
+  00428680  add x9, x10, x9, lsl #0
+  00428684  movz x10, #0x531c
+  00428688  add x8, x8, x9, lsl #0
+  0042868c  movz x9, #0xace3
+  00428690  movk x10, #0xa231, lsl #16
+  00428694  movk x9, #0x5dce, lsl #16
+  00428698  and x10, x8, x10, lsl #0
+  0042869c  eor x9, x8, x9, lsl #0
+  004286a0  add x8, x8, x9, lsl #0
+  004286a4  adrp x9, 0x96c000
+  004286a8  add x9, x9, #0x7ac
+  004286ac  sub x8, x8, x10, lsl #0
+  004286b0  movz x10, #0x48c5
+  004286b4  .word 0x88dffd29
+  004286b8  movk x10, #0x4c19, lsl #16
+  004286bc  subs xzr, x8, x10, lsl #0
+  004286c0  ldur x10, [x29, #-224]
+  004286c4  ldr x8, [x23, #0x0]
+  004286c8  str x9, [x10, #0x0]
+  004286cc  movz x9, #0xfc85
+  004286d0  movk x9, #0xbf17, lsl #16
+  004286d4  csel x9, x2, x9, eq
+  004286d8  str x9, [x8, #0x0]
+  004286dc  b 0x427c88
+
+### 00441bec gap=00446fb0 FUN_00441bec size=15600
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 00441bec gap=00447af0 FUN_00441bec size=15600
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 00441bec gap=00444d3c FUN_00441bec size=15600
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 004458dc gap=00446fb0 FUN_004458dc size=9700
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 004458dc gap=00447af0 FUN_004458dc size=9700
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 004458dc gap=00444d3c FUN_004458dc size=9700
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 0044817c gap=00446fb0 FUN_0044817c size=4912
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 0044817c gap=00447af0 FUN_0044817c size=4912
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 0044817c gap=00444d3c FUN_0044817c size=4912
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 004494b4 gap=00446fb0 FUN_004494b4 size=108
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 004494b4 gap=00447af0 FUN_004494b4 size=108
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 004494b4 gap=00444d3c FUN_004494b4 size=108
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 00449520 gap=00446fb0 FUN_00449520 size=228
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 00449520 gap=00447af0 FUN_00449520 size=228
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 00449520 gap=00444d3c FUN_00449520 size=228
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 00449604 gap=00446fb0 FUN_00449604 size=108
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 00449604 gap=00447af0 FUN_00449604 size=108
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 00449604 gap=00444d3c FUN_00449604 size=108
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 00449670 gap=00446fb0 FUN_00449670 size=1668
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 00449670 gap=00447af0 FUN_00449670 size=1668
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 00449670 gap=00444d3c FUN_00449670 size=1668
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 00449df0 gap=00446fb0 FUN_00449df0 size=140
+  00446fb0  ldr x6, [x11, #0x0]
+  00446fb4  sub x11, x29, #0xb58
+  00446fb8  ldur x12, [x12, #-256]
+  00446fbc  ldur x13, [x13, #-256]
+  00446fc0  ldr x9, [x9, #0x0]
+  00446fc4  ldur x11, [x11, #-256]
+  00446fc8  ldr x3, [x21, #0x0]
+  00446fcc  ldr x12, [x12, #0x0]
+  00446fd0  ldr x13, [x13, #0x0]
+  00446fd4  movk x15, #0xa311, lsl #16
+  00446fd8  sub x9, x10, x9, lsl #0
+  00446fdc  sub x10, x29, #0xc18
+  00446fe0  ldr x7, [x11, #0x0]
+  00446fe4  ldur x10, [x10, #-256]
+  00446fe8  sub x11, x29, #0xb60
+  00446fec  add x8, x9, x8, lsr #18
+  00446ff0  ldur x11, [x11, #-256]
+  00446ff4  sub x9, x29, #0x580
+  00446ff8  add x14, x15, #0x4
+  00446ffc  ldr x4, [x10, #0x0]
+  00447000  sub x10, x29, #0x578
+  00447004  ldur x9, [x9, #-256]
+  00447008  ldur x10, [x10, #-256]
+  0044700c  ldr x11, [x11, #0x0]
+  00447010  ldr x9, [x9, #0x0]
+  00447014  ldr x10, [x10, #0x0]
+  00447018  sub sp, xzr, #0x30
+  0044701c  eor x0, x14, x15, lsl #0
+  00447020  adrp x1, 0x932000
+  00447024  add x1, x1, #0x78
+  00447028  adrp x2, 0x932000
+  0044702c  add x2, x2, #0xa70
+  00447030  stnp x13, x8, [xzr, #32]
+  00447034  stnp x9, x12, [xzr, #16]
+  00447038  stnp x11, x10, [xzr, #0]
+  0044703c  bl 0x8e0740
+  00447040  movz x30, #0xbf5c
+  00447044  movz x7, #0xfe6
+  00447048  movz x6, #0x5599
+  0044704c  movz x5, #0x70
+  00447050  movz x11, #0x6006
+  00447054  movz x12, #0xbc41
+  00447058  movz x13, #0x5a45
+  0044705c  movz x14, #0x1cd4
+  00447060  movz x16, #0xd81d
+  00447064  movz x15, #0xdfdc
+  00447068  movz x17, #0x974e
+  0044706c  movz x26, #0x964
+
+### 00449df0 gap=00447af0 FUN_00449df0 size=140
+  00447af0  movz x3, #0x3f1f
+  00447af4  movz x4, #0x88c9
+  00447af8  movz x1, #0xd64a
+  00447afc  movk x9, #0x8d06, lsl #16
+  00447b00  movk x30, #0x86f6, lsl #16
+  00447b04  movk x7, #0x2fbe, lsl #16
+  00447b08  movk x6, #0x1cae, lsl #16
+  00447b0c  movk x5, #0x32fd, lsl #16
+  00447b10  movk x10, #0x2258, lsl #16
+  00447b14  movk x11, #0x497a, lsl #16
+  00447b18  movk x12, #0xf1eb, lsl #16
+  00447b1c  movk x13, #0xf700, lsl #16
+  00447b20  movk x14, #0x2f74, lsl #16
+  00447b24  movk x16, #0x3f9d, lsl #16
+  00447b28  movk x15, #0xf5a, lsl #16
+  00447b2c  movk x17, #0x69e9, lsl #16
+  00447b30  movk x26, #0xeec, lsl #16
+  00447b34  movk x23, #0x41d0, lsl #16
+  00447b38  movk x3, #0x5107, lsl #16
+  00447b3c  movk x4, #0x804f, lsl #16
+  00447b40  movk x1, #0xffc2, lsl #16
+  00447b44  str x9, [x8, #0x0]
+  00447b48  b 0x433b30
+
+### 00449df0 gap=00444d3c FUN_00449df0 size=140
+  00444d3c  str x9, [x8, #0x0]
+  00444d40  b 0x433b30
+
+### 0044a950 gap=0044b3ac FUN_0044a950 size=4016
+  0044b3ac  movz x9, #0x9301
+  0044b3b0  movk x9, #0xfb0c, lsl #16
+  0044b3b4  str x9, [x8, #0x0]
+  0044b3b8  b 0x433b30
+
+### 00453b54 gap=00453eac FUN_00453b54 size=2936
+  00453eac  bl 0x8e06a0
+  00453eb0  sub x9, x29, #0x600
+  00453eb4  movz x8, #0x599f
+  00453eb8  movz x5, #0x70
+  00453ebc  ldur x9, [x9, #-256]
+  00453ec0  movk x8, #0x3df1, lsl #16
+  00453ec4  movk x5, #0x32fd, lsl #16
+  00453ec8  subs xzr, x25, x8, lsl #0
+  00453ecc  ldr x8, [x19, #0x0]
+  00453ed0  movz x30, #0xbf5c
+  00453ed4  str x0, [x9, #0x0]
+  00453ed8  movz x9, #0xa278
+  00453edc  movz x7, #0xfe6
+  00453ee0  movk x9, #0xc000, lsl #16
+  00453ee4  movz x6, #0x5599
+  00453ee8  movz x12, #0xbc41
+  00453eec  movz x13, #0x5a45
+  00453ef0  movz x14, #0x1cd4
+  00453ef4  movz x16, #0xd81d
+  00453ef8  movz x15, #0xdfdc
+  00453efc  movz x17, #0x974e
+  00453f00  movz x26, #0x964
+  00453f04  movz x23, #0xfa79
+  00453f08  movz x3, #0x3f1f
+  00453f0c  movz x4, #0x88c9
+  00453f10  movz x1, #0xd64a
+  00453f14  csel x9, x9, x5, ne
+  00453f18  movz x11, #0x6006
+  00453f1c  movz x10, #0x877a
+  00453f20  movk x30, #0x86f6, lsl #16
+  00453f24  movk x7, #0x2fbe, lsl #16
+  00453f28  movk x6, #0x1cae, lsl #16
+  00453f2c  movk x12, #0xf1eb, lsl #16
+  00453f30  movk x13, #0xf700, lsl #16
+  00453f34  movk x14, #0x2f74, lsl #16
+  00453f38  movk x16, #0x3f9d, lsl #16
+  00453f3c  movk x15, #0xf5a, lsl #16
+  00453f40  movk x17, #0x69e9, lsl #16
+  00453f44  movk x26, #0xeec, lsl #16
+  00453f48  movk x23, #0x41d0, lsl #16
+  00453f4c  movk x3, #0x5107, lsl #16
+  00453f50  movk x4, #0x804f, lsl #16
+  00453f54  movk x1, #0xffc2, lsl #16
+  00453f58  str x9, [x8, #0x0]
+  00453f5c  movk x11, #0x497a, lsl #16
+  00453f60  movk x10, #0x2258, lsl #16
+  00453f64  b 0x433b30
+
+### 004594c8 gap=0045a5ec FUN_004594c8 size=7512
+  0045a5ec  movk x9, #0x1480, lsl #16
+  0045a5f0  movk x10, #0x2258, lsl #16
+  0045a5f4  csel x9, x9, x23, cc
+  0045a5f8  movz x23, #0xfa79
+  0045a5fc  movk x23, #0x41d0, lsl #16
+  0045a600  str x9, [x8, #0x0]
+  0045a604  b 0x433b30
+
+### 0045b38c gap=0046c544 FUN_0045b38c size=56488
+  0046c544  and x9, x9, x11, lsl #0
+  0046c548  ldrb x11, [x16, #0x40]
+  0046c54c  movz x0, #0x1b
+  0046c550  orr x9, x10, x9, lsl #0
+  0046c554  ldrb x10, [x16, #0x42]
+  0046c558  eor x8, x8, x23, lsl #0
+  0046c55c  strb x8, [x15, #0x3e]
+  0046c560  eor x8, x9, #imm(n=0,r=31,s=0)
+  0046c564  bic x9, x2, x11, lsl #0
+  0046c568  and x11, x11, x4, lsl #0
+  0046c56c  and x13, x10, #imm(n=0,r=31,s=1)
+  0046c570  strb x8, [x15, #0x3f]
+  0046c574  orr x8, x9, x11, lsl #0
+  0046c578  sub x9, x10, x13, lsl #1
+  0046c57c  ldrb x10, [x16, #0x43]
+  0046c580  strb x8, [x15, #0x40]
+  0046c584  eor x8, x12, #imm(n=0,r=28,s=2)
+  0046c588  movz x2, #0xc4
+  0046c58c  strb x8, [x15, #0x41]
+  0046c590  sub x8, x9, #0x7a
+  0046c594  ldrb x9, [x16, #0x44]
+  0046c598  strb x8, [x15, #0x42]
+  0046c59c  eor x8, x10, x2, lsl #0
+  0046c5a0  movz x10, #0x9a
+  0046c5a4  strb x8, [x15, #0x43]
+  0046c5a8  movz x8, #0x65
+  0046c5ac  movz x4, #0x58
+  0046c5b0  bic x8, x8, x9, lsl #0
+  0046c5b4  and x9, x9, x10, lsl #0
+  0046c5b8  ldrb x10, [x16, #0x47]
+  0046c5bc  orr x8, x8, x9, lsl #0
+  0046c5c0  ldrb x9, [x16, #0x45]
+  0046c5c4  ldrb x12, [x16, #0x51]
+  0046c5c8  strb x8, [x15, #0x44]
+  0046c5cc  movz x8, #0x5b
+  0046c5d0  orn x11, xzr, x10, lsl #0
+  0046c5d4  eor x8, x9, x8, lsl #0
+  0046c5d8  ldrb x9, [x16, #0x46]
+  0046c5dc  movz x13, #0xbe
+  0046c5e0  strb x8, [x15, #0x45]
+  0046c5e4  orr x8, x10, #imm(n=0,r=25,s=0)
+  0046c5e8  orr x10, x11, #imm(n=0,r=0,s=6)
+  0046c5ec  movz x11, #0xc2
+  0046c5f0  and x8, x8, x10, lsl #0
+  0046c5f4  ldrb x10, [x16, #0x48]
+  0046c5f8  eor x9, x9, x11, lsl #0
+  0046c5fc  orn x8, xzr, x8, lsl #0
+  0046c600  movz x11, #0x59
+
+### 0045b38c gap=0046cc20 FUN_0045b38c size=56488
+  0046cc20  movz x6, #0x4f
+  0046cc24  strb x8, [x2, #0x9]
+  0046cc28  ldrb x8, [x16, #0xc]
+  0046cc2c  eor x9, x9, x11, lsl #0
+  0046cc30  movz x11, #0xa1
+  0046cc34  and x11, x10, x11, lsl #0
+  0046cc38  bic x10, x12, x10, lsl #0
+  0046cc3c  ldrb x12, [x16, #0xe]
+  0046cc40  orr x10, x11, x10, lsl #0
+  0046cc44  orn x11, xzr, x8, lsl #0
+  0046cc48  strb x9, [x2, #0xa]
+  0046cc4c  orn x9, xzr, x10, lsl #0
+  0046cc50  orr x10, x11, #imm(n=0,r=30,s=4)
+  0046cc54  orr x8, x8, #imm(n=0,r=25,s=26)
+  0046cc58  ldrb x11, [x16, #0xd]
+  0046cc5c  and x13, x12, x7, lsl #0
+  0046cc60  strb x9, [x2, #0xb]
+  0046cc64  and x8, x10, x8, lsl #0
+  0046cc68  sub x9, x12, x13, lsl #1
+  0046cc6c  ldrb x10, [x16, #0x10]
+  0046cc70  strb x8, [x2, #0xc]
+  0046cc74  eor x8, x11, x14, lsl #0
+  0046cc78  movz x11, #0x4f
+  0046cc7c  strb x8, [x2, #0xd]
+  0046cc80  sub x8, x9, #0x4e
+  0046cc84  ldrb x9, [x16, #0xf]
+  0046cc88  strb x8, [x2, #0xe]
+  0046cc8c  orr x8, x10, x3, lsl #0
+  0046cc90  orn x10, x11, x10, lsl #0
+  0046cc94  eor x9, x9, #imm(n=0,r=25,s=30)
+  0046cc98  and x8, x8, x10, lsl #0
+  0046cc9c  ldrb x10, [x16, #0x11]
+  0046cca0  strb x9, [x2, #0xf]
+  0046cca4  orn x8, xzr, x8, lsl #0
+  0046cca8  ldrb x9, [x16, #0x12]
+  0046ccac  strb x8, [x2, #0x10]
+  0046ccb0  eor x8, x10, x20, lsl #0
+  0046ccb4  movz x10, #0x67
+  0046ccb8  movz x11, #0x98
+  0046ccbc  bic x10, x10, x9, lsl #0
+  0046ccc0  strb x8, [x2, #0x11]
+  0046ccc4  and x9, x9, x11, lsl #0
+  0046ccc8  ldrb x11, [x16, #0x13]
+  0046cccc  movz x20, #0x57
+  0046ccd0  orr x8, x10, x9, lsl #0
+  0046ccd4  movz x7, #0x24
+  0046ccd8  movz x3, #0x84
+  0046ccdc  bic x9, x15, x11, lsl #0
+
+### 0045b38c gap=00468b38 FUN_0045b38c size=56488
+  00468b38  strb x8, [x13, #0x9]
+  00468b3c  movz x8, #0xb3
+  00468b40  movz x11, #0x86
+  00468b44  bic x8, x8, x9, lsl #0
+  00468b48  and x9, x9, x0, lsl #0
+  00468b4c  movz x0, #0x5b
+  00468b50  orr x8, x8, x9, lsl #0
+  00468b54  ldrb x9, [x14, #0xc]
+  00468b58  eor x10, x10, x11, lsl #0
+  00468b5c  eor x8, x8, x0, lsl #0
+  00468b60  strb x10, [x13, #0xa]
+  00468b64  ldrb x10, [x14, #0xd]
+  00468b68  strb x8, [x13, #0xb]
+  00468b6c  movz x8, #0x67
+  00468b70  movz x11, #0x5f
+  00468b74  eor x8, x9, x8, lsl #0
+  00468b78  ldrb x9, [x14, #0xe]
+  00468b7c  strb x8, [x13, #0xc]
+  00468b80  movz x8, #0x5d
+  00468b84  eor x8, x10, x8, lsl #0
+  00468b88  ldrb x10, [x14, #0x11]
+  00468b8c  strb x8, [x13, #0xd]
+  00468b90  movz x8, #0xd3
+  00468b94  eor x8, x9, x8, lsl #0
+  00468b98  ldrb x9, [x14, #0xf]
+  00468b9c  and x12, x10, #imm(n=0,r=31,s=5)
+  00468ba0  strb x8, [x13, #0xe]
+  00468ba4  ldrb x8, [x14, #0x12]
+  00468ba8  eor x9, x9, x11, lsl #0
+  00468bac  ldrb x11, [x14, #0x10]
+  00468bb0  strb x9, [x13, #0xf]
+  00468bb4  sub x9, x10, x12, lsl #1
+  00468bb8  and x10, x8, #imm(n=0,r=0,s=57)
+  00468bbc  sub x8, x8, x10, lsl #1
+  00468bc0  ldrb x10, [x14, #0x13]
+  00468bc4  movz x12, #0x31
+  00468bc8  add x9, x9, #0x7e
+  00468bcc  eor x11, x11, x12, lsl #0
+  00468bd0  ldrb x12, [x14, #0x1c]
+  00468bd4  strb x9, [x13, #0x11]
+  00468bd8  orn x9, xzr, x10, lsl #0
+  00468bdc  add x8, x8, #0x33
+  00468be0  and x10, x10, #imm(n=0,r=27,s=1)
+  00468be4  and x9, x9, #imm(n=0,r=25,s=29)
+  00468be8  strb x11, [x13, #0x10]
+  00468bec  ldrb x11, [x14, #0x14]
+  00468bf0  strb x8, [x13, #0x12]
+  00468bf4  orr x8, x9, x10, lsl #0
+
+### 004698d8 gap=0046c544 FUN_004698d8 size=6076
+  0046c544  and x9, x9, x11, lsl #0
+  0046c548  ldrb x11, [x16, #0x40]
+  0046c54c  movz x0, #0x1b
+  0046c550  orr x9, x10, x9, lsl #0
+  0046c554  ldrb x10, [x16, #0x42]
+  0046c558  eor x8, x8, x23, lsl #0
+  0046c55c  strb x8, [x15, #0x3e]
+  0046c560  eor x8, x9, #imm(n=0,r=31,s=0)
+  0046c564  bic x9, x2, x11, lsl #0
+  0046c568  and x11, x11, x4, lsl #0
+  0046c56c  and x13, x10, #imm(n=0,r=31,s=1)
+  0046c570  strb x8, [x15, #0x3f]
+  0046c574  orr x8, x9, x11, lsl #0
+  0046c578  sub x9, x10, x13, lsl #1
+  0046c57c  ldrb x10, [x16, #0x43]
+  0046c580  strb x8, [x15, #0x40]
+  0046c584  eor x8, x12, #imm(n=0,r=28,s=2)
+  0046c588  movz x2, #0xc4
+  0046c58c  strb x8, [x15, #0x41]
+  0046c590  sub x8, x9, #0x7a
+  0046c594  ldrb x9, [x16, #0x44]
+  0046c598  strb x8, [x15, #0x42]
+  0046c59c  eor x8, x10, x2, lsl #0
+  0046c5a0  movz x10, #0x9a
+  0046c5a4  strb x8, [x15, #0x43]
+  0046c5a8  movz x8, #0x65
+  0046c5ac  movz x4, #0x58
+  0046c5b0  bic x8, x8, x9, lsl #0
+  0046c5b4  and x9, x9, x10, lsl #0
+  0046c5b8  ldrb x10, [x16, #0x47]
+  0046c5bc  orr x8, x8, x9, lsl #0
+  0046c5c0  ldrb x9, [x16, #0x45]
+  0046c5c4  ldrb x12, [x16, #0x51]
+  0046c5c8  strb x8, [x15, #0x44]
+  0046c5cc  movz x8, #0x5b
+  0046c5d0  orn x11, xzr, x10, lsl #0
+  0046c5d4  eor x8, x9, x8, lsl #0
+  0046c5d8  ldrb x9, [x16, #0x46]
+  0046c5dc  movz x13, #0xbe
+  0046c5e0  strb x8, [x15, #0x45]
+  0046c5e4  orr x8, x10, #imm(n=0,r=25,s=0)
+  0046c5e8  orr x10, x11, #imm(n=0,r=0,s=6)
+  0046c5ec  movz x11, #0xc2
+  0046c5f0  and x8, x8, x10, lsl #0
+  0046c5f4  ldrb x10, [x16, #0x48]
+  0046c5f8  eor x9, x9, x11, lsl #0
+  0046c5fc  orn x8, xzr, x8, lsl #0
+  0046c600  movz x11, #0x59
+
+### 004698d8 gap=0046cc20 FUN_004698d8 size=6076
+  0046cc20  movz x6, #0x4f
+  0046cc24  strb x8, [x2, #0x9]
+  0046cc28  ldrb x8, [x16, #0xc]
+  0046cc2c  eor x9, x9, x11, lsl #0
+  0046cc30  movz x11, #0xa1
+  0046cc34  and x11, x10, x11, lsl #0
+  0046cc38  bic x10, x12, x10, lsl #0
+  0046cc3c  ldrb x12, [x16, #0xe]
+  0046cc40  orr x10, x11, x10, lsl #0
+  0046cc44  orn x11, xzr, x8, lsl #0
+  0046cc48  strb x9, [x2, #0xa]
+  0046cc4c  orn x9, xzr, x10, lsl #0
+  0046cc50  orr x10, x11, #imm(n=0,r=30,s=4)
+  0046cc54  orr x8, x8, #imm(n=0,r=25,s=26)
+  0046cc58  ldrb x11, [x16, #0xd]
+  0046cc5c  and x13, x12, x7, lsl #0
+  0046cc60  strb x9, [x2, #0xb]
+  0046cc64  and x8, x10, x8, lsl #0
+  0046cc68  sub x9, x12, x13, lsl #1
+  0046cc6c  ldrb x10, [x16, #0x10]
+  0046cc70  strb x8, [x2, #0xc]
+  0046cc74  eor x8, x11, x14, lsl #0
+  0046cc78  movz x11, #0x4f
+  0046cc7c  strb x8, [x2, #0xd]
+  0046cc80  sub x8, x9, #0x4e
+  0046cc84  ldrb x9, [x16, #0xf]
+  0046cc88  strb x8, [x2, #0xe]
+  0046cc8c  orr x8, x10, x3, lsl #0
+  0046cc90  orn x10, x11, x10, lsl #0
+  0046cc94  eor x9, x9, #imm(n=0,r=25,s=30)
+  0046cc98  and x8, x8, x10, lsl #0
+  0046cc9c  ldrb x10, [x16, #0x11]
+  0046cca0  strb x9, [x2, #0xf]
+  0046cca4  orn x8, xzr, x8, lsl #0
+  0046cca8  ldrb x9, [x16, #0x12]
+  0046ccac  strb x8, [x2, #0x10]
+  0046ccb0  eor x8, x10, x20, lsl #0
+  0046ccb4  movz x10, #0x67
+  0046ccb8  movz x11, #0x98
+  0046ccbc  bic x10, x10, x9, lsl #0
+  0046ccc0  strb x8, [x2, #0x11]
+  0046ccc4  and x9, x9, x11, lsl #0
+  0046ccc8  ldrb x11, [x16, #0x13]
+  0046cccc  movz x20, #0x57
+  0046ccd0  orr x8, x10, x9, lsl #0
+  0046ccd4  movz x7, #0x24
+  0046ccd8  movz x3, #0x84
+  0046ccdc  bic x9, x15, x11, lsl #0
+
+### 0046b600 gap=0046b724 FUN_0046b600 size=676
+  0046b724  movk x2, #0xb54f, lsl #16
+  0046b728  movk x9, #0x427a, lsl #16
+  0046b72c  eor x8, x8, x9, lsl #0
+  0046b730  movz x9, #0x3f3a
+  0046b734  movk x9, #0xe8db, lsl #16
+  0046b738  madd x8, x8, x9, xzr
+  0046b73c  movz x9, #0xcdc4
+  0046b740  movk x9, #0x61e5, lsl #16
+  0046b744  bic x9, x9, x8, lsl #0
+  0046b748  and x8, x8, x10, lsl #0
+  0046b74c  movz x10, #0x877a
+  0046b750  sub x8, x8, x9, lsl #0
+  0046b754  movz x9, #0x85e8
+  0046b758  movk x10, #0x2258, lsl #16
+  0046b75c  movk x9, #0x5793, lsl #16
+  0046b760  and x8, x8, x9, lsl #0
+  0046b764  movz x9, #0xad29
+  0046b768  movk x9, #0x1cd9, lsl #16
+  0046b76c  subs xzr, x8, x9, lsl #0
+  0046b770  movz x9, #0x4790
+  0046b774  ldr x8, [x19, #0x0]
+  0046b778  movk x9, #0x762f, lsl #16
+  0046b77c  csel x9, x9, x2, eq
+  0046b780  str x9, [x8, #0x0]
+  0046b784  b 0x433b30
+
+### 0046b600 gap=0046b794 FUN_0046b600 size=676
+  0046b794  ldr x0, [x8, #0x0]
+  0046b798  bl 0x8e0d20
+  0046b79c  sub x9, x29, #0xe38
+  0046b7a0  ldr x8, [x19, #0x0]
+  0046b7a4  movz x30, #0xbf5c
+  0046b7a8  ldur x9, [x9, #-256]
+  0046b7ac  movz x7, #0xfe6
+  0046b7b0  movz x6, #0x5599
+  0046b7b4  movz x5, #0x70
+  0046b7b8  movz x10, #0x877a
+  0046b7bc  movz x11, #0x6006
+  0046b7c0  movz x12, #0xbc41
+  0046b7c4  movz x13, #0x5a45
+  0046b7c8  movz x14, #0x1cd4
+  0046b7cc  movz x16, #0xd81d
+  0046b7d0  movz x15, #0xdfdc
+  0046b7d4  movz x17, #0x974e
+  0046b7d8  movz x26, #0x964
+  0046b7dc  movz x23, #0xfa79
+  0046b7e0  movz x3, #0x3f1f
+  0046b7e4  movz x4, #0x88c9
+  0046b7e8  movz x1, #0xd64a
+  0046b7ec  movk x30, #0x86f6, lsl #16
+  0046b7f0  movk x7, #0x2fbe, lsl #16
+  0046b7f4  movk x6, #0x1cae, lsl #16
+  0046b7f8  movk x5, #0x32fd, lsl #16
+  0046b7fc  movk x10, #0x2258, lsl #16
+  0046b800  movk x11, #0x497a, lsl #16
+  0046b804  movk x12, #0xf1eb, lsl #16
+  0046b808  movk x13, #0xf700, lsl #16
+  0046b80c  movk x14, #0x2f74, lsl #16
+  0046b810  movk x16, #0x3f9d, lsl #16
+  0046b814  movk x15, #0xf5a, lsl #16
+  0046b818  movk x17, #0x69e9, lsl #16
+  0046b81c  movk x26, #0xeec, lsl #16
+  0046b820  movk x23, #0x41d0, lsl #16
+  0046b824  movk x3, #0x5107, lsl #16
+  0046b828  movk x4, #0x804f, lsl #16
+  0046b82c  movk x1, #0xffc2, lsl #16
+  0046b830  str x9, [x8, #0x0]
+  0046b834  b 0x433b30
+
+### 0046b600 gap=0046b79c FUN_0046b600 size=676
+  0046b79c  sub x9, x29, #0xe38
+  0046b7a0  ldr x8, [x19, #0x0]
+  0046b7a4  movz x30, #0xbf5c
+  0046b7a8  ldur x9, [x9, #-256]
+  0046b7ac  movz x7, #0xfe6
+  0046b7b0  movz x6, #0x5599
+  0046b7b4  movz x5, #0x70
+  0046b7b8  movz x10, #0x877a
+  0046b7bc  movz x11, #0x6006
+  0046b7c0  movz x12, #0xbc41
+  0046b7c4  movz x13, #0x5a45
+  0046b7c8  movz x14, #0x1cd4
+  0046b7cc  movz x16, #0xd81d
+  0046b7d0  movz x15, #0xdfdc
+  0046b7d4  movz x17, #0x974e
+  0046b7d8  movz x26, #0x964
+  0046b7dc  movz x23, #0xfa79
+  0046b7e0  movz x3, #0x3f1f
+  0046b7e4  movz x4, #0x88c9
+  0046b7e8  movz x1, #0xd64a
+  0046b7ec  movk x30, #0x86f6, lsl #16
+  0046b7f0  movk x7, #0x2fbe, lsl #16
+  0046b7f4  movk x6, #0x1cae, lsl #16
+  0046b7f8  movk x5, #0x32fd, lsl #16
+  0046b7fc  movk x10, #0x2258, lsl #16
+  0046b800  movk x11, #0x497a, lsl #16
+  0046b804  movk x12, #0xf1eb, lsl #16
+  0046b808  movk x13, #0xf700, lsl #16
+  0046b80c  movk x14, #0x2f74, lsl #16
+  0046b810  movk x16, #0x3f9d, lsl #16
+  0046b814  movk x15, #0xf5a, lsl #16
+  0046b818  movk x17, #0x69e9, lsl #16
+  0046b81c  movk x26, #0xeec, lsl #16
+  0046b820  movk x23, #0x41d0, lsl #16
+  0046b824  movk x3, #0x5107, lsl #16
+  0046b828  movk x4, #0x804f, lsl #16
+  0046b82c  movk x1, #0xffc2, lsl #16
+  0046b830  str x9, [x8, #0x0]
+  0046b834  b 0x433b30
+
+### 0046b600 gap=0046b848 FUN_0046b600 size=676
+  0046b848  b 0x433b30
+
+### 0046b600 gap=00465c9c FUN_0046b600 size=676
+  00465c9c  eor x8, x8, x10, lsl #0
+  00465ca0  movz x10, #0x557c
+  00465ca4  movk x10, #0x60f, lsl #16
+  00465ca8  eor x9, x9, x10, lsl #0
+  00465cac  movz x10, #0xe4d2
+  00465cb0  and x8, x8, x9, lsl #0
+  00465cb4  movz x9, #0x1b2d
+  00465cb8  movk x10, #0x4502, lsl #16
+  00465cbc  movk x9, #0xbafd, lsl #16
+  00465cc0  and x10, x8, x10, lsl #0
+  00465cc4  eor x9, x8, x9, lsl #0
+  00465cc8  add x8, x8, x9, lsl #0
+  00465ccc  movz x9, #0x95ab
+  00465cd0  sub x8, x8, x10, lsl #0
+  00465cd4  movk x9, #0xd43a, lsl #16
+  00465cd8  movz x10, #0xa666
+  00465cdc  madd x8, x8, x9, xzr
+  00465ce0  movz x9, #0xbaf
+  00465ce4  movk x10, #0x71c7, lsl #16
+  00465ce8  movk x9, #0xf234, lsl #16
+  00465cec  add x9, x9, #0xc9e
+  00465cf0  ubfm x8, x8, #63, #63
+  00465cf4  orr x8, x8, x10, lsl #0
+  00465cf8  movz x10, #0x9058
+  00465cfc  movk x10, #0xf188, lsl #16
+  00465d00  eor x9, x9, x10, lsl #0
+  00465d04  movz x10, #0x877a
+  00465d08  subs xzr, x8, x9, lsl #0
+  00465d0c  movz x9, #0x6d7c
+  00465d10  ldr x8, [x19, #0x0]
+  00465d14  movk x9, #0xcbe7, lsl #16
+  00465d18  movk x10, #0x2258, lsl #16
+  00465d1c  csel x9, x28, x9, ls
+  00465d20  movz x28, #0xa1ba
+  00465d24  str x9, [x8, #0x0]
+  00465d28  movk x28, #0x800, lsl #16
+  00465d2c  b 0x433b30
+
+### 0046b600 gap=00465cf0 FUN_0046b600 size=676
+  00465cf0  ubfm x8, x8, #63, #63
+  00465cf4  orr x8, x8, x10, lsl #0
+  00465cf8  movz x10, #0x9058
+  00465cfc  movk x10, #0xf188, lsl #16
+  00465d00  eor x9, x9, x10, lsl #0
+  00465d04  movz x10, #0x877a
+  00465d08  subs xzr, x8, x9, lsl #0
+  00465d0c  movz x9, #0x6d7c
+  00465d10  ldr x8, [x19, #0x0]
+  00465d14  movk x9, #0xcbe7, lsl #16
+  00465d18  movk x10, #0x2258, lsl #16
+  00465d1c  csel x9, x28, x9, ls
+  00465d20  movz x28, #0xa1ba
+  00465d24  str x9, [x8, #0x0]
+  00465d28  movk x28, #0x800, lsl #16
+  00465d2c  b 0x433b30
+
+### 0046b600 gap=00465cf8 FUN_0046b600 size=676
+  00465cf8  movz x10, #0x9058
+  00465cfc  movk x10, #0xf188, lsl #16
+  00465d00  eor x9, x9, x10, lsl #0
+  00465d04  movz x10, #0x877a
+  00465d08  subs xzr, x8, x9, lsl #0
+  00465d0c  movz x9, #0x6d7c
+  00465d10  ldr x8, [x19, #0x0]
+  00465d14  movk x9, #0xcbe7, lsl #16
+  00465d18  movk x10, #0x2258, lsl #16
+  00465d1c  csel x9, x28, x9, ls
+  00465d20  movz x28, #0xa1ba
+  00465d24  str x9, [x8, #0x0]
+  00465d28  movk x28, #0x800, lsl #16
+  00465d2c  b 0x433b30
+
+### 0046b600 gap=00465d24 FUN_0046b600 size=676
+  00465d24  str x9, [x8, #0x0]
+  00465d28  movk x28, #0x800, lsl #16
+  00465d2c  b 0x433b30
+
+### 0046b600 gap=00465d68 FUN_0046b600 size=676
+  00465d68  b 0x433b30
+
+### 0046b600 gap=00465d80 FUN_0046b600 size=676
+  00465d80  movz x10, #0xda11
+  00465d84  movk x10, #0x800a, lsl #16
+  00465d88  str x10, [x8, #0x0]
+  00465d8c  sub x8, x29, #0x1c8
+  00465d90  movz x10, #0x877a
+  00465d94  ldur x8, [x8, #-256]
+  00465d98  movk x10, #0x2258, lsl #16
+  00465d9c  str x9, [x8, #0x0]
+  00465da0  b 0x433b30
+
+### 0046b600 gap=00465d84 FUN_0046b600 size=676
+  00465d84  movk x10, #0x800a, lsl #16
+  00465d88  str x10, [x8, #0x0]
+  00465d8c  sub x8, x29, #0x1c8
+  00465d90  movz x10, #0x877a
+  00465d94  ldur x8, [x8, #-256]
+  00465d98  movk x10, #0x2258, lsl #16
+  00465d9c  str x9, [x8, #0x0]
+  00465da0  b 0x433b30
+
+### 0046b600 gap=00465de0 FUN_0046b600 size=676
+  00465de0  eor x9, x10, x9, lsl #0
+  00465de4  movz x10, #0x8dd4
+  00465de8  madd x8, x8, x9, xzr
+  00465dec  movk x10, #0x3e41, lsl #16
+  00465df0  bic x9, x11, x8, lsl #0
+  00465df4  and x10, x8, x10, lsl #0
+  00465df8  madd x9, x10, x9, xzr
+  00465dfc  and x10, x8, x11, lsl #0
+  00465e00  orr x8, x8, x11, lsl #0
+  00465e04  madd x8, x8, x10, x9
+  00465e08  movz x9, #0x9b2a
+  00465e0c  sub x10, x29, #0x560
+  00465e10  movk x9, #0xb, lsl #16
+  00465e14  ldur x10, [x10, #-256]
+  00465e18  movz x11, #0x6006
+  00465e1c  movk x11, #0x497a, lsl #16
+  00465e20  orr x8, x8, x9, lsl #0
+  00465e24  movz x9, #0x1ea5
+  00465e28  ldr x10, [x10, #0x0]
+  00465e2c  movk x9, #0x6b9f, lsl #16
+  00465e30  madd x8, x8, x9, xzr
+  00465e34  sub x9, x29, #0x80
+  00465e38  subs sp, x10, #0x0
+  00465e3c  ldur x9, [x9, #-256]
+  00465e40  movz x10, #0xcb34
+  00465e44  movk x10, #0xf38e, lsl #16
+  00465e48  ldr x9, [x9, #0x0]
+  00465e4c  ubfm x8, x8, #61, #63
+  00465e50  stnp xzr, xzr, [x9, #8]
+  00465e54  str sp, [x9, #0x0]
+  00465e58  csel x9, xzr, xzr, ne
+  00465e5c  subs xzr, x8, x10, lsl #0
+  00465e60  sub x10, x29, #0xb20
+  00465e64  ldr x8, [x19, #0x0]
+  00465e68  ldur x10, [x10, #-256]
+  00465e6c  strb x9, [x10, #0x0]
+  00465e70  movz x9, #0x2ffe
+  00465e74  movz x10, #0x877a
+  00465e78  movk x9, #0xb0f5, lsl #16
+  00465e7c  movk x10, #0x2258, lsl #16
+  00465e80  csel x9, x9, x26, cc
+  00465e84  str x9, [x8, #0x0]
+  00465e88  b 0x433b30
+
+### 0046b600 gap=0045fa10 FUN_0046b600 size=676
+  0045fa10  ldr x8, [x19, #0x0]
+  0045fa14  subs xzr, x25, x10, lsl #0
+  0045fa18  sub x10, x29, #0x840
+  0045fa1c  movk x3, #0xb8c7, lsl #16
+  0045fa20  ldur x10, [x10, #-256]
+  0045fa24  movz x30, #0xbf5c
+  0045fa28  movz x7, #0xfe6
+  0045fa2c  movz x6, #0x5599
+  0045fa30  movz x5, #0x70
+  0045fa34  movz x11, #0x6006
+  0045fa38  strb x9, [x10, #0x0]
+  0045fa3c  movz x9, #0x8ce3
+  0045fa40  movz x12, #0xbc41
+  0045fa44  movk x9, #0xbd25, lsl #16
+  0045fa48  movz x13, #0x5a45
+  0045fa4c  movz x14, #0x1cd4
+  0045fa50  movz x16, #0xd81d
+  0045fa54  movz x15, #0xdfdc
+  0045fa58  movz x17, #0x974e
+  0045fa5c  movz x26, #0x964
+  0045fa60  movz x23, #0xfa79
+  0045fa64  movz x4, #0x88c9
+  0045fa68  movz x1, #0xd64a
+  0045fa6c  movz x10, #0x877a
+  0045fa70  csel x9, x3, x9, hi
+  0045fa74  movz x3, #0x3f1f
+  0045fa78  movk x30, #0x86f6, lsl #16
+  0045fa7c  movk x7, #0x2fbe, lsl #16
+  0045fa80  movk x6, #0x1cae, lsl #16
+  0045fa84  movk x5, #0x32fd, lsl #16
+  0045fa88  movk x11, #0x497a, lsl #16
+  0045fa8c  movk x12, #0xf1eb, lsl #16
+  0045fa90  movk x13, #0xf700, lsl #16
+  0045fa94  movk x14, #0x2f74, lsl #16
+  0045fa98  movk x16, #0x3f9d, lsl #16
+  0045fa9c  movk x15, #0xf5a, lsl #16
+  0045faa0  movk x17, #0x69e9, lsl #16
+  0045faa4  movk x26, #0xeec, lsl #16
+  0045faa8  movk x23, #0x41d0, lsl #16
+  0045faac  movk x4, #0x804f, lsl #16
+  0045fab0  movk x1, #0xffc2, lsl #16
+  0045fab4  movk x10, #0x2258, lsl #16
+  0045fab8  movk x3, #0x5107, lsl #16
+  0045fabc  str x9, [x8, #0x0]
+  0045fac0  b 0x433b30
+
+### 0046b600 gap=0045fa84 FUN_0046b600 size=676
+  0045fa84  movk x5, #0x32fd, lsl #16
+  0045fa88  movk x11, #0x497a, lsl #16
+  0045fa8c  movk x12, #0xf1eb, lsl #16
+  0045fa90  movk x13, #0xf700, lsl #16
+  0045fa94  movk x14, #0x2f74, lsl #16
+  0045fa98  movk x16, #0x3f9d, lsl #16
+  0045fa9c  movk x15, #0xf5a, lsl #16
+  0045faa0  movk x17, #0x69e9, lsl #16
+  0045faa4  movk x26, #0xeec, lsl #16
+  0045faa8  movk x23, #0x41d0, lsl #16
+  0045faac  movk x4, #0x804f, lsl #16
+  0045fab0  movk x1, #0xffc2, lsl #16
+  0045fab4  movk x10, #0x2258, lsl #16
+  0045fab8  movk x3, #0x5107, lsl #16
+  0045fabc  str x9, [x8, #0x0]
+  0045fac0  b 0x433b30
+
+### 0046b600 gap=0045fa8c FUN_0046b600 size=676
+  0045fa8c  movk x12, #0xf1eb, lsl #16
+  0045fa90  movk x13, #0xf700, lsl #16
+  0045fa94  movk x14, #0x2f74, lsl #16
+  0045fa98  movk x16, #0x3f9d, lsl #16
+  0045fa9c  movk x15, #0xf5a, lsl #16
+  0045faa0  movk x17, #0x69e9, lsl #16
+  0045faa4  movk x26, #0xeec, lsl #16
+  0045faa8  movk x23, #0x41d0, lsl #16
+  0045faac  movk x4, #0x804f, lsl #16
+  0045fab0  movk x1, #0xffc2, lsl #16
+  0045fab4  movk x10, #0x2258, lsl #16
+  0045fab8  movk x3, #0x5107, lsl #16
+  0045fabc  str x9, [x8, #0x0]
+  0045fac0  b 0x433b30
+
+### 0046b600 gap=0045fae8 FUN_0046b600 size=676
+  0045fae8  movz x11, #0x458b
+  0045faec  eor x8, x8, x10, lsl #0
+  0045faf0  movz x10, #0x4c95
+  0045faf4  movk x11, #0xdc3, lsl #16
+  0045faf8  movk x10, #0x7cbc, lsl #16
+  0045fafc  eor x9, x9, x10, lsl #0
+  0045fb00  movz x10, #0x1d9e
+  0045fb04  movk x10, #0x36ca, lsl #16
+  0045fb08  add x8, x8, x9, lsl #0
+  0045fb0c  add x9, x10, #0x1
+  0045fb10  add x8, x8, x11, lsl #0
+  0045fb14  movz x11, #0x6006
+  0045fb18  eor x9, x10, x9, lsl #0
+  0045fb1c  movz x10, #0x711f
+  0045fb20  movk x11, #0x497a, lsl #16
+  0045fb24  movk x10, #0xe5a7, lsl #16
+  0045fb28  add x9, x8, x9, lsl #0
+  0045fb2c  orn x8, x10, x8, lsl #0
+  0045fb30  movz x10, #0x877a
+  0045fb34  add x8, x8, x9, lsl #0
+  0045fb38  movz x9, #0xcf83
+  0045fb3c  movk x10, #0x2258, lsl #16
+  0045fb40  movk x9, #0x727, lsl #16
+  0045fb44  madd x8, x8, x9, xzr
+  0045fb48  movz x9, #0x31a9
+  0045fb4c  movk x9, #0xf967, lsl #16
+  0045fb50  subs xzr, x8, x9, lsl #0
+  0045fb54  movz x9, #0xa534
+  0045fb58  ldr x8, [x19, #0x0]
+  0045fb5c  movk x9, #0xdcb7, lsl #16
+  0045fb60  csel x9, x9, x28, eq
+  0045fb64  str x9, [x8, #0x0]
+  0045fb68  b 0x433b30
+
+### 0046b600 gap=0045fb38 FUN_0046b600 size=676
+  0045fb38  movz x9, #0xcf83
+  0045fb3c  movk x10, #0x2258, lsl #16
+  0045fb40  movk x9, #0x727, lsl #16
+  0045fb44  madd x8, x8, x9, xzr
+  0045fb48  movz x9, #0x31a9
+  0045fb4c  movk x9, #0xf967, lsl #16
+  0045fb50  subs xzr, x8, x9, lsl #0
+  0045fb54  movz x9, #0xa534
+  0045fb58  ldr x8, [x19, #0x0]
+  0045fb5c  movk x9, #0xdcb7, lsl #16
+  0045fb60  csel x9, x9, x28, eq
+  0045fb64  str x9, [x8, #0x0]
+  0045fb68  b 0x433b30
+
+### 0046b600 gap=0045fba0 FUN_0046b600 size=676
+  0045fba0  movk x12, #0x3674, lsl #16
+  0045fba4  movz x21, #0xcd9d
+  0045fba8  eor x10, x10, x11, lsl #0
+  0045fbac  movz x11, #0xc04a
+  0045fbb0  movk x21, #0xf988, lsl #16
+  0045fbb4  movk x11, #0x498b, lsl #16
+  0045fbb8  eor x10, x10, x8, lsl #0
+  0045fbbc  eor x11, x9, x11, lsl #0
+  0045fbc0  eor x9, x9, x12, lsl #0
+  0045fbc4  movz x12, #0xbc41
+  0045fbc8  and x9, x8, x9, lsl #0
+  0045fbcc  and x10, x11, x10, lsl #0
+  0045fbd0  movk x12, #0xf1eb, lsl #16
+  0045fbd4  madd x9, x10, x9, xzr
+  0045fbd8  and x10, x11, x8, lsl #0
+  0045fbdc  orr x8, x11, x8, lsl #0
+  0045fbe0  madd x8, x8, x10, x9
+  0045fbe4  movz x9, #0x19c1
+  0045fbe8  movz x10, #0xd653
+  0045fbec  movk x9, #0x3f8e, lsl #16
+  0045fbf0  movk x10, #0xc071, lsl #16
+  0045fbf4  movz x11, #0xe06
+  0045fbf8  add x9, x9, #0xc8a
+  0045fbfc  add x10, x10, #0x361
+  0045fc00  movk x11, #0x3e3f, lsl #16
+  0045fc04  bic x8, x11, x8, lsl #0
+  0045fc08  eor x9, x9, x10, lsl #0
+  0045fc0c  movz x11, #0x6006
+  0045fc10  eor x8, x8, x9, lsl #0
+  0045fc14  movz x9, #0x5065
+  0045fc18  movz x10, #0x877a
+  0045fc1c  movk x9, #0x11b2, lsl #16
+  0045fc20  movk x11, #0x497a, lsl #16
+  0045fc24  movk x10, #0x2258, lsl #16
+  0045fc28  madd x8, x8, x9, xzr
+  0045fc2c  movz x9, #0x83f2
+  0045fc30  movk x9, #0xe563, lsl #16
+  0045fc34  ubfm x8, x8, #57, #63
+  0045fc38  orr x8, x8, x9, lsl #0
+  0045fc3c  movz x9, #0x49c6
+  0045fc40  movk x9, #0x9959, lsl #16
+  0045fc44  subs xzr, x8, x9, lsl #0
+  0045fc48  movz x9, #0x55e4
+  0045fc4c  ldr x8, [x19, #0x0]
+  0045fc50  movk x9, #0xa2a8, lsl #16
+  0045fc54  csel x9, x21, x9, ne
+  0045fc58  str x9, [x8, #0x0]
+  0045fc5c  b 0x433b30
+
+### 0046b600 gap=0045fbbc FUN_0046b600 size=676
+  0045fbbc  eor x11, x9, x11, lsl #0
+  0045fbc0  eor x9, x9, x12, lsl #0
+  0045fbc4  movz x12, #0xbc41
+  0045fbc8  and x9, x8, x9, lsl #0
+  0045fbcc  and x10, x11, x10, lsl #0
+  0045fbd0  movk x12, #0xf1eb, lsl #16
+  0045fbd4  madd x9, x10, x9, xzr
+  0045fbd8  and x10, x11, x8, lsl #0
+  0045fbdc  orr x8, x11, x8, lsl #0
+  0045fbe0  madd x8, x8, x10, x9
+  0045fbe4  movz x9, #0x19c1
+  0045fbe8  movz x10, #0xd653
+  0045fbec  movk x9, #0x3f8e, lsl #16
+  0045fbf0  movk x10, #0xc071, lsl #16
+  0045fbf4  movz x11, #0xe06
+  0045fbf8  add x9, x9, #0xc8a
+  0045fbfc  add x10, x10, #0x361
+  0045fc00  movk x11, #0x3e3f, lsl #16
+  0045fc04  bic x8, x11, x8, lsl #0
+  0045fc08  eor x9, x9, x10, lsl #0
+  0045fc0c  movz x11, #0x6006
+  0045fc10  eor x8, x8, x9, lsl #0
+  0045fc14  movz x9, #0x5065
+  0045fc18  movz x10, #0x877a
+  0045fc1c  movk x9, #0x11b2, lsl #16
+  0045fc20  movk x11, #0x497a, lsl #16
+  0045fc24  movk x10, #0x2258, lsl #16
+  0045fc28  madd x8, x8, x9, xzr
+  0045fc2c  movz x9, #0x83f2
+  0045fc30  movk x9, #0xe563, lsl #16
+  0045fc34  ubfm x8, x8, #57, #63
+  0045fc38  orr x8, x8, x9, lsl #0
+  0045fc3c  movz x9, #0x49c6
+  0045fc40  movk x9, #0x9959, lsl #16
+  0045fc44  subs xzr, x8, x9, lsl #0
+  0045fc48  movz x9, #0x55e4
+  0045fc4c  ldr x8, [x19, #0x0]
+  0045fc50  movk x9, #0xa2a8, lsl #16
+  0045fc54  csel x9, x21, x9, ne
+  0045fc58  str x9, [x8, #0x0]
+  0045fc5c  b 0x433b30
+
+### 0046b600 gap=0045fbf0 FUN_0046b600 size=676
+  0045fbf0  movk x10, #0xc071, lsl #16
+  0045fbf4  movz x11, #0xe06
+  0045fbf8  add x9, x9, #0xc8a
+  0045fbfc  add x10, x10, #0x361
+  0045fc00  movk x11, #0x3e3f, lsl #16
+  0045fc04  bic x8, x11, x8, lsl #0
+  0045fc08  eor x9, x9, x10, lsl #0
+  0045fc0c  movz x11, #0x6006
+  0045fc10  eor x8, x8, x9, lsl #0
+  0045fc14  movz x9, #0x5065
+  0045fc18  movz x10, #0x877a
+  0045fc1c  movk x9, #0x11b2, lsl #16
+  0045fc20  movk x11, #0x497a, lsl #16
+  0045fc24  movk x10, #0x2258, lsl #16
+  0045fc28  madd x8, x8, x9, xzr
+  0045fc2c  movz x9, #0x83f2
+  0045fc30  movk x9, #0xe563, lsl #16
+  0045fc34  ubfm x8, x8, #57, #63
+  0045fc38  orr x8, x8, x9, lsl #0
+  0045fc3c  movz x9, #0x49c6
+  0045fc40  movk x9, #0x9959, lsl #16
+  0045fc44  subs xzr, x8, x9, lsl #0
+  0045fc48  movz x9, #0x55e4
+  0045fc4c  ldr x8, [x19, #0x0]
+  0045fc50  movk x9, #0xa2a8, lsl #16
+  0045fc54  csel x9, x21, x9, ne
+  0045fc58  str x9, [x8, #0x0]
+  0045fc5c  b 0x433b30
+
+### 0046b600 gap=0045fc48 FUN_0046b600 size=676
+  0045fc48  movz x9, #0x55e4
+  0045fc4c  ldr x8, [x19, #0x0]
+  0045fc50  movk x9, #0xa2a8, lsl #16
+  0045fc54  csel x9, x21, x9, ne
+  0045fc58  str x9, [x8, #0x0]
+  0045fc5c  b 0x433b30
+
+### 0046b600 gap=0045fc50 FUN_0046b600 size=676
+  0045fc50  movk x9, #0xa2a8, lsl #16
+  0045fc54  csel x9, x21, x9, ne
+  0045fc58  str x9, [x8, #0x0]
+  0045fc5c  b 0x433b30
+
+### 0046b600 gap=0045fcb0 FUN_0046b600 size=676
+  0045fcb0  madd x8, x8, x10, x9
+  0045fcb4  movz x9, #0x9378
+  0045fcb8  movz x10, #0x6571
+  0045fcbc  movk x9, #0x1eda, lsl #16
+  0045fcc0  movz x3, #0x9208
+  0045fcc4  movk x10, #0x11a5, lsl #16
+  0045fcc8  movk x3, #0xe5a, lsl #16
+  0045fccc  and x8, x8, x9, lsl #0
+  0045fcd0  sub x9, x29, #0x610
+  0045fcd4  ldur x9, [x9, #-256]
+  0045fcd8  eor x10, x8, x10, lsl #0
+  0045fcdc  orr x8, x8, x3, lsl #0
+  0045fce0  and x8, x8, x10, lsl #0
+  0045fce4  movz x10, #0xad3e
+  0045fce8  movz x3, #0x4c12
+  0045fcec  ldr x9, [x9, #0x0]
+  0045fcf0  movk x10, #0x51f0, lsl #16
+  0045fcf4  movk x3, #0x8d78, lsl #16
+  0045fcf8  subs sp, x9, #0x0
+  0045fcfc  csel x9, xzr, xzr, ne
+  0045fd00  subs xzr, x8, x10, lsl #0
+  0045fd04  sub x10, x29, #0x618
+  0045fd08  ldur x10, [x10, #-256]
+  0045fd0c  ldr x8, [x19, #0x0]
+  0045fd10  strb x9, [x10, #0x0]
+  0045fd14  movz x9, #0x8ff
+  0045fd18  movz x10, #0x877a
+  0045fd1c  movk x9, #0x1bd1, lsl #16
+  0045fd20  movk x10, #0x2258, lsl #16
+  0045fd24  csel x9, x3, x9, ne
+  0045fd28  movz x3, #0x3f1f
+  0045fd2c  movk x3, #0x5107, lsl #16
+  0045fd30  str x9, [x8, #0x0]
+  0045fd34  b 0x433b30
+
+### 0046b600 gap=0045fcc4 FUN_0046b600 size=676
+  0045fcc4  movk x10, #0x11a5, lsl #16
+  0045fcc8  movk x3, #0xe5a, lsl #16
+  0045fccc  and x8, x8, x9, lsl #0
+  0045fcd0  sub x9, x29, #0x610
+  0045fcd4  ldur x9, [x9, #-256]
+  0045fcd8  eor x10, x8, x10, lsl #0
+  0045fcdc  orr x8, x8, x3, lsl #0
+  0045fce0  and x8, x8, x10, lsl #0
+  0045fce4  movz x10, #0xad3e
+  0045fce8  movz x3, #0x4c12
+  0045fcec  ldr x9, [x9, #0x0]
+  0045fcf0  movk x10, #0x51f0, lsl #16
+  0045fcf4  movk x3, #0x8d78, lsl #16
+  0045fcf8  subs sp, x9, #0x0
+  0045fcfc  csel x9, xzr, xzr, ne
+  0045fd00  subs xzr, x8, x10, lsl #0
+  0045fd04  sub x10, x29, #0x618
+  0045fd08  ldur x10, [x10, #-256]
+  0045fd0c  ldr x8, [x19, #0x0]
+  0045fd10  strb x9, [x10, #0x0]
+  0045fd14  movz x9, #0x8ff
+  0045fd18  movz x10, #0x877a
+  0045fd1c  movk x9, #0x1bd1, lsl #16
+  0045fd20  movk x10, #0x2258, lsl #16
+  0045fd24  csel x9, x3, x9, ne
+  0045fd28  movz x3, #0x3f1f
+  0045fd2c  movk x3, #0x5107, lsl #16
+  0045fd30  str x9, [x8, #0x0]
+  0045fd34  b 0x433b30
+
+### 0046b600 gap=00464094 FUN_0046b600 size=676
+  00464094  ldr x9, [x9, #0xe6c]
+  00464098  movz x12, #0xc8a0
+  0046409c  eor x8, x8, x10, lsl #0
+  004640a0  movz x10, #0x9c64
+  004640a4  movk x12, #0x1c61, lsl #16
+  004640a8  movk x10, #0xd576, lsl #16
+  004640ac  eor x9, x9, x10, lsl #0
+  004640b0  add x10, x12, #0x2
+  004640b4  and x11, x8, x9, lsl #0
+  004640b8  eor x10, x12, x10, lsl #0
+  004640bc  add x8, x8, x9, lsl #0
+  004640c0  movz x9, #0xada6
+  004640c4  msub x8, x10, x11, x8
+  004640c8  movz x10, #0x4a0c
+  004640cc  movk x9, #0xa41a, lsl #16
+  004640d0  movk x10, #0x8c2d, lsl #16
+  004640d4  movz x12, #0xbc41
+  004640d8  add x9, x9, #0x918
+  004640dc  movz x11, #0x6006
+  004640e0  movk x12, #0xf1eb, lsl #16
+  004640e4  eor x9, x9, x10, lsl #0
+  004640e8  movz x10, #0x2c23
+  004640ec  movk x11, #0x497a, lsl #16
+  004640f0  udiv x8, x8, x9
+  004640f4  movz x9, #0x11b4
+  004640f8  movk x10, #0x2425, lsl #16
+  004640fc  movk x9, #0x6307, lsl #16
+  00464100  orr x8, x8, x9, lsl #0
+  00464104  movz x9, #0x5c61
+  00464108  movk x9, #0x6f1, lsl #16
+  0046410c  add x8, x8, x9, lsl #0
+  00464110  movz x9, #0x2f96
+  00464114  movk x9, #0x5d5f, lsl #16
+  00464118  subs xzr, x8, x9, lsl #0
+  0046411c  movz x9, #0x3cb
+  00464120  ldr x8, [x19, #0x0]
+  00464124  movk x9, #0x796e, lsl #16
+  00464128  csel x9, x10, x9, hi
+  0046412c  movz x10, #0x877a
+  00464130  movk x10, #0x2258, lsl #16
+  00464134  str x9, [x8, #0x0]
+  00464138  b 0x433b30
+
+### 0046b600 gap=00464170 FUN_0046b600 size=676
+  00464170  movz x12, #0xbc41
+  00464174  orr x11, x8, x10, lsl #0
+  00464178  and x10, x8, x10, lsl #0
+  0046417c  movk x12, #0xf1eb, lsl #16
+  00464180  orn x11, xzr, x11, lsl #0
+  00464184  madd x10, x11, x10, xzr
+  00464188  and x11, x8, x9, lsl #0
+  0046418c  orr x8, x8, x9, lsl #0
+  00464190  movz x9, #0x3213
+  00464194  madd x8, x8, x11, x10
+  00464198  movz x10, #0x8b41
+  0046419c  movk x9, #0xcc9b, lsl #16
+  004641a0  movk x10, #0x91a6, lsl #16
+  004641a4  movz x11, #0x6006
+  004641a8  add x9, x9, #0x430
+  004641ac  movk x11, #0x497a, lsl #16
+  004641b0  eor x9, x9, x10, lsl #0
+  004641b4  movz x10, #0x7d38
+  004641b8  movk x10, #0x3efb, lsl #16
+  004641bc  add x9, x9, x10, lsl #0
+  004641c0  movz x10, #0x4cf5
+  004641c4  add x8, x8, x9, lsl #0
+  004641c8  movz x9, #0x77dc
+  004641cc  movk x10, #0x831f, lsl #16
+  004641d0  movk x9, #0x247f, lsl #16
+  004641d4  orr x8, x8, x9, lsl #0
+  004641d8  movz x9, #0x180f
+  004641dc  movk x9, #0x93b, lsl #16
+  004641e0  subs xzr, x8, x9, lsl #0
+  004641e4  movz x9, #0x67f
+  004641e8  ldr x8, [x19, #0x0]
+  004641ec  movk x9, #0xcdfb, lsl #16
+  004641f0  csel x9, x9, x10, cc
+  004641f4  movz x10, #0x877a
+  004641f8  movk x10, #0x2258, lsl #16
+  004641fc  str x9, [x8, #0x0]
+  00464200  b 0x433b30
+
+### 0046b600 gap=004641bc FUN_0046b600 size=676
+  004641bc  add x9, x9, x10, lsl #0
+  004641c0  movz x10, #0x4cf5
+  004641c4  add x8, x8, x9, lsl #0
+  004641c8  movz x9, #0x77dc
+  004641cc  movk x10, #0x831f, lsl #16
+  004641d0  movk x9, #0x247f, lsl #16
+  004641d4  orr x8, x8, x9, lsl #0
+  004641d8  movz x9, #0x180f
+  004641dc  movk x9, #0x93b, lsl #16
+  004641e0  subs xzr, x8, x9, lsl #0
+  004641e4  movz x9, #0x67f
+  004641e8  ldr x8, [x19, #0x0]
+  004641ec  movk x9, #0xcdfb, lsl #16
+  004641f0  csel x9, x9, x10, cc
+  004641f4  movz x10, #0x877a
+  004641f8  movk x10, #0x2258, lsl #16
+  004641fc  str x9, [x8, #0x0]
+  00464200  b 0x433b30
+
+### 0046b600 gap=004641c4 FUN_0046b600 size=676
+  004641c4  add x8, x8, x9, lsl #0
+  004641c8  movz x9, #0x77dc
+  004641cc  movk x10, #0x831f, lsl #16
+  004641d0  movk x9, #0x247f, lsl #16
+  004641d4  orr x8, x8, x9, lsl #0
+  004641d8  movz x9, #0x180f
+  004641dc  movk x9, #0x93b, lsl #16
+  004641e0  subs xzr, x8, x9, lsl #0
+  004641e4  movz x9, #0x67f
+  004641e8  ldr x8, [x19, #0x0]
+  004641ec  movk x9, #0xcdfb, lsl #16
+  004641f0  csel x9, x9, x10, cc
+  004641f4  movz x10, #0x877a
+  004641f8  movk x10, #0x2258, lsl #16
+  004641fc  str x9, [x8, #0x0]
+  00464200  b 0x433b30
+
+### 0046b600 gap=004641d8 FUN_0046b600 size=676
+  004641d8  movz x9, #0x180f
+  004641dc  movk x9, #0x93b, lsl #16
+  004641e0  subs xzr, x8, x9, lsl #0
+  004641e4  movz x9, #0x67f
+  004641e8  ldr x8, [x19, #0x0]
+  004641ec  movk x9, #0xcdfb, lsl #16
+  004641f0  csel x9, x9, x10, cc
+  004641f4  movz x10, #0x877a
+  004641f8  movk x10, #0x2258, lsl #16
+  004641fc  str x9, [x8, #0x0]
+  00464200  b 0x433b30
+
+### 0046b600 gap=0046597c FUN_0046b600 size=676
+  0046597c  ldur x11, [x11, #-256]
+  00465980  str x10, [x11, #0x0]
+  00465984  sub x11, x29, #0x780
+  00465988  csel x10, xzr, xzr, ne
+  0046598c  ldur x11, [x11, #-256]
+  00465990  subs sp, x9, #0x0
+  00465994  csel x9, xzr, xzr, eq
+  00465998  strb x10, [x11, #0x0]
+  0046599c  sub x10, x29, #0xf34
+  004659a0  movz x11, #0x6006
+  004659a4  ldur x10, [x10, #-256]
+  004659a8  movk x11, #0x497a, lsl #16
+  004659ac  subs xzr, x8, x10, lsl #0
+  004659b0  sub x10, x29, #0x788
+  004659b4  ldr x8, [x19, #0x0]
+  004659b8  ldur x10, [x10, #-256]
+  004659bc  strb x9, [x10, #0x0]
+  004659c0  sub x9, x29, #0xf38
+  004659c4  movz x10, #0x877a
+  004659c8  ldur x9, [x9, #-256]
+  004659cc  movk x10, #0x2258, lsl #16
+  004659d0  csel x9, x12, x9, hi
+  004659d4  movz x12, #0xbc41
+  004659d8  str x9, [x8, #0x0]
+  004659dc  movk x12, #0xf1eb, lsl #16
+  004659e0  b 0x433b30
+
+### 0046b600 gap=0046415c FUN_0046b600 size=676
+  0046415c  movz x10, #0x89ad
+  00464160  movk x12, #0xd9e9, lsl #16
+  00464164  movk x10, #0x2616, lsl #16
+  00464168  eor x10, x9, x10, lsl #0
+  0046416c  eor x9, x9, x12, lsl #0
+  00464170  movz x12, #0xbc41
+  00464174  orr x11, x8, x10, lsl #0
+  00464178  and x10, x8, x10, lsl #0
+  0046417c  movk x12, #0xf1eb, lsl #16
+  00464180  orn x11, xzr, x11, lsl #0
+  00464184  madd x10, x11, x10, xzr
+  00464188  and x11, x8, x9, lsl #0
+  0046418c  orr x8, x8, x9, lsl #0
+  00464190  movz x9, #0x3213
+  00464194  madd x8, x8, x11, x10
+  00464198  movz x10, #0x8b41
+  0046419c  movk x9, #0xcc9b, lsl #16
+  004641a0  movk x10, #0x91a6, lsl #16
+  004641a4  movz x11, #0x6006
+  004641a8  add x9, x9, #0x430
+  004641ac  movk x11, #0x497a, lsl #16
+  004641b0  eor x9, x9, x10, lsl #0
+  004641b4  movz x10, #0x7d38
+  004641b8  movk x10, #0x3efb, lsl #16
+  004641bc  add x9, x9, x10, lsl #0
+  004641c0  movz x10, #0x4cf5
+  004641c4  add x8, x8, x9, lsl #0
+  004641c8  movz x9, #0x77dc
+  004641cc  movk x10, #0x831f, lsl #16
+  004641d0  movk x9, #0x247f, lsl #16
+  004641d4  orr x8, x8, x9, lsl #0
+  004641d8  movz x9, #0x180f
+  004641dc  movk x9, #0x93b, lsl #16
+  004641e0  subs xzr, x8, x9, lsl #0
+  004641e4  movz x9, #0x67f
+  004641e8  ldr x8, [x19, #0x0]
+  004641ec  movk x9, #0xcdfb, lsl #16
+  004641f0  csel x9, x9, x10, cc
+  004641f4  movz x10, #0x877a
+  004641f8  movk x10, #0x2258, lsl #16
+  004641fc  str x9, [x8, #0x0]
+  00464200  b 0x433b30
+
+### 0046b8a4 gap=0046c544 FUN_0046b8a4 size=5944
+  0046c544  and x9, x9, x11, lsl #0
+  0046c548  ldrb x11, [x16, #0x40]
+  0046c54c  movz x0, #0x1b
+  0046c550  orr x9, x10, x9, lsl #0
+  0046c554  ldrb x10, [x16, #0x42]
+  0046c558  eor x8, x8, x23, lsl #0
+  0046c55c  strb x8, [x15, #0x3e]
+  0046c560  eor x8, x9, #imm(n=0,r=31,s=0)
+  0046c564  bic x9, x2, x11, lsl #0
+  0046c568  and x11, x11, x4, lsl #0
+  0046c56c  and x13, x10, #imm(n=0,r=31,s=1)
+  0046c570  strb x8, [x15, #0x3f]
+  0046c574  orr x8, x9, x11, lsl #0
+  0046c578  sub x9, x10, x13, lsl #1
+  0046c57c  ldrb x10, [x16, #0x43]
+  0046c580  strb x8, [x15, #0x40]
+  0046c584  eor x8, x12, #imm(n=0,r=28,s=2)
+  0046c588  movz x2, #0xc4
+  0046c58c  strb x8, [x15, #0x41]
+  0046c590  sub x8, x9, #0x7a
+  0046c594  ldrb x9, [x16, #0x44]
+  0046c598  strb x8, [x15, #0x42]
+  0046c59c  eor x8, x10, x2, lsl #0
+  0046c5a0  movz x10, #0x9a
+  0046c5a4  strb x8, [x15, #0x43]
+  0046c5a8  movz x8, #0x65
+  0046c5ac  movz x4, #0x58
+  0046c5b0  bic x8, x8, x9, lsl #0
+  0046c5b4  and x9, x9, x10, lsl #0
+  0046c5b8  ldrb x10, [x16, #0x47]
+  0046c5bc  orr x8, x8, x9, lsl #0
+  0046c5c0  ldrb x9, [x16, #0x45]
+  0046c5c4  ldrb x12, [x16, #0x51]
+  0046c5c8  strb x8, [x15, #0x44]
+  0046c5cc  movz x8, #0x5b
+  0046c5d0  orn x11, xzr, x10, lsl #0
+  0046c5d4  eor x8, x9, x8, lsl #0
+  0046c5d8  ldrb x9, [x16, #0x46]
+  0046c5dc  movz x13, #0xbe
+  0046c5e0  strb x8, [x15, #0x45]
+  0046c5e4  orr x8, x10, #imm(n=0,r=25,s=0)
+  0046c5e8  orr x10, x11, #imm(n=0,r=0,s=6)
+  0046c5ec  movz x11, #0xc2
+  0046c5f0  and x8, x8, x10, lsl #0
+  0046c5f4  ldrb x10, [x16, #0x48]
+  0046c5f8  eor x9, x9, x11, lsl #0
+  0046c5fc  orn x8, xzr, x8, lsl #0
+  0046c600  movz x11, #0x59
+
+### 0046b8a4 gap=0046cc20 FUN_0046b8a4 size=5944
+  0046cc20  movz x6, #0x4f
+  0046cc24  strb x8, [x2, #0x9]
+  0046cc28  ldrb x8, [x16, #0xc]
+  0046cc2c  eor x9, x9, x11, lsl #0
+  0046cc30  movz x11, #0xa1
+  0046cc34  and x11, x10, x11, lsl #0
+  0046cc38  bic x10, x12, x10, lsl #0
+  0046cc3c  ldrb x12, [x16, #0xe]
+  0046cc40  orr x10, x11, x10, lsl #0
+  0046cc44  orn x11, xzr, x8, lsl #0
+  0046cc48  strb x9, [x2, #0xa]
+  0046cc4c  orn x9, xzr, x10, lsl #0
+  0046cc50  orr x10, x11, #imm(n=0,r=30,s=4)
+  0046cc54  orr x8, x8, #imm(n=0,r=25,s=26)
+  0046cc58  ldrb x11, [x16, #0xd]
+  0046cc5c  and x13, x12, x7, lsl #0
+  0046cc60  strb x9, [x2, #0xb]
+  0046cc64  and x8, x10, x8, lsl #0
+  0046cc68  sub x9, x12, x13, lsl #1
+  0046cc6c  ldrb x10, [x16, #0x10]
+  0046cc70  strb x8, [x2, #0xc]
+  0046cc74  eor x8, x11, x14, lsl #0
+  0046cc78  movz x11, #0x4f
+  0046cc7c  strb x8, [x2, #0xd]
+  0046cc80  sub x8, x9, #0x4e
+  0046cc84  ldrb x9, [x16, #0xf]
+  0046cc88  strb x8, [x2, #0xe]
+  0046cc8c  orr x8, x10, x3, lsl #0
+  0046cc90  orn x10, x11, x10, lsl #0
+  0046cc94  eor x9, x9, #imm(n=0,r=25,s=30)
+  0046cc98  and x8, x8, x10, lsl #0
+  0046cc9c  ldrb x10, [x16, #0x11]
+  0046cca0  strb x9, [x2, #0xf]
+  0046cca4  orn x8, xzr, x8, lsl #0
+  0046cca8  ldrb x9, [x16, #0x12]
+  0046ccac  strb x8, [x2, #0x10]
+  0046ccb0  eor x8, x10, x20, lsl #0
+  0046ccb4  movz x10, #0x67
+  0046ccb8  movz x11, #0x98
+  0046ccbc  bic x10, x10, x9, lsl #0
+  0046ccc0  strb x8, [x2, #0x11]
+  0046ccc4  and x9, x9, x11, lsl #0
+  0046ccc8  ldrb x11, [x16, #0x13]
+  0046cccc  movz x20, #0x57
+  0046ccd0  orr x8, x10, x9, lsl #0
+  0046ccd4  movz x7, #0x24
+  0046ccd8  movz x3, #0x84
+  0046ccdc  bic x9, x15, x11, lsl #0
+
+### 0046f588 gap=00472a74 FUN_0046f588 size=15012
+  00472a74  b.eq 0x47db94
+
+### 0048e1ac gap=0048e428 FUN_0048e1ac size=1756
+  0048e428  eor x10, x8, x10, lsl #0
+  0048e42c  eor x9, x9, x11, lsl #0
+  0048e430  movz x11, #0x2805
+  0048e434  movk x11, #0x2000, lsl #16
+  0048e438  add x9, x10, x9, lsl #0
+  0048e43c  movz x10, #0xd002
+  0048e440  eor x8, x8, x11, lsl #0
+  0048e444  movk x10, #0x96f0, lsl #16
+  0048e448  movk x2, #0x8, lsl #16
+  0048e44c  orr x8, x8, x10, lsl #0
+  0048e450  movz x10, #0x51c3
+  0048e454  add x8, x8, x9, lsl #0
+  0048e458  movz x9, #0xae3c
+  0048e45c  movk x10, #0xd5a3, lsl #16
+  0048e460  movk x9, #0x2a5c, lsl #16
+  0048e464  bic x9, x9, x8, lsl #0
+  0048e468  and x8, x8, x10, lsl #0
+  0048e46c  movz x10, #0x44f5
+  0048e470  movk x10, #0x9bbb, lsl #16
+  0048e474  orr x23, x9, x8, lsl #0
+  0048e478  movz x8, #0x4591
+  0048e47c  add x10, x10, #0xdfb
+  0048e480  movk x8, #0xfe58, lsl #16
+  0048e484  eor x19, x10, x8, lsl #0
+  0048e488  bl 0x8e0890
+  0048e48c  ldur x9, [x29, #-40]
+  0048e490  movz x24, #0xca9f
+  0048e494  subs xzr, x23, x19, lsl #0
+  0048e498  ldr x8, [x20, #0x0]
+  0048e49c  movk x24, #0xb0a2, lsl #16
+  0048e4a0  movz x15, #0xa035
+  0048e4a4  str x0, [x9, #0x0]
+  0048e4a8  movz x9, #0x709d
+  0048e4ac  movz x17, #0x891f
+  0048e4b0  movk x9, #0x7a12, lsl #16
+  0048e4b4  movz x7, #0xef4f
+  0048e4b8  movz x30, #0xdc4d
+  0048e4bc  movz x14, #0xb3d8
+  0048e4c0  movz x10, #0x372f
+  0048e4c4  movz x11, #0xfb5
+  0048e4c8  movz x12, #0x56d1
+  0048e4cc  movz x13, #0x4101
+  0048e4d0  movz x23, #0x8445
+  0048e4d4  movz x16, #0xc742
+  0048e4d8  movz x5, #0x14d8
+  0048e4dc  movz x19, #0x66cd
+  0048e4e0  movz x0, #0xcd12
+  0048e4e4  csel x9, x24, x9, ls
+
+### 0049f398 gap=004a0084 FUN_0049f398 size=4840
+  004a0084  movz x9, #0x28ac
+  004a0088  movk x9, #0x72f6, lsl #16
+  004a008c  str x9, [x8, #0x0]
+  004a0090  b 0x4886c8
+
+### 004a56f8 gap=004a57d8 FUN_004a56f8 size=3464
+  004a57d8  b 0x4886c8
+
+### 004a6480 gap=004a7bd8 FUN_004a6480 size=7768
+  004a7bd8  b 0x4886c8
+
+### 004b0efc gap=004b3b14 FUN_004b0efc size=21768
+  004b3b14  adrp x8, 0x937000
+  004b3b18  movz x10, #0xdc7e
+  004b3b1c  adrp x9, 0x937000
+  004b3b20  ldr x8, [x8, #0xe48]
+  004b3b24  movk x10, #0xfbfc, lsl #16
+  004b3b28  ldr x9, [x9, #0xe4c]
+  004b3b2c  eor x8, x8, x10, lsl #0
+  004b3b30  movz x10, #0xb181
+  004b3b34  movk x10, #0x4585, lsl #16
+  004b3b38  eor x9, x9, x10, lsl #0
+  004b3b3c  movz x10, #0xbe16
+  004b3b40  madd x8, x8, x9, xzr
+  004b3b44  movz x9, #0xbe77
+  004b3b48  movk x10, #0xb7d3, lsl #16
+  004b3b4c  movk x9, #0x1d5d, lsl #16
+  004b3b50  madd x8, x8, x9, xzr
+  004b3b54  movz x9, #0x1a78
+  004b3b58  movk x9, #0x90c5, lsl #16
+  004b3b5c  ubfm x8, x8, #59, #63
+  004b3b60  madd x8, x8, x9, xzr
+  004b3b64  sub x9, x29, #0x40
+  004b3b68  ldur x9, [x9, #-256]
+  004b3b6c  eor x8, x8, x10, lsl #0
+  004b3b70  movz x10, #0x67ff
+  004b3b74  ldr x9, [x9, #0x0]
+  004b3b78  movk x10, #0x3724, lsl #16
+  004b3b7c  subs xzr, x8, x10, lsl #0
+  004b3b80  sub x10, x29, #0x48
+  004b3b84  ldrb x9, [x9, #0x0]
+  004b3b88  ldur x10, [x10, #-256]
+  004b3b8c  ldr x8, [x22, #0x0]
+  004b3b90  strb x9, [x10, #0x0]
+  004b3b94  movz x9, #0xb14a
+  004b3b98  movz x10, #0xabcd
+  004b3b9c  movk x9, #0x2dcd, lsl #16
+  004b3ba0  movk x10, #0xf444, lsl #16
+  004b3ba4  b 0x4b45a8
+
+### 004b0efc gap=004b6354 FUN_004b0efc size=21768
+  004b6354  add sp, x1, #0x0
+  004b6358  sub x1, xzr, #0x10
+  004b635c  sub x19, x29, #0xa8
+  004b6360  stur x1, [x19, #-256]
+  004b6364  add sp, x1, #0x0
+  004b6368  sub x1, xzr, #0x10
+  004b636c  stur x1, [x29, #-72]
+  004b6370  add sp, x1, #0x0
+  004b6374  sub x1, xzr, #0x10
+  004b6378  stur x1, [x29, #-200]
+  004b637c  add sp, x1, #0x0
+  004b6380  sub x1, xzr, #0x10
+  004b6384  sub x19, x29, #0xb0
+  004b6388  stur x1, [x19, #-256]
+  004b638c  add sp, x1, #0x0
+  004b6390  sub x1, xzr, #0x10
+  004b6394  sub x19, x29, #0xb8
+  004b6398  stur x1, [x19, #-256]
+  004b639c  add sp, x1, #0x0
+  004b63a0  sub x1, xzr, #0x10
+  004b63a4  sub x19, x29, #0xc0
+  004b63a8  stur x1, [x19, #-256]
+  004b63ac  add sp, x1, #0x0
+  004b63b0  sub x1, xzr, #0x10
+  004b63b4  sub x19, x29, #0xc8
+  004b63b8  stur x1, [x19, #-256]
+  004b63bc  add sp, x1, #0x0
+  004b63c0  sub x1, xzr, #0x10
+  004b63c4  stur x1, [x29, #-208]
+  004b63c8  add sp, x1, #0x0
+  004b63cc  sub x1, xzr, #0x10
+  004b63d0  sub x19, x29, #0xd0
+  004b63d4  stur x1, [x19, #-256]
+  004b63d8  add sp, x1, #0x0
+  004b63dc  sub x1, xzr, #0x10
+  004b63e0  sub x19, x29, #0xd8
+  004b63e4  stur x1, [x19, #-256]
+  004b63e8  add sp, x1, #0x0
+  004b63ec  sub x1, xzr, #0x10
+  004b63f0  sub x19, x29, #0xe0
+  004b63f4  stur x1, [x19, #-256]
+  004b63f8  add sp, x1, #0x0
+  004b63fc  sub x1, xzr, #0x10
+  004b6400  stur x1, [x29, #-216]
+  004b6404  add sp, x1, #0x0
+  004b6408  sub x1, xzr, #0x10
+  004b640c  sub x19, x29, #0xe8
+  004b6410  stur x1, [x19, #-256]
+
+### 004b6404 gap=004b67b8 FUN_004b6404 size=5744
+  004b67b8  movk x9, #0xa35b, lsl #16
+  004b67bc  subs xzr, x8, x9, lsl #0
+  004b67c0  b.gt 0x4b6a54
+
+### 004b81d4 gap=004b923c FUN_004b81d4 size=5132
+  004b923c  movz x10, #0xf3c
+  004b9240  movk x12, #0x9d14, lsl #16
+  004b9244  movk x10, #0xb527, lsl #16
+  004b9248  eor x9, x9, x10, lsl #0
+  004b924c  add x10, x12, #0x2
+  004b9250  and x11, x8, x9, lsl #0
+  004b9254  eor x10, x10, x12, lsl #0
+  004b9258  add x8, x8, x9, lsl #0
+  004b925c  msub x8, x10, x11, x8
+  004b9260  movz x10, #0xf9b8
+  004b9264  movz x12, #0x79ff
+  004b9268  movk x10, #0x2a2a, lsl #16
+  004b926c  movz x11, #0x319e
+  004b9270  movk x12, #0x10dc, lsl #16
+  004b9274  add x9, x10, #0x1
+  004b9278  movk x11, #0xe66a, lsl #16
+  004b927c  eor x9, x10, x9, lsl #0
+  004b9280  add x10, x11, #0x1
+  004b9284  add x9, x8, x9, lsl #0
+  004b9288  orn x8, x12, x8, lsl #0
+  004b928c  eor x10, x11, x10, lsl #0
+  004b9290  add x8, x8, x9, lsl #0
+  004b9294  movz x9, #0xef7d
+  004b9298  movk x9, #0x371c, lsl #16
+  004b929c  add x9, x10, x9, lsl #0
+  004b92a0  movz x10, #0xf6ef
+  004b92a4  add x8, x8, x9, lsl #0
+  004b92a8  movz x9, #0xf6a7
+  004b92ac  movk x10, #0x4040, lsl #16
+  004b92b0  movk x9, #0x6374, lsl #16
+  004b92b4  eor x8, x8, x9, lsl #0
+  004b92b8  movz x9, #0x27be
+  004b92bc  movk x9, #0x2f53, lsl #16
+  004b92c0  subs xzr, x8, x9, lsl #0
+  004b92c4  ldr x8, [x27, #0x0]
+  004b92c8  movz x9, #0xe557
+  004b92cc  movk x9, #0x9de4, lsl #16
+  004b92d0  b 0x4bc6c4
+
+### 004b96a8 gap=004b9b60 FUN_004b96a8 size=3744
+  004b9b60  sub x9, x29, #0x48
+  004b9b64  movz x8, #0xab36
+  004b9b68  movz x16, #0x530f
+  004b9b6c  ldur x9, [x9, #-256]
+  004b9b70  movk x8, #0xaf8a, lsl #16
+  004b9b74  movk x16, #0xd24, lsl #16
+  004b9b78  subs xzr, x23, x8, lsl #0
+  004b9b7c  ldr x8, [x27, #0x0]
+  004b9b80  movz x2, #0x68e8
+  004b9b84  str x0, [x9, #0x0]
+  004b9b88  movz x9, #0x44f3
+  004b9b8c  movz x1, #0xd9a0
+  004b9b90  movk x9, #0xfc22, lsl #16
+  004b9b94  movz x15, #0x5e32
+  004b9b98  movz x14, #0x4e2b
+  004b9b9c  movz x23, #0x3455
+  004b9ba0  movz x0, #0x3c06
+  004b9ba4  csel x9, x16, x9, eq
+  004b9ba8  movk x2, #0x111d, lsl #16
+  004b9bac  movk x1, #0xe17f, lsl #16
+  004b9bb0  movk x15, #0x52a7, lsl #16
+  004b9bb4  movk x14, #0xdeee, lsl #16
+  004b9bb8  movk x23, #0xf0a7, lsl #16
+  004b9bbc  movk x0, #0x300, lsl #16
+  004b9bc0  str x9, [x8, #0x0]
+  004b9bc4  b 0x4b66b4
+
+### 004c53f0 gap=004c7a4c FUN_004c53f0 size=20620
+  004c7a4c  movz x12, #0xf7d6
+  004c7a50  ldr x9, [x14, #0x0]
+  004c7a54  movk x11, #0xc869, lsl #16
+  004c7a58  ldrb x8, [x8, #0x0]
+  004c7a5c  movk x10, #0x8dc5, lsl #16
+  004c7a60  movk x12, #0x2a8d, lsl #16
+  004c7a64  subs sp, x8, #0x0
+  004c7a68  add x8, x11, #0x1
+  004c7a6c  csel x10, x12, x10, ne
+  004c7a70  b 0x4c8bf0
+
+### 004cb2f0 gap=004cbf1c FUN_004cb2f0 size=5608
+  004cbf1c  eor x9, x9, x10, lsl #0
+  004cbf20  sub x10, x29, #0xc
+  004cbf24  orr x8, x8, x9, lsl #0
+  004cbf28  movz x9, #0x3af3
+  004cbf2c  ldur x10, [x10, #-256]
+  004cbf30  orn x8, xzr, x8, lsl #0
+  004cbf34  movk x9, #0xb0ee, lsl #16
+  004cbf38  madd x8, x8, x9, xzr
+  004cbf3c  ldur x9, [x29, #-40]
+  004cbf40  ldr x9, [x9, #0x0]
+  004cbf44  ubfm x8, x8, #62, #62
+  004cbf48  ldr x9, [x9, #0x10]
+  004cbf4c  add x8, x8, x10, lsl #0
+  004cbf50  movz x10, #0x6e66
+  004cbf54  movk x10, #0xccd7, lsl #16
+  004cbf58  subs xzr, x8, x10, lsl #0
+  004cbf5c  ldur x10, [x29, #-200]
+  004cbf60  ldr x8, [x25, #0x0]
+  004cbf64  str x9, [x10, #0x0]
+  004cbf68  movz x9, #0x499e
+  004cbf6c  movz x10, #0x958c
+  004cbf70  movk x9, #0x8fdb, lsl #16
+  004cbf74  movk x10, #0x4cb3, lsl #16
+  004cbf78  b 0x4cc328
+
+### 004cd888 gap=004ce784 FUN_004cd888 size=11168
+  004ce784  movz x10, #0xc06b
+  004ce788  movk x9, #0xf0f9, lsl #16
+  004ce78c  movk x10, #0x4b09, lsl #16
+  004ce790  b 0x4cea94
+
+### 004cd888 gap=004cfe10 FUN_004cd888 size=11168
+  004cfe10  movz x4, #0xb1d4
+  004cfe14  movz x5, #0x9d9a
+  004cfe18  eor x8, x8, x9, lsl #0
+  004cfe1c  movz x9, #0x18ab
+  004cfe20  movz x6, #0xc4f
+  004cfe24  movk x9, #0x5bc9, lsl #16
+  004cfe28  movz x26, #0x94e6
+  004cfe2c  movz x25, #0x27e8
+  004cfe30  movz x27, #0x32c6
+  004cfe34  movz x20, #0x260
+  004cfe38  movz x24, #0xa48a
+  004cfe3c  movk x17, #0xf2c6, lsl #16
+  004cfe40  movk x0, #0xc875, lsl #16
+  004cfe44  movk x1, #0x8597, lsl #16
+  004cfe48  movk x2, #0x1958, lsl #16
+  004cfe4c  orr x8, x8, x9, lsl #0
+  004cfe50  movk x4, #0x93bf, lsl #16
+  004cfe54  movk x5, #0xc914, lsl #16
+  004cfe58  movk x6, #0x384a, lsl #16
+  004cfe5c  movz x19, #0x5b
+  004cfe60  movk x26, #0x3d15, lsl #16
+  004cfe64  movk x25, #0x4ac8, lsl #16
+  004cfe68  movk x27, #0x3ca4, lsl #16
+  004cfe6c  movk x20, #0x6b0c, lsl #16
+  004cfe70  movk x24, #0x7231, lsl #16
+  004cfe74  stur x22, [x10, #-16]
+  004cfe78  stur x8, [x29, #-148]
+  004cfe7c  stur x22, [x29, #-32]
+  004cfe80  stur x16, [x29, #-16]
+  004cfe84  stur x28, [x29, #-144]
+  004cfe88  b 0x4cfeac
+
+### 004d5fb0 gap=004d8bb0 FUN_004d5fb0 size=22320
+  004d8bb0  movz x9, #0x28dc
+  004d8bb4  movk x9, #0xedd0, lsl #16
+  004d8bb8  subs xzr, x8, x9, lsl #0
+  004d8bbc  b.le 0x4da6cc
+
+### 004d5fb0 gap=004db504 FUN_004d5fb0 size=22320
+  004db504  subs xzr, x8, x0, lsl #0
+  004db508  b.eq 0x4fcf58
+
+### 004dbf38 gap=004dc2b8 FUN_004dbf38 size=3120
+  004dc2b8  movz x9, #0x2565
+  004dc2bc  movk x9, #0x8a98, lsl #16
+  004dc2c0  subs xzr, x8, x9, lsl #0
+  004dc2c4  b.eq 0x504b04
+
+### 004dbf38 gap=004dc340 FUN_004dbf38 size=3120
+  004dc340  movk x9, #0xcca5, lsl #16
+  004dc344  subs xzr, x8, x9, lsl #0
+  004dc348  b.ne 0x4d7148
+
+### 004dcbd0 gap=004ddb24 FUN_004dcbd0 size=4768
+  004ddb24  movz x9, #0x8034
+  004ddb28  movk x9, #0xd39c, lsl #16
+  004ddb2c  subs xzr, x8, x9, lsl #0
+  004ddb30  movz x9, #0x1d2f
+  004ddb34  ldr x8, [x28, #0x0]
+  004ddb38  movk x9, #0xf5a8, lsl #16
+  004ddb3c  csel x9, x9, x27, cc
+  004ddb40  movz x27, #0x3f52
+  004ddb44  movk x27, #0x1673, lsl #16
+  004ddb48  str x9, [x8, #0x0]
+  004ddb4c  b 0x4d7148
+
+### 004de0fc gap=004df74c FUN_004de0fc size=6400
+  004df74c  movz x9, #0xd28c
+  004df750  movk x9, #0x1d11, lsl #16
+  004df754  subs xzr, x8, x9, lsl #0
+  004df758  b.eq 0x4f3640
+
+### 004e8eb8 gap=004e97ec FUN_004e8eb8 size=6812
+  004e97ec  sub x10, x29, #0x7d0
+  004e97f0  lslv x8, x8, x9
+  004e97f4  ldur x10, [x10, #-256]
+  004e97f8  ldr x9, [x28, #0x0]
+  004e97fc  str x8, [x10, #0x0]
+  004e9800  movz x8, #0x6355
+  004e9804  movz x10, #0xbac8
+  004e9808  movk x8, #0x67ff, lsl #16
+  004e980c  movk x10, #0x732a, lsl #16
+  004e9810  str x8, [x9, #0x0]
+  004e9814  b 0x4d7148
+
+### 004e8eb8 gap=004ead0c FUN_004e8eb8 size=6812
+  004ead0c  and x10, x8, x21, lsl #0
+  004ead10  orr x8, x8, x21, lsl #0
+  004ead14  madd x8, x8, x10, x9
+  004ead18  sub x9, x29, #0xd58
+  004ead1c  movz x21, #0x138b
+  004ead20  ldur x9, [x9, #-256]
+  004ead24  movk x21, #0xbf6b, lsl #16
+  004ead28  movz x10, #0xbac8
+  004ead2c  movk x10, #0x732a, lsl #16
+  004ead30  eor x8, x9, x8, lsl #0
+  004ead34  movz x9, #0x4b7d
+  004ead38  movk x9, #0xc148, lsl #16
+  004ead3c  subs xzr, x8, x9, lsl #0
+  004ead40  movz x9, #0x9f73
+  004ead44  ldr x8, [x28, #0x0]
+  004ead48  movk x9, #0x2629, lsl #16
+  004ead4c  csel x9, x9, x21, cc
+  004ead50  movz x21, #0x88b3
+  004ead54  movk x21, #0x5b3f, lsl #16
+  004ead58  str x9, [x8, #0x0]
+  004ead5c  b 0x4d7148
+
+### 004ec8d4 gap=004f064c FUN_004ec8d4 size=36728
+  004f064c  eor x9, x9, #imm(n=0,r=26,s=30)
+  004f0650  movz x13, #0xd563
+  004f0654  strb x9, [x27, #0x18]
+  004f0658  sub x9, x10, x12, lsl #1
+  004f065c  movz x10, #0xfa
+  004f0660  eor x8, x8, x10, lsl #0
+  004f0664  ldrb x10, [x14, #0x1c]
+  004f0668  movz x12, #0xd04e
+  004f066c  strb x8, [x27, #0x19]
+  004f0670  eor x8, x11, #imm(n=0,r=31,s=5)
+  004f0674  movz x11, #0xedba
+  004f0678  strb x8, [x27, #0x1a]
+  004f067c  sub x8, x9, #0x16
+  004f0680  ldrb x9, [x14, #0x1d]
+  004f0684  strb x8, [x27, #0x1b]
+  004f0688  eor x8, x10, #imm(n=0,r=30,s=4)
+  004f068c  ldrb x10, [x14, #0x1e]
+  004f0690  strb x8, [x27, #0x1c]
+  004f0694  movz x8, #0xca
+  004f0698  movz x14, #0xa8c3
+  004f069c  eor x8, x9, x8, lsl #0
+  004f06a0  ldr x9, [x28, #0x0]
+  004f06a4  movk x13, #0x790d, lsl #16
+  004f06a8  strb x8, [x27, #0x1d]
+  004f06ac  eor x8, x10, x15, lsl #0
+  004f06b0  movz x10, #0xbac8
+  004f06b4  strb x8, [x27, #0x1e]
+  004f06b8  movz x8, #0x3695
+  004f06bc  movz x15, #0xd05e
+  004f06c0  movz x27, #0x3f52
+  004f06c4  movk x8, #0x7f03, lsl #16
+  004f06c8  movk x12, #0x67aa, lsl #16
+  004f06cc  movk x11, #0xdbe1, lsl #16
+  004f06d0  movk x14, #0x17c1, lsl #16
+  004f06d4  movk x10, #0x732a, lsl #16
+  004f06d8  movk x15, #0x819d, lsl #16
+  004f06dc  movk x27, #0x1673, lsl #16
+  004f06e0  str x8, [x9, #0x0]
+  004f06e4  b 0x4d7148
+
+### 004ec8d4 gap=004f0d28 FUN_004ec8d4 size=36728
+  004f0d28  movz x9, #0xe9e8
+  004f0d2c  movk x9, #0xf270, lsl #16
+  004f0d30  subs xzr, x8, x9, lsl #0
+  004f0d34  b.eq 0x4f8a94
+
+### 004f58d8 gap=004f064c FUN_004f58d8 size=2044
+  004f064c  eor x9, x9, #imm(n=0,r=26,s=30)
+  004f0650  movz x13, #0xd563
+  004f0654  strb x9, [x27, #0x18]
+  004f0658  sub x9, x10, x12, lsl #1
+  004f065c  movz x10, #0xfa
+  004f0660  eor x8, x8, x10, lsl #0
+  004f0664  ldrb x10, [x14, #0x1c]
+  004f0668  movz x12, #0xd04e
+  004f066c  strb x8, [x27, #0x19]
+  004f0670  eor x8, x11, #imm(n=0,r=31,s=5)
+  004f0674  movz x11, #0xedba
+  004f0678  strb x8, [x27, #0x1a]
+  004f067c  sub x8, x9, #0x16
+  004f0680  ldrb x9, [x14, #0x1d]
+  004f0684  strb x8, [x27, #0x1b]
+  004f0688  eor x8, x10, #imm(n=0,r=30,s=4)
+  004f068c  ldrb x10, [x14, #0x1e]
+  004f0690  strb x8, [x27, #0x1c]
+  004f0694  movz x8, #0xca
+  004f0698  movz x14, #0xa8c3
+  004f069c  eor x8, x9, x8, lsl #0
+  004f06a0  ldr x9, [x28, #0x0]
+  004f06a4  movk x13, #0x790d, lsl #16
+  004f06a8  strb x8, [x27, #0x1d]
+  004f06ac  eor x8, x10, x15, lsl #0
+  004f06b0  movz x10, #0xbac8
+  004f06b4  strb x8, [x27, #0x1e]
+  004f06b8  movz x8, #0x3695
+  004f06bc  movz x15, #0xd05e
+  004f06c0  movz x27, #0x3f52
+  004f06c4  movk x8, #0x7f03, lsl #16
+  004f06c8  movk x12, #0x67aa, lsl #16
+  004f06cc  movk x11, #0xdbe1, lsl #16
+  004f06d0  movk x14, #0x17c1, lsl #16
+  004f06d4  movk x10, #0x732a, lsl #16
+  004f06d8  movk x15, #0x819d, lsl #16
+  004f06dc  movk x27, #0x1673, lsl #16
+  004f06e0  str x8, [x9, #0x0]
+  004f06e4  b 0x4d7148
+
+### 004f58d8 gap=004f0d28 FUN_004f58d8 size=2044
+  004f0d28  movz x9, #0xe9e8
+  004f0d2c  movk x9, #0xf270, lsl #16
+  004f0d30  subs xzr, x8, x9, lsl #0
+  004f0d34  b.eq 0x4f8a94
+
+### 004f6ac0 gap=004f7780 FUN_004f6ac0 size=4800
+  004f7780  movk x30, #0x42b0, lsl #16
+  004f7784  movk x17, #0x6b31, lsl #16
+  004f7788  movk x7, #0xa01e, lsl #16
+  004f778c  movk x24, #0x3815, lsl #16
+  004f7790  movk x5, #0xc181, lsl #16
+  004f7794  movk x4, #0x2af, lsl #16
+  004f7798  movk x1, #0x6192, lsl #16
+  004f779c  movk x0, #0x63f0, lsl #16
+  004f77a0  movk x10, #0x732a, lsl #16
+  004f77a4  str x9, [x8, #0x0]
+  004f77a8  b 0x4d7148
+
+### 004f9884 gap=004fd708 FUN_004f9884 size=16836
+  004fd708  strb x8, [x25, #0x3]
+  004fd70c  ldrb x10, [x1, #0x6]
+  004fd710  eor x8, x11, x12, lsl #0
+  004fd714  movz x11, #0xeb
+  004fd718  movz x22, #0x52
+  004fd71c  strb x8, [x25, #0x4]
+  004fd720  sub x8, x9, #0x2a
+  004fd724  ldrb x9, [x1, #0x7]
+  004fd728  strb x8, [x25, #0x5]
+  004fd72c  eor x8, x10, #imm(n=0,r=28,s=1)
+  004fd730  ldrb x10, [x1, #0x8]
+  004fd734  strb x8, [x25, #0x6]
+  004fd738  movz x8, #0x34
+  004fd73c  eor x8, x9, x8, lsl #0
+  004fd740  ldrb x9, [x1, #0x9]
+  004fd744  strb x8, [x25, #0x7]
+  004fd748  movz x8, #0x79
+  004fd74c  eor x8, x10, x8, lsl #0
+  004fd750  ldrb x10, [x1, #0xb]
+  004fd754  strb x8, [x25, #0x8]
+  004fd758  eor x8, x9, #imm(n=0,r=31,s=5)
+  004fd75c  ldrb x9, [x1, #0xa]
+  004fd760  strb x8, [x25, #0x9]
+  004fd764  orn x8, xzr, x10, lsl #0
+  004fd768  orr x10, x10, #imm(n=0,r=30,s=3)
+  004fd76c  orr x8, x8, #imm(n=0,r=26,s=27)
+  004fd770  eor x9, x9, x11, lsl #0
+  004fd774  movz x11, #0x9a
+  004fd778  and x8, x10, x8, lsl #0
+  004fd77c  strb x9, [x25, #0xa]
+  004fd780  ldrb x9, [x1, #0xc]
+  004fd784  orn x8, xzr, x8, lsl #0
+  004fd788  ldrb x10, [x1, #0xd]
+  004fd78c  strb x8, [x25, #0xb]
+  004fd790  ldrb x8, [x1, #0xe]
+  004fd794  eor x9, x9, x11, lsl #0
+  004fd798  orn x11, x22, x10, lsl #0
+  004fd79c  orr x10, x10, x12, lsl #0
+  004fd7a0  strb x9, [x25, #0xc]
+  004fd7a4  and x9, x11, x10, lsl #0
+  004fd7a8  orn x10, xzr, x8, lsl #0
+  004fd7ac  and x8, x8, #imm(n=0,r=3,s=56)
+  004fd7b0  and x10, x10, #imm(n=0,r=2,s=58)
+  004fd7b4  ldrb x11, [x1, #0xf]
+  004fd7b8  strb x9, [x25, #0xd]
+  004fd7bc  orr x8, x10, x8, lsl #0
+  004fd7c0  ldrb x9, [x1, #0x10]
+  004fd7c4  movz x10, #0x5a
+
+### 004fe214 gap=004ff2ac FUN_004fe214 size=24484
+  004ff2ac  movz x9, #0x19ca
+  004ff2b0  movk x10, #0x732a, lsl #16
+  004ff2b4  movk x9, #0x8e4c, lsl #16
+  004ff2b8  add x8, x8, x9, lsl #0
+  004ff2bc  movz x9, #0xf381
+  004ff2c0  movk x9, #0xeccc, lsl #16
+  004ff2c4  and x8, x8, x9, lsl #0
+  004ff2c8  movz x9, #0x626e
+  004ff2cc  movk x9, #0x709a, lsl #16
+  004ff2d0  subs xzr, x8, x9, lsl #0
+  004ff2d4  movz x9, #0xa7a0
+  004ff2d8  ldr x8, [x28, #0x0]
+  004ff2dc  movk x9, #0xc063, lsl #16
+  004ff2e0  csel x9, x9, x27, eq
+  004ff2e4  movz x27, #0x3f52
+  004ff2e8  movk x27, #0x1673, lsl #16
+  004ff2ec  str x9, [x8, #0x0]
+  004ff2f0  b 0x4d7148
+
+### 0050a21c gap=0050ae94 FUN_0050a21c size=4976
+  0050ae94  b 0x4d7148
+
+### 00510428 gap=005138f4 FUN_00510428 size=20372
+  005138f4  movz x11, #0x89cd
+  005138f8  eor x8, x8, x10, lsl #0
+  005138fc  movz x10, #0x4098
+  00513900  movk x11, #0x609d, lsl #16
+  00513904  movk x10, #0x7f8c, lsl #16
+  00513908  eor x9, x9, x10, lsl #0
+  0051390c  movz x10, #0x7632
+  00513910  udiv x8, x8, x9
+  00513914  movk x10, #0x9f62, lsl #16
+  00513918  bic x9, x11, x8, lsl #0
+  0051391c  and x10, x8, x10, lsl #0
+  00513920  madd x9, x10, x9, xzr
+  00513924  and x10, x8, x11, lsl #0
+  00513928  orr x8, x8, x11, lsl #0
+  0051392c  madd x8, x8, x10, x9
+  00513930  movz x9, #0x5afc
+  00513934  movz x10, #0xa4d7
+  00513938  movk x9, #0xfbb8, lsl #16
+  0051393c  movk x10, #0x6903, lsl #16
+  00513940  madd x8, x8, x9, xzr
+  00513944  movz x9, #0x517b
+  00513948  movk x9, #0xc0bb, lsl #16
+  0051394c  madd x8, x8, x9, xzr
+  00513950  movz x9, #0xb630
+  00513954  movk x9, #0xdb69, lsl #16
+  00513958  add x9, x9, #0x42d000
+  0051395c  ubfm x8, x8, #63, #63
+  00513960  eor x9, x9, x10, lsl #0
+  00513964  movz x10, #0xf6d7
+  00513968  movk x10, #0x6bec, lsl #16
+  0051396c  subs xzr, x8, x9, lsl #0
+  00513970  movz x9, #0x39b8
+  00513974  ldr x8, [x20, #0x0]
+  00513978  movk x9, #0x7193, lsl #16
+  0051397c  csel x9, x10, x9, ls
+  00513980  str x9, [x8, #0x0]
+  00513984  b 0x5137d4
+
+### 00510428 gap=005149b0 FUN_00510428 size=20372
+  005149b0  movk x5, #0x8af3, lsl #16
+  005149b4  movk x28, #0x9f83, lsl #16
+  005149b8  movk x9, #0x7435, lsl #16
+  005149bc  movk x10, #0xe3b5, lsl #16
+  005149c0  b 0x51a618
+
+### 00519ef4 gap=0051b1dc FUN_00519ef4 size=4968
+  0051b1dc  bic x8, x10, x8, lsl #0
+  0051b1e0  movk x9, #0x5ae8, lsl #16
+  0051b1e4  movz x10, #0x2201
+  0051b1e8  orn x8, xzr, x8, lsl #0
+  0051b1ec  movk x10, #0x130, lsl #16
+  0051b1f0  madd x8, x8, x9, xzr
+  0051b1f4  movz x9, #0x90
+  0051b1f8  movk x9, #0xa000, lsl #16
+  0051b1fc  ubfm x8, x8, #62, #63
+  0051b200  orr x9, x8, x9, lsl #0
+  0051b204  eor x9, x9, x10, lsl #0
+  0051b208  movz x10, #0x8004
+  0051b20c  movk x10, #0xc5, lsl #16
+  0051b210  and x9, x9, #imm(n=0,r=28,s=28)
+  0051b214  orr x8, x8, x10, lsl #0
+  0051b218  movz x10, #0x4440
+  0051b21c  movk x10, #0x5208, lsl #16
+  0051b220  madd x8, x8, x10, xzr
+  0051b224  movz x10, #0xe6d5
+  0051b228  movk x10, #0xf3fd, lsl #16
+  0051b22c  madd x8, x9, x10, x8
+  0051b230  movz x9, #0x3557
+  0051b234  movz x10, #0x39b8
+  0051b238  movk x9, #0xcb63, lsl #16
+  0051b23c  movk x10, #0x7193, lsl #16
+  0051b240  subs xzr, x8, x9, lsl #0
+  0051b244  ldr x8, [x20, #0x0]
+  0051b248  movz x9, #0x856d
+  0051b24c  movk x9, #0x72fc, lsl #16
+  0051b250  csel x9, x9, x10, ne
+  0051b254  str x9, [x8, #0x0]
+  0051b258  b 0x5137d4
+
+### 005b6120 gap=005ba0a8 FUN_005b6120 size=26120
+  005ba0a8  orr x1, xzr, x0, lsl #0
+  005ba0ac  ldr x8, [x8, #0x0]
+  005ba0b0  orr x0, xzr, x8, lsl #0
+  005ba0b4  b 0x5c8254
+
+### 00678e38 gap=0067b2b8 FUN_00678e38 size=11076
+  0067b2b8  movn x9, #0x8000, lsl #16
+  0067b2bc  orr x19, xzr, x3, lsl #0
+  0067b2c0  ldr x8, [x24, #0x28]
+  0067b2c4  orr x20, xzr, x2, lsl #0
+  0067b2c8  orr x21, xzr, x1, lsl #0
+  0067b2cc  orr x22, xzr, x0, lsl #0
+  0067b2d0  subs xzr, x1, x9, lsl #0
+  0067b2d4  str x8, [xzr, #0x8]
+  0067b2d8  ldr x8, [x3, #0x0]
+  0067b2dc  ldr x8, [x8, #0x0]
+  0067b2e0  str x8, [x2, #0x0]
+  0067b2e4  ldr x8, [x3, #0x0]
+  0067b2e8  add x8, x8, #0x4
+  0067b2ec  str x8, [x3, #0x0]
+  0067b2f0  b.ne 0x67b2f8
+
+### 0067df64 gap=006861d0 FUN_0067df64 size=14708
+  006861d0  stnp x29, x30, [xzr, #48]
+  006861d4  ret
+
+### 0067df64 gap=00686b00 FUN_0067df64 size=14708
+  00686b00  bl 0x6b11d4
+  00686b04  ldr x1, [x20, #0x8]
+  00686b08  cbz x1, 0x686b20
+
+### 0067df64 gap=0067eed8 FUN_0067df64 size=14708
+  0067eed8  ldr x8, [x19, #0x0]
+  0067eedc  add x8, x8, #0x4
+  0067eee0  str x8, [x19, #0x0]
+  0067eee4  ldr x8, [x23, #0x0]
+  0067eee8  ldr x25, [x8, #0x0]
+  0067eeec  bl 0x6febc0
+  0067eef0  ldr x2, [x23, #0x0]
+  0067eef4  orr x1, xzr, x21, lsl #0
+  0067eef8  bl 0x5f4a9c
+  0067eefc  orr x2, xzr, x0, lsl #0
+  0067ef00  orr x0, xzr, x22, lsl #0
+  0067ef04  orr x1, xzr, x23, lsl #0
+  0067ef08  bl 0x6fe544
+  0067ef0c  ldr x2, [x23, #0x0]
+  0067ef10  orr x0, xzr, x22, lsl #0
+  0067ef14  orr x1, xzr, x21, lsl #0
+  0067ef18  orr x3, xzr, x19, lsl #0
+  0067ef1c  str x25, [x2, #0x0]
+  0067ef20  bl 0x647f08
+  0067ef24  ldr x8, [x19, #0x0]
+  0067ef28  ldr x8, [x8, #0x0]
+  0067ef2c  str x8, [x20, #0x10]
+  0067ef30  ldr x8, [x19, #0x0]
+  0067ef34  add x9, x8, #0x4
+  0067ef38  str x9, [x19, #0x0]
+  0067ef3c  ldr x8, [x8, #0x4]
+  0067ef40  str x8, [x20, #0x14]
+  0067ef44  ldr x8, [x19, #0x0]
+  0067ef48  add x8, x8, #0x4
+  0067ef4c  str x8, [x19, #0x0]
+  0067ef50  ldr x8, [x24, #0x28]
+  0067ef54  ldr x9, [xzr, #0x8]
+  0067ef58  subs xzr, x8, x9, lsl #0
+  0067ef5c  b.ne 0x67ef7c
+
+### 0067df64 gap=00680018 FUN_0067df64 size=14708
+  00680018  str x8, [xzr, #0x8]
+  0068001c  ldr x8, [x3, #0x0]
+  00680020  ldr x8, [x8, #0x0]
+  00680024  str x8, [x2, #0x0]
+  00680028  ldr x8, [x3, #0x0]
+  0068002c  add x8, x8, #0x4
+  00680030  str x8, [x3, #0x0]
+  00680034  b.ne 0x68003c
+
+### 006818d8 gap=006861d0 FUN_006818d8 size=24900
+  006861d0  stnp x29, x30, [xzr, #48]
+  006861d4  ret
+
+### 006818d8 gap=00686b00 FUN_006818d8 size=24900
+  00686b00  bl 0x6b11d4
+  00686b04  ldr x1, [x20, #0x8]
+  00686b08  cbz x1, 0x686b20
+
+### 006818d8 gap=00680018 FUN_006818d8 size=24900
+  00680018  str x8, [xzr, #0x8]
+  0068001c  ldr x8, [x3, #0x0]
+  00680020  ldr x8, [x8, #0x0]
+  00680024  str x8, [x2, #0x0]
+  00680028  ldr x8, [x3, #0x0]
+  0068002c  add x8, x8, #0x4
+  00680030  str x8, [x3, #0x0]
+  00680034  b.ne 0x68003c
+
+### 006818d8 gap=0067eed8 FUN_006818d8 size=24900
+  0067eed8  ldr x8, [x19, #0x0]
+  0067eedc  add x8, x8, #0x4
+  0067eee0  str x8, [x19, #0x0]
+  0067eee4  ldr x8, [x23, #0x0]
+  0067eee8  ldr x25, [x8, #0x0]
+  0067eeec  bl 0x6febc0
+  0067eef0  ldr x2, [x23, #0x0]
+  0067eef4  orr x1, xzr, x21, lsl #0
+  0067eef8  bl 0x5f4a9c
+  0067eefc  orr x2, xzr, x0, lsl #0
+  0067ef00  orr x0, xzr, x22, lsl #0
+  0067ef04  orr x1, xzr, x23, lsl #0
+  0067ef08  bl 0x6fe544
+  0067ef0c  ldr x2, [x23, #0x0]
+  0067ef10  orr x0, xzr, x22, lsl #0
+  0067ef14  orr x1, xzr, x21, lsl #0
+  0067ef18  orr x3, xzr, x19, lsl #0
+  0067ef1c  str x25, [x2, #0x0]
+  0067ef20  bl 0x647f08
+  0067ef24  ldr x8, [x19, #0x0]
+  0067ef28  ldr x8, [x8, #0x0]
+  0067ef2c  str x8, [x20, #0x10]
+  0067ef30  ldr x8, [x19, #0x0]
+  0067ef34  add x9, x8, #0x4
+  0067ef38  str x9, [x19, #0x0]
+  0067ef3c  ldr x8, [x8, #0x4]
+  0067ef40  str x8, [x20, #0x14]
+  0067ef44  ldr x8, [x19, #0x0]
+  0067ef48  add x8, x8, #0x4
+  0067ef4c  str x8, [x19, #0x0]
+  0067ef50  ldr x8, [x24, #0x28]
+  0067ef54  ldr x9, [xzr, #0x8]
+  0067ef58  subs xzr, x8, x9, lsl #0
+  0067ef5c  b.ne 0x67ef7c
+
+### 006b3ff0 gap=006b413c FUN_006b3ff0 size=1124
+  006b413c  orr x1, xzr, x0, lsl #0
+  006b4140  adrp x0, 0x96d000
+  006b4144  add x0, x0, #0x290
+  006b4148  bl 0x6c4348
+  006b414c  cbz x0, 0x6b4154
+
+### 006bb26c gap=006bbfc0 FUN_006bb26c size=4836
+  006bbfc0  bl 0x69cadc
+  006bbfc4  adrp x8, 0x96d000
+  006bbfc8  str x28, [x27, #0x0]
+  006bbfcc  str x27, [x8, #0x3f8]
+  006bbfd0  orr x27, xzr, x24, lsl #0
+  006bbfd4  orr x24, xzr, x19, lsl #0
+  006bbfd8  ldr x26, [x22, x23]
+  006bbfdc  orr x19, xzr, x21, lsl #0
+  006bbfe0  ldr x21, [xzr, #0x8]
+  006bbfe4  orr x0, xzr, x27, lsl #0
+  006bbfe8  orr x1, xzr, x26, lsl #0
+  006bbfec  bl 0x6c4348
+  006bbff0  cbz x0, 0x6bc02c
+
+### 006bb26c gap=006bbfcc FUN_006bb26c size=4836
+  006bbfcc  str x27, [x8, #0x3f8]
+  006bbfd0  orr x27, xzr, x24, lsl #0
+  006bbfd4  orr x24, xzr, x19, lsl #0
+  006bbfd8  ldr x26, [x22, x23]
+  006bbfdc  orr x19, xzr, x21, lsl #0
+  006bbfe0  ldr x21, [xzr, #0x8]
+  006bbfe4  orr x0, xzr, x27, lsl #0
+  006bbfe8  orr x1, xzr, x26, lsl #0
+  006bbfec  bl 0x6c4348
+  006bbff0  cbz x0, 0x6bc02c
+
+### 006bb26c gap=006bbfd8 FUN_006bb26c size=4836
+  006bbfd8  ldr x26, [x22, x23]
+  006bbfdc  orr x19, xzr, x21, lsl #0
+  006bbfe0  ldr x21, [xzr, #0x8]
+  006bbfe4  orr x0, xzr, x27, lsl #0
+  006bbfe8  orr x1, xzr, x26, lsl #0
+  006bbfec  bl 0x6c4348
+  006bbff0  cbz x0, 0x6bc02c
+
+### 006bb26c gap=006bc098 FUN_006bb26c size=4836
+  006bc098  ldr x8, [x21, #0x18]
+  006bc09c  str x0, [x8, #0x0]
+  006bc0a0  cbz x19, 0x6bc14c
+
+### 006bb26c gap=006bc0a0 FUN_006bb26c size=4836
+  006bc0a0  cbz x19, 0x6bc14c
+
+### 006bb26c gap=006bc0d4 FUN_006bb26c size=4836
+  006bc0d4  ldr x8, [x8, #0x0]
+  006bc0d8  str x25, [x8, x28]
+  006bc0dc  cbz x25, 0x6bc0bc
+
+### 006bb26c gap=006bc104 FUN_006bb26c size=4836
+  006bc104  bl 0x8e0490
+  006bc108  orr x26, xzr, x0, lsl #0
+  006bc10c  bl 0x69cadc
+  006bc110  str x26, [x27, #0x0]
+  006bc114  ldr x26, [x22, x28]
+  006bc118  adrp x8, 0x96d000
+  006bc11c  str x27, [x8, #0x3f8]
+  006bc120  orr x27, xzr, x24, lsl #0
+  006bc124  orr x0, xzr, x27, lsl #0
+  006bc128  orr x1, xzr, x26, lsl #0
+  006bc12c  bl 0x6c4348
+  006bc130  cbz x0, 0x6bc168
+
+### 006bb26c gap=006bc110 FUN_006bb26c size=4836
+  006bc110  str x26, [x27, #0x0]
+  006bc114  ldr x26, [x22, x28]
+  006bc118  adrp x8, 0x96d000
+  006bc11c  str x27, [x8, #0x3f8]
+  006bc120  orr x27, xzr, x24, lsl #0
+  006bc124  orr x0, xzr, x27, lsl #0
+  006bc128  orr x1, xzr, x26, lsl #0
+  006bc12c  bl 0x6c4348
+  006bc130  cbz x0, 0x6bc168
+
+### 006bb26c gap=006bc0e0 FUN_006bb26c size=4836
+  006bc0e0  adrp x8, 0x96d000
+  006bc0e4  orr x26, xzr, x25, lsl #0
+  006bc0e8  ldr x8, [x8, #0x3f8]
+  006bc0ec  cbnz x8, 0x6bc124
+
+### 006bb26c gap=006bc1b8 FUN_006bb26c size=4836
+  006bc1b8  orr x21, xzr, x1, lsl #0
+  006bc1bc  orr x19, xzr, x2, lsl #0
+  006bc1c0  ldr x9, [x0, #0x0]
+  006bc1c4  orr x1, xzr, x8, lsl #0
+  006bc1c8  ldr x9, [x9, #0x10]
+  006bc1cc  blr x9
+  006bc1d0  ldr x8, [x20, #0x18]
+  006bc1d4  str x0, [x8, #0x0]
+  006bc1d8  cbz x19, 0x6bc280
+
+### 006bb26c gap=006bc1d0 FUN_006bb26c size=4836
+  006bc1d0  ldr x8, [x20, #0x18]
+  006bc1d4  str x0, [x8, #0x0]
+  006bc1d8  cbz x19, 0x6bc280
+
+### 006bb26c gap=006bc1d8 FUN_006bb26c size=4836
+  006bc1d8  cbz x19, 0x6bc280
+
+### 006bb26c gap=006bc204 FUN_006bb26c size=4836
+  006bc204  ldr x24, [x21, x28]
+  006bc208  ldr x8, [x8, #0x0]
+  006bc20c  str x24, [x8, x28]
+  006bc210  cbz x24, 0x6bc1f4
+
+### 006bb26c gap=006bc234 FUN_006bb26c size=4836
+  006bc234  movz x0, #0x458
+  006bc238  bl 0x8e0490
+  006bc23c  orr x27, xzr, x0, lsl #0
+  006bc240  bl 0x69cadc
+  006bc244  adrp x8, 0x96d000
+  006bc248  str x27, [x26, #0x0]
+  006bc24c  str x26, [x8, #0x3f8]
+  006bc250  orr x26, xzr, x23, lsl #0
+  006bc254  ldr x25, [x21, x28]
+  006bc258  orr x0, xzr, x26, lsl #0
+  006bc25c  orr x1, xzr, x25, lsl #0
+  006bc260  bl 0x6c4348
+  006bc264  cbz x0, 0x6bc29c
+
+### 006bb26c gap=006bc240 FUN_006bb26c size=4836
+  006bc240  bl 0x69cadc
+  006bc244  adrp x8, 0x96d000
+  006bc248  str x27, [x26, #0x0]
+  006bc24c  str x26, [x8, #0x3f8]
+  006bc250  orr x26, xzr, x23, lsl #0
+  006bc254  ldr x25, [x21, x28]
+  006bc258  orr x0, xzr, x26, lsl #0
+  006bc25c  orr x1, xzr, x25, lsl #0
+  006bc260  bl 0x6c4348
+  006bc264  cbz x0, 0x6bc29c
+
+### 006bb26c gap=006bc210 FUN_006bb26c size=4836
+  006bc210  cbz x24, 0x6bc1f4
+
+### 006bb26c gap=006bc254 FUN_006bb26c size=4836
+  006bc254  ldr x25, [x21, x28]
+  006bc258  orr x0, xzr, x26, lsl #0
+  006bc25c  orr x1, xzr, x25, lsl #0
+  006bc260  bl 0x6c4348
+  006bc264  cbz x0, 0x6bc29c
+
+### 006bb26c gap=006bc26c FUN_006bb26c size=4836
+  006bc26c  orr x0, xzr, x22, lsl #0
+  006bc270  orr x1, xzr, x24, lsl #0
+  006bc274  str x8, [x21, x28]
+  006bc278  bl 0x6b3f48
+  006bc27c  b 0x6bc1f4
+
+### 006bb26c gap=006bc274 FUN_006bb26c size=4836
+  006bc274  str x8, [x21, x28]
+  006bc278  bl 0x6b3f48
+  006bc27c  b 0x6bc1f4
+
+### 006bb26c gap=006bc1a4 FUN_006bb26c size=4836
+  006bc1a4  stnp x20, x19, [xzr, #80]
+  006bc1a8  add x29, xzr, #0x0
+  006bc1ac  orr x20, xzr, x0, lsl #0
+  006bc1b0  ldr x0, [x0, #0x10]
+  006bc1b4  ubfm x8, x2, #61, #60
+  006bc1b8  orr x21, xzr, x1, lsl #0
+  006bc1bc  orr x19, xzr, x2, lsl #0
+  006bc1c0  ldr x9, [x0, #0x0]
+  006bc1c4  orr x1, xzr, x8, lsl #0
+  006bc1c8  ldr x9, [x9, #0x10]
+  006bc1cc  blr x9
+  006bc1d0  ldr x8, [x20, #0x18]
+  006bc1d4  str x0, [x8, #0x0]
+  006bc1d8  cbz x19, 0x6bc280
+
+### 006bb26c gap=006bc1b0 FUN_006bb26c size=4836
+  006bc1b0  ldr x0, [x0, #0x10]
+  006bc1b4  ubfm x8, x2, #61, #60
+  006bc1b8  orr x21, xzr, x1, lsl #0
+  006bc1bc  orr x19, xzr, x2, lsl #0
+  006bc1c0  ldr x9, [x0, #0x0]
+  006bc1c4  orr x1, xzr, x8, lsl #0
+  006bc1c8  ldr x9, [x9, #0x10]
+  006bc1cc  blr x9
+  006bc1d0  ldr x8, [x20, #0x18]
+  006bc1d4  str x0, [x8, #0x0]
+  006bc1d8  cbz x19, 0x6bc280
+
+### 006bb26c gap=006bc2d4 FUN_006bb26c size=4836
+  006bc2d4  stnp x24, x23, [xzr, #64]
+  006bc2d8  stnp x22, x21, [xzr, #80]
+  006bc2dc  stnp x20, x19, [xzr, #96]
+  006bc2e0  add x29, xzr, #0x10
+  006bc2e4  orr x21, xzr, x0, lsl #0
+  006bc2e8  ldr x0, [x0, #0x10]
+  006bc2ec  ubfm x8, x3, #61, #60
+  006bc2f0  orr x22, xzr, x1, lsl #0
+  006bc2f4  orr x19, xzr, x3, lsl #0
+  006bc2f8  orr x20, xzr, x2, lsl #0
+  006bc2fc  ldr x9, [x0, #0x0]
+  006bc300  orr x1, xzr, x8, lsl #0
+  006bc304  ldr x9, [x9, #0x10]
+  006bc308  blr x9
+  006bc30c  ldr x8, [x21, #0x18]
+  006bc310  str x0, [x8, #0x0]
+  006bc314  cbz x19, 0x6bc3dc
+
+### 006bb26c gap=006bc2e0 FUN_006bb26c size=4836
+  006bc2e0  add x29, xzr, #0x10
+  006bc2e4  orr x21, xzr, x0, lsl #0
+  006bc2e8  ldr x0, [x0, #0x10]
+  006bc2ec  ubfm x8, x3, #61, #60
+  006bc2f0  orr x22, xzr, x1, lsl #0
+  006bc2f4  orr x19, xzr, x3, lsl #0
+  006bc2f8  orr x20, xzr, x2, lsl #0
+  006bc2fc  ldr x9, [x0, #0x0]
+  006bc300  orr x1, xzr, x8, lsl #0
+  006bc304  ldr x9, [x9, #0x10]
+  006bc308  blr x9
+  006bc30c  ldr x8, [x21, #0x18]
+  006bc310  str x0, [x8, #0x0]
+  006bc314  cbz x19, 0x6bc3dc
+
+### 006bb26c gap=006bc314 FUN_006bb26c size=4836
+  006bc314  cbz x19, 0x6bc3dc
+
+### 006bb26c gap=006bc318 FUN_006bb26c size=4836
+  006bc318  orr x23, xzr, xzr, lsl #0
+  006bc31c  adrp x27, 0x96d000
+  006bc320  add x27, x27, #0x290
+  006bc324  adrp x24, 0x96d000
+  006bc328  add x24, x24, #0x268
+  006bc32c  str x21, [xzr, #0x8]
+  006bc330  b 0x6bc344
+
+### 006d92cc gap=006d9430 FUN_006d92cc size=360
+  006d9430  ldr x23, [xzr, #0x10]
+  006d9434  stnp x22, x21, [xzr, #32]
+  006d9438  stnp x29, x30, [xzr, #64]
+  006d943c  ret
+
+### 008268ec gap=00826d54 FUN_008268ec size=1168
+  00826d54  movz x1, #0x18
+  00826d58  bl 0x7bd304
+  00826d5c  orr x23, xzr, x0, lsl #0
+  00826d60  stnp xzr, xzr, [x0, #8]
+  00826d64  str sp, [x0, #0x0]
+  00826d68  bl 0x7bbcb8
+  00826d6c  movz x1, #0x8
+  00826d70  bl 0x7bd304
+  00826d74  add x8, x0, #0x8
+  00826d78  str x0, [x23, #0x0]
+  00826d7c  orr x1, xzr, x23, lsl #0
+  00826d80  str x8, [x23, #0x10]
+  00826d84  str x21, [x0, #0x0]
+  00826d88  orr x0, xzr, x22, lsl #0
+  00826d8c  str x8, [x23, #0x8]
+  00826d90  bl 0x7ca92c
+  00826d94  b 0x826b74
+
+### 008e30a8 gap=008e34f0 FUN_008e30a8 size=2132
+  008e34f0  <not in any PT_LOAD file image>
+
+### 009264c8 gap=00926748 FUN_009264c8 size=1380
+  00926748  msub x29, x4, x8, x22
+  0092674c  subs x27, x8, x3, ror #38
+  00926750  extr x12, x17, x4, #39
+  00926754  extr x25, x6, x7, #29
+  00926758  .word 0x80c46ccc
+  0092675c  ? x11, x3, #0, #25
+  00926760  fpsimd-ldr-lit 0xdecabca3
+  00926764  .word 0x8767a5b3
+  00926768  .word 0x089f133e
+  0092676c  vector op(0x17,0x0b).2d
+  00926770  bl 0x-7451b04
+  00926774  .word 0x86149a27
+  00926778  stp x2, x26, [x3, #-116]
+  0092677c  prfm0, 0x99f150
+  00926780  extr x22, x10, x17, #12
+  00926784  str x11, [x6], #104
+  00926788  strh x0, [x7, #0x136a]
+  0092678c  and x24, x4, x2, ror #38
+  00926790  .word 0x199a92dc
+  00926794  .word 0xc769ca29
+  00926798  fpsimd-ldst 0xcd5c32b4
+  0092679c  .word 0x03c1a254
+  009267a0  ? xzr, #0x951c, lsl #32
+  009267a4  subs x21, x22, x26, sxth #6
+  009267a8  subs x28, x15, #0x15000
+  009267ac  add x27, x6, x1, uxtx #0
+  009267b0  ldnp x18, x14, [x8] 
+  009267b4  ldnp x30, x7, [x26, #-152]
+  009267b8  and x17, x27, x28, asr #46
+  009267bc  adrp x13, 0x-affa4000
+  009267c0  add x30, x8, #0x8dd000
+  009267c4  add x19, x2, #0x9b5
+  009267c8  ldr x0, 0x8378e0
+  009267cc  .word 0x4540b6b8
+  009267d0  adrp x5, 0x-69d83000
+  009267d4  .word 0x088f1795
+  009267d8  vector op(0x00,0x00).2d
+  009267dc  ldrh x14, [x16, #0x2d8]
+  009267e0  b 0x3f329fc
+
+### 0097ff50 gap=00980208 FUN_0097ff50 size=1172
+  00980208  <not in any PT_LOAD file image>
+
+### 009810d8 gap=00981188 FUN_009810d8 size=236
+  00981188  <not in any PT_LOAD file image>

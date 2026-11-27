@@ -1,0 +1,38 @@
+version: 2.9.3
+apkFileName: twoyi.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: null
+sdkInfo:
+  minSdkVersion: 27
+  targetSdkVersion: 36
+packageInfo:
+  forcedPackageId: 127
+  renameManifestPackage: null
+versionInfo:
+  versionCode: 10375
+  versionName: 0.7.5-11131322
+resourcesAreCompressed: false
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  DebugProbesKt.bin: 8
+  kotlin-tooling-metadata.json: 8
+  okhttp3/internal/publicsuffix/NOTICE: 8
+  okhttp3/internal/publicsuffix/publicsuffixes.gz: 8
+  prompts/executor/rev1.jinja2: 8
+  prompts/executor/system.jinja2: 8
+  prompts/fast_agent/system.jinja2: 8
+  prompts/fast_agent/user.jinja2: 8
+  prompts/manager/rev1.jinja2: 8
+  prompts/manager/stateless.jinja2: 8
+  prompts/manager/system.jinja2: 8
+  prompts/manager/trained.jinja2: 8
+doNotCompress:
+- resources.arsc
+- assets/rootfs.tar.zst
+- assets/dexopt/baseline.prof
+- assets/dexopt/baseline.profm
+- png

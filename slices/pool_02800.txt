@@ -1,0 +1,578 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/pool_02800.txt
+C: FUN_00969ae4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_30 = 0;
+  | FUN_00969ae4(*(undefined8 *)(*(long *)PTR_DAT_00a10ef0 + 0x58),(long)&local_30 + 4,&local_30);
+
+=== 00971a28 size=124 nc=2 FUN_00971a28
+  C: FUN_0096969c, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_28 = *(long *)(lVar2 + 0x28);
+  | if (*(long *)PTR_DAT_00a10ef0 == 0) {
+  | uVar3 = 0;
+
+=== 00971d34 size=252 nc=5 FUN_00971d34
+  C: FUN_009742a8, FUN_0096cabc, FUN_00977690, close, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | lVar8 = *(long *)PTR_DAT_00a10ef0;
+  | if (lVar8 == 0) {
+
+=== 00972074 size=4 nc=5 thunk_FUN_00951600
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_getspecific, FUN_00951380
+  | uVar1 = FUN_00951080(&DAT_00a70980);
+  | if ((uVar1 & 1) != 0) {
+  | FUN_00951034(&DAT_00a70988,0);
+  | FUN_00951118(&DAT_00a70980);
+
+=== 00972338 size=160 nc=4 FUN_00972338
+  C: FUN_0096ecac, FUN_009742a8, FUN_00977690, close
+  | if (DAT_00a70aa8 == 0) {
+  | uVar1 = 0xffffffff;
+  | else {
+  | if (param_1 == 0) {
+
+=== 009723d8 size=140 nc=5 FUN_009723d8
+  C: FUN_009742a8, FUN_00977740, FUN_0096e550, __errno, strerror
+  L: rcSetFrameAcquireFence: cannot receive fence: %s
+  | lVar2 = DAT_00a70aa8;
+  | lVar4 = FUN_009742a8();
+  | if (((lVar2 != 0) && (lVar4 != 0)) && (0 < *(int *)(lVar4 + 0x1188))) {
+  | iVar3 = FUN_00977740();
+
+=== 00972d78 size=20 nc=2 FUN_00972d78
+  C: FUN_00972d8c, FUN_0099d7c4
+  L: basic_string
+  | uVar1 = FUN_00972d8c("basic_string");
+  | FUN_0099d7c4("out_of_range was thrown in -fno-exceptions mode with message \"%s\"",uVar1);
+
+=== 00972edc size=416 nc=4 FUN_00972edc
+  C: FUN_009e0490, memset, free, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | if (param_1 == (long *)0x0) goto LAB_00973044;
+  | lVar4 = param_3 - param_2;
+
+=== 00973384 size=164 nc=2 FUN_00973384
+  C: strlen, __memcpy_chk
+  | if (param_1 != (char *)0x0) {
+  | if (*param_1 == '\0') {
+  | LAB_00973414:
+  | param_1 = (char *)0x0;
+
+=== 00973484 size=112 nc=4 FUN_00973484
+  C: close, FUN_00973d8c, pthread_mutex_destroy, FUN_0095116c
+  | *param_1 = &PTR_FUN_00a07800;
+  | if (-1 < *(int *)((long)param_1 + 0xc4)) {
+  | close(*(int *)((long)param_1 + 0xc4));
+  | *(undefined4 *)((long)param_1 + 0xc4) = 0xffffffff;
+
+=== 009734f4 size=120 nc=5 FUN_009734f4
+  C: close, FUN_00973d8c, pthread_mutex_destroy, FUN_0095116c, free
+  | *param_1 = &PTR_FUN_00a07800;
+  | if (-1 < *(int *)((long)param_1 + 0xc4)) {
+  | close(*(int *)((long)param_1 + 0xc4));
+  | *(undefined4 *)((long)param_1 + 0xc4) = 0xffffffff;
+
+=== 0097356c size=248 nc=3 FUN_0097356c
+  C: FUN_00951314, FUN_0096f20c, free
+  | __ptr = *(undefined8 **)(param_1 + 0xa0);
+  | while (__ptr != (undefined8 *)(param_1 + 0xa8)) {
+  | uVar3 = FUN_00951314(__ptr[4],0);
+  | if ((uVar3 & 1) == 0) {
+
+=== 00973dd0 size=84 nc=2 FUN_00973dd0
+  C: close, FUN_0095116c
+  | *param_1 = &PTR_FUN_00a07828;
+  | if (-1 < *(int *)(param_1 + 0xc)) {
+  | close(*(int *)(param_1 + 0xc));
+  | *(undefined4 *)(param_1 + 0xc) = 0xffffffff;
+
+=== 00973e24 size=92 nc=3 FUN_00973e24
+  C: close, FUN_0095116c, free
+  | *param_1 = &PTR_FUN_00a07828;
+  | if (-1 < *(int *)(param_1 + 0xc)) {
+  | close(*(int *)(param_1 + 0xc));
+  | *(undefined4 *)(param_1 + 0xc) = 0xffffffff;
+
+=== 00973e80 size=104 nc=2 FUN_00973e80
+  C: FUN_009e0490, FUN_00951134
+  | undefined8 *
+  | FUN_00973e80(undefined8 param_1,undefined8 param_2,undefined4 param_3,undefined4 param_4,
+  | puVar1 = (undefined8 *)FUN_009e0490(0x70);
+  | FUN_00951134();
+
+=== 009742a8 size=72 nc=4 FUN_009742a8
+  C: FUN_00951080, FUN_00951034, FUN_00951118, pthread_getspecific
+  | uVar1 = FUN_00951080(&DAT_00a70990);
+  | if ((uVar1 & 1) != 0) {
+  | FUN_00951034(&DAT_00a70998,0);
+  | FUN_00951118(&DAT_00a70990);
+
+=== 009742f4 size=136 nc=5 FUN_009742f4
+  C: FUN_00964c2c, puts, FUN_00965094, FUN_00966074, fwrite
+  L: Failed to init_egl_dispatch
+  | uVar1 = FUN_00964c2c();
+  | if ((uVar1 & 1) == 0) {
+  | puts("Failed to init_egl_dispatch");
+  | else {
+
+=== 009744d8 size=88 nc=3 FUN_009744d8
+  C: puts, pthread_mutex_lock, pthread_mutex_unlock
+  L: setNativeWindow but fb is null!
+  | lVar1 = DAT_00a70aa8;
+  | if (DAT_00a70aa8 == 0) {
+  | puts("setNativeWindow but fb is null!");
+  | uVar2 = 0xffffffff;
+
+=== 00974530 size=112 nc=2 FUN_00974530
+  C: FUN_0096ac7c, __android_log_print
+  L: libOpenglRender
+  | int FUN_00974530(undefined8 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | if (DAT_00a70aa8 != 0) {
+  | uVar1 = FUN_0096ac7c(DAT_00a70aa8,param_1,param_2,param_3,param_4,param_5,param_6,param_7);
+  | return (uVar1 & 1) - 1;
+
+=== 009745a0 size=176 nc=2 FUN_009745a0
+  C: __android_log_vprint, __stack_chk_fail
+  L: CLIENT_EGL
+  | void FUN_009745a0(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | ppuStack_68 = &local_70;
+  | lVar1 = tpidr_el0;
+  | lVar2 = *(long *)(lVar1 + 0x28);
+
+=== 00974858 size=76 nc=2 FUN_00974858
+  C: FUN_00969cd4, __android_log_print
+  L: libOpenglRender ~ removeSubWindow buf fb is null!
+  | if (DAT_00a70aa8 != 0) {
+  | FUN_00969cd4();
+  | return 0;
+  | __android_log_print(5,"libOpenglRender","removeSubWindow buf fb is null!");
+
+=== 009748a4 size=356 nc=3 FUN_009748a4
+  C: SUB168, FUN_0096cf9c, __android_log_print
+  L: libOpenglRender ~ gfxstream update rejected by ColorBuffer cb=%u size=%ux ~ gfxstream update size mismatch cb=%u got=%zu expected=% ~ gfxstream update rejected unknown pixel format %u
+  | ulong FUN_009748a4(int param_1,uint param_2,uint param_3,int param_4,long param_5,long param_6)
+  | uVar4 = 0;
+  | if ((((-1 < (int)(param_3 | param_2)) && (param_3 != 0)) && (param_2 != 0)) &&
+  | ((param_1 != 0 && (param_5 != 0)))) {
+
+=== 00974a08 size=360 nc=3 FUN_00974a08
+  C: SUB168, FUN_0096cd9c, __android_log_print
+  L: libOpenglRender ~ gfxstream read rejected by ColorBuffer cb=%u size=%ux%u ~ gfxstream read size mismatch cb=%u got=%zu expected=%zu ~ gfxstream read rejected unknown pixel format %u
+  | ulong FUN_00974a08(int param_1,uint param_2,uint param_3,int param_4,long param_5,long param_6)
+  | uVar4 = 0;
+  | if ((((-1 < (int)(param_3 | param_2)) && (param_3 != 0)) && (param_2 != 0)) &&
+  | ((param_1 != 0 && (param_5 != 0)))) {
+
+=== 00974b70 size=216 nc=2 FUN_00974b70
+  C: FUN_0096d0c8, __android_log_print
+  L: libOpenglRender ~ gfxstream AHB acquire rejected cb=%u size=%ux%u format= ~ gfxstream AHB acquire rejected unknown pixel format %u
+  | if ((((param_3 != 0) && (param_2 != 0)) && (param_1 != 0)) && (param_5 != (undefined8 *)0x0)) {
+  | *param_5 = 0;
+  | if (param_4 - 1U < 6) {
+  | if ((*(long *)PTR_DAT_00a10ef0 != 0) &&
+
+=== 00974c48 size=100 nc=2 FUN_00974c48
+  C: FUN_0096d33c, __android_log_print
+  L: libOpenglRender ~ gfxstream consumer wait failed cb=%u
+  | ulong FUN_00974c48(ulong param_1)
+  | if ((int)param_1 != 0) {
+  | if ((*(long *)PTR_DAT_00a10ef0 == 0) ||
+  | (uVar1 = FUN_0096d33c(*(long *)PTR_DAT_00a10ef0,param_1 & 0xffffffff), (uVar1 & 1) == 0)) {
+
+=== 00974cac size=100 nc=2 FUN_00974cac
+  C: FUN_0096d1f8, __android_log_print
+  L: libOpenglRender ~ gfxstream AHB lease release failed cb=%u
+  | ulong FUN_00974cac(ulong param_1)
+  | if ((int)param_1 != 0) {
+  | if ((*(long *)PTR_DAT_00a10ef0 == 0) ||
+  | (uVar1 = FUN_0096d1f8(*(long *)PTR_DAT_00a10ef0,param_1 & 0xffffffff), (uVar1 & 1) == 0)) {
+
+=== 00974d10 size=152 nc=4 FUN_00974d10
+  C: FUN_00973664, FUN_0096c6f4, __android_log_print, RenderThread
+  L: libOpenglRender ~ stopped %u exited legacy RenderThread(s) while cleaning
+  | if (DAT_00a71530 == 0) {
+  | iVar1 = 0;
+  | else {
+  | iVar1 = FUN_00973664(DAT_00a71530,param_1);
+
+=== 00975204 size=36 nc=2 FUN_00975204
+  C: FUN_0095116c, free
+  | FUN_0095116c();
+  | free(param_1);
+
+=== 00975344 size=108 nc=4 FUN_00975344
+  C: shutdown, close, perror, free
+  L: Closing SocketStream failed
+  | *param_1 = &PTR_FUN_00a07898;
+  | if (-1 < *(int *)(param_1 + 4)) {
+  | shutdown(*(int *)(param_1 + 4),2);
+  | iVar1 = close(*(int *)(param_1 + 4));
+
+=== 009753b4 size=136 nc=3 FUN_009753b4
+  C: malloc, realloc, fprintf
+  L: allocBuffer
+  | __size = *(ulong *)(param_1 + 0x28);
+  | if (*(void **)(param_1 + 0x30) == (void *)0x0) {
+  | if (__size <= param_2) {
+  | __size = param_2;
+
+=== 00975464 size=192 nc=4 FUN_00975464
+  C: sendto, __errno, strerror, fprintf
+  L: writeFully
+  | if (*(int *)(param_1 + 0x20) < 0) {
+  | return 0xffffffff;
+  | __n = param_3;
+  | if (param_3 != 0) {
+
+=== 0097552c size=156 nc=2 FUN_0097552c
+  C: recvfrom, __errno
+  | lVar3 = 0;
+  | if (((param_2 != 0) && (-1 < *(int *)(param_1 + 0x20))) && (lVar3 = param_2, param_3 != 0)) {
+  | param_2 = param_2 + param_3;
+  | do {
+
+=== 0097564c size=116 nc=2 FUN_0097564c
+  C: recvfrom, __errno
+  | ulong FUN_0097564c(long param_1,void *param_2,size_t param_3)
+  | if (*(int *)(param_1 + 0x20) < 0) {
+  | uVar1 = 0xfffffc18;
+  | else {
+
+=== 00975700 size=100 nc=4 FUN_00975700
+  C: FUN_00950ec4, FUN_00950a20, FUN_009507b0, close
+  | iVar1 = FUN_00950ec4(0x57c4,1);
+  | *(int *)(param_1 + 0x20) = iVar1;
+  | if (-1 < iVar1) {
+  | iVar1 = FUN_00950a20();
+
+=== 00975764 size=100 nc=4 FUN_00975764
+  C: FUN_00950fec, FUN_009e0490, FUN_00975328, FUN_009509c4
+  | iVar1 = FUN_00950fec(*(undefined4 *)(param_1 + 0x20));
+  | if (iVar1 < 0) {
+  | puVar2 = (undefined8 *)0x0;
+  | else {
+
+=== 009757c8 size=56 nc=2 FUN_009757c8
+  C: atoi, FUN_00950f58
+  | iVar1 = atoi(param_2);
+  | iVar1 = FUN_00950f58(iVar1,1);
+  | *(int *)(param_1 + 0x20) = iVar1;
+  | return iVar1 >> 0x1f;
+
+=== 00975800 size=36 nc=2 FUN_00975800
+  C: FUN_00975344, free
+  | FUN_00975344();
+  | free(param_1);
+
+=== 00975ba4 size=872 nc=3 FUN_00975ba4
+  C: glBindBuffer, glDrawElements, __stack_chk_fail
+  | bool FUN_00975ba4(float param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  | undefined4 param_5,undefined4 param_6,undefined4 param_7,long param_8,
+  | puVar3 = PTR_DAT_00a10ee0;
+  | lVar1 = tpidr_el0;
+
+=== 00976c6c size=452 nc=5 FUN_00976c6c
+  C: __stack_chk_fail, FUN_0096fa90, FUN_009e0490, memset, fprintf
+  L: Vertex ~ Fragment
+  | puVar4 = PTR_DAT_00a10ee0;
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | iVar5 = (**(code **)(PTR_DAT_00a10ee0 + 0x400))();
+
+=== 00976e54 size=120 nc=2 FUN_00976e54
+  C: clock_gettime, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_38.tv_sec = 0;
+  | local_38.tv_nsec = 0;
+
+=== 00976ecc size=288 nc=2 FUN_00976ecc
+  C: FUN_00950880, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | *param_1 = 0;
+  | FUN_00950880(param_1 + 1,0);
+
+=== 00976fec size=148 nc=4 FUN_00976fec
+  C: FUN_00950970, FUN_00970180, free, FUN_00967718
+  | if (*param_1 != 0) {
+  | (*DAT_00a709e8)(param_1[9]);
+  | pvVar1 = (void *)FUN_00950970(param_1 + 5);
+  | if (pvVar1 != (void *)0x0) {
+
+=== 00977080 size=124 nc=5 FUN_00977080
+  C: FUN_009e0490, FUN_00976ecc, FUN_009770fc, FUN_00976fec, free
+  | __ptr = (void *)FUN_009e0490(0x58);
+  | FUN_00976ecc(__ptr,param_1,param_2);
+  | uVar1 = FUN_009770fc(__ptr,param_3,param_4);
+  | if ((uVar1 & 1) == 0) {
+
+=== 009770fc size=584 nc=3 FUN_009770fc
+  C: failed, fwrite, __stack_chk_fail
+  L: WindowSurface: texture-bindable pbuffer failed (%#x); u
+  | puVar4 = PTR_DAT_00a10ec8;
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | if (((*param_1 != 0) && (*(int *)(param_1 + 7) == param_2)) &&
+
+=== 00977344 size=104 nc=4 FUN_00977344
+  C: FUN_009508e4, FUN_00967718, free, FUN_009770fc
+  | __ptr = (void *)FUN_009508e4(param_1 + 8);
+  | if (__ptr != (void *)0x0) {
+  | FUN_00967718();
+  | free(__ptr);
+
+=== 009773ac size=160 nc=3 FUN_009773ac
+  C: FUN_009508e4, FUN_00970180, free
+  | if (param_3 == 2) {
+  | pvVar1 = (void *)FUN_009508e4(param_1 + 0x18);
+  | if (pvVar1 != (void *)0x0) {
+  | FUN_00970180();
+
+=== 0097744c size=388 nc=2 FUN_0097744c
+  C: fwrite, FUN_00968a5c
+  | puVar1 = PTR_DAT_00a10ec8;
+  | lVar7 = param_1[1];
+  | if (lVar7 == 0) {
+  | return 1;
+
+=== 00977690 size=176 nc=2 FUN_00977690
+  C: sendmsg, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | mStack_78.msg_iov = &local_88;
+  | local_88.iov_base = &local_8c;
+
+=== 00977740 size=236 nc=3 FUN_00977740
+  C: recvmsg, __errno, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_40[3] = *(long *)(lVar1 + 0x28);
+  | mStack_78.msg_iov = &local_88;
+  | local_88.iov_base = &local_8c;
+
+=== 0097782c size=60 nc=2 FUN_0097782c
+  C: close, FUN_0095116c
+  | *param_1 = &PTR_FUN_00a07988;
+  | close(*(int *)((long)param_1 + 0x4c));
+  | *(undefined4 *)((long)param_1 + 0x4c) = 0xffffffff;
+  | FUN_0095116c(param_1);
+
+=== 00977868 size=68 nc=3 FUN_00977868
+  C: close, FUN_0095116c, free
+  | *param_1 = &PTR_FUN_00a07988;
+  | close(*(int *)((long)param_1 + 0x4c));
+  | *(undefined4 *)((long)param_1 + 0x4c) = 0xffffffff;
+  | FUN_0095116c(param_1);
+
+=== 009779f8 size=184 nc=5 FUN_009779f8
+  C: FUN_00950fec, setsockopt, FUN_009e0490, FUN_00951134, FUN_00951180
+  L: setsockopt failed. ~ GraphicBuffer accept: %d
+  | puVar1 = PTR_PTR_FUN_00a10ec0;
+  | do {
+  | do {
+  | __fd = FUN_00950fec(*(undefined4 *)(param_1 + 0x4c));
+
+=== 00977ab0 size=52 nc=2 FUN_00977ab0
+  C: close, FUN_0095116c
+  | *param_1 = &PTR_FUN_00a079b0;
+  | close(*(int *)((long)param_1 + 0x4c));
+  | FUN_0095116c(param_1);
+
+=== 00977ae4 size=60 nc=3 FUN_00977ae4
+  C: close, FUN_0095116c, free
+  | *param_1 = &PTR_FUN_00a079b0;
+  | close(*(int *)((long)param_1 + 0x4c));
+  | FUN_0095116c(param_1);
+  | free(param_1);
+
+=== 00977b20 size=72 nc=2 FUN_00977b20
+  C: AHardwareBuffer_recvHandleFromUnixSocket, FUN_0096e298
+  | puVar1 = PTR_DAT_00a10ef0;
+  | do {
+  | do {
+  | do {
+
+=== 00977b68 size=52 nc=2 FUN_00977b68
+  C: FUN_009778ac, FUN_00951180
+  | lVar1 = FUN_009778ac();
+  | if (lVar1 != 0) {
+  | FUN_00951180(lVar1);
+  | return lVar1 != 0;
+
+=== 00977bcc size=124 nc=5 FUN_00977bcc
+  C: FUN_00975344, unlink, free, __errno, fprintf
+  | *param_1 = &PTR_FUN_00a079d8;
+  | if (param_1[7] == 0) {
+  | LAB_00977c1c:
+  | FUN_00975344(param_1);
+
+=== 00977c58 size=36 nc=2 FUN_00977c58
+  C: FUN_00977bcc, free
+  | FUN_00977bcc();
+  | free(param_1);
+
+=== 00977d80 size=244 nc=5 FUN_00977d80
+  C: accept, __errno, FUN_009e0490, FUN_00975328, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uStack_4a = 0;
+  | uStack_50 = 0;
+
+=== 00977e74 size=140 nc=2 FUN_00977e74
+  C: getsockopt, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | local_30 = 0;
+  | local_38 = 0;
+
+=== 00978044 size=372 nc=3 FUN_00978044
+  C: __android_log_print, FUN_002f97d8, __stack_chk_fail
+  L: twoyi_modem ~ Unable to find class ~ onChange ~ Unable to find method:onChange
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | iVar3 = (**(code **)(*DAT_00a71748 + 0x30))(DAT_00a71748,&local_50,0x10006);
+  | if ((iVar3 == -2) &&
+
+=== 009785ac size=168 nc=3 FUN_009785ac
+  C: FUN_00981694, FUN_0097e984, memmove
+  | if (*(long *)((long)param_2 + 0x28) != 0) {
+  | FUN_00981694(*(long *)((long)param_2 + 0x28));
+  | *(undefined8 *)((long)param_2 + 0x28) = 0;
+  | if (*(char *)((long)param_2 + 0x38) != '\0') {
+
+=== 00978f1c size=192 nc=2 FUN_00978f1c
+  C: vsnprintf, __stack_chk_fail
+  | void FUN_00978f1c(long param_1,char *param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | local_b0 = param_3;
+
+=== 00979060 size=168 nc=3 FUN_00979060
+  C: FUN_00978fdc, FUN_00979108, FUN_00979284
+  | *(int *)(param_1 + 0x4c) = param_2;
+  | if (param_2 == 0x14) {
+  | FUN_00978fdc(param_1,*(undefined4 *)(param_1 + 0x44));
+  | else {
+
+=== 00979108 size=380 nc=5 FUN_00979108
+  C: FUN_0097c488, FUN_00979d3c, FUN_0097c624, FUN_00979b14, __stack_chk_fail
+  L: ERROR: At least one technology must be enabled ~ preferred_mode ~ +CTEC: DONE ~ +CTEC: %d
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if (*PTR_DAT_00a0dbd8 == '\x01') {
+  | FUN_0097c488("_amodem_switch_technology: oldtech: %d, newtech %d, preferred: %d. newpreferred: %d\n"
+
+=== 00979b14 size=176 nc=2 FUN_00979b14
+  C: vsnprintf, __stack_chk_fail
+  | long FUN_00979b14(long param_1,char *param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | puStack_58 = &stack0xffffffffffffff80;
+
+=== 00979d3c size=164 nc=2 FUN_00979d3c
+  C: __vsnprintf_chk, __stack_chk_fail
+  | void FUN_00979d3c(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+  | undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+  | puStack_60 = &local_90;
+  | lVar1 = tpidr_el0;
+
+=== 00979de0 size=196 nc=2 FUN_00979de0
+  C: vsnprintf, __stack_chk_fail
+  | void FUN_00979de0(long param_1,char *param_2,undefined8 param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | puStack_58 = &stack0xffffffffffffff80;
+
+=== 00979f0c size=532 nc=5 FUN_00979f0c
+  C: FUN_0097c488, FUN_00979b14, strtol, FUN_00979108, __stack_chk_fail
+  L: +CTEC: %d,%x ~ +CTEC: 0,1,2,3 ~ ERROR: invalid preferred mode ~ ERROR: %s: Unknown Technology
+  | puVar4 = PTR_DAT_00a0dbd8;
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | uVar7 = (ulong)*(uint *)(param_2 + 0x724);
+
+=== 0097a3f8 size=356 nc=3 FUN_0097a3f8
+  C: strtol, FUN_00979b14, __stack_chk_fail
+  L: +WSOS: (0) ~ ERROR ~ +WSOS: %d
+  | lVar2 = tpidr_el0;
+  | local_28 = *(long *)(lVar2 + 0x28);
+  | local_30 = (char *)0x0;
+  | if (*(char *)(param_1 + 5) == '=') {
+
+=== 0097aa2c size=896 nc=2 FUN_0097aa2c
+  C: FUN_009785ac, FUN_0097e7e8
+  L: ERROR: BAD COMMAND
+  | if (*param_1 != 0x4c48432b || *(short *)(param_1 + 1) != 0x3d44) {
+  | return "ERROR: BAD COMMAND";
+  | bVar2 = *(byte *)((long)param_1 + 6);
+  | if (bVar2 < 0x32) {
+
+=== 0097adac size=336 nc=5 FUN_0097adac
+  C: FUN_00979bc4, time, FUN_00979284, FUN_00978fdc, FUN_00979de0
+  | iVar2 = DAT_00a72038;
+  | *(undefined4 *)(param_2 + 0x308) = 0;
+  | if ((iVar2 != 0) && (*(char *)(param_2 + 1) != '\0')) {
+  | FUN_00979bc4(param_2);
+
+=== 0097b14c size=348 nc=3 FUN_0097b14c
+  C: strchr, __memcpy_chk, __stack_chk_fail
+  L: ERROR: BAD COMMAND
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | bVar1 = *(byte *)(param_1 + 9);
+  | if (bVar1 == 0x3f) {
+
+=== 0097b68c size=216 nc=2 FUN_0097b68c
+  C: FUN_009785ac, FUN_0097e7e8
+  | if (0 < *(int *)(param_2 + 0x2e8)) {
+  | lVar3 = 0;
+  | lVar2 = param_2 + 0x1e8;
+  | do {
+
+=== 0097b9ec size=152 nc=3 FUN_0097b9ec
+  C: sscanf, FUN_00979b14, __stack_chk_fail
+  L: +CRRSTR=%d,%d ~ +CME ERROR: %d
+  | lVar1 = tpidr_el0;
+  | local_28 = *(long *)(lVar1 + 0x28);
+  | iVar2 = sscanf(param_1,"+CRRSTR=%d,%d",&iStack_2c,&local_30);
+  | if (iVar2 == 2) {
+
+=== 0097baa4 size=60 nc=2 FUN_0097baa4
+  C: FUN_00979bc4, FUN_00979284
+  | *(undefined4 *)(param_2 + 0x308) = 0;
+  | FUN_00979bc4(param_2);
+  | FUN_00979284(param_2);
+  | *(undefined *)(param_2 + 0x30c + (long)*(int *)(param_2 + 0x308)) = 0;
+
+=== 0097bae0 size=512 nc=3 FUN_0097bae0
+  C: strchr, strdup, FUN_00979b14
+  L: +CME ERROR: %d
+  | pcVar1 = strchr(param_1,0x3d);
+  | if (pcVar1 == (char *)0x0) {
+  | pcVar1 = "+CME ERROR: %d";
+  | uVar3 = 0x19;
+
+=== 0097bce0 size=284 nc=5 FUN_0097bce0
+  C: strchr, FUN_00979b14, sscanf, free, __stack_chk_fail
+  L: +CME ERROR: %d ~ %d%c ~ +CCHC
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | pcVar4 = strchr(param_1,0x3d);
+  | if (pcVar4 == (char *)0x0) {
+
+=== 0097c3a8 size=164 nc=5 FUN_0097c3a8
+  C: FUN_009815a4, FUN_009815dc, FUN_0097e480, FUN_009785ac, FUN_00978f1c
+  | if (*(int *)(param_1 + 8) == 3) {
+  | *(undefined4 *)(param_1 + 8) = 0;
+  | else if (*(int *)(param_1 + 8) == 2) {
+  | *(undefined4 *)(param_1 + 8) = 3;
+
+=== 0097c44c size=60 nc=2 FUN_0097c44c
+  C: FUN_009785ac, FUN_00978f1c
+  | if (param_2 != 0) {
+  | uVar1 = *(undefined8 *)(param_1 + 0x30);
+  | FUN_009785ac(uVar1,param_1);
+  | FUN_00978f1c(uVar1,"RING\r");

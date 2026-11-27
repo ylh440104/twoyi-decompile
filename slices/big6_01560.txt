@@ -1,0 +1,596 @@
+wrote /storage/emulated/0/twoyi/twoyi-decompile/slices/big6_01560.txt pool 2009
+=316 nc=6 FUN_008e18f0
+  C: CONCAT44, FUN_008eb470, FUN_0068ddb0, FUN_009e0490, memcpy, free
+  | param_3 = param_3 + param_2;
+  | piVar4 = *(int **)(param_1 + 4);
+  | __src = *(int **)(param_1 + 2);
+  | for (piVar8 = __src; piVar8 != piVar4; piVar8 = piVar8 + 2) {
+
+=== 008e1b34 size=704 nc=16 FUN_008e1b34
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008e1a2c, FUN_008deb80, FUN_008c1154, FUN_008c5360, FUN_008e1df4, FUN_008bdf2c, FUN_008deeac, FUN_008de3ec, FUN_008e1710
+  L: empty array declaration needs to specify a size ~ invalid layout qualifier: only valid when used with a f ~ index ~ Offset must be multiple of 4 ~ atomic counter
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | uVar4 = FUN_008bbcb8();
+  | piVar5 = (int *)FUN_008bd304(uVar4,0x90);
+
+=== 008e1f3c size=484 nc=16 FUN_008e1f3c
+  C: FUN_008deb80, FUN_008deeac, FUN_008de29c, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008c046c, FUN_008de190, FUN_008e1a2c, FUN_008de3ec, FUN_008e1710, FUN_008c5360
+  L: Offset must be multiple of 4 ~ atomic counter
+  | long * FUN_008e1f3c(long param_1,long param_2,long *param_3,undefined8 param_4,undefined8 param_5,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | *(undefined *)(param_1 + 8) = 0;
+
+=== 008e2120 size=280 nc=8 FUN_008e2120
+  C: FUN_008deb80, FUN_008deeac, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008dfb9c, FUN_008cb600, __stack_chk_fail
+  | long * FUN_008e2120(long param_1,long param_2,long *param_3,undefined8 param_4,undefined8 param_5,
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | uVar1 = *(undefined4 *)(param_2 + 0x70);
+
+=== 008e2238 size=332 nc=10 FUN_008e2238
+  C: FUN_008deb80, FUN_008deeac, FUN_008de29c, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008c046c, FUN_008dfb9c, FUN_008cb600, __stack_chk_fail
+  | long * FUN_008e2238(long param_1,long param_2,long *param_3,undefined8 param_4,undefined8 param_5,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | *(undefined *)(param_1 + 8) = 0;
+
+=== 008e2384 size=912 nc=21 FUN_008e2384
+  C: FUN_008f6b88, FUN_008beae4, FUN_008c5dc4, FUN_008c5360, NEON_cmeq, NEON_umaxv, CONCAT26, CONCAT11, CONCAT24, CONCAT22, FUN_008da468, FUN_008dc200
+  L: Expected invariant or precise ~ undeclared identifier declared as invariant or precise ~ invariant or precise declaration specifies qualifier ~ lowp ~ highp
+  | void FUN_008e2384(undefined8 *param_1,undefined8 param_2,undefined (*param_3) [16],
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | FUN_008f6b88(local_ac,param_2,param_1[0xf]);
+
+=== 008e2714 size=432 nc=12 FUN_008e2714
+  C: FUN_008deeac, FUN_008c5360, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008e1a2c, FUN_008de3ec, FUN_008e1710, FUN_008de4fc, FUN_008ca8d4, FUN_008cb600, __stack_chk_fail
+  L: location must only be specified for a single input or o ~ location ~ Offset must be multiple of 4 ~ atomic counter
+  | void FUN_008e2714(long param_1,long param_2,undefined8 *param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | if (*(char *)(param_1 + 8) == '\x01') {
+
+=== 008e28c4 size=448 nc=14 FUN_008e28c4
+  C: FUN_008deeac, FUN_008c5360, FUN_008de29c, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008c046c, FUN_008e1a2c, FUN_008de3ec, FUN_008e1710, FUN_008de4fc, FUN_008ca8d4
+  L: location must only be specified for a single input or o ~ location ~ Offset must be multiple of 4 ~ atomic counter
+  | void FUN_008e28c4(long param_1,long param_2,undefined8 *param_3,undefined8 param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | if (*(char *)(param_1 + 8) == '\x01') {
+
+=== 008e2a84 size=300 nc=8 FUN_008e2a84
+  C: FUN_008deeac, FUN_008c5360, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008dfb9c, FUN_008cb600, __stack_chk_fail
+  L: location must only be specified for a single input or o ~ location
+  | void FUN_008e2a84(long param_1,long param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5
+  | ,undefined8 param_6,undefined8 param_7)
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+
+=== 008e2bb0 size=308 nc=10 FUN_008e2bb0
+  C: FUN_008deeac, FUN_008c5360, FUN_008de29c, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008c046c, FUN_008dfb9c, FUN_008cb600, __stack_chk_fail
+  L: location must only be specified for a single input or o ~ location
+  | void FUN_008e2bb0(long param_1,long param_2,undefined8 param_3,undefined8 param_4,undefined8 param_5
+  | ,long *param_6,undefined8 param_7,undefined8 param_8,undefined8 param_9)
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+
+=== 008e38fc size=348 nc=9 FUN_008e38fc
+  C: FUN_008bdc00, FUN_008dd590, FUN_008bbcb8, FUN_008bd304, FUN_008cb9ac, FUN_008c1154, FUN_008c5360, FUN_008bf348, __stack_chk_fail
+  L: function parameter array must be sized at compile time ~ redefinition
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+  | local_78 = FUN_008bdc00(param_2);
+  | FUN_008dd590(param_1,param_3,local_78);
+
+=== 008e3a58 size=252 nc=7 FUN_008e3a58
+  C: FUN_008bdeec, FUN_008bed1c, FUN_008c5360, FUN_008e38fc, FUN_008becc4, FUN_008beae4, __stack_chk_fail
+  L: duplicate function prototype declarations are not allow ~ function ~ local function prototype declarations are not allowed
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uVar3 = *param_1;
+  | local_3c[0] = '\0';
+
+=== 008e3c60 size=256 nc=7 FUN_008e3c60
+  C: FUN_008bed58, FUN_008bdc00, FUN_008c5360, FUN_008e38fc, FUN_008bcdbc, FUN_008beaf8, __stack_chk_fail
+  L: function already has a body
+  | lVar4 = tpidr_el0;
+  | local_48 = *(long *)(lVar4 + 0x28);
+  | local_4c[0] = '\0';
+  | lVar5 = FUN_008bed58(*param_1,param_3,local_4c);
+
+=== 008e3d60 size=896 nc=13 FUN_008e3d60
+  C: FUN_008bdc00, FUN_008c5360, FUN_008bdeec, FUN_008c3da8, FUN_008c3e88, FUN_008bf268, FUN_008c0240, FUN_008c5dc4, FUN_008bf1e0, FUN_008bf3c0, FUN_008be6d8, parameter
+  L: Function parameter type cannot be a structure definitio ~ built-in functions cannot be redefined ~ Name of a built-in function cannot be redeclared as fun ~ function must have the same return type in all of its d ~ function must have the same parameter qualifiers in all
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | uVar5 = *(ulong *)(param_3 + 0x28);
+  | if (uVar5 != 0) {
+
+=== 008e40e0 size=764 nc=25 FUN_008e40e0
+  C: FUN_008c5dc4, FUN_008c5360, NEON_cmeq, NEON_umaxv, CONCAT26, CONCAT11, CONCAT24, CONCAT22, FUN_008da468, FUN_008c0240, strlen, FUN_0068ef98
+  L: no qualifiers allowed for function return ~ layout
+  | undefined8
+  | FUN_008e40e0(undefined8 *param_1,undefined4 *param_2,undefined8 param_3,undefined8 param_4)
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+
+=== 008e43e8 size=232 nc=9 FUN_008e43e8
+  C: FUN_008c044c, FUN_008c5360, FUN_008c0240, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008c0770, FUN_008c128c, FUN_008f8c90
+  L: array constructor supported in GLSL ES 3.00 and above o ~ cannot construct this type
+  | if ((*(int *)(param_1 + 0x20) < 300) && (uVar1 = FUN_008c044c(param_2), (uVar1 & 1) != 0)) {
+  | FUN_008c5360(*(undefined8 *)(param_1 + 0x78),param_2 + 4,
+  | "array constructor supported in GLSL ES 3.00 and above only",&DAT_00123f87);
+  | if (*(char *)(param_2 + 8) == '\x01') {
+
+=== 008e461c size=192 nc=7 FUN_008e461c
+  C: FUN_008de0c0, FUN_008bbcb8, FUN_008bd304, FUN_008c0340, FUN_008c046c, FUN_008e44d0, __stack_chk_fail
+  | void FUN_008e461c(undefined8 param_1,undefined8 param_2,undefined8 param_3,long *param_4,
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | FUN_008de0c0(param_1,param_5,param_6);
+
+=== 008e47bc size=460 nc=13 FUN_008e47bc
+  C: FUN_008f9578, FUN_008c05c8, FUN_008f96f4, FUN_008c1154, FUN_008dd6d0, FUN_008caa1c, FUN_008e46dc, FUN_008d4294, FUN_008c127c, FUN_008c147c, FUN_008c1228, FUN_008f80a8
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | uVar2 = FUN_008f9578(param_2);
+  | FUN_008c05c8(auStack_e8,uVar2);
+
+=== 008e5524 size=476 nc=13 FUN_008e5524
+  C: FUN_008c08d0, FUN_008be06c, FUN_00688420, FUN_008bdc00, FUN_008c1e00, FUN_0099f858, FUN_009a0c84, FUN_008c5360, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18
+  L: Struct nesting ~ Reference of struct type  ~  exceeds maximum allowed nesting level of 
+  | auVar5._8_8_ = local_188._8_8_;
+  | auVar5._0_8_ = local_188._0_8_;
+  | auVar4._8_8_ = local_188._8_8_;
+  | auVar4._0_8_ = local_188._0_8_;
+
+=== 008e5de4 size=376 nc=12 FUN_008e5de4
+  C: FUN_008be06c, strlen, FUN_00688420, FUN_0099f858, FUN_009a0c84, FUN_008c5408, FUN_008c5360, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18, __stack_chk_fail
+  | int FUN_008e5de4(long param_1,ulong param_2,undefined8 param_3,int param_4,int param_5,char *param_6
+  | )
+  | lVar1 = tpidr_el0;
+  | local_68 = *(long *)(lVar1 + 0x28);
+
+=== 008e6dcc size=476 nc=11 FUN_008e6dcc
+  C: FUN_008c5360, FUN_008be06c, FUN_00688420, strlen, FUN_009a0c84, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18, FUN_008da548, __stack_chk_fail
+  L: invalid layout qualifier: not supported ~ out of range:  ~ dimension out of bounds ~  must be positive
+  | void FUN_008e6dcc(long param_1,undefined8 *param_2,undefined8 param_3,int param_4,undefined8 param_5
+  | ,byte *param_6,ulong param_7,undefined8 param_8)
+  | lVar3 = tpidr_el0;
+  | local_70 = *(long *)(lVar3 + 0x28);
+
+=== 008e74b4 size=388 nc=9 FUN_008e74b4
+  C: FUN_0099ebd8, FUN_0099ed20, FUN_0099f858, FUN_009a0c84, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18, __stack_chk_fail
+  | puVar6 = PTR_PTR_00a0db40;
+  | puVar5 = PTR_DAT_00a0db38;
+  | lVar4 = tpidr_el0;
+  | local_70 = *(long *)(lVar4 + 0x28);
+
+=== 008e7d5c size=552 nc=8 FUN_008e7d5c
+  C: memcmp, FUN_008c5360, FUN_008c3f08, FUN_008f6b88, FUN_008e8044, __stack_chk_fail, FUN_008bbcb8, FUN_008bd304
+  L: duplicate field name in structure
+  | plVar8 = *(long **)param_3;
+  | plVar2 = *(long **)((long)param_3 + 8);
+  | if (plVar8 != plVar2) {
+  | plVar20 = (long *)param_2[1];
+
+=== 008e8044 size=836 nc=13 FUN_008e8044
+  C: FUN_008dcd74, FUN_008c5360, FUN_008da540, FUN_008da550, FUN_008bbcb8, FUN_008bd304, __stack_chk_fail, FUN_008c0340, FUN_008f9d1c, FUN_008de0c0, FUN_008c046c, FUN_008e5524
+  L: dimension out of bounds ~ early_fragment_tests
+  | lVar6 = tpidr_el0;
+  | local_68 = *(long *)(lVar6 + 0x28);
+  | FUN_008dcd74(param_1,param_2 + 4,param_2[0x1e],*param_2);
+  | if (*param_2 == 0) {
+
+=== 008e8388 size=812 nc=15 FUN_008e8388
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008bdfb8, FUN_008beae4, FUN_008dd590, FUN_008bf348, FUN_008c5360, FUN_008c5dc4, FUN_008c0240, FUN_008c1154, FUN_008c1228, CONCAT44
+  L: redefinition of a struct ~ invalid qualifier on struct member ~ invariant ~ disallowed type in struct ~ array members of structs must specify a size
+  | void FUN_008e8388(undefined4 *param_1,undefined8 *param_2,undefined8 *param_3,undefined8 param_4,
+  | lVar4 = tpidr_el0;
+  | local_68 = *(long *)(lVar4 + 0x28);
+  | lVar11 = param_5[1];
+
+=== 008e86b4 size=408 nc=6 FUN_008e86b4
+  C: FUN_008c5360, FUN_008f9d3c, FUN_008bf0a0, FUN_008bbcb8, FUN_008bd304, FUN_008ccf28
+  L: init-expression in a switch statement must be a scalar  ~ switch
+  | piVar3 = (int *)(**(code **)(*param_2 + 0xf8))(param_2);
+  | iVar1 = *piVar3;
+  | if ((((iVar1 - 5U < 0xfffffffe) ||
+  | (lVar4 = (**(code **)(*param_2 + 0xf8))(param_2), bVar2 = 1 < *(byte *)(lVar4 + 0x54),
+
+=== 008e8a60 size=832 nc=6 FUN_008e8a60
+  C: FUN_008bf0a0, FUN_008bbcb8, FUN_008bd304, FUN_008cc3e4, FUN_008d43c4, FUN_008dcb8c
+  | undefined8
+  | FUN_008e8a60(undefined8 *param_1,uint param_2,long *param_3,long *param_4,undefined8 param_5)
+  | uVar1 = param_2 & 0xff;
+  | if (uVar1 < 0xc) {
+
+=== 008e8fc8 size=824 nc=7 FUN_008e8fc8
+  C: FUN_008dff30, FUN_008cbe88, FUN_008e8e94, FUN_008bbcb8, FUN_008bd304, FUN_008cc4a8, FUN_008bf0a0
+  | piVar3 = (int *)FUN_008dff30();
+  | if (((ulong)piVar3 & 1) == 0) {
+  | LAB_008e90d0:
+  | plVar8 = (long *)0x0;
+
+=== 008e942c size=588 nc=9 FUN_008e942c
+  C: FUN_008dcf0c, FUN_008dff30, FUN_008dcaa0, FUN_008cbf1c, FUN_008e8e94, FUN_008bbcb8, FUN_008bd304, FUN_008cc4a8, FUN_008bf0a0
+  L: assign
+  | FUN_008dcf0c(param_1,param_5,"assign",param_3);
+  | uVar1 = FUN_008dff30(param_1,param_2,param_3,param_4,param_5);
+  | if ((uVar1 & 1) == 0) {
+  | LAB_008e9578:
+
+=== 008ea138 size=376 nc=10 FUN_008ea138
+  C: FUN_008c3f24, FUN_008be06c, FUN_0099f858, FUN_009a0c84, FUN_008c5360, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18, __stack_chk_fail
+  L: Texture offset value out of valid range
+  | lVar5 = tpidr_el0;
+  | local_70 = *(long *)(lVar5 + 0x28);
+  | if (param_4 != 0) {
+  | uVar3 = *(undefined8 *)(PTR_PTR_00a0db40 + 0x40);
+
+=== 008eaa50 size=576 nc=12 FUN_008eaa50
+  C: FUN_008f9588, FUN_008f8d20, strcmp, FUN_008f96f4, FUN_008bbcb8, FUN_008bd304, FUN_008cc3e4, FUN_008bf0a0, FUN_008c5360, FUN_008c02d8, FUN_008f80a8, __stack_chk_fail
+  L: length ~ length can only be called on arrays ~ missing input primitive declaration before calling leng ~ method takes no parameters ~ invalid method
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | plVar3 = (long *)FUN_008f9588(param_2);
+  | puVar4 = (undefined8 *)FUN_008f8d20(param_2);
+
+=== 008eac90 size=808 nc=24 FUN_008eac90
+  C: FUN_008f96fc, FUN_008f8d24, FUN_008bf268, FUN_008f954c, FUN_008bf28c, free, FUN_008c3da8, FUN_008bf2f0, FUN_008f8d20, FUN_008dc200, FUN_008f96f4, FUN_008e8a60
+  L: no matching overloaded function found ~ function name expected
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | lVar4 = FUN_008f96fc(param_2);
+  | if ((lVar4 == 0) || (lVar4 = FUN_008f96fc(param_2), *(char *)(lVar4 + 0x16) == '\0')) {
+
+=== 008ec038 size=324 nc=9 FUN_008ec038
+  C: FUN_008be06c, FUN_0099f858, FUN_009a0c84, FUN_008c5228, free, FUN_0099ecdc, FUN_009a0594, thunk_FUN_0099ea18, __stack_chk_fail
+  L: client/version number not supported
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if ((((param_3 == 100) || (param_3 == 300)) || (param_3 == 0x136)) ||
+  | ((param_4 & 0xfffffffe) == 6)) {
+
+=== 008eea10 size=236 nc=7 FUN_008eea10
+  C: FUN_008eec60, FUN_007cdd08, FUN_008eec48, calloc, __errno, FUN_008ee6e4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | if ((param_2 == 0) || (param_3 != 0)) {
+  | FUN_008eec60(&local_70);
+
+=== 008eec60 size=356 nc=6 FUN_008eec60
+  C: FUN_006daf00, FUN_009e0490, strlen, FUN_0068ddb0, memcpy, free
+  | *param_1 = param_2;
+  | param_1[1] = param_3;
+  | param_1[6] = 0;
+  | puVar7 = param_1 + 2;
+
+=== 008ef194 size=536 nc=10 FUN_008ef194
+  C: FUN_0099ebd8, FUN_0099ed20, FUN_0099c49c, FUN_008bcec8, FUN_0099f308, free, FUN_0099ecdc, FUN_0099efb8, thunk_FUN_0099ea18, __stack_chk_fail
+  | puVar7 = PTR_PTR_00a0db78;
+  | puVar6 = PTR_DAT_00a0db70;
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+
+=== 008f0634 size=440 nc=9 FUN_008f0634
+  C: FUN_0099ebd8, FUN_0099ed20, FUN_008ef3b4, FUN_009a0c84, free, FUN_0099ecdc, FUN_0099f6b8, thunk_FUN_0099ea18, __stack_chk_fail
+  | puVar4 = PTR_PTR_00a0db58;
+  | puVar3 = PTR_DAT_00a0db50;
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+
+=== 008f0f28 size=468 nc=9 FUN_008f0f28
+  C: FUN_008f2590, FUN_008f26fc, FUN_008c55d8, FUN_008f4ae8, FUN_008f4af0, FUN_008eeb30, FUN_008eeafc, FUN_008f25d0, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | local_4c[0] = 1;
+  | local_54 = 0;
+
+=== 008f10fc size=432 nc=12 FUN_008f10fc
+  C: FUN_0099c49c, FUN_008ef7d8, FUN_008f13c4, FUN_008f12ac, SUB41, CONCAT12, CONCAT11, CONCAT31, FUN_0069ad94, FUN_008f1bd8, free, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | local_50 = 0;
+  | uStack_68 = 0;
+
+=== 008f12ac size=280 nc=6 FUN_008f12ac
+  C: FUN_008f2590, FUN_008f4ae8, FUN_008f4af0, FUN_008c55d8, FUN_008f25d0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_38 = *(long *)(lVar2 + 0x28);
+  | FUN_008f2590(auStack_b0,*(undefined8 *)(param_1 + 0x28),*(undefined8 *)(param_1 + 0x30),
+  | *(undefined8 *)(param_1 + 0x38),param_1 + 0x4c,1);
+
+=== 008f162c size=288 nc=6 FUN_008f162c
+  C: FUN_006d85d4, FUN_0068ddb0, FUN_009e0490, FUN_0069ad94, memcpy, free
+  | __src = (void *)*param_1;
+  | __n = param_1[1] - (long)__src;
+  | uVar1 = ((long)__n >> 3) * -0x5555555555555555 + 1;
+  | if (0xaaaaaaaaaaaaaaa < uVar1) {
+
+=== 008f2078 size=732 nc=17 FUN_008f2078
+  C: FUN_008f2354, FUN_009e0490, FUN_008f1d94, FUN_0099c458, FUN_0069ad94, FUN_008f174c, strlen, FUN_0068ef98, CONCAT71, memcpy, FUN_008f1a00, FUN_0069f6c0
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+  | uStack_98 = 0;
+  | local_a0 = 0x103;
+
+=== 008f2354 size=336 nc=9 FUN_008f2354
+  C: FUN_0099ebd8, FUN_0099ed20, FUN_0099f858, FUN_009a0c84, free, FUN_0099ecdc, FUN_0099f6b8, thunk_FUN_0099ea18, __stack_chk_fail
+  | puVar4 = PTR_PTR_00a0db58;
+  | puVar3 = PTR_DAT_00a0db50;
+  | lVar2 = tpidr_el0;
+  | local_68 = *(long *)(lVar2 + 0x28);
+
+=== 008f26fc size=808 nc=12 FUN_008f26fc
+  C: FUN_008f2a24, __stack_chk_fail, FUN_008c55d8, FUN_008f18fc, FUN_0099c49c, free, FUN_009e0330, FUN_008ef16c, FUN_009e0360, FUN_0099b070, FUN_008f2bd4, FUN_008f2cdc
+  | lVar5 = tpidr_el0;
+  | local_58 = *(long *)(lVar5 + 0x28);
+  | do {
+  | FUN_008f2a24(param_1,param_2);
+
+=== 008f2cdc size=544 nc=11 FUN_008f2cdc
+  C: FUN_008f2efc, FUN_009e0490, FUN_008f3d54, FUN_009e0330, FUN_009e0360, FUN_0099b070, FUN_008f3eec, FUN_0068ddb0, memcpy, free, __stack_chk_fail
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | local_80 = (void *)0x0;
+  | pvStack_78 = (void *)0x0;
+
+=== 008f2efc size=868 nc=9 FUN_008f2efc
+  C: free, FUN_008f4070, FUN_008f2354, FUN_008f3260, FUN_008f33a8, FUN_008f39f8, FUN_008ef13c, FUN_008ef14c, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_58 = *(long *)(lVar3 + 0x28);
+  | lVar9 = *param_4;
+  | for (lVar8 = param_4[1]; lVar8 != lVar9; lVar8 = lVar8 + -0x28) {
+
+=== 008f3260 size=328 nc=17 FUN_008f3260
+  C: FUN_008f4300, FUN_008f2a24, FUN_008f4440, free, FUN_008f24a4, FUN_008c55d8, FUN_009e0490, FUN_0069ad94, FUN_008ef14c, FUN_008f174c, FUN_008f2590, FUN_008f26fc
+  | long * FUN_008f3260(long *param_1,ulong param_2,long param_3,undefined8 *param_4,undefined8 *param_5
+  | )
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+
+=== 008f39f8 size=736 nc=9 FUN_008f39f8
+  C: FUN_008c55d8, FUN_008f45f4, FUN_008f442c, free, FUN_008ef024, FUN_008ef14c, memcmp, FUN_0069ad94, FUN_008f174c
+  | lVar10 = *(long *)(param_2 + 0x40);
+  | if (*(long *)(param_2 + 0x48) != lVar10) {
+  | uVar15 = 0;
+  | do {
+
+=== 008f3f00 size=348 nc=7 FUN_008f3f00
+  C: FUN_008f405c, FUN_0068ddb0, FUN_009e0490, FUN_009e0330, FUN_009e0360, FUN_0099b070, free
+  | __ptr = (undefined8 *)*param_1;
+  | puVar10 = (undefined8 *)param_1[1];
+  | lVar11 = (long)puVar10 - (long)__ptr >> 4;
+  | uVar1 = lVar11 + 1;
+
+=== 008f4070 size=656 nc=6 FUN_008f4070
+  C: FUN_0099c49c, FUN_0069ad94, free, FUN_009e0490, FUN_008f18e8, FUN_0068b560
+  L: vector
+  | lVar2 = param_1[2];
+  | puVar4 = (undefined8 *)*param_1;
+  | if (param_4 <= (ulong)((lVar2 - (long)puVar4 >> 3) * -0x3333333333333333)) {
+  | puVar5 = (undefined8 *)param_1[1];
+
+=== 008f4440 size=436 nc=6 FUN_008f4440
+  C: FUN_0068ddb0, FUN_009e0490, FUN_008f4314, free, FUN_008f4300, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | lVar5 = param_1[1] - *param_1 >> 3;
+  | uVar1 = lVar5 * -0x5555555555555555 + 1;
+
+=== 008f45f4 size=916 nc=8 FUN_008f45f4
+  C: FUN_008f18e8, FUN_0068ddb0, FUN_009e0490, FUN_0069ad94, FUN_008f4988, free, FUN_0099c49c, __stack_chk_fail
+  | undefined8 *
+  | FUN_008f45f4(long *param_1,undefined8 *param_2,undefined8 *param_3,undefined8 *param_4,long param_5)
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+
+=== 008f5b0c size=264 nc=8 FUN_008f5b0c
+  C: strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memcpy, FUN_008c55d8, free, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | uVar3 = *param_1;
+  | lVar4 = param_1[2];
+
+=== 008f6738 size=428 nc=8 FUN_008f6738
+  C: FUN_008f6200, FUN_008f5f74, FUN_008f6998, FUN_008f727c, FUN_008bbcb8, FUN_008bd304, FUN_008f68e4, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | uVar5 = FUN_008f6200();
+  | if ((uVar5 & 1) == 0) {
+
+=== 008f6b88 size=428 nc=8 FUN_008f6b88
+  C: FUN_008f6200, FUN_008f5f74, FUN_008f6d34, FUN_008f727c, FUN_008bbcb8, FUN_008bd304, FUN_008f68e4, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | uVar5 = FUN_008f6200();
+  | if ((uVar5 & 1) == 0) {
+
+=== 008f8504 size=180 nc=6 FUN_008f8504
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c3f1c, FUN_008c02d8, FUN_008c9fdc, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uVar2 = FUN_008bbcb8();
+  | puVar3 = (undefined4 *)FUN_008bd304(uVar2,8);
+
+=== 008f85b8 size=184 nc=6 FUN_008f85b8
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c3f1c, FUN_008c02d8, FUN_008c9fdc, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_38 = *(long *)(lVar1 + 0x28);
+  | uVar2 = FUN_008bbcb8();
+  | puVar3 = (undefined *)FUN_008bd304(uVar2,8);
+
+=== 008f8924 size=244 nc=7 FUN_008f8924
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c05c8, FUN_008f86c8, FUN_008ca8d4, FUN_008cc4a8, FUN_008cb600
+  | uVar2 = FUN_008bbcb8();
+  | uVar2 = FUN_008bd304(uVar2,0x90);
+  | uVar3 = (**(code **)(*param_2 + 0xf8))(param_2);
+  | FUN_008c05c8(uVar2,uVar3);
+
+=== 008f8b1c size=236 nc=8 FUN_008f8b1c
+  C: FUN_008f8d40, FUN_008c3da8, FUN_008ca9cc, FUN_008bbcb8, FUN_008bd304, FUN_008d4294, FUN_008cc3e4, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | local_58 = FUN_008f8d40();
+  | lVar3 = FUN_008c3da8(param_3,local_58,param_4);
+
+=== 008f8d40 size=376 nc=12 FUN_008f8d40
+  C: strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memcpy, FUN_0099be5c, FUN_008c14dc, FUN_0099c6c8, FUN_008bbcb8, FUN_008bd304, free, __stack_chk_fail
+  | lVar3 = tpidr_el0;
+  | local_48 = *(long *)(lVar3 + 0x28);
+  | sVar4 = strlen(param_1);
+  | if (0xfffffffffffffff7 < sVar4) {
+
+=== 008f98a4 size=464 nc=6 FUN_008f98a4
+  C: FUN_008f9890, FUN_0068ddb0, FUN_009e0490, FUN_00698c7c, memcpy, free
+  | __ptr = (undefined8 *)*param_1;
+  | puVar2 = (undefined8 *)param_1[1];
+  | lVar8 = (long)puVar2 - (long)__ptr;
+  | lVar10 = lVar8 >> 3;
+
+=== 008f9d3c size=444 nc=8 FUN_008f9d3c
+  C: FUN_008c6664, FUN_008c66c0, FUN_008c6454, FUN_008c5360, FUN_008fa4a0, FUN_008d7b1c, FUN_008c7e68, __stack_chk_fail
+  L: statement before the first label ~ switch ~ no statement between the last label and the end of the  ~ too complex expressions inside a switch statement
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | FUN_008c6664(&local_148,1,0,1,0);
+  | local_90 = &local_88;
+
+=== 008fc25c size=256 nc=7 FUN_008fc25c
+  C: FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, FUN_008dc864, FUN_008dc2e4, __stack_chk_fail
+  L: Illegal use of reserved word
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar7 = *(undefined8 **)(param_1 + 0xb8);
+  | if (*(int *)(param_1 + 0x20) < 300) {
+
+=== 008fc3c4 size=280 nc=7 FUN_008fc3c4
+  C: FUN_008dc864, FUN_008dc2e4, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, __stack_chk_fail
+  L: Illegal use of reserved word
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if (0x135 < *(int *)(param_1 + 0x20)) goto LAB_008fc4ac;
+  | puVar6 = *(undefined8 **)(param_1 + 0xb8);
+
+=== 008fc4dc size=220 nc=6 FUN_008fc4dc
+  C: FUN_008dc864, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar6 = *(undefined8 **)(param_1 + 0xb8);
+  | if ((*(int *)(param_1 + 0x20) < 300) || (uVar3 = FUN_008dc864(param_1,0xb), (uVar3 & 1) == 0)) {
+
+=== 008fc5b8 size=280 nc=7 FUN_008fc5b8
+  C: FUN_008dc864, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, FUN_008dc2e4, __stack_chk_fail
+  L: Illegal use of reserved word
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | iVar5 = *(int *)(param_1 + 0x20);
+  | if (iVar5 < 0x140) {
+
+=== 008fc6d0 size=332 nc=7 FUN_008fc6d0
+  C: FUN_008dc864, FUN_008dc2e4, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, __stack_chk_fail
+  L: Illegal use of reserved word
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if (0x13f < *(int *)(param_1 + 0x20)) goto LAB_008fc7ec;
+  | puVar6 = *(undefined8 **)(param_1 + 0xb8);
+
+=== 008fc81c size=216 nc=6 FUN_008fc81c
+  C: FUN_008dc864, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | uVar4 = FUN_008dc864(param_1,0x19);
+  | if ((uVar4 & 1) == 0) {
+
+=== 008fc8f4 size=268 nc=6 FUN_008fc8f4
+  C: FUN_008dc864, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, __stack_chk_fail
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar9 = *(undefined8 **)(param_1 + 0xb8);
+  | if ((*(int *)(param_1 + 0x20) < 300) || (uVar4 = FUN_008dc864(param_1,0xb), (uVar4 & 1) == 0)) {
+
+=== 008fca00 size=244 nc=6 FUN_008fca00
+  C: FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, FUN_008dc2e4, __stack_chk_fail
+  L: Illegal use of reserved word
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | puVar5 = *(undefined8 **)(param_1 + 0xb8);
+  | if (*(int *)(param_1 + 0x20) < 300) {
+
+=== 008fcb38 size=280 nc=7 FUN_008fcb38
+  C: FUN_008dc864, FUN_008dc2e4, FUN_008bbcb8, FUN_008bd304, memcpy, FUN_008bf1e0, __stack_chk_fail
+  L: Illegal use of reserved word
+  | lVar2 = tpidr_el0;
+  | local_48 = *(long *)(lVar2 + 0x28);
+  | if (*(int *)(param_1 + 0x20) < 0x140) {
+  | puVar7 = *(undefined8 **)(param_1 + 0xb8);
+
+=== 008fce10 size=276 nc=9 FUN_008fce10
+  C: strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memmove, FUN_008bc334, free, FUN_008dc2dc, __stack_chk_fail
+  L: Float overflow
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | __s = (char *)param_1[0x10];
+  | __n = strlen(__s);
+
+=== 008fcf24 size=352 nc=11 FUN_008fcf24
+  C: FUN_008dc2e4, strlen, FUN_0068ef98, CONCAT71, FUN_009e0490, memmove, FUN_0099c7ac, FUN_008bc334, FUN_008dc2dc, free, __stack_chk_fail
+  L: Floating-point suffix unsupported prior to GLSL ES 3.00 ~ Float overflow
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | puVar5 = *(undefined8 **)(param_1 + 0xb8);
+  | if (*(int *)(param_1 + 0x20) < 300) {
+
+=== 008fd394 size=372 nc=7 FUN_008fd394
+  C: FUN_008fd084, FUN_008ee6b4, FUN_008ec278, FUN_008c5dec, FUN_008ec31c, FUN_008d44d8, FUN_008ec398
+  L: yyset_column called with no buffer ~ GL_FRAGMENT_PRECISION_HIGH
+  | FUN_008fd084(0,*(undefined8 *)(param_4 + 0xb8));
+  | lVar6 = *(long *)(*(long *)(param_4 + 0xb8) + 0x28);
+  | if ((lVar6 == 0) ||
+  | (lVar6 = *(long *)(lVar6 + *(long *)(*(long *)(param_4 + 0xb8) + 0x18) * 8), lVar6 == 0)) {
+
+=== 0090174c size=368 nc=8 FUN_0090174c
+  C: FUN_008c6664, FUN_00698c7c, FUN_009e0490, memcpy, free, FUN_008c7e68, FUN_008c5360, __stack_chk_fail
+  L: Index expression must be constant
+  | lVar2 = tpidr_el0;
+  | local_58 = *(long *)(lVar2 + 0x28);
+  | if ((*(byte *)(param_3 + 0xa8) & 0xfe) == 0x2c) {
+  | plVar5 = *(long **)(param_3 + 0xb8);
+
+=== 009025d4 size=512 nc=8 FUN_009025d4
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008c05c8, FUN_008bdf2c, FUN_008ca8d4, FUN_008c7744, FUN_009028b4, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | plVar2 = (long *)(**(code **)(*param_3 + 0xd8))(param_3);
+  | if (((((undefined8 *)plVar2[1] != (undefined8 *)*plVar2) &&
+
+=== 00903ce8 size=444 nc=13 FUN_00903ce8
+  C: FUN_009040f8, FUN_008da134, FUN_008f8a8c, FUN_008f8ad4, FUN_008c61a4, FUN_008bbcb8, FUN_008bd304, FUN_008f8504, FUN_008cc4a8, FUN_00903554, FUN_00903094, FUN_008d6404
+  | uint FUN_00903ce8(undefined8 param_1,undefined8 param_2,long *param_3,undefined8 param_4,
+  | lVar3 = tpidr_el0;
+  | local_68 = *(long *)(lVar3 + 0x28);
+  | plVar5 = (long *)FUN_009040f8(param_2);
+
+=== 00903ea8 size=476 nc=10 FUN_00903ea8
+  C: __stack_chk_fail, FUN_008c092c, FUN_008c090c, FUN_008bbcb8, FUN_008bd304, FUN_008f80a8, FUN_008cc4a8, FUN_008c7744, FUN_00903554, FUN_008c6824
+  | lVar5 = tpidr_el0;
+  | local_68 = *(long *)(lVar5 + 0x28);
+  | plVar6 = (long *)(**(code **)(*param_3 + 0xd8))(param_3);
+  | puVar1 = (undefined8 *)*plVar6;
+
+=== 00904154 size=204 nc=8 FUN_00904154
+  C: FUN_008bbcb8, FUN_008bd304, FUN_008ca8d4, FUN_008c6664, FUN_008c6454, FUN_008c742c, FUN_008c7e68, __stack_chk_fail
+  | lVar1 = tpidr_el0;
+  | local_48 = *(long *)(lVar1 + 0x28);
+  | uVar3 = FUN_008bbcb8();
+  | uVar3 = FUN_008bd304(uVar3,0x20);
+
+=== 00904328 size=352 nc=7 FUN_00904328
+  C: FUN_008c6664, FUN_008c6454, FUN_008c742c, free, FUN_008c7e68, __stack_chk_fail, FUN_00904154
+  | lVar1 = tpidr_el0;
+  | local_58 = *(long *)(lVar1 + 0x28);
+  | FUN_008c6664(local_138,1,1,1,param_3);
+  | local_138[0] = &PTR_FUN_00a048b0;
