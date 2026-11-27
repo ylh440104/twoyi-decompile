@@ -144,7 +144,13 @@ jobs:
           mkdir -p decompiled
           cp -a out/jadx decompiled/jadx
           cp -a out/apktool-decoded decompiled/apktool
+          # Large binary payloads (rootfs image, natives) stay in the artifact only:
+          # GitHub rejects any single file over 100 MB.
+          rm -rf decompiled/apktool/assets decompiled/apktool/lib decompiled/apktool/unknown
+          find decompiled -type f -size +90M -print -delete || true
           cp INVENTORY.md decompiled/INVENTORY.md
+          echo "tracked files: $(find decompiled -type f | wc -l)"
+          echo "tree size: $(du -sh decompiled | cut -f1)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A decompiled
