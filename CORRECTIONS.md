@@ -161,17 +161,56 @@ The other `0x3f...` / `0x7f...` eight-digit values my first regex picked up are
 **stack addresses**, not constants — `0x7ff78df0`-style values are ARM64 stack
 pointers. Two of them were counted as "unidentified constants" in error.
 
-### The Java census, recomputed
+### Recomputed census (correct denominator)
+
+`tools/java_census.py`, run over the real tree:
 
 ```
-files: 4705
-bytes: 29861631
+EXACT
+  files      4705
+  bytes      29861631
+  lines      652440
+
+HEURISTIC (regex declaration counts, not a compiler front end)
+  class      3992
+  interface  354
+  enum       8
+  @interface 9
+  types      4363
+  methods    25785
+  constants  5579
+  native     32
 ```
 
-Confirmed independently twice now. No further claims are made here about method
-or native counts — the earlier `grep -c` for `native ` across 4,705 files
-returned no summary line, so that number is **not** established yet and should
-not be quoted until measured properly.
+Safe to quote: files, bytes, lines. The rest are regex estimates and are
+labelled as such.
+
+**`native` is 32, not 24** — and the 24 figure survives, because the split is:
+
+| library | native declarations |
+|---|---|
+| `libtwoyi.so` (`io/twoyi/**`) | **24** |
+| `libandroidx.graphics.path.so` (`androidx/graphics/path/**`) | 8 |
+
+The eight belong to `ConicConverter` and `PathIteratorPreApi34Impl`
+(`internalConicToQuadratics`, `internalPathIteratorHasNext`,
+`internalPathIteratorNext`, ...). They are a separate `.so` that this repo
+decompiled in an early round and never counted as part of the JNI map.
+
+So the earlier `24` was right about `libtwoyi` and wrong only in being described
+as the tree's total. Confirmed by name: the `io/twoyi` set dedupes to exactly
+`attachWindow, configureEndpoints, destroy, handleTouch, init, nativeCancel,
+nativeDisconnectSurface, nativeExtractRootfs, nativeHandle, nativeRecord,
+nativeRecoverRootfs, nativeRepairRootfs, nativeStart, prepare, removeWindow,
+resetWindow, sendKeycode, setNetworkType, setOnModemCallback,
+setSignalStrength, stop, waitForExit` plus `nativeResolve` and the second
+`prepare`.
+
+### Coverage, restated honestly
+
+15 files read in full out of 4,705 is **0.32% by file count**. By bytes it is
+smaller still, since the unread set contains the 10 MB `c7/k.java`. The earlier
+"17.6%" is withdrawn.
 
 ```
 grep -n '0x400c630f' libbinder.c
