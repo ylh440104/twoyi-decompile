@@ -1,0 +1,7 @@
+program: libtwoyi.so
+language: AARCH64:LE:64:v8A
+image base: 00100000
+symbols: 88302
+functions total: 12452
+decompiled ok: 12412
+failed: 40
