@@ -1,0 +1,27 @@
+=== all JNINativeMethod triples: 6 ===
+9076e0     nativeHandle                   (I)V                                         0x84cb18
+96c1e8     init                           (Landroid/net/LocalSocket;Ljava/lang/String;)I 0x877f34
+96c200     destroy                        ()V                                          0x8782f0
+96c218     setOnModemCallback             (Lio/twoyi/hal/ril/OnModemCallback;)I        0x87830c
+96c230     setNetworkType                 (I)V                                         0x878364
+96c248     setSignalStrength              (I)V                                         0x87839c
+
+=== reconciliation against the 24 Java natives ===
+expected: 23   found: 6   missing: 17
+  MISSING nativeCancel
+  MISSING nativeRecord
+  MISSING nativeStart
+  MISSING prepare
+  MISSING stop
+  MISSING waitForExit
+  MISSING nativeDisconnectSurface
+  MISSING attachWindow
+  MISSING configureEndpoints
+  MISSING handleTouch
+  MISSING removeWindow
+  MISSING resetWindow
+  MISSING sendKeycode
+  MISSING nativeResolve
+  MISSING nativeExtractRootfs
+  MISSING nativeRecoverRootfs
+  MISSING nativeRepairRootfs
