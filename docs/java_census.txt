@@ -1,0 +1,109 @@
+root: /root/tf/out/jadx/sources
+
+EXACT
+  files      4705
+  bytes      29861631
+  lines      652440
+
+HEURISTIC (regex declaration counts, not a compiler front end)
+  class      3992
+  interface  354
+  enum       8
+  @interface 9
+  types      4363
+  methods    25785
+  constants  5579   (static final int NAME =)
+  native     32
+
+NATIVE DECLARATIONS (32)
+  int        internalConicToQuadratics          (float[] fArr, int i, float[] fArr2, float f4, float f10)
+            androidx/graphics/path/ConicConverter.java
+  boolean    internalPathIteratorHasNext        (long j3)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  int        internalPathIteratorNext           (long j3, float[] fArr, int i)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  int        internalPathIteratorPeek           (long j3)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  int        internalPathIteratorRawSize        (long j3)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  int        internalPathIteratorSize           (long j3)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  long       createInternalPathIterator         (Path path, int i, float f4)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  void       destroyInternalPathIterator        (long j3)
+            androidx/graphics/path/PathIteratorPreApi34Impl.java
+  boolean    nativeRecord                       (String str, String str2, String str3)
+            io/twoyi/BootPrefetch.java
+  int        nativeStart                        (String str, String str2, String str3)
+            io/twoyi/BootPrefetch.java
+  void       nativeCancel                       ()
+            io/twoyi/BootPrefetch.java
+  int        waitForExit                        ()
+            io/twoyi/DirectLauncher.java
+  void       prepare                            (String str, String str2, int i, int i10, float f4, float f10, int i11)
+            io/twoyi/DirectLauncher.java
+  void       stop                               ()
+            io/twoyi/DirectLauncher.java
+  boolean    nativeDisconnectSurface            (Surface surface)
+            io/twoyi/GuestInstanceClient.java
+  void       attachWindow                       (Surface surface)
+            io/twoyi/Renderer.java
+  void       configureEndpoints                 (String str, String str2, String str3, String str4, String str5, String str6)
+            io/twoyi/Renderer.java
+  void       handleTouch                        (MotionEvent motionEvent)
+            io/twoyi/Renderer.java
+  void       prepare                            (int i, int i10, float f4, float f10, int i11)
+            io/twoyi/Renderer.java
+  void       removeWindow                       (Surface surface)
+            io/twoyi/Renderer.java
+  void       resetWindow                        (Surface surface, int i, int i10, int i11, int i12)
+            io/twoyi/Renderer.java
+  void       sendKeycode                        (int i)
+            io/twoyi/Renderer.java
+  void       nativeHandle                       (int i)
+            io/twoyi/hal/KernelSuHal.java
+  byte[]     nativeResolve                      (byte[] bArr)
+            io/twoyi/hal/TwoyiResolverHal.java
+  int        init                               (LocalSocket localSocket, String str)
+            io/twoyi/hal/ril/TwoyiModemNative.java
+  int        setOnModemCallback                 (OnModemCallback onModemCallback)
+            io/twoyi/hal/ril/TwoyiModemNative.java
+  void       destroy                            ()
+            io/twoyi/hal/ril/TwoyiModemNative.java
+  void       setNetworkType                     (int i)
+            io/twoyi/hal/ril/TwoyiModemNative.java
+  void       setSignalStrength                  (int i)
+            io/twoyi/hal/ril/TwoyiModemNative.java
+  int        nativeExtractRootfs                (int i, long j3, long j10, String str, long j11, byte[] bArr)
+            io/twoyi/utils/RomManager.java
+  int        nativeRecoverRootfs                (String str)
+            io/twoyi/utils/RomManager.java
+  int        nativeRepairRootfs                 (int i, long j3, long j10, String str, long j11, byte[] bArr, String[] strArr)
+            io/twoyi/utils/RomManager.java
+
+LARGEST FILES
+   10073554  types=1   methods=21   c7/k.java
+     423539  types=18  methods=0    io/twoyi/C0000R.java
+     359176  types=1   methods=91   a3/h0.java
+     204825  types=1   methods=70   h0/y0.java
+     196324  types=1   methods=18   h8/i.java
+     181525  types=1   methods=174  q2/u.java
+     158057  types=1   methods=8    ab/b.java
+     156795  types=1   methods=41   e8/m.java
+     143777  types=1   methods=13   q2/v.java
+     121793  types=1   methods=65   x0/e0.java
+     121565  types=1   methods=32   androidx/constraintlayout/widget/ConstraintLayout.java
+     112967  types=1   methods=40   b8/p.java
+     111932  types=1   methods=208  com/google/android/material/textfield/TextInputLayout.java
+     107496  types=1   methods=18   e7/n.java
+     107051  types=1   methods=10   b0/q.java
+     104815  types=1   methods=84   na/l.java
+      95481  types=1   methods=37   t6/b.java
+      93171  types=1   methods=46   p1/p.java
+      90163  types=1   methods=78   p2/h1.java
+      86148  types=1   methods=143  androidx/recyclerview/widget/RecyclerView.java
+      83571  types=1   methods=33   x0/o.java
+      80018  types=1   methods=44   o3/b.java
+      76219  types=1   methods=30   u3/d.java
+      74721  types=1   methods=89   androidx/core/widget/NestedScrollView.java
+      72728  types=1   methods=75   androidx/lifecycle/f0.java
