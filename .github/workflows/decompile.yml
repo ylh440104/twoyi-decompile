@@ -88,18 +88,14 @@ jobs:
           du -sh out/apktool-decoded
 
       - name: jadx decode (Java sources)
-        env:
-          JADX_OPTS: >-
-            -j 4
-            --no-res
-            --show-bad-code
-            --decompilation-mode auto
-            --comments-level debug
         run: |
           set -euxo pipefail
           mkdir -p out/jadx
-          "$HOME/tools/jadx/bin/jadx" $JADX_OPTS -d out/jadx input/twoyi.apk || \
-          "$HOME/tools/jadx/bin/jadx" -j 4 --no-res --show-bad-code -d out/jadx input/twoyi.apk
+          JCP="$HOME/tools/jadx/lib/*"
+          java -Xmx6g -cp "$JCP" jadx.cli.JadxCLI \
+            --no-res --show-bad-code -d out/jadx input/twoyi.apk \
+          || java -Xmx6g -cp "$JCP" jadx.cli.JadxCLI \
+            -d out/jadx input/twoyi.apk
           find out/jadx -name '*.java' | wc -l
           du -sh out/jadx
 
