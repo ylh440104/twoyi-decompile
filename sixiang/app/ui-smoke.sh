@@ -165,7 +165,11 @@ fi
 
 log ""
 log "== logcat (SiXiang) =="
-adb logcat -d -s SiXiang:V AndroidRuntime:E DEBUG:E | tail -60 | tee -a "$LOG"
+# Keep the whole log: a tapped 'ls /system/lib64' prints hundreds of lines, and a
+# tail of it pushes the app's own verdict lines out of the window (that is how a
+# passing run got reported as failing). Grep the full file in the verdict.
+adb logcat -d -s SiXiang:V > "$OUT/logcat.txt" 2>/dev/null || true
+grep -E '\[[1-5]|pump|PASS|FAIL|已连接|图标|^== ' "$OUT/logcat.txt" | tail -50 | tee -a "$LOG"
 
 log ""
 log "== why did the child die? =="
@@ -180,20 +184,20 @@ log "== verdict =="
 # view, and a guest binary runs. "已连接 guest 画面" is printed only after a
 # frame actually arrived through the mapping.
 ok=0
-if grep -q '已连接 guest 画面' "$LOG" 2>/dev/null; then
+if grep -q '已连接 guest 画面' "$OUT/logcat.txt" 2>/dev/null; then
     log "PASS: guest frames reached the screen view"
     ok=$((ok + 1))
 else
     log "FAIL: no guest frames arrived"
 fi
-if grep -q 'guest 程序已在本 app 内运行' "$LOG" 2>/dev/null; then
+if grep -q 'guest 程序已在本 app 内运行' "$OUT/logcat.txt" 2>/dev/null; then
     log "PASS: the guest ran inside the app"
     ok=$((ok + 1))
 else
     log "FAIL: no successful guest run (see logcat above)"
 fi
 # Input path: a tap must reach the guest and launch the tile's applet.
-if grep -q '图标' "$LOG" 2>/dev/null; then
+if grep -q '图标' "$OUT/logcat.txt" 2>/dev/null; then
     log "PASS: a tap landed on a tile and launched its guest applet"
     ok=$((ok + 1))
 elif grep -q 'tap (' "$LOG" 2>/dev/null; then
