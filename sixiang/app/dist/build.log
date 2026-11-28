@@ -1,79 +1,53 @@
 build-tools: /home/runner/android-sdk/build-tools/33.0.2
 platform   : /home/runner/android-sdk/platforms/android-33
 javac      : javac 17.0.21.1
-work: /tmp/tmp.3uiQ8gRYQC
+work: /tmp/tmp.dk2zwpYWig
 
 == javac ==
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$1.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$12.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$6.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$5.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$FrameView.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$11.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$11$1.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$17.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$18.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$7.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$2$1.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$10.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$14.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$TapListener.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$13.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$8.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$9.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$15.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/BinderBridge.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$18$1.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$3.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$2.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$4.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$16.class
-  /tmp/tmp.3uiQ8gRYQC/classes/io/sixiang/MainActivity$6$1.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$6$1.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$18$1.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$16.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$17.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$13.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$7.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$11$1.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$6.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$12.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$5.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$TapListener.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$2$1.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$2.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$1.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$3.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$8.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/BinderBridge.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$18.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$11.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$FrameView.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$10.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$15.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$4.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$14.class
+  /tmp/tmp.dk2zwpYWig/classes/io/sixiang/MainActivity$9.class
 
 == d8 (dex) ==
--rw-r--r-- 1 runner runner 34268 Nov 28 18:26 /tmp/tmp.3uiQ8gRYQC/classes.dex
+-rw-r--r-- 1 runner runner 34268 Nov 28 18:36 /tmp/tmp.dk2zwpYWig/classes.dex
 
 == aapt2 ==
 values_strings.arsc.flat
--rw-r--r-- 1 runner runner 1555 Nov 28 18:26 /tmp/tmp.3uiQ8gRYQC/base.apk
+-rw-r--r-- 1 runner runner 1555 Nov 28 18:36 /tmp/tmp.dk2zwpYWig/base.apk
 
 == stage payload ==
-/tmp/tmp.3uiQ8gRYQC/stage/assets:
+/tmp/tmp.dk2zwpYWig/stage/assets:
 total 3624
--rw-r--r-- 1 runner runner 3671043 Nov 28 18:26 guest.zip
--rwxr-xr-x 1 runner runner   33768 Nov 28 18:26 screen
+-rw-r--r-- 1 runner runner 3671043 Nov 28 18:36 guest.zip
+-rwxr-xr-x 1 runner runner   33768 Nov 28 18:36 screen
 
-/tmp/tmp.3uiQ8gRYQC/stage/lib/arm64-v8a:
+/tmp/tmp.dk2zwpYWig/stage/lib/arm64-v8a:
 total 872
--rwxr-xr-x 1 runner runner 892584 Nov 28 18:26 libmini_loader.so
-  (SIXIANG_NDK_BIN unset: APK without the binder relay)
-
-== assemble ==
----------  ---------- -----   ----
-     1988  1980-01-01 00:00   AndroidManifest.xml
-      560  1980-01-01 00:00   resources.arsc
-    34268  2026-11-28 18:26   classes.dex
-        0  2026-11-28 18:26   lib/
-        0  2026-11-28 18:26   lib/arm64-v8a/
-   892584  2026-11-28 18:26   lib/arm64-v8a/libmini_loader.so
-        0  2026-11-28 18:26   assets/
-  3671043  2026-11-28 18:26   assets/guest.zip
-    33768  2026-11-28 18:26   assets/screen
----------                     -------
-  4634211                     9 files
-  ok: lib/arm64-v8a/libmini_loader.so
-  ok: assets/guest.zip
-  ok: assets/screen
-  ok: classes.dex
-
-== align + sign ==
-Signer #1 certificate DN: CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN
-Signer #1 certificate SHA-256 digest: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
-Signer #1 certificate SHA-1 digest: 6d465928339b2db0c2b403794bca95506a721c77
-Signer #1 certificate MD5 digest: ef6fc5e26ec56205a07f38564189ae7a
-signer sha256: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
--rw-r--r-- 1 runner runner 4.0M Nov 28 18:26 sixiang/app/dist/SiXiang.apk
-
-sha256: 5bfa9aeeb6dad738f56dc5ddde5e437a6b52a07cf42df4e22108a4eea7980dd1
-DONE
+-rwxr-xr-x 1 runner runner 892584 Nov 28 18:36 libmini_loader.so
+sixiang/jni/binder_bridge.c:16:10: fatal error: 'android/binder_manager.h' file not found
+   16 | #include <android/binder_manager.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
