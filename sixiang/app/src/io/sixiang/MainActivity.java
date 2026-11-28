@@ -270,6 +270,16 @@ public class MainActivity extends Activity {
 
             // [4] guest 程序 --------------------------------------------
             say("[4] 让 guest 自己的 linker64 启动 toybox");
+
+            // Three probes, so one screenshot is enough to localise the failure:
+            //   a) can this app exec *anything* (control: /system/bin/sh)
+            //   b) can it exec our loader at all (loader alone prints usage)
+            //   c) can the loader bring up the guest
+            say("[4a] 控制组：exec /system/bin/sh");
+            int sh = runRaw("/system/bin/sh", "-c", "echo SIXIANG_SH_OK");
+            say("[4b] 单独跑 loader（无参数，应打印用法，exit=2）");
+            int usage = runRaw(loader.getAbsolutePath());
+            say("[4c] guest");
             int a = runToybox(new String[]{"uname", "-a"});
             if (a != 0) {
                 say("");
@@ -281,6 +291,7 @@ public class MainActivity extends Activity {
             int b = (a == 0) ? runToybox(new String[]{"id"}) : -1;
             int c = (b == 0) ? runToybox(new String[]{"echo", "SIXIANG_GUEST_OK"}) : -1;
             say("");
+            say("[小结] sh=" + sh + " loader=" + usage + " guest=" + a + "/" + b + "/" + c);
             if (a == 0 && b == 0 && c == 0) {
                 say("== 全部通过：guest（Android 17 用户态）已在本 app 内运行 ==");
             } else {
@@ -340,6 +351,31 @@ public class MainActivity extends Activity {
         }
         String[] parts = line.trim().split("\\s+");
         runToybox(parts);
+    }
+
+    /** Exec an arbitrary argv inside this app and echo everything it prints. */
+    private int runRaw(String... argv) {
+        try {
+            List<String> cmd = new ArrayList<String>();
+            for (int i = 0; i < argv.length; i++) cmd.add(argv[i]);
+            say("$ " + join(argv));
+            ProcessBuilder pb = new ProcessBuilder(cmd);
+            pb.redirectErrorStream(true);
+            Process p = pb.start();
+            BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String l;
+            int n = 0;
+            while ((l = r.readLine()) != null) {
+                say("  " + l);
+                n++;
+            }
+            int rc = p.waitFor();
+            say("  -> exit=" + rc + " (" + n + " lines)");
+            return rc;
+        } catch (Throwable t) {
+            say("  !! " + t);
+            return -1;
+        }
     }
 
     private int runToybox(String[] args) {
