@@ -1,2 +1,2 @@
 sixiang/loader/bin/mini_loader: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, for Android 37, stripped
--rwxr-xr-x 1 runner runner 892584 Nov 28 17:32 sixiang/loader/bin/mini_loader
+-rwxr-xr-x 1 runner runner 892584 Nov 28 17:38 sixiang/loader/bin/mini_loader
