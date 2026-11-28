@@ -71,18 +71,20 @@ ro.build.version.min_supported_target_sdk=28
 ro.product.cpu.abi=arm64-v8a
 
 === 4. 产物清单 ===
-total 8.0M
--rw-r--r-- 1 runner runner 1.1M Nov 28 08:31 apexd
--rw-r--r-- 1 runner runner 2.4M Nov 28 08:31 bootstrap-linker64
--rw-r--r-- 1 runner runner 5.6K Nov 28 08:31 build.prop
--rw-r--r-- 1 runner runner  51K Nov 28 08:31 debuggerd
--rw-r--r-- 1 runner runner 2.5M Nov 28 08:31 init
--rw-r--r-- 1 runner runner 1.1M Nov 28 08:31 libc++.so
--rw-r--r-- 1 runner runner    0 Nov 28 08:31 libc.so
--rw-r--r-- 1 runner runner    0 Nov 28 08:31 libdl.so
--rw-r--r-- 1 runner runner 101K Nov 28 08:31 liblog.so
--rw-r--r-- 1 runner runner    0 Nov 28 08:31 libm.so
--rw-r--r-- 1 runner runner    0 Nov 28 08:31 linker64
--rw-r--r-- 1 runner runner 312K Nov 28 08:31 sh
--rw-r--r-- 1 runner runner 597K Nov 28 08:31 toybox
+total 8.1M
+-rw-r--r-- 1 runner runner 1.1M Nov 28 09:24 apexd
+-rw-r--r-- 1 runner runner 2.4M Nov 28 09:24 bootstrap-linker64
+-rw-r--r-- 1 runner runner 5.6K Nov 28 09:24 build.prop
+-rw-r--r-- 1 runner runner  51K Nov 28 09:24 debuggerd
+-rw-r--r-- 1 runner runner 2.5M Nov 28 09:24 init
+-rw-r--r-- 1 runner runner  942 Nov 28 09:23 kwall_analysis.txt
+-rw-r--r-- 1 runner runner 3.3K Nov 28 09:23 kwall_report.txt
+-rw-r--r-- 1 runner runner 1.1M Nov 28 09:24 libc++.so
+-rw-r--r-- 1 runner runner    0 Nov 28 09:24 libc.so
+-rw-r--r-- 1 runner runner    0 Nov 28 09:24 libdl.so
+-rw-r--r-- 1 runner runner 101K Nov 28 09:24 liblog.so
+-rw-r--r-- 1 runner runner    0 Nov 28 09:24 libm.so
+-rw-r--r-- 1 runner runner    0 Nov 28 09:24 linker64
+-rw-r--r-- 1 runner runner 312K Nov 28 09:24 sh
+-rw-r--r-- 1 runner runner 597K Nov 28 09:24 toybox
 8.1M	sixiang/kwall/out

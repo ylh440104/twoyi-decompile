@@ -1,0 +1,28 @@
+--- sixiang/kwall/out/_lib64_bionic_libc.so  (1313264 bytes)
+    clone          x2
+    clone3         x1
+    epoll_pwait2   x1
+    faccessat      x1
+    mseal          x1
+    pidfd_open     x1
+    => clone3 HAS clone fallback
+--- sixiang/kwall/out/_lib_bionic_libc.so  (1033928 bytes)
+    no target syscall
+--- sixiang/kwall/out/_bin_linker64  (2469280 bytes)
+    clone          x1
+    clone3         x1
+    epoll_pwait2   x1
+    faccessat      x1
+    mseal          x1
+    pidfd_open     x1
+    => clone3 HAS clone fallback
+--- sixiang/kwall/out/bootstrap-linker64  (2420544 bytes)
+    clone          x1
+    clone3         x1
+    epoll_pwait2   x1
+    faccessat      x1
+    mseal          x1
+    pidfd_open     x1
+    => clone3 HAS clone fallback
+--- sixiang/kwall/out/linker64  (0 bytes)
+    no target syscall
