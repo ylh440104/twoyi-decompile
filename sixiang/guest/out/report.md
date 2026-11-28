@@ -1,10 +1,10 @@
 # guest run report
 
-commit: 7f5cf6abef6e239a5b92be02f5b42ad906be694f
-run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46150413096
+commit: 6709832e179ecf0c95520bd066e4d30d19a9029d
+run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46152717672
 
 ```
-total 2956
+total 2952
 -rwxr-xr-x+ 1 root 2000 2469280 Jan  1  1970 linker64
 -rwxr-xr-x+ 1 root 2000  611160 Jan  1  2009 toybox
 libs: 769
