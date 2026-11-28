@@ -104,6 +104,10 @@ ls -l "$WORK/stage/lib/arm64-v8a" "$WORK/stage/lib/x86_64" "$WORK/stage/assets" 
 # The binder relay (R8). Needs the NDK's libbinder_ndk, which is an ordinary
 # public library for apps from API 29.
 if [ -n "${SIXIANG_NDK_BIN:-}" ] && [ -f sixiang/jni/binder_bridge.c ]; then
+    SYSINC=$(dirname "$SIXIANG_NDK_BIN")/sysroot/usr/include
+    echo "  ndk sysroot: $SYSINC"
+    ls "$SYSINC/android" 2>/dev/null | grep -c binder >/dev/null 2>&1 || true
+    echo "  binder headers: $(ls "$SYSINC/android" 2>/dev/null | grep binder | tr '\n' ' ')"
     for abi in arm64-v8a x86_64; do
         [ -d "$WORK/stage/lib/$abi" ] || continue
         case "$abi" in
@@ -111,9 +115,17 @@ if [ -n "${SIXIANG_NDK_BIN:-}" ] && [ -f sixiang/jni/binder_bridge.c ]; then
             *)         cc="$SIXIANG_NDK_BIN/x86_64-linux-android29-clang" ;;
         esac
         [ -x "$cc" ] || { echo "  (no $cc, skipping JNI for $abi)"; continue; }
-        "$cc" -O2 -fPIC -shared -Wall \
-            -o "$WORK/stage/lib/$abi/libsixiang_binder.so" \
-            sixiang/jni/binder_bridge.c -lbinder_ndk || exit 1
+        if [ ! -f "$SYSINC/android/binder_manager.h" ]; then
+            echo "  (no android/binder_manager.h in this NDK: binder relay not built)"
+            break
+        fi
+        if ! "$cc" -O2 -fPIC -shared -Wall \
+                -o "$WORK/stage/lib/$abi/libsixiang_binder.so" \
+                sixiang/jni/binder_bridge.c -lbinder_ndk; then
+            echo "  (binder relay failed to build for $abi; APK still ships)"
+            rm -f "$WORK/stage/lib/$abi/libsixiang_binder.so"
+            break
+        fi
         echo "  jni: lib/$abi/libsixiang_binder.so ($(wc -c < "$WORK/stage/lib/$abi/libsixiang_binder.so") B)"
     done
 else
