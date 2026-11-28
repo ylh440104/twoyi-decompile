@@ -18,15 +18,15 @@ Archive:  sixiang/app/dist/SiXiang.apk
 ---------  ---------- -----   ----
      1988  1980-01-01 00:00   AndroidManifest.xml
       560  1980-01-01 00:00   resources.arsc
-    33484  2026-11-28 18:17   classes.dex
-   892584  2026-11-28 18:17   lib/arm64-v8a/libmini_loader.so
-  3671043  2026-11-28 18:17   assets/guest.zip
-    33736  2026-11-28 18:17   assets/screen
-      688  2026-11-28 18:17   META-INF/SIXIANG.SF
-     2103  2026-11-28 18:17   META-INF/SIXIANG.RSA
-      561  2026-11-28 18:17   META-INF/MANIFEST.MF
+    34268  2026-11-28 18:26   classes.dex
+   892584  2026-11-28 18:26   lib/arm64-v8a/libmini_loader.so
+  3671043  2026-11-28 18:26   assets/guest.zip
+    33768  2026-11-28 18:26   assets/screen
+      688  2026-11-28 18:26   META-INF/SIXIANG.SF
+     2103  2026-11-28 18:26   META-INF/SIXIANG.RSA
+      561  2026-11-28 18:26   META-INF/MANIFEST.MF
 ---------                     -------
-  4636747                     9 files
+  4637563                     9 files
 
 ## certs
 Signer #1 certificate DN: CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN
