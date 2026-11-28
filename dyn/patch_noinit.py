@@ -35,6 +35,7 @@ def main():
     ap.add_argument('dst')
     ap.add_argument('--clear-now', action='store_true')
     ap.add_argument('--clear-init', action='store_true')
+    ap.add_argument('--clear-versions', action='store_true')
     a = ap.parse_args()
 
     d = bytearray(open(a.src, 'rb').read())
@@ -57,6 +58,15 @@ def main():
             struct.pack_into('<Q', d, base + 8, 0)
         elif tag == 0x1a and a.clear_init:           # DT_INIT_ARRAY
             seen.append('DT_INIT_ARRAY 0x%x -> 0' % val)
+            struct.pack_into('<Q', d, base + 8, 0)
+        elif tag == 0x6ffffff0 and a.clear_versions:  # DT_VERSYM
+            seen.append('DT_VERSYM 0x%x -> 0' % val)
+            struct.pack_into('<Q', d, base + 8, 0)
+        elif tag == 0x6ffffffe and a.clear_versions:  # DT_VERNEED
+            seen.append('DT_VERNEED 0x%x -> 0' % val)
+            struct.pack_into('<Q', d, base + 8, 0)
+        elif tag == 0x6fffffff and a.clear_versions:  # DT_VERNEEDNUM
+            seen.append('DT_VERNEEDNUM %d -> 0' % val)
             struct.pack_into('<Q', d, base + 8, 0)
     if not seen:
         print('nothing to patch (%s)' % a.src)

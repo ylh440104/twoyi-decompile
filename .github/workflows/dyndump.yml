@@ -86,10 +86,10 @@ jobs:
           set +e
           {
             echo "--- patch noinit"
-            python3 dyn/patch_noinit.py work/libtwoyi.so work/libtwoyi_noinit.so --clear-now --clear-init
+            python3 dyn/patch_noinit.py work/libtwoyi.so work/libtwoyi_noinit.so --clear-now --clear-init --clear-versions
             echo "rc=$?"
             echo "--- patch lazy"
-            python3 dyn/patch_noinit.py work/libtwoyi.so work/libtwoyi_lazy.so --clear-now
+            python3 dyn/patch_noinit.py work/libtwoyi.so work/libtwoyi_lazy.so --clear-now --clear-versions
             echo "rc=$?"
             sha256sum work/*.so
           } >> dyn-out/run.log 2>&1
