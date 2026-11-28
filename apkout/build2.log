@@ -1,9 +1,9 @@
 total 216060
--rw-r--r-- 1 runner runner 83886080 Nov 28 03:15 partaa
--rw-r--r-- 1 runner runner 83886080 Nov 28 03:15 partab
--rw-r--r-- 1 runner runner 53469606 Nov 28 03:15 partac
+-rw-r--r-- 1 runner runner 83886080 Nov 28 03:17 partaa
+-rw-r--r-- 1 runner runner 83886080 Nov 28 03:17 partab
+-rw-r--r-- 1 runner runner 53469606 Nov 28 03:17 partac
 cat rc=0
--rw-r--r-- 1 runner runner 221241766 Nov 28 03:15 work/twoyi.apk
+-rw-r--r-- 1 runner runner 221241766 Nov 28 03:18 work/twoyi.apk
 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e  work/twoyi.apk
 expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
   4501160  1981-01-01 01:01   classes.dex
@@ -26,6 +26,15 @@ decode rc=0
 dec/apktool.yml
 apktool.yml present
 4893
+== keep the 212 MB rootfs stored, not deflated ==
+30:doNotCompress:
+doNotCompress:
+- zst
+- resources.arsc
+- assets/rootfs.tar.zst
+- assets/dexopt/baseline.prof
+- assets/dexopt/baseline.profm
+- png
 patched dec/smali/io/twoyi/TwoyiApplication.smali
   helper: yes
   block : yes
@@ -60,16 +69,16 @@ patch rc=0
     const-string v0, "gadget"
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
     # <<< gadget injection end
--rw-r--r-- 1 runner runner 3914 Nov 28 03:16 dec/assets/hook.js
+-rw-r--r-- 1 runner runner 3914 Nov 28 03:18 dec/assets/hook.js
 
 dec/lib/arm64-v8a/:
 total 48208
--rw-r--r-- 1 runner runner    10096 Nov 28 03:16 libandroidx.graphics.path.so
--rw-r--r-- 1 runner runner      103 Nov 28 03:16 libgadget.config.so
--rw-r--r-- 1 runner runner 39425920 Nov 28 03:16 libgadget.so
--rw-r--r-- 1 runner runner   147768 Nov 28 03:16 libloader.so
--rw-r--r-- 1 runner runner   146256 Nov 28 03:16 libloader32.so
--rw-r--r-- 1 runner runner  9850096 Nov 28 03:16 libtwoyi.so
+-rw-r--r-- 1 runner runner    10096 Nov 28 03:18 libandroidx.graphics.path.so
+-rw-r--r-- 1 runner runner      103 Nov 28 03:18 libgadget.config.so
+-rw-r--r-- 1 runner runner 39425920 Nov 28 03:18 libgadget.so
+-rw-r--r-- 1 runner runner   147768 Nov 28 03:18 libloader.so
+-rw-r--r-- 1 runner runner   146256 Nov 28 03:18 libloader32.so
+-rw-r--r-- 1 runner runner  9850096 Nov 28 03:18 libtwoyi.so
 I: Using Apktool 2.9.3
 I: Checking whether sources has changed...
 I: Smaling smali folder into classes.dex...
@@ -82,24 +91,23 @@ I: Building apk file...
 I: Copying unknown files/dir...
 I: Built apk into: out/unsigned.apk
 build rc=0
--rw-r--r-- 1 runner runner 236162821 Nov 28 03:16 out/unsigned.apk
+-rw-r--r-- 1 runner runner 236162821 Nov 28 03:18 out/unsigned.apk
 Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
 	for: CN=gadget, O=t, C=cn
 zipalign rc=0
 sign rc=0
--rw-r--r-- 1 runner runner 236236040 Nov 28 03:16 out/twoyi-gadget.apk
+-rw-r--r-- 1 runner runner 236236040 Nov 28 03:18 out/twoyi-gadget.apk
 V3.0 Signer: certificate DN: CN=gadget, O=t, C=cn
-V3.0 Signer: certificate SHA-256 digest: 1845ca1705ed9655ceff9160b8552894a2451c0e160b6512fbab7a92839908f4
-V3.0 Signer: certificate SHA-1 digest: 0c9bac67cfd81d481c4b5bc1cf0ad5d7d8d4f04e
-V3.0 Signer: certificate MD5 digest: ff0fd6d24a709d29a5a27cca12b64d2c
- 39425920  2026-11-28 03:16   lib/arm64-v8a/libgadget.so
-      103  2026-11-28 03:16   lib/arm64-v8a/libgadget.config.so
-     3914  2026-11-28 03:16   assets/hook.js
-https://github.com/ylh440104/twoyi-decompile/releases/tag/gadget-v2
+V3.0 Signer: certificate SHA-256 digest: 9860637e0f3aaf455a04dcf47be31d1b11886d0e1686a85b01667b48198b2001
+V3.0 Signer: certificate SHA-1 digest: d6359ece76808b6ce83633bd4af1eeda1d883589
+V3.0 Signer: certificate MD5 digest: beb7a1d87ccc92adbb30f00a55ebc5d3
+ 39425920  2026-11-28 03:18   lib/arm64-v8a/libgadget.so
+      103  2026-11-28 03:18   lib/arm64-v8a/libgadget.config.so
+     3914  2026-11-28 03:18   assets/hook.js
 upload rc=0
 total 693796
--rw-r--r-- 1 runner runner 236163081 Nov 28 03:16 aligned.apk
--rw-r--r-- 1 runner runner      2590 Nov 28 03:16 ks.jks
--rw-r--r-- 1 runner runner 236236040 Nov 28 03:16 twoyi-gadget.apk
--rw-r--r-- 1 runner runner   1869209 Nov 28 03:16 twoyi-gadget.apk.idsig
--rw-r--r-- 1 runner runner 236162821 Nov 28 03:16 unsigned.apk
+-rw-r--r-- 1 runner runner 236163081 Nov 28 03:18 aligned.apk
+-rw-r--r-- 1 runner runner      2590 Nov 28 03:18 ks.jks
+-rw-r--r-- 1 runner runner 236236040 Nov 28 03:18 twoyi-gadget.apk
+-rw-r--r-- 1 runner runner   1869209 Nov 28 03:18 twoyi-gadget.apk.idsig
+-rw-r--r-- 1 runner runner 236162821 Nov 28 03:18 unsigned.apk
