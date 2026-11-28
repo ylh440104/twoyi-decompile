@@ -1,0 +1,41 @@
+=== tree size ===
+83M	sixiang/apex/out/tree/apex
+
+=== per-module sizes (top 40) ===
+41	sixiang/apex/out/tree/apex/com.android.i18n
+17	sixiang/apex/out/tree/apex/com.android.healthfitness
+13	sixiang/apex/out/tree/apex/com.android.runtime
+6	sixiang/apex/out/tree/apex/com.android.devicelock
+4	sixiang/apex/out/tree/apex/com.android.os.statsd
+3	sixiang/apex/out/tree/apex/com.android.tzdata
+2	sixiang/apex/out/tree/apex/com.android.sdkext
+2	sixiang/apex/out/tree/apex/com.android.rkpd
+1	sixiang/apex/out/tree/apex/com.android.virt
+1	sixiang/apex/out/tree/apex/com.android.apex.cts.shim
+
+=== runtime payload tree (depth 2) ===
+sixiang/apex/out/tree/apex/com.android.runtime
+sixiang/apex/out/tree/apex/com.android.runtime/lost+found
+sixiang/apex/out/tree/apex/com.android.runtime/bin
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linkerconfig
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linker64
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linker
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_hwasan64
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_asan
+sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump64
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_asan64
+sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump32
+sixiang/apex/out/tree/apex/com.android.runtime/apex_manifest.pb
+sixiang/apex/out/tree/apex/com.android.runtime/lib
+sixiang/apex/out/tree/apex/com.android.runtime/lib/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_debug.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libunwindstack.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/bionic
+sixiang/apex/out/tree/apex/com.android.runtime/lib/ld-android.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libprocinfo.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libbase.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_hooks.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc++.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc_malloc_debug.so

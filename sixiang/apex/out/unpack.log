@@ -1,0 +1,15 @@
+converting to raw ...
+system.raw = 1904779264 bytes
+found 38 apex/capex entries
+Traceback (most recent call last):
+  File "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/apex/unpack.py", line 261, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/apex/unpack.py", line 246, in main
+    total = sum(os.path.getsize(os.path.join(r, f))
+                for r, _, fs in os.walk(os.path.join(outdir, 'apex')) for f in fs)
+  File "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/apex/unpack.py", line 246, in <genexpr>
+    total = sum(os.path.getsize(os.path.join(r, f))
+                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<frozen genericpath>", line 86, in getsize
+FileNotFoundError: [Errno 2] No such file or directory: 'sixiang/apex/out/tree/apex/com.android.i18n/lib/libbase.so'
