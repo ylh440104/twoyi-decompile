@@ -366,11 +366,24 @@ static uintptr_t build_stack(const struct loaded *img, const char *path,
 
 __attribute__((noreturn)) static void jump(uintptr_t sp, uintptr_t entry)
 {
+#if defined(__aarch64__)
     __asm__ volatile("mov sp, %0\n\t"
                      "br  %1"
                      :
                      : "r"(sp), "r"(entry)
                      : "memory");
+#elif defined(__x86_64__)
+    /* Same idea, different mnemonics: the stack pointer is set first, then the
+     * program is entered with a jump rather than a call, exactly as the kernel
+     * would on exec. */
+    __asm__ volatile("movq %0, %%rsp\n\t"
+                     "jmp  *%1"
+                     :
+                     : "r"(sp), "r"(entry)
+                     : "memory");
+#else
+#  error "unsupported build architecture"
+#endif
     __builtin_unreachable();
 }
 
