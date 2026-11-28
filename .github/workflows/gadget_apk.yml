@@ -23,6 +23,11 @@ on:
 permissions:
   contents: write
 
+# A new push supersedes the previous build.
+concurrency:
+  group: gadget-apk
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -78,6 +83,10 @@ jobs:
           echo "decode rc=$?"
           ls dec/apktool.yml && echo "apktool.yml present"
           find dec -name '*.smali' | wc -l
+          echo "== keep the 212 MB rootfs stored, not deflated =="
+          grep -n 'doNotCompress' dec/apktool.yml
+          sed -i '/^doNotCompress:/a - zst' dec/apktool.yml
+          sed -n '/doNotCompress/,+6p' dec/apktool.yml
 
       - name: Inject gadget load into TwoyiApplication
         run: |
