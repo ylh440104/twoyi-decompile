@@ -174,7 +174,14 @@ def extract_one(apex_path, name, outdir, log):
             payload = None
 
     if not payload or not os.path.exists(payload):
-        log.append('    !! 无法取出 payload')
+        # .capex 的 payload 结构可能与 .apex 不同，把内部成员列表打出来
+        try:
+            with zipfile.ZipFile(apex_path) as z:
+                names = z.namelist()
+            log.append('    !! 无法取出 apex_payload.img；成员: %s'
+                       % ','.join(names[:8]))
+        except Exception as e:
+            log.append('    !! 无法取出 payload（非 zip: %r）' % e)
         return False
 
     raw = os.path.join(work, 'payload.raw')
@@ -185,8 +192,7 @@ def extract_one(apex_path, name, outdir, log):
         return False
 
     n = sum(len(files) for _, _, files in os.walk(dest))
-    sz = sum(os.path.getsize(os.path.join(r, f))
-             for r, _, fs in os.walk(dest) for f in fs)
+    sz = du_bytes(dest)
     log.append('    -> %s  files=%d  bytes=%d' % (dest, n, sz))
     return True
 
@@ -202,6 +208,21 @@ def write_info_list(outdir, names):
     lines.append('</apex-info-list>')
     with open(os.path.join(outdir, 'apex-info-list.xml'), 'w') as f:
         f.write('\n'.join(lines) + '\n')
+
+
+def du_bytes(path):
+    """统计目录字节数；跳过断链（debugfs rdump 会把 symlink 变成断链）。"""
+    total = 0
+    for r, _, fs in os.walk(path):
+        for f in fs:
+            p = os.path.join(r, f)
+            try:
+                if os.path.islink(p) and not os.path.exists(p):
+                    continue
+                total += os.path.getsize(p)
+            except OSError:
+                continue
+    return total
 
 
 def main():
@@ -243,8 +264,7 @@ def main():
 
     write_info_list(outdir, ok_names)
 
-    total = sum(os.path.getsize(os.path.join(r, f))
-                for r, _, fs in os.walk(os.path.join(outdir, 'apex')) for f in fs)
+    total = du_bytes(os.path.join(outdir, 'apex'))
     log.append('')
     log.append('展开成功: %d / %d' % (len(ok_names), len(entries)))
     log.append('展开后总字节: %d (%.1f MiB)' % (total, total / 1048576.0))
