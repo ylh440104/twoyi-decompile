@@ -109,12 +109,15 @@ cp "$WORK/base.apk" "$WORK/unsigned.apk" || exit 1
 unzip -l "$WORK/unsigned.apk" | tail -12
 
 # Fail loudly if the load-bearing entries did not make it in.
+# NB: do not pipe `unzip -l` into `grep -q` here. grep -q exits on the first
+# match, unzip then dies of SIGPIPE, and `set -o pipefail` turns the whole
+# pipeline into a failure -- which reported a present entry as missing.
+LIST=$(unzip -l "$WORK/unsigned.apk") || exit 1
 for e in lib/arm64-v8a/libmini_loader.so assets/guest.zip assets/screen classes.dex; do
-    if ! unzip -l "$WORK/unsigned.apk" | grep -q " $e$"; then
-        echo "::error::APK is missing $e"
-        exit 1
-    fi
-    echo "  ok: $e"
+    case "$LIST" in
+        *" $e"*) echo "  ok: $e" ;;
+        *) echo "::error::APK is missing $e"; exit 1 ;;
+    esac
 done
 
 echo
