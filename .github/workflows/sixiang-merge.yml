@@ -1,0 +1,115 @@
+name: SiXiang T1 - rootfs merge (system + 38 APEX)
+
+# T1 的验收：
+#   - <out>/apex/ 下正好 38 个目录
+#   - com.android.runtime/bin/linker64 存在
+#   - com.android.art 存在
+#   - system/apex 下的 38 个 .apex/.capex 原件已清空（否则白多 326 MB）
+#
+# 只回传文本报告，rootfs 本身不上传（2 GB 级，传不动）。
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sixiang/rootfs/merge_rootfs.py'
+      - 'sixiang/apex/unpack.py'
+      - '.github/workflows/sixiang-merge.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq android-sdk-libsparse-utils e2fsprogs unzip zstd
+
+      - name: Cache GSI
+        id: gsi
+        uses: actions/cache@v4
+        with:
+          path: gsi.zip
+          key: gsi-cp2a-260605012
+
+      - name: Download GSI
+        if: steps.gsi.outputs.cache-hit != 'true'
+        run: |
+          curl -fL --retry 3 -o gsi.zip \
+            'https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP2A.260605.012-15430684-8e545e1e.zip'
+          ls -l gsi.zip
+
+      - name: Unzip
+        run: |
+          unzip -o gsi.zip -d gsi > /dev/null
+          ls -lh gsi
+          df -h / | tail -1
+
+      - name: T1 - merge rootfs
+        continue-on-error: true
+        run: |
+          python3 sixiang/rootfs/merge_rootfs.py gsi/system.img out 2>&1 | tee merge.log
+          echo '--- disk after merge ---'
+          df -h / | tail -1
+          echo '--- tree ---'
+          ls -1 out | head -20
+          du -sh out/* 2>/dev/null | sort -rh | head -10
+
+      - name: Pack test (zstd, 只记录大小)
+        continue-on-error: true
+        run: |
+          if [ -d out/apex ] && [ -d out/system ]; then
+            time tar -C out --exclude=.work -cf - system apex 2>/dev/null | zstd -19 -T0 -q -o rootfs.tar.zst
+            ls -lh rootfs.tar.zst
+            echo "zstd_size=$(stat -c%s rootfs.tar.zst)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'skip pack: out/system 或 out/apex 缺失'
+          fi
+
+      - name: Save report
+        if: always()
+        run: |
+          mkdir -p sixiang/rootfs/out
+          cp -f merge.log sixiang/rootfs/out/merge.log 2>/dev/null || true
+          cp -f out/merge-report.txt sixiang/rootfs/out/merge-report.txt 2>/dev/null || true
+          {
+            echo '=== out 顶层 ==='
+            ls -1 out 2>/dev/null | head -20
+            echo
+            echo '=== 各部件大小 ==='
+            du -sh out/* 2>/dev/null | sort -rh | head -10
+            echo
+            echo '=== apex 目录数 ==='
+            ls -1 out/apex 2>/dev/null | wc -l
+            echo
+            echo '=== apex 前 10 ==='
+            ls -1 out/apex 2>/dev/null | head -10
+            echo
+            echo '=== system/apex 残留原件数 ==='
+            ls -1 out/system/apex 2>/dev/null | grep -cE '\.(apex|capex)$' || true
+            echo
+            echo '=== runtime/bin 内容 ==='
+            ls -lh out/apex/com.android.runtime/bin 2>/dev/null | head -10
+            echo
+            echo '=== tar.zst ==='
+            ls -lh rootfs.tar.zst 2>/dev/null || echo '(未生成)'
+          } > sixiang/rootfs/out/summary.txt
+          cat sixiang/rootfs/out/summary.txt
+
+      - name: Commit report
+        if: always()
+        run: |
+          set +e
+          git config user.name "sixiang-bot"
+          git config user.email "sixiang@users.noreply.github.com"
+          git add -f sixiang/rootfs/out/merge.log sixiang/rootfs/out/merge-report.txt sixiang/rootfs/out/summary.txt 2>/dev/null
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "sixiang T1: rootfs merge report"
+          git pull --rebase -q origin main
+          git push
