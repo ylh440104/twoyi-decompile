@@ -85,18 +85,22 @@ sudo mount -o loop,ro "$WORK/runtime_payload.img" /mnt/apex || { echo "apex moun
 sudo cp -a /mnt/apex/bin/linker64 "$OUT/system/bin/linker64" 2>/dev/null \
     && echo "  got linker64"
 
-# Let a real dependency walk copy the exact set. Shell globbing + symlinks lost
-# this fight four times; resolve_libs.py parses DT_NEEDED and walks to a fixed
-# point, refusing dangling links.
-sudo python3 sixiang/guest/resolve_libs.py \
+# Copy both library trees wholesale, dereferencing symlinks, then flatten.
+# Reason: on a device /system/lib64/libc++.so is a symlink into the runtime APEX,
+# so the real bytes live one directory down. Either a dangling link survives
+# (useless) or the file is buried where LD_LIBRARY_PATH does not look. Flatten.
+sudo cp -rL /mnt/apex/lib64/. "$OUT/system/lib64/" 2>/dev/null || true
+sudo cp -rL /mnt/gsi/system/lib64/. "$OUT/system/lib64/" 2>/dev/null || true
+python3 sixiang/guest/flatten_libs.py "$OUT/system/lib64" | tee "$OUT/flatten.txt"
+
+# Report-only: confirms every DT_NEEDED name now resolves.
+python3 sixiang/guest/resolve_libs.py \
     --out "$OUT/system/lib64" \
     --program "$OUT/system/bin/toybox" \
-    /mnt/apex/lib64 /mnt/apex/lib64/bionic /mnt/gsi/system/lib64 \
+    /mnt/apex/lib64 /mnt/gsi/system/lib64 \
     > "$OUT/libresolve.txt" 2>&1 || true
-sed 's/^/  /' "$OUT/libresolve.txt" | head -40
+sed 's/^/  /' "$OUT/libresolve.txt" | head -20
 
-# Drop dangling symlinks: they only confuse the linker.
-find "$OUT/system/lib64" -maxdepth 1 -type l ! -exec test -e {} \; -delete 2>/dev/null
 sudo umount /mnt/apex 2>/dev/null
 
 echo "  libs in bundle: $(find "$OUT/system/lib64" -maxdepth 1 -type f | wc -l)"
