@@ -1,20 +1,39 @@
 # loader build report
 
-commit: 11e5c4aa04413d3bccfe145542ac06b25af1c936
-run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46143577890
+commit: b534b72bd6b2caa13e38310b9cf93fb966eefea7
+run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46143808146
 
 ```
-total 12
--rw-r--r-- 1 runner runner 5911 Nov 28 12:13 build.log
--rw-r--r-- 1 runner runner  155 Nov 28 12:13 report.md
+total 1384
+-rw-r--r-- 1 runner runner   1362 Nov 28 12:16 build.log
+-rwxr-xr-x 1 runner runner  67392 Nov 28 12:16 hello_freestanding
+-rwxr-xr-x 1 runner runner 771568 Nov 28 12:16 hello_static_pie
+-rwxr-xr-x 1 runner runner 706536 Nov 28 12:16 mini_loader
+-rw-r--r-- 1 runner runner    155 Nov 28 12:16 report.md
+-rw-r--r-- 1 runner runner    296 Nov 28 12:16 selftest.log
 
-sixiang/loader/out/build.log: Unicode text, UTF-8 text
-sixiang/loader/out/report.md: ASCII text
+sixiang/loader/out/build.log:          ASCII text
+sixiang/loader/out/hello_freestanding: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), static-pie linked, not stripped
+sixiang/loader/out/hello_static_pie:   ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), static-pie linked, BuildID[sha1]=7c6df4e315b5d1a1cc4efe23ac317b43e21c4c39, for GNU/Linux 3.7.0, not stripped
+sixiang/loader/out/mini_loader:        ELF 64-bit LSB executable, ARM aarch64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=6dfbeb173a412bac45b1586dea0a89dc747ec7ae, for GNU/Linux 3.7.0, not stripped
+sixiang/loader/out/report.md:          ASCII text
+sixiang/loader/out/selftest.log:       ASCII text
 ```
 
 ## self-test
 ```
-(no output)
+### hello_freestanding
+SIXIANG_PAYLOAD_FREESTANDING_OK
+  no libc, no TLS, raw svc #0
+exit=0
+
+### hello_static_pie
+SIXIANG_PAYLOAD_OK
+  pid      = 3033
+  argv[0]  = ./sixiang/loader/out/hello_static_pie
+  argc     = 1
+  libc     = glibc static-pie
+  exec     = never called, mapped by mini_loader
 ```
 
 ## build log (compiler errors show up here)
@@ -23,105 +42,23 @@ sixiang/loader/out/report.md: ASCII text
 aarch64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
 
 == mini_loader (required) ==
-sixiang/loader/mini_loader.c: In function ‘build_stack’:
-sixiang/loader/mini_loader.c:295:8: error: expected identifier before numeric constant
-  295 |     AU(AT_PHDR, img->phdr);
-      |        ^~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:296:8: error: expected identifier before numeric constant
-  296 |     AU(AT_PHENT, img->phentsize);
-      |        ^~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:297:8: error: expected identifier before numeric constant
-  297 |     AU(AT_PHNUM, img->phnum);
-      |        ^~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:298:8: error: expected identifier before numeric constant
-  298 |     AU(AT_PAGESZ, PAGE);
-      |        ^~~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:299:8: error: expected identifier before numeric constant
-  299 |     AU(AT_BASE, 0);
-      |        ^~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:300:8: error: expected identifier before numeric constant
-  300 |     AU(AT_ENTRY, img->entry);
-      |        ^~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:301:8: error: expected identifier before numeric constant
-  301 |     AU(AT_UID, getuid());
-      |        ^~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:302:8: error: expected identifier before numeric constant
-  302 |     AU(AT_EUID, geteuid());
-      |        ^~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:303:8: error: expected identifier before numeric constant
-  303 |     AU(AT_GID, getgid());
-      |        ^~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:304:8: error: expected identifier before numeric constant
-  304 |     AU(AT_EGID, getegid());
-      |        ^~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:305:8: error: expected identifier before numeric constant
-  305 |     AU(AT_SECURE, 0);
-      |        ^~~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:306:8: error: expected identifier before numeric constant
-  306 |     AU(AT_HWCAP, getauxval(AT_HWCAP));
-      |        ^~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:307:8: error: expected identifier before numeric constant
-  307 |     AU(AT_HWCAP2, getauxval(AT_HWCAP2));
-      |        ^~~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:308:8: error: expected identifier before numeric constant
-  308 |     AU(AT_RANDOM, random);
-      |        ^~~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:309:8: error: expected identifier before numeric constant
-  309 |     AU(AT_EXECFN, execfn);
-      |        ^~~~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:310:8: error: expected identifier before numeric constant
-  310 |     AU(AT_NULL, 0);
-      |        ^~~~~~~
-sixiang/loader/mini_loader.c:294:27: note: in definition of macro ‘AU’
-  294 | #define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
-      |                           ^
-sixiang/loader/mini_loader.c:269:51: warning: unused parameter ‘img’ [-Wunused-parameter]
-  269 | static uintptr_t build_stack(const struct loaded *img, const char *path,
-      |                              ~~~~~~~~~~~~~~~~~~~~~^~~
-BUILD FAILED: mini_loader
+sixiang/loader/out/mini_loader: ELF 64-bit LSB executable, ARM aarch64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=6dfbeb173a412bac45b1586dea0a89dc747ec7ae, for GNU/Linux 3.7.0, not stripped
+
+== hello_freestanding (required) ==
+sixiang/loader/out/hello_freestanding: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), static-pie linked, not stripped
+
+== hello_static_pie (optional) ==
+sixiang/loader/out/hello_static_pie: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), static-pie linked, BuildID[sha1]=7c6df4e315b5d1a1cc4efe23ac317b43e21c4c39, for GNU/Linux 3.7.0, not stripped
+
+== sizes ==
+-rwxr-xr-x 1 runner runner  67392 Nov 28 12:16 sixiang/loader/out/hello_freestanding
+-rwxr-xr-x 1 runner runner 706536 Nov 28 12:16 sixiang/loader/out/mini_loader
+-rwxr-xr-x 1 runner runner 771568 Nov 28 12:16 sixiang/loader/out/hello_static_pie
+
+== payload headers (must be DYN / ET_DYN) ==
+hello_freestanding     e_type=DYN(Position-IndependentExecutablefile) relocs: noneawk: cmd. line:2: (FILENAME=- FNR=2) fatal: attempt to use scalar `c' as an array
+hello_static_pie       e_type=DYN(Position-IndependentExecutablefile) relocs: R_AARCH64_IRELATI=5 R_AARCH64_RELATIV=1200 R_AARCH64_NONE=2 
+
+ALL: every artifact built
+DONE
 ```
