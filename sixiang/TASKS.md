@@ -2,10 +2,13 @@
 
 > 状态随代码走。每条都写清「能不能在 Actions 做」和「怎么算完成」，
 > 避免出现「做了一半不知道算不算完」。
+>
+> **2026-11-28 重排**：T3（启动 AOSP init）已证明在无特权环境下不可行，
+> 全部后续任务按 twoyi 式用户态路线重写。依据见 `docs/WHY-NO-ROOT.md`。
 
 ---
 
-## 已完成
+## 一、已完成（有可复现证据）
 
 | # | 任务 | 状态 | 证据 |
 |---|---|---|---|
@@ -13,229 +16,196 @@
 | M1 | AOSP 版本探测：17 = tag `android-17.0.0_r1` / `cp2a` | ✅ | probe run 全绿 |
 | M2 | `pack_rootfs.py` 重打包器 + selftest | ✅ | run `46124876177` |
 | M3 | APEX 可行性：`clone3` 有 `clone` fallback | ✅ | `sixiang/kwall/out/scan.txt` |
-| M4 | APEX 静态展开 **38/38**，485.4 MiB | ✅ | `sixiang/docs/M4-apex-unpack-done.md` |
-| **T1** | **rootfs 合并：1.8G system + 482M apex → rootfs.tar.zst 911 MB** | ✅ | run `46135232612`，`sixiang/rootfs/out/summary.txt` |
-| **T2** | **apexd stub：584 KB 静态 aarch64，写 `/apex/apexd.status=success`** | ✅ | `sixiang/apexd/out/file.txt` |
+| M4 | APEX 静态展开 **38/38**，485.4 MiB | ✅ | `docs/M4-apex-unpack-done.md` |
+| T1 | rootfs 合并：1.8G system + 482M apex → `rootfs.tar.zst` **911 MB** | ✅ | run `46135232612` |
+| T2 | apexd stub：597,920 B 静态 aarch64，写 `/apex/apexd.status=success` | ✅ | `sixiang/apexd/out/file.txt` |
 
----
-
-## T1 实测结果（已闭环）
+### T1 关键实测
 
 ```
-out/system     1.8G
-out/apex       482M
-out/system_ext 4.0K   ← 空
-out/product    4.0K   ← 空
-out/vendor     8.0K   ← 空
-out/odm        8.0K   ← 空
-
-apex 目录数          39（38 模块 + apex-info-list.xml）
-system/apex 残留原件  0        ← 326 MB 没白留
-rootfs.tar.zst       911M
+out/system     1.8G        apex 目录数          39（38 模块 + apex-info-list.xml）
+out/apex       482M        system/apex 残留原件  0
+rootfs.tar.zst 911M        system_ext/product/vendor/odm 全空
 ```
 
-**重要发现：GSI 的 `system.img` 里 `system_ext`/`product`/`vendor`/`odm` 全是空目录。**
-GSI 把所有内容都塞进了 `system`，这是 GSI 的设计（单分区可刷任意设备）。
-所以 SiXiang 的 rootfs 布局比预想简单——没有多分区合并问题。
+- GSI 是单分区设计，所有内容都在 `system` 里，没有多分区合并问题
+- 符号链接正确保留：`linker_asan64 -> linker64`、`linker_hwasan64 -> linker64`
+- **踩过的坑**：`debugfs rdump` 会把绝对符号链接变成断链，必须用
+  `mount -t ext4 -o loop,ro` + `rsync -aHAX`
 
-**符号链接也被正确保留**：
-```
-apex/com.android.runtime/bin/linker_asan    -> linker
-apex/com.android.runtime/bin/linker_asan64  -> linker64
-apex/com.android.runtime/bin/linker_hwasan64-> linker64
-```
-
----
-
-## T2 实测结果（已闭环）
+### T2 关键实测
 
 ```
-sixiang/apexd/out/apexd: ELF 64-bit LSB executable, ARM aarch64,
-  statically linked, stripped, 597,920 bytes
+ELF 64-bit LSB executable, ARM aarch64, statically linked, stripped, 597920 bytes
 sha256 28b78adc7f3f8163433c7d02ca4f203232fcd7c0cfbcbd2cf08d0a07261ac68c
-
-字符串表: /apex  /apex/apexd.status  success
-动态段  : There is no dynamic section in this file.
+动态段: There is no dynamic section in this file.
 ```
 
-**为什么必须写 `/apex/apexd.status` 而不是简单 return 0**：
-init 读的是那个文件的内容（`kApexStatusSuccess = "success"`），不是退出码。
-光返回 0 的话 init 会认为 apexd 没跑完，继续等或 panic。
+**必须写 `/apex/apexd.status` 内容而不能只 `return 0`**：init 读的是文件内容
+（`kApexStatusSuccess = "success"`），不是退出码。
 
 ---
 
-## 待办
+## 二、已关闭：T3（启动 AOSP init）
 
-### T1 — rootfs 布局合并
+**结论：不可行，而且不该做。**
 
-**做什么**
-把 `unpack.py` 产出的 38 个目录树，与 `pack_rootfs.py` 从 `system.img` 解出的内容合并，
-统一放进 `rootfs/apex/`。
-
-**难点**
-- `system.img` 里 `/system/apex/` 还有 38 个 `.apex/.capex` 原件（326 MB），
-  合并时要**丢掉**，否则 rootfs 里同时存在「原件」和「展开后的目录」，白多 326 MB
-- `com.android.runtime` 里 `lib`/`lib64` 都有，且含 `bionic/` 子目录，符号链接要保留原样
-
-**能否在 Actions 做**：✅ 完全能
-
-**验收**
-- `rootfs/apex/` 下正好 38 个目录
-- `rootfs/apex/com.android.runtime/bin/linker64` 存在且是 aarch64 ELF
-- `rootfs/apex/com.android.art/` 存在（ART 必须有）
-- `rootfs/system/apex/` 下**没有** `.apex`/`.capex` 文件
-- rootfs 总大小记录在案
-
----
-
-### T2 — stub 掉 apexd
-
-**做什么**
-编译一个「立即返回 0」的 aarch64 静态二进制，替换 `/system/bin/apexd`，
-并预置 `/apex/apex-info-list.xml`（`unpack.py` 已能生成）。
-
-**为什么必须做**
-`init` 会执行 `/system/bin/apexd` 并等它写完 `/apex/apexd.status`。
-真 apexd 会尝试 loop mount + dm-verity，容器里必然失败，导致 init 卡住或 panic。
-
-**难点**
-- 需要 aarch64 交叉编译环境（Actions 里用 `gcc-aarch64-linux-gnu`）
-- 必须**静态链接**，否则 stub 自己还要去找 libc
-- 要确认 init 等的到底是「进程退出码」还是「status 文件内容」——
-  两者行为不同，需先从 init 的反汇编确认
-
-**能否在 Actions 做**：✅ 能（交叉编译 + 静态分析）
-
-**验收**
-- `file apexd` 显示 `statically linked` + `ARM aarch64`
-- 在 qemu-aarch64 下执行返回 0
-- `apex-info-list.xml` 有 38 条 `<apex-info>`
-
----
-
-### T3 — first stage init 行为验证
-
-**做什么**
-确认 init 在「`/apex` 已经是普通目录」时，不再走 loop mount 分支。
-
-**已知线索**（来自 `sixiang/apex/out/apex.log`）
-```
-init 字符串计数: apex 39   dm-verity 0   loop-control 1   first_stage 7
-```
-- `dm-verity` 在 init 里 **0 处** → 校验不在 init，在 apexd（可 stub）
-- `loop-control` 仅 1 处 → 不是 init 的主路径
-
-**难点**
-init 是 stripped 的 2.5 MB 二进制，要定位「判断 /apex 是否已挂载」的分支。
-需要用 qemu-aarch64 + strace 实跑，或在反汇编里找 `statfs("/apex")` 一类的调用。
-
-**能否在 Actions 做**：✅ 能（qemu-user + strace）
-
-**验收**
-- strace 里确认 init 没有 `mount()` 到 `/apex/*`
-- init 能走完 first stage，进入 second stage
-
----
-
-### T3 实测结果（已拿到铁证，详见 `docs/T3-init-actually-ran.md`）
-
-用 `qemu-aarch64-static` + `chroot out/system` 实跑，strace 记录：
-
-```
-openat("/init", O_RDONLY) = 3                            ← /init 可执行
-openat("/system/bin/bootstrap/linker64", O_RDONLY) = 3    ← bootstrap linker 可达
-openat("/system/lib64/libbase.so", O_RDONLY) = 3          ← 依赖库开始加载
-```
-
-**init 真的启动了，卡在三处可枚举的缺失：**
-
-| 缺失 | 补法 |
+| 曾尝试 | 结果 |
 |---|---|
-| `/linkerconfig/ld.config.txt` | 先跑 `/system/bin/linkerconfig --target /linkerconfig` |
-| `/dev/__properties__` | chroot 前 `mount -t tmpfs tmpfs out/system/dev` + mknod |
-| `debuggerd dispatch thread` | qemu-user 限制，真机不受影响 |
+| `chroot out/system` + 跑 `/init`（qemu） | 真跑起来了，strace 有 3 条 `openat=3` |
+| 补 `/linkerconfig/ld.config.txt` | 能补，但仍卡下一步 |
+| 补 `/dev` tmpfs + mknod | 需要 `CAP_SYS_ADMIN`，**做不到** |
+| `/dev/__properties__`（property service） | 依赖 init 自己的 fork/exec 与 mount |
+| `debuggerd` 线程 | qemu-user 限制 |
 
-前两条已在 workflow 里补上（`T3 - run init with qemu` 步骤）。
+**为什么关闭**：init 是 PID 1，它的第一步就是 `mount("/dev")`、
+`mount("/proc")`、`mount("/sys")`。这些不是「配置缺失」，是特权前提。
+本机实测 `CapEff=0`，且 `unshare -U` 返回 **EINVAL**（内核无 `CONFIG_USER_NS`），
+所以既拿不到特权、也造不出「自己能 mount」的命名空间。
+
+**更重要的是**：twoyi 的 rootfs 里**根本没有 `system/bin/init`**（2,077 项清单，
+0 命中），它压根不启动 init。所以这不是「我们做得不够」，是这条路本来就不通。
+
+> 已产出的东西不浪费：`rootfs.tar.zst`、apexd stub、`linker64` 路径链验证
+> 都还有用，只是不再挂在「init 能跑完」这个前提上。
 
 ---
 
-### T4 — 裁减非必需 APEX
+## 三、下一步：先把「能不能」变成事实（N1 / N2）
+
+> 原则：**在 N1、N2 拿到实测结果之前，不写任何 loader / binder 代码。**
+> 这两步都是一天量级，而且完全在本机可做，不需要真机、不需要大机器。
+
+### N1 — exec-from-fd 是否被允许
 
 **做什么**
-移除 4 个明确的非必需模块，省约 79 MB。
+用 `memfd_create` + `execveat(fd, "", AT_EMPTY_PATH)` 执行一个最小 aarch64 ELF，
+以本机 app 身份（`uid 10204`，`u:r:untrusted_app`）实测。
 
-| 模块 | MB | 处置 |
-|---|---|---|
-| com.android.extservices | 24 | 移除（车载专用） |
-| com.android.adservices | 23 | 移除（广告） |
-| com.android.healthfitness | 17 | 移除（健康） |
-| com.android.ondevicepersonalization | 15 | 移除（端侧个性化） |
+**为什么是它**
+这是 twoyi `EXEC_SEALED` 的原语。Android 10+ 禁止 `execve` app 数据目录下的文件，
+twoyi 的做法是「按 fd 打开，再从 fd 执行」。这条不通，整条路都进不去。
 
-**保留红线**：`com.android.art`（48 MB）与 `com.android.runtime`（13 MB）**不能动**，
-删了就跑不了 Java / 跑不了任何 ELF。
+**已测（详见 `docs/N1-exec-probe.md`）**
 
-**能否在 Actions 做**：✅ 能
+| 测项 | 结果 |
+|---|---|
+| 直接 exec `$HOME/ty_probe`（`app_data_file`，`-rwxr-xr-x`） | ❌ `Permission denied`，`rc=126` |
+| `toybox unshare -U true` | ❌ `EINVAL`（内核无 `CONFIG_USER_NS`） |
+
+→ **W^X 在本机确认生效**，所以 sealed-fd exec 不是为了兼容老设备，是必需品。
+
+**剩余待测**：memfd + `execveat` 需要不被 proot 插手的执行者，
+要搭一个最小 JNI 宿主（`.so` 由 `app_process` 加载），半天量级。
+
+**能否在 Actions 做**：❌ 必须本机（SELinux 策略是设备相关的）
+**能否在本机做**：✅
 
 **验收**
-- `rootfs/apex/` 下 34 个目录
-- 总大小 ≈ 406 MiB
-- `art` / `runtime` 仍在
+- 成功：拿到「能执行」的结论 + 一条可复用的最小 demo
+- 失败：记下确切 errno（`EACCES` / `EPERM` / `ENOSYS`），据此判断要不要换方案
+- 兜底：若 memfd 也被拒，改走「用户态装载」（proot 路径，本机已间接证明可用）
 
 ---
 
-### T5 — gralloc4 图形适配（最重的一道）
+### N2 — guest `linker64` 能否作为宿主进程跑起来
 
 **做什么**
-Android 17 用 gralloc4 + AIDL，twoyi 那套 ColorBuffer 直通补丁全部作废，需要重写。
+从 Android 17 rootfs 取 `linker64` + `libc.so`，用 `--library-path` 指到 rootfs 前缀，
+试跑一个最小 ELF 或 guest 的 `sh`。
 
-**为什么难**
-twoyi 的 7 个自研函数（`prepareTwoyiColorBufferStagingImage` 等）
-依赖旧的 gralloc 接口和 gfxstream 的特定入口。17 上接口变了，等于重做。
+**为什么是它**
+同时验证三件事：
+1. 路径前缀重写的最小闭环（loader 的核心机制）
+2. Android 17 的 bionic 会不会因为 linker namespace 机制直接拒绝
+3. Android 13 的 app seccomp filter 放不放行 guest bionic 的系统调用
 
-**能否在 Actions 做**：❌ 需要真机验证 Surface 是否出画面
+**能否在 Actions 做**：⚠️ 部分（可以用 qemu 验路径逻辑，但 seccomp 必须本机）
+**能否在本机做**：✅
 
 **验收**
-- 宿主 Surface 上能看到 guest 的启动画面
-- 不再依赖 ColorBuffer staging image
+- 能跑起来：打印出预期输出，记录用到的 syscall 集合
+- 跑不起来：记下第一条失败点（是 `EACCES`、`ENOSYS` 还是 seccomp `SIGSYS`）
 
 ---
 
-### T6 — AIDL radio 适配
+## 四、真正要写的实现（N3 / N4，月量级）
+
+### N3 — loader：路径前缀重写 + sealed fd exec
 
 **做什么**
-twoyi 的 `AT+TWOYI=` modem 扩展 + `twoyi_modem` LocalSocket 在 17 上作废，
-需要改用新的 AIDL radio HAL。
+相当于 twoyi 的 `libloader.so`（147,768 B，262 函数，0 导出）。职责：
+
+- 作为 guest 的 `/system/bin/linker64` 被调用
+- 读 `TWOYI_ROOTFS_EXEC` 一类的协议（或自己定义）
+- 把 guest 的绝对路径 `/system/...` 映射到 rootfs 前缀
+- 从 fd 执行目标（`AT_EMPTY_PATH`）
+- 处理 APEX 的库路径：`/apex/com.android.*/lib64`
+
+**难点（Android 17 比 8.1 多出来的）**
+- API 37 的 bionic 有 linker namespace，`/system/lib64` 只是其中一个
+- 库分散在 38 个 APEX 里，链接时的搜索路径要重建
+- `ld.config.txt` 由 `linkerconfig` 生成，格式与 8.1 不同
+
+**能否在 Actions 做**：⚠️ 能编译，不能验证
+**验收**：guest 的 `sh` 能在宿主进程里跑起来，并能 `exec` 第二个进程
+
+---
+
+### N4 — 用户态 binder
+
+**做什么**
+相当于 twoyi 把 `drivers/android/binder.c` 搬进用户态：
+
+- 32 个以内核驱动命名的方法（`binder_ioctl` / `binder_mmap` / `binder_transaction` …）
+- 流量走 unix socket，共享页用 `/dev/ashmem`
+- `/dev/vbinder` 是 guest `servicemanager` 运行时 `bind()` 出来的 socket 文件
+
+**为什么不能用内核 binder**
+`/dev/binder` app 确实能 `open`（本机实测：`read` 返回 EINVAL 是正常语义），
+但 binder 的 context manager **全局唯一**，宿主 `servicemanager` 已占用。
+换成 binderfs 的新设备需要 `mount -t binder`，同样要特权。
+
+**能否在 Actions 做**：⚠️ 能编译，不能验证
+**验收**：guest 的 `servicemanager` 起来，别的服务能 `addService` / `getService`
+
+---
+
+## 五、之后才是图形与 radio（T5 / T6）
+
+### T5 — 图形通道（gralloc4 / G5）
+
+Android 17 用 gralloc4 + AIDL，twoyi 那套 ColorBuffer 直通补丁（7 个函数）全部作废。
+渲染链路要重建：guest EGL → HWC shim → unix socket（`G5` 协议）→ `libtwoyi` 侧解码
+→ `AHardwareBuffer` → 宿主 `Surface`。
+
+**能否在 Actions 做**：❌ 需要真机看画面
+**验收**：宿主 Surface 上能看到 guest 画面
+
+### T6 — AIDL radio
+
+twoyi 的 `AT+TWOYI=` modem 扩展与 `twoyi_modem` LocalSocket 在 17 上作废，
+要改用新的 AIDL radio HAL。
 
 **能否在 Actions 做**：❌ 需要真机验证 Telephony 不崩
 
-**验收**
-- guest 内 Telephony 服务不反复崩溃
-- （可选）能显示信号
+### T7 — 端到端（已重定义）
+
+**原定义**：真机 chroot 启动 init → **作废**
+**新定义**：装 SiXiang app，走 N3 + N4 的路径，把 guest 的 `servicemanager` 和
+`zygote` 拉起来，看到第一个 guest 进程活着。
+
+**不需要设备 root。**
 
 ---
 
-### T7 — 自举链路端到端验证
-
-**做什么**
-把 T1–T3 的产物装进真机，实际 chroot 启动，看 init 能不能走到 second stage。
-
-**能否在 Actions 做**：❌ 必须真机（Lenovo TB330FU，kernel 4.19）
-
-**验收**
-- init 走完 first stage，不再因 `/apex` 报错
-- 能看到 zygote / servicemanager 启动
-- 记录卡住的第一条错误（如果卡住）
-
----
-
-## 顺序建议
+## 六、顺序
 
 ```
-T1 → T2 → T3   （全在 Actions，不用真机，能做完）
-      ↓
-     T7        （真机验一次，确认自举链路通）
-      ↓
-  T5 / T6      （真正要写代码的，工作量大）
+N1 ──┐
+     ├─→ N3（loader）──→ N4（binder）──→ T7（端到端）──→ T5 / T6
+N2 ──┘
+（各一天）              （月）           （月）          （周，需真机）
 ```
 
-**T1–T3 是「把路铺好」，T7 是「点亮」，T5/T6 是「让它好用」。**
+**N1 / N2 是「能不能」的门，过不了就停下来重新评估，不往上堆代码。**
