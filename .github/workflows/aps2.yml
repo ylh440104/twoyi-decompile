@@ -1,16 +1,13 @@
-name: APS2 unpack (llvm-readelf)
+name: APS2 unpack (llvm-readelf, x86 runner)
 
-# The bionic runtime cannot execute on a stock Linux kernel (even bionic's own
-# toybox segfaults, rc=139), so APS2 has to be unpacked statically.
+# 目的：把 .rela.dyn 里的 APS2 打包重定位（SHT_ANDROID_RELA, sh_type=0x60000002）
+# 解成 112,262 条明文，再按 RELATIVE 语义施加到磁盘映像上（虚拟基址 0）。
 #
-# llvm-readelf decodes APS2 natively (LLVM >= 9), which gives all 112,262 packed
-# RELATIVE relocations as plain text.  tools/r221_apply_relocs.py then applies
-# them to the on-disk image with a virtual base of 0, so
-#   * every RELATIVE relocation becomes the absolute .text/.data offset it points at
-#   * .init_array finally shows which 38 constructors would be registered
-#   * the six GOT slots show their post-relocation values
-#
-# No execution involved: this is pure decoding of a documented format.
+# 上一版为什么什么都没做出来：
+#   1) runs-on: ubuntu-24.04-arm —— 该镜像没有 llvm 的 apt 源，apt install 失败
+#   2) 每步 set +e 且日志重定向进文件，告警全被吞掉
+#   3) .so 从 release 下载，而 release 资产可能不在，curl 失败也继续往下跑
+# 本版：x86_64 runner + 仓库内 .so + 不吞错 + 每步显式打印
 
 on:
   workflow_dispatch:
@@ -24,68 +21,124 @@ permissions:
 
 jobs:
   unpack:
-    runs-on: ubuntu-24.04-arm
-    timeout-minutes: 25
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install llvm
+      - name: Locate llvm-readelf
         run: |
-          set +e
-          mkdir -p aps2-out work
-          exec 1>aps2-out/aps2.log 2>&1
-          uname -m
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq llvm | tail -2
-          ls /usr/bin/llvm-readelf* 2>&1
-          llvm-readelf --version | head -3
+          set -x
+          ls /usr/lib/llvm-*/bin/llvm-readelf 2>/dev/null
+          for c in /usr/lib/llvm-*/bin/llvm-readelf /usr/bin/llvm-readelf*; do
+            [ -x "$c" ] && echo "FOUND $c" && "$c" --version | head -3 && break
+          done
+          echo "---- try apt ----"
+          sudo apt-get update -qq || true
+          sudo apt-get install -y -qq llvm || true
+          ls -l /usr/bin/llvm-readelf* 2>/dev/null || echo "no /usr/bin/llvm-readelf"
+          which llvm-readelf llvm-readelf-14 llvm-readelf-15 llvm-readelf-16 llvm-readelf-17 2>/dev/null || true
 
-      - name: Fetch and verify libtwoyi.so
+      - name: Verify input .so
         run: |
-          set +e
-          exec 1>>aps2-out/aps2.log 2>&1
-          curl -fsL --retry 2 -o work/libtwoyi.so \
-            "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
-          echo "curl rc=$?"
+          set -x
+          mkdir -p aps2-out work
+          cp native/libtwoyi.so work/libtwoyi.so
           ls -l work/libtwoyi.so
           sha256sum work/libtwoyi.so
+          python3 - <<'PY'
+          import struct
+          d=open('work/libtwoyi.so','rb').read()
+          shoff,=struct.unpack_from('<Q',d,0x28)
+          entsz,num,strndx=struct.unpack_from('<HHH',d,0x3A)
+          so,=struct.unpack_from('<Q',d,shoff+strndx*entsz+0x18)
+          for i in range(num):
+              o=shoff+i*entsz
+              nm,tp=struct.unpack_from('<II',d,o)
+              addr,off,sz=struct.unpack_from('<QQQ',d,o+0x10)[0],*struct.unpack_from('<Q',d,o+0x18),struct.unpack_from('<Q',d,o+0x20)[0]
+              e=d.find(b'\0',so+nm)
+              name=d[so+nm:e].decode('latin1')
+              if 'rela' in name:
+                  print(name,'type=0x%x addr=0x%x off=0x%x size=%d'%(tp,addr,off,sz))
+          print('len',len(d))
+          PY
 
-      - name: Unpack APS2
+      - name: llvm-readelf --relocations
         run: |
-          set +e
-          exec 1>>aps2-out/aps2.log 2>&1
-          RE=$(ls /usr/bin/llvm-readelf* | head -1)
-          echo "== $RE --relocations =="
-          "$RE" --relocations work/libtwoyi.so > aps2-out/relocs.txt 2>aps2-out/relocs.err
+          RE=$(ls /usr/lib/llvm-*/bin/llvm-readelf 2>/dev/null | tail -1)
+          [ -x "$RE" ] || RE=$(command -v llvm-readelf || true)
+          [ -x "$RE" ] || RE=$(ls /usr/bin/llvm-readelf* 2>/dev/null | head -1)
+          echo "USING=$RE"
+          [ -x "$RE" ] || { echo "NO llvm-readelf"; exit 1; }
+          "$RE" --version | head -3
+          "$RE" --relocations work/libtwoyi.so > aps2-out/relocs.txt 2> aps2-out/relocs.err
           echo "rc=$?"
           wc -l aps2-out/relocs.txt
-          head -5 aps2-out/relocs.err
-          echo "== section headers (is there a reloc section now?) =="
-          "$RE" --section-headers work/libtwoyi.so | grep -i -E 'rel|Name' | head -20
-          echo "== sample =="
-          head -20 aps2-out/relocs.txt
-          echo "..."
-          grep -c 'R_AARCH64' aps2-out/relocs.txt
+          echo "== err =="; head -10 aps2-out/relocs.err
+          echo "== head =="; head -12 aps2-out/relocs.txt
+          echo "== tail =="; tail -4 aps2-out/relocs.txt
+          echo "== counts =="
+          grep -c 'R_AARCH64_RELATIVE' aps2-out/relocs.txt || true
+          grep -c 'R_AARCH64' aps2-out/relocs.txt || true
 
-      - name: Apply and inspect
+      - name: Apply relocations
         run: |
-          set +e
-          exec 1>>aps2-out/aps2.log 2>&1
           python3 tools/r221_apply_relocs.py work/libtwoyi.so aps2-out/relocs.txt aps2-out
           echo "apply rc=$?"
+          ls -l aps2-out/
 
-      - name: Commit
+      - name: Report six slots
+        run: |
+          python3 - <<'PY'
+          import os,struct
+          p='aps2-out/virt.bin'
+          if not os.path.exists(p):
+              print('virt.bin missing'); raise SystemExit
+          d=open(p,'rb').read()
+          print('virt.bin size',len(d))
+          # vaddr -> file offset via PT_LOAD
+          import json
+          eh=open('work/libtwoyi.so','rb').read()
+          phoff,=struct.unpack_from('<Q',eh,0x20)
+          phentsz,phnum=struct.unpack_from('<HH',eh,0x36)
+          segs=[]
+          for i in range(phnum):
+              o=phoff+i*phentsz
+              tp,fl=struct.unpack_from('<II',eh,o)
+              off,va,pa,fsz,msz=struct.unpack_from('<QQQQQ',eh,o+8)
+              if tp==1: segs.append((va,off,fsz))
+          print('LOADS',[(hex(a),hex(b),hex(c)) for a,b,c in segs])
+          def v2f(v):
+              for va,off,fsz in segs:
+                  if va<=v<va+fsz: return off+(v-va)
+              return None
+          for nm,g in (('0x90df80',0xa0df80),('0x90df88',0xa0df88),('0x90e058',0xa0e058),
+                       ('0x90e088',0xa0e088),('0x910f18',0xa10f18),('0x90e470',0xa0e470)):
+              f=v2f(g-0x100000)
+              if f is None: print(nm,'nomap'); continue
+              v,=struct.unpack_from('<Q',d,f)
+              print('%s file_off=0x%x -> 0x%016x' % (nm,f,v))
+          # init_array
+          f=v2f(0x90d7b0)
+          print('== .init_array (38) ==')
+          for i in range(38):
+              v,=struct.unpack_from('<Q',d,f+i*8)
+              print('  [%2d] 0x%016x'%(i,v))
+          PY
+
+      - name: Commit results
         if: always()
         run: |
-          set +e
+          set -x
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f aps2-out/aps2.log aps2-out/relocs_apply.txt aps2-out/relocs.err
-          git add -f aps2-out/virt.bin 2>/dev/null
+          ls -l aps2-out/
+          git add -f aps2-out/relocs.txt aps2-out/relocs.err aps2-out/aps2_report.txt 2>/dev/null || true
+          git add -f aps2-out/virt.bin 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "nothing"
+            echo "nothing staged"
           else
-            git commit -m "chore: APS2 unpack"
+            git commit -m "chore: APS2 unpack (x86 runner, llvm-readelf)"
             git pull --rebase -q origin main || true
             git push || echo "push failed"
           fi

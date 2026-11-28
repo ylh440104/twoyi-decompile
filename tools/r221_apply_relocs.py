@@ -1,56 +1,84 @@
 #!/usr/bin/env python3
-"""Round 221 — unpack APS2 statically, with LLVM doing the decoding.
+"""Apply APS2-decoded relocations to libtwoyi.so, in VIRTUAL ADDRESS space.
 
-The bionic-runtime route died on a hard fact: even bionic's own toybox
-segfaults (rc=139) on a stock Linux kernel, so no APS2 handling can happen by
-execution here.
+Why this rewrite:
+  * the previous version passed Ghidra addresses (0xa0df80) to v2f(), but the
+    real vaddr is 0xa0df80 - 0x100000 = 0x90df80, inside .got.  Every slot
+    lookup returned None.
+  * it did pack_into(mem, off, ...) using the *virtual address* as a *file
+    offset*.  For PT_LOAD #2 and #3 those differ (delta -0x4000 / -0x8000), so
+    even a successful decode would have patched the wrong bytes.
+  * .init_array was hardcoded at 0x9157b0 (.data); the section header says
+    0x90d7b0.
 
-But APS2 does not need execution.  It is a *packed* encoding of ordinary RELA
-records, and llvm-readelf decodes it (LLVM >= 9, decodeRelocationGroups).  So:
+This version builds a pure virtual-address image: mem[vaddr] == runtime byte.
+PT_LOAD contents are copied in by vaddr, .bss stays zero, relocations are
+applied at vaddr, and every readout is by vaddr.  Base is 0, so a RELATIVE
+relocation's result equals its addend.
 
-  1. llvm-readelf --relocations  -> every record, plain text
-  2. this script applies them to the on-disk image with a virtual base of 0,
-     which turns every RELATIVE relocation into the absolute offset it points at
-  3. the six GOT slots, .init_array and the .data/.bss deltas are then read out
-     of the resulting image
-
-Usage: apply_relocs.py <libtwoyi.so> <relocs.txt> <outdir>
+Usage: r221_apply_relocs.py <libtwoyi.so> <relocs.txt> <outdir>
 """
+import os
 import re
 import struct
 import sys
-import os
 
-# PT_LOAD: (file_off, vaddr, filesz)  -- segment #2 and #3 are NOT 1:1, so the
-# whole file must be addressed through this map instead of file_off == vaddr.
-LOADS = [
-    (0x000000, 0x000000, 0x8e17e0),
-    (0x8e17e0, 0x8e57e0, 0x02c000),
-    (0x90d830, 0x915830, 0x007ff0),
-]
+# Ghidra's address space for this binary is vaddr + 0x100000.
+GHIDRA_DELTA = 0x100000
 
-SLOTS = [0xa0df80, 0xa0df88, 0xa0e058, 0xa0e088, 0xa10f18]
+# section facts taken from the section header table (see aps2 report)
+SEC = {
+    '.text':            (0x1c52b0, 0x8e0490),
+    '.data.rel.ro':     (0x8e57e0, 0x90d7a0),
+    '.fini_array':      (0x90d7a0, 0x90d7b0),
+    '.init_array':      (0x90d7b0, 0x90d8e0),
+    '.dynamic':         (0x90d8e0, 0x90daa0),
+    '.got':             (0x90daa0, 0x9111d8),
+    '.got.plt':         (0x910f08, 0x911830),
+    '.data':            (0x915830, 0x96c388),
+    '.bss':             (0x96c390, 0x974f60),
+}
 
-LINE = re.compile(
-    r'^\s*([0-9a-f]{8,16})\s+([0-9a-f]{8,16})\s+(R_AARCH64_\w+)\s*(.*)$')
+TARGET_SLOTS = [0x90df80, 0x90df88, 0x90e058, 0x90e088, 0x910f18, 0x90e470]
+
+LINE = re.compile(r'^\s*([0-9a-f]{6,16})\s+([0-9a-f]{6,16})\s+(R_AARCH64_\w+)\s*(.*)$')
 
 
-def v2f(v):
-    for f, va, sz in LOADS:
-        if va <= v < va + sz:
-            return f + (v - va)
-    return None
+def load_segments(path):
+    d = open(path, 'rb').read()
+    phoff, = struct.unpack_from('<Q', d, 0x20)
+    phentsz, phnum = struct.unpack_from('<HH', d, 0x36)
+    segs = []
+    for i in range(phnum):
+        o = phoff + i * phentsz
+        tp, fl = struct.unpack_from('<II', d, o)
+        off, va, pa, fsz, msz = struct.unpack_from('<QQQQQ', d, o + 8)
+        if tp == 1:
+            segs.append((off, va, fsz, msz))
+    return d, segs
+
+
+def which(v):
+    for name, (lo, hi) in SEC.items():
+        if lo <= v < hi:
+            return '%s+0x%x' % (name, v - lo)
+    return ''
 
 
 def main():
     lib, relocs, outdir = sys.argv[1], sys.argv[2], sys.argv[3]
-    d = bytearray(open(lib, 'rb').read())
-    mem = bytearray(d)            # virtual image, base 0, .bss stays zero
+    disk, segs = load_segments(lib)
+
+    # virtual image, base 0
+    top = max(va + msz for _, va, _, msz in segs)
+    mem = bytearray(top)
+    for off, va, fsz, _ in segs:
+        mem[va:va + fsz] = disk[off:off + fsz]
 
     kinds = {}
-    per_type = {}
     applied = 0
-    bad = 0
+    skipped = 0
+    samples = {}
     for line in open(relocs, errors='replace'):
         m = LINE.match(line)
         if not m:
@@ -59,8 +87,6 @@ def main():
         typ = m.group(3)
         rest = m.group(4).strip()
         kinds[typ] = kinds.get(typ, 0) + 1
-        per_type.setdefault(typ, [])
-        # addend is the trailing hex on RELATIVE / SYMBOLIC lines
         add = 0
         if rest:
             tail = rest.split()[-1]
@@ -70,78 +96,89 @@ def main():
                     add -= 1 << 64
             except ValueError:
                 add = 0
-        if typ == 'R_AARCH64_RELATIVE':
-            val = add & 0xffffffffffffffff     # base == 0
-        elif typ in ('R_AARCH64_ABS64', 'R_AARCH64_GLOB_DAT', 'R_AARCH64_JUMP_SLOT'):
+        if typ in ('R_AARCH64_RELATIVE', 'R_AARCH64_ABS64',
+                   'R_AARCH64_GLOB_DAT', 'R_AARCH64_JUMP_SLOT'):
             val = add & 0xffffffffffffffff
         else:
+            skipped += 1
             continue
         if off + 8 <= len(mem):
             struct.pack_into('<Q', mem, off, val)
             applied += 1
-            if len(per_type[typ]) < 40:
-                per_type[typ].append((off, val))
+            samples.setdefault(typ, [])
+            if len(samples[typ]) < 40:
+                samples[typ].append((off, val))
         else:
-            bad += 1
+            skipped += 1
 
     os.makedirs(outdir, exist_ok=True)
     open(os.path.join(outdir, 'virt.bin'), 'wb').write(mem)
 
     out = []
-    out.append('# round 221 — APS2 unpacked by llvm-readelf and applied at base 0')
-    out.append('total applied %d  (past-end %d)' % (applied, bad))
+    out.append('# APS2 unpacked (llvm-readelf) and applied, base 0, vaddr space')
+    out.append('image bytes    %d   (top vaddr 0x%x)' % (len(mem), top))
+    out.append('applied        %d' % applied)
+    out.append('skipped        %d' % skipped)
     out.append('')
     out.append('## relocation kinds')
     for k, c in sorted(kinds.items(), key=lambda x: -x[1]):
-        out.append('  %-28s %6d' % (k, c))
+        out.append('  %-30s %7d' % (k, c))
     out.append('')
-    out.append('## the six GOT slots after relocation')
-    for s in SLOTS:
-        f = v2f(s)
-        before = struct.unpack_from('<Q', d, f)[0] if f is not None else 0
-        after = struct.unpack_from('<Q', mem, f)[0]
-        tgt = ''
-        if after:
-            for lo, hi, name in ((0x1c52b0, 0x8d62b0, '.text'),
-                                 (0x8e57e0, 0x9157e0, '.data'),
-                                 (0x915630, 0x91d62a, '.bss'),
-                                 (0x1d910, 0x11de0c, '.rodata')):
-                if lo <= after < hi:
-                    tgt = '%s+0x%x' % (name, after - lo)
-                    break
-        out.append('  0x%08x  disk=0x%016x  after=0x%016x  %s' % (s, before, after, tgt))
+    out.append('## sections (virtual)')
+    for name, (lo, hi) in SEC.items():
+        out.append('  %-14s 0x%08x..0x%08x  %d B' % (name, lo, hi, hi - lo))
     out.append('')
-    out.append('## .init_array (vaddr 0x9157b0, 304 bytes = 38 entries)')
+    out.append('## the six GOT slots, after relocation')
+    for s in TARGET_SLOTS:
+        before = struct.unpack_from('<Q', disk, 0)[0] if False else None
+        # disk value via segment map
+        dv = None
+        for off, va, fsz, _ in segs:
+            if va <= s < va + fsz:
+                dv = struct.unpack_from('<Q', disk, off + (s - va))[0]
+                break
+        av = struct.unpack_from('<Q', mem, s)[0]
+        out.append('  0x%08x (ghidra 0x%08x)  disk=%-18s after=0x%016x  %s'
+                   % (s, s + GHIDRA_DELTA,
+                      ('0x%016x' % dv) if dv is not None else 'unmapped',
+                      av, which(av)))
+    out.append('')
+    out.append('## .init_array (0x90d7b0, 304 B = 38 entries)')
+    nz = 0
     for i in range(38):
-        v = struct.unpack_from('<Q', mem, 0x9157b0 + i * 8)[0]
-        out.append('  [%2d] 0x%016x' % (i, v))
+        v = struct.unpack_from('<Q', mem, 0x90d7b0 + i * 8)[0]
+        if v:
+            nz += 1
+        out.append('  [%2d] 0x%016x  %s' % (i, v, which(v)))
+    out.append('  non-zero entries: %d / 38' % nz)
     out.append('')
-    out.append('## .data / .bss how many 8-byte words became non-zero')
-    for lo, hi, name in ((0x8e57e0, 0x9157e0, '.data'),
-                         (0x915630, 0x91d62a, '.bss')):
-        n = 0
+    out.append('## how many 8-byte words are non-zero')
+    for name in ('.data.rel.ro', '.data', '.bss'):
+        lo, hi = SEC[name]
         tot = (hi - lo) // 8
-        nz_disk = 0
+        n_mem = sum(1 for a in range(lo, hi - 7, 8)
+                    if struct.unpack_from('<Q', mem, a)[0])
+        n_disk = 0
         for a in range(lo, hi - 7, 8):
-            f = v2f(a)
-            dv = struct.unpack_from('<Q', d, f)[0] if f is not None else 0
-            mv = struct.unpack_from('<Q', mem, a)[0]
-            if mv:
-                n += 1
-            if dv:
-                nz_disk += 1
-        out.append('  %-6s words=%6d  non-zero: disk=%6d after=%6d' % (name, tot, nz_disk, n))
+            for off, va, fsz, _ in segs:
+                if va <= a < va + fsz:
+                    if struct.unpack_from('<Q', disk, off + (a - va))[0]:
+                        n_disk += 1
+                    break
+        out.append('  %-14s words=%6d  non-zero: disk=%6d  after=%6d'
+                   % (name, tot, n_disk, n_mem))
     out.append('')
-    out.append('## first 40 of each kind')
-    for k in ('R_AARCH64_RELATIVE', 'R_AARCH64_ABS64', 'R_AARCH64_GLOB_DAT', 'R_AARCH64_JUMP_SLOT'):
-        if k not in per_type:
+    out.append('## samples')
+    for k in ('R_AARCH64_RELATIVE', 'R_AARCH64_ABS64',
+              'R_AARCH64_GLOB_DAT', 'R_AARCH64_JUMP_SLOT'):
+        if k not in samples:
             continue
         out.append('### ' + k)
-        for off, val in per_type[k][:40]:
-            out.append('  0x%08x -> 0x%016x' % (off, val))
+        for off, val in samples[k][:40]:
+            out.append('  0x%08x -> 0x%016x  %s' % (off, val, which(val)))
     txt = '\n'.join(out) + '\n'
     open(os.path.join(outdir, 'relocs_apply.txt'), 'w').write(txt)
-    print(txt[:4000])
+    print(txt[:5000])
 
 
 if __name__ == '__main__':
