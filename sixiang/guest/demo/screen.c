@@ -59,6 +59,8 @@ static uint32_t *g_fb;            /* current draw target */
 static uint32_t *g_slot[NSLOT];
 static int g_busy[NSLOT];
 static int g_cur = -1;
+static int g_ready;               /* slots mapped so far */
+static int g_pending_fd = -1;     /* fd that arrived with an SCM_RIGHTS cmsg */
 
 static char g_labels[TILE_MAX][16];
 static int g_nlabels;
@@ -300,22 +302,6 @@ static int ctl_connect(const char *name)
     return fd;
 }
 
-static int make_memfd(int bytes)
-{
-#ifdef __NR_memfd_create
-    int fd = (int)syscall(__NR_memfd_create, "sixiang-fb", 0);
-    if (fd < 0) return -1;
-    if (ftruncate(fd, bytes) != 0) {
-        close(fd);
-        return -1;
-    }
-    return fd;
-#else
-    (void)bytes;
-    return -1;
-#endif
-}
-
 static int env_int(const char *k, int def)
 {
     const char *v = getenv(k);
@@ -345,6 +331,21 @@ static void handle_line(char *line, int *tx, int *ty, int *age, int *hit,
     } else if (strncmp(line, "rel ", 4) == 0) {
         int s = atoi(line + 4);
         if (s >= 0 && s < NSLOT) g_busy[s] = 0;
+    } else if (strncmp(line, "fbuf ", 5) == 0) {
+        int s = atoi(line + 5);
+        if (g_pending_fd >= 0 && s >= 0 && s < NSLOT) {
+            void *p = mmap(NULL, (size_t)g_w * g_h * 4, PROT_READ | PROT_WRITE,
+                           MAP_SHARED, g_pending_fd, 0);
+            if (p != MAP_FAILED) {
+                g_slot[s] = (uint32_t *)p;
+                g_ready++;
+            } else {
+                fprintf(stderr, "screen: mmap slot %d: %s\n", s, strerror(errno));
+            }
+            close(g_pending_fd);
+            g_pending_fd = -1;
+            sendf("bufok %d\n", s);
+        }
     }
 }
 
@@ -374,23 +375,9 @@ int main(void)
     if (g_ctl < 0) return 3;
 
     int bytes = g_w * g_h * 4;
-    size_t nbytes = (size_t)bytes;
+    (void)bytes;
     sendf("hello %d %d %d %d\n", (int)getpid(), g_w, g_h, NSLOT);
-    for (int i = 0; i < NSLOT; i++) {
-        int fd = make_memfd(bytes);
-        if (fd < 0) {
-            fprintf(stderr, "screen: memfd_create: %s\n", strerror(errno));
-            return 4;
-        }
-        void *p = mmap(NULL, nbytes, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-        if (p == MAP_FAILED) {
-            fprintf(stderr, "screen: mmap: %s\n", strerror(errno));
-            return 4;
-        }
-        g_slot[i] = (uint32_t *)p;
-        g_busy[i] = 0;
-        sendf("buf %d %d\n", i, fd);
-    }
+    /* the app answers with "fbuf <slot>" carrying an SCM_RIGHTS fd per slot */
 
     fprintf(stderr, "screen: up %dx%d dpi=%d tiles=%dx%d labels=%d slots=%d\n",
             g_w, g_h, g_s * 100, L_tw, L_th, g_nlabels, NSLOT);
@@ -404,12 +391,31 @@ int main(void)
     size_t rxlen = 0;
 
     for (int t = 0;; t++) {
-        /* 1. drain control messages without blocking */
+        /* 1. drain control messages without blocking; fds arrive as SCM_RIGHTS */
         for (;;) {
             struct pollfd pf = {g_ctl, POLLIN, 0};
             if (poll(&pf, 1, 0) <= 0) break;
-            ssize_t n = read(g_ctl, rx + rxlen, sizeof(rx) - 1 - rxlen);
+            char buf[256];
+            struct iovec iov;
+            iov.iov_base = buf;
+            iov.iov_len = sizeof buf - 1;
+            char cbuf[CMSG_SPACE(sizeof(int))];
+            struct msghdr msg;
+            memset(&msg, 0, sizeof msg);
+            msg.msg_iov = &iov;
+            msg.msg_iovlen = 1;
+            msg.msg_control = cbuf;
+            msg.msg_controllen = sizeof cbuf;
+            ssize_t n = recvmsg(g_ctl, &msg, MSG_DONTWAIT);
             if (n <= 0) break;
+            for (struct cmsghdr *c = CMSG_FIRSTHDR(&msg); c; c = CMSG_NXTHDR(&msg, c)) {
+                if (c->cmsg_level == SOL_SOCKET && c->cmsg_type == SCM_RIGHTS &&
+                    c->cmsg_len >= CMSG_LEN(sizeof(int))) {
+                    g_pending_fd = *(int *)CMSG_DATA(c);
+                }
+            }
+            if (rxlen + (size_t)n >= sizeof(rx) - 1) rxlen = 0;
+            memcpy(rx + rxlen, buf, (size_t)n);
             rxlen += (size_t)n;
             rx[rxlen] = 0;
             char *nl;
@@ -420,6 +426,11 @@ int main(void)
                 memmove(rx, nl + 1, rxlen - (size_t)(nl + 1 - rx) + 1);
                 rxlen -= (size_t)(nl + 1 - rx);
             }
+        }
+
+        if (g_ready < NSLOT) {          /* wait for the app to hand over slots */
+            nanosleep(&ts, NULL);
+            continue;
         }
 
         if (age >= 0 && age < 64) age++;

@@ -109,6 +109,7 @@ public class MainActivity extends Activity {
     private OutputStream toGuest;
     private int guestPid;
     private int slotCount;
+    private int ready;
     private MappedByteBuffer[] slotMap;
     private IntBuffer[] slotInts;
 
@@ -515,6 +516,7 @@ public class MainActivity extends Activity {
             slotMap = null;
             slotInts = null;
             slotCount = 0;
+            ready = 0;
             frames = 0;
             fpsT0 = 0;
 
@@ -567,6 +569,7 @@ public class MainActivity extends Activity {
         conn = s;
         BufferedReader r = new BufferedReader(new InputStreamReader(s.getInputStream()));
         toGuest = s.getOutputStream();
+        ready = 0;
         String line;
         while ((line = r.readLine()) != null) {
             if (line.startsWith("hello ")) {
@@ -575,15 +578,15 @@ public class MainActivity extends Activity {
                     guestPid = Integer.parseInt(p[1]);
                     int w = Integer.parseInt(p[2]);
                     int h = Integer.parseInt(p[3]);
-                    slotCount = Integer.parseInt(p[4]);
-                    slotMap = new MappedByteBuffer[slotCount];
-                    slotInts = new IntBuffer[slotCount];
-                    say("  ctl: guest pid=" + guestPid + " " + w + "x" + h
-                            + " slots=" + slotCount);
+                    say("  ctl: guest pid=" + guestPid + " " + w + "x" + h);
+                    openSlots();
+                    for (int i = 0; i < slotCount; i++) sendFd(i);
                 }
-            } else if (line.startsWith("buf ")) {
-                String[] p = line.trim().split("\\s+");
-                if (p.length >= 3) mapSlot(Integer.parseInt(p[1]), Integer.parseInt(p[2]));
+            } else if (line.startsWith("bufok ")) {
+                int slot = Integer.parseInt(line.substring(6).trim());
+                ready++;
+                streaming = ready >= slotCount;
+                say("  ctl: guest 已挂上 slot " + slot + "（" + ready + "/" + slotCount + "）");
             } else if (line.startsWith("frame ")) {
                 int slot = Integer.parseInt(line.substring(6).trim());
                 blit(slot);
@@ -602,27 +605,43 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * The guest sends (pid, fd). /proc/&lt;pid&gt;/fd/&lt;n&gt; resolves to the same memfd, so
-     * this is an fd handoff without native code on our side.
+     * The app creates the buffers and hands the fds to the guest with
+     * SCM_RIGHTS (LocalSocket.setFileDescriptorsForSend). The guest maps the
+     * same inode, paints into it and tells us "frame &lt;slot&gt;". Android refuses
+     * /proc/&lt;pid&gt;/fd for another uid, so this direction is the one that works
+     * without native code on the app side.
      */
-    private void mapSlot(int slot, int fd) {
-        try {
-            if (slotMap == null || slot >= slotMap.length) return;
-            String path = "/proc/" + guestPid + "/fd/" + fd;
-            FileInputStream in = new FileInputStream(path);
-            FileChannel ch = in.getChannel();
-            long size = (long) fbW * fbH * 4;
-            MappedByteBuffer m = ch.map(FileChannel.MapMode.READ_ONLY, 0, size);
+    private void openSlots() throws Exception {
+        slotCount = 2;
+        slotMap = new MappedByteBuffer[slotCount];
+        slotInts = new IntBuffer[slotCount];
+        int size = fbW * fbH * 4;
+        for (int i = 0; i < slotCount; i++) {
+            File f = new File(getFilesDir(), "frames" + i + ".bin");
+            RandomAccessFile raf = new RandomAccessFile(f, "rw");
+            raf.setLength(size);
+            FileChannel ch = raf.getChannel();
+            MappedByteBuffer m = ch.map(FileChannel.MapMode.READ_WRITE, 0, size);
             m.order(ByteOrder.nativeOrder());
+            slotMap[i] = m;
             ByteBuffer base = m;
             ByteBuffer dup = base.duplicate();
             dup.order(ByteOrder.nativeOrder());
-            slotMap[slot] = m;
-            slotInts[slot] = dup.asIntBuffer();
-            streaming = true;
-            say("  ctl: slot " + slot + " <- " + path + " (" + size + " B)");
-        } catch (Throwable t) {
-            say("  !! 映射 slot " + slot + " 失败: " + t);
+            slotInts[i] = dup.asIntBuffer();
+        }
+        say("  ctl: 建好 " + slotCount + " 个缓冲，每个 " + size + " B");
+    }
+
+    private void sendFd(int slot) throws Exception {
+        File f = new File(getFilesDir(), "frames" + slot + ".bin");
+        android.os.ParcelFileDescriptor pfd = android.os.ParcelFileDescriptor.open(
+                f, android.os.ParcelFileDescriptor.MODE_READ_WRITE);
+        try {
+            conn.setFileDescriptorsForSend(new java.io.FileDescriptor[]{
+                    pfd.getFileDescriptor()});
+            send("fbuf " + slot);
+        } finally {
+            pfd.close();
         }
     }
 
