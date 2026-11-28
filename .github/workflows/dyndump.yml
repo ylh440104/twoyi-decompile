@@ -1,0 +1,123 @@
+name: Dynamic dump of libtwoyi.so (aarch64)
+
+# Loads the real library under an aarch64 user-mode emulator, lets the dynamic
+# linker relocate it, and dumps what only exists at runtime:
+#   * the 6 GOT slots that are 0 in the static image (the "anonymous PLT stubs")
+#   * .data / .bss after relocation
+#   * the same again after the 38 DT_INIT_ARRAY constructors and after JNI_OnLoad
+#
+# Everything is diffed against the static file image, so the output answers:
+# which bytes are written at load time, and what the 0-slots become.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'dyn/**'
+      - '.github/workflows/dyndump.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dyndump
+  cancel-in-progress: false
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install aarch64 toolchain + qemu-user
+        run: |
+          set -eux
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gcc-aarch64-linux-gnu qemu-user-static
+          aarch64-linux-gnu-gcc --version | head -1
+          qemu-aarch64-static --version | head -1
+
+      - name: Fetch libtwoyi.so
+        run: |
+          set -eux
+          mkdir -p work dyn-out
+          curl -fL --retry 3 -o work/libtwoyi.so \
+            "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
+          ls -l work/libtwoyi.so
+          sha256sum work/libtwoyi.so | tee dyn-out/input.sha256
+
+      - name: Build bionic stubs and wire the DT_NEEDED names
+        run: |
+          set -eux
+          mkdir -p stubs
+          aarch64-linux-gnu-gcc -O2 -shared -fPIC -o stubs/libbionic_extra.so dyn/stubs.c
+          ln -sf /usr/aarch64-linux-gnu/lib/libc.so.6 stubs/libc.so
+          ln -sf /usr/aarch64-linux-gnu/lib/libm.so.6 stubs/libm.so
+          ln -sf /usr/aarch64-linux-gnu/lib/libdl.so.2 stubs/libdl.so
+          ln -sf libbionic_extra.so stubs/libandroid.so
+          ln -sf libbionic_extra.so stubs/liblog.so
+          ls -l stubs
+
+      - name: Build dumper
+        run: aarch64-linux-gnu-gcc -O2 -o dumper dyn/dumper.c -ldl
+
+      - name: Make the two patched variants
+        run: |
+          python3 dyn/patch_noinit.py work/libtwoyi.so work/libtwoyi_noinit.so --clear-now --clear-init
+          python3 dyn/patch_noinit.py work/libtwoyi.so work/libtwoyi_lazy.so --clear-now
+          sha256sum work/*.so
+
+      - name: Phase 1 -- relocate only (no constructors)
+        run: |
+          QEMU_LD_PREFIX=/usr/aarch64-linux-gnu LD_LIBRARY_PATH="$PWD/stubs" \
+            qemu-aarch64-static ./dumper "$PWD/work/libtwoyi_noinit.so" "$PWD/dyn-out" noinit || true
+
+      - name: Phase 2 -- with constructors
+        run: |
+          QEMU_LD_PREFIX=/usr/aarch64-linux-gnu LD_LIBRARY_PATH="$PWD/stubs" \
+            qemu-aarch64-static ./dumper "$PWD/work/libtwoyi_lazy.so" "$PWD/dyn-out" init || true
+
+      - name: Phase 3 -- constructors + JNI_OnLoad
+        run: |
+          QEMU_LD_PREFIX=/usr/aarch64-linux-gnu LD_LIBRARY_PATH="$PWD/stubs" \
+            qemu-aarch64-static ./dumper "$PWD/work/libtwoyi_lazy.so" "$PWD/dyn-out" jni || true
+
+      - name: Diff against the static image
+        if: always()
+        run: python3 dyn/compare.py work/libtwoyi.so dyn-out | tee dyn-out/compare.txt
+
+      - name: Show everything
+        if: always()
+        run: |
+          set +e
+          for f in dyn-out/*_status.txt dyn-out/*_slots.txt dyn-out/compare.txt; do
+            echo "=== $f ==="
+            cat "$f" 2>/dev/null
+            echo
+          done
+          ls -la dyn-out
+
+      - name: Commit results
+        if: always()
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A dyn-out
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "chore: dynamic dump of libtwoyi.so (aarch64/qemu)"
+            git pull --rebase -q origin main || true
+            git push
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dyn-out
+          path: dyn-out
+          retention-days: 30
