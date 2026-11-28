@@ -1,42 +1,81 @@
 # SiXiang.apk
 
-commit: `15bd660f81cdb7d38203fb2602b8cb376aeb74a8`
+commit: `8816593a5d4657d44c64d52a8788923f08c8f314`
 
-run: https://github.com/ylh440104/twoyi-decompile/actions/runs/46155186284
+run: https://github.com/ylh440104/twoyi-decompile/actions/runs/46155419437
 
 ## dist
 ```
-total 8
--rw-r--r-- 1 runner runner 1016 Nov 28 14:33 build.log
--rw-r--r-- 1 runner runner  155 Nov 28 14:33 report.md
+total 3912
+-rw-r--r-- 1 runner runner 3990116 Nov 28 14:35 SiXiang.apk
+-rw-r--r-- 1 runner runner    2439 Nov 28 14:35 build.log
+-rw-r--r-- 1 runner runner    1542 Nov 28 14:35 inspect.txt
+-rw-r--r-- 1 runner runner     155 Nov 28 14:35 report.md
 ```
 ## sha256
 ```
-(no apk)
+f17d3250a5a0081d397b942186a5ff8351effb5a0c6718c5f26c6a8d9181e4ec  sixiang/app/dist/SiXiang.apk
 ```
 ## build.log tail
 ```
 build-tools: /home/runner/android-sdk/build-tools/33.0.2
 platform   : /home/runner/android-sdk/platforms/android-33
 javac      : javac 17.0.21.1
-work: /tmp/tmp.i4KR0nCqPu
+work: /tmp/tmp.b08CICEkA7
 
 == javac ==
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$6.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$5.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$2$1.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$2.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$1.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$3.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$1$1.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$5$1.class
-  /tmp/tmp.i4KR0nCqPu/classes/io/sixiang/MainActivity$4.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$1.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$6.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$5.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$5$1.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$2$1.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$1$1.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$3.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$2.class
+  /tmp/tmp.b08CICEkA7/classes/io/sixiang/MainActivity$4.class
 
 == d8 (dex) ==
--rw-r--r-- 1 runner runner 13840 Nov 28 14:33 /tmp/tmp.i4KR0nCqPu/classes.dex
+-rw-r--r-- 1 runner runner 13840 Nov 28 14:35 /tmp/tmp.b08CICEkA7/classes.dex
 
 == aapt2 ==
 values_strings.arsc.flat
-sixiang/app/AndroidManifest.xml:30: error: not well-formed (invalid token).
+-rw-r--r-- 1 runner runner 1555 Nov 28 14:35 /tmp/tmp.b08CICEkA7/base.apk
+
+== stage payload ==
+/tmp/tmp.b08CICEkA7/stage/assets:
+total 3588
+-rw-r--r-- 1 runner runner 3671032 Nov 28 14:35 guest.zip
+
+/tmp/tmp.b08CICEkA7/stage/lib/arm64-v8a:
+total 660
+-rwxr-xr-x 1 runner runner 706544 Nov 28 14:35 libmini_loader.so
+
+== assemble ==
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     1988  1980-01-01 00:00   AndroidManifest.xml
+      560  1980-01-01 00:00   resources.arsc
+    13840  2026-11-28 14:35   classes.dex
+        0  2026-11-28 14:35   lib/
+        0  2026-11-28 14:35   lib/arm64-v8a/
+   706544  2026-11-28 14:35   lib/arm64-v8a/libmini_loader.so
+        0  2026-11-28 14:35   assets/
+  3671032  2026-11-28 14:35   assets/guest.zip
+---------                     -------
+  4393964                     8 files
+  ok: lib/arm64-v8a/libmini_loader.so
+  ok: assets/guest.zip
+  ok: classes.dex
+
+== align + sign ==
+Signer #1 certificate DN: CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN
+Signer #1 certificate SHA-256 digest: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
+Signer #1 certificate SHA-1 digest: 6d465928339b2db0c2b403794bca95506a721c77
+Signer #1 certificate MD5 digest: ef6fc5e26ec56205a07f38564189ae7a
+signer sha256: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
+-rw-r--r-- 1 runner runner 3.9M Nov 28 14:35 sixiang/app/dist/SiXiang.apk
+
+sha256: f17d3250a5a0081d397b942186a5ff8351effb5a0c6718c5f26c6a8d9181e4ec
+DONE
 ```
