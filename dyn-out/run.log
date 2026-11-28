@@ -1,4 +1,4 @@
-== dyndump start Sat Nov 28 01:15:57 UTC 2026 ==
+== dyndump start Sat Nov 28 01:20:51 UTC 2026 ==
 Linux runnervmu7lcj 7.0.0-1020-azure #21~24.04.2-Ubuntu SMP PREEMPT Tue Nov 10 01:19:17 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 aarch64
 Python 3.12.3
@@ -6,10 +6,10 @@ gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
 --- curl
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 9619k  100 9619k    0     0  23.3M      0 --:--:-- --:--:-- --:--:-- 23.3M
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  1 9619k    1  192k    0     0   737k      0  0:00:13 --:--:--  0:00:13  737k100 9619k  100 9619k    0     0  27.1M      0 --:--:-- --:--:-- --:--:--  108M
 curl rc=0
--rw-r--r-- 1 runner runner 9850096 Nov 28 01:15 work/libtwoyi.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 01:20 work/libtwoyi.so
 5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
 --- stubs
 dyn/stubs.c: In function ‘__read_chk’:
@@ -43,68 +43,80 @@ dyn/stubs.c:90:39: warning: implicit declaration of function ‘umask’ [-Wimpl
 stub rc=0
 LIBC=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6  LIBM=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 total 36
-lrwxrwxrwx 1 runner runner    18 Nov 28 01:15 libandroid.so -> libbionic_extra.so
--rwxr-xr-x 1 runner runner 72976 Nov 28 01:15 libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:15 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:15 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    18 Nov 28 01:15 liblog.so -> libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:15 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:20 libandroid.so -> libbionic_extra.so
+-rwxr-xr-x 1 runner runner 72976 Nov 28 01:20 libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:20 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:20 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:20 liblog.so -> libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:20 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 --- dumper
 dumper rc=0
 dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=872e98fb0066957b8bca1109fc89e12e4dbc0dee, for GNU/Linux 3.7.0, not stripped
 --- patch noinit
   DT_FLAGS 0x8 -> 0
-  DT_FLAGS_1 0x1 -> 0x1
+  DT_FLAGS_1 0x1 -> 0
   DT_INIT_ARRAYSZ 304 -> 0
   DT_INIT_ARRAY 0x90d7a0 -> 0
-  DT_VERSYM 0x1ed0 -> 0
-  DT_VERNEED 0x2124 -> 0
-  DT_VERNEEDNUM 3 -> 0
+  tag 0x6ffffff0 -> DT_FLAGS 0
+  tag 0x6ffffffe -> DT_FLAGS 0
+  tag 0x6fffffff -> DT_FLAGS 0
 wrote work/libtwoyi_noinit.so (9850096 bytes)
 rc=0
 --- patch lazy
   DT_FLAGS 0x8 -> 0
-  DT_FLAGS_1 0x1 -> 0x1
-  DT_VERSYM 0x1ed0 -> 0
-  DT_VERNEED 0x2124 -> 0
-  DT_VERNEEDNUM 3 -> 0
+  DT_FLAGS_1 0x1 -> 0
+  tag 0x6ffffff0 -> DT_FLAGS 0
+  tag 0x6ffffffe -> DT_FLAGS 0
+  tag 0x6fffffff -> DT_FLAGS 0
 wrote work/libtwoyi_lazy.so (9850096 bytes)
 rc=0
 5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
-37d7fd25e032222c0df03d2d2b6f7ba4bc56d84b4822c89bdce13b1270ffe4be  work/libtwoyi_lazy.so
-8126a3ab15071fc290e37830deb3664faa6f6e57afd4d3612772312a17339539  work/libtwoyi_noinit.so
+96a1e993b25120db026942353454eddaed5028fdbaa54d1b2ee038b2f4fd8db2  work/libtwoyi_lazy.so
+dd72ff2266f4dd1efe880afa4dbfef366ce6c15c3b7d3c8780d22afb2f2d8c64  work/libtwoyi_noinit.so
 --- phase noinit
-dlopen failed: (null)
-phase noinit  status: exit 10
+[noinit] base = 0xff522c8e4000
+phase noinit  status: exit 0
 rc=0
 --- phase init
-dlopen failed: (null)
-phase init    status: exit 10
+phase init    status: signal 11
 rc=0
 --- phase jni
-dlopen failed: (null)
-phase jni     status: exit 10
+phase jni     status: signal 11
 rc=0
 --- compare
 == runtime .data vs static image ==
-  (no complete .data dump found)
+  noinit_data.bin              changed bytes: 0 (0.000%)
 
 == runtime .bss (static image has no bytes here) ==
+  noinit_bss.bin               49128 bytes, 0 non-zero (0.0%)
 rc=0
 --- slots
+load_base=0xff522c8e4000
+PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
+PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
+PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
+PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
+PTR_DAT_00a0e470         va=0x90e470   value=0x0
+PTR_00a10f18             va=0x910f18   value=0xff522d43e73c
 --- status
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
+killed by signal 11 (Segmentation fault)
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
+killed by signal 11 (Segmentation fault)
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so: unsupported version 17791 of Verneed record
 exited 10
+exited 0
 --- files
-total 36
-drwxr-xr-x  2 runner runner  4096 Nov 28 01:15 .
-drwxr-xr-x 15 runner runner 12288 Nov 28 01:15 ..
--rw-r--r--  1 runner runner   142 Nov 28 01:15 init_status.txt
--rw-r--r--  1 runner runner   142 Nov 28 01:15 jni_status.txt
--rw-r--r--  1 runner runner   144 Nov 28 01:15 noinit_status.txt
--rw-r--r--  1 runner runner  5803 Nov 28 01:15 run.log
-== dyndump end Sat Nov 28 01:15:58 UTC 2026 ==
+total 436
+drwxr-xr-x  2 runner runner   4096 Nov 28 01:20 .
+drwxr-xr-x 15 runner runner  12288 Nov 28 01:20 ..
+-rw-r--r--  1 runner runner    183 Nov 28 01:20 init_status.txt
+-rw-r--r--  1 runner runner    183 Nov 28 01:20 jni_status.txt
+-rw-r--r--  1 runner runner  49128 Nov 28 01:20 noinit_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 01:20 noinit_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 01:20 noinit_slots.txt
+-rw-r--r--  1 runner runner    153 Nov 28 01:20 noinit_status.txt
+-rw-r--r--  1 runner runner   6316 Nov 28 01:20 run.log
+== dyndump end Sat Nov 28 01:20:53 UTC 2026 ==
