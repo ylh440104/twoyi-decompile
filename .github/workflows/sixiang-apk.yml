@@ -83,7 +83,7 @@ jobs:
           CC=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android26-clang
           LOG=sixiang/loader/bin/build.log
           set +e
-          "$CC" -O2 -static -Wall -Wextra \
+          "$CC" -O2 -static -s -Wall -Wextra \
               -o sixiang/loader/bin/mini_loader sixiang/loader/mini_loader.c 2>&1 | tee "$LOG"
           rc=${PIPESTATUS[0]}
           set -e
