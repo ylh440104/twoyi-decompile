@@ -111,6 +111,7 @@ public class MainActivity extends Activity {
     private int guestPid;
     private int slotCount;
     private int ready;
+    private android.os.ParcelFileDescriptor[] slotPfd;
     private MappedByteBuffer[] slotMap;
     private IntBuffer[] slotInts;
 
@@ -582,6 +583,7 @@ public class MainActivity extends Activity {
                     say("  ctl: guest pid=" + guestPid + " " + w + "x" + h);
                     openSlots();
                     for (int i = 0; i < slotCount; i++) sendFd(i);
+                    clearPendingFds();
                 }
             } else if (line.startsWith("bufok ")) {
                 int slot = Integer.parseInt(line.substring(6).trim());
@@ -616,6 +618,7 @@ public class MainActivity extends Activity {
         slotCount = 2;
         slotMap = new MappedByteBuffer[slotCount];
         slotInts = new IntBuffer[slotCount];
+        slotPfd = new android.os.ParcelFileDescriptor[slotCount];
         int size = fbW * fbH * 4;
         for (int i = 0; i < slotCount; i++) {
             File f = new File(getFilesDir(), "frames" + i + ".bin");
@@ -629,20 +632,24 @@ public class MainActivity extends Activity {
             ByteBuffer dup = base.duplicate();
             dup.order(ByteOrder.nativeOrder());
             slotInts[i] = dup.asIntBuffer();
+            /* stay open: Android attaches the queued fds to the *next* write,
+             * so closing here would send a dead fd with the following message */
+            slotPfd[i] = android.os.ParcelFileDescriptor.open(
+                    f, android.os.ParcelFileDescriptor.MODE_READ_WRITE);
         }
         say("  ctl: 建好 " + slotCount + " 个缓冲，每个 " + size + " B");
     }
 
     private void sendFd(int slot) throws Exception {
-        File f = new File(getFilesDir(), "frames" + slot + ".bin");
-        android.os.ParcelFileDescriptor pfd = android.os.ParcelFileDescriptor.open(
-                f, android.os.ParcelFileDescriptor.MODE_READ_WRITE);
+        conn.setFileDescriptorsForSend(new java.io.FileDescriptor[]{
+                slotPfd[slot].getFileDescriptor()});
+        send("fbuf " + slot);
+    }
+
+    private void clearPendingFds() {
         try {
-            conn.setFileDescriptorsForSend(new java.io.FileDescriptor[]{
-                    pfd.getFileDescriptor()});
-            send("fbuf " + slot);
-        } finally {
-            pfd.close();
+            conn.setFileDescriptorsForSend(new java.io.FileDescriptor[0]);
+        } catch (Throwable ignored) {
         }
     }
 
@@ -686,6 +693,17 @@ public class MainActivity extends Activity {
         toGuest = null;
         slotMap = null;
         slotInts = null;
+        if (slotPfd != null) {
+            for (int i = 0; i < slotPfd.length; i++) {
+                if (slotPfd[i] != null) {
+                    try {
+                        slotPfd[i].close();
+                    } catch (Throwable ignored) {
+                    }
+                }
+            }
+            slotPfd = null;
+        }
     }
 
     private static void closeQuietly(Object o) {
