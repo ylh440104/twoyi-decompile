@@ -1,0 +1,23 @@
+### interp run: linker64 + toybox
+mini_loader: interp mode
+  program  /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox
+           base=0x5501098000 entry=0x55010cc000 phdr=0x5501098040
+  linker   /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/linker64
+           base=0x5501389000 entry=0x5501419700
+linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
+WARNING: linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
+linker: CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libcrypto.so" not found: needed by main executable
+CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libcrypto.so" not found: needed by main executable
+exit=1
+
+### second run: toybox uname -a
+mini_loader: interp mode
+  program  /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox
+           base=0x5501098000 entry=0x55010cc000 phdr=0x5501098040
+  linker   /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/linker64
+           base=0x5501389000 entry=0x5501419700
+linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
+WARNING: linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
+linker: CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libcrypto.so" not found: needed by main executable
+CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libcrypto.so" not found: needed by main executable
+exit=1
