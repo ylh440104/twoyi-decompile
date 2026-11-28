@@ -1,0 +1,120 @@
+name: SiXiang loader (no-exec ELF loader)
+
+# What this proves
+# ----------------
+# The loader maps an aarch64 ET_DYN image into anonymous memory, relocates it,
+# flips the text to PROT_EXEC and jumps. execve() is never called -- because on
+# the target device it is refused for anything under an app's data directory.
+#
+# The self-test runs under qemu-user here so the algorithm is verified before
+# anything reaches the phone. The binaries are uploaded as an artifact so the
+# same loader can be run natively on the device (aarch64 -> aarch64, no qemu).
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sixiang/loader/**'
+      - '.github/workflows/sixiang-loader.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install cross toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gcc-aarch64-linux-gnu file >/dev/null
+          aarch64-linux-gnu-gcc --version | head -1
+
+      - name: Install qemu-user (for the self-test)
+        run: |
+          set -uo pipefail
+          if sudo apt-get install -y -qq qemu-user-static >/dev/null 2>&1; then
+            echo "qemu from apt"
+          else
+            echo "apt failed, downloading static build"
+            curl -fsSL -o /tmp/qemu-aarch64-static \
+              https://github.com/multiarch/qemu-user-static/releases/download/v7.2.0-1/qemu-aarch64-static
+            chmod +x /tmp/qemu-aarch64-static
+            sudo cp /tmp/qemu-aarch64-static /usr/bin/qemu-aarch64-static
+          fi
+          command -v qemu-aarch64-static
+          qemu-aarch64-static --version | head -1
+
+      - name: Build
+        run: bash sixiang/loader/build.sh
+
+      - name: Self-test (this is the result that matters)
+        run: |
+          set -uo pipefail
+          mkdir -p sixiang/loader/out
+          : > sixiang/loader/out/selftest.log
+
+          echo "### freestanding payload (no libc)" | tee -a sixiang/loader/out/selftest.log
+          timeout 30 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
+              ./sixiang/loader/out/hello_freestanding 2>&1 | tee -a sixiang/loader/out/selftest.log
+          rc=${PIPESTATUS[0]}
+          echo "exit=$rc" | tee -a sixiang/loader/out/selftest.log
+
+          echo | tee -a sixiang/loader/out/selftest.log
+          echo "### glibc static-pie payload" | tee -a sixiang/loader/out/selftest.log
+          timeout 30 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
+              ./sixiang/loader/out/hello_static_pie 2>&1 | tee -a sixiang/loader/out/selftest.log
+          rc2=${PIPESTATUS[0]}
+          echo "exit=$rc2" | tee -a sixiang/loader/out/selftest.log
+
+          {
+            echo
+            echo "### verdict"
+            echo "freestanding exit = $rc"
+            echo "glibc        exit = $rc2"
+          } | tee -a sixiang/loader/out/selftest.log
+
+      - name: Write report
+        if: always()
+        run: |
+          OUT=sixiang/loader/out
+          {
+            echo "# loader build report"
+            echo
+            echo "commit: $GITHUB_SHA"
+            echo "run:    $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo '```'
+            ls -l $OUT 2>/dev/null || true
+            echo
+            file $OUT/* 2>/dev/null || true
+            echo '```'
+            echo
+            echo "## self-test"
+            echo '```'
+            cat $OUT/selftest.log 2>/dev/null || echo "(no output)"
+            echo '```'
+          } > $OUT/report.md
+          cat $OUT/report.md
+
+      - name: Keep the report, drop the binaries
+        if: always()
+        run: |
+          rm -f sixiang/loader/out/mini_loader \
+                sixiang/loader/out/hello_static_pie \
+                sixiang/loader/out/hello_freestanding
+          git config user.name  "sixiang-ci"
+          git config user.email "ci@sixiang.invalid"
+          git add sixiang/loader/out || true
+          git commit -q -m "loader: build + self-test report ($GITHUB_SHA)" || echo "nothing to commit"
+          git pull --rebase -q origin main || true
+          git push || echo "push skipped"
+
+      - name: Upload binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: sixiang-loader
+          path: |
+            sixiang/loader/out/mini_loader
+            sixiang/loader/out/hello_static_pie
+            sixiang/loader/out/hello_freestanding
+          if-no-files-found: error
