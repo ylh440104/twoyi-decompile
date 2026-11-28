@@ -121,6 +121,18 @@ jobs:
             echo "rc=$?"
           } >> dyn-out/run.log 2>&1
 
+      - name: Probe each constructor individually
+        run: |
+          set +e
+          {
+            echo "--- ctors: one constructor per load"
+            mkdir -p work
+            python3 dyn/probe_ctors.py work/libtwoyi_lazy.so ./dumper dyn-out
+            echo "rc=$?"
+            echo "--- ctors.tsv"
+            cat dyn-out/ctors.tsv 2>/dev/null
+          } >> dyn-out/run.log 2>&1
+
       - name: Diff against static image
         run: |
           set +e
