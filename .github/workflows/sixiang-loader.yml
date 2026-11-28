@@ -65,6 +65,11 @@ jobs:
       - name: Self-test (this is the result that matters)
         run: |
           set -uo pipefail
+          # GitHub runs this block with `bash -e`. The glibc payload segfaults on
+          # its way out (second libc in one process), so with pipefail the whole
+          # step would abort before the gate below ever runs. Judge the result
+          # explicitly instead of letting -e decide.
+          set +e
           mkdir -p sixiang/loader/out
           : > sixiang/loader/out/selftest.log
 
