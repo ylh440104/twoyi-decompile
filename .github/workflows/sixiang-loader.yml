@@ -17,6 +17,11 @@ on:
       - 'sixiang/loader/**'
       - '.github/workflows/sixiang-loader.yml'
 
+# The report step pushes its result back into the repo. Without this the token
+# is read-only and every run looks "failed" with no way to read why.
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -49,7 +54,13 @@ jobs:
           set -uo pipefail
           mkdir -p sixiang/loader/out
           bash sixiang/loader/build.sh 2>&1 | tee sixiang/loader/out/build.log
-          exit ${PIPESTATUS[0]}
+          rc=${PIPESTATUS[0]}
+          if [ "$rc" != "0" ]; then
+            echo "::group::build.log tail"
+            tail -40 sixiang/loader/out/build.log
+            echo "::endgroup::"
+          fi
+          exit $rc
 
       - name: Self-test (this is the result that matters)
         run: |

@@ -36,7 +36,8 @@ file "$OUT/mini_loader"
 
 echo
 echo "== hello_freestanding (required) =="
-if ! "$CC" -O2 -nostdlib -static-pie -fPIE -Wl,-e,_start \
+if ! "$CC" -O2 -nostdlib -static-pie -fPIE -fno-stack-protector -fno-builtin \
+        -Wl,--build-id=none -Wl,-e,_start \
         -o "$OUT/hello_freestanding" "$SRC/payload/hello_fs.c"; then
     echo "BUILD FAILED: hello_freestanding"
     exit 1
