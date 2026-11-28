@@ -22,12 +22,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install toos
+      - name: Install tools
         run: |
+          set -x
           sudo apt-get update -qq
-          sudo apt-get install -y -qq \
-            gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
-            qemu-user-static binutils-aarch64-linux-gnu file
+          # 编译必需
+          sudo apt-get install -y --no-install-recommends \
+            gcc-aarch64-linux-gnu libc6-dev-arm64-cross binutils-aarch64-linux-gnu file
+          # qemu 只用于额外验证，装不上不影响核心验收
+          sudo apt-get install -y --no-install-recommends qemu-user-static || echo "qemu 装不上，跳过实跑验证"
+          which aarch64-linux-gnu-gcc
+          aarch64-linux-gnu-gcc --version | head -1
 
       - name: Build stub
         continue-on-error: true
@@ -55,11 +60,13 @@ jobs:
           cp -f extra.log sixiang/apexd/out/extra.log 2>/dev/null || true
           if [ -f out/apexd ]; then
             cp -f out/apexd sixiang/apexd/out/apexd
-            file sixiang/apexd/out/apexd > sixiang/apexd/out/file.txt
-            sha256sum sixiang/apexd/out/apexd >> sixiang/apexd/out/file.txt
+            file sixiang/apexd/out/apexd > sixiang/apexd/out/file.txt || true
+            sha256sum sixiang/apexd/out/apexd >> sixiang/apexd/out/file.txt || true
+          else
+            echo "out/apexd 未生成" > sixiang/apexd/out/file.txt
           fi
-          ls -lh sixiang/apexd/out
-          cat sixiang/apexd/out/file.txt 2>/dev/null
+          ls -lh sixiang/apexd/out || true
+          cat sixiang/apexd/out/file.txt 2>/dev/null || true
 
       - name: Commit
         if: always()
