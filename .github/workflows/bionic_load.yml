@@ -19,7 +19,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'dyn/**'
+      - 'dyn/dumper.c'
       - '.github/workflows/bionic_load.yml'
 
 permissions:
@@ -35,7 +35,7 @@ jobs:
       - name: Toolchain
         run: |
           set +e
-          mkdir -p bionic-out work
+          mkdir -p bload-out work
           {
             echo "== host =="
             uname -m
@@ -44,7 +44,7 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y -qq patchelf 2>&1 | tail -3
             patchelf --version 2>&1
-          } >> bionic-out/load.log 2>&1
+          } >> bload-out/load.log 2>&1
 
       - name: Build and retarget dumper
         run: |
@@ -68,7 +68,7 @@ jobs:
             echo "== after =="
             readelf -d dumper_bionic 2>/dev/null | grep -E 'NEEDED|FLAGS' | head -8
             readelf -l dumper_bionic 2>/dev/null | grep -A1 INTERP | head -3
-          } >> bionic-out/load.log 2>&1
+          } >> bload-out/load.log 2>&1
 
       - name: Fetch libtwoyi.so
         run: |
@@ -82,7 +82,7 @@ jobs:
               "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
             echo "curl rc=$?"
             sha256sum work/libtwoyi.so 2>&1
-          } >> bionic-out/load.log 2>&1
+          } >> bload-out/load.log 2>&1
 
       - name: "Sanity: can the bionic runtime execute anything?"
         run: |
@@ -101,7 +101,7 @@ jobs:
             "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
               ./dumper_bionic 2>&1 | head -6
             echo "rc=$?"
-          } >> bionic-out/load.log 2>&1
+          } >> bload-out/load.log 2>&1
 
       - name: Run dumper under bionic linker
         run: |
@@ -111,15 +111,15 @@ jobs:
             echo "== phase init under bionic =="
             export ANDROID_ROOT="$B/system"
             "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              ./dumper_bionic "$PWD/work/libtwoyi.so" "$PWD/bionic-out" init 2>&1 | head -40
+              ./dumper_bionic "$PWD/work/libtwoyi.so" "$PWD/bload-out" init 2>&1 | head -40
             echo "rc=$?"
             echo "== slots =="
-            cat bionic-out/init_slots.txt 2>/dev/null
+            cat bload-out/init_slots.txt 2>/dev/null
             echo "== status =="
-            cat bionic-out/init_status.txt 2>/dev/null
+            cat bload-out/init_status.txt 2>/dev/null
             echo "== files =="
-            ls -la bionic-out
-          } >> bionic-out/load.log 2>&1
+            ls -la bload-out
+          } >> bload-out/load.log 2>&1
 
       - name: Commit
         if: always()
@@ -127,7 +127,7 @@ jobs:
           set +e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f -A bionic-out
+          git add -f -A bload-out
           if git diff --cached --quiet; then
             echo "nothing"
           else
