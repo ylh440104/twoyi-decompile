@@ -1,17 +1,29 @@
 #!/usr/bin/env python3
-"""dyn/patch_noinit.py — produce variants of libtwoyi.so that are easier to load
-on a non-Android aarch64 host.
+"""dyn/patch_noinit.py — make a bionic .so loadable on a glibc aarch64 host.
 
-  --clear-now     zero DT_FLAGS (removes DF_BIND_NOW) so RTLD_LAZY really is lazy
-                  and only the symbols actually executed must resolve
-  --clear-init    zero DT_INIT_ARRAYSZ so the 38 constructors never run
-                  (gives us a "post-relocation, pre-constructor" snapshot)
+Three independent obstacles, each fixed by editing .dynamic in place:
 
-Both edits are 8-byte value writes inside .dynamic; nothing is moved or resized.
+  --clear-now       DT_FLAGS is 0x8 (DF_BIND_NOW) and DT_FLAGS_1 is 0x1
+                    (DF_1_NOW).  Both force every PLT reloc to resolve at load
+                    time.  Zero them so RTLD_LAZY really is lazy.
+                    (note: setting DT_FLAGS_1 = 1 would RE-ENABLE DF_1_NOW)
+
+  --clear-init      DT_INIT_ARRAYSZ = 304 (38 constructors).  Zeroing the size
+                    stops the loader from running them, which gives us a clean
+                    "relocated but not constructed" snapshot.
+
+  --clear-versions  The library's .gnu.version_r asks libc.so for version
+                    "LIBC" (bionic's version name); glibc only knows GLIBC_2.x,
+                    so dlopen fails with "version `LIBC' not found".  Zeroing
+                    the VALUE is not enough because glibc tests whether the TAG
+                    is present, so retag DT_VERSYM / DT_VERNEED / DT_VERNEEDNUM
+                    as DT_FLAGS (0x1e) with value 0 — a tag the loader ignores
+                    for shared objects.
+
+All three edits are 16-byte writes inside .dynamic; nothing moves or resizes.
 """
 import argparse
 import struct
-import sys
 
 SEC_DYNAMIC = 6
 
@@ -40,34 +52,33 @@ def main():
 
     d = bytearray(open(a.src, 'rb').read())
     off, size = find_dynamic(d)
-    n = size // 16
     seen = []
-    for i in range(n):
+    for i in range(size // 16):
         base = off + i * 16
         tag, val = struct.unpack_from('<qQ', d, base)
         if tag == 0:
             break
-        if tag == 0x1e and a.clear_now:              # DT_FLAGS
+
+        if tag == 0x1e and a.clear_now:                 # DT_FLAGS
             seen.append('DT_FLAGS 0x%x -> 0' % val)
             struct.pack_into('<Q', d, base + 8, 0)
-        elif tag == 0x6ffffffb and a.clear_now:      # DT_FLAGS_1
-            seen.append('DT_FLAGS_1 0x%x -> 0x1' % val)
-            struct.pack_into('<Q', d, base + 8, 1)   # keep DF_1_NOW off, keep nothing else
-        elif tag == 0x1b and a.clear_init:           # DT_INIT_ARRAYSZ
+
+        elif tag == 0x6ffffffb and a.clear_now:         # DT_FLAGS_1
+            seen.append('DT_FLAGS_1 0x%x -> 0' % val)
+            struct.pack_into('<Q', d, base + 8, 0)
+
+        elif tag == 0x1b and a.clear_init:              # DT_INIT_ARRAYSZ
             seen.append('DT_INIT_ARRAYSZ %d -> 0' % val)
             struct.pack_into('<Q', d, base + 8, 0)
-        elif tag == 0x1a and a.clear_init:           # DT_INIT_ARRAY
+
+        elif tag == 0x1a and a.clear_init:              # DT_INIT_ARRAY
             seen.append('DT_INIT_ARRAY 0x%x -> 0' % val)
             struct.pack_into('<Q', d, base + 8, 0)
-        elif tag == 0x6ffffff0 and a.clear_versions:  # DT_VERSYM
-            seen.append('DT_VERSYM 0x%x -> 0' % val)
-            struct.pack_into('<Q', d, base + 8, 0)
-        elif tag == 0x6ffffffe and a.clear_versions:  # DT_VERNEED
-            seen.append('DT_VERNEED 0x%x -> 0' % val)
-            struct.pack_into('<Q', d, base + 8, 0)
-        elif tag == 0x6fffffff and a.clear_versions:  # DT_VERNEEDNUM
-            seen.append('DT_VERNEEDNUM %d -> 0' % val)
-            struct.pack_into('<Q', d, base + 8, 0)
+
+        elif tag in (0x6ffffff0, 0x6ffffffe, 0x6fffffff) and a.clear_versions:
+            seen.append('tag 0x%x -> DT_FLAGS 0' % tag)
+            struct.pack_into('<qQ', d, base, 0x1e, 0)
+
     if not seen:
         print('nothing to patch (%s)' % a.src)
     for s in seen:
