@@ -1,7 +1,3 @@
 DT_NEEDED of toybox: libcrypto.so, liblog.so, libselinux.so, libz.so, libc.so, libm.so, libdl.so
-  copied   libc.so                      <- /mnt/apex/lib64/bionic/libc.so
-  copied   libm.so                      <- /mnt/apex/lib64/bionic/libm.so
-  copied   libdl.so                     <- /mnt/apex/lib64/bionic/libdl.so
-  copied   ld-android.so                <- /mnt/gsi/system/lib64/ld-android.so
 
-resolved 4, missing 0, total names 8
+resolved 0, missing 0, total names 7

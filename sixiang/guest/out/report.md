@@ -1,10 +1,10 @@
 # guest run report
 
-commit: b876b464721679bccf66b32f9d3e72445e37f2c2
-run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46149112317
+commit: acacd022e3e10e079b02568d5a5d7030011bef35
+run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46149767933
 
 ```
-total 2952
+total 2956
 -rwxr-xr-x+ 1 root 2000 2469280 Jan  1  1970 linker64
 -rwxr-xr-x+ 1 root 2000  611160 Jan  1  2009 toybox
 libs: 757
@@ -40,12 +40,8 @@ exit=1
 ## dependency resolution
 ```
 DT_NEEDED of toybox: libcrypto.so, liblog.so, libselinux.so, libz.so, libc.so, libm.so, libdl.so
-  copied   libc.so                      <- /mnt/apex/lib64/bionic/libc.so
-  copied   libm.so                      <- /mnt/apex/lib64/bionic/libm.so
-  copied   libdl.so                     <- /mnt/apex/lib64/bionic/libdl.so
-  copied   ld-android.so                <- /mnt/gsi/system/lib64/ld-android.so
 
-resolved 4, missing 0, total names 8
+resolved 0, missing 0, total names 7
 ```
 
 RC1=1 RC2=1
