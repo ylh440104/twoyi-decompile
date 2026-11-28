@@ -86,14 +86,18 @@ jobs:
             echo "run:    $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo
             echo '```'
-            find "$OUT/system" -type f -o -type l 2>/dev/null | sort | while read -r f; do
-              printf '%-46s %s\n' "${f#"$OUT"/}" "$(file -b "$f" 2>/dev/null | cut -c1-64)"
-            done
+            ls -l "$OUT/system/bin" 2>/dev/null || true
+            echo "libs: $(find "$OUT/system/lib64" -maxdepth 1 -type f 2>/dev/null | wc -l)"
             echo '```'
             echo
             echo "## run"
             echo '```'
             cat "$OUT/run.log" 2>/dev/null || echo "(no output)"
+            echo '```'
+            echo
+            echo "## dependency resolution"
+            echo '```'
+            cat "$OUT/libresolve.txt" 2>/dev/null || echo "(no output)"
             echo '```'
             echo
             cat "$OUT/rc.txt" 2>/dev/null || true

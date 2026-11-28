@@ -85,33 +85,17 @@ sudo mount -o loop,ro "$WORK/runtime_payload.img" /mnt/apex || { echo "apex moun
 sudo cp -a /mnt/apex/bin/linker64 "$OUT/system/bin/linker64" 2>/dev/null \
     && echo "  got linker64"
 
-# Copy whatever exists, then let the dependency list drive: guessing paths is
-# what produced three failed runs in a row (libcrypto.so, then a dangling
-# libc.so symlink replacing the real one). The resolver below walks toybox's
-# DT_NEEDED and hunts each name down in the mounted image.
-sudo cp -a /mnt/gsi/system/lib64/*.so "$OUT/system/lib64/" 2>/dev/null || true
-sudo cp -a /mnt/apex/lib64/*.so "$OUT/system/lib64/" 2>/dev/null || true
-sudo cp -a /mnt/apex/lib64/bionic/*.so "$OUT/system/lib64/" 2>/dev/null || true
+# Let a real dependency walk copy the exact set. Shell globbing + symlinks lost
+# this fight four times; resolve_libs.py parses DT_NEEDED and walks to a fixed
+# point, refusing dangling links.
+sudo python3 sixiang/guest/resolve_libs.py \
+    --out "$OUT/system/lib64" \
+    --program "$OUT/system/bin/toybox" \
+    /mnt/apex/lib64 /mnt/apex/lib64/bionic /mnt/gsi/system/lib64 \
+    > "$OUT/libresolve.txt" 2>&1 || true
+sed 's/^/  /' "$OUT/libresolve.txt" | head -40
 
-echo "  apex lib64 layout:"
-sudo ls /mnt/apex/lib64 2>/dev/null | head -8 | sed 's/^/    /'
-
-echo "  resolving DT_NEEDED of toybox:"
-for lib in $(readelf -d "$OUT/system/bin/toybox" 2>/dev/null \
-             | sed -n 's/.*(NEEDED).*\[\(.*\)\]/\1/p'); do
-    if [ -e "$OUT/system/lib64/$lib" ]; then
-        echo "    $lib  (already present)"
-        continue
-    fi
-    src=$(find /mnt/gsi/system/lib64 /mnt/apex/lib64 -name "$lib" -type f 2>/dev/null | head -1)
-    if [ -n "$src" ]; then
-        sudo cp -af "$src" "$OUT/system/lib64/$lib" && echo "    $lib  <- $src"
-    else
-        echo "    $lib  MISSING in image"
-    fi
-done
-
-# Any dangling symlink left over is useless to the linker.
+# Drop dangling symlinks: they only confuse the linker.
 find "$OUT/system/lib64" -maxdepth 1 -type l ! -exec test -e {} \; -delete 2>/dev/null
 sudo umount /mnt/apex 2>/dev/null
 
