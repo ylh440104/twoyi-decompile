@@ -1,0 +1,102 @@
+--------- beginning of main
+11-28 18:45:27.705  3596  3684 I SiXiang : SiXiang container v0.4  320x568 @20fps dpi100
+11-28 18:45:27.705  3596  3684 I SiXiang :   device: Google sdk_gphone64_x86_64 / API 33
+11-28 18:45:27.705  3596  3684 I SiXiang : 解包 assets/guest.zip
+11-28 18:45:29.737  3596  3684 I SiXiang :   解包耗时: 2028 ms
+11-28 18:45:29.737  3596  3684 I SiXiang :   toybox: 510440 B
+11-28 18:45:29.738  3596  3684 I SiXiang :   loader: /data/app/~~Vj2eH9SHj6T0OO-SjzX_nA==/io.sixiang-cuTlUfm_H44Df0Vi83gXAQ==/lib/x86_64/libmini_loader.so
+11-28 18:45:29.738  3596  3684 I SiXiang : 画面通道（socket + memfd）
+11-28 18:45:29.750  3596  3684 I SiXiang :   painter: 37016 B · 320x568 · dpi 100
+11-28 18:45:29.905  3596  3744 I SiXiang :   painter| mini_loader: interp mode
+11-28 18:45:29.905  3596  3744 I SiXiang :   painter|   program  /data/user/0/io.sixiang/files/guest/screen
+11-28 18:45:29.905  3596  3744 I SiXiang :   painter|            base=0x7796ab73a000 entry=0x7796ab73b150 phdr=0x7796ab73a040
+11-28 18:45:29.905  3596  3744 I SiXiang :   painter|   linker   /data/user/0/io.sixiang/files/guest/system/bin/linker64
+11-28 18:45:29.905  3596  3744 I SiXiang :   painter|            base=0x7796ab442000 entry=0x7796ab4a64b0
+11-28 18:45:29.984  3596  3741 I SiXiang :   ctl: guest pid=3742 320x568
+11-28 18:45:29.984  3596  3741 I SiXiang :   ctl: 建好 2 个缓冲，每个 727040 B
+11-28 18:45:29.984  3596  3741 I SiXiang : binder: 打开 /dev/binder 成功（probe）
+11-28 18:45:29.984  3596  3744 I SiXiang :   painter| screen: up 320x568 dpi=100 tiles=69x77 labels=16 slots=2
+11-28 18:45:29.995  3596  3741 I SiXiang :   ctl: guest 已挂上 slot 0（1/2）
+11-28 18:45:29.995  3596  3741 I SiXiang :   ctl: guest 已挂上 slot 1（2/2）
+11-28 18:45:29.995  3596  3744 I SiXiang :   painter| screen: binder fd=4 ioctl rc=0 errno=0 version=8
+11-28 18:45:30.002  3596  3744 I SiXiang :   painter| screen: binder txn rc=0 errno=0 w=68/68 r=12
+11-28 18:45:30.004  3596  3744 I SiXiang :   painter| screen: binder reply failed cmd=0x7205
+11-28 18:45:30.005  3596  3744 I SiXiang :   painter| screen: text=READY
+11-28 18:45:30.011  3596  3741 W SiXiang : binder relay 不可用: java.lang.UnsatisfiedLinkError: dlopen failed: library "libsixiang_binder.so" not found
+11-28 18:45:30.011  3596  3741 I SiXiang : relay: JNI 桥不可用，无法替 guest 查询 activity
+11-28 18:45:30.016  3596  3741 I SiXiang :   ctl: 第一帧（slot 0）
+11-28 18:45:30.016  3596  3744 I SiXiang :   painter| screen: frame 0 slot=0 touch=-1,-1 hit=-1
+11-28 18:45:31.252  3596  3684 I SiXiang :   frames: 19
+11-28 18:45:31.252  3596  3684 I SiXiang :   PASS 已连接 guest 画面（socket + memfd）
+11-28 18:45:31.252  3596  3684 I SiXiang : guest 程序
+11-28 18:45:31.252  3596  3684 I SiXiang : $ toybox uname -a
+11-28 18:45:31.401  3596  3684 I SiXiang :   mini_loader: interp mode
+11-28 18:45:31.404  3596  3684 I SiXiang :     program  /data/user/0/io.sixiang/files/guest/system/bin/toybox
+11-28 18:45:31.405  3596  3684 I SiXiang :              base=0x7c26109ab000 entry=0x7c26109dadc0 phdr=0x7c26109ab040
+11-28 18:45:31.405  3596  3684 I SiXiang :     linker   /data/user/0/io.sixiang/files/guest/system/bin/linker64
+11-28 18:45:31.405  3596  3684 I SiXiang :              base=0x7c26106b3000 entry=0x7c26107174b0
+11-28 18:45:31.885  3596  3684 I SiXiang :   Linux localhost 5.15.119-android13-8-00034-gd34029c8258b-ab10871489 #1 SMP PREEMPT Wed Sep 27 18:42:24 UTC 2023 x86_64 Toybox
+11-28 18:45:32.105  3596  3684 I SiXiang :   -> exit=0 (6 lines)
+11-28 18:45:32.105  3596  3684 I SiXiang : $ toybox id
+11-28 18:45:32.150  3596  3684 I SiXiang :   mini_loader: interp mode
+11-28 18:45:32.150  3596  3684 I SiXiang :     program  /data/user/0/io.sixiang/files/guest/system/bin/toybox
+11-28 18:45:32.150  3596  3684 I SiXiang :              base=0x74e482057000 entry=0x74e482086dc0 phdr=0x74e482057040
+11-28 18:45:32.150  3596  3684 I SiXiang :     linker   /data/user/0/io.sixiang/files/guest/system/bin/linker64
+11-28 18:45:32.150  3596  3684 I SiXiang :              base=0x74e481d5f000 entry=0x74e481dc34b0
+11-28 18:45:32.223  3596  3684 I SiXiang :   uid=10174(u0_a174) gid=10174(u0_a174) groups=10174(u0_a174),9997(everybody),20174(u0_a174_cache),50174(all_a174) context=u:r:untrusted_app_27:s0:c174,c256,c512,c768
+11-28 18:45:32.235  3596  3684 I SiXiang :   -> exit=0 (6 lines)
+11-28 18:45:32.236  3596  3684 I SiXiang : == guest 程序已在本 app 内运行 ==
+11-28 18:45:33.258  3596  3744 I SiXiang :   painter| screen: frame 50 slot=0 touch=-1,-1 hit=-1
+11-28 18:45:35.885  3596  3744 I SiXiang :   painter| screen: frame 100 slot=0 touch=-1,-1 hit=-1
+11-28 18:45:38.612  3596  3744 I SiXiang :   painter| screen: frame 150 slot=0 touch=-1,-1 hit=-1
+11-28 18:45:41.294  3596  3744 I SiXiang :   painter| screen: frame 200 slot=0 touch=-1,-1 hit=-1
+11-28 18:45:42.136  3596  3741 I SiXiang : tap -> 图标 5：ls /system
+11-28 18:45:42.138  3596  3913 I SiXiang : $ toybox ls /system
+11-28 18:45:42.152  3596  3913 I SiXiang :   mini_loader: interp mode
+11-28 18:45:42.152  3596  3913 I SiXiang :     program  /data/user/0/io.sixiang/files/guest/system/bin/toybox
+11-28 18:45:42.152  3596  3913 I SiXiang :              base=0x70d1242d0000 entry=0x70d1242ffdc0 phdr=0x70d1242d0040
+11-28 18:45:42.152  3596  3913 I SiXiang :     linker   /data/user/0/io.sixiang/files/guest/system/bin/linker64
+11-28 18:45:42.152  3596  3913 I SiXiang :              base=0x70d123fd8000 entry=0x70d12403c4b0
+11-28 18:45:42.189  3596  3913 I SiXiang :   apex
+11-28 18:45:42.190  3596  3913 I SiXiang :   app
+11-28 18:45:42.190  3596  3913 I SiXiang :   bin
+11-28 18:45:42.190  3596  3913 I SiXiang :   build.prop
+11-28 18:45:42.190  3596  3913 I SiXiang :   etc
+11-28 18:45:42.190  3596  3913 I SiXiang :   fonts
+11-28 18:45:42.190  3596  3913 I SiXiang :   framework
+11-28 18:45:42.190  3596  3913 I SiXiang :   lib
+11-28 18:45:42.190  3596  3913 I SiXiang :   lib64
+11-28 18:45:42.191  3596  3913 I SiXiang :   priv-app
+11-28 18:45:42.191  3596  3913 I SiXiang :   product
+11-28 18:45:42.191  3596  3913 I SiXiang :   system_ext
+11-28 18:45:42.191  3596  3913 I SiXiang :   usr
+11-28 18:45:42.191  3596  3913 I SiXiang :   vendor
+11-28 18:45:42.191  3596  3913 I SiXiang :   xbin
+11-28 18:45:42.192  3596  3913 I SiXiang :   -> exit=0 (20 lines)
+11-28 18:45:44.089  3596  3744 I SiXiang :   painter| screen: frame 250 slot=0 touch=160,238 hit=5
+11-28 18:45:44.269  3596  3741 I SiXiang : tap -> 图标 1：id
+11-28 18:45:44.270  3596  3943 I SiXiang : $ toybox id
+11-28 18:45:44.286  3596  3943 I SiXiang :   mini_loader: interp mode
+11-28 18:45:44.286  3596  3943 I SiXiang :     program  /data/user/0/io.sixiang/files/guest/system/bin/toybox
+11-28 18:45:44.286  3596  3943 I SiXiang :              base=0x7283672d6000 entry=0x728367305dc0 phdr=0x7283672d6040
+11-28 18:45:44.286  3596  3943 I SiXiang :     linker   /data/user/0/io.sixiang/files/guest/system/bin/linker64
+11-28 18:45:44.286  3596  3943 I SiXiang :              base=0x728366fde000 entry=0x7283670424b0
+11-28 18:45:44.338  3596  3943 I SiXiang :   uid=10174(u0_a174) gid=10174(u0_a174) groups=10174(u0_a174),9997(everybody),20174(u0_a174_cache),50174(all_a174) context=u:r:untrusted_app_27:s0:c174,c256,c512,c768
+11-28 18:45:44.338  3596  3943 I SiXiang :   -> exit=0 (6 lines)
+11-28 18:45:46.424  3596  3741 I SiXiang : tap -> 图标 13：wc -l /proc/cpuinfo
+11-28 18:45:46.424  3596  3968 I SiXiang : $ toybox wc -l /proc/cpuinfo
+11-28 18:45:46.430  3596  3968 I SiXiang :   mini_loader: interp mode
+11-28 18:45:46.430  3596  3968 I SiXiang :     program  /data/user/0/io.sixiang/files/guest/system/bin/toybox
+11-28 18:45:46.430  3596  3968 I SiXiang :              base=0x79554b1ab000 entry=0x79554b1dadc0 phdr=0x79554b1ab040
+11-28 18:45:46.430  3596  3968 I SiXiang :     linker   /data/user/0/io.sixiang/files/guest/system/bin/linker64
+11-28 18:45:46.430  3596  3968 I SiXiang :              base=0x79554aeb3000 entry=0x79554af174b0
+11-28 18:45:46.457  3596  3968 I SiXiang :   56 /proc/cpuinfo
+11-28 18:45:46.459  3596  3968 I SiXiang :   -> exit=0 (6 lines)
+11-28 18:45:46.757  3596  3744 I SiXiang :   painter| screen: frame 300 slot=0 touch=160,367 hit=13
+11-28 18:45:49.380  3596  3744 I SiXiang :   painter| screen: frame 350 slot=0 touch=160,367 hit=13
+11-28 18:45:52.138  3596  3744 I SiXiang :   painter| screen: frame 400 slot=0 touch=160,367 hit=13
+11-28 18:45:54.788  3596  3744 I SiXiang :   painter| screen: frame 450 slot=0 touch=160,367 hit=13
+11-28 18:45:57.528  3596  3744 I SiXiang :   painter| screen: frame 500 slot=0 touch=160,367 hit=13
+11-28 18:46:00.332  3596  3744 I SiXiang :   painter| screen: frame 550 slot=0 touch=160,367 hit=13
+11-28 18:46:03.005  3596  3744 I SiXiang :   painter| screen: frame 600 slot=0 touch=160,367 hit=13
+11-28 18:46:05.794  3596  3744 I SiXiang :   painter| screen: frame 650 slot=0 touch=160,367 hit=13

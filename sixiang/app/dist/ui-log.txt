@@ -5,114 +5,169 @@ abi     : x86_64
 kernel  : 5.15.119-android13-8-00034-gd34029c8258b-ab10871489
 
 == pull an x86_64 guest out of this emulator ==
-adb: error: failed to stat remote object '/system/bin/toybox': Permission denied
-!! cannot pull /system/bin/toybox
-/system/bin/linker64: 1 file pulled, 0 skipped. 17.9 MB/s (1738864 bytes in 0.092s)
-/system/lib64/ld-android.so: 1 file pulled, 0 skipped. 0.1 MB/s (3360 bytes in 0.044s)
-/system/lib64/libc.so: 1 file pulled, 0 skipped. 5.7 MB/s (1023864 bytes in 0.170s)
-/system/lib64/libm.so: 1 file pulled, 0 skipped. 3.3 MB/s (324376 bytes in 0.093s)
-/system/lib64/libdl.so: 1 file pulled, 0 skipped. 9.0 MB/s (5536 bytes in 0.001s)
-/system/lib64/liblog.so: 1 file pulled, 0 skipped. 52.4 MB/s (62840 bytes in 0.001s)
-/system/lib64/libz.so: 1 file pulled, 0 skipped. 2.4 MB/s (106160 bytes in 0.042s)
-/system/lib64/libc++.so: 1 file pulled, 0 skipped. 3.4 MB/s (678168 bytes in 0.188s)
-/system/lib64/libcrypto.so: 1 file pulled, 0 skipped. 123.7 MB/s (1611632 bytes in 0.012s)
-/system/lib64/libssl.so: 1 file pulled, 0 skipped. 88.6 MB/s (426040 bytes in 0.005s)
-/system/lib64/libselinux.so: 1 file pulled, 0 skipped. 34.5 MB/s (107432 bytes in 0.003s)
-/system/lib64/libpackagelistparser.so: 1 file pulled, 0 skipped. 0.1 MB/s (6376 bytes in 0.042s)
-/system/lib64/libpcre2.so: 1 file pulled, 0 skipped. 75.1 MB/s (397024 bytes in 0.005s)
-/system/lib64/libbase.so: 1 file pulled, 0 skipped. 102.5 MB/s (263896 bytes in 0.002s)
-/system/lib64/libutils.so: 1 file pulled, 0 skipped. 100.0 MB/s (119024 bytes in 0.001s)
-/system/lib64/libcutils.so: 1 file pulled, 0 skipped. 30.4 MB/s (88928 bytes in 0.003s)
-/system/lib64/libbinder.so: 1 file pulled, 0 skipped. 17.9 MB/s (868768 bytes in 0.046s)
-/system/lib64/libui.so: 1 file pulled, 0 skipped. 7.7 MB/s (366648 bytes in 0.045s)
-/system/lib64/libhardware.so: 1 file pulled, 0 skipped. 0.2 MB/s (7352 bytes in 0.042s)
-/system/lib64/libsync.so: 1 file pulled, 0 skipped. 0.2 MB/s (7240 bytes in 0.042s)
-/system/lib64/libprocessgroup.so: 1 file pulled, 0 skipped. 8.1 MB/s (372568 bytes in 0.044s)
-/system/lib64/libnetd_client.so: 1 file pulled, 0 skipped. 0.7 MB/s (31544 bytes in 0.041s)
+$ ls -l /system/bin/toybox*
+-rwxr-xr-x 1 root shell 510440 2024-09-09 22:46 /system/bin/toybox
+  catted /system/bin/toybox (510440 bytes)
+  guest program: /system/bin/toybox
+  pulled /system/bin/linker64 (1738864 bytes)
+/system/lib64/ld-android.so: 1 file pulled, 0 skipped. 0.0 MB/s (3360 bytes in 0.098s)
+/system/lib64/libc.so: 1 file pulled, 0 skipped. 5.0 MB/s (1023864 bytes in 0.194s)
+/system/lib64/libm.so: 1 file pulled, 0 skipped. 33.8 MB/s (324376 bytes in 0.009s)
+/system/lib64/libdl.so: 1 file pulled, 0 skipped. 0.0 MB/s (5536 bytes in 0.164s)
+/system/lib64/liblog.so: 1 file pulled, 0 skipped. 1.4 MB/s (62840 bytes in 0.042s)
+/system/lib64/libz.so: 1 file pulled, 0 skipped. 37.8 MB/s (106160 bytes in 0.003s)
+/system/lib64/libc++.so: 1 file pulled, 0 skipped. 2.9 MB/s (678168 bytes in 0.220s)
+/system/lib64/libcrypto.so: 1 file pulled, 0 skipped. 13.3 MB/s (1611632 bytes in 0.115s)
+/system/lib64/libssl.so: 1 file pulled, 0 skipped. 10.5 MB/s (426040 bytes in 0.039s)
+/system/lib64/libselinux.so: 1 file pulled, 0 skipped. 5.2 MB/s (107432 bytes in 0.020s)
+/system/lib64/libpackagelistparser.so: 1 file pulled, 0 skipped. 0.2 MB/s (6376 bytes in 0.032s)
+/system/lib64/libpcre2.so: 1 file pulled, 0 skipped. 37.5 MB/s (397024 bytes in 0.010s)
+/system/lib64/libbase.so: 1 file pulled, 0 skipped. 35.5 MB/s (263896 bytes in 0.007s)
+/system/lib64/libutils.so: 1 file pulled, 0 skipped. 2.7 MB/s (119024 bytes in 0.042s)
+/system/lib64/libcutils.so: 1 file pulled, 0 skipped. 38.2 MB/s (88928 bytes in 0.002s)
+/system/lib64/libbinder.so: 1 file pulled, 0 skipped. 48.5 MB/s (868768 bytes in 0.017s)
+/system/lib64/libui.so: 1 file pulled, 0 skipped. 44.4 MB/s (366648 bytes in 0.008s)
+/system/lib64/libhardware.so: 1 file pulled, 0 skipped. 2.0 MB/s (7352 bytes in 0.003s)
+/system/lib64/libsync.so: 1 file pulled, 0 skipped. 0.7 MB/s (7240 bytes in 0.010s)
+/system/lib64/libprocessgroup.so: 1 file pulled, 0 skipped. 0.7 MB/s (372568 bytes in 0.538s)
+/system/lib64/libnetd_client.so: 1 file pulled, 0 skipped. 9.2 MB/s (31544 bytes in 0.003s)
 
 guest files:
-/tmp/tmp.KopYEG9Pos/system/bin:
-total 1700
--rw-r--r-- 1 runner runner 1738864 Nov 28 15:07 linker64
+/tmp/tmp.8wlrVfCoPL/system/bin:
+total 2200
+-rw-r--r-- 1 runner runner 1738864 Nov 28 18:45 linker64
+-rw-r--r-- 1 runner runner  510440 Nov 28 18:45 toybox
 
-/tmp/tmp.KopYEG9Pos/system/lib64:
+/tmp/tmp.8wlrVfCoPL/system/lib64:
 total 6756
--rw-r--r-- 1 runner runner    3360 Nov 28 15:07 ld-android.so
--rw-r--r-- 1 runner runner  263896 Nov 28 15:07 libbase.so
--rw-r--r-- 1 runner runner  868768 Nov 28 15:07 libbinder.so
--rw-r--r-- 1 runner runner  678168 Nov 28 15:07 libc++.so
--rw-r--r-- 1 runner runner 1023864 Nov 28 15:07 libc.so
--rw-r--r-- 1 runner runner 1611632 Nov 28 15:07 libcrypto.so
--rw-r--r-- 1 runner runner   88928 Nov 28 15:07 libcutils.so
--rw-r--r-- 1 runner runner    5536 Nov 28 15:07 libdl.so
--rw-r--r-- 1 runner runner    7352 Nov 28 15:07 libhardware.so
--rw-r--r-- 1 runner runner   62840 Nov 28 15:07 liblog.so
--rw-r--r-- 1 runner runner  324376 Nov 28 15:07 libm.so
--rw-r--r-- 1 runner runner   31544 Nov 28 15:07 libnetd_client.so
--rw-r--r-- 1 runner runner    6376 Nov 28 15:07 libpackagelistparser.so
--rw-r--r-- 1 runner runner  397024 Nov 28 15:07 libpcre2.so
--rw-r--r-- 1 runner runner  372568 Nov 28 15:07 libprocessgroup.so
--rw-r--r-- 1 runner runner  107432 Nov 28 15:07 libselinux.so
--rw-r--r-- 1 runner runner  426040 Nov 28 15:07 libssl.so
--rw-r--r-- 1 runner runner    7240 Nov 28 15:07 libsync.so
--rw-r--r-- 1 runner runner  366648 Nov 28 15:07 libui.so
--rw-r--r-- 1 runner runner  119024 Nov 28 15:07 libutils.so
--rw-r--r-- 1 runner runner  106160 Nov 28 15:07 libz.so
-bundle: 3765828 bytes
+-rw-r--r-- 1 runner runner    3360 Nov 28 18:45 ld-android.so
+-rw-r--r-- 1 runner runner  263896 Nov 28 18:45 libbase.so
+-rw-r--r-- 1 runner runner  868768 Nov 28 18:45 libbinder.so
+-rw-r--r-- 1 runner runner  678168 Nov 28 18:45 libc++.so
+-rw-r--r-- 1 runner runner 1023864 Nov 28 18:45 libc.so
+-rw-r--r-- 1 runner runner 1611632 Nov 28 18:45 libcrypto.so
+-rw-r--r-- 1 runner runner   88928 Nov 28 18:45 libcutils.so
+-rw-r--r-- 1 runner runner    5536 Nov 28 18:45 libdl.so
+-rw-r--r-- 1 runner runner    7352 Nov 28 18:45 libhardware.so
+-rw-r--r-- 1 runner runner   62840 Nov 28 18:45 liblog.so
+-rw-r--r-- 1 runner runner  324376 Nov 28 18:45 libm.so
+-rw-r--r-- 1 runner runner   31544 Nov 28 18:45 libnetd_client.so
+-rw-r--r-- 1 runner runner    6376 Nov 28 18:45 libpackagelistparser.so
+-rw-r--r-- 1 runner runner  397024 Nov 28 18:45 libpcre2.so
+-rw-r--r-- 1 runner runner  372568 Nov 28 18:45 libprocessgroup.so
+-rw-r--r-- 1 runner runner  107432 Nov 28 18:45 libselinux.so
+-rw-r--r-- 1 runner runner  426040 Nov 28 18:45 libssl.so
+-rw-r--r-- 1 runner runner    7240 Nov 28 18:45 libsync.so
+-rw-r--r-- 1 runner runner  366648 Nov 28 18:45 libui.so
+-rw-r--r-- 1 runner runner  119024 Nov 28 18:45 libutils.so
+-rw-r--r-- 1 runner runner  106160 Nov 28 18:45 libz.so
+bundle: 6391544 bytes
+
+== pre-flight: loader + guest as shell, outside the app ==
+sixiang/loader/out/mini_loader_x86_64: 1 file pushed, 0 skipped. 54.5 MB/s (8942696 bytes in 0.156s)
+/tmp/guest-x86_64.zip: 1 file pushed, 0 skipped. 396.4 MB/s (6391544 bytes in 0.015s)
+system/bin:
+total 2208
+-rw-r--r-- 1 shell shell 1738864 2026-11-28 18:45 linker64
+-rw-r--r-- 1 shell shell  510440 2026-11-28 18:45 toybox
+
+system/lib64:
+total 6840
+-rw-r--r-- 1 shell shell    3360 2026-11-28 18:45 ld-android.so
+-rw-r--r-- 1 shell shell  263896 2026-11-28 18:45 libbase.so
+-rw-r--r-- 1 shell shell  868768 2026-11-28 18:45 libbinder.so
+-rw-r--r-- 1 shell shell  678168 2026-11-28 18:45 libc++.so
+-rw-r--r-- 1 shell shell 1023864 2026-11-28 18:45 libc.so
+-rw-r--r-- 1 shell shell 1611632 2026-11-28 18:45 libcrypto.so
+-rw-r--r-- 1 shell shell   88928 2026-11-28 18:45 libcutils.so
+-rw-r--r-- 1 shell shell    5536 2026-11-28 18:45 libdl.so
+-rw-r--r-- 1 shell shell    7352 2026-11-28 18:45 libhardware.so
+-rw-r--r-- 1 shell shell   62840 2026-11-28 18:45 liblog.so
+-rw-r--r-- 1 shell shell  324376 2026-11-28 18:45 libm.so
+-rw-r--r-- 1 shell shell   31544 2026-11-28 18:45 libnetd_client.so
+-rw-r--r-- 1 shell shell    6376 2026-11-28 18:45 libpackagelistparser.so
+mini_loader: interp mode
+  program  system/bin/toybox
+           base=0x770458f7e000 entry=0x770458faddc0 phdr=0x770458f7e040
+  linker   system/bin/linker64
+           base=0x770458c86000 entry=0x770458cea4b0
+Linux localhost 5.15.119-android13-8-00034-gd34029c8258b-ab10871489 #1 SMP PREEMPT Wed Sep 27 18:42:24 UTC 2023 x86_64 Toybox
+PREFLIGHT_EXIT=0
 
 == build an APK that can install here (arm64 + x86_64) ==
 build-tools: /home/runner/android-sdk/build-tools/37.0.0
 platform   : /home/runner/android-sdk/platforms/android-33
 javac      : javac 17.0.21.1
-work: /tmp/tmp.dlpb1HFUlC
+work: /tmp/tmp.DnP0UUV2KS
 
 == javac ==
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$1.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$6.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$5.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$5$1.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$2$1.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$1$1.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$3.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$2.class
-  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$4.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$6$1.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$18$1.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$16.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$17.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$13.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$7.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$11$1.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$6.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$12.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$5.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$TapListener.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$2$1.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$2.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$1.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$3.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$8.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/BinderBridge.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$18.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$11.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$FrameView.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$10.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$15.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$4.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$14.class
+  /tmp/tmp.DnP0UUV2KS/classes/io/sixiang/MainActivity$9.class
 
 == d8 (dex) ==
--rw-r--r-- 1 runner runner 14008 Nov 28 15:07 /tmp/tmp.dlpb1HFUlC/classes.dex
+-rw-r--r-- 1 runner runner 34280 Nov 28 18:45 /tmp/tmp.DnP0UUV2KS/classes.dex
 
 == aapt2 ==
 values_strings.arsc.flat
--rw-r--r-- 1 runner runner 1555 Nov 28 15:07 /tmp/tmp.dlpb1HFUlC/base.apk
+-rw-r--r-- 1 runner runner 1555 Nov 28 18:45 /tmp/tmp.DnP0UUV2KS/base.apk
 
 == stage payload ==
-/tmp/tmp.dlpb1HFUlC/stage/assets:
-total 3680
--rw-r--r-- 1 runner runner 3765828 Nov 28 15:07 guest.zip
+/tmp/tmp.DnP0UUV2KS/stage/assets:
+total 6284
+-rw-r--r-- 1 runner runner 6391544 Nov 28 18:45 guest.zip
+-rwxr-xr-x 1 runner runner   37016 Nov 28 18:45 screen
 
-/tmp/tmp.dlpb1HFUlC/stage/lib/arm64-v8a:
-total 660
--rwxr-xr-x 1 runner runner 706544 Nov 28 15:07 libmini_loader.so
+/tmp/tmp.DnP0UUV2KS/stage/lib/arm64-v8a:
+total 872
+-rwxr-xr-x 1 runner runner 892584 Nov 28 18:45 libmini_loader.so
 
-/tmp/tmp.dlpb1HFUlC/stage/lib/x86_64:
-total 780
--rwxr-xr-x 1 runner runner 794952 Nov 28 15:07 libmini_loader.so
+/tmp/tmp.DnP0UUV2KS/stage/lib/x86_64:
+total 8736
+-rwxr-xr-x 1 runner runner 8942696 Nov 28 18:45 libmini_loader.so
+  ndk sysroot: /usr/local/lib/android/sdk/ndk/30.0.16248370/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
+  binder headers: binder_ibinder.h binder_ibinder_jni.h binder_parcel.h binder_parcel_jni.h binder_status.h 
+  (no android/binder_manager.h in this NDK: binder relay not built)
 
 == assemble ==
-     1988  1980-01-01 00:00   AndroidManifest.xml
       560  1980-01-01 00:00   resources.arsc
-    14008  2026-11-28 15:07   classes.dex
-        0  2026-11-28 15:07   lib/
-        0  2026-11-28 15:07   lib/arm64-v8a/
-   706544  2026-11-28 15:07   lib/arm64-v8a/libmini_loader.so
-        0  2026-11-28 15:07   lib/x86_64/
-   794952  2026-11-28 15:07   lib/x86_64/libmini_loader.so
-        0  2026-11-28 15:07   assets/
-  3765828  2026-11-28 15:07   assets/guest.zip
+    34280  2026-11-28 18:45   classes.dex
+        0  2026-11-28 18:45   lib/
+        0  2026-11-28 18:45   lib/arm64-v8a/
+   892584  2026-11-28 18:45   lib/arm64-v8a/libmini_loader.so
+        0  2026-11-28 18:45   lib/x86_64/
+  8942696  2026-11-28 18:45   lib/x86_64/libmini_loader.so
+        0  2026-11-28 18:45   assets/
+  6391544  2026-11-28 18:45   assets/guest.zip
+    37016  2026-11-28 18:45   assets/screen
 ---------                     -------
-  5283880                     10 files
+ 16300668                     11 files
   ok: lib/arm64-v8a/libmini_loader.so
   ok: assets/guest.zip
+  ok: assets/screen
   ok: classes.dex
 
 == align + sign ==
@@ -121,74 +176,86 @@ V3.0 Signer: certificate SHA-256 digest: 26125d4761c9bc9e1143d90bcf1fd51b398a9ce
 V3.0 Signer: certificate SHA-1 digest: 6d465928339b2db0c2b403794bca95506a721c77
 V3.0 Signer: certificate MD5 digest: ef6fc5e26ec56205a07f38564189ae7a
 signer sha256: certificate SHA-256 digest
--rw-r--r-- 1 runner runner 4.3M Nov 28 15:07 sixiang/app/dist/SiXiang.apk
+-rw-r--r-- 1 runner runner 9.2M Nov 28 18:45 sixiang/app/dist/SiXiang.apk
 
-sha256: b3efec555b0fe3f0f0e936f500e2fadca60d507142e732dde43b30b7527ed5ff
+sha256: eda53a689838a483e4230db84d72bfaabca7570b9b7100fadfa2eb7ec6364932
 DONE
-apk: 4444870 bytes
+apk: 9560857 bytes
 
 == install ==
 Performing Streamed Install
 Success
-installed: package:/data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/base.apk
+installed: package:/data/app/~~Vj2eH9SHj6T0OO-SjzX_nA==/io.sixiang-cuTlUfm_H44Df0Vi83gXAQ==/base.apk
 
 == start the activity (this is the whole point) ==
 Starting: Intent { cmp=io.sixiang/.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: io.sixiang/.MainActivity
-TotalTime: 2198
-WaitTime: 2213
+TotalTime: 3827
+WaitTime: 3904
 Complete
 
+== tap into the guest screen ==
+
 == screenshot ==
-ui.png: 232870 bytes
+ui.png: 213664 bytes
 
 == what is actually on screen ==
-/sdcard/ui.xml: 1 file pulled, 0 skipped. 9.5 MB/s (7283 bytes in 0.001s)
---- ui.txt ---
-SiXiang
-SiXiang
-四象 · Android 17 用户态容器 (v0.1)
-SiXiang v0.1&#10;&#10;[1] 运行环境&#10;  device: Google sdk_gphone64_x86_64&#10;  android: 13 (API 33)&#10;  abi: x86_64&#10;  targetSdk: 28&#10;  filesDir: /data/user/0/io.sixiang/files&#10;  nativeLibraryDir: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64&#10;&#10;[2] guest rootfs&#10;  解包 assets/guest.zip&#10;  解包完成 231 ms&#10;  linker64: 1738864 B&#10;  libc.so: 1023864 B&#10;  toybox: 0 B&#10;&#10;[3] loader&#10;  path: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64/libmini_loader.so&#10;  executable: true&#10;  PASS&#10;&#10;[4] 让 guest 自己的 linker64 启动 toybox&#10;$ toybox uname -a&#10;  -&gt; exit=159 (0 lines)&#10;$ toybox id&#10;  -&gt; exit=159 (0 lines)&#10;$ toybox echo SIXIANG_GUEST_OK&#10;  -&gt; exit=159 (0 lines)&#10;&#10;== 有失败项，看上面的错误行 ==&#10;
-uname -a
-运行
-自检 / 重新启动 GUEST
-清屏
+adb: error: failed to stat remote object '/sdcard/ui.xml': No such file or directory
 
 == logcat (SiXiang) ==
---------- beginning of main
-11-28 15:08:03.449  3568  3619 I SiXiang : SiXiang v0.1
-11-28 15:08:03.449  3568  3619 I SiXiang : 
-11-28 15:08:03.449  3568  3619 I SiXiang : [1] 运行环境
-11-28 15:08:03.449  3568  3619 I SiXiang :   device: Google sdk_gphone64_x86_64
-11-28 15:08:03.449  3568  3619 I SiXiang :   android: 13 (API 33)
-11-28 15:08:03.449  3568  3619 I SiXiang :   abi: x86_64
-11-28 15:08:03.449  3568  3619 I SiXiang :   targetSdk: 28
-11-28 15:08:03.453  3568  3619 I SiXiang :   filesDir: /data/user/0/io.sixiang/files
-11-28 15:08:03.453  3568  3619 I SiXiang :   nativeLibraryDir: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64
-11-28 15:08:03.453  3568  3619 I SiXiang : 
-11-28 15:08:03.453  3568  3619 I SiXiang : [2] guest rootfs
-11-28 15:08:03.453  3568  3619 I SiXiang :   解包 assets/guest.zip
-11-28 15:08:03.684  3568  3619 I SiXiang :   解包完成 231 ms
-11-28 15:08:03.684  3568  3619 I SiXiang :   linker64: 1738864 B
-11-28 15:08:03.684  3568  3619 I SiXiang :   libc.so: 1023864 B
-11-28 15:08:03.685  3568  3619 I SiXiang :   toybox: 0 B
-11-28 15:08:03.685  3568  3619 I SiXiang : 
-11-28 15:08:03.685  3568  3619 I SiXiang : [3] loader
-11-28 15:08:03.685  3568  3619 I SiXiang :   path: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64/libmini_loader.so
-11-28 15:08:03.685  3568  3619 I SiXiang :   executable: true
-11-28 15:08:03.685  3568  3619 I SiXiang :   PASS
-11-28 15:08:03.685  3568  3619 I SiXiang : 
-11-28 15:08:03.685  3568  3619 I SiXiang : [4] 让 guest 自己的 linker64 启动 toybox
-11-28 15:08:03.685  3568  3619 I SiXiang : $ toybox uname -a
-11-28 15:08:03.700  3568  3619 I SiXiang :   -> exit=159 (0 lines)
-11-28 15:08:03.700  3568  3619 I SiXiang : $ toybox id
-11-28 15:08:03.701  3568  3619 I SiXiang :   -> exit=159 (0 lines)
-11-28 15:08:03.701  3568  3619 I SiXiang : $ toybox echo SIXIANG_GUEST_OK
-11-28 15:08:03.702  3568  3619 I SiXiang :   -> exit=159 (0 lines)
-11-28 15:08:03.702  3568  3619 I SiXiang : 
-11-28 15:08:03.702  3568  3619 I SiXiang : == 有失败项，看上面的错误行 ==
+11-28 18:45:31.252  3596  3684 I SiXiang :   PASS 已连接 guest 画面（socket + memfd）
+11-28 18:45:42.136  3596  3741 I SiXiang : tap -> 图标 5：ls /system
+11-28 18:45:44.269  3596  3741 I SiXiang : tap -> 图标 1：id
+11-28 18:45:46.424  3596  3741 I SiXiang : tap -> 图标 13：wc -l /proc/cpuinfo
+
+== why did the child die? ==
+$ dmesg | grep -iE 'seccomp|avc|denied|sig'
+$ logcat -d -b all | grep -iE 'avc:|seccomp'
+11-28 18:45:44.279  3944  3944 I auditd  : type=1400 audit(0.0:82): avc: denied { search } for comm="libmini_loader." name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:44.279  3944  3944 W libmini_loader.: type=1400 audit(0.0:82): avc: denied { search } for name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:44.279  3944  3944 I auditd  : type=1400 audit(0.0:83): avc: denied { search } for comm="libmini_loader." name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:44.279  3944  3944 W libmini_loader.: type=1400 audit(0.0:83): avc: denied { search } for name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:44.283  3944  3944 I auditd  : type=1400 audit(0.0:84): avc: granted { execute } for comm="libmini_loader." path="/data/user/0/io.sixiang/files/guest/system/lib64/libselinux.so" dev="dm-34" ino=132063 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 W libmini_loader.: type=1400 audit(0.0:84): avc: granted { execute } for path="/data/user/0/io.sixiang/files/guest/system/lib64/libselinux.so" dev="dm-34" ino=132063 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 I auditd  : type=1400 audit(0.0:85): avc: granted { execute } for comm="libmini_loader." path="/data/user/0/io.sixiang/files/guest/system/lib64/libc++.so" dev="dm-34" ino=132086 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 W libmini_loader.: type=1400 audit(0.0:85): avc: granted { execute } for path="/data/user/0/io.sixiang/files/guest/system/lib64/libc++.so" dev="dm-34" ino=132086 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 I auditd  : type=1400 audit(0.0:86): avc: granted { execute } for comm="libmini_loader." path="/data/user/0/io.sixiang/files/guest/system/lib64/libdl.so" dev="dm-34" ino=132064 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 W libmini_loader.: type=1400 audit(0.0:86): avc: granted { execute } for path="/data/user/0/io.sixiang/files/guest/system/lib64/libdl.so" dev="dm-34" ino=132064 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 I auditd  : type=1400 audit(0.0:87): avc: granted { execute } for comm="libmini_loader." path="/data/user/0/io.sixiang/files/guest/system/lib64/libpackagelistparser.so" dev="dm-34" ino=132062 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:44.283  3944  3944 W libmini_loader.: type=1400 audit(0.0:87): avc: granted { execute } for path="/data/user/0/io.sixiang/files/guest/system/lib64/libpackagelistparser.so" dev="dm-34" ino=132062 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:46.427  3969  3969 I auditd  : type=1400 audit(0.0:97): avc: denied { search } for comm="libmini_loader." name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 W libmini_loader.: type=1400 audit(0.0:97): avc: denied { search } for name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 I auditd  : type=1400 audit(0.0:98): avc: denied { search } for comm="libmini_loader." name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 W libmini_loader.: type=1400 audit(0.0:98): avc: denied { search } for name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 I auditd  : type=1400 audit(0.0:99): avc: denied { search } for comm="libmini_loader." name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 W libmini_loader.: type=1400 audit(0.0:99): avc: denied { search } for name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 I auditd  : type=1400 audit(0.0:100): avc: denied { search } for comm="libmini_loader." name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 W libmini_loader.: type=1400 audit(0.0:100): avc: denied { search } for name="tests" dev="dm-34" ino=65540 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:shell_test_data_file:s0 tclass=dir permissive=0 app=io.sixiang
+11-28 18:45:46.427  3969  3969 I auditd  : type=1400 audit(0.0:101): avc: granted { execute } for comm="libmini_loader." path="/data/user/0/io.sixiang/files/guest/system/lib64/libc++.so" dev="dm-34" ino=132086 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:46.427  3969  3969 W libmini_loader.: type=1400 audit(0.0:101): avc: granted { execute } for path="/data/user/0/io.sixiang/files/guest/system/lib64/libc++.so" dev="dm-34" ino=132086 scontext=u:r:untrusted_app_27:s0:c174,c256,c512,c768 tcontext=u:object_r:app_data_file:s0:c174,c256,c512,c768 tclass=file app=io.sixiang
+11-28 18:45:57.143  2754  2754 I auditd  : type=1400 audit(0.0:114): avc: denied { read } for comm="binder:2754_4" name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:45:57.143  2754  2754 W binder:2754_4: type=1400 audit(0.0:114): avc: denied { read } for name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:45:57.171  2754  2754 I auditd  : type=1400 audit(0.0:115): avc: denied { read } for comm="binder:2754_4" name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:45:57.171  2754  2754 W binder:2754_4: type=1400 audit(0.0:115): avc: denied { read } for name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:00.695  2754  2754 I auditd  : type=1400 audit(0.0:116): avc: denied { read } for comm="binder:2754_3" name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:00.695  2754  2754 W binder:2754_3: type=1400 audit(0.0:116): avc: denied { read } for name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:00.707  2754  2754 I auditd  : type=1400 audit(0.0:117): avc: denied { read } for comm="binder:2754_3" name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:00.707  2754  2754 W binder:2754_3: type=1400 audit(0.0:117): avc: denied { read } for name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.131  2754  2754 I auditd  : type=1400 audit(0.0:118): avc: denied { read } for comm="binder:2754_4" name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.131  2754  2754 W binder:2754_4: type=1400 audit(0.0:118): avc: denied { read } for name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.139  2754  2754 I auditd  : type=1400 audit(0.0:119): avc: denied { read } for comm="binder:2754_4" name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.139  2754  2754 W binder:2754_4: type=1400 audit(0.0:119): avc: denied { read } for name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.671  2754  2754 I auditd  : type=1400 audit(0.0:120): avc: denied { read } for comm="binder:2754_6" name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.671  2754  2754 W binder:2754_6: type=1400 audit(0.0:120): avc: denied { read } for name="u:object_r:system_adbd_prop:s0" dev="tmpfs" ino=269 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:system_adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.675  2754  2754 I auditd  : type=1400 audit(0.0:121): avc: denied { read } for comm="binder:2754_6" name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:03.675  2754  2754 W binder:2754_6: type=1400 audit(0.0:121): avc: denied { read } for name="u:object_r:adbd_prop:s0" dev="tmpfs" ino=61 scontext=u:r:gmscore_app:s0:c512,c768 tcontext=u:object_r:adbd_prop:s0 tclass=file permissive=0 app=com.google.android.gms
+11-28 18:46:06.423  4370  4370 I auditd  : type=1400 audit(0.0:122): avc: denied { syslog_read } for comm="dmesg" scontext=u:r:shell:s0 tcontext=u:r:kernel:s0 tclass=system permissive=0
+11-28 18:46:06.423  4370  4370 W dmesg   : type=1400 audit(0.0:122): avc: denied { syslog_read } for scontext=u:r:shell:s0 tcontext=u:r:kernel:s0 tclass=system permissive=0
 
 == verdict ==
-PASS: the guest ran and its output reached the screen
+PASS: guest frames reached the screen view
+PASS: the guest ran inside the app
+PASS: a tap landed on a tile and launched its guest applet
+PASS: typed text reached the guest

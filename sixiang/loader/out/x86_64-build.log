@@ -1,5 +1,5 @@
-sixiang/loader/out/mini_loader_x86_64: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=22736048bded215c0d1e71b493e70cbfc8c2f2a4, for GNU/Linux 3.2.0, not stripped
--rwxr-xr-x 1 runner runner 794952 Nov 28 15:05 sixiang/loader/out/mini_loader_x86_64
+sixiang/loader/out/mini_loader_x86_64: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, for Android 37, with debug_info, not stripped
+-rwxr-xr-x 1 runner runner 8942696 Nov 28 18:43 sixiang/loader/out/mini_loader_x86_64
 usage:
   sixiang/loader/out/mini_loader_x86_64 <aarch64 ET_DYN elf> [args...]
       load it into anonymous memory, relocate, make the text
