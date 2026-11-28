@@ -1,3 +1,4 @@
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so: unsupported version 17791 of Verneed record
 exited 10
 exited 0
+exited 0

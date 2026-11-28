@@ -1,4 +1,4 @@
-== dyndump start Sat Nov 28 01:20:51 UTC 2026 ==
+== dyndump start Sat Nov 28 01:26:44 UTC 2026 ==
 Linux runnervmu7lcj 7.0.0-1020-azure #21~24.04.2-Ubuntu SMP PREEMPT Tue Nov 10 01:19:17 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 aarch64
 Python 3.12.3
@@ -7,51 +7,51 @@ gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  1 9619k    1  192k    0     0   737k      0  0:00:13 --:--:--  0:00:13  737k100 9619k  100 9619k    0     0  27.1M      0 --:--:-- --:--:-- --:--:--  108M
+100 9619k  100 9619k    0     0  49.1M      0 --:--:-- --:--:-- --:--:-- 49.1M
 curl rc=0
--rw-r--r-- 1 runner runner 9850096 Nov 28 01:20 work/libtwoyi.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 01:26 work/libtwoyi.so
 5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
 --- stubs
 dyn/stubs.c: In function ‘__read_chk’:
-dyn/stubs.c:82:79: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
-   82 | ssize_t __read_chk(int fd, void *buf, size_t n, size_t bn) { (void)bn; return read(fd, buf, n); }
+dyn/stubs.c:92:79: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   92 | ssize_t __read_chk(int fd, void *buf, size_t n, size_t bn) { (void)bn; return read(fd, buf, n); }
       |                                                                               ^~~~
       |                                                                               fread
 dyn/stubs.c: In function ‘__pread_chk’:
-dyn/stubs.c:83:91: warning: implicit declaration of function ‘pread’; did you mean ‘fread’? [-Wimplicit-function-declaration]
-   83 | ssize_t __pread_chk(int fd, void *buf, size_t n, off_t off, size_t bn) { (void)bn; return pread(fd, buf, n, off); }
+dyn/stubs.c:93:91: warning: implicit declaration of function ‘pread’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   93 | ssize_t __pread_chk(int fd, void *buf, size_t n, off_t off, size_t bn) { (void)bn; return pread(fd, buf, n, off); }
       |                                                                                           ^~~~~
       |                                                                                           fread
 dyn/stubs.c: In function ‘__write_chk’:
-dyn/stubs.c:84:86: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
-   84 | ssize_t __write_chk(int fd, const void *buf, size_t n, size_t bn) { (void)bn; return write(fd, buf, n); }
+dyn/stubs.c:94:86: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   94 | ssize_t __write_chk(int fd, const void *buf, size_t n, size_t bn) { (void)bn; return write(fd, buf, n); }
       |                                                                                      ^~~~~
       |                                                                                      fwrite
 dyn/stubs.c: In function ‘__open_2’:
-dyn/stubs.c:85:45: warning: implicit declaration of function ‘open’; did you mean ‘popen’? [-Wimplicit-function-declaration]
-   85 | int __open_2(const char *p, int f) { return open(p, f); }
+dyn/stubs.c:95:45: warning: implicit declaration of function ‘open’; did you mean ‘popen’? [-Wimplicit-function-declaration]
+   95 | int __open_2(const char *p, int f) { return open(p, f); }
       |                                             ^~~~
       |                                             popen
 dyn/stubs.c: In function ‘__openat_2’:
-dyn/stubs.c:86:54: warning: implicit declaration of function ‘openat’ [-Wimplicit-function-declaration]
-   86 | int __openat_2(int d, const char *p, int f) { return openat(d, p, f); }
+dyn/stubs.c:96:54: warning: implicit declaration of function ‘openat’ [-Wimplicit-function-declaration]
+   96 | int __openat_2(int d, const char *p, int f) { return openat(d, p, f); }
       |                                                      ^~~~~~
 dyn/stubs.c: In function ‘__umask_chk’:
-dyn/stubs.c:90:39: warning: implicit declaration of function ‘umask’ [-Wimplicit-function-declaration]
-   90 | mode_t __umask_chk(mode_t m) { return umask(m); }
+dyn/stubs.c:100:39: warning: implicit declaration of function ‘umask’ [-Wimplicit-function-declaration]
+  100 | mode_t __umask_chk(mode_t m) { return umask(m); }
       |                                       ^~~~~
 stub rc=0
 LIBC=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6  LIBM=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 total 36
-lrwxrwxrwx 1 runner runner    18 Nov 28 01:20 libandroid.so -> libbionic_extra.so
--rwxr-xr-x 1 runner runner 72976 Nov 28 01:20 libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:20 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:20 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    18 Nov 28 01:20 liblog.so -> libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:20 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:26 libandroid.so -> libbionic_extra.so
+-rwxr-xr-x 1 runner runner 73136 Nov 28 01:26 libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:26 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:26 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:26 liblog.so -> libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:26 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 --- dumper
 dumper rc=0
-dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=872e98fb0066957b8bca1109fc89e12e4dbc0dee, for GNU/Linux 3.7.0, not stripped
+dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=d9dfafb8c2831d4f5b164593a6b5ab8f3ee499c4, for GNU/Linux 3.7.0, not stripped
 --- patch noinit
   DT_FLAGS 0x8 -> 0
   DT_FLAGS_1 0x1 -> 0
@@ -74,49 +74,98 @@ rc=0
 96a1e993b25120db026942353454eddaed5028fdbaa54d1b2ee038b2f4fd8db2  work/libtwoyi_lazy.so
 dd72ff2266f4dd1efe880afa4dbfef366ce6c15c3b7d3c8780d22afb2f2d8c64  work/libtwoyi_noinit.so
 --- phase noinit
-[noinit] base = 0xff522c8e4000
+[noinit] dlopen ...
+[noinit] base = 0xff2e72bd4000
 phase noinit  status: exit 0
 rc=0
 --- phase init
-phase init    status: signal 11
+[init] dlopen ...
+[init] FAULT during dlopen/constructors, dumping anyway
+[init] base = 0xff4f052f4000
+phase init    status: exit 0
 rc=0
 --- phase jni
-phase jni     status: signal 11
+[jni] dlopen ...
+[jni] FAULT during dlopen/constructors, dumping anyway
+[jni] base = 0xff337d6e4000
+[jni] JNI_OnLoad not found
+phase jni     status: exit 0
 rc=0
 --- compare
 == runtime .data vs static image ==
+  after_jni_data.bin           changed bytes: 0 (0.000%)
+  init_data.bin                changed bytes: 0 (0.000%)
+  jni_data.bin                 changed bytes: 0 (0.000%)
   noinit_data.bin              changed bytes: 0 (0.000%)
 
 == runtime .bss (static image has no bytes here) ==
+  after_jni_bss.bin            49128 bytes, 0 non-zero (0.0%)
+  init_bss.bin                 49128 bytes, 0 non-zero (0.0%)
+  jni_bss.bin                  49128 bytes, 0 non-zero (0.0%)
   noinit_bss.bin               49128 bytes, 0 non-zero (0.0%)
 rc=0
 --- slots
-load_base=0xff522c8e4000
+load_base=0xff337d6e4000
 PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
 PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
 PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
 PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
 PTR_DAT_00a0e470         va=0x90e470   value=0x0
-PTR_00a10f18             va=0x910f18   value=0xff522d43e73c
+PTR_00a10f18             va=0x910f18   value=0xff337e23e73c
+load_base=0xff4f052f4000
+PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
+PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
+PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
+PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
+PTR_DAT_00a0e470         va=0x90e470   value=0x0
+PTR_00a10f18             va=0x910f18   value=0xff4f05e4c73c
+load_base=0xff337d6e4000
+PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
+PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
+PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
+PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
+PTR_DAT_00a0e470         va=0x90e470   value=0x0
+PTR_00a10f18             va=0x910f18   value=0xff337e23e73c
+load_base=0xff2e72bd4000
+PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
+PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
+PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
+PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
+PTR_DAT_00a0e470         va=0x90e470   value=0x0
+PTR_00a10f18             va=0x910f18   value=0xff2e7372873c
 --- status
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
 killed by signal 11 (Segmentation fault)
+NOTE: fault inside dlopen (constructor), partial state dumped
+exited 0
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
 killed by signal 11 (Segmentation fault)
+NOTE: fault inside dlopen (constructor), partial state dumped
+exited 0
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so: unsupported version 17791 of Verneed record
 exited 10
 exited 0
+exited 0
 --- files
-total 436
-drwxr-xr-x  2 runner runner   4096 Nov 28 01:20 .
-drwxr-xr-x 15 runner runner  12288 Nov 28 01:20 ..
--rw-r--r--  1 runner runner    183 Nov 28 01:20 init_status.txt
--rw-r--r--  1 runner runner    183 Nov 28 01:20 jni_status.txt
--rw-r--r--  1 runner runner  49128 Nov 28 01:20 noinit_bss.bin
--rw-r--r--  1 runner runner 355160 Nov 28 01:20 noinit_data.bin
--rw-r--r--  1 runner runner    330 Nov 28 01:20 noinit_slots.txt
--rw-r--r--  1 runner runner    153 Nov 28 01:20 noinit_status.txt
--rw-r--r--  1 runner runner   6316 Nov 28 01:20 run.log
-== dyndump end Sat Nov 28 01:20:53 UTC 2026 ==
+total 1636
+drwxr-xr-x  2 runner runner   4096 Nov 28 01:26 .
+drwxr-xr-x 15 runner runner  12288 Nov 28 01:26 ..
+-rw-r--r--  1 runner runner  49128 Nov 28 01:26 after_jni_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 01:26 after_jni_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 01:26 after_jni_slots.txt
+-rw-r--r--  1 runner runner  49128 Nov 28 01:26 init_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 01:26 init_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 01:26 init_slots.txt
+-rw-r--r--  1 runner runner    254 Nov 28 01:26 init_status.txt
+-rw-r--r--  1 runner runner  49128 Nov 28 01:26 jni_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 01:26 jni_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 01:26 jni_slots.txt
+-rw-r--r--  1 runner runner    254 Nov 28 01:26 jni_status.txt
+-rw-r--r--  1 runner runner  49128 Nov 28 01:26 noinit_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 01:26 noinit_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 01:26 noinit_slots.txt
+-rw-r--r--  1 runner runner    162 Nov 28 01:26 noinit_status.txt
+-rw-r--r--  1 runner runner   7980 Nov 28 01:26 run.log
+== dyndump end Sat Nov 28 01:26:45 UTC 2026 ==

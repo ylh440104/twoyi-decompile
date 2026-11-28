@@ -1,3 +1,5 @@
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
 killed by signal 11 (Segmentation fault)
+NOTE: fault inside dlopen (constructor), partial state dumped
+exited 0
