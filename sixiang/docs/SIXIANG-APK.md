@@ -16,7 +16,7 @@
 | 签名 | `sixiang/keys/sixiang.jks`，alias `sixiang` |
 | 签名 SHA-256 | `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
 | 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`（bionic 静态，892 KB）、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等）、`assets/screen`（guest 画面程序，13 KB） |
-| 体积 / sha256 | 4,113,079 B / `9bd1cdfec41f1b1f988cf8d0be38958462b0383b16da0069987cae730c11d538` |
+| 体积 / sha256 | 4,113,079 B / `7e3db0e8d820d1a0f71b5e248ded96b79358fd3cecd040c138dc1eb9ecf43424` |
 
 构建全部在 Actions：`.github/workflows/sixiang-apk.yml`（用 NDK 编 loader，再
 javac/d8/aapt2/zipalign/apksigner），产物与 `build.log`、`inspect.txt` 一起提交回仓库。
@@ -212,11 +212,38 @@ tap (160,139) -> 图标 1：id
 这样布局只存在于 `screen.c` 一处。早先 app 里那份重复的几何计算（还因为图标之间的
 间隙漏判过）已经删掉。
 
+### 传输层：socket + fd 传递（R5）
+
+画面不再是「约定一个文件」。协议全在一条 abstract unix socket 上：
+
+```
+guest → app   hello <pid> <w> <h> <slots>
+              bufok <slot>          （挂载成功后回执）
+              frame <slot>          （这一帧画完了）
+              hit <tile>            （点了哪个图标）
+app → guest   fbuf <slot>  [SCM_RIGHTS 附带 fd]
+              tap <x> <y> <seq>
+              focus <tile>
+              rel <slot>            （这帧已经显示，可以复用）
+```
+
+宿主建两个 `frames{0,1}.bin` 并 `mmap`，再把 fd 通过
+`LocalSocket.setFileDescriptorsForSend` 用 `SCM_RIGHTS` 递给 guest；guest 用
+`recvmsg` 取 fd、`mmap` 同一个 inode 作画，画完通告 slot。这就是双缓冲队列，只是
+生产者是 guest、消费者是 app。
+
+**两条踩坑记录（都只在运行时暴露）：**
+
+| 现象 | 真因 |
+|---|---|
+| `/proc/<childpid>/fd/N` → `EACCES` | 先试过「guest 建 memfd、宿主按 pid 取」，Android 的 `untrusted_app` 不允许读子进程的 fd 目录。故改成反方向：宿主建缓冲、用 `SCM_RIGHTS` 递过去 |
+| `java.io.IOException: Bad file descriptor`（发出 fd 之后的下一条消息） | `setFileDescriptorsForSend` 里的 fd 是**跟着下一次 write** 走的；我在 write 后立刻 `close()` 了 PFD，结果死 fd 被挂到了后面的 `rel` 上。修法：PFD 保持打开，发完两个 slot 后 `setFileDescriptorsForSend(new FileDescriptor[0])` 清空 |
+
 ### 设置与最近任务
 
 - 「设置」对话框：分辨率（320×568 / 360×640 / 480×854）、帧率（15/20/30）、DPI
-  （80/100/130）。改动落盘到 SharedPreferences，然后 `shutdown()` → 用新的
-  `SIXIANG_W/H/FPS/DPI` 重启 painter、重开缓冲区（`pump: 映射 … (gen N)` 会变）。
+   （80/100/130）。改动落盘到 SharedPreferences，然后 `shutdown()` → 用新的
+   `SIXIANG_W/H/FPS/DPI` 重启 painter、重建缓冲。
 - 「最近」条：记录最近启动过的 6 个 guest 程序，点一下重跑，并把焦点环交给它
   （通过共享头的 `focus` + `focusSeq` 两个字段传给 guest）。
 
@@ -259,7 +286,7 @@ adb install -r sixiang/app/dist/SiXiang.apk
 | R2 | guest 自己的 `linker64` 解析 `DT_NEEDED` | ✅ |
 | R3 | guest → host 画面通道 | ✅（共享文件 + seqlock） |
 | R4 | host → guest 输入与数据通道 | ✅（同一头的 x/y/seq + `apps.txt`） |
-| R5 | 画面通道换成 buffer 队列（socket + `SCM_RIGHTS` 传 `AHardwareBuffer`/memfd） | ❌ 现在还是约定文件 |
+| R5 | 画面通道换成 buffer 队列（socket + fd 传递） | ✅ 宿主建两个缓冲文件 → `LocalSocket.setFileDescriptorsForSend` 用 `SCM_RIGHTS` 把 fd 交给 guest → guest `recvmsg` 收 fd、`mmap`、画完通告 `frame <slot>` → 宿主贴图后回 `rel <slot>`。控制消息（tap/hit/focus）同一条 socket，不再有约定文件 |
 | R6 | guest `SurfaceFlinger` + `hwcomposer` shim | ❌ 未做 |
 | R7 | guest `init` → `zygote` → `system_server` 启动序列 | ❌ 未做（需要打过补丁的 ROM） |
 | R8 | `binder` / `servicemanager` 代理 | ❌ 未做 |
