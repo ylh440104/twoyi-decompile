@@ -8,3 +8,15 @@ tools/check_run.py
 
 __pycache__/
 *.pyc
+
+# The 221 MB input APK lives only on the device; the cloud rebuilds it from
+# apkinput/part* (3 chunks, 80+80+51 MB) so no single git object exceeds the
+# 100 MB hard limit.
+apkinput/twoyi.apk
+
+# Build by-products
+unsigned.apk
+aligned.apk
+twoyi-gadget.apk
+ks.jks
+dec/
