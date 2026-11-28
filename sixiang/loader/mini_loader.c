@@ -67,6 +67,20 @@
 #  error "unsupported build architecture"
 #endif
 
+/* The relocation cases below are written for aarch64 and stay in the source
+ * even when this build is x86_64 (they simply never match there). Some libcs
+ * -- musl's elf.h, notably -- do not declare the aarch64 relocation numbers at
+ * all, so define the three we use if the header did not. */
+#ifndef R_AARCH64_NONE
+#  define R_AARCH64_NONE 0
+#endif
+#ifndef R_AARCH64_RELATIVE
+#  define R_AARCH64_RELATIVE 1027
+#endif
+#ifndef R_AARCH64_IRELATIVE
+#  define R_AARCH64_IRELATIVE 1032
+#endif
+
 static uintptr_t align_down(uintptr_t x, uintptr_t a) { return x & ~(a - 1); }
 static uintptr_t align_up(uintptr_t x, uintptr_t a) { return (x + a - 1) & ~(a - 1); }
 
