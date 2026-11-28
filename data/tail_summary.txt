@@ -1,0 +1,389 @@
+tail functions: 2784
+
+family histogram:
+  empty         1225
+  arith          537
+  indirect-thunk   375
+  api-log        227
+  loop-store     111
+  api-thread      97
+  calls-only      68
+  forwarder       58
+  field-set       28
+  dispatch        14
+  gl-enum         13
+  const-return    11
+  bitops          10
+  simd/pack        6
+  math             2
+  api-str          2
+
+samples per family (body head, 6 lines):
+-- empty  0x1c52c0  void FUN_002c52c0(void)
+      0| 
+      1| void FUN_002c52c0(void)
+      2| 
+      3| {
+      4|   return;
+      5| }
+      6| 
+-- empty  0x58e0ec  void FUN_0068e0ec(void)
+      0| 
+      1| void FUN_0068e0ec(void)
+      2| 
+      3| {
+      4|   return;
+      5| }
+      6| 
+-- empty  0x58e154  void FUN_0068e154(void)
+      0| 
+      1| void FUN_0068e154(void)
+      2| 
+      3| {
+      4|   return;
+      5| }
+      6| 
+-- arith  0x58e134  void FUN_0068e134(long param_1,undefined8 *param_2)
+      0| 
+      1| void FUN_0068e134(long param_1,undefined8 *param_2)
+      2| 
+      3| {
+      4|   undefined8 uVar1;
+      5|   undefined8 uVar2;
+      6|   undefined8 uVar3;
+-- arith  0x598b90  void FUN_00698b90(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3)
+      0| 
+      1| void FUN_00698b90(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3)
+      2| 
+      3| {
+      4|   if (param_2 != (undefined4 *)0x0) {
+      5|     *param_2 = *param_1;
+      6|   }
+-- arith  0x5997d0  void FUN_006997d0(long param_1,undefined8 *param_2)
+      0| 
+      1| void FUN_006997d0(long param_1,undefined8 *param_2)
+      2| 
+      3| {
+      4|   *(undefined4 *)(param_2 + 1) = *(undefined4 *)(param_1 + 8);
+      5|   *param_2 = &PTR_FUN_009e5eb0;
+      6|   return;
+-- indirect-thunk  0x1c52d0  void FUN_002c52d0(code *UNRECOVERED_JUMPTABLE)
+      0| 
+      1| void FUN_002c52d0(code *UNRECOVERED_JUMPTABLE)
+      2| 
+      3| {
+      4|   if (UNRECOVERED_JUMPTABLE != (code *)0x0) {
+      5|                     /* WARNING: Could not recover jumptable at 0x002c52dc. Too many branches */
+      6|                     /* WARNING: Treating indirect jump as call */
+-- indirect-thunk  0x1ddf80  void FUN_002ddf80(long *param_1,undefined8 param_2,undefined4 param_3,undefined4 param_4,
+      0| 
+      1| void FUN_002ddf80(long *param_1,undefined8 param_2,undefined4 param_3,undefined4 param_4,
+      2|                  undefined4 param_5)
+      3| 
+      4| {
+      5|   int iVar1;
+      6|   uint uVar2;
+-- indirect-thunk  0x1e006c  /* WARNING: Removing unreachable block (ram,0x002e09a4) */
+      0| 
+      1| /* WARNING: Removing unreachable block (ram,0x002e09a4) */
+      2| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      3| 
+      4| void FUN_002e006c(long *param_1,undefined8 param_2,undefined8 param_3)
+      5| 
+      6| {
+-- api-log  0x5b6d3c  void FUN_006b6d3c(ulong param_1,undefined8 param_2)
+      0| 
+      1| void FUN_006b6d3c(ulong param_1,undefined8 param_2)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   
+      6|   uVar1 = FUN_006fd77c(param_1,param_2,0);
+-- api-log  0x5b6dac  void FUN_006b6dac(ulong param_1,undefined8 param_2)
+      0| 
+      1| void FUN_006b6dac(ulong param_1,undefined8 param_2)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   
+      6|   uVar1 = FUN_006fd77c();
+-- api-log  0x6b09a4  void FUN_007b09a4(long param_1,undefined8 param_2,undefined8 param_3)
+      0| 
+      1| void FUN_007b09a4(long param_1,undefined8 param_2,undefined8 param_3)
+      2| 
+      3| {
+      4|   ulong uVar1;
+      5|   long lVar2;
+      6|   ulong *puVar3;
+-- loop-store  0x598bac  /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      0| 
+      1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      2| 
+      3| ulong FUN_00698bac(uint *param_1,uint param_2,undefined8 *param_3)
+      4| 
+      5| {
+      6|   long lVar1;
+-- loop-store  0x5c5984  void FUN_006c5984(uint param_1)
+      0| 
+      1| void FUN_006c5984(uint param_1)
+      2| 
+      3| {
+      4|   bool bVar1;
+      5|   long lVar2;
+      6|   long lVar3;
+-- loop-store  0x5d0610  undefined8
+      0| 
+      1| undefined8
+      2| FUN_006d0610(uint param_1,undefined4 *param_2,undefined4 *param_3,undefined4 *param_4,
+      3|             undefined4 *param_5,undefined4 *param_6,undefined4 *param_7,undefined4 *param_8,
+      4|             undefined4 *param_9)
+      5| 
+      6| {
+-- api-thread  0x598da0  void FUN_00698da0(undefined *param_1,ulong param_2,undefined param_3)
+      0| 
+      1| void FUN_00698da0(undefined *param_1,ulong param_2,undefined param_3)
+      2| 
+      3| {
+      4|   long lVar1;
+      5|   int iVar2;
+      6|   undefined8 uVar3;
+-- api-thread  0x598edc  void FUN_00698edc(undefined8 param_1)
+      0| 
+      1| void FUN_00698edc(undefined8 param_1)
+      2| 
+      3| {
+      4|   long lVar1;
+      5|   int iVar2;
+      6|   long lVar3;
+-- api-thread  0x5a06f4  undefined4 FUN_006a06f4(long param_1)
+      0| 
+      1| undefined4 FUN_006a06f4(long param_1)
+      2| 
+      3| {
+      4|   undefined4 uVar1;
+      5|   
+      6|   pthread_mutex_lock((pthread_mutex_t *)(param_1 + 0x48));
+-- calls-only  0x349de0  void FUN_00449de0(void)
+      0| 
+      1| void FUN_00449de0(void)
+      2| 
+      3| {
+      4|   long unaff_x29;
+      5|   
+      6|   FUN_004e0518(*(undefined8 *)(unaff_x29 + -0x130));
+-- calls-only  0x3867d8  void FUN_004867d8(void)
+      0| 
+      1| void FUN_004867d8(void)
+      2| 
+      3| {
+      4|   undefined8 *in_x11;
+      5|   undefined8 *in_x12;
+      6|   
+-- calls-only  0x3938cc  void FUN_004938cc(undefined8 param_1)
+      0| 
+      1| void FUN_004938cc(undefined8 param_1)
+      2| 
+      3| {
+      4|   undefined8 *in_x9;
+      5|   
+      6|   *in_x9 = param_1;
+-- forwarder  0x1c52c8  void _FINI_0(void)
+      0| 
+      1| void _FINI_0(void)
+      2| 
+      3| {
+      4|   FUN_009dfc74();
+      5|   return;
+      6| }
+-- forwarder  0x38649c  void FUN_0048649c(void)
+      0| 
+      1| void FUN_0048649c(void)
+      2| 
+      3| {
+      4|   __errno();
+      5|   FUN_00486290();
+      6|   return;
+-- forwarder  0x5b5d58  void FUN_006b5d58(undefined4 param_1,undefined8 param_2)
+      0| 
+      1| void FUN_006b5d58(undefined4 param_1,undefined8 param_2)
+      2| 
+      3| {
+      4|   FUN_00698bac(*(undefined8 *)(*(long *)PTR_DAT_00a0dfd8 + 0x98),param_1,param_2);
+      5|   return;
+      6| }
+-- field-set  0x5c8238  void FUN_006c8238(long param_1,undefined param_2)
+      0| 
+      1| void FUN_006c8238(long param_1,undefined param_2)
+      2| 
+      3| {
+      4|   *(undefined *)(param_1 + 0x624) = param_2;
+      5|   return;
+      6| }
+-- field-set  0x5cc8dc  void FUN_006cc8dc(long param_1,long *param_2)
+      0| 
+      1| void FUN_006cc8dc(long param_1,long *param_2)
+      2| 
+      3| {
+      4|   if (*(long *)(*param_2 + 0x1d10) == *(long *)(param_1 + 8)) {
+      5|     **(undefined **)(param_1 + 0x10) = 1;
+      6|   }
+-- field-set  0x6fe434  void FUN_007fe434(long param_1)
+      0| 
+      1| void FUN_007fe434(long param_1)
+      2| 
+      3| {
+      4|   *(long *)(param_1 + 0x98) = param_1 + 0x88;
+      5|   return;
+      6| }
+-- dispatch  0x20889c  /* WARNING: Removing unreachable block (ram,0x0030c184) */
+      0| 
+      1| /* WARNING: Removing unreachable block (ram,0x0030c184) */
+      2| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      3| 
+      4| uint FUN_0030889c(long param_1)
+      5| 
+      6| {
+-- dispatch  0x212160  /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      0| 
+      1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      2| 
+      3| void FUN_00312160(long param_1)
+      4| 
+      5| {
+      6|   uint uVar1;
+-- dispatch  0x2a575c  /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      0| 
+      1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      2| 
+      3| void FUN_003a575c(void)
+      4| 
+      5| {
+      6|   uint uVar1;
+-- gl-enum  0x58a47c  bool FUN_0068a47c(long param_1)
+      0| 
+      1| bool FUN_0068a47c(long param_1)
+      2| 
+      3| {
+      4|   long lVar1;
+      5|   
+      6|   lVar1 = *(long *)(param_1 + 0x38);
+-- gl-enum  0x73b7a8  /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      0| 
+      1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      2| 
+      3| void FUN_0083b7a8(undefined *param_1,undefined8 param_2,long param_3)
+      4| 
+      5| {
+      6|   undefined8 uVar1;
+-- gl-enum  0x740bd0  void FUN_00840bd0(long param_1,int param_2)
+      0| 
+      1| void FUN_00840bd0(long param_1,int param_2)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   
+      6|   uVar1 = param_2 - 0x84c0;
+-- const-return  0x5d15f4  undefined8 FUN_006d15f4(undefined param_1)
+      0| 
+      1| undefined8 FUN_006d15f4(undefined param_1)
+      2| 
+      3| {
+      4|   DAT_00a6c970 = param_1;
+      5|   return 1;
+      6| }
+-- const-return  0x70b790  undefined8 FUN_0080b790(long param_1)
+      0| 
+      1| undefined8 FUN_0080b790(long param_1)
+      2| 
+      3| {
+      4|   (**(code **)(param_1 + 0x248))();
+      5|   return 0;
+      6| }
+-- const-return  0x71b874  undefined8 FUN_0081b874(long param_1)
+      0| 
+      1| undefined8 FUN_0081b874(long param_1)
+      2| 
+      3| {
+      4|   (**(code **)(param_1 + 0x1c8))();
+      5|   return 0;
+      6| }
+-- bitops  0x1e3fe4  /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      0| 
+      1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+      2| 
+      3| void FUN_002e3fe4(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+      4| 
+      5| {
+      6|   uint uVar1;
+-- bitops  0x1ef5e0  void FUN_002ef5e0(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+      0| 
+      1| void FUN_002ef5e0(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   byte bVar2;
+      6|   int local_d0;
+-- bitops  0x1f95e0  void FUN_002f95e0(long *param_1)
+      0| 
+      1| void FUN_002f95e0(long *param_1)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   uint uVar2;
+      6|   long lVar3;
+-- simd/pack  0x7427dc  void FUN_008427dc(long param_1,uint param_2,uint param_3)
+      0| 
+      1| void FUN_008427dc(long param_1,uint param_2,uint param_3)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   ulong uVar2;
+      6|   uint uVar3;
+-- simd/pack  0x74295c  long FUN_0084295c(long param_1,uint param_2)
+      0| 
+      1| long FUN_0084295c(long param_1,uint param_2)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   ulong uVar2;
+      6|   uint uVar3;
+-- simd/pack  0x745468  void FUN_00845468(long param_1,undefined2 param_2,undefined2 param_3,undefined2 param_4,
+      0| 
+      1| void FUN_00845468(long param_1,undefined2 param_2,undefined2 param_3,undefined2 param_4,
+      2|                  undefined2 param_5)
+      3| 
+      4| {
+      5|   ulong uVar1;
+      6|   undefined8 uVar3;
+-- math  0x5db330  void FUN_006db330(undefined8 param_1,undefined8 param_2)
+      0| 
+      1| void FUN_006db330(undefined8 param_1,undefined8 param_2)
+      2| 
+      3| {
+      4|   int iVar1;
+      5|   undefined8 *puVar2;
+      6|   
+-- math  0x783ccc  void FUN_00883ccc(long param_1)
+      0| 
+      1| void FUN_00883ccc(long param_1)
+      2| 
+      3| {
+      4|   int iVar1;
+      5|   long lVar2;
+      6|   
+-- api-str  0x8e1590  /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+      0| 
+      1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+      2| 
+      3| double strtod(char *__nptr,char **__endptr)
+      4| 
+      5| {
+      6|   double dVar1;
+-- api-str  0x979808  /* WARNING: Control flow encountered bad instruction data */
+      0| 
+      1| /* WARNING: Control flow encountered bad instruction data */
+      2| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+      3| 
+      4| double strtod(char *__nptr,char **__endptr)
+      5| 
+      6| {
