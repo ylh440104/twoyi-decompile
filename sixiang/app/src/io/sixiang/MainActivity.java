@@ -229,9 +229,15 @@ public class MainActivity extends Activity {
             File libc = new File(guestDir, "system/lib64/libc.so");
 
             if (!toybox.isFile() || !linker64.isFile() || !libc.isFile()) {
-                say("  解包 assets/guest.zip ...");
+                // An APK-external bundle wins: it lets a test (or the user) drop
+                // in a rootfs for another ABI without rebuilding the APK.
+                File override = new File(getFilesDir(), "guest.zip");
+                boolean useOverride = override.isFile();
+                say("  解包 " + (useOverride ? override.getAbsolutePath() : "assets/guest.zip"));
                 long t0 = System.currentTimeMillis();
-                InputStream in = getAssets().open("guest.zip");
+                InputStream in = useOverride
+                        ? new FileInputStream(override)
+                        : getAssets().open("guest.zip");
                 unzip(in, guestDir);
                 say("  解包完成 " + (System.currentTimeMillis() - t0) + " ms");
             } else {

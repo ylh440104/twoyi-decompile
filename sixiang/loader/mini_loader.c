@@ -54,6 +54,19 @@
 #define STACK_SIZE (1024UL * 1024UL)
 #define FAIL 125
 
+/* The loader runs a guest of its *own* architecture: it has to, because it
+ * maps the guest's code straight into this process. Keeping the machine id in
+ * one place means the same source builds an aarch64 loader (the phone) and an
+ * x86_64 one (the CI emulator, used to prove the app's UI and the loader path
+ * without needing the user's hardware). */
+#if defined(__aarch64__)
+#  define HOST_EM EM_AARCH64
+#elif defined(__x86_64__)
+#  define HOST_EM EM_X86_64
+#else
+#  error "unsupported build architecture"
+#endif
+
 static uintptr_t align_down(uintptr_t x, uintptr_t a) { return x & ~(a - 1); }
 static uintptr_t align_up(uintptr_t x, uintptr_t a) { return (x + a - 1) & ~(a - 1); }
 
@@ -183,8 +196,8 @@ static struct loaded load_ex(const char *path, int do_relocate)
         die("not an ELF", path);
     if (eh->e_ident[EI_CLASS] != ELFCLASS64)
         die("not ELF64", path);
-    if (eh->e_machine != EM_AARCH64)
-        die("not aarch64", path);
+    if (eh->e_machine != HOST_EM)
+        die("ELF machine does not match this loader build", path);
     if (eh->e_type != ET_DYN)
         die("only ET_DYN (PIE / static-pie) is supported", path);
     if (eh->e_phentsize != sizeof(Elf64_Phdr))

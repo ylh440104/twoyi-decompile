@@ -1,0 +1,125 @@
+name: SiXiang UI smoke test
+
+# Answers one question with evidence, entirely inside Actions:
+#   does SiXiang install, start, and run guest code with the result on screen?
+#
+# It boots an x86_64 emulator, builds a guest rootfs out of that very emulator's
+# /system, installs the APK, starts the activity, and commits a screenshot plus
+# the text scraped from the UI hierarchy. The user's phone is not involved.
+#
+# Why x86_64: the runner is x86_64, and an APK that only carries arm64 libraries
+# cannot be installed there (INSTALL_FAILED_NO_MATCHING_ABIS). mini_loader.c is
+# arch-clean, so the same source builds an x86_64 loader, and build.sh can ship
+# both under lib/<abi>/.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sixiang/app/**'
+      - 'sixiang/loader/**'
+      - '.github/workflows/sixiang-ui.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  emulator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK (cmdline tools, platform-tools, emulator)
+        run: |
+          set -uo pipefail
+          SDK=$HOME/android-sdk
+          mkdir -p "$SDK/cmdline-tools"
+          if [ ! -d "$SDK/cmdline-tools/latest" ]; then
+            curl -fsSL -o /tmp/clt.zip \
+              https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+            unzip -q /tmp/clt.zip -d "$SDK/cmdline-tools"
+            mv "$SDK/cmdline-tools/cmdline-tools" "$SDK/cmdline-tools/latest"
+          fi
+          yes | "$SDK/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+          "$SDK/cmdline-tools/latest/bin/sdkmanager" --install \
+            "platforms;android-33" "build-tools;33.0.2" "platform-tools" >/dev/null
+          echo "ANDROID_SDK=$SDK" >> "$GITHUB_ENV"
+          echo "ANDROID_HOME=$SDK" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK" >> "$GITHUB_ENV"
+          echo "$SDK/platform-tools" >> "$GITHUB_PATH"
+          echo "$SDK/emulator" >> "$GITHUB_PATH"
+
+      - name: Build the x86_64 loader
+        run: |
+          set -uo pipefail
+          mkdir -p sixiang/loader/out
+          gcc -O2 -static -Wall -Wextra \
+              -o sixiang/loader/out/mini_loader_x86_64 sixiang/loader/mini_loader.c
+          file sixiang/loader/out/mini_loader_x86_64
+          ls -l sixiang/loader/out/mini_loader_x86_64
+
+      - name: Enable KVM (the emulator is unusable without it)
+        run: |
+          set -uo pipefail
+          ls -l /dev/kvm || true
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          ls -l /dev/kvm
+
+      - name: Emulator + install + start + screenshot
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: google_apis
+          arch: x86_64
+          profile: pixel_5
+          disable-animations: true
+          emulator-options: >-
+            -no-window -no-audio -no-boot-anim -no-snapshot
+            -gpu swiftshader_indirect -camera-back none -camera-front none
+          script: bash sixiang/app/ui-smoke.sh
+
+      - name: Commit the evidence
+        if: always()
+        run: |
+          set -uo pipefail
+          ls -l sixiang/app/dist || true
+          git config user.name  "sixiang-ci"
+          git config user.email "ci@sixiang.invalid"
+          git add -f sixiang/app/dist/ui.png \
+                     sixiang/app/dist/ui.txt \
+                     sixiang/app/dist/ui-log.txt 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "no evidence to commit"
+            exit 0
+          fi
+          git commit -q -m "ui: emulator smoke test evidence (${GITHUB_SHA::7})" || true
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q origin main && git push -q origin HEAD:main; then
+              echo PUSHED
+              exit 0
+            fi
+            echo "retry $i"
+            sleep 6
+          done
+          echo "::warning::could not push evidence"
+
+      - name: Upload the screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sixiang-ui
+          path: |
+            sixiang/app/dist/ui.png
+            sixiang/app/dist/ui.txt
+            sixiang/app/dist/ui-log.txt
+          if-no-files-found: warn
