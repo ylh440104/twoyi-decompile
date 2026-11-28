@@ -1,9 +1,9 @@
 total 216060
--rw-r--r-- 1 runner runner 83886080 Nov 28 06:09 partaa
--rw-r--r-- 1 runner runner 83886080 Nov 28 06:09 partab
--rw-r--r-- 1 runner runner 53469606 Nov 28 06:09 partac
+-rw-r--r-- 1 runner runner 83886080 Nov 28 06:18 partaa
+-rw-r--r-- 1 runner runner 83886080 Nov 28 06:18 partab
+-rw-r--r-- 1 runner runner 53469606 Nov 28 06:18 partac
 cat rc=0
--rw-r--r-- 1 runner runner 221241766 Nov 28 06:09 work/twoyi.apk
+-rw-r--r-- 1 runner runner 221241766 Nov 28 06:18 work/twoyi.apk
 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e  work/twoyi.apk
 expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
   4501160  1981-01-01 01:01   classes.dex
@@ -11,7 +11,7 @@ expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
 == toolchain ==
 2.9.3
 BT=/usr/local/lib/android/sdk/build-tools/37.0.0
--rw-r--r-- 1 runner runner 11446 Nov 28 06:09 dyn/TwoyiApplicationDump.smali
+-rw-r--r-- 1 runner runner 11446 Nov 28 06:18 dyn/TwoyiApplicationDump.smali
 == injected class size ==
 433 dyn/TwoyiApplicationDump.smali
 == probe the pieces the class relies on ==
@@ -27,15 +27,15 @@ I: Copying unknown files...
 I: Copying original files...
 I: Copying META-INF/services directory
 decode rc=0
--rw-r--r-- 1 runner runner 872 Nov 28 06:09 dec/apktool.yml
+-rw-r--r-- 1 runner runner 872 Nov 28 06:18 dec/apktool.yml
 dec/AndroidManifest.xml
 4893
 == original lib/ is preserved verbatim ==
 total 9924
--rw-r--r-- 1 runner runner   10096 Nov 28 06:09 libandroidx.graphics.path.so
--rw-r--r-- 1 runner runner  147768 Nov 28 06:09 libloader.so
--rw-r--r-- 1 runner runner  146256 Nov 28 06:09 libloader32.so
--rw-r--r-- 1 runner runner 9850096 Nov 28 06:09 libtwoyi.so
+-rw-r--r-- 1 runner runner   10096 Nov 28 06:18 libandroidx.graphics.path.so
+-rw-r--r-- 1 runner runner  147768 Nov 28 06:18 libloader.so
+-rw-r--r-- 1 runner runner  146256 Nov 28 06:18 libloader32.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 06:18 libtwoyi.so
 == keep the 212 MB rootfs stored ==
 doNotCompress:
 - zst
@@ -43,13 +43,13 @@ doNotCompress:
 - assets/rootfs.tar.zst
 - assets/dexopt/baseline.prof
 - assets/dexopt/baseline.profm
-installed helper -> dec/smali/io/twoyi/TwoyiApplication$Dump.smali
-  bytes = 11446
-patched dec/smali/io/twoyi/TwoyiApplication.smali
-  contains TwoyiApplication$Dump                      yes
-  contains dump thread begin                          yes
-  contains System;->loadLibrary(Ljava/lang/String;)V  no
-  contains hookCopy                                   no
+installed helper -> dec/smali/io/twoyi/TwoyiApplication$Dump.smali (11446 bytes)
+cleaned smali/io/twoyi/TwoyiApplication.smali (contains dump begin: False)
+patched smali/io/twoyi/Renderer.smali
+  contains dump thread begin            yes
+  contains currentApplication           yes
+  contains TwoyiApplication$Dump        yes
+  contains .locals 3                    yes
 patch rc=0
 == patched region ==
 .method public final attachBaseContext(Landroid/content/Context;)V
@@ -58,21 +58,41 @@ patch rc=0
     .line 1
     invoke-super {p0, p1}, Landroid/content/ContextWrapper;->attachBaseContext(Landroid/content/Context;)V
 
-    # >>> dump thread begin
-    :try_start_g9
-    new-instance v0, Lio/twoyi/TwoyiApplication$Dump;
-    invoke-direct {v0, p0}, Lio/twoyi/TwoyiApplication$Dump;-><init>(Landroid/content/Context;)V
-    new-instance v1, Ljava/lang/Thread;
-    invoke-direct {v1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
-    :try_end_g9
-    .catch Ljava/lang/Throwable; {:try_start_g9 .. :try_end_g9} :catch_g9
-    goto :goto_g9
-    :catch_g9
-    move-exception v0
-    :goto_g9
-    # <<< dump thread end
--rw-r--r-- 1 runner runner 11446 Nov 28 06:09 dec/smali/io/twoyi/TwoyiApplication$Dump.smali
+    .line 2
+    .line 3
+    .line 4
+    new-instance v0, Lio/twoyi/a;
+
+    .line 5
+    .line 6
+    invoke-direct {v0, p0}, Lio/twoyi/a;-><init>(Lio/twoyi/TwoyiApplication;)V
+
+    .line 7
+    .line 8
+    .line 9
+    sput-object v0, Lio/twoyi/v0;->a:Lio/twoyi/v0;
+
+    .line 10
+    .line 11
+    invoke-static {}, Lna/d;->i()Ljava/lang/String;
+
+    .line 12
+    .line 13
+    .line 14
+    move-result-object v0
+
+    .line 15
+    const/4 v1, 0x1
+
+    .line 16
+    if-eqz v0, :cond_1
+
+    .line 17
+    .line 18
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    .line 19
+-rw-r--r-- 1 runner runner 11446 Nov 28 06:18 dec/smali/io/twoyi/TwoyiApplication$Dump.smali
 == no gadget anywhere ==
 libandroidx.graphics.path.so
 libloader.so
@@ -90,19 +110,19 @@ I: Building apk file...
 I: Copying unknown files/dir...
 I: Built apk into: out/unsigned.apk
 build rc=0
--rw-r--r-- 1 runner runner 221448157 Nov 28 06:09 out/unsigned.apk
+-rw-r--r-- 1 runner runner 221448129 Nov 28 06:18 out/unsigned.apk
 reusing repo keystore
 zipalign rc=0
 sign rc=0
--rw-r--r-- 1 runner runner 221522997 Nov 28 06:09 out/twoyi-gadget.apk
+-rw-r--r-- 1 runner runner 221522997 Nov 28 06:18 out/twoyi-gadget.apk
 V3.0 Signer: certificate DN: CN=gadget, O=t, C=cn
 V3.0 Signer: certificate SHA-256 digest: a22dd5d978aa191d829b74ca08729130439e6a2cafe2d22b33adff72d0137e07
 V3.0 Signer: certificate SHA-1 digest: 8ef1cb715518142cb9a75dbe3dd54b2037e1d578
 V3.0 Signer: certificate MD5 digest: cd09a0252a74d1a3c6bef4d1702efa02
 upload rc=0
 total 650572
--rw-r--r-- 1 runner runner 221448415 Nov 28 06:09 aligned.apk
--rw-r--r-- 1 runner runner      2590 Nov 28 06:09 ks.jks
--rw-r--r-- 1 runner runner 221522997 Nov 28 06:09 twoyi-gadget.apk
--rw-r--r-- 1 runner runner   1754520 Nov 28 06:09 twoyi-gadget.apk.idsig
--rw-r--r-- 1 runner runner 221448157 Nov 28 06:09 unsigned.apk
+-rw-r--r-- 1 runner runner 221448390 Nov 28 06:18 aligned.apk
+-rw-r--r-- 1 runner runner      2590 Nov 28 06:18 ks.jks
+-rw-r--r-- 1 runner runner 221522997 Nov 28 06:18 twoyi-gadget.apk
+-rw-r--r-- 1 runner runner   1754520 Nov 28 06:18 twoyi-gadget.apk.idsig
+-rw-r--r-- 1 runner runner 221448129 Nov 28 06:18 unsigned.apk
