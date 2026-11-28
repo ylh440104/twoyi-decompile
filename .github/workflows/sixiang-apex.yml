@@ -92,6 +92,18 @@ jobs:
           cp -f tree-sample.txt sixiang/apex/out/ 2>/dev/null || true
           cp -f sixiang/apex/out/tree/unpack-report.txt sixiang/apex/out/ 2>/dev/null || true
           cp -f sixiang/apex/out/tree/apex-info-list.xml sixiang/apex/out/ 2>/dev/null || true
+          # 展开出来的目录树只用于统计，不往上带（几十 MB，会卡住 commit）
+          {
+            echo '=== tree size ==='
+            du -sh sixiang/apex/out/tree/apex 2>/dev/null
+            echo
+            echo '=== per-module sizes (top 40) ==='
+            du -sm sixiang/apex/out/tree/apex/* 2>/dev/null | sort -rn | head -40
+            echo
+            echo '=== runtime payload tree (depth 2) ==='
+            find sixiang/apex/out/tree/apex/com.android.runtime -maxdepth 2 2>/dev/null | head -25
+          } > sixiang/apex/out/tree-size.txt
+          rm -rf sixiang/apex/out/tree
           ls -lh sixiang/apex/out
 
       - name: Upload artifact
