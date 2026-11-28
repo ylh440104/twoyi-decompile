@@ -75,6 +75,34 @@ jobs:
 
           echo "RC1=$rc RC2=$rc2" > "$OUT/rc.txt"
 
+      - name: AOT inventory (does the GSI already ship precompiled code?)
+        run: bash sixiang/aot/inventory.sh
+
+      - name: Package for the device
+        run: |
+          OUT=sixiang/guest/out
+          cp sixiang/guest/run-on-device.sh "$OUT/run-on-device.sh"
+          chmod +x "$OUT/run-on-device.sh" "$OUT/mini_loader"
+          rm -f /tmp/sixiang-guest.zip
+          (cd "$OUT" && zip -qr /tmp/sixiang-guest.zip .)
+          ls -lh /tmp/sixiang-guest.zip
+          echo "contents:"; unzip -l /tmp/sixiang-guest.zip | head -20
+
+      - name: Publish release asset (downloadable without a token)
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="guest-${GITHUB_SHA::7}"
+          gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" /tmp/sixiang-guest.zip \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "SiXiang guest bundle ${TAG}" \
+            --notes "Android 17 (bionic) linker64 + libc + toybox, plus mini_loader.
+Unzip on the device and run ./run-on-device.sh from a shell that can load ELF
+(proot/Termux). No root, no execve, no namespaces." \
+            || echo "release skipped"
+
       - name: Report
         if: always()
         run: |
@@ -111,6 +139,7 @@ jobs:
           git config user.email "ci@sixiang.invalid"
           mkdir -p sixiang/guest/out
           git add -f sixiang/guest/out 2>/dev/null || true
+          git add -f sixiang/docs 2>/dev/null || true
           git commit -q -m "guest: run report ($GITHUB_SHA)" || echo "nothing to commit"
           # The loader workflow may push at the same moment; retry instead of
           # silently dropping the report on a non-fast-forward.
