@@ -20,6 +20,7 @@
 #include <dlfcn.h>
 #include <errno.h>
 #include <link.h>
+#include <setjmp.h>
 #include <signal.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -27,6 +28,36 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+/* ---- fault guard: a crashing constructor must not cost us the dump ---- */
+static sigjmp_buf g_jb;
+static void on_fault(int sig)
+{
+    (void)sig;
+    siglongjmp(g_jb, 1);
+}
+
+/* ---- locate the load base by name (works even if dlopen() never returned) ---- */
+static const char *g_want;
+static uintptr_t g_base;
+static int phdr_cb(struct dl_phdr_info *info, size_t sz, void *data)
+{
+    (void)sz;
+    (void)data;
+    if (info->dlpi_name && *info->dlpi_name && strstr(info->dlpi_name, g_want)) {
+        g_base = (uintptr_t)info->dlpi_addr;
+        return 1;
+    }
+    return 0;
+}
+static uintptr_t find_base(const char *path)
+{
+    const char *slash = strrchr(path, '/');
+    g_want = slash ? slash + 1 : path;
+    g_base = 0;
+    dl_iterate_phdr(phdr_cb, NULL);
+    return g_base;
+}
 
 #define TEXT_LO 0x1c52b0ul
 #define TEXT_HI 0x8e0490ul
@@ -99,24 +130,57 @@ int main(int argc, char **argv)
     pid_t pid = fork();
     if (pid == 0) {
         /* ---- child ---- */
-        void *h = dlopen(lib, RTLD_LAZY | RTLD_LOCAL);
-        if (!h) {
+        struct sigaction sa;
+        memset(&sa, 0, sizeof sa);
+        sa.sa_handler = on_fault;
+        sa.sa_flags = SA_NODEFER;
+        sigaction(SIGSEGV, &sa, NULL);
+        sigaction(SIGBUS, &sa, NULL);
+        sigaction(SIGABRT, &sa, NULL);
+        sigaction(SIGILL, &sa, NULL);
+        sigaction(SIGFPE, &sa, NULL);
+
+        fprintf(stderr, "[%s] dlopen ...\n", phase);
+        fflush(stderr);
+        void *h = NULL;
+        if (sigsetjmp(g_jb, 1) == 0) {
+            h = dlopen(lib, RTLD_LAZY | RTLD_LOCAL);
+            if (!h) {
+                char p[1024];
+                snprintf(p, sizeof p, "%s/%s_status.txt", outdir, phase);
+                FILE *f = fopen(p, "w");
+                if (f) {
+                    fprintf(f, "dlopen FAILED: %s\n", dlerror());
+                    fclose(f);
+                }
+                fprintf(stderr, "dlopen failed: %s\n", dlerror());
+                _exit(10);
+            }
+        } else {
+            /* a constructor blew up; the library is still mapped, so dump anyway */
+            fprintf(stderr, "[%s] FAULT during dlopen/constructors, dumping anyway\n", phase);
+            fflush(stderr);
             char p[1024];
             snprintf(p, sizeof p, "%s/%s_status.txt", outdir, phase);
-            FILE *f = fopen(p, "w");
+            FILE *f = fopen(p, "a");
             if (f) {
-                fprintf(f, "dlopen FAILED: %s\n", dlerror());
+                fprintf(f, "NOTE: fault inside dlopen (constructor), partial state dumped\n");
                 fclose(f);
             }
-            fprintf(stderr, "dlopen failed: %s\n", dlerror());
-            _exit(10);
         }
-        struct link_map *lm = NULL;
-        if (dlinfo(h, RTLD_DI_LINKMAP, &lm) != 0 || !lm) {
+
+        uintptr_t base = find_base(lib);
+        if (!base) {
+            /* fall back to dlinfo if dl_iterate_phdr did not match */
+            struct link_map *lm = NULL;
+            if (h && dlinfo(h, RTLD_DI_LINKMAP, &lm) == 0 && lm)
+                base = (uintptr_t)lm->l_addr;
+        }
+        if (!base) {
             _exit(11);
         }
-        uintptr_t base = (uintptr_t)lm->l_addr;
         fprintf(stderr, "[%s] base = 0x%lx\n", phase, (unsigned long)base);
+        fflush(stderr);
         dump_slots(base, outdir, phase);
         dump_mem(base, outdir, phase);
 

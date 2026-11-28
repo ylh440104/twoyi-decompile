@@ -20,8 +20,18 @@
 /* ---- bionic errno ---- */
 int *__errno(void) { return __errno_location(); }
 
-/* ---- bionic stdio array (referenced as a data symbol by bionic's <stdio.h>) ---- */
+/* ---- bionic stdio array ----
+ * bionic's <stdio.h> defines stdout as (&__sF[1]) / stderr as (&__sF[2]), so
+ * this array MUST hold real FILE* values before any constructor runs;
+ * otherwise the first printf in a constructor dereferences NULL.
+ */
 FILE *__sF[3];
+__attribute__((constructor)) static void init_sF(void)
+{
+    __sF[0] = stdin;
+    __sF[1] = stdout;
+    __sF[2] = stderr;
+}
 
 /* ---- logging ---- */
 int __android_log_print(int prio, const char *tag, const char *fmt, ...)
