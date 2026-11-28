@@ -1,0 +1,77 @@
+# twoyi 0.7.5 libtwoyi.so  --  runtime values, decoded statically from APS2
+# method: llvm-readelf --relocations (official APS2 decoder) -> apply at base 0
+# input sha256 86ed3afa...db14f4e APK / libtwoyi.so 9850096 B
+# image 9929584 B, applied 112262 relocations
+
+## 1) six GOT slots, post-relocation value (base 0)  == runtime address - base
+  0x90df80 (ghidra 0xa0df80)  disk=0x0       runtime=0x000000000093c900  -> .data+0x270d0
+  0x90df88 (ghidra 0xa0df88)  disk=0x0       runtime=0x000000000093c908  -> .data+0x270d8
+  0x90e058 (ghidra 0xa0e058)  disk=0x0       runtime=0x000000000093c920  -> .data+0x270f0
+  0x90e088 (ghidra 0xa0e088)  disk=0x0       runtime=0x000000000093c930  -> .data+0x27100
+  0x910f18 (ghidra 0xa10f18)  disk=0x0       runtime=0x0000000000000000  -> (zero: filled at load/lazy-bind)
+  0x90e470 (ghidra 0xa0e470)  disk=0x0       runtime=0x000000000096d988  -> .bss+0x15f8
+
+## 2) the four vtable slots: target table at .data+0x270d0
+  slot 0x90df80 -> 0x93c900 = vtable slot [0] of table @ .data+0x270d0
+  slot 0x90df88 -> 0x93c908 = vtable slot [1] of table @ .data+0x270d0
+  slot 0x90e058 -> 0x93c920 = vtable slot [4] of table @ .data+0x270d0
+  slot 0x90e088 -> 0x93c930 = vtable slot [6] of table @ .data+0x270d0
+  table content (first 12 qwords):
+    [ 0] 0x00000000005dac5c  .text+0x4159ac
+    [ 1] 0x00000000005dac64  .text+0x4159b4
+    [ 2] 0x00000000005dac88  .text+0x4159d8
+    [ 3] 0x00000000005dac90  .text+0x4159e0
+    [ 4] 0x00000000005dac98  .text+0x4159e8
+    [ 5] 0x00000000005dac9c  .text+0x4159ec
+    [ 6] 0x00000000005daca0  .text+0x4159f0
+    [ 7] 0x00000000005daca4  .text+0x4159f4
+    [ 8] 0x00000002ffffffff  
+    [ 9] 0x0000000000000001  
+    [10] 0x00000000005df870  .text+0x41a5c0
+    [11] 0x00000000005df940  .text+0x41a690
+
+## 3) .init_array  38 entries, all non-zero after relocation
+  [ 0] 0x00000000008dfdb4  .text+0x71ab04
+  [ 1] 0x00000000008e00f8  .text+0x71ae48
+  [ 2] 0x00000000008a3f74  .text+0x6decc4
+  [ 3] 0x0000000000214750  .text+0x4f4a0
+  [ 4] 0x000000000021a764  .text+0x554b4
+  [ 5] 0x000000000032a454  .text+0x1651a4
+  [ 6] 0x00000000003e3084  .text+0x21ddd4
+  [ 7] 0x000000000041f864  .text+0x25a5b4
+  [ 8] 0x000000000058e324  .text+0x3c9074
+  [ 9] 0x000000000058e3c8  .text+0x3c9118
+  [10] 0x000000000058e3fc  .text+0x3c914c
+  [11] 0x000000000058e418  .text+0x3c9168
+  [12] 0x000000000058e454  .text+0x3c91a4
+  [13] 0x000000000058e480  .text+0x3c91d0
+  [14] 0x000000000058e4ec  .text+0x3c923c
+  [15] 0x000000000058e518  .text+0x3c9268
+  [16] 0x000000000058e59c  .text+0x3c92ec
+  [17] 0x000000000058e5e8  .text+0x3c9338
+  [18] 0x000000000058e604  .text+0x3c9354
+  [19] 0x000000000058e630  .text+0x3c9380
+  [20] 0x000000000058e654  .text+0x3c93a4
+  [21] 0x000000000058e6b0  .text+0x3c9400
+  [22] 0x000000000058e6d4  .text+0x3c9424
+  [23] 0x000000000058e708  .text+0x3c9458
+  [24] 0x000000000058e724  .text+0x3c9474
+  [25] 0x000000000058e758  .text+0x3c94a8
+  [26] 0x000000000058e8dc  .text+0x3c962c
+  [27] 0x000000000058e9ac  .text+0x3c96fc
+  [28] 0x000000000058ea2c  .text+0x3c977c
+  [29] 0x000000000058ea64  .text+0x3c97b4
+  [30] 0x000000000058eb80  .text+0x3c98d0
+  [31] 0x000000000058ed78  .text+0x3c9ac8
+  [32] 0x000000000058ed94  .text+0x3c9ae4
+  [33] 0x000000000058edb0  .text+0x3c9b00
+  [34] 0x000000000058ef5c  .text+0x3c9cac
+  [35] 0x000000000084d0a4  .text+0x687df4
+  [36] 0x0000000000873360  .text+0x6ae0b0
+  [37] 0x0000000000889098  .text+0x6c3de8
+  non-zero 38/38
+
+## 4) 8-byte words: on-disk value vs post-relocation
+  .data.rel.ro   words= 20472  non-zero: disk=  3672  after= 18652
+  .data          words= 44395  non-zero: disk=  3980  after= 36153
+  .bss           words=  4474  non-zero: disk=     0  after=     0
