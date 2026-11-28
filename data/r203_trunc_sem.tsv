@@ -1,0 +1,77 @@
+addr	family	src	net	callees	imports	stores	ret	strings
+0x1e3fe4	bitops	123	26	FUN_002e3fe4,FUN_002f8330,FUN_00312160	ANativeWindow_release,__stack_chk_fail		none	
+0x1ef5e0	bitops	86	19	FUN_002ef5e0,FUN_00314c48	__stack_chk_fail		none	
+0x1f95e0	bitops	35	8	FUN_002f95e0	ANativeWindow_release		none	
+0x2f2fec	bitops	84	14	FUN_003a575c,FUN_003f2fec	__stack_chk_fail		none	
+0x3310d4	bitops	91	20	FUN_004310d4	__stack_chk_fail		none	
+0x349cf4	bitops	28	8	FUN_00449670,FUN_00449cf4,FUN_004e0518			none	
+0x38df38	bitops	105	60	FUN_0048da28,FUN_0048df38,FUN_004b0efc		lVar7+0x38	none	
+0x8bc2f8	bitops	127	28	FUN_009bc2f8			none	
+0x8bcc18	bitops	64	12	FUN_009bcc18			none	
+0x8bd24c	bitops	64	12	FUN_009bd24c			none	
+0x5abcf8	calls-only	22	9	FUN_006aa830,FUN_006abcf8	__stack_chk_fail		none	
+0x5b5ce4	calls-only	24	9	FUN_00698b90,FUN_006b5ce4	__stack_chk_fail		none	
+0x5b68c4	calls-only	33	18	FUN_00699148,FUN_00699434,FUN_006a4674,FUN_006b68c4,FUN_006c4654,FUN_006c54f4	__stack_chk_fail		none	
+0x5b9870	calls-only	53	24	FUN_006b7b9c,FUN_006b9870,FUN_0099c458	__stack_chk_fail		none	
+0x5c5648	calls-only	21	8	FUN_006bef50,FUN_006c5648,FUN_006fc990		param_1+0x219	none	
+0x5c5e74	calls-only	31	14	FUN_006c5e74,FUN_006d735c,FUN_006d73c4,FUN_0094002c	__stack_chk_fail		none	,0xbbf,
+0,
+0x5e95f8	calls-only	21	12	FUN_006e8eb0,FUN_006e95f8,FUN_006ebb80,FUN_006ebb84		lVar2+0x18,lVar2+0x19,lVar2+0x1a,lVar2+0x1b	none	
+0x686328	calls-only	19	7	FUN_00781274,FUN_00786328,FUN_007b1630			none	
+0x7c54b0	calls-only	20	9	FUN_008c5120,FUN_008c54b0,FUN_008c55e4,FUN_008c55f4			none	
+0x7f3e90	calls-only	23	11	FUN_008ef028,FUN_008f3e90,FUN_0099c49c			none	
+0x80c8b0	calls-only	26	10	FUN_0090c8b0,FUN_0090dabc		param_1+0x9a	none	
+0x80e6a8	calls-only	20	6	FUN_0090da98,FUN_0090e6a8		param_1+0x9a	none	
+0x80e704	calls-only	20	6	FUN_0090ddbc,FUN_0090e704		param_1+0x9a	none	
+0x836878	calls-only	19	6	FUN_00836a44,FUN_0084412c,FUN_00936878,FUN_00936d80			none	
+0x84cb18	calls-only	20	7	FUN_002f5f8c,FUN_0094cb18,FUN_0094cd80			none	KernelSU twoyi_hal request failed: %s
+0x871994	calls-only	24	9	FUN_00969ae4,FUN_00971994	__stack_chk_fail		none	
+0x8723d8	calls-only	29	13	FUN_0096e550,FUN_009723d8,FUN_009742a8,FUN_00977740			none	rcSetFrameAcquireFence: cannot receive f
+0x87a28c	calls-only	52	26	FUN_00979b14,FUN_00979d3c,FUN_0097a28c,FUN_0097c488,FUN_0097c624	__stack_chk_fail	param_2+0x728	none	+CCSS: %d
+0x886f38	calls-only	34	14	FUN_00986f38,FUN_00987150,FUN_0098724c	__stack_chk_fail		none	
+0x888870	calls-only	27	10	FUN_00982db4,FUN_00982dc4,FUN_00988870	__stack_chk_fail		none	
+0x8a0b78	calls-only	22	8	FUN_009a0a08,FUN_009a0b78			none	
+0x8bacfc	calls-only	22	6	FUN_009bacfc,FUN_009c0920,FUN_009c0a64	newlocale		none	
+0x8bae7c	calls-only	21	6	FUN_009bae7c,FUN_009c0920,FUN_009c0a64	newlocale		none	
+0x8bb380	calls-only	21	6	FUN_009bb380,FUN_009c0920,FUN_009c0a64	newlocale		none	
+0x8bb4f8	calls-only	21	6	FUN_009bb4f8,FUN_009c0920,FUN_009c0a64	newlocale		none	
+0x8bc290	calls-only	18	6	FUN_009bc290,FUN_009bc2f8			none	
+0x8bc554	calls-only	18	6	FUN_009bc554,FUN_009bc5bc			none	
+0x8bcacc	calls-only	18	6	FUN_009bc2f8,FUN_009bcacc			none	
+0x8bcb34	calls-only	18	6	FUN_009bc5bc,FUN_009bcb34			none	
+0x8bcd40	calls-only	18	6	FUN_009bcd40,FUN_009bcda8			none	
+0x8bd374	calls-only	18	6	FUN_009bcda8,FUN_009bd374			none	
+0x8bdc2c	calls-only	17	5	FUN_009bdc2c,FUN_009bdcac,FUN_009c0920,FUN_009c0a64			none	
+0x8be6c0	calls-only	17	5	FUN_009be6c0,FUN_009be740,FUN_009c0920,FUN_009c0a64			none	
+0x20889c	dispatch	689	91	FUN_002f5f8c,FUN_00301328,FUN_0030889c,FUN_0030dd98,FUN_00325160,FUN_003f4f9c,FU	ANativeWindow_getHeight,ANativeWindow_getWidth,__stack_chk_f		none	
+0x212160	dispatch	202	35	FUN_002f5f8c,FUN_00312160,FUN_009744d8,FUN_00974858,FUN_0099e4c4,FUN_0099e4f0	ANativeWindow_release		none	
+0x2a575c	dispatch	78	11	FUN_003a575c	__stack_chk_fail		none	
+0x32c8b8	dispatch	284	29	FUN_002f5f8c,FUN_0042c8b8,FUN_006d169c,FUN_006d1ff8	__stack_chk_fail		none	
+0x3a82dc	dispatch	1546	269	FUN_004a82dc	__stack_chk_fail		none	
+0x3b0efc	dispatch	1101	233	FUN_004b0efc	__stack_chk_fail	lVar8+0x18,local_6f0+0x18	none	
+0x546d7c	dispatch	932	116	FUN_00646d7c	__stack_chk_fail		none	
+0x783630	dispatch	35	12	FUN_0084295c,FUN_00883630			none	
+0x783fd8	dispatch	51	13	FUN_00840bc8,FUN_00883fd8,FUN_0088a598			none	
+0x87aa2c	dispatch	158	53	FUN_009785ac,FUN_0097aa2c,FUN_0097e7e8			expr x1	ERROR: BAD COMMAND
+0x8bc5bc	dispatch	157	18	FUN_009bc5bc			none	
+0x8bc894	dispatch	89	13	FUN_009bc894			none	
+0x8bcda8	dispatch	142	15	FUN_009bcda8			none	
+0x8bd030	dispatch	87	12	FUN_009bd030			none	
+0x73b7a8	gl-enum	57	38	FUN_0083b7a8		param_1+0x14,param_1+0x1c,param_1+0x24,param_1+0x2c,param_1+	none	
+0x745fec	gl-enum	112	68	FUN_00835f48,FUN_00845e40,FUN_00845fec	__stack_chk_fail	param_1+0x200,param_1+0x204,param_1+0x208,param_1+0x214,para	none	
+0x74c5ac	gl-enum	46	26	FUN_006d994c,FUN_006d9ac4,FUN_0083b4a4,FUN_0083b4c0,FUN_0084c5ac	__stack_chk_fail		none	
+0x74c710	gl-enum	35	18	FUN_0068ddd8,FUN_0083b4b8,FUN_0084c710	__stack_chk_fail		none	
+0x7676e4	gl-enum	37	19	FUN_0068ddd8,FUN_0083b4b8,FUN_008676e4	__stack_chk_fail		none	
+0x785170	gl-enum	47	22	FUN_00885170,FUN_00888dac,FUN_0088a5d0	__stack_chk_fail		none	
+0x7852b0	gl-enum	67	29	FUN_008852b0,FUN_00888dac,FUN_0088a5d4	__stack_chk_fail		none	
+0x78610c	gl-enum	19	7	FUN_0088610c		param_4+0x34c,param_4+0x350,param_4+0x354,param_4+0x358	none	
+0x786f20	gl-enum	22	9	FUN_00886f20,FUN_0088a950		param_5+0x338,param_5+0x33c,param_5+0x340,param_5+0x344,para	none	
+0x786f58	gl-enum	22	9	FUN_00886f58,FUN_0088a954		param_1+0x338,param_1+0x33c,param_1+0x33d,param_1+0x33e,para	none	
+0x5db330	math	32	8	FUN_006dafa4,FUN_006db330,FUN_009c0920,FUN_009c0a64,FUN_009e0490			none	
+0x783ccc	math	43	19	FUN_00883ccc,FUN_0088a58c			none	
+0x7427dc	simd/pack	71	16	FUN_008427dc,FUN_0084be2c			none	
+0x74295c	simd/pack	70	15	FUN_0084295c			none	
+0x745468	simd/pack	23	5	FUN_00845468		param_1+0x1bc	none	
+0x7ca01c	simd/pack	33	9	FUN_008ca01c			none	
+0x8bb140	simd/pack	226	37	FUN_009bb140			none	
+0x8bb760	simd/pack	126	32	FUN_009bb760			none	
