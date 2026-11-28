@@ -1,0 +1,220 @@
+ISLAND #2  span 0x73320c..0x836238  funcs=196 lines=11835
+external callees (97): 0x5ebf5c, 0x7294b8, 0x7294cc, 0x7294dc, 0x72988c, 0x729b08, 0x733004, 0x7330e0, 0x733278, 0x7333b4, 0x7334e8, 0x733554, 0x7363f8, 0x73aa40, 0x73aad8, 0x73aae0, 0x73ab50, 0x73ac1c, 0x73ac24, 0x73ac34, 0x73ef6c, 0x73fa50, 0x73fae4, 0x740b8c
+leaves: 0
+roles: {'call': 982, 'if': 1328, 'ret': 357, 'loop': 28}
+top constants: 0x1e0 x92, 0x500 x70, 0x1401 x69, 0x1908 x61, 0x501 x60, 0xffffffff x47, 0x502 x39, 0x8ca8 x30, 0x1406 x27, 0x8513 x23
+hubs:
+  0x744450 lines=69   in=18  out=1   bool FUN_00844450(long param_1,int param_2)
+  0x8322e8 lines=12   in=17  out=1   bool FUN_009322e8(long *param_1,uint param_2)
+  0x8320bc lines=31   in=14  out=1   bool FUN_009320bc(long param_1,int param_2)
+  0x73320c lines=22   in=13  out=3   pthread_mutex_t * FUN_0083320c(pthread_mutex_t *param_1,short param_2,undefined8 param_3)
+  0x831e7c lines=33   in=12  out=1   bool FUN_00931e7c(long param_1,int param_2)
+  0x742538 lines=123  in=11  out=5   void FUN_00842538(long param_1,uint param_2,uint param_3,ulong param_4,ulong param_5,ulong param_6,
+  0x766808 lines=9    in=10  out=1   bool FUN_00866808(uint param_1)
+  0x8342ac lines=25   in=9   out=1   void FUN_009342ac(float param_1,float param_2,float param_3,float param_4,long param_5)
+  0x8359bc lines=181  in=8   out=9   void FUN_009359bc(long *param_1,int param_2,int param_3,undefined4 param_4,int param_5,int param_6,
+  0x832134 lines=37   in=7   out=1   bool FUN_00932134(long param_1,int param_2)
+heads of top 4 hubs:
+---- 0x744450 (69 lines)
+     0| 
+     1| bool FUN_00844450(long param_1,int param_2)
+     2| 
+     3| {
+     4|   int *piVar1;
+     5|   
+     6|   if (param_2 < 0x8f36) {
+     7|     if (param_2 < 0x88ec) {
+     8|       if (param_2 != 0x8892) {
+     9|         if (param_2 == 0x8893) {
+    10|           piVar1 = (int *)(*(long *)(param_1 + 0x38) + 0x18);
+    11|           goto LAB_00844564;
+    12|         }
+    13|         if (param_2 == 0x88eb) {
+---- 0x8322e8 (12 lines)
+     0| 
+     1| bool FUN_009322e8(long *param_1,uint param_2)
+     2| 
+     3| {
+     4|   long lVar1;
+     5|   
+     6|   lVar1 = (**(code **)(*param_1 + 0x48))();
+     7|   return param_2 < *(uint *)(lVar1 + 4);
+     8| }
+     9| 
+    10| 
+    11| 
+---- 0x8320bc (31 lines)
+     0| 
+     1| bool FUN_009320bc(long param_1,int param_2)
+     2| 
+     3| {
+     4|   int iVar1;
+     5|   
+     6|   iVar1 = *(int *)(param_1 + 0x1d8);
+     7|   if (param_2 < 0x8513) {
+     8|     if (param_2 == 0xde1) {
+     9|       return true;
+    10|     }
+    11|     if (param_2 == 0x806f) goto LAB_009320f8;
+    12|   }
+    13|   else {
+---- 0x73320c (22 lines)
+     0| 
+     1| pthread_mutex_t * FUN_0083320c(pthread_mutex_t *param_1,short param_2,undefined8 param_3)
+     2| 
+     3| {
+     4|   uint uVar1;
+     5|   ulong uVar2;
+     6|   
+     7|   if (param_2 < 10) {
+     8|     pthread_mutex_lock(param_1);
+     9|     do {
+    10|       uVar2 = FUN_009e0210(1,param_1 + 4);
+    11|     } while ((uVar2 & 1) != 0);
+    12|     FUN_008363f8(*(undefined8 *)((long)param_1 + (long)param_2 * 8 + 0x50),param_3);
+    13|     param_1[4].__data.__lock = 0;
+
+ISLAND #3  span 0x7975b8..0x836478  funcs=72 lines=3445
+external callees (5): 0x7330e0, 0x7334e8, 0x733554, 0x89b070, 0x8e0360
+leaves: 0
+roles: {'call': 218, 'if': 339, 'ret': 113, 'loop': 1}
+top constants: 0x502 x104, 0x1e0 x76, 0xf0e x34, 0x501 x6, 0x1d8 x4, 0xffffffff x3, 0xfffffffe x3, 0x3c8 x2, 0x100 x2, 0x40c x1
+hubs:
+  0x82d248 lines=90   in=38  out=1   uint FUN_0092d248(long param_1,uint param_2)
+  0x836478 lines=9    in=35  out=1   undefined8 FUN_00936478(long param_1)
+  0x7ab978 lines=34   in=34  out=5   void FUN_008ab978(long param_1,undefined4 param_2,undefined4 param_3)
+  0x79e00c lines=51   in=1   out=3   void FUN_0089e00c(undefined4 param_1,undefined4 param_2,uint param_3,undefined8 param_4)
+  0x7ae078 lines=50   in=1   out=3   void FUN_008ae078(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  0x7ac120 lines=49   in=1   out=3   void FUN_008ac120(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4)
+  0x7a2180 lines=45   in=1   out=3   void FUN_008a2180(undefined4 param_1,undefined4 param_2,undefined8 param_3)
+  0x7ae234 lines=50   in=1   out=3   void FUN_008ae234(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  0x7ac2c0 lines=50   in=1   out=3   void FUN_008ac2c0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  0x7a22e4 lines=45   in=1   out=3   void FUN_008a22e4(undefined4 param_1,undefined4 param_2,undefined8 param_3)
+heads of top 4 hubs:
+---- 0x82d248 (90 lines)
+     0| 
+     1| uint FUN_0092d248(long param_1,uint param_2)
+     2| 
+     3| {
+     4|   ulong uVar1;
+     5|   byte *pbVar2;
+     6|   uint *puVar3;
+     7|   ulong uVar4;
+     8|   ulong uVar5;
+     9|   ulong uVar6;
+    10|   ulong uVar7;
+    11|   long *plVar8;
+    12|   ulong uVar9;
+    13|   undefined2 uVar10;
+---- 0x836478 (9 lines)
+     0| 
+     1| undefined8 FUN_00936478(long param_1)
+     2| 
+     3| {
+     4|   return *(undefined8 *)(param_1 + 0x340);
+     5| }
+     6| 
+     7| 
+     8| 
+---- 0x7ab978 (34 lines)
+     0| 
+     1| void FUN_008ab978(long param_1,undefined4 param_2,undefined4 param_3)
+     2| 
+     3| {
+     4|   long lVar1;
+     5|   long lVar2;
+     6|   long local_58;
+     7|   long *plStack_50;
+     8|   long local_48;
+     9|   
+    10|   lVar1 = tpidr_el0;
+    11|   local_48 = *(long *)(lVar1 + 0x28);
+    12|   FUN_00833554(&local_58,*(undefined8 *)(param_1 + 0x1e0),5,param_2);
+    13|   if ((plStack_50 != (long *)0x0) &&
+---- 0x79e00c (51 lines)
+     0| 
+     1| void FUN_0089e00c(undefined4 param_1,undefined4 param_2,uint param_3,undefined8 param_4)
+     2| 
+     3| {
+     4|   int iVar1;
+     5|   long lVar2;
+     6|   undefined8 uVar3;
+     7|   char *pcVar4;
+     8|   
+     9|   if (DAT_00a6d730 == (undefined8 *)0x0) {
+    10|     pcVar4 = "null s_eglIface";
+    11|   }
+    12|   else {
+    13|     lVar2 = (*(code *)*DAT_00a6d730)();
+
+ISLAND #4  span 0x5fe2dc..0x6b15d8  funcs=58 lines=1841
+external callees (1): 0x5f31ec
+leaves: 0
+roles: {'call': 140, 'if': 360, 'ret': 129, 'loop': 13}
+top constants: 0xc00 x7, 0x3b9c0000 x3, 0x3b9d0000 x3, 0x3b9f0000 x3, 0xfffffffe x3, 0x3b9db030 x2, 0x3b9c7b98 x2, 0x3b9bb46b x2, 0x3b9c0669 x2, 0x3b9bdf58 x2
+hubs:
+  0x682c48 lines=935  in=47  out=14  /* WARNING: Type propagation algorithm not settling */
+  0x5fe2dc lines=12   in=5   out=1   uint FUN_006fe2dc(uint param_1,uint param_2)
+  0x6b11d8 lines=9    in=5   out=1   void FUN_007b11d8(void)
+  0x5fe344 lines=22   in=4   out=1   undefined  [16] FUN_006fe344(ulong param_1,uint param_2,uint param_3)
+  0x6b15d8 lines=26   in=3   out=2   void FUN_007b15d8(undefined8 param_1,long param_2,uint param_3)
+  0x6866dc lines=37   in=2   out=2   void FUN_007866dc(undefined8 param_1,long param_2)
+  0x6867ec lines=16   in=2   out=2   void FUN_007867ec(undefined8 param_1,long param_2)
+  0x686dac lines=47   in=2   out=2   void FUN_00786dac(undefined8 param_1,long param_2)
+  0x6b1220 lines=23   in=2   out=2   void FUN_007b1220(undefined8 param_1,long param_2,uint param_3)
+  0x68524c lines=13   in=2   out=3   void FUN_0078524c(undefined8 param_1,long param_2)
+heads of top 4 hubs:
+---- 0x682c48 (935 lines)
+     0| 
+     1| /* WARNING: Type propagation algorithm not settling */
+     2| 
+     3| void FUN_00782c48(undefined8 param_1,long param_2)
+     4| 
+     5| {
+     6|   uint uVar1;
+     7|   uint uVar2;
+     8|   
+     9|   if (param_2 == 0) {
+    10|     return;
+    11|   }
+    12|   do {
+    13|     uVar1 = FUN_006f31ec(param_2);
+---- 0x5fe2dc (12 lines)
+     0| 
+     1| uint FUN_006fe2dc(uint param_1,uint param_2)
+     2| 
+     3| {
+     4|   if ((param_1 & 1) != 0) {
+     5|     param_1 = param_1 & 0xfffffffe | param_2;
+     6|   }
+     7|   return param_1;
+     8| }
+     9| 
+    10| 
+    11| 
+---- 0x6b11d8 (9 lines)
+     0| 
+     1| void FUN_007b11d8(void)
+     2| 
+     3| {
+     4|   return;
+     5| }
+     6| 
+     7| 
+     8| 
+---- 0x5fe344 (22 lines)
+     0| 
+     1| undefined  [16] FUN_006fe344(ulong param_1,uint param_2,uint param_3)
+     2| 
+     3| {
+     4|   uint uVar1;
+     5|   undefined auVar2 [16];
+     6|   
+     7|   uVar1 = (uint)(param_1 >> 0x20);
+     8|   if ((param_1 & 0x100000000) != 0) {
+     9|     uVar1 = uVar1 & 0xfffffffe | param_3;
+    10|   }
+    11|   if ((param_2 & 1) != 0) {
+    12|     param_2 = param_2 & 0xfffffffe | param_3;
+    13|   }
+

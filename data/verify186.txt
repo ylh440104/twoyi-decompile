@@ -1,0 +1,23 @@
+check                                                claim    measured verdict
+--------------------------------------------------------------------------------------------
+functions in pool_cache                              12412    12412    PASS
+line_ledger rows                                     829661   829661   PASS
+line_ledger unknown roles                            0        0        PASS
+func_profile3 rows                                   12412    12412    PASS
+plain functions                                      3705     3705     PASS
+id->handler bindings                                 300      300      PASS
+type_table rows                                      314      314      PASS
+ids with size                                        183      183      PASS
+ids with size AND handler                            162      162      PASS
+plain components                                     2561     2561     PASS
+island#1 size                                        350      350      PASS
+island#1 lines                                       9114     9114     PASS
+plain funcs in no-tagged-edge components             2548     2548     PASS
+functions storing into .data/.bss                    577      577      PASS
+such stores                                          16111    16111    PASS
+distinct bytes written                               11637    11637    PASS
+undefined symbols                                    295      295      PASS
+defined symbols                                      1        1        PASS
+plain funcs >=300 lines                              14       14       PASS
+--------------------------------------------------------------------------------------------
+19 checks, 0 FAIL
