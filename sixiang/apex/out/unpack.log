@@ -1,15 +1,8 @@
 converting to raw ...
 system.raw = 1904779264 bytes
 found 38 apex/capex entries
-Traceback (most recent call last):
-  File "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/apex/unpack.py", line 261, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/apex/unpack.py", line 246, in main
-    total = sum(os.path.getsize(os.path.join(r, f))
-                for r, _, fs in os.walk(os.path.join(outdir, 'apex')) for f in fs)
-  File "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/apex/unpack.py", line 246, in <genexpr>
-    total = sum(os.path.getsize(os.path.join(r, f))
-                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "<frozen genericpath>", line 86, in getsize
-FileNotFoundError: [Errno 2] No such file or directory: 'sixiang/apex/out/tree/apex/com.android.i18n/lib/libbase.so'
+    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+
+展开成功: 10 / 38
+展开后总字节: 92718743 (88.4 MiB)
+report: sixiang/apex/out/tree/unpack-report.txt

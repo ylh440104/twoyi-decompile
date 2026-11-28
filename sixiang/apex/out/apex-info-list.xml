@@ -3,8 +3,10 @@
   <apex-info name="com.android.apex.cts.shim" moduleName="com.android.apex.cts.shim" path="/apex/com.android.apex.cts.shim" isFactory="true" isActive="true" />
   <apex-info name="com.android.devicelock" moduleName="com.android.devicelock" path="/apex/com.android.devicelock" isFactory="true" isActive="true" />
   <apex-info name="com.android.healthfitness" moduleName="com.android.healthfitness" path="/apex/com.android.healthfitness" isFactory="true" isActive="true" />
+  <apex-info name="com.android.i18n" moduleName="com.android.i18n" path="/apex/com.android.i18n" isFactory="true" isActive="true" />
   <apex-info name="com.android.os.statsd" moduleName="com.android.os.statsd" path="/apex/com.android.os.statsd" isFactory="true" isActive="true" />
   <apex-info name="com.android.rkpd" moduleName="com.android.rkpd" path="/apex/com.android.rkpd" isFactory="true" isActive="true" />
+  <apex-info name="com.android.runtime" moduleName="com.android.runtime" path="/apex/com.android.runtime" isFactory="true" isActive="true" />
   <apex-info name="com.android.sdkext" moduleName="com.android.sdkext" path="/apex/com.android.sdkext" isFactory="true" isActive="true" />
   <apex-info name="com.android.tzdata" moduleName="com.android.tzdata" path="/apex/com.android.tzdata" isFactory="true" isActive="true" />
   <apex-info name="com.android.virt" moduleName="com.android.virt" path="/apex/com.android.virt" isFactory="true" isActive="true" />
