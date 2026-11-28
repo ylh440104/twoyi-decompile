@@ -71,61 +71,39 @@ sha256 28b78adc7f3f8163433c7d02ca4f203232fcd7c0cfbcbd2cf08d0a07261ac68c
 
 ---
 
-## 三、下一步：先把「能不能」变成事实（N1 / N2）
+## 三、N1 / N2：已拿到结论（2026-11-28）
 
-> 原则：**在 N1、N2 拿到实测结果之前，不写任何 loader / binder 代码。**
-> 这两步都是一天量级，而且完全在本机可做，不需要真机、不需要大机器。
+### N1 — exec-from-fd 是否被允许 → **不需要了**
 
-### N1 — exec-from-fd 是否被允许
-
-**做什么**
-用 `memfd_create` + `execveat(fd, "", AT_EMPTY_PATH)` 执行一个最小 aarch64 ELF，
-以本机 app 身份（`uid 10204`，`u:r:untrusted_app`）实测。
-
-**为什么是它**
-这是 twoyi `EXEC_SEALED` 的原语。Android 10+ 禁止 `execve` app 数据目录下的文件，
-twoyi 的做法是「按 fd 打开，再从 fd 执行」。这条不通，整条路都进不去。
-
-**已测（详见 `docs/N1-exec-probe.md`）**
+原以为必须走 `memfd + execveat`（twoyi 的 `EXEC_SEALED`）。实测发现还有更简单的一条：
+**根本不调内核 exec**，自己把 ELF 映射进匿名内存再跳入口。这条路绕开的不是权限，
+是「必须 exec」这个前提本身。
 
 | 测项 | 结果 |
 |---|---|
-| 直接 exec `$HOME/ty_probe`（`app_data_file`，`-rwxr-xr-x`） | ❌ `Permission denied`，`rc=126` |
+| 直接 exec `$HOME` 下的二进制（`app_data_file`，`-rwxr-xr-x`） | ❌ `Permission denied`，`rc=126` |
 | `toybox unshare -U true` | ❌ `EINVAL`（内核无 `CONFIG_USER_NS`） |
+| 匿名 `mmap` + `mprotect(R\|X)` + 跳入口 | ✅ **可用**（见 N2） |
 
-→ **W^X 在本机确认生效**，所以 sealed-fd exec 不是为了兼容老设备，是必需品。
+### N2 — loader 在本机跑通 → **✅ 完成**
 
-**剩余待测**：memfd + `execveat` 需要不被 proot 插手的执行者，
-要搭一个最小 JNI 宿主（`.so` 由 `app_process` 加载），半天量级。
+`sixiang/loader/mini_loader.c`（约 350 行，无依赖），CI 编译，本机原生执行：
 
-**能否在 Actions 做**：❌ 必须本机（SELinux 策略是设备相关的）
-**能否在本机做**：✅
+```
+$ /tmp/mini_loader /tmp/hello_freestanding
+SIXIANG_PAYLOAD_FREESTANDING_OK
+rc=0
 
-**验收**
-- 成功：拿到「能执行」的结论 + 一条可复用的最小 demo
-- 失败：记下确切 errno（`EACCES` / `EPERM` / `ENOSYS`），据此判断要不要换方案
-- 兜底：若 memfd 也被拒，改走「用户态装载」（proot 路径，本机已间接证明可用）
+$ /tmp/mini_loader /tmp/hello_static_pie
+SIXIANG_PAYLOAD_OK ... exec = never called, mapped by mini_loader
+Segmentation fault (退出路径)
+```
 
----
+- 带 **1200 个 `R_AARCH64_RELATIVE` + 5 个 `IRELATIVE`** 的 glibc 程序能完整跑起来
+- 剩下的只是退出语义（改用 `exit_group` 即可），属收尾，不是机制问题
+- 详见 `docs/LOADER-RUNS-ON-DEVICE.md`
 
-### N2 — guest `linker64` 能否作为宿主进程跑起来
-
-**做什么**
-从 Android 17 rootfs 取 `linker64` + `libc.so`，用 `--library-path` 指到 rootfs 前缀，
-试跑一个最小 ELF 或 guest 的 `sh`。
-
-**为什么是它**
-同时验证三件事：
-1. 路径前缀重写的最小闭环（loader 的核心机制）
-2. Android 17 的 bionic 会不会因为 linker namespace 机制直接拒绝
-3. Android 13 的 app seccomp filter 放不放行 guest bionic 的系统调用
-
-**能否在 Actions 做**：⚠️ 部分（可以用 qemu 验路径逻辑，但 seccomp 必须本机）
-**能否在本机做**：✅
-
-**验收**
-- 能跑起来：打印出预期输出，记录用到的 syscall 集合
-- 跑不起来：记下第一条失败点（是 `EACCES`、`ENOSYS` 还是 seccomp `SIGSYS`）
+**结论：SiXiang 的启动方式定了——用户态装载，不 exec、不 root、不用命名空间。**
 
 ---
 
@@ -168,6 +146,24 @@ twoyi 的做法是「按 fd 打开，再从 fd 执行」。这条不通，整条
 
 **能否在 Actions 做**：⚠️ 能编译，不能验证
 **验收**：guest 的 `servicemanager` 起来，别的服务能 `addService` / `getService`
+
+---
+
+### N5 — AOT：让 guest 秒启动（新增，硬要求）
+
+**为什么必须有**
+twoyi 的 ROM 里带 **15 个 `.oat` / 82 个 `.vdex` / 17 个 `.art`**，都在
+`system/{app,framework}/*/oat/arm64/` 下——dex 在打包时就编译完了，启动时不需要
+dex2oat，所以它能秒起。SiXiang 若直接拿 GSI 的 `system.img` 组装 rootfs，
+必须先确认这些产物在不在；不在就要在 Actions 里补编译，否则第一次启动会卡几分钟。
+
+**怎么算完成**
+- rootfs 里 `system/framework/oat/arm64/` 与 `system/app/*/oat/arm64/` 存在且非空
+- 统计 `.oat/.vdex/.art` 数量并记录（对照 twoyi 的 15/82/17）
+- 若缺失：在 Actions 里用 guest 的 `dex2oat`（qemu 下跑）预编译 `boot.art` 与系统应用
+
+**能否在 Actions 做**：✅ 统计与预编译都能做
+**验收**：`docs/AOT-INVENTORY.md` 给出数量与体积
 
 ---
 
