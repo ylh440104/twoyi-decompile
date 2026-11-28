@@ -14,6 +14,53 @@
 | M2 | `pack_rootfs.py` 重打包器 + selftest | ✅ | run `46124876177` |
 | M3 | APEX 可行性：`clone3` 有 `clone` fallback | ✅ | `sixiang/kwall/out/scan.txt` |
 | M4 | APEX 静态展开 **38/38**，485.4 MiB | ✅ | `sixiang/docs/M4-apex-unpack-done.md` |
+| **T1** | **rootfs 合并：1.8G system + 482M apex → rootfs.tar.zst 911 MB** | ✅ | run `46135232612`，`sixiang/rootfs/out/summary.txt` |
+| **T2** | **apexd stub：584 KB 静态 aarch64，写 `/apex/apexd.status=success`** | ✅ | `sixiang/apexd/out/file.txt` |
+
+---
+
+## T1 实测结果（已闭环）
+
+```
+out/system     1.8G
+out/apex       482M
+out/system_ext 4.0K   ← 空
+out/product    4.0K   ← 空
+out/vendor     8.0K   ← 空
+out/odm        8.0K   ← 空
+
+apex 目录数          39（38 模块 + apex-info-list.xml）
+system/apex 残留原件  0        ← 326 MB 没白留
+rootfs.tar.zst       911M
+```
+
+**重要发现：GSI 的 `system.img` 里 `system_ext`/`product`/`vendor`/`odm` 全是空目录。**
+GSI 把所有内容都塞进了 `system`，这是 GSI 的设计（单分区可刷任意设备）。
+所以 SiXiang 的 rootfs 布局比预想简单——没有多分区合并问题。
+
+**符号链接也被正确保留**：
+```
+apex/com.android.runtime/bin/linker_asan    -> linker
+apex/com.android.runtime/bin/linker_asan64  -> linker64
+apex/com.android.runtime/bin/linker_hwasan64-> linker64
+```
+
+---
+
+## T2 实测结果（已闭环）
+
+```
+sixiang/apexd/out/apexd: ELF 64-bit LSB executable, ARM aarch64,
+  statically linked, stripped, 597,920 bytes
+sha256 28b78adc7f3f8163433c7d02ca4f203232fcd7c0cfbcbd2cf08d0a07261ac68c
+
+字符串表: /apex  /apex/apexd.status  success
+动态段  : There is no dynamic section in this file.
+```
+
+**为什么必须写 `/apex/apexd.status` 而不是简单 return 0**：
+init 读的是那个文件的内容（`kApexStatusSuccess = "success"`），不是退出码。
+光返回 0 的话 init 会认为 apexd 没跑完，继续等或 panic。
 
 ---
 
