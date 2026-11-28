@@ -14,7 +14,7 @@ system.img = ./system.img
 [1m=== 2. 转 raw（若是 sparse） ===[0m
 ./system.img: Linux rev 1.0 ext2 filesystem data, UUID=1ba300ec-42ef-5526-9835-43556d702d48 (extents) (large files) (huge files)
 copied as-is
--rw-r--r-- 1 runner runner 1.8G Nov 28 10:04 /tmp/system.raw
+-rw-r--r-- 1 runner runner 1.8G Nov 28 10:14 /tmp/system.raw
 
 [1m=== 3. /system/apex 清单 ===[0m
      53   40755 (2)      0      0    4096  1-Jan-2009 00:00 .
@@ -109,7 +109,7 @@ total 13M
 -rw-r--r-- 1 runner runner  143 Jan  1  2009 apex_manifest.pb
 -rw-r--r-- 1 runner runner  13M Jan  1  2009 apex_payload.img
 -rw-r--r-- 1 runner runner 1.1K Jan  1  2009 apex_pubkey
-drwxr-xr-x 2 runner runner 4.0K Nov 28 10:04 assets
+drwxr-xr-x 2 runner runner 4.0K Nov 28 10:14 assets
 -rw-r--r-- 1 runner runner   40 Jan  1  2009 resources.arsc
 /tmp/rt/apex_payload.img: Linux rev 1.0 ext2 filesystem data, UUID=7d1522e1-9dfa-5edb-a43e-98e3a4d20250 (extents) (large files) (huge files)
 --- payload 根目录 ---
@@ -150,7 +150,7 @@ libm.soB
 libz.so
 
 [1m=== 6. init 二进制里与 APEX / loop / dm-verity 相关的字符串 ===[0m
--rw-r--r-- 1 runner runner 2.5M Nov 28 10:04 /tmp/init
+-rw-r--r-- 1 runner runner 2.5M Nov 28 10:14 /tmp/init
 /tmp/init: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/bootstrap/linker64, for Android 37, BuildID[md5/uuid]=37ed4b3521c306e4b312de5fd2058918, stripped
 --- 命中行 ---
  with mounted APEX modules info

@@ -1,62 +1,97 @@
 === apex/ 目录清单 ===
+com.android.adbd
+com.android.adservices
 com.android.apex.cts.shim
+com.android.appsearch
+com.android.art
+com.android.bt
+com.android.cellbroadcast
+com.android.configinfrastructure
+com.android.conscrypt
+com.android.crashrecovery
 com.android.devicelock
+com.android.extservices
 com.android.healthfitness
 com.android.i18n
+com.android.ipsec
+com.android.media
+com.android.media.swcodec
+com.android.mediaprovider
+com.android.neuralnetworks
+com.android.nfcservices
+com.android.npumanager
+com.android.ondevicepersonalization
 com.android.os.statsd
+com.android.permission
+com.android.profiling
+com.android.resolv
 com.android.rkpd
 com.android.runtime
+com.android.scheduling
 com.android.sdkext
+com.android.telephonycore
+com.android.tethering
 com.android.tzdata
+com.android.uprobestats
+com.android.uwb
 com.android.virt
+com.android.webapp
+com.android.wifi
 
 === com.android.runtime 内部 ===
 sixiang/apex/out/tree/apex/com.android.runtime
-sixiang/apex/out/tree/apex/com.android.runtime/lost+found
+sixiang/apex/out/tree/apex/com.android.runtime/lib64
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libunwindstack.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libprocinfo.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/ld-android.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc_malloc_debug.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libbase.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc++.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc_malloc_hooks.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/bionic
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libunwindstack.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libprocinfo.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/ld-android.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_debug.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libbase.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc++.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_hooks.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/bionic
+sixiang/apex/out/tree/apex/com.android.runtime/lib/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/etc
+sixiang/apex/out/tree/apex/com.android.runtime/etc/linker.config.pb
+sixiang/apex/out/tree/apex/com.android.runtime/apex_manifest.pb
 sixiang/apex/out/tree/apex/com.android.runtime/bin
+sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump32
+sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_hwasan64
 sixiang/apex/out/tree/apex/com.android.runtime/bin/linkerconfig
 sixiang/apex/out/tree/apex/com.android.runtime/bin/linker64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_hwasan64
 sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_asan
-sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_asan64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump32
-sixiang/apex/out/tree/apex/com.android.runtime/apex_manifest.pb
-sixiang/apex/out/tree/apex/com.android.runtime/lib
-sixiang/apex/out/tree/apex/com.android.runtime/lib/liblzma.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_debug.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libunwindstack.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/bionic
-sixiang/apex/out/tree/apex/com.android.runtime/lib/ld-android.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libprocinfo.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libbase.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_hooks.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libc++.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib64
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/liblzma.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc_malloc_debug.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/libunwindstack.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/bionic
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/ld-android.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/libprocinfo.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/libbase.so
 
 === APEX 的 total size ===
-83M	sixiang/apex/out/tree/apex
-2.5G	sixiang/apex/out/tree
+482M	sixiang/apex/out/tree/apex
+4.0G	sixiang/apex/out/tree
 
 === apex-info-list.xml 前 20 行 ===
 <?xml version="1.0" encoding="UTF-8"?>
 <apex-info-list>
+  <apex-info name="com.android.adbd" moduleName="com.android.adbd" path="/apex/com.android.adbd" isFactory="true" isActive="true" />
+  <apex-info name="com.android.adservices" moduleName="com.android.adservices" path="/apex/com.android.adservices" isFactory="true" isActive="true" />
   <apex-info name="com.android.apex.cts.shim" moduleName="com.android.apex.cts.shim" path="/apex/com.android.apex.cts.shim" isFactory="true" isActive="true" />
+  <apex-info name="com.android.appsearch" moduleName="com.android.appsearch" path="/apex/com.android.appsearch" isFactory="true" isActive="true" />
+  <apex-info name="com.android.art" moduleName="com.android.art" path="/apex/com.android.art" isFactory="true" isActive="true" />
+  <apex-info name="com.android.bt" moduleName="com.android.bt" path="/apex/com.android.bt" isFactory="true" isActive="true" />
+  <apex-info name="com.android.cellbroadcast" moduleName="com.android.cellbroadcast" path="/apex/com.android.cellbroadcast" isFactory="true" isActive="true" />
+  <apex-info name="com.android.configinfrastructure" moduleName="com.android.configinfrastructure" path="/apex/com.android.configinfrastructure" isFactory="true" isActive="true" />
+  <apex-info name="com.android.conscrypt" moduleName="com.android.conscrypt" path="/apex/com.android.conscrypt" isFactory="true" isActive="true" />
+  <apex-info name="com.android.crashrecovery" moduleName="com.android.crashrecovery" path="/apex/com.android.crashrecovery" isFactory="true" isActive="true" />
   <apex-info name="com.android.devicelock" moduleName="com.android.devicelock" path="/apex/com.android.devicelock" isFactory="true" isActive="true" />
+  <apex-info name="com.android.extservices" moduleName="com.android.extservices" path="/apex/com.android.extservices" isFactory="true" isActive="true" />
   <apex-info name="com.android.healthfitness" moduleName="com.android.healthfitness" path="/apex/com.android.healthfitness" isFactory="true" isActive="true" />
   <apex-info name="com.android.i18n" moduleName="com.android.i18n" path="/apex/com.android.i18n" isFactory="true" isActive="true" />
-  <apex-info name="com.android.os.statsd" moduleName="com.android.os.statsd" path="/apex/com.android.os.statsd" isFactory="true" isActive="true" />
-  <apex-info name="com.android.rkpd" moduleName="com.android.rkpd" path="/apex/com.android.rkpd" isFactory="true" isActive="true" />
-  <apex-info name="com.android.runtime" moduleName="com.android.runtime" path="/apex/com.android.runtime" isFactory="true" isActive="true" />
-  <apex-info name="com.android.sdkext" moduleName="com.android.sdkext" path="/apex/com.android.sdkext" isFactory="true" isActive="true" />
-  <apex-info name="com.android.tzdata" moduleName="com.android.tzdata" path="/apex/com.android.tzdata" isFactory="true" isActive="true" />
-  <apex-info name="com.android.virt" moduleName="com.android.virt" path="/apex/com.android.virt" isFactory="true" isActive="true" />
-</apex-info-list>
+  <apex-info name="com.android.ipsec" moduleName="com.android.ipsec" path="/apex/com.android.ipsec" isFactory="true" isActive="true" />
+  <apex-info name="com.android.media" moduleName="com.android.media" path="/apex/com.android.media" isFactory="true" isActive="true" />
+  <apex-info name="com.android.media.swcodec" moduleName="com.android.media.swcodec" path="/apex/com.android.media.swcodec" isFactory="true" isActive="true" />
+  <apex-info name="com.android.mediaprovider" moduleName="com.android.mediaprovider" path="/apex/com.android.mediaprovider" isFactory="true" isActive="true" />

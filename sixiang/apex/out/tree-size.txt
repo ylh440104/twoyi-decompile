@@ -1,41 +1,69 @@
 === tree size ===
-83M	sixiang/apex/out/tree/apex
+482M	sixiang/apex/out/tree/apex
 
 === per-module sizes (top 40) ===
+48	sixiang/apex/out/tree/apex/com.android.art
+42	sixiang/apex/out/tree/apex/com.android.media.swcodec
 41	sixiang/apex/out/tree/apex/com.android.i18n
+36	sixiang/apex/out/tree/apex/com.android.tethering
+35	sixiang/apex/out/tree/apex/com.android.mediaprovider
+28	sixiang/apex/out/tree/apex/com.android.permission
+25	sixiang/apex/out/tree/apex/com.android.bt
+24	sixiang/apex/out/tree/apex/com.android.extservices
+23	sixiang/apex/out/tree/apex/com.android.adservices
+22	sixiang/apex/out/tree/apex/com.android.cellbroadcast
+19	sixiang/apex/out/tree/apex/com.android.wifi
 17	sixiang/apex/out/tree/apex/com.android.healthfitness
+15	sixiang/apex/out/tree/apex/com.android.ondevicepersonalization
 13	sixiang/apex/out/tree/apex/com.android.runtime
+12	sixiang/apex/out/tree/apex/com.android.adbd
+11	sixiang/apex/out/tree/apex/com.android.npumanager
+10	sixiang/apex/out/tree/apex/com.android.nfcservices
+8	sixiang/apex/out/tree/apex/com.android.neuralnetworks
+8	sixiang/apex/out/tree/apex/com.android.media
+8	sixiang/apex/out/tree/apex/com.android.conscrypt
+7	sixiang/apex/out/tree/apex/com.android.uwb
+6	sixiang/apex/out/tree/apex/com.android.webapp
 6	sixiang/apex/out/tree/apex/com.android.devicelock
+6	sixiang/apex/out/tree/apex/com.android.configinfrastructure
+5	sixiang/apex/out/tree/apex/com.android.uprobestats
+5	sixiang/apex/out/tree/apex/com.android.telephonycore
+5	sixiang/apex/out/tree/apex/com.android.appsearch
 4	sixiang/apex/out/tree/apex/com.android.os.statsd
 3	sixiang/apex/out/tree/apex/com.android.tzdata
+3	sixiang/apex/out/tree/apex/com.android.profiling
 2	sixiang/apex/out/tree/apex/com.android.sdkext
 2	sixiang/apex/out/tree/apex/com.android.rkpd
 1	sixiang/apex/out/tree/apex/com.android.virt
+1	sixiang/apex/out/tree/apex/com.android.scheduling
+1	sixiang/apex/out/tree/apex/com.android.resolv
+1	sixiang/apex/out/tree/apex/com.android.ipsec
+1	sixiang/apex/out/tree/apex/com.android.crashrecovery
 1	sixiang/apex/out/tree/apex/com.android.apex.cts.shim
 
 === runtime payload tree (depth 2) ===
 sixiang/apex/out/tree/apex/com.android.runtime
-sixiang/apex/out/tree/apex/com.android.runtime/lost+found
-sixiang/apex/out/tree/apex/com.android.runtime/bin
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linkerconfig
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_hwasan64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_asan
-sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/linker_asan64
-sixiang/apex/out/tree/apex/com.android.runtime/bin/crash_dump32
-sixiang/apex/out/tree/apex/com.android.runtime/apex_manifest.pb
-sixiang/apex/out/tree/apex/com.android.runtime/lib
-sixiang/apex/out/tree/apex/com.android.runtime/lib/liblzma.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_debug.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libunwindstack.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/bionic
-sixiang/apex/out/tree/apex/com.android.runtime/lib/ld-android.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libprocinfo.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libbase.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_hooks.so
-sixiang/apex/out/tree/apex/com.android.runtime/lib/libc++.so
 sixiang/apex/out/tree/apex/com.android.runtime/lib64
-sixiang/apex/out/tree/apex/com.android.runtime/lib64/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libunwindstack.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libprocinfo.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/ld-android.so
 sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc_malloc_debug.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libbase.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc++.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/libc_malloc_hooks.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/bionic
+sixiang/apex/out/tree/apex/com.android.runtime/lib64/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libunwindstack.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libprocinfo.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/ld-android.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_debug.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libbase.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc++.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/libc_malloc_hooks.so
+sixiang/apex/out/tree/apex/com.android.runtime/lib/bionic
+sixiang/apex/out/tree/apex/com.android.runtime/lib/liblzma.so
+sixiang/apex/out/tree/apex/com.android.runtime/etc
+sixiang/apex/out/tree/apex/com.android.runtime/etc/linker.config.pb
+sixiang/apex/out/tree/apex/com.android.runtime/apex_manifest.pb
+sixiang/apex/out/tree/apex/com.android.runtime/bin

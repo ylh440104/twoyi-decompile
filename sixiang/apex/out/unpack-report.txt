@@ -1,80 +1,80 @@
 NAME                                       BYTES  KIND         file(1)
 com.android.adbd.capex                   5738496  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.adbd  files=30  bytes=11859700
 com.android.adservices.capex             8753152  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.adservices  files=20  bytes=22978907
 com.android.apex.cts.shim.apex            360448  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.apex.cts.shim  files=5  bytes=104654
 com.android.appsearch.capex              2052096  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.appsearch  files=16  bytes=4293557
 com.android.art.capex                   21422080  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.art  files=93  bytes=51190369
 com.android.bt.capex                    10981376  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.bt  files=27  bytes=25681658
 com.android.cellbroadcast.capex          5902336  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.cellbroadcast  files=12  bytes=22445170
 com.android.configinfrastructure.capex   2658304  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.configinfrastructure  files=20  bytes=5722561
 com.android.conscrypt.capex              3837952  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.conscrypt  files=168  bytes=7978452
 com.android.crashrecovery.capex           258048  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.crashrecovery  files=11  bytes=238129
 com.android.devicelock.apex              6164480  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.devicelock  files=14  bytes=5794738
 com.android.extservices.capex           10043392  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.extservices  files=6  bytes=24483364
 com.android.healthfitness.apex          17190912  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.healthfitness  files=16  bytes=16721511
 com.android.i18n.apex                   42889216  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.i18n  files=22  bytes=42397136
 com.android.ipsec.capex                   466944  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.ipsec  files=10  bytes=755376
 com.android.media.capex                  3420160  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.media  files=47  bytes=7901361
 com.android.media.swcodec.capex         18571264  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.media.swcodec  files=149  bytes=42782965
 com.android.mediaprovider.capex         15781888  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.mediaprovider  files=30  bytes=35643406
 com.android.neuralnetworks.capex         4087808  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.neuralnetworks  files=4  bytes=8197887
 com.android.nfcservices.capex            4182016  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.nfcservices  files=23  bytes=10151219
 com.android.npumanager.capex             4296704  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.npumanager  files=89  bytes=10655158
 com.android.ondevicepersonalization.capex   6623232  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.ondevicepersonalization  files=16  bytes=14654032
 com.android.os.statsd.apex               3772416  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.os.statsd  files=20  bytes=3442670
 com.android.permission.capex             9113600  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.permission  files=18  bytes=28839173
 com.android.profiling.capex              1077248  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.profiling  files=14  bytes=2341376
 com.android.resolv.capex                  122880  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.resolv  files=1  bytes=26
 com.android.rkpd.apex                    1572864  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.rkpd  files=10  bytes=1246592
 com.android.runtime.apex                12779520  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.runtime  files=36  bytes=19394533
 com.android.scheduling.capex              180224  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.scheduling  files=6  bytes=53794
 com.android.sdkext.apex                  1380352  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.sdkext  files=9  bytes=1103628
 com.android.telephonycore.capex          2035712  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.telephonycore  files=19  bytes=4799966
 com.android.tethering.capex             17256448  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.tethering  files=66  bytes=36659785
 com.android.tzdata.apex                   978944  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.tzdata  files=27  bytes=2513281
 com.android.uprobestats.capex            1839104  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.uprobestats  files=29  bytes=4147095
 com.android.uwb.capex                    2916352  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.uwb  files=17  bytes=6826749
 com.android.virt.apex                   64884736  zip-apex     Java archive data (JAR)
     -> sixiang/apex/out/tree/apex/com.android.virt  files=0  bytes=0
 com.android.webapp.capex                 3035136  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.webapp  files=14  bytes=5894459
 com.android.wifi.capex                   7421952  zip-apex     Android package (APK), with AndroidManifest.xml
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.wifi  files=38  bytes=19062656
 
-展开成功: 10 / 38
-展开后总字节: 92718743 (88.4 MiB)
+展开成功: 38 / 38
+展开后总字节: 508957093 (485.4 MiB)

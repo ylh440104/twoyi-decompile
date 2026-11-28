@@ -1,8 +1,8 @@
 converting to raw ...
 system.raw = 1904779264 bytes
 found 38 apex/capex entries
-    !! 无法取出 apex_payload.img；成员: AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex
+    -> sixiang/apex/out/tree/apex/com.android.wifi  files=38  bytes=19062656
 
-展开成功: 10 / 38
-展开后总字节: 92718743 (88.4 MiB)
+展开成功: 38 / 38
+展开后总字节: 508957093 (485.4 MiB)
 report: sixiang/apex/out/tree/unpack-report.txt
