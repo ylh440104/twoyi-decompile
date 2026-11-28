@@ -75,31 +75,22 @@ jobs:
           echo "cfg rc=$?"
           cat gadget/libgadget.config.so
 
-      - name: Decode (full) and force extractNativeLibs
+      - name: Decode smali only (never recompile resources)
         run: |
           set +e
           exec 1>>build.log 2>&1
-          # Full decode is required: the manifest must come out as text so
-          # android:extractNativeLibs can be added.  Without it the loader mmaps
-          # lib/*.so from inside the APK, which requires STORED entries and makes
-          # gadget unable to see libgadget.config.so next to itself.
-          java -Xmx6g -jar "$HOME/apktool.jar" d -f -o dec work/twoyi.apk
+          # -r is mandatory: a full decode/rebuild recompiles resources.arsc and
+          # the manifest with aapt2, which broke twoyi outright (the user
+          # reported the app became unusable after the full-rebuild version).
+          # With -r the binary manifest and resources.arsc are copied verbatim.
+          java -Xmx6g -jar "$HOME/apktool.jar" d -f -r -o dec work/twoyi.apk
           echo "decode rc=$?"
-          ls -l dec/AndroidManifest.xml dec/apktool.yml
+          ls -l dec/apktool.yml
+          ls dec/AndroidManifest.xml
           find dec -name '*.smali' | wc -l
-          echo "== before =="
-          grep -o 'android:extractNativeLibs="[a-z]*"' dec/AndroidManifest.xml
-          # The original manifest already carries extractNativeLibs="true"; adding
-          # it again produces a duplicate attribute and aapt2 refuses to build.
-          if grep -q 'android:extractNativeLibs' dec/AndroidManifest.xml; then
-            echo "already present, leaving it alone"
-          else
-            sed -i '0,/<application /s//<application android:extractNativeLibs="true" /' dec/AndroidManifest.xml
-            echo "added"
-          fi
-          echo "== after =="
-          grep -o 'android:extractNativeLibs="[a-z]*"' dec/AndroidManifest.xml
-          echo "== doNotCompress: keep the 212 MB rootfs stored =="
+          echo "== original lib/ is preserved verbatim =="
+          ls -l dec/lib/arm64-v8a/ 2>/dev/null
+          echo "== keep the 212 MB rootfs stored =="
           sed -i '/^doNotCompress:/a - zst' dec/apktool.yml
           sed -n '/doNotCompress/,+5p' dec/apktool.yml
 
