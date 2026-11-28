@@ -1,0 +1,27 @@
+kernel-wall analysis (host kernel = 4.19.191, guest bionic = API 37)
+generated: 2026-11-28T08:31:21Z
+
+──── libc++.so  (1152760 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+──── liblog.so  (102624 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+──── bootstrap-linker64  (2420544 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+──── init  (2606296 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+──── sh  (318504 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+──── toybox  (611160 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+──── apexd  (1101776 B, 3 行反汇编)
+     （未命中任何目标 syscall）
+
+════ 结论 ════
+未在反汇编里定位到 clone3 的 syscall 装载点（可能用了内联 asm 的其它写法）。
+下一步：直接实跑验证（artifact 已上传）。
