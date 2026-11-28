@@ -93,23 +93,65 @@ def parse_dynamic(path):
     return [read_str(o) for o in needed_offsets], [read_str(o) for o in rpath_offsets]
 
 
-def find_library(name, search_dirs):
-    """First regular file with this basename. Symlinks are followed only if the
-    target exists, so a dangling link in the image can never be chosen."""
+def _resolve_through_roots(target, roots):
+    """Map an absolute path from the image's own view onto a mount point.
+
+    On a device /system/lib64/libc++.so is a symlink to
+    /apex/com.android.runtime/lib64/bionic/libc++.so. Inside this checkout that
+    target does not exist -- but the apex payload is mounted, so translate the
+    path instead of giving up."""
+    seen = set()
+    cur = target
+    for _ in range(8):
+        if not cur or not cur.startswith("/"):
+            return None
+        if cur in seen:
+            return None
+        seen.add(cur)
+        for r in roots:
+            p = os.path.join(r, cur.lstrip("/"))
+            if os.path.isfile(p):
+                return p
+            if os.path.islink(p):
+                nxt = os.readlink(p)
+                if not nxt.startswith("/"):
+                    nxt = os.path.join(os.path.dirname(cur), nxt)
+                cur = nxt
+                break
+        else:
+            return None
+    return None
+
+
+def find_library(name, search_dirs, roots=("/mnt/apex", "/mnt/gsi")):
+    """First *readable regular file* with this basename.
+
+    A dangling symlink in the image must never win, so candidates are opened,
+    and symlinks are translated through the mount points above."""
     for d in search_dirs:
         if not d or not os.path.isdir(d):
             continue
         direct = os.path.join(d, name)
         if os.path.isfile(direct) and os.access(direct, os.R_OK):
             return direct
+        if os.path.islink(direct):
+            via = _resolve_through_roots(os.readlink(direct), roots)
+            if via:
+                return via
+
     for d in search_dirs:
         if not d or not os.path.isdir(d):
             continue
         for root, _dirs, files in os.walk(d, followlinks=False):
-            if name in files:
-                cand = os.path.join(root, name)
-                if os.path.isfile(cand):
-                    return cand
+            if name not in files:
+                continue
+            cand = os.path.join(root, name)
+            if os.path.isfile(cand):
+                return cand
+            if os.path.islink(cand):
+                via = _resolve_through_roots(os.readlink(cand), roots)
+                if via:
+                    return via
     return None
 
 
