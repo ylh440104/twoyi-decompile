@@ -89,11 +89,17 @@ jobs:
           find dec -name '*.smali' | wc -l
           echo "== before =="
           grep -o 'android:extractNativeLibs="[a-z]*"' dec/AndroidManifest.xml
-          sed -i '0,/<application /s//<application android:extractNativeLibs="true" /' dec/AndroidManifest.xml
+          # The original manifest already carries extractNativeLibs="true"; adding
+          # it again produces a duplicate attribute and aapt2 refuses to build.
+          if grep -q 'android:extractNativeLibs' dec/AndroidManifest.xml; then
+            echo "already present, leaving it alone"
+          else
+            sed -i '0,/<application /s//<application android:extractNativeLibs="true" /' dec/AndroidManifest.xml
+            echo "added"
+          fi
           echo "== after =="
           grep -o 'android:extractNativeLibs="[a-z]*"' dec/AndroidManifest.xml
-          echo "== doNotCompress: keep .so and .zst stored =="
-          sed -i '/^doNotCompress:/a - so' dec/apktool.yml
+          echo "== doNotCompress: keep the 212 MB rootfs stored =="
           sed -i '/^doNotCompress:/a - zst' dec/apktool.yml
           sed -n '/doNotCompress/,+5p' dec/apktool.yml
 
