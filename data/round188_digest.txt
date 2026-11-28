@@ -1,0 +1,334 @@
+A. ARE THE THREE FLATTENED FUNCTIONS REFERENCED AS DATA?
+  0x3a82dc data hits: none
+  0x3b0efc data hits: none
+  0x546d7c data hits: none
+
+B. 23 MEDIUM PLAIN COMPONENTS (245 funcs)
+== C#5  funcs=37 lines=992 span 0x6f40c4..0x6f8e58
+   ext=2 {'io.mem<': 1, 'io.mem': 1}
+   consts: 
+   hub 0x6f8e58 in=37: void FUN_007f8e58(long param_1,uint *param_2,uint param_3)
+        0| 
+        1| void FUN_007f8e58(long param_1,uint *param_2,uint param_3)
+        2| 
+        3| {
+        4|   char *pcVar1;
+        5|   long lVar2;
+        6|   ulong uVar3;
+        7|   ulong uVar4;
+        8|   ulong uVar5;
+
+== C#6  funcs=23 lines=1412 span 0x732dec..0x8362f0
+   ext=28 {'io.mem>': 10, 'io.mem<': 7, 'io.mem': 4, 'io.mem<>': 3, 'string>': 2}
+   consts: 0x4000 x10, 0xffffffff x9, 0x84c0 x8, 0x408 x7, 0x790 x5, 0x8892 x5
+   gl-ish: CUBE_MAP
+   hub 0x74be1c in=6: undefined4 FUN_0084be1c(long param_1)
+        0| 
+        1| undefined4 FUN_0084be1c(long param_1)
+        2| 
+        3| {
+        4|   return *(undefined4 *)(param_1 + 0x10);
+        5| }
+        6| 
+        7| 
+        8| 
+
+== C#7  funcs=16 lines=1000 span 0x7211a4..0x76c964
+   ext=27 {'io.mem<': 12, 'io.mem>': 9, 'io.mem': 2, 'string': 2, 'io.file>': 1}
+   consts: 0x3000 x12, 0x30a0 x3, 0x300c x2, 0x300d x2, 0x3009 x2, 0x3002 x2
+   hub 0x7254e8 in=6: void FUN_008254e8(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+        0| 
+        1| void FUN_008254e8(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+        2| 
+        3| {
+        4|   long lVar1;
+        5|   long *plVar2;
+        6|   long lVar3;
+        7|   bool bVar4;
+        8|   bool bVar5;
+
+== C#8  funcs=15 lines=499 span 0x776e30..0x78a5b4
+   ext=3 {'io.mem<>': 1, 'io.mem>': 1, 'io.mem<': 1}
+   consts: 0x3a0 x14, 0x790 x8, 0x500 x6, 0x1406 x5, 0x2200 x2, 0x1404 x2
+   gl-ish: FLOAT
+   hub 0x780048 in=7: bool FUN_00880048(int param_1,int param_2)
+        0| 
+        1| bool FUN_00880048(int param_1,int param_2)
+        2| 
+        3| {
+        4|   if (param_2 < 0x8571) {
+        5|     if ((1 < param_2 - 0x2200U) && (param_2 != 0xd1c)) {
+        6|       return false;
+        7|     }
+        8|   }
+
+== C#9  funcs=15 lines=486 span 0x77c760..0x78a5cc
+   ext=1 {'io.mem<': 1}
+   consts: 0x3b8 x8, 0x790 x8, 0x8d60 x7, 0x500 x6, 0x2000 x6, 0x2001 x6
+   gl-ish: FLOAT
+   hub 0x780370 in=7: bool FUN_00880370(int param_1,int param_2)
+        0| 
+        1| bool FUN_00880370(int param_1,int param_2)
+        2| 
+        3| {
+        4|   return param_1 == 0x8d60 && param_2 == 0x2500;
+        5| }
+        6| 
+        7| 
+        8| 
+
+== C#10  funcs=13 lines=237 span 0x5ddbf0..0x5df0a8
+   ext=9 {'io.mem>': 2, 'io.mem': 2, 'io.mem<': 2, 'io.mem<>': 1, 'string<': 1}
+   consts: 0xffffffff x2
+   hub 0x5ddd40 in=9: undefined8 FUN_006ddd40(void)
+        0| 
+        1| undefined8 FUN_006ddd40(void)
+        2| 
+        3| {
+        4|   return DAT_00a6cde0;
+        5| }
+        6| 
+        7| 
+        8| 
+
+== C#11  funcs=13 lines=710 span 0x7d5928..0x8281ec
+   ext=30 {'io.mem<': 13, 'io.mem': 7, 'io.mem>': 5, 'io.mem<<': 2, 'string>': 1}
+   consts: 0x798 x78, 0x164 x13, 0x760 x10, 0x16c x10, 0x350 x5, 0x8b30 x4
+   hub 0x7d6980 in=4: long FUN_008d6980(long param_1)
+        0| 
+        1| long FUN_008d6980(long param_1)
+        2| 
+        3| {
+        4|   return param_1 + 0x6e0;
+        5| }
+        6| 
+        7| 
+        8| 
+
+== C#12  funcs=13 lines=236 span 0x684774..0x6b11d4
+   ext=1 {'io.mem>': 1}
+   consts: 
+   hub 0x6b11d4 in=13: void FUN_007b11d4(void)
+        0| 
+        1| void FUN_007b11d4(void)
+        2| 
+        3| {
+        4|   return;
+        5| }
+        6| 
+        7| 
+        8| 
+
+== C#13  funcs=11 lines=503 span 0x5b9658..0x836fa4
+   ext=13 {'io.mem<': 4, 'io.mem>': 3, 'io.mem<>': 2, 'io.file>': 2, 'io.mem<<': 1}
+   consts: 0x1c0 x4, 0x338 x3, 0x150 x3, 0x3f0 x3, 0x33333333 x3, 0x3d0 x3
+   hub 0x5d9c3c in=4: void FUN_006d9c3c(undefined4 param_1,long *param_2)
+        0| 
+        1| void FUN_006d9c3c(undefined4 param_1,long *param_2)
+        2| 
+        3| {
+        4|   long lVar1;
+        5|   undefined4 local_2c;
+        6|   long local_28;
+        7|   
+        8|   lVar1 = tpidr_el0;
+
+== C#14  funcs=9 lines=208 span 0x7452a8..0x832084
+   ext=0 {}
+   consts: 0x500 x4, 0x300 x3, 0x8001 x2, 0x308 x1, 0x307 x1, 0x310 x1
+   hub 0x7452a8 in=5: void FUN_008452a8(long param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+        0| 
+        1| void FUN_008452a8(long param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+        2|                  undefined4 param_5)
+        3| 
+        4| {
+        5|   *(undefined4 *)(param_1 + 0x128) = param_2;
+        6|   *(undefined4 *)(param_1 + 300) = param_3;
+        7|   *(undefined4 *)(param_1 + 0x130) = param_4;
+        8|   *(undefined4 *)(param_1 + 0x134) = param_5;
+
+== C#15  funcs=7 lines=380 span 0x58995c..0x5c3d60
+   ext=11 {'io.mem': 3, 'io.mem<<': 3, 'io.mem>': 2, 'io.mem<': 2, 'proc': 1}
+   consts: 0xffffffff x10, 0xde1 x4, 0x8d40 x4, 0x5c0 x3, 0x822b x2, 0x8d62 x2
+   gl-ish: GL_TEXTURE_2D/FRAMEBUFFER/GL_RGBA/GL_RGB
+   hub 0x5c3d60 in=5: undefined4
+        0| 
+        1| undefined4
+        2| FUN_006c3d60(long param_1,uint param_2,undefined4 param_3,undefined4 param_4,int param_5,int param_6
+        3|             ,undefined4 param_7,undefined4 param_8,undefined8 param_9)
+        4| 
+        5| {
+        6|   uint uVar1;
+        7|   ulong uVar2;
+        8|   uint uVar3;
+
+== C#16  funcs=7 lines=203 span 0x7cad64..0x81032c
+   ext=3 {'io.mem<>': 1, 'io.mem<': 1, 'io.mem': 1}
+   consts: 0x100 x2
+   hub 0x80dbb4 in=4: undefined8 FUN_0090dbb4(uint *param_1,long *param_2,long *param_3)
+        0| 
+        1| undefined8 FUN_0090dbb4(uint *param_1,long *param_2,long *param_3)
+        2| 
+        3| {
+        4|   bool bVar1;
+        5|   long lVar2;
+        6|   ulong uVar3;
+        7|   long *plVar4;
+        8|   long *plVar5;
+
+== C#17  funcs=7 lines=76 span 0x5b83dc..0x5dacfc
+   ext=0 {}
+   consts: 
+   hub 0x5dacac in=2: void FUN_006dacac(undefined *param_1)
+        0| 
+        1| void FUN_006dacac(undefined *param_1)
+        2| 
+        3| {
+        4|   PTR_FUN_00a3c910 = param_1;
+        5|   return;
+        6| }
+        7| 
+        8| 
+
+== C#18  funcs=7 lines=188 span 0x74529c..0x831ff8
+   ext=0 {}
+   consts: 0x500 x4, 0x2f9 x1, 0x2f8 x1, 0x301 x1, 0x2ff x1, 0x120 x1
+   hub 0x74529c in=5: void FUN_0084529c(long param_1,undefined4 param_2,undefined4 param_3)
+        0| 
+        1| void FUN_0084529c(long param_1,undefined4 param_2,undefined4 param_3)
+        2| 
+        3| {
+        4|   *(undefined4 *)(param_1 + 0x120) = param_2;
+        5|   *(undefined4 *)(param_1 + 0x124) = param_3;
+        6|   return;
+        7| }
+        8| 
+
+== C#19  funcs=7 lines=330 span 0x77765c..0x77ffe8
+   ext=3 {'io.mem<<': 1, 'io.mem>': 1, 'io.mem<': 1}
+   consts: 0x500 x6, 0x8b9d x4, 0x502 x3, 0x8191 x2, 0x7ef x1, 0x7ed x1
+   gl-ish: GL_TEXTURE_2D/CUBE_MAP
+   hub 0x77ffe8 in=7: bool FUN_0087ffe8(int param_1,int param_2)
+        0| 
+        1| bool FUN_0087ffe8(int param_1,int param_2)
+        2| 
+        3| {
+        4|   if (param_2 < 0x8191) {
+        5|     if (3 < param_2 - 0x2800U) {
+        6|       return false;
+        7|     }
+        8|   }
+
+== C#20  funcs=6 lines=593 span 0x8db048..0x8dc068
+   ext=7 {'cxx<': 3, 'io.mem>': 2, 'io.file>': 1, 'io.mem<>': 1}
+   consts: 0xffffffff x5, 0xfffffffe x2, 0xffffe672 x1
+   hub 0x8db5e4 in=3: /* WARNING: Type propagation algorithm not settling */
+        0| 
+        1| /* WARNING: Type propagation algorithm not settling */
+        2| 
+        3| ulong * FUN_009db5e4(undefined8 *param_1,uint param_2,long param_3)
+        4| 
+        5| {
+        6|   uint uVar1;
+        7|   byte bVar2;
+        8|   ulong uVar3;
+
+== C#21  funcs=6 lines=975 span 0x58edb0..0x89a2c4
+   ext=0 {}
+   consts: 0xffffffff x1
+   hub 0x89a19c in=3: void FUN_0099a19c(int *param_1,int *param_2,int *param_3,int *param_4,int *param_5)
+        0| 
+        1| void FUN_0099a19c(int *param_1,int *param_2,int *param_3,int *param_4,int *param_5)
+        2| 
+        3| {
+        4|   int iVar1;
+        5|   int iVar2;
+        6|   int iVar3;
+        7|   
+        8|   iVar1 = *param_2;
+
+== C#22  funcs=6 lines=135 span 0x5b6e48..0x848af4
+   ext=1 {'io.mem<': 1}
+   consts: 
+   hub 0x84885c in=3: /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+        0| 
+        1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+        2| 
+        3| void FUN_0094885c(undefined8 *param_1)
+        4| 
+        5| {
+        6|   undefined8 uVar1;
+        7|   undefined8 uVar2;
+        8|   undefined8 uVar3;
+
+== C#23  funcs=6 lines=320 span 0x5b0358..0x5c3098
+   ext=13 {'io.mem>': 3, 'string': 3, 'io.mem': 2, 'io.mem<<': 2, 'io.mem<': 2}
+   consts: 0xffffffff x5, 0x305a x1, 0x3059 x1, 0x2c0 x1, 0x846 x1, 0xffffffb5 x1
+   hub 0x5c2eb8 in=3: undefined4 FUN_006c2eb8(long param_1,uint param_2)
+        0| 
+        1| undefined4 FUN_006c2eb8(long param_1,uint param_2)
+        2| 
+        3| {
+        4|   uint uVar1;
+        5|   ulong uVar2;
+        6|   long lVar3;
+        7|   int iVar4;
+        8|   uint uVar5;
+
+== C#24  funcs=6 lines=225 span 0x7454b8..0x797104
+   ext=0 {}
+   consts: 0x1f02 x4, 0x1f00 x2, 0x1f01 x2, 0x1f03 x2, 0x1dc x2, 0x500 x2
+   hub 0x745528 in=3: byte * FUN_00845528(undefined8 param_1,uint param_2)
+        0| 
+        1| byte * FUN_00845528(undefined8 param_1,uint param_2)
+        2| 
+        3| {
+        4|   byte *pbVar1;
+        5|   byte *pbVar2;
+        6|   long *plVar3;
+        7|   bool bVar4;
+        8|   
+
+== C#25  funcs=5 lines=241 span 0x5dfb7c..0x5e6104
+   ext=7 {'io.mem<': 4, 'proc': 1, 'io.mem>': 1, 'io.mem': 1}
+   consts: 0x3f800000 x4, 0x410 x2
+   hub 0x5e10ec in=3: void FUN_006e10ec(undefined8 *param_1,int param_2,undefined8 param_3,uint param_4)
+        0| 
+        1| void FUN_006e10ec(undefined8 *param_1,int param_2,undefined8 param_3,uint param_4)
+        2| 
+        3| {
+        4|   undefined8 uVar1;
+        5|   undefined8 uVar2;
+        6|   
+        7|   uVar2 = 0;
+        8|   if (param_2 < 5) {
+
+== C#26  funcs=5 lines=155 span 0x74540c..0x79a694
+   ext=0 {}
+   consts: 0x408 x3, 0x500 x2, 0x194 x2, 0x198 x2, 0x19c x2, 0x8507 x1
+   hub 0x74540c in=4: void FUN_0084540c(long param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5)
+        0| 
+        1| void FUN_0084540c(long param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5)
+        2| 
+        3| {
+        4|   long lVar1;
+        5|   undefined4 *puVar2;
+        6|   
+        7|   if (param_2 == 0x404) {
+        8|     lVar1 = 0;
+
+== C#27  funcs=5 lines=353 span 0x6afd78..0x6d8fb0
+   ext=4 {'io.mem<': 2, 'io.mem>': 1, 'io.mem': 1}
+   consts: 0x9e3779b9 x5, 0xffffffff x5, 0x430 x4, 0x408 x1, 0x410 x1, 0x101 x1
+   gl-ish: golden-ratio(hash)
+   hub 0x6affe8 in=3: void FUN_007affe8(long param_1,undefined8 param_2,undefined8 param_3,long param_4,
+        0| 
+        1| void FUN_007affe8(long param_1,undefined8 param_2,undefined8 param_3,long param_4,
+        2|                  undefined8 *param_5,undefined8 *param_6)
+        3| 
+        4| {
+        5|   long lVar1;
+        6|   uint uVar2;
+        7|   long lVar3;
+        8|   undefined8 *puVar4;
+
