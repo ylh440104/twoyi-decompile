@@ -156,6 +156,13 @@ log "== logcat (SiXiang) =="
 adb logcat -d -s SiXiang:V AndroidRuntime:E DEBUG:E | tail -60 | tee -a "$LOG"
 
 log ""
+log "== why did the child die? =="
+log "\$ dmesg | grep -iE 'seccomp|avc|denied|sig'"
+adb shell 'dmesg 2>/dev/null | grep -iE "seccomp|avc: |denied|sig" | tail -40' 2>&1 | tee -a "$LOG"
+log "\$ logcat -d -b all | grep -iE 'avc:|seccomp'"
+adb logcat -d -b all 2>/dev/null | grep -iE 'avc:|seccomp|SIGSYS' | tail -40 | tee -a "$LOG"
+
+log ""
 log "== verdict =="
 # The app prints this line only when all three guest runs returned 0, so it can
 # not be faked by the echoed command line (an earlier version grepped for

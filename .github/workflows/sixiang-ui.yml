@@ -121,16 +121,10 @@ jobs:
             echo "no evidence to commit"
             exit 0
           fi
-          git commit -q -m "ui: emulator smoke test evidence (${GITHUB_SHA::7})" || true
-          for i in 1 2 3 4 5; do
-            if git pull --rebase -q origin main && git push -q origin HEAD:main; then
-              echo PUSHED
-              exit 0
-            fi
-            echo "retry $i"
-            sleep 6
-          done
-          echo "::warning::could not push evidence"
+          git commit -q -m "ui: emulator evidence for ${GITHUB_SHA::7}" || true
+          # A dedicated branch, force-pushed: the APK job also commits to main,
+          # and racing it silently threw the evidence away twice.
+          git push -f origin HEAD:ui-evidence && echo "PUSHED ui-evidence"
 
       - name: Upload the screenshot
         if: always()
