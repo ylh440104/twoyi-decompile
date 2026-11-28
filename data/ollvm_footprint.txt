@@ -1,0 +1,96 @@
+== 0x3a82dc lines=1546
+  param_1+off histogram: 
+  signature: void FUN_004a82dc(long param_1,int *param_2)
+  all (x + 0x..) offsets: 0x28 x2, 0x10 x1, 0xc x1, 0x20 x1
+  first 26 lines:
+      0| 
+      1| void FUN_004a82dc(long param_1,int *param_2)
+      2| 
+      3| {
+      4|   int *piVar1;
+      5|   uint uVar2;
+      6|   int iVar3;
+      7|   int iVar4;
+      8|   char cVar5;
+      9|   byte bVar6;
+     10|   undefined8 *puVar7;
+     11|   int *piVar8;
+     12|   bool bVar9;
+     13|   ulong uVar10;
+     14|   long lVar11;
+     15|   ulong uVar12;
+     16|   ulong *puVar13;
+     17|   uint uVar14;
+     18|   long lVar15;
+     19|   long *plVar17;
+     20|   ulong *puVar18;
+     21|   ulong *puVar19;
+     22|   int local_a10;
+     23|   long local_a00 [2];
+     24|   long local_9f0 [2];
+     25|   long local_9e0 [2];
+
+== 0x3b0efc lines=1101
+  param_1+off histogram: 
+  signature: /* WARNING: Removing unreachable block (ram,0x004b3b14) */
+  all (x + 0x..) offsets: 0x10 x15, 0x18 x6, 0x28 x2
+  first 26 lines:
+      0| 
+      1| /* WARNING: Removing unreachable block (ram,0x004b3b14) */
+      2| /* WARNING: Removing unreachable block (ram,0x004b6354) */
+      3| 
+      4| void FUN_004b0efc(long param_1,long param_2)
+      5| 
+      6| {
+      7|   uint uVar1;
+      8|   char cVar2;
+      9|   uint uVar3;
+     10|   char *pcVar4;
+     11|   bool bVar5;
+     12|   undefined8 *puVar6;
+     13|   undefined *puVar7;
+     14|   long lVar8;
+     15|   undefined8 uVar9;
+     16|   long lVar10;
+     17|   undefined8 *puVar11;
+     18|   long *plVar12;
+     19|   long **pplVar13;
+     20|   long *plVar14;
+     21|   int local_700;
+     22|   long local_6f0;
+     23|   long local_6e0 [2];
+     24|   long local_6d0 [2];
+     25|   long local_6c0 [2];
+
+== 0x546d7c lines=932
+  param_1+off histogram: 
+  signature: void FUN_00646d7c(char *param_1,ulong param_2,ulong *param_3)
+  all (x + 0x..) offsets: 0x28 x2
+  first 26 lines:
+      0| 
+      1| void FUN_00646d7c(char *param_1,ulong param_2,ulong *param_3)
+      2| 
+      3| {
+      4|   uint uVar1;
+      5|   char cVar2;
+      6|   byte bVar3;
+      7|   bool bVar4;
+      8|   bool bVar5;
+      9|   int *piVar6;
+     10|   int *piVar7;
+     11|   int iVar8;
+     12|   uint uVar9;
+     13|   ulong uVar10;
+     14|   int **ppiVar11;
+     15|   int **ppiVar12;
+     16|   int iVar13;
+     17|   ulong *puVar14;
+     18|   ulong *puVar15;
+     19|   int *local_3c0 [2];
+     20|   int local_3b0 [4];
+     21|   ulong local_3a0 [2];
+     22|   ulong local_390 [2];
+     23|   uint local_380 [4];
+     24|   ulong local_370 [2];
+     25|   ulong local_360 [2];
+

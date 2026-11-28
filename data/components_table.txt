@@ -1,0 +1,33 @@
+components after #1-#4: 2557  (size>=5: 23, size<5: 2534, funcs in small: 2784)
+
+   #    n   lines  ext ext-tags               top consts                     hub
+   5   37     992    2 io.mem,io.mem<                                        0x6f8e58 void FUN_007f8e58(long param_1,uint *param_2,uint param_3)
+   6   23    1412   28 io.file>,io.mem,io.mem 0x4000 x10, 0xffffffff x9, 0x8 0x74be1c undefined4 FUN_0084be1c(long param_1)
+   7   16    1000   27 io.file>,io.mem,io.mem 0x3000 x12, 0x30a0 x3, 0x300c  0x7254e8 void FUN_008254e8(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 pa
+   8   15     499    3 io.mem<,io.mem<>,io.me 0x3a0 x14, 0x790 x8, 0x500 x6, 0x780048 bool FUN_00880048(int param_1,int param_2)
+   9   15     486    1 io.mem<                0x3b8 x8, 0x790 x8, 0x8d60 x7, 0x780370 bool FUN_00880370(int param_1,int param_2)
+  10   13     237    9 io.mem,io.mem<,io.mem< 0xffffffff x2                  0x5ddd40 undefined8 FUN_006ddd40(void)
+  11   13     710   30 io.mem,io.mem<,io.mem< 0x798 x78, 0x164 x13, 0x760 x1 0x7d6980 long FUN_008d6980(long param_1)
+  12   13     236    1 io.mem>                                               0x6b11d4 void FUN_007b11d4(void)
+  13   11     503   13 io.file>,io.mem<,io.me 0x1c0 x4, 0x338 x3, 0x150 x3,  0x5d9c3c void FUN_006d9c3c(undefined4 param_1,long *param_2)
+  14    9     208    0                        0x500 x4, 0x300 x3, 0x8001 x2, 0x7452a8 void FUN_008452a8(long param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+  15    7     380   11 io.mem,io.mem<,io.mem< 0xffffffff x10, 0xde1 x4, 0x8d 0x5c3d60 undefined4
+  16    7     203    3 io.mem,io.mem<,io.mem< 0x100 x2                       0x80dbb4 undefined8 FUN_0090dbb4(uint *param_1,long *param_2,long *param_3)
+  17    7      76    0                                                       0x5dacac void FUN_006dacac(undefined *param_1)
+  18    7     188    0                        0x500 x4, 0x2f9 x1, 0x2f8 x1,  0x74529c void FUN_0084529c(long param_1,undefined4 param_2,undefined4 param_3)
+  19    7     330    3 io.mem<,io.mem<<,io.me 0x500 x6, 0x8b9d x4, 0x502 x3, 0x77ffe8 bool FUN_0087ffe8(int param_1,int param_2)
+  20    6     593    7 cxx<,io.file>,io.mem<> 0xffffffff x5, 0xfffffffe x2,  0x8db5e4 /* WARNING: Type propagation algorithm not settling */
+  21    6     975    0                        0xffffffff x1                  0x89a19c void FUN_0099a19c(int *param_1,int *param_2,int *param_3,int *param_4,int *param_5)
+  22    6     135    1 io.mem<                                               0x84885c /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+  23    6     320   13 io.mem,io.mem<,io.mem< 0xffffffff x5, 0x305a x1, 0x30 0x5c2eb8 undefined4 FUN_006c2eb8(long param_1,uint param_2)
+  24    6     225    0                        0x1f02 x4, 0x1f00 x2, 0x1f01 x 0x745528 byte * FUN_00845528(undefined8 param_1,uint param_2)
+  25    5     241    7 io.mem,io.mem<,io.mem> 0x3f800000 x4, 0x410 x2        0x5e10ec void FUN_006e10ec(undefined8 *param_1,int param_2,undefined8 param_3,uint param_4)
+  26    5     155    0                        0x408 x3, 0x500 x2, 0x194 x2,  0x74540c void FUN_0084540c(long param_1,int param_2,undefined4 param_3,undefined4 param_4,undefin
+  27    5     353    4 io.mem,io.mem<,io.mem> 0x9e3779b9 x5, 0xffffffff x5,  0x6affe8 void FUN_007affe8(long param_1,undefined8 param_2,undefined8 param_3,long param_4,
+
+components whose top constants are GL enums: 5 (67 funcs)
+  #6 n=23 lines=1412 ext=28  GL_TEXTURE_CUBE_MAP/GL_FLOAT
+  #8 n=15 lines=499 ext=3  GL_FLOAT
+  #9 n=15 lines=486 ext=1  GL_FLOAT
+  #15 n=7 lines=380 ext=11  GL_TEXTURE_2D/GL_FRAMEBUFFER/GL_RGBA
+  #19 n=7 lines=330 ext=3  GL_TEXTURE_2D_MULTISAMPLE/GL_TEXTURE_2D/GL_TEXTURE_CUBE_MAP
