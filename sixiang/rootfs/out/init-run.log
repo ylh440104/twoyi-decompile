@@ -1,0 +1,4 @@
+linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
+WARNING: linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
+libc: Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 3285 (qemu-aarch64-st), pid 3285 (<unknown>)
+libc: failed to spawn debuggerd dispatch thread: Invalid argument
