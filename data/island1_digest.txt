@@ -1,0 +1,122 @@
+ISLAND #1  0x6872bc..0x6febb8  funcs=350 lines=9114
+external callees of the whole island: ['0x5d9ac4', '0x5d9b80', '0x5d9cec', '0x5f31ec', '0x5f4a9c', '0x68c578', '0x692894', '0x6fe544', '0x6febc0']
+HUB functions (by in-degree):
+  0x6872bc lines=1645 in=343 out=305  void FUN_007872bc(long *param_1,int param_2,long param_3)
+  0x6febb8 lines=9    in=22  out=1   undefined8 FUN_007febb8(long param_1)
+  0x696270 lines=33   in=4   out=2   void FUN_00796270(long *param_1,int param_2,int *param_3)
+  0x696010 lines=18   in=2   out=2   void FUN_00796010(long *param_1,int param_2,int *param_3)
+  0x69a064 lines=17   in=2   out=2   void FUN_0079a064(long *param_1,int param_2,int *param_3)
+  0x692074 lines=25   in=2   out=2   void FUN_00792074(long *param_1,int param_2,int *param_3)
+  0x690080 lines=33   in=2   out=2   void FUN_00790080(long *param_1,int param_2,int *param_3)
+  0x69c088 lines=17   in=2   out=2   void FUN_0079c088(long *param_1,int param_2,int *param_3)
+  0x68e090 lines=17   in=2   out=2   void FUN_0078e090(long *param_1,int param_2,int *param_3)
+  0x69609c lines=21   in=2   out=2   void FUN_0079609c(long *param_1,int param_2,int *param_3)
+  0x6940b4 lines=22   in=2   out=3   void FUN_007940b4(long *param_1,int param_2,int *param_3)
+  0x69a0d8 lines=25   in=2   out=2   void FUN_0079a0d8(long *param_1,int param_2,int *param_3)
+  0x6980e8 lines=18   in=2   out=2   void FUN_007980e8(long *param_1,int param_2,int *param_3)
+  0x69c0fc lines=17   in=2   out=2   void FUN_0079c0fc(long *param_1,int param_2,int *param_3)
+LEAVES (no callee inside plain): 0
+role histogram: {'call': 1081, 'if': 858, 'loop': 30, 'ret': 664, 'goto': 4, 'store': 28}
+top constants: 0x7fffffff x345, 0x100 x20, 0x2d0 x4, 0x3b9bb078 x3, 0x3b9db030 x2, 0x3b9c7b98 x2, 0x3b9bb46c x2, 0x3b9b75e6 x2, 0x3b9b2f91 x2, 0x3b9ad5b8 x2, 0x3b9af4f8 x2, 0x3b9b3762 x2, 0x3b9b3760 x2, 0x3b9b75e2 x2, 0x3b9ba4c1 x2, 0x3b9b8d50 x2, 0x3b9b75e8 x2, 0x3b9b9909 x2, 0x3b9bb465 x2, 0x3b9bb460 x2
+DIGEST of hubs (first 12 lines each):
+---- 0x6872bc (1645 lines, in=343)
+     0| 
+     1| void FUN_007872bc(long *param_1,int param_2,long param_3)
+     2| 
+     3| {
+     4|   bool bVar1;
+     5|   bool bVar2;
+     6|   int iVar3;
+     7|   undefined8 uVar4;
+     8|   long lVar5;
+     9|   
+    10|   uVar4 = FUN_007febc0();
+    11|   lVar5 = FUN_006f4a9c(uVar4,param_2,param_3);
+---- 0x6febb8 (9 lines, in=22)
+     0| 
+     1| undefined8 FUN_007febb8(long param_1)
+     2| 
+     3| {
+     4|   return *(undefined8 *)(param_1 + 0x98);
+     5| }
+     6| 
+     7| 
+     8| 
+---- 0x696270 (33 lines, in=4)
+     0| 
+     1| void FUN_00796270(long *param_1,int param_2,int *param_3)
+     2| 
+     3| {
+     4|   long lVar1;
+     5|   ulong uVar2;
+     6|   long lVar3;
+     7|   
+     8|   (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+     9|   if (param_2 == 0x7fffffff) {
+    10|     param_2 = *param_3;
+    11|   }
+---- 0x696010 (18 lines, in=2)
+     0| 
+     1| void FUN_00796010(long *param_1,int param_2,int *param_3)
+     2| 
+     3| {
+     4|   (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+     5|   if (param_2 == 0x7fffffff) {
+     6|     param_2 = *param_3;
+     7|   }
+     8|   FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+     9|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
+    10|                     /* WARNING: Could not recover jumptable at 0x00796098. Too many branches */
+    11|                     /* WARNING: Treating indirect jump as call */
+---- 0x69a064 (17 lines, in=2)
+     0| 
+     1| void FUN_0079a064(long *param_1,int param_2,int *param_3)
+     2| 
+     3| {
+     4|   (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+     5|   if (param_2 == 0x7fffffff) {
+     6|     param_2 = *param_3;
+     7|   }
+     8|   FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+     9|                     /* WARNING: Could not recover jumptable at 0x0079a0d4. Too many branches */
+    10|                     /* WARNING: Treating indirect jump as call */
+    11|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
+---- 0x692074 (25 lines, in=2)
+     0| 
+     1| void FUN_00792074(long *param_1,int param_2,int *param_3)
+     2| 
+     3| {
+     4|   (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+     5|   if (param_2 == 0x7fffffff) {
+     6|     param_2 = *param_3;
+     7|   }
+     8|   FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+     9|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
+    10|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 5,4);
+    11|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 6,4);
+---- 0x690080 (33 lines, in=2)
+     0| 
+     1| void FUN_00790080(long *param_1,int param_2,int *param_3)
+     2| 
+     3| {
+     4|   (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+     5|   if (param_2 == 0x7fffffff) {
+     6|     param_2 = *param_3;
+     7|   }
+     8|   FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+     9|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
+    10|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 5,4);
+    11|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 6,4);
+---- 0x69c088 (17 lines, in=2)
+     0| 
+     1| void FUN_0079c088(long *param_1,int param_2,int *param_3)
+     2| 
+     3| {
+     4|   (**(code **)(*param_1 + 0x18))(param_1,param_3,4);
+     5|   if (param_2 == 0x7fffffff) {
+     6|     param_2 = *param_3;
+     7|   }
+     8|   FUN_007872bc(param_1,param_2,*(undefined8 *)(param_3 + 2));
+     9|                     /* WARNING: Could not recover jumptable at 0x0079c0f8. Too many branches */
+    10|                     /* WARNING: Treating indirect jump as call */
+    11|   (**(code **)(*param_1 + 0x18))(param_1,param_3 + 4,4);
