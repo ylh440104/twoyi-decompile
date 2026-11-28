@@ -6,8 +6,8 @@ mini_loader: interp mode
            base=0x5501389000 entry=0x5501419700
 linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
 WARNING: linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
-linker: CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc.so" not found: needed by main executable
-CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc.so" not found: needed by main executable
+linker: CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc++.so" not found: needed by /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/lib64/liblog.so in namespace (default)
+CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc++.so" not found: needed by /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/lib64/liblog.so in namespace (default)
 exit=1
 
 ### second run: toybox uname -a
@@ -18,6 +18,6 @@ mini_loader: interp mode
            base=0x5501389000 entry=0x5501419700
 linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
 WARNING: linker: Warning: failed to find generated linker configuration from "/linkerconfig/ld.config.txt"
-linker: CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc.so" not found: needed by main executable
-CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc.so" not found: needed by main executable
+linker: CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc++.so" not found: needed by /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/lib64/liblog.so in namespace (default)
+CANNOT LINK EXECUTABLE "/home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/bin/toybox": library "libc++.so" not found: needed by /home/runner/work/twoyi-decompile/twoyi-decompile/sixiang/guest/out/system/lib64/liblog.so in namespace (default)
 exit=1
