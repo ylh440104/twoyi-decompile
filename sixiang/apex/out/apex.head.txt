@@ -14,7 +14,7 @@ system.img = ./system.img
 [1m=== 2. 转 raw（若是 sparse） ===[0m
 ./system.img: Linux rev 1.0 ext2 filesystem data, UUID=1ba300ec-42ef-5526-9835-43556d702d48 (extents) (large files) (huge files)
 copied as-is
--rw-r--r-- 1 runner runner 1.8G Nov 28 08:26 /tmp/system.raw
+-rw-r--r-- 1 runner runner 1.8G Nov 28 08:30 /tmp/system.raw
 
 [1m=== 3. /system/apex 清单 ===[0m
      53   40755 (2)      0      0    4096  1-Jan-2009 00:00 .
@@ -60,19 +60,47 @@ copied as-is
 
 
 [1m=== 4. 逐个 apex 的内部结构 ===[0m
+com.android.adbd.capex                      5738496  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.adservices.capex                8753152  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.apex.cts.shim.apex               360448  Java archive data (JAR)                payload=274432  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.appsearch.capex                 2052096  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.art.capex                      21422080  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.bt.capex                       10981376  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.cellbroadcast.capex             5902336  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.configinfrastructure.capex      2658304  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.conscrypt.capex                 3837952  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.crashrecovery.capex              258048  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.devicelock.apex                 6164480  Java archive data (JAR)                payload=6004736  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.extservices.capex              10043392  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.healthfitness.apex             17190912  Java archive data (JAR)                payload=17031168  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
 com.android.i18n.apex                      42889216  Java archive data (JAR)                payload=42741760  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.ipsec.capex                      466944  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.media.capex                     3420160  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.media.swcodec.capex            18571264  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.mediaprovider.capex            15781888  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.neuralnetworks.capex            4087808  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.nfcservices.capex               4182016  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.npumanager.capex                4296704  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.ondevicepersonalization.capex    6623232  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.os.statsd.apex                  3772416  Java archive data (JAR)                payload=3571712  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.permission.capex                9113600  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.profiling.capex                 1077248  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.resolv.capex                     122880  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.rkpd.apex                       1572864  Java archive data (JAR)                payload=1409024  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
 com.android.runtime.apex                   12779520  Java archive data (JAR)                payload=12640256  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.scheduling.capex                 180224  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.sdkext.apex                     1380352  Java archive data (JAR)                payload=1212416  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.telephonycore.capex             2035712  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.tethering.capex                17256448  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.tzdata.apex                      978944  Java archive data (JAR)                payload=872448  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.uprobestats.capex               1839104  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.uwb.capex                       2916352  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.virt.apex                      64884736  Java archive data (JAR)                payload=64622592  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.webapp.capex                    3035136  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.wifi.capex                      7421952  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 
-apex 个数 = 10
-apex 总字节 = 151973888  (144 MiB)
+apex 个数 = 38
+apex 总字节 = 326049792  (310 MiB)
 
 [1m=== 5. 挑一个 runtime apex 展开，验证 payload 结构 ===[0m
 total 13M
@@ -81,7 +109,7 @@ total 13M
 -rw-r--r-- 1 runner runner  143 Jan  1  2009 apex_manifest.pb
 -rw-r--r-- 1 runner runner  13M Jan  1  2009 apex_payload.img
 -rw-r--r-- 1 runner runner 1.1K Jan  1  2009 apex_pubkey
-drwxr-xr-x 2 runner runner 4.0K Nov 28 08:26 assets
+drwxr-xr-x 2 runner runner 4.0K Nov 28 08:31 assets
 -rw-r--r-- 1 runner runner   40 Jan  1  2009 resources.arsc
 /tmp/rt/apex_payload.img: Linux rev 1.0 ext2 filesystem data, UUID=7d1522e1-9dfa-5edb-a43e-98e3a4d20250 (extents) (large files) (huge files)
 --- payload 根目录 ---
@@ -122,7 +150,7 @@ libm.soB
 libz.so
 
 [1m=== 6. init 二进制里与 APEX / loop / dm-verity 相关的字符串 ===[0m
--rw-r--r-- 1 runner runner 2.5M Nov 28 08:26 /tmp/init
+-rw-r--r-- 1 runner runner 2.5M Nov 28 08:31 /tmp/init
 /tmp/init: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/bootstrap/linker64, for Android 37, BuildID[md5/uuid]=37ed4b3521c306e4b312de5fd2058918, stripped
 --- 命中行 ---
  with mounted APEX modules info
@@ -180,20 +208,48 @@ mount          102
 [1m=== 汇总 ===[0m
 # APEX 取证（Android 17 GSI CP2A）
 
-- apex 个数：10
-- apex 总字节：151973888（144 MiB）
+- apex 个数：38
+- apex 总字节：326049792（310 MiB）
 
 ```
+com.android.adbd.capex                      5738496  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.adservices.capex                8753152  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.apex.cts.shim.apex               360448  Java archive data (JAR)                payload=274432  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.appsearch.capex                 2052096  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.art.capex                      21422080  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.bt.capex                       10981376  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.cellbroadcast.capex             5902336  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.configinfrastructure.capex      2658304  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.conscrypt.capex                 3837952  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.crashrecovery.capex              258048  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.devicelock.apex                 6164480  Java archive data (JAR)                payload=6004736  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.extservices.capex              10043392  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.healthfitness.apex             17190912  Java archive data (JAR)                payload=17031168  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
 com.android.i18n.apex                      42889216  Java archive data (JAR)                payload=42741760  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.ipsec.capex                      466944  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.media.capex                     3420160  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.media.swcodec.capex            18571264  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.mediaprovider.capex            15781888  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.neuralnetworks.capex            4087808  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.nfcservices.capex               4182016  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.npumanager.capex                4296704  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.ondevicepersonalization.capex    6623232  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.os.statsd.apex                  3772416  Java archive data (JAR)                payload=3571712  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.permission.capex                9113600  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.profiling.capex                 1077248  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.resolv.capex                     122880  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.rkpd.apex                       1572864  Java archive data (JAR)                payload=1409024  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
 com.android.runtime.apex                   12779520  Java archive data (JAR)                payload=12640256  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.scheduling.capex                 180224  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.sdkext.apex                     1380352  Java archive data (JAR)                payload=1212416  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.telephonycore.capex             2035712  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.tethering.capex                17256448  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.tzdata.apex                      978944  Java archive data (JAR)                payload=872448  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.uprobestats.capex               1839104  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.uwb.capex                       2916352  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 com.android.virt.apex                      64884736  Java archive data (JAR)                payload=64622592  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.webapp.capex                    3035136  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
+com.android.wifi.capex                      7421952  Android package (APK), with AndroidManif payload=none  AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,apex_pubkey,original_apex,
 ```
 
 DONE
