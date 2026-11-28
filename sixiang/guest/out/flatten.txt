@@ -1,0 +1,2 @@
+flatten: copied 3, already present 11, dangling/failed 0
+flat dir now holds 765 libraries
