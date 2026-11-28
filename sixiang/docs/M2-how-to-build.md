@@ -1,119 +1,191 @@
-# 怎么产出 SiXiang 的 Android 16 rootfs
+# 怎么产出 SiXiang 的 Android 17 rootfs
 
-> 本文只讲「已能跑通」的路径。所有验证结果都有 run id。
+> 全部命令都可直接执行。版本号已用 `git ls-remote` 核实，不是估计。
 
 ---
 
-## 1. 当前已验证的东西
+## 0. 版本坐标（先记这里，别记错）
 
-| 环节 | 状态 | 证据 |
+```
+AOSP 源码     tag  android-17.0.0_r1
+release 代号  cp2a
+产品名        Cinnamon Bun
+官方 GSI      CP2A.260605.012（2026-06-18）
+```
+
+`android-latest-release`（= main）**仍然是 Android 16（`bp1a`）**。
+要 17，必须显式 `-b android-17.0.0_r1`，用 `android-latest-release` 会拿到 16。
+
+---
+
+## 1. 两条路，按需求选
+
+### 路 A：只想要一个能跑的 system 镜像（推荐先做这个）
+
+用官方 GSI，**不需要编译**：
+
+```bash
+URL='https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP2A.260605.012-15430684-8e545e1e.zip'
+curl -fL -O "$URL"
+unzip -o aosp_arm64-exp-*.zip -d gsi
+ls -lh gsi
+```
+
+已验证：`200 OK`，954,207,230 bytes，sha256 `8e545e1e...48f75`。
+
+用途：验证 APEX 能否绕过（`sixiang/apex/inspect.sh`）。
+**这一步不需要大机器，Actions 就够。**
+
+### 路 B：要自己定制的 AOSP（要 rootfs.tar.zst 当 SiXiang 的 guest）
+
+必须一台大机器。规格与成本：
+
+| 规格 | 耗时 | 成本 |
 |---|---|---|
-| 固定签名 | ✅ | `sixiang/keys/sixiang.jks`，SHA-256 `26:12:5D:47:61:...:BD:F7:92`，4096-bit RSA，至 2126 |
-| AOSP 版本探测 | ✅ | probe run `46124077230` / `46124624860`，结论：`android-latest-release` = **Android 16 (`bp1a`)** |
-| Android 17 监控 | ✅ | `sixiang-probe.yml` 每日 03:17 UTC 查 `cp1a`，出现即写 `docs/AOSP17-DETECTED.md` |
-| **rootfs 重打包器** | ✅ | **selftest run `46124876177` 全绿** |
-| AOSP 16 编译脚本 | ✅ 已写 | `sixiang/rootfs/build_aosp16.sh`（本机无法验证，需大机器） |
+| 16 vCPU / 64 GB / 500 GB SSD | 3–5 h | 约 $1–3 |
+| 32 vCPU / 128 GB / 1 TB | 2–3 h | 约 $3–6 |
 
-`pack_rootfs.py` 的 selftest 做了这些事并全部通过：
-
-```
-合成 8 MB ext4 system.img（含 build.prop / app/hello.txt / app/fake.apk）
-   -> debugfs rdump 展开
-合成 gzip+cpio 的 ramdisk.img（含 init / default.prop / sbin/ueventd）
-   -> gzip -dc | cpio -idmu 展开到 rootfs 根
-合并 -> tar | zstd -19 -> rootfs.tar.zst
-断言 rootfs/init                      ✅
-断言 rootfs/default.prop              ✅
-断言 rootfs/system/build.prop         ✅
-断言 rootfs/system/app/hello.txt      ✅
-断言 rootfs.version 含 sixiang_test   ✅
-```
+Actions 免费 runner 不够（4 vCPU / 15 GiB / 60 GB / 6 h 上限），这是实测数据，不是估计。
 
 ---
 
-## 2. 剩下唯一需要做的事：编一次 AOSP 16
+## 2. 路 B 的完整步骤
 
-### 2.1 为什么不能在 Actions 里编
+### 2.1 起机器
 
-实测（probe run `46124077230`）：
-
-```
-nproc = 4      Mem = 15 GiB      disk free ≈ 60 GB
-```
-
-AOSP 16 需要 **≥250 GB 磁盘 / ≥32 GB 内存 / 4 核 20-40 小时**。三项都不满足，是物理限制。
-
-### 2.2 一条命令
-
-在一台 **Ubuntu 22.04/24.04、16 vCPU / 64 GB / 500 GB SSD** 的机器上：
+任何 Ubuntu 22.04 / 24.04 云主机，**根盘 ≥ 500 GB**。
 
 ```bash
 git clone https://github.com/ylh440104/twoyi-decompile.git
 cd twoyi-decompile/sixiang/rootfs
-sudo ./build_aosp16.sh            # 默认 /data/aosp + aosp_arm64-trunk_staging-userdebug
+sudo ./build_aosp.sh
 ```
 
-脚本会依次做：环境自检（磁盘/内存不足直接拒绝）→ 装依赖 → `repo init -b android-latest-release` → `repo sync` → ccache → `lunch` → `make systemimage system_extimage productimage vendorimage odmimage ramdisk` → 调 `pack_rootfs.py` 出 `sixiang-out/rootfs.tar.zst`。
+脚本默认就是 Android 17（`BRANCH=android-17.0.0_r1`，`TARGET=aosp_arm64-userdebug`）。
+要编 16 就 `BRANCH=android-latest-release sudo ./build_aosp.sh`。
 
-**估时**：sync 30-90 分钟，编译 2-4 小时（16 核）。**按量计费约 $1-3。**
-
-### 2.3 产物怎么进 Actions
-
-编译机上的 `sixiang-out/` 有两个文件：`rootfs.tar.zst`、`rootfs.version`。
-
-两条路：
-
-**A. 直接发（已有成品）**
-把 `rootfs.tar.zst` 传到任意直链，然后手动触发 `sixiang-rootfs.yml`，`rootfs_url` 填那个链接。workflow 会跑 selftest → 下载 → 校验 → 发 release（tag 默认 `rootfs-android16`）。
-
-**B. 只传分区镜像（让 Actions 重打包）**
-把 `out/target/product/<device>/*.img` 打成 zip 传直链，`images_url` 填 zip 链接。workflow 会下载 → 解 zip → `pack_rootfs.py` → 发 release。
-
-> 注意：`ramdisk.img` 一定要包含在 zip 里，否则 rootfs 根目录是空的（selftest 已覆盖这个分支的正确行为）。
-
----
-
-## 3. 拿到 rootfs 之后的下一道墙（必须先知道）
-
-**Android 16 仍在「Android 10 之后」的区间，容器化有四道硬阻塞：**
-
-| # | 阻塞 | 为什么是硬墙 |
-|---|---|---|
-| 1 | **APEX** | `/apex/*.apex` 必须 loop-mount + dm-verity 校验；容器里没有 `/dev/loop-control`，无 root 时无法创建 |
-| 2 | dynamic partitions | rootfs 形态从「单 system」变成 `super.img` 逻辑分区，pack 时只能静态展开，运行时 `fs_mgr` 会尝试重新映射 |
-| 3 | first stage init | init 先挂 system/vendor 才继续；容器里要求这些在启动前就位 |
-| 4 | gralloc4 / AIDL radio | twoyi 的 ColorBuffer 补丁与 `AT+TWOYI=` modem 全部基于旧接口，需重写 |
-
-**所以「编出 rootfs」≠「能跑」。** 这个区别必须提前认清，否则会白花编译时间。
-
----
-
-## 4. 建议的顺序
+### 2.2 脚本做了什么
 
 ```
-已完成: 骨架 / 签名 / 版本探测 / 重打包器 / 编译脚本
-下一步: 先做 APEX 绕过的可行性验证（不需要编 AOSP）
-        做法: 取一个现成的 Android 16 system.img（任意来源），
-              手工解包，把 /system/apex/*.apex 展开成目录，
-              patch init 跳过 mount，看 init 能否走到 second stage
-        这一步只需一台 8 GB 机器 + 1 小时，验证的是「路通不通」
-然后:   路通 -> 再花 $1-3 编自己的 AOSP 16
-        路不通 -> 编了也没用，转而研究 Android 9（最后一个无 APEX 的版本）
+1. 环境自检（CPU/内存/磁盘，磁盘 < 250 GB 直接退出）
+2. apt 装依赖（openjdk-17、e2fsprogs、erofs-utils、simg2img...）
+3. 装 repo，打印 target 分支的 release config 确认是 cp2a
+4. repo init -b android-17.0.0_r1 + repo sync -j$(nproc)
+5. ccache 50 GB
+6. lunch aosp_arm64-userdebug（失败会打印可用 variants）
+7. make systemimage system_extimage productimage vendorimage odmimage ramdisk
+8. 自动找 out/target/product/<device>/，调 pack_rootfs.py 打成 rootfs.tar.zst
 ```
 
-**先验证第 4 节的绕过方案，再决定要不要花编译时间——这比直接开机算力更省。**
+### 2.3 如果 lunch 失败
 
----
-
-## 5. 复现命令
+17 是 release tag，product 名可能与 main 不同。脚本会自动打印：
 
 ```bash
-# 版本/资源探测（任何 commit 可重跑）
-gh workflow run sixiang-probe.yml
+lunch --print-variants
+```
 
-# rootfs 重打包器自检（含合成镜像，全绿才算链路通）
-gh workflow run sixiang-rootfs.yml
+常见可选项：`aosp_arm64-trunk_staging-userdebug`（main 专用）、`aosp_arm64-userdebug`、`aosp_arm64-user`。
 
-# 查看最近 run
+### 2.4 产物
+
+```
+sixiang/rootfs/sixiang-out/
+  rootfs.tar.zst      ← guest 根文件系统，twoyi 用同一个格式
+  rootfs.version      ← ro.build.fingerprint
+```
+
+---
+
+## 3. pack_rootfs.py 的输入输出
+
+### 输入
+
+`out/target/product/<device>/` 目录，自动识别：
+
+| 文件 | 处理 |
+|---|---|
+| `system.img` | sparse → `simg2img`；ext4 → `debugfs rdump`；erofs → `fsck.erofs --extract` |
+| `system_ext.img` | 同上 → `system_ext/` |
+| `product.img` | 同上 → `product/` |
+| `vendor.img` | 同上 → `vendor/` |
+| `odm.img` | 同上 → `odm/` |
+| `ramdisk.img` | gzip / lz4 / 纯 cpio，支持两层嵌套 → 解到根 |
+
+分区映射：
+
+```
+system.img      -> system/
+system_ext.img  -> system_ext/
+product.img     -> product/
+vendor.img      -> vendor/
+odm.img         -> odm/
+ramdisk.img     -> /（根）
+```
+
+**注意**：`system.img` 的根**就是** `/system` 的根，不要再套一层 `system/`。
+（这个 bug 踩过一次，selftest 里已加断言。）
+
+### 输出
+
+```
+rootfs.tar.zst
+rootfs.version     ← 从 system/build.prop 抽 ro.build.fingerprint
+```
+
+### 自测
+
+```bash
+python3 sixiang/rootfs/pack_rootfs.py --selftest
+```
+
+Actions 里跑过：run `46124876177`，全绿。
+
+---
+
+## 4. 把产物变成 SiXiang 能用的包
+
+产物交给 `sixiang-rootfs.yml`：
+
+```bash
+gh workflow run sixiang-rootfs.yml \
+  -f rootfs_url='https://.../rootfs.tar.zst' \
+  -f version='17.0.0_cp2a'
+```
+
+它会：校验 → 算 sha256 → 发 release → 写 `sixiang/rootfs/rootfs.manifest.json`。
+
+---
+
+## 5. 别指望「编出来就能跑」
+
+Android 10 之后有四项硬阻塞（与版本号无关）：
+
+| 阻塞 | 后果 |
+|---|---|
+| APEX 需 loop-mount + dm-verity | 容器里没有 `/dev/loop-control`，挂不上 |
+| dynamic partitions 运行期重映射 | 需要 device-mapper |
+| first stage init 要求 system/vendor 启动前就位 | init 会 panic |
+| gralloc4 + AIDL radio | twoyi 的 ColorBuffer 补丁和 `AT+TWOYI=` modem 全部作废 |
+
+**所以顺序是：先用 GSI 验证 APEX 能不能绕过，再花钱编译。**
+
+`sixiang/apex/inspect.sh` 就是干这个的，跑在 Actions 上，免费。
+
+---
+
+## 6. 检查清单
+
+```bash
+# 确认 17 存在
+git ls-remote --tags https://android.googlesource.com/platform/manifest | grep android-17
+
+# 确认 release config 是 cp2a
+curl -fsS 'https://android.googlesource.com/platform/build/release/+/android-17.0.0_r1/release_config_map.textproto?format=TEXT' | base64 -d | head
+
+# 确认 GSI 直链可用
+curl -sI 'https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP2A.260605.012-15430684-8e545e1e.zip' | head -3
+
+# 看最近 run
 gh run list --limit 5
 ```
