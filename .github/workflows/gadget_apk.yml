@@ -71,7 +71,7 @@ jobs:
           unxz -f gadget/g.xz
           mv gadget/g gadget/libgadget.so
           file gadget/libgadget.so
-          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"script","path":"/data/data/io.twoyi/files/hook.js","on_change":"reload"}}))'
+          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"script","path":"/data/user/0/io.twoyi/files/hook.js","on_change":"reload"}}))'
           echo "cfg rc=$?"
           cat gadget/libgadget.config.so
 
@@ -97,14 +97,19 @@ jobs:
           echo "== patched region =="
           sed -n '/attachBaseContext/,/gadget injection end/p' dec/smali/io/twoyi/TwoyiApplication.smali | head -40
 
-      - name: Add gadget, config and hook.js to the tree
+      - name: Add gadget, config and hook.js to assets
         run: |
           set +e
           exec 1>>build.log 2>&1
-          mkdir -p dec/lib/arm64-v8a dec/assets
-          cp gadget/libgadget.so gadget/libgadget.config.so dec/lib/arm64-v8a/
+          # extractNativeLibs=false means lib/*.so is never unpacked, and
+          # frida-gadget looks for its config next to its own file, so the app
+          # copies these out of assets and System.load()s the private copy.
+          mkdir -p dec/assets
+          cp gadget/libgadget.so gadget/libgadget.config.so dec/assets/
           cp dyn/hook.js dec/assets/hook.js
-          ls -l dec/lib/arm64-v8a/ dec/assets/hook.js
+          ls -l dec/assets/ | head -8
+          echo "== no gadget in lib/ =="
+          ls dec/lib/arm64-v8a/ 2>/dev/null
 
       - name: Rebuild, align, sign
         run: |
@@ -115,9 +120,18 @@ jobs:
           ls -l out/unsigned.apk
           if [ ! -f out/unsigned.apk ]; then echo "NO APK"; exit 0; fi
           BT=$(ls -d "$ANDROID_HOME"/build-tools/* | tail -1)
-          keytool -genkeypair -keystore out/ks.jks -storepass android -keypass android \
-            -alias k -keyalg RSA -keysize 2048 -validity 10000 \
-            -dname "CN=gadget,O=t,C=cn" 2>&1 | tail -2
+          # Keep one stable signing key in the repo, otherwise every run signs
+          # with a fresh key and each install needs the previous one removed.
+          if [ -f dyn/ks.jks ]; then
+            cp dyn/ks.jks out/ks.jks
+            echo "reusing repo keystore"
+          else
+            keytool -genkeypair -keystore out/ks.jks -storepass android -keypass android \
+              -alias k -keyalg RSA -keysize 2048 -validity 10000 \
+              -dname "CN=gadget,O=t,C=cn" 2>&1 | tail -2
+            cp out/ks.jks dyn/ks.jks
+            echo "generated new keystore"
+          fi
           "$BT/zipalign" -p -f 4 out/unsigned.apk out/aligned.apk
           echo "zipalign rc=$?"
           "$BT/apksigner" sign --ks out/ks.jks --ks-pass pass:android --key-pass pass:android \
@@ -152,4 +166,5 @@ jobs:
           mkdir -p apkout
           cp build.log apkout/build2.log 2>/dev/null
           git add -f apkout
+          git add -f dyn/ks.jks 2>/dev/null
           git diff --cached --quiet || { git commit -m "chore: gadget apk v2 build log"; git pull --rebase -q origin main || true; git push || true; }
