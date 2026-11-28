@@ -149,6 +149,16 @@ def extract_one(apex_path, name, outdir, log):
             except Exception:
                 pass
         if payload and not os.path.exists(payload):
+            # .capex 的布局：zip 里装一个 original_apex（它本身又是完整 .apex）
+            #   <name>.capex = zip { original_apex, apex_manifest.pb, apex_pubkey,... }
+            #   original_apex = zip { apex_payload.img, ... }
+            inner = os.path.join(work, 'original_apex')
+            if unzip_member(apex_path, 'original_apex', inner):
+                if not unzip_member(inner, 'apex_payload.img', payload):
+                    payload = None
+            else:
+                payload = None
+        if payload and not os.path.exists(payload):
             payload = None
 
     elif kind == 'gzip-apex':
