@@ -84,11 +84,20 @@ sudo mount -o loop,ro "$WORK/runtime_payload.img" /mnt/apex || { echo "apex moun
 
 sudo cp -a /mnt/apex/bin/linker64 "$OUT/system/bin/linker64" 2>/dev/null \
     && echo "  got linker64"
-for l in libc.so libm.so libdl.so libstdc++.so libc++.so; do
-    sudo cp -a "/mnt/apex/lib64/bionic/$l" "$OUT/system/lib64/$l" 2>/dev/null \
-        && echo "  got $l"
-done
+
+# Whole bionic directory: libc, libm, libdl, libstdc++ and whatever else the
+# linker decides it needs. Guessing a subset is how the first run failed
+# (toybox wanted libcrypto.so).
+sudo cp -a /mnt/apex/lib64/bionic/. "$OUT/system/lib64/" 2>/dev/null \
+    && echo "  got bionic/*"
+
+# Platform libs live in /system/lib64 in the image (libcrypto, libselinux, ...).
+sudo cp -a /mnt/gsi/system/lib64/*.so "$OUT/system/lib64/" 2>/dev/null \
+    && echo "  got system/lib64/*.so"
+sudo cp -a /mnt/gsi/system/lib64/*.so.* "$OUT/system/lib64/" 2>/dev/null || true
 sudo umount /mnt/apex 2>/dev/null
+
+echo "  libs in bundle: $(find "$OUT/system/lib64" -maxdepth 1 -type f | wc -l)"
 
 echo
 echo "== bundle =="
