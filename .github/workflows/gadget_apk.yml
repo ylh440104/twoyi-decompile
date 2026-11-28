@@ -1,23 +1,23 @@
-name: twoyi + frida-gadget APK
+name: twoyi + frida-gadget APK (v2)
 
 # Builds an installable APK that loads frida-gadget before libtwoyi.so.
 #
-#   gadget  listens on 127.0.0.1:27042, so no USB/adb is needed: anything that
-#           shares the network namespace (Operit's proot shell) can attach
-#   smali   the injection reuses the register of the existing
-#           `const-string vX, "twoyi"`, so the verifier sees nothing new
-#   output  published as a release asset, because it is ~220 MB and a plain
-#           artifact needs a GitHub login to download
-#
-# The bionic experiments are why this is the right move: a stock Linux kernel
-# cannot run bionic user space (even bionic's own toybox dies with SIGSEGV), so
-# APS2 and the constructors can only be observed on a real device.
+#   input   apkinput/part{a,b,c} = the 221,241,766 B twoyi 0.7.5 APK,
+#           sha256 86ed3afa…db14f4e, reassembled and verified here
+#   gadget  frida 17.28.1 android-arm64, 39,425,920 B, loaded from
+#           TwoyiApplication.attachBaseContext so it precedes Renderer.<clinit>
+#   script  assets/hook.js is copied to getFilesDir() by the patch, and gadget
+#           reads it from /data/data/io.twoyi/files/hook.js — the only path the
+#           app can both write and read under targetSdk 36
+#   output  published as a release asset (a 220 MB artifact needs a login)
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'dyn/inject_gadget.py'
+      - 'dyn/patch_app.py'
+      - 'dyn/hook.js'
+      - 'apkinput/parta*'
       - '.github/workflows/gadget_apk.yml'
 
 permissions:
@@ -26,126 +26,97 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Tools
+      - name: Reassemble and verify the input APK
         run: |
           set +e
+          mkdir -p work out
           exec 1>build.log 2>&1
+          ls -l apkinput/
+          cat apkinput/parta* > work/twoyi.apk
+          echo "cat rc=$?"
+          ls -l work/twoyi.apk
+          sha256sum work/twoyi.apk
+          echo "expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e"
+          unzip -l work/twoyi.apk | grep -E 'classes.dex|libtwoyi|libgadget|hook.js'
+          echo "== toolchain =="
           sudo apt-get update -qq
-          sudo apt-get install -y -qq unzip zip python3 curl xz-utils
-          mkdir -p "$HOME/tools"
-          curl -fsSL -o "$HOME/tools/apktool.jar" \
+          curl -fsSL -o "$HOME/apktool.jar" \
             https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar
-          echo "apktool rc=$?"
-          java -jar "$HOME/tools/apktool.jar" --version
-          ls "$ANDROID_HOME/build-tools/" 2>&1
-
-      - name: Install build-tools (apksigner, zipalign)
-        run: |
-          set +e
-          exec 1>>build.log 2>&1
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;34.0.0" 2>&1 | tail -3
+          java -jar "$HOME/apktool.jar" --version
           BT=$(ls -d "$ANDROID_HOME"/build-tools/* | tail -1)
           echo "BT=$BT"
-          "$BT/apksigner" --version
-          "$BT/zipalign" 2>&1 | head -2
 
-      - name: Fetch frida-gadget
+      - name: Fetch gadget and write its config
         run: |
           set +e
           exec 1>>build.log 2>&1
-          TAG=$(curl -fsSL -H 'User-Agent: curl' \
-                https://api.github.com/repos/frida/frida/releases/latest \
-                | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])')
-          echo "frida tag=$TAG"
           mkdir -p gadget
-          for NAME in "frida-gadget-$TAG-android-arm64.so.xz"; do
-            echo "trying $NAME"
-            curl -fsSL -o gadget/g.xz \
-              "https://github.com/frida/frida/releases/download/$TAG/$NAME"
-            echo "curl rc=$?"
-          done
-          ls -l gadget
-          unxz -f gadget/g.xz 2>&1
-          ls -l gadget
-          file gadget/g 2>&1
+          curl -fsSL -o gadget/g.xz \
+            https://github.com/frida/frida/releases/download/17.28.1/frida-gadget-17.28.1-android-arm64.so.xz
+          echo "curl rc=$?"
+          unxz -f gadget/g.xz
           mv gadget/g gadget/libgadget.so
-          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"listen","address":"127.0.0.1","port":27042}}))'
-          echo "config rc=$?"
+          file gadget/libgadget.so
+          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"script","path":"/data/data/io.twoyi/files/hook.js","on_change":"reload"}}))'
+          echo "cfg rc=$?"
           cat gadget/libgadget.config.so
-
-      - name: Fetch twoyi APK
-        run: |
-          set +e
-          exec 1>>build.log 2>&1
-          mkdir -p input
-          for U in \
-            "https://github.com/twoyi/twoyi/releases/download/v0.7.5/twoyi_0.7.5-11131322.apk" \
-            "https://github.com/twoyi/twoyi/releases/download/0.7.5/twoyi_0.7.5-11131322.apk" \
-            "https://github.com/twoyi/twoyi/releases/download/v0.7.5/twoyi.apk" ; do
-            echo "try $U"
-            curl -fsSL --retry 1 -o input/twoyi.apk "$U"
-            RC=$?
-            echo "rc=$RC size=$(stat -c%s input/twoyi.apk 2>/dev/null)"
-            [ "$RC" = "0" ] && break
-          done
-          ls -l input/
-          file input/twoyi.apk 2>&1
-          sha256sum input/twoyi.apk 2>&1
-          echo "== dex list =="
-          unzip -l input/twoyi.apk | grep -E '\.dex|lib/arm64' | head -20
 
       - name: Decode smali only
         run: |
           set +e
           exec 1>>build.log 2>&1
-          java -jar "$HOME/tools/apktool.jar" d -f -r -o dec input/twoyi.apk
+          java -Xmx6g -jar "$HOME/apktool.jar" d -f -r -o dec work/twoyi.apk
           echo "decode rc=$?"
-          du -sh dec 2>&1
+          ls dec/apktool.yml && echo "apktool.yml present"
           find dec -name '*.smali' | wc -l
-          echo "== who calls loadLibrary =="
-          grep -rn 'Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V' dec --include=*.smali | head -10
 
-      - name: Inject gadget
+      - name: Inject gadget load into TwoyiApplication
         run: |
           set +e
           exec 1>>build.log 2>&1
-          python3 dyn/inject_gadget.py dec
-          echo "inject rc=$?"
-          grep -rn -B2 -A2 '"gadget"' dec --include=*.smali | head -20
+          python3 dyn/patch_app.py dec
+          echo "patch rc=$?"
+          echo "== patched region =="
+          sed -n '/attachBaseContext/,/gadget injection end/p' dec/smali/io/twoyi/TwoyiApplication.smali | head -40
+
+      - name: Add gadget, config and hook.js to the tree
+        run: |
+          set +e
+          exec 1>>build.log 2>&1
+          mkdir -p dec/lib/arm64-v8a dec/assets
+          cp gadget/libgadget.so gadget/libgadget.config.so dec/lib/arm64-v8a/
+          cp dyn/hook.js dec/assets/hook.js
+          ls -l dec/lib/arm64-v8a/ dec/assets/hook.js
 
       - name: Rebuild, align, sign
         run: |
           set +e
           exec 1>>build.log 2>&1
-          mkdir -p dec/lib/arm64-v8a
-          cp gadget/libgadget.so gadget/libgadget.config.so dec/lib/arm64-v8a/
-          ls -l dec/lib/arm64-v8a/
-          java -jar "$HOME/tools/apktool.jar" b dec -o unsigned.apk --use-aapt2
+          java -Xmx6g -jar "$HOME/apktool.jar" b dec -o out/unsigned.apk --use-aapt2
           echo "build rc=$?"
-          ls -l unsigned.apk
-          keytool -genkeypair -keystore ks.jks -storepass android -keypass android \
+          ls -l out/unsigned.apk
+          if [ ! -f out/unsigned.apk ]; then echo "NO APK"; exit 0; fi
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | tail -1)
+          keytool -genkeypair -keystore out/ks.jks -storepass android -keypass android \
             -alias k -keyalg RSA -keysize 2048 -validity 10000 \
             -dname "CN=gadget,O=t,C=cn" 2>&1 | tail -2
-          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | tail -1)
-          "$BT/zipalign" -p -f 4 unsigned.apk aligned.apk
+          "$BT/zipalign" -p -f 4 out/unsigned.apk out/aligned.apk
           echo "zipalign rc=$?"
-          "$BT/apksigner" sign --ks ks.jks --ks-pass pass:android --key-pass pass:android \
-            --out twoyi-gadget.apk aligned.apk
+          "$BT/apksigner" sign --ks out/ks.jks --ks-pass pass:android --key-pass pass:android \
+            --out out/twoyi-gadget.apk out/aligned.apk
           echo "sign rc=$?"
-          ls -l twoyi-gadget.apk
-          "$BT/apksigner" verify --print-certs twoyi-gadget.apk | head -5
-          unzip -l twoyi-gadget.apk | grep -E 'libgadget' | head -5
+          ls -l out/twoyi-gadget.apk
+          "$BT/apksigner" verify --print-certs out/twoyi-gadget.apk | head -4
+          unzip -l out/twoyi-gadget.apk | grep -E 'libgadget|hook.js'
 
       - name: Publish
         if: always()
@@ -154,16 +125,14 @@ jobs:
         run: |
           set +e
           exec 1>>build.log 2>&1
-          if [ ! -f twoyi-gadget.apk ]; then echo "no apk, skip"; else
-            TAG=gadget-v1
-            gh release view $TAG >/dev/null 2>&1 || \
-              gh release create $TAG --title "twoyi + frida-gadget" \
-                --notes "Installable twoyi 0.7.5 with frida-gadget preloaded on 127.0.0.1:27042" || true
-            gh release upload $TAG twoyi-gadget.apk --clobber
+          if [ ! -f out/twoyi-gadget.apk ]; then echo "no apk"; else
+            gh release view gadget-v2 >/dev/null 2>&1 || \
+              gh release create gadget-v2 --title "twoyi 0.7.5 + frida-gadget" \
+                --notes "Installs over io.twoyi 0.7.5. Launch it once; the gadget writes /sdcard/Download/twoyi_dump.txt." || true
+            gh release upload gadget-v2 out/twoyi-gadget.apk --clobber
             echo "upload rc=$?"
-            gh release view $TAG --json assets -q '.assets[].name' 2>&1
           fi
-          ls -l twoyi-gadget.apk 2>&1
+          ls -l out/ 2>&1
 
       - name: Commit build log
         if: always()
@@ -172,6 +141,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p apkout
-          cp build.log apkout/build.log 2>/dev/null
+          cp build.log apkout/build2.log 2>/dev/null
           git add -f apkout
-          git diff --cached --quiet || { git commit -m "chore: gadget apk build log"; git pull --rebase -q origin main || true; git push || true; }
+          git diff --cached --quiet || { git commit -m "chore: gadget apk v2 build log"; git pull --rebase -q origin main || true; git push || true; }
