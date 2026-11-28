@@ -1,0 +1,6 @@
+/tmp/cc4osnUP.s: Assembler messages:
+sixiang/loader/mini_loader.c:370: Error: no such instruction: `br %rdx'
+sixiang/loader/mini_loader.c:370: Error: no such instruction: `br %rbp'
+sixiang/loader/out/mini_loader_x86_64: cannot open `sixiang/loader/out/mini_loader_x86_64' (No such file or directory)
+ls: cannot access 'sixiang/loader/out/mini_loader_x86_64': No such file or directory
+/home/runner/work/_temp/0120d342-3242-4b03-af4a-a29bb6dcf3f5.sh: line 12: sixiang/loader/out/mini_loader_x86_64: No such file or directory
