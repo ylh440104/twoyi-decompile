@@ -16,7 +16,7 @@
 | 签名 | `sixiang/keys/sixiang.jks`，alias `sixiang` |
 | 签名 SHA-256 | `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
 | 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`（bionic 静态，892 KB）、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等）、`assets/screen`（guest 画面程序，13 KB） |
-| 体积 / sha256 | 4,100,791 B / `2455360e50f8912d0b943315b879c1e587f188edee73382836df2169433e2f4d` |
+| 体积 / sha256 | 4,113,079 B / `9bd1cdfec41f1b1f988cf8d0be38958462b0383b16da0069987cae730c11d538` |
 
 构建全部在 Actions：`.github/workflows/sixiang-apk.yml`（用 NDK 编 loader，再
 javac/d8/aapt2/zipalign/apksigner），产物与 `build.log`、`inspect.txt` 一起提交回仓库。
@@ -199,6 +199,27 @@ $ toybox ls /system/lib64
 读它，用自己的 3×5 点阵字库渲染（`screen: up ... labels=16`）。这样「桌面」上的每
 一个像素都出自 guest，app 只负责把这块缓冲贴到 View 上。
 
+### 命中判定在 guest，app 不持有任何布局知识
+
+点下去之后 app 只做一件事：把 `x/y/touchSeq` 写进共享头。**哪个图标被点到是 guest
+算的**，它把索引写回头的第 20 字节，app 读出来再启动对应的 applet：
+
+```
+tap (160,238) -> 图标 5：ls /system
+tap (160,139) -> 图标 1：id
+```
+
+这样布局只存在于 `screen.c` 一处。早先 app 里那份重复的几何计算（还因为图标之间的
+间隙漏判过）已经删掉。
+
+### 设置与最近任务
+
+- 「设置」对话框：分辨率（320×568 / 360×640 / 480×854）、帧率（15/20/30）、DPI
+  （80/100/130）。改动落盘到 SharedPreferences，然后 `shutdown()` → 用新的
+  `SIXIANG_W/H/FPS/DPI` 重启 painter、重开缓冲区（`pump: 映射 … (gen N)` 会变）。
+- 「最近」条：记录最近启动过的 6 个 guest 程序，点一下重跑，并把焦点环交给它
+  （通过共享头的 `focus` + `focusSeq` 两个字段传给 guest）。
+
 ## 5. 装到手机上怎么测
 
 ```bash
@@ -227,8 +248,8 @@ adb install -r sixiang/app/dist/SiXiang.apk
 | U4 | 点图标 → 在 guest 里运行该程序，输出进终端 | ✅（模拟器实测 `toybox free` / `ls /system/lib64`） |
 | U5 | 点击在 guest 画面上有反馈（ripple + 高亮） | ✅（`touch=160,243 age=3`） |
 | U6 | 屏幕上有实时状态：帧号与 fps | ✅（`guest 画面 · frame N · fps`） |
-| U7 | 设置项（分辨率/DPI/帧率可调） | ❌ 只有帧率走 env，未做 UI |
-| U8 | 多窗口 / 应用切换 / 最近任务 | ❌ 未做 |
+| U7 | 设置项（分辨率/DPI/帧率可调） | ✅（设置对话框：320×568/360×640/480×854、15/20/30fps、DPI 80/100/130，改完重启容器） |
+| U8 | 多窗口 / 应用切换 / 最近任务 | ✅ 最近任务条（最近 6 个启动过的 guest 程序，点一下重跑并把焦点给它）；真正的多窗口（每个 app 独立 Surface）仍未做 |
 
 **运行时（真正的两仪）**
 
