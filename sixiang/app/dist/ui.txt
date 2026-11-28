@@ -1,0 +1,8 @@
+SiXiang
+SiXiang
+四象 · Android 17 用户态容器 (v0.1)
+SiXiang v0.1&#10;&#10;[1] 运行环境&#10;  device: Google sdk_gphone64_x86_64&#10;  android: 13 (API 33)&#10;  abi: x86_64&#10;  targetSdk: 28&#10;  filesDir: /data/user/0/io.sixiang/files&#10;  nativeLibraryDir: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64&#10;&#10;[2] guest rootfs&#10;  解包 assets/guest.zip&#10;  解包完成 231 ms&#10;  linker64: 1738864 B&#10;  libc.so: 1023864 B&#10;  toybox: 0 B&#10;&#10;[3] loader&#10;  path: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64/libmini_loader.so&#10;  executable: true&#10;  PASS&#10;&#10;[4] 让 guest 自己的 linker64 启动 toybox&#10;$ toybox uname -a&#10;  -&gt; exit=159 (0 lines)&#10;$ toybox id&#10;  -&gt; exit=159 (0 lines)&#10;$ toybox echo SIXIANG_GUEST_OK&#10;  -&gt; exit=159 (0 lines)&#10;&#10;== 有失败项，看上面的错误行 ==&#10;
+uname -a
+运行
+自检 / 重新启动 GUEST
+清屏

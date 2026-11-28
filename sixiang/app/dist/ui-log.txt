@@ -1,0 +1,194 @@
+== device ==
+release : 13
+sdk     : 33
+abi     : x86_64
+kernel  : 5.15.119-android13-8-00034-gd34029c8258b-ab10871489
+
+== pull an x86_64 guest out of this emulator ==
+adb: error: failed to stat remote object '/system/bin/toybox': Permission denied
+!! cannot pull /system/bin/toybox
+/system/bin/linker64: 1 file pulled, 0 skipped. 17.9 MB/s (1738864 bytes in 0.092s)
+/system/lib64/ld-android.so: 1 file pulled, 0 skipped. 0.1 MB/s (3360 bytes in 0.044s)
+/system/lib64/libc.so: 1 file pulled, 0 skipped. 5.7 MB/s (1023864 bytes in 0.170s)
+/system/lib64/libm.so: 1 file pulled, 0 skipped. 3.3 MB/s (324376 bytes in 0.093s)
+/system/lib64/libdl.so: 1 file pulled, 0 skipped. 9.0 MB/s (5536 bytes in 0.001s)
+/system/lib64/liblog.so: 1 file pulled, 0 skipped. 52.4 MB/s (62840 bytes in 0.001s)
+/system/lib64/libz.so: 1 file pulled, 0 skipped. 2.4 MB/s (106160 bytes in 0.042s)
+/system/lib64/libc++.so: 1 file pulled, 0 skipped. 3.4 MB/s (678168 bytes in 0.188s)
+/system/lib64/libcrypto.so: 1 file pulled, 0 skipped. 123.7 MB/s (1611632 bytes in 0.012s)
+/system/lib64/libssl.so: 1 file pulled, 0 skipped. 88.6 MB/s (426040 bytes in 0.005s)
+/system/lib64/libselinux.so: 1 file pulled, 0 skipped. 34.5 MB/s (107432 bytes in 0.003s)
+/system/lib64/libpackagelistparser.so: 1 file pulled, 0 skipped. 0.1 MB/s (6376 bytes in 0.042s)
+/system/lib64/libpcre2.so: 1 file pulled, 0 skipped. 75.1 MB/s (397024 bytes in 0.005s)
+/system/lib64/libbase.so: 1 file pulled, 0 skipped. 102.5 MB/s (263896 bytes in 0.002s)
+/system/lib64/libutils.so: 1 file pulled, 0 skipped. 100.0 MB/s (119024 bytes in 0.001s)
+/system/lib64/libcutils.so: 1 file pulled, 0 skipped. 30.4 MB/s (88928 bytes in 0.003s)
+/system/lib64/libbinder.so: 1 file pulled, 0 skipped. 17.9 MB/s (868768 bytes in 0.046s)
+/system/lib64/libui.so: 1 file pulled, 0 skipped. 7.7 MB/s (366648 bytes in 0.045s)
+/system/lib64/libhardware.so: 1 file pulled, 0 skipped. 0.2 MB/s (7352 bytes in 0.042s)
+/system/lib64/libsync.so: 1 file pulled, 0 skipped. 0.2 MB/s (7240 bytes in 0.042s)
+/system/lib64/libprocessgroup.so: 1 file pulled, 0 skipped. 8.1 MB/s (372568 bytes in 0.044s)
+/system/lib64/libnetd_client.so: 1 file pulled, 0 skipped. 0.7 MB/s (31544 bytes in 0.041s)
+
+guest files:
+/tmp/tmp.KopYEG9Pos/system/bin:
+total 1700
+-rw-r--r-- 1 runner runner 1738864 Nov 28 15:07 linker64
+
+/tmp/tmp.KopYEG9Pos/system/lib64:
+total 6756
+-rw-r--r-- 1 runner runner    3360 Nov 28 15:07 ld-android.so
+-rw-r--r-- 1 runner runner  263896 Nov 28 15:07 libbase.so
+-rw-r--r-- 1 runner runner  868768 Nov 28 15:07 libbinder.so
+-rw-r--r-- 1 runner runner  678168 Nov 28 15:07 libc++.so
+-rw-r--r-- 1 runner runner 1023864 Nov 28 15:07 libc.so
+-rw-r--r-- 1 runner runner 1611632 Nov 28 15:07 libcrypto.so
+-rw-r--r-- 1 runner runner   88928 Nov 28 15:07 libcutils.so
+-rw-r--r-- 1 runner runner    5536 Nov 28 15:07 libdl.so
+-rw-r--r-- 1 runner runner    7352 Nov 28 15:07 libhardware.so
+-rw-r--r-- 1 runner runner   62840 Nov 28 15:07 liblog.so
+-rw-r--r-- 1 runner runner  324376 Nov 28 15:07 libm.so
+-rw-r--r-- 1 runner runner   31544 Nov 28 15:07 libnetd_client.so
+-rw-r--r-- 1 runner runner    6376 Nov 28 15:07 libpackagelistparser.so
+-rw-r--r-- 1 runner runner  397024 Nov 28 15:07 libpcre2.so
+-rw-r--r-- 1 runner runner  372568 Nov 28 15:07 libprocessgroup.so
+-rw-r--r-- 1 runner runner  107432 Nov 28 15:07 libselinux.so
+-rw-r--r-- 1 runner runner  426040 Nov 28 15:07 libssl.so
+-rw-r--r-- 1 runner runner    7240 Nov 28 15:07 libsync.so
+-rw-r--r-- 1 runner runner  366648 Nov 28 15:07 libui.so
+-rw-r--r-- 1 runner runner  119024 Nov 28 15:07 libutils.so
+-rw-r--r-- 1 runner runner  106160 Nov 28 15:07 libz.so
+bundle: 3765828 bytes
+
+== build an APK that can install here (arm64 + x86_64) ==
+build-tools: /home/runner/android-sdk/build-tools/37.0.0
+platform   : /home/runner/android-sdk/platforms/android-33
+javac      : javac 17.0.21.1
+work: /tmp/tmp.dlpb1HFUlC
+
+== javac ==
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$1.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$6.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$5.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$5$1.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$2$1.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$1$1.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$3.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$2.class
+  /tmp/tmp.dlpb1HFUlC/classes/io/sixiang/MainActivity$4.class
+
+== d8 (dex) ==
+-rw-r--r-- 1 runner runner 14008 Nov 28 15:07 /tmp/tmp.dlpb1HFUlC/classes.dex
+
+== aapt2 ==
+values_strings.arsc.flat
+-rw-r--r-- 1 runner runner 1555 Nov 28 15:07 /tmp/tmp.dlpb1HFUlC/base.apk
+
+== stage payload ==
+/tmp/tmp.dlpb1HFUlC/stage/assets:
+total 3680
+-rw-r--r-- 1 runner runner 3765828 Nov 28 15:07 guest.zip
+
+/tmp/tmp.dlpb1HFUlC/stage/lib/arm64-v8a:
+total 660
+-rwxr-xr-x 1 runner runner 706544 Nov 28 15:07 libmini_loader.so
+
+/tmp/tmp.dlpb1HFUlC/stage/lib/x86_64:
+total 780
+-rwxr-xr-x 1 runner runner 794952 Nov 28 15:07 libmini_loader.so
+
+== assemble ==
+     1988  1980-01-01 00:00   AndroidManifest.xml
+      560  1980-01-01 00:00   resources.arsc
+    14008  2026-11-28 15:07   classes.dex
+        0  2026-11-28 15:07   lib/
+        0  2026-11-28 15:07   lib/arm64-v8a/
+   706544  2026-11-28 15:07   lib/arm64-v8a/libmini_loader.so
+        0  2026-11-28 15:07   lib/x86_64/
+   794952  2026-11-28 15:07   lib/x86_64/libmini_loader.so
+        0  2026-11-28 15:07   assets/
+  3765828  2026-11-28 15:07   assets/guest.zip
+---------                     -------
+  5283880                     10 files
+  ok: lib/arm64-v8a/libmini_loader.so
+  ok: assets/guest.zip
+  ok: classes.dex
+
+== align + sign ==
+V3.0 Signer: certificate DN: CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN
+V3.0 Signer: certificate SHA-256 digest: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
+V3.0 Signer: certificate SHA-1 digest: 6d465928339b2db0c2b403794bca95506a721c77
+V3.0 Signer: certificate MD5 digest: ef6fc5e26ec56205a07f38564189ae7a
+signer sha256: certificate SHA-256 digest
+-rw-r--r-- 1 runner runner 4.3M Nov 28 15:07 sixiang/app/dist/SiXiang.apk
+
+sha256: b3efec555b0fe3f0f0e936f500e2fadca60d507142e732dde43b30b7527ed5ff
+DONE
+apk: 4444870 bytes
+
+== install ==
+Performing Streamed Install
+Success
+installed: package:/data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/base.apk
+
+== start the activity (this is the whole point) ==
+Starting: Intent { cmp=io.sixiang/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: io.sixiang/.MainActivity
+TotalTime: 2198
+WaitTime: 2213
+Complete
+
+== screenshot ==
+ui.png: 232870 bytes
+
+== what is actually on screen ==
+/sdcard/ui.xml: 1 file pulled, 0 skipped. 9.5 MB/s (7283 bytes in 0.001s)
+--- ui.txt ---
+SiXiang
+SiXiang
+四象 · Android 17 用户态容器 (v0.1)
+SiXiang v0.1&#10;&#10;[1] 运行环境&#10;  device: Google sdk_gphone64_x86_64&#10;  android: 13 (API 33)&#10;  abi: x86_64&#10;  targetSdk: 28&#10;  filesDir: /data/user/0/io.sixiang/files&#10;  nativeLibraryDir: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64&#10;&#10;[2] guest rootfs&#10;  解包 assets/guest.zip&#10;  解包完成 231 ms&#10;  linker64: 1738864 B&#10;  libc.so: 1023864 B&#10;  toybox: 0 B&#10;&#10;[3] loader&#10;  path: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64/libmini_loader.so&#10;  executable: true&#10;  PASS&#10;&#10;[4] 让 guest 自己的 linker64 启动 toybox&#10;$ toybox uname -a&#10;  -&gt; exit=159 (0 lines)&#10;$ toybox id&#10;  -&gt; exit=159 (0 lines)&#10;$ toybox echo SIXIANG_GUEST_OK&#10;  -&gt; exit=159 (0 lines)&#10;&#10;== 有失败项，看上面的错误行 ==&#10;
+uname -a
+运行
+自检 / 重新启动 GUEST
+清屏
+
+== logcat (SiXiang) ==
+--------- beginning of main
+11-28 15:08:03.449  3568  3619 I SiXiang : SiXiang v0.1
+11-28 15:08:03.449  3568  3619 I SiXiang : 
+11-28 15:08:03.449  3568  3619 I SiXiang : [1] 运行环境
+11-28 15:08:03.449  3568  3619 I SiXiang :   device: Google sdk_gphone64_x86_64
+11-28 15:08:03.449  3568  3619 I SiXiang :   android: 13 (API 33)
+11-28 15:08:03.449  3568  3619 I SiXiang :   abi: x86_64
+11-28 15:08:03.449  3568  3619 I SiXiang :   targetSdk: 28
+11-28 15:08:03.453  3568  3619 I SiXiang :   filesDir: /data/user/0/io.sixiang/files
+11-28 15:08:03.453  3568  3619 I SiXiang :   nativeLibraryDir: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64
+11-28 15:08:03.453  3568  3619 I SiXiang : 
+11-28 15:08:03.453  3568  3619 I SiXiang : [2] guest rootfs
+11-28 15:08:03.453  3568  3619 I SiXiang :   解包 assets/guest.zip
+11-28 15:08:03.684  3568  3619 I SiXiang :   解包完成 231 ms
+11-28 15:08:03.684  3568  3619 I SiXiang :   linker64: 1738864 B
+11-28 15:08:03.684  3568  3619 I SiXiang :   libc.so: 1023864 B
+11-28 15:08:03.685  3568  3619 I SiXiang :   toybox: 0 B
+11-28 15:08:03.685  3568  3619 I SiXiang : 
+11-28 15:08:03.685  3568  3619 I SiXiang : [3] loader
+11-28 15:08:03.685  3568  3619 I SiXiang :   path: /data/app/~~6AprXbPgA_MMRDHf9-nSAQ==/io.sixiang-nxf_l8o7TVEPJyErprYLAQ==/lib/x86_64/libmini_loader.so
+11-28 15:08:03.685  3568  3619 I SiXiang :   executable: true
+11-28 15:08:03.685  3568  3619 I SiXiang :   PASS
+11-28 15:08:03.685  3568  3619 I SiXiang : 
+11-28 15:08:03.685  3568  3619 I SiXiang : [4] 让 guest 自己的 linker64 启动 toybox
+11-28 15:08:03.685  3568  3619 I SiXiang : $ toybox uname -a
+11-28 15:08:03.700  3568  3619 I SiXiang :   -> exit=159 (0 lines)
+11-28 15:08:03.700  3568  3619 I SiXiang : $ toybox id
+11-28 15:08:03.701  3568  3619 I SiXiang :   -> exit=159 (0 lines)
+11-28 15:08:03.701  3568  3619 I SiXiang : $ toybox echo SIXIANG_GUEST_OK
+11-28 15:08:03.702  3568  3619 I SiXiang :   -> exit=159 (0 lines)
+11-28 15:08:03.702  3568  3619 I SiXiang : 
+11-28 15:08:03.702  3568  3619 I SiXiang : == 有失败项，看上面的错误行 ==
+
+== verdict ==
+PASS: the guest ran and its output reached the screen
