@@ -1,0 +1,103 @@
+name: SiXiang APK
+
+# Builds SiXiang.apk with the Android SDK command line tools only: no Gradle,
+# no NDK, no JNI.
+#
+# The trick that removes half the work: the loader is shipped as
+# lib/arm64-v8a/libmini_loader.so. The system unpacks native libraries to
+# /data/app/.../lib/arm64 at install time, and that path is labelled
+# apk_data_file -- which SELinux *does* allow executing. app_data_file is the one
+# that is denied (that is what twoyi's exec-from-fd works around). So the app can
+# simply ProcessBuilder the loader, with the guest rootfs living in filesDir
+# where it is readable but never executed -- mini_loader maps it instead.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sixiang/app/**'
+      - 'sixiang/loader/**'
+      - 'sixiang/guest/dist/**'
+      - '.github/workflows/sixiang-apk.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: JDK 17 (javac + apksigner)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK (command line tools only)
+        run: |
+          set -uo pipefail
+          SDK=$HOME/android-sdk
+          mkdir -p "$SDK/cmdline-tools"
+          if [ ! -d "$SDK/cmdline-tools/latest" ]; then
+            curl -fsSL -o /tmp/clt.zip \
+              https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+            unzip -q /tmp/clt.zip -d "$SDK/cmdline-tools"
+            mv "$SDK/cmdline-tools/cmdline-tools" "$SDK/cmdline-tools/latest"
+          fi
+          yes | "$SDK/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+          "$SDK/cmdline-tools/latest/bin/sdkmanager" --install \
+            "platforms;android-33" "build-tools;33.0.2" >/dev/null
+          ls "$SDK/build-tools" "$SDK/platforms"
+          echo "ANDROID_SDK=$SDK" >> "$GITHUB_ENV"
+
+      - name: Need the loader and the guest bundle
+        run: |
+          set -uo pipefail
+          # Both are produced by the other workflows and committed, so in the
+          # normal case this is a no-op. Fail early with a clear message if not.
+          test -f sixiang/loader/bin/mini_loader || \
+            { echo "::error::mini_loader missing; run the loader workflow first"; exit 1; }
+          test -f sixiang/guest/dist/sixiang-guest.zip || \
+            { echo "::error::guest bundle missing; run the guest workflow first"; exit 1; }
+          ls -l sixiang/loader/bin/mini_loader sixiang/guest/dist/sixiang-guest.zip
+
+      - name: Build APK
+        run: |
+          bash sixiang/app/build.sh "$ANDROID_SDK" \
+            sixiang/keys/sixiang.jks sixiang2026 sixiang
+
+      - name: Report
+        if: always()
+        run: |
+          {
+            echo "# SiXiang.apk"
+            echo
+            echo "commit: $GITHUB_SHA"
+            echo "run:    $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            ls -l sixiang/app/dist 2>/dev/null || true
+            echo
+            sha256sum sixiang/app/dist/SiXiang.apk 2>/dev/null || echo "(no apk)"
+          } > sixiang/app/dist/report.md 2>/dev/null || true
+          cat sixiang/app/dist/report.md 2>/dev/null || true
+
+      - name: Commit APK
+        if: always()
+        run: |
+          git config user.name  "sixiang-ci"
+          git config user.email "ci@sixiang.invalid"
+          git add -f sixiang/app/dist 2>/dev/null || true
+          git commit -q -m "apk: SiXiang ${GITHUB_SHA::7}" || echo "nothing to commit"
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin main && git push && { echo PUSHED; break; }
+            echo "retry $i"; sleep 6
+          done
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SiXiang-apk
+          path: sixiang/app/dist/SiXiang.apk
+          if-no-files-found: warn
