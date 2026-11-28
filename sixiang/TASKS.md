@@ -105,6 +105,27 @@ Segmentation fault (退出路径)
 
 **结论：SiXiang 的启动方式定了——用户态装载，不 exec、不 root、不用命名空间。**
 
+### N2b — 真 guest 二进制跑通 → **✅ 完成（2026-11-28）**
+
+不只是"能装载"，是**Android 17 的 toybox 真的跑起来了**：
+
+```
+$ mini_loader --interp linker64 toybox echo GUEST_TOYBOX_OK
+mini_loader: interp mode
+  program  .../system/bin/toybox
+  linker   .../system/bin/linker64
+GUEST_TOYBOX_OK
+exit=0
+
+$ mini_loader --interp linker64 toybox uname -a
+Linux runnervm3lb7s 7.0.0-1020-azure ... aarch64 Toybox
+exit=0
+```
+
+`DT_NEEDED` 的 8 个库全部由 **guest 的 linker64** 解析，
+TLS 由 **guest 的 libc** 建立，输出来自 **guest 的 toybox**。
+详见 `docs/GUEST-RUNS.md`。
+
 ---
 
 ## 四、真正要写的实现（N3 / N4，月量级）
