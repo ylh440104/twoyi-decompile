@@ -2,9 +2,22 @@
 aarch64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
 
 == mini_loader (required) ==
-sixiang/loader/mini_loader.c: In function ‘main’:
-sixiang/loader/mini_loader.c:399:25: error: implicit declaration of function ‘load’ [-Wimplicit-function-declaration]
-  399 |     struct loaded img = load(path);
-      |                         ^~~~
-sixiang/loader/mini_loader.c:399:25: error: invalid initializer
-BUILD FAILED: mini_loader
+sixiang/loader/out/mini_loader: ELF 64-bit LSB executable, ARM aarch64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=f5fe599746c9ce245850fb97bab8fd1fb44182ef, for GNU/Linux 3.7.0, not stripped
+
+== hello_freestanding (required) ==
+sixiang/loader/out/hello_freestanding: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), static-pie linked, not stripped
+
+== hello_static_pie (optional) ==
+sixiang/loader/out/hello_static_pie: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), static-pie linked, BuildID[sha1]=7c6df4e315b5d1a1cc4efe23ac317b43e21c4c39, for GNU/Linux 3.7.0, not stripped
+
+== sizes ==
+-rwxr-xr-x 1 runner runner  67392 Nov 28 12:39 sixiang/loader/out/hello_freestanding
+-rwxr-xr-x 1 runner runner 706544 Nov 28 12:39 sixiang/loader/out/mini_loader
+-rwxr-xr-x 1 runner runner 771568 Nov 28 12:39 sixiang/loader/out/hello_static_pie
+
+== payload headers (must be DYN / ET_DYN) ==
+hello_freestanding     e_type=DYN(Position-IndependentExecutablefile) relocs: noneawk: cmd. line:2: (FILENAME=- FNR=2) fatal: attempt to use scalar `c' as an array
+hello_static_pie       e_type=DYN(Position-IndependentExecutablefile) relocs: R_AARCH64_IRELATI=5 R_AARCH64_RELATIV=1200 R_AARCH64_NONE=2 
+
+ALL: every artifact built
+DONE
