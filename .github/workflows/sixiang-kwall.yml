@@ -47,12 +47,17 @@ jobs:
       - name: Analyse fallbacks
         run: bash sixiang/kwall/analyse.sh
 
+      - name: DECISIVE - clone3 fallback check on real libc.so
+        continue-on-error: true
+        run: bash sixiang/kwall/fallback.sh gsi 2>&1 | tee fallback.log
+
       - name: Save results
         if: always()
         run: |
           mkdir -p sixiang/kwall/out
           cp -f kwall_report.txt sixiang/kwall/out/ 2>/dev/null || true
           cp -f kwall_analysis.txt sixiang/kwall/out/ 2>/dev/null || true
+          cp -f fallback.log sixiang/kwall/out/ 2>/dev/null || true
           ls -lh sixiang/kwall/out 2>/dev/null
 
       - name: Upload binaries
