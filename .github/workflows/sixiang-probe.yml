@@ -1,0 +1,120 @@
+name: SiXiang probe (version + runner capacity)
+
+# 只读探测，不做任何构建。目标是把三个未知量固定成数字：
+#   1. android-latest-release 实际指向哪个 Android 版本（有没有 16/17）
+#   2. 这个 runner 的 CPU / 内存 / 磁盘到底够不够编 AOSP
+#   3. ci.android.com 的预编译产物是否可达（Actions 全量编译不可行时的替代路）
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/sixiang-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Runner capacity
+        run: |
+          set -x
+          nproc
+          grep -m1 'model name' /proc/cpuinfo || true
+          free -g
+          df -h /
+          df -h /mnt 2>/dev/null || true
+          echo "--- AOSP 估算需求：磁盘 >=250G，4 核约 20-40h ---"
+
+      - name: Android SDK present?
+        run: |
+          set -x
+          echo "ANDROID_HOME=$ANDROID_HOME ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          for d in "$ANDROID_HOME" /usr/local/lib/android/sdk; do
+            [ -d "$d" ] && echo "SDK: $d" && ls "$d"
+          done
+          ls /usr/local/lib/android/sdk/build-tools/ 2>/dev/null || true
+          ls /usr/local/lib/android/sdk/platforms/ 2>/dev/null || true
+          which sdkmanager apksigner zipalign 2>/dev/null || true
+
+      - name: ci.android.com reachable?
+        run: |
+          set -x
+          for u in https://ci.android.com/ \
+                   https://ci.android.com/builds/branches/aosp-main/status \
+                   https://androidbuildinternal.googleapis.com/; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 "$u" || echo ERR)
+            echo "$code  $u"
+          done
+
+      - name: repo init android-latest-release
+        run: |
+          set -x
+          mkdir -p /tmp/aosp && cd /tmp/aosp
+          curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo > /tmp/repo
+          chmod +x /tmp/repo
+          /tmp/repo init -u https://android.googlesource.com/platform/manifest \
+            -b android-latest-release --depth=1 --no-repo-verify 2>&1 | tail -20
+          echo "=== manifests ==="
+          ls -l .repo/manifests/ | head
+          echo "=== superproject / build revision ==="
+          grep -E 'superproject' -A3 .repo/manifests/default.xml | head -10 || true
+          grep -E 'name="platform/build"' .repo/manifests/default.xml | head -3 || true
+
+      - name: Resolve actual Android version
+        run: |
+          set -x
+          cd /tmp/aosp
+          REV=$(python3 - <<'PY'
+import re
+d = open('.repo/manifests/default.xml', encoding='utf-8', errors='replace').read()
+m = re.search(r'<project[^>]*name="platform/build"[^>]*>', d)
+if not m:
+    print('')
+else:
+    tag = m.group(0)
+    r = re.search(r'revision="([^"]+)"', tag)
+    print(r.group(1) if r else '')
+PY
+)
+          echo "build revision = [$REV]"
+          [ -z "$REV" ] && REV=refs/heads/aosp-android-latest-release
+          # clone platform/build at that revision (depth 1)
+          git clone --depth 1 -b "$REV" https://android.googlesource.com/platform/build /tmp/build 2>&1 | tail -5 \
+            || git clone --depth 1 https://android.googlesource.com/platform/build /tmp/build 2>&1 | tail -5
+          cd /tmp/build
+          git log --oneline -1
+          echo "=== version_defaults.mk ==="
+          grep -E 'PLATFORM_VERSION|PLATFORM_SDK_VERSION|PLATFORM_SECURITY_PATCH' \
+            make/core/version_defaults.mk 2>/dev/null | head -12 || echo "(no version_defaults.mk)"
+          echo "=== release config (14+) ==="
+          ls release/ 2>/dev/null | head
+          for f in release/release_config_map.textproto release/build_flags.bzl; do
+            [ -f "$f" ] && echo "--- $f ---" && head -40 "$f"
+          done
+          echo "=== any APEX / 16-17 markers ==="
+          grep -rl 'PLATFORM_SDK_VERSION.*3[5-9]' --include='*.mk' . 2>/dev/null | head -5 || true
+
+      - name: Latest branch heads
+        run: |
+          set -x
+          echo "=== newest android-1x tags on platform/manifest ==="
+          git ls-remote --tags https://android.googlesource.com/platform/manifest \
+            | grep -oE 'android-1[0-9]+\.[0-9]+\.[0-9]+_r[0-9]+' | sort -u -V | tail -15
+          echo "=== aosp-* release branches ==="
+          git ls-remote --heads https://android.googlesource.com/platform/manifest \
+            | grep -oE 'refs/heads/(aosp-)?android-?1[0-9][^ ]*' | sort -u | tail -15
+
+      - name: Summary
+        run: |
+          {
+            echo "### SiXiang probe"
+            echo "- runner: $(nproc) vCPU, $(free -g | awk '/^Mem:/{print $2}') GiB RAM, $(df -h / | awk 'NR==2{print $4}') free on /"
+            echo "- android-latest-release -> build revision resolved above"
+            echo "- see step logs for PLATFORM_VERSION / PLATFORM_SDK_VERSION"
+          } >> "$GITHUB_STEP_SUMMARY"

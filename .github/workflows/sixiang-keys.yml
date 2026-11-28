@@ -1,0 +1,88 @@
+name: SiXiang keys (fixed signing identity)
+
+# 生成 SiXiang 的固定签名，一次落库，之后所有构建复用。
+# 幂等：sixiang/keys/sixiang.jks 已存在则不重新生成，只打印指纹。
+#
+# 密码写死在 workflow 里 —— 这是自用工程，keystore 本身也在仓库中，
+# 单独保密密码没有意义。换机器/换 CI 只要 keystore 不变，签名就不变。
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/sixiang-keys.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  keys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          set -x
+          java -version 2>&1 | head -3
+          which keytool
+          keytool -help 2>&1 | head -2
+
+      - name: Generate or reuse keystore
+        run: |
+          set -x
+          mkdir -p sixiang/keys
+          KS=sixiang/keys/sixiang.jks
+          PASS=sixiang2026
+          if [ -f "$KS" ]; then
+            echo "keystore exists — reusing, not regenerating"
+          else
+            keytool -genkeypair -v \
+              -keystore "$KS" \
+              -alias sixiang \
+              -keyalg RSA -keysize 4096 -validity 36500 \
+              -storepass "$PASS" -keypass "$PASS" \
+              -dname "CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN"
+          fi
+          ls -l "$KS"
+
+      - name: Emit fingerprint
+        run: |
+          set -x
+          KS=sixiang/keys/sixiang.jks
+          PASS=sixiang2026
+          OUT=sixiang/keys/FINGERPRINT.txt
+          {
+            echo "# SiXiang signing identity"
+            echo "# keystore: $KS   alias: sixiang"
+            echo "# storepass / keypass: $PASS"
+            echo "# generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            keytool -list -v -keystore "$KS" -storepass "$PASS" \
+              | grep -E 'Alias name|Creation date|Valid from|Signature algorithm|Subject Public Key Algorithm|SHA1:|SHA256:|Owner:|Issuer:'
+          } > "$OUT"
+          cat "$OUT"
+
+      - name: Commit
+        run: |
+          set -x
+          git config user.name "sixiang-bot"
+          git config user.email "sixiang@users.noreply.github.com"
+          git add -f sixiang/keys/sixiang.jks sixiang/keys/FINGERPRINT.txt
+          if git diff --cached --quiet; then
+            echo "keystore unchanged — nothing to commit"
+          else
+            git commit -m "sixiang: fixed signing identity"
+            git pull --rebase -q origin main || true
+            git push || echo "push failed"
+          fi
+
+      - name: Summary
+        run: |
+          {
+            echo "### SiXiang signing identity"
+            echo '```'
+            cat sixiang/keys/FINGERPRINT.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
