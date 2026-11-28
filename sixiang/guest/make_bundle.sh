@@ -85,19 +85,26 @@ sudo mount -o loop,ro "$WORK/runtime_payload.img" /mnt/apex || { echo "apex moun
 sudo cp -a /mnt/apex/bin/linker64 "$OUT/system/bin/linker64" 2>/dev/null \
     && echo "  got linker64"
 
-# Whole bionic directory: libc, libm, libdl, libstdc++ and whatever else the
-# linker decides it needs. Guessing a subset is how the first run failed
-# (toybox wanted libcrypto.so).
-sudo cp -a /mnt/apex/lib64/bionic/. "$OUT/system/lib64/" 2>/dev/null \
-    && echo "  got bionic/*"
-
-# Platform libs live in /system/lib64 in the image (libcrypto, libselinux, ...).
+# Order matters: /system/lib64/libc.so in the image is a symlink into /apex and
+# is therefore *dangling* here. Copying it last would replace the real libc.so
+# with a broken link (that is exactly what the second run hit). Platform libs
+# first, real bionic files second so they win.
 sudo cp -a /mnt/gsi/system/lib64/*.so "$OUT/system/lib64/" 2>/dev/null \
     && echo "  got system/lib64/*.so"
 sudo cp -a /mnt/gsi/system/lib64/*.so.* "$OUT/system/lib64/" 2>/dev/null || true
+
+# Whole bionic directory: libc, libm, libdl, libstdc++ and whatever else the
+# linker decides it needs (guessing a subset is how libcrypto.so went missing).
+sudo cp -af /mnt/apex/lib64/bionic/. "$OUT/system/lib64/" 2>/dev/null \
+    && echo "  got bionic/*"
+
+# Drop any dangling symlinks the image left behind.
+find "$OUT/system/lib64" -maxdepth 1 -type l ! -exec test -e {} \; -delete 2>/dev/null
+
 sudo umount /mnt/apex 2>/dev/null
 
 echo "  libs in bundle: $(find "$OUT/system/lib64" -maxdepth 1 -type f | wc -l)"
+ls -l "$OUT/system/lib64/libc.so" 2>/dev/null | head -1
 
 echo
 echo "== bundle =="
