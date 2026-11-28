@@ -1,4 +1,4 @@
-== dyndump start Sat Nov 28 06:09:15 UTC 2026 ==
+== dyndump start Sat Nov 28 06:18:15 UTC 2026 ==
 Linux runnervmu7lcj 7.0.0-1020-azure #21~24.04.2-Ubuntu SMP PREEMPT Tue Nov 10 01:19:17 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 aarch64
 Python 3.12.3
@@ -6,10 +6,10 @@ gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
 --- curl
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 9619k  100 9619k    0     0  28.7M      0 --:--:-- --:--:-- --:--:-- 28.7M
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 9619k  100 9619k    0     0  25.4M      0 --:--:-- --:--:-- --:--:-- 25.4M
 curl rc=0
--rw-r--r-- 1 runner runner 9850096 Nov 28 06:09 work/libtwoyi.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 06:18 work/libtwoyi.so
 5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
 --- stubs
 dyn/stubs.c: In function ‘__read_chk’:
@@ -43,12 +43,12 @@ dyn/stubs.c:100:39: warning: implicit declaration of function ‘umask’ [-Wimp
 stub rc=0
 LIBC=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6  LIBM=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 total 36
-lrwxrwxrwx 1 runner runner    18 Nov 28 06:09 libandroid.so -> libbionic_extra.so
--rwxr-xr-x 1 runner runner 73136 Nov 28 06:09 libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 06:09 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    70 Nov 28 06:09 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    18 Nov 28 06:09 liblog.so -> libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 06:09 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 06:18 libandroid.so -> libbionic_extra.so
+-rwxr-xr-x 1 runner runner 73136 Nov 28 06:18 libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 06:18 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    70 Nov 28 06:18 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 06:18 liblog.so -> libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 06:18 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 --- dumper
 dumper rc=0
 dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=21d977b44c90fadcfdf529b8aa0192e7bafb0060, for GNU/Linux 3.7.0, not stripped
@@ -75,19 +75,19 @@ rc=0
 dd72ff2266f4dd1efe880afa4dbfef366ce6c15c3b7d3c8780d22afb2f2d8c64  work/libtwoyi_noinit.so
 --- phase noinit
 [noinit] dlopen ...
-[noinit] base = 0xffcf5e254000
+[noinit] base = 0xff03dde44000
 phase noinit  status: exit 0
 rc=0
 --- phase init
 [init] dlopen ...
 [init] FAULT during dlopen/constructors, dumping anyway
-[init] base = 0xff79517d4000
+[init] base = 0xffa16e854000
 phase init    status: exit 0
 rc=0
 --- phase jni
 [jni] dlopen ...
 [jni] FAULT during dlopen/constructors, dumping anyway
-[jni] base = 0xffc0ec9e4000
+[jni] base = 0xff6398774000
 [jni] JNI_OnLoad not found
 phase jni     status: exit 0
 rc=0
@@ -156,34 +156,34 @@ idx	entry_addr	survived	slot_values	data_changed
   noinit_bss.bin               49128 bytes, 0 non-zero (0.0%)
 rc=0
 --- slots
-load_base=0xffc0ec9e4000
+load_base=0xff6398774000
 PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
 PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
 PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
 PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
 PTR_DAT_00a0e470         va=0x90e470   value=0x0
-PTR_00a10f18             va=0x910f18   value=0xffc0ed53773c
-load_base=0xff79517d4000
+PTR_00a10f18             va=0x910f18   value=0xff63992c173c
+load_base=0xffa16e854000
 PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
 PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
 PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
 PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
 PTR_DAT_00a0e470         va=0x90e470   value=0x0
-PTR_00a10f18             va=0x910f18   value=0xff795232e73c
-load_base=0xffc0ec9e4000
+PTR_00a10f18             va=0x910f18   value=0xffa16f3a673c
+load_base=0xff6398774000
 PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
 PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
 PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
 PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
 PTR_DAT_00a0e470         va=0x90e470   value=0x0
-PTR_00a10f18             va=0x910f18   value=0xffc0ed53773c
-load_base=0xffcf5e254000
+PTR_00a10f18             va=0x910f18   value=0xff63992c173c
+load_base=0xff03dde44000
 PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
 PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
 PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
 PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
 PTR_DAT_00a0e470         va=0x90e470   value=0x0
-PTR_00a10f18             va=0x910f18   value=0xffcf5eda273c
+PTR_00a10f18             va=0x910f18   value=0xff03de99073c
 --- status
 dlopen FAILED: libandroid.so: cannot open shared object file: No such file or directory
 exited 10
@@ -290,9 +290,13 @@ NOTE: fault inside dlopen (constructor), partial state dumped
 exited 0
 NOTE: fault inside dlopen (constructor), partial state dumped
 exited 0
+NOTE: fault inside dlopen (constructor), partial state dumped
+exited 0
 dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
 killed by signal 11 (Segmentation fault)
+NOTE: fault inside dlopen (constructor), partial state dumped
+exited 0
 NOTE: fault inside dlopen (constructor), partial state dumped
 exited 0
 NOTE: fault inside dlopen (constructor), partial state dumped
@@ -335,63 +339,64 @@ exited 0
 exited 0
 exited 0
 exited 0
+exited 0
 --- files
-total 1800
-drwxr-xr-x  2 runner runner   4096 Nov 28 06:09 .
-drwxr-xr-x 20 runner runner  12288 Nov 28 06:09 ..
--rw-r--r--  1 runner runner  49128 Nov 28 06:09 after_jni_bss.bin
--rw-r--r--  1 runner runner 355160 Nov 28 06:09 after_jni_data.bin
--rw-r--r--  1 runner runner    330 Nov 28 06:09 after_jni_slots.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c00_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c01_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c02_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c03_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c04_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c05_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c06_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c07_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c08_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c09_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c10_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c11_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c12_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c13_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c14_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c15_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c16_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c17_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c18_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c19_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c20_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c21_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c22_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c23_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c24_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c25_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c26_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c27_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c28_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c29_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c30_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c31_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c32_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c33_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c34_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c35_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c36_status.txt
--rw-r--r--  1 runner runner     98 Nov 28 06:09 c37_status.txt
--rw-r--r--  1 runner runner   2205 Nov 28 06:09 ctors.tsv
--rw-r--r--  1 runner runner  49128 Nov 28 06:09 init_bss.bin
--rw-r--r--  1 runner runner 355160 Nov 28 06:09 init_data.bin
--rw-r--r--  1 runner runner    330 Nov 28 06:09 init_slots.txt
--rw-r--r--  1 runner runner   1106 Nov 28 06:09 init_status.txt
--rw-r--r--  1 runner runner  49128 Nov 28 06:09 jni_bss.bin
--rw-r--r--  1 runner runner 355160 Nov 28 06:09 jni_data.bin
--rw-r--r--  1 runner runner    330 Nov 28 06:09 jni_slots.txt
--rw-r--r--  1 runner runner   1106 Nov 28 06:09 jni_status.txt
--rw-r--r--  1 runner runner  49128 Nov 28 06:09 noinit_bss.bin
--rw-r--r--  1 runner runner 355160 Nov 28 06:09 noinit_data.bin
--rw-r--r--  1 runner runner    330 Nov 28 06:09 noinit_slots.txt
--rw-r--r--  1 runner runner    270 Nov 28 06:09 noinit_status.txt
--rw-r--r--  1 runner runner  16206 Nov 28 06:09 run.log
-== dyndump end Sat Nov 28 06:09:17 UTC 2026 ==
+total 1804
+drwxr-xr-x  2 runner runner   4096 Nov 28 06:18 .
+drwxr-xr-x 20 runner runner  12288 Nov 28 06:18 ..
+-rw-r--r--  1 runner runner  49128 Nov 28 06:18 after_jni_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 06:18 after_jni_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 06:18 after_jni_slots.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c00_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c01_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c02_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c03_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c04_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c05_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c06_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c07_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c08_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c09_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c10_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c11_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c12_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c13_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c14_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c15_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c16_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c17_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c18_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c19_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c20_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c21_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c22_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c23_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c24_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c25_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c26_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c27_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c28_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c29_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c30_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c31_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c32_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c33_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c34_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c35_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c36_status.txt
+-rw-r--r--  1 runner runner     98 Nov 28 06:18 c37_status.txt
+-rw-r--r--  1 runner runner   2205 Nov 28 06:18 ctors.tsv
+-rw-r--r--  1 runner runner  49128 Nov 28 06:18 init_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 06:18 init_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 06:18 init_slots.txt
+-rw-r--r--  1 runner runner   1177 Nov 28 06:18 init_status.txt
+-rw-r--r--  1 runner runner  49128 Nov 28 06:18 jni_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 06:18 jni_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 06:18 jni_slots.txt
+-rw-r--r--  1 runner runner   1177 Nov 28 06:18 jni_status.txt
+-rw-r--r--  1 runner runner  49128 Nov 28 06:18 noinit_bss.bin
+-rw-r--r--  1 runner runner 355160 Nov 28 06:18 noinit_data.bin
+-rw-r--r--  1 runner runner    330 Nov 28 06:18 noinit_slots.txt
+-rw-r--r--  1 runner runner    279 Nov 28 06:18 noinit_status.txt
+-rw-r--r--  1 runner runner  16436 Nov 28 06:18 run.log
+== dyndump end Sat Nov 28 06:18:16 UTC 2026 ==
