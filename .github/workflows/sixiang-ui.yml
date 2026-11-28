@@ -16,8 +16,13 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'sixiang/app/**'
-      - 'sixiang/loader/**'
+      - 'sixiang/app/src/**'
+      - 'sixiang/app/res/**'
+      - 'sixiang/app/AndroidManifest.xml'
+      - 'sixiang/app/build.sh'
+      - 'sixiang/app/ui-smoke.sh'
+      - 'sixiang/loader/mini_loader.c'
+      - 'sixiang/loader/bin/**'
       - '.github/workflows/sixiang-ui.yml'
 
 permissions:
