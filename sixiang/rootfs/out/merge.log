@@ -12,7 +12,7 @@ running unpack.py ...
   展开成功: 38 / 38
   展开后总字节: 508957093 (485.4 MiB)
   report: out/.work/apex-stage/unpack-report.txt
-moved apex stager -> out/apex (38 entries)
+moved apex stager -> out/system/apex (38 dirs)
 placed apex-info-list.xml
 
 === 验收 ===
@@ -21,7 +21,13 @@ placed apex-info-list.xml
   [OK] com.android.art 存在
   [OK] system/apex 下的原件已清空
 
-system         1911.3 MiB
-apex            485.4 MiB
+system         2396.7 MiB
 TOTAL          7809.0 MiB
+
+=== 造 ramdisk 层 ===
+  WARN: out/system/bin/init 不存在
+  first_stage_ramdisk/fstab.sixiang (empty fstab)
+  first_stage_ramdisk/fstab.android (empty fstab)
+  first_stage_ramdisk/fstab.qemu (empty fstab)
+  不建 system/system（根同时扮演 ramdisk 与 system）
 report: out/merge-report.txt

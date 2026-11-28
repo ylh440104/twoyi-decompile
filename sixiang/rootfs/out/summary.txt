@@ -1,15 +1,17 @@
 === out 顶层 ===
-apex
+first_stage_ramdisk
 merge-report.txt
 odm
 product
+qemu-aarch64-static
 system
 system_ext
 vendor
 
 === 各部件大小 ===
-1.8G	out/system
-482M	out/apex
+2.3G	out/system
+10M	out/qemu-aarch64-static
+16K	out/first_stage_ramdisk
 8.0K	out/vendor
 8.0K	out/odm
 4.0K	out/system_ext
@@ -17,33 +19,21 @@ vendor
 4.0K	out/merge-report.txt
 
 === apex 目录数 ===
-39
+0
 
 === apex 前 10 ===
-apex-info-list.xml
-com.android.adbd
-com.android.adservices
-com.android.apex.cts.shim
-com.android.appsearch
-com.android.art
-com.android.bt
-com.android.cellbroadcast
-com.android.configinfrastructure
-com.android.conscrypt
 
 === system/apex 残留原件数 ===
 0
 
 === runtime/bin 内容 ===
-total 5.5M
--rwxr-xr-x 1 runner runner 383K Jan  1  1970 crash_dump32
--rwxr-xr-x 1 runner runner 539K Jan  1  1970 crash_dump64
--rwxr-xr-x 1 runner runner 1.8M Jan  1  1970 linker
--rwxr-xr-x 1 runner runner 2.4M Jan  1  1970 linker64
-lrwxrwxrwx 1 runner runner    6 Nov 28 10:28 linker_asan -> linker
-lrwxrwxrwx 1 runner runner    8 Nov 28 10:28 linker_asan64 -> linker64
-lrwxrwxrwx 1 runner runner    8 Nov 28 10:28 linker_hwasan64 -> linker64
--rwxr-xr-x 1 runner runner 485K Jan  1  1970 linkerconfig
 
 === tar.zst ===
--rw-r--r-- 1 runner runner 911M Nov 28 10:35 rootfs.tar.zst
+(未生成)
+
+=== init 产物 ===
+out/first_stage_ramdisk/:
+total 12
+-rw-r--r-- 1 runner runner 67 Nov 28 10:56 fstab.android
+-rw-r--r-- 1 runner runner 67 Nov 28 10:56 fstab.qemu
+-rw-r--r-- 1 runner runner 67 Nov 28 10:56 fstab.sixiang
