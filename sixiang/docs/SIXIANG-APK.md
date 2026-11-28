@@ -16,7 +16,7 @@
 | 签名 | `sixiang/keys/sixiang.jks`，alias `sixiang` |
 | 签名 SHA-256 | `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
 | 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`（bionic 静态，892 KB）、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等）、`assets/screen`（guest 画面程序，13 KB） |
-| 体积 / sha256 | 4,100,791 B / `fe5c2c3309f22489f315336ab4ef368fee87bc57eda6a80bad9777a87cf939bb` |
+| 体积 / sha256 | 4,100,791 B / `1af3897bae6d281969536effab4bc3c50b78724ca116fa3d2ff0bd5e0310f68f` |
 
 构建全部在 Actions：`.github/workflows/sixiang-apk.yml`（用 NDK 编 loader，再
 javac/d8/aapt2/zipalign/apksigner），产物与 `build.log`、`inspect.txt` 一起提交回仓库。
@@ -167,6 +167,33 @@ PASS: the guest ran inside the app
 
 截图 `sixiang/app/dist/ui.png`（183 KB，存在 `ui-evidence` 分支）就是上面那个界面，
 中间是 guest 画的内容。
+
+### 输入通道（同一个共享头的反方向）
+
+头里还有 `x / y / touchSeq` 三个字。手指点在画面视图上时：
+
+1. app 把视图坐标按 aspect-fit 的逆变换成 guest 像素坐标，写进头，`touchSeq++`；
+2. guest 每帧读它，画出扩散的方框（ripple），并把触到的那个图标高亮；
+3. app 同时判断落在哪个图标上（跨过图标间隙时吸附到最近的一个），**在 guest 里**
+   用 `mini_loader --interp linker64 toybox <子命令>` 跑对应程序，输出进终端。
+
+模拟器上的实测（`adb shell input tap` 两次）：
+
+```
+tap (160,243) -> 图标 10：toybox free
+$ toybox free
+      total        used        free      shared     buffers
+  Mem:       2061672448  1919741952   141930496     6893568     8761344
+  -> exit=0 (9 lines)
+
+tap (160,142) -> 图标 6：toybox ls /system/lib64
+$ toybox ls /system/lib64
+  libEGL.so  libGLESv2.so  libSurfaceFlingerProp.so  libbinder.so …
+  -> exit=0
+```
+
+也就是说：**点 app 里的图标 → guest 收到坐标 → guest 自己画出反馈 → guest 把那个
+程序跑起来**。界面、出画面、输入三条链路都在同一条通道上闭环了。
 
 ## 5. 装到手机上怎么测
 
