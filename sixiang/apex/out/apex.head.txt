@@ -1,0 +1,199 @@
+
+[1m=== 1. GSI 内容 ===[0m
+total 1.8G
+-rw-r----- 1 runner runner 5.6K Jul  6 22:23 build.prop
+-rw-rw-r-- 1 runner runner 1.8G May 15  2026 system.img
+-rw-r----- 1 runner runner 4.0K Jul  6 22:23 vbmeta.img
+
+1904779264  ./system.img
+      5650  ./build.prop
+      4096  ./vbmeta.img
+
+system.img = ./system.img
+
+[1m=== 2. 转 raw（若是 sparse） ===[0m
+./system.img: Linux rev 1.0 ext2 filesystem data, UUID=1ba300ec-42ef-5526-9835-43556d702d48 (extents) (large files) (huge files)
+copied as-is
+-rw-r--r-- 1 runner runner 1.8G Nov 28 08:26 /tmp/system.raw
+
+[1m=== 3. /system/apex 清单 ===[0m
+     53   40755 (2)      0      0    4096  1-Jan-2009 00:00 .
+     52   40755 (2)      0      0    4096  1-Jan-2009 00:00 ..
+     54  100644 (1)      0      0   5738496  1-Jan-2009 00:00 com.android.adbd.capex
+     55  100644 (1)      0      0   8753152  1-Jan-2009 00:00 com.android.adservices.capex
+     56  100644 (1)      0      0   360448  1-Jan-2009 00:00 com.android.apex.cts.shim.apex
+     57  100644 (1)      0      0   2052096  1-Jan-2009 00:00 com.android.appsearch.capex
+     58  100644 (1)      0      0   21422080  1-Jan-2009 00:00 com.android.art.capex
+     59  100644 (1)      0      0   10981376  1-Jan-2009 00:00 com.android.bt.capex
+     60  100644 (1)      0      0   5902336  1-Jan-2009 00:00 com.android.cellbroadcast.capex
+     61  100644 (1)      0      0   2658304  1-Jan-2009 00:00 com.android.configinfrastructure.capex
+     62  100644 (1)      0      0   3837952  1-Jan-2009 00:00 com.android.conscrypt.capex
+     63  100644 (1)      0      0   258048  1-Jan-2009 00:00 com.android.crashrecovery.capex
+     64  100644 (1)      0      0   6164480  1-Jan-2009 00:00 com.android.devicelock.apex
+     65  100644 (1)      0      0   10043392  1-Jan-2009 00:00 com.android.extservices.capex
+     66  100644 (1)      0      0   17190912  1-Jan-2009 00:00 com.android.healthfitness.apex
+     67  100644 (1)      0      0   42889216  1-Jan-2009 00:00 com.android.i18n.apex
+     68  100644 (1)      0      0   466944  1-Jan-2009 00:00 com.android.ipsec.capex
+     69  100644 (1)      0      0   3420160  1-Jan-2009 00:00 com.android.media.capex
+     70  100644 (1)      0      0   18571264  1-Jan-2009 00:00 com.android.media.swcodec.capex
+     71  100644 (1)      0      0   15781888  1-Jan-2009 00:00 com.android.mediaprovider.capex
+     72  100644 (1)      0      0   4087808  1-Jan-2009 00:00 com.android.neuralnetworks.capex
+     73  100644 (1)      0      0   4182016  1-Jan-2009 00:00 com.android.nfcservices.capex
+     74  100644 (1)      0      0   4296704  1-Jan-2009 00:00 com.android.npumanager.capex
+     75  100644 (1)      0      0   6623232  1-Jan-2009 00:00 com.android.ondevicepersonalization.capex
+     76  100644 (1)      0      0   3772416  1-Jan-2009 00:00 com.android.os.statsd.apex
+     77  100644 (1)      0      0   9113600  1-Jan-2009 00:00 com.android.permission.capex
+     78  100644 (1)      0      0   1077248  1-Jan-2009 00:00 com.android.profiling.capex
+     79  100644 (1)      0      0   122880  1-Jan-2009 00:00 com.android.resolv.capex
+     80  100644 (1)      0      0   1572864  1-Jan-2009 00:00 com.android.rkpd.apex
+     81  100644 (1)      0      0   12779520  1-Jan-2009 00:00 com.android.runtime.apex
+     82  100644 (1)      0      0   180224  1-Jan-2009 00:00 com.android.scheduling.capex
+     83  100644 (1)      0      0   1380352  1-Jan-2009 00:00 com.android.sdkext.apex
+     84  100644 (1)      0      0   2035712  1-Jan-2009 00:00 com.android.telephonycore.capex
+     85  100644 (1)      0      0   17256448  1-Jan-2009 00:00 com.android.tethering.capex
+     86  100644 (1)      0      0   978944  1-Jan-2009 00:00 com.android.tzdata.apex
+     87  100644 (1)      0      0   1839104  1-Jan-2009 00:00 com.android.uprobestats.capex
+     88  100644 (1)      0      0   2916352  1-Jan-2009 00:00 com.android.uwb.capex
+     89  100644 (1)      0      0   64884736  1-Jan-2009 00:00 com.android.virt.apex
+     90  100644 (1)      0      0   3035136  1-Jan-2009 00:00 com.android.webapp.capex
+     91  100644 (1)      0      0   7421952  1-Jan-2009 00:00 com.android.wifi.capex
+
+
+[1m=== 4. 逐个 apex 的内部结构 ===[0m
+com.android.apex.cts.shim.apex               360448  Java archive data (JAR)                payload=274432  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.devicelock.apex                 6164480  Java archive data (JAR)                payload=6004736  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.healthfitness.apex             17190912  Java archive data (JAR)                payload=17031168  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.i18n.apex                      42889216  Java archive data (JAR)                payload=42741760  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.os.statsd.apex                  3772416  Java archive data (JAR)                payload=3571712  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.rkpd.apex                       1572864  Java archive data (JAR)                payload=1409024  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.runtime.apex                   12779520  Java archive data (JAR)                payload=12640256  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.sdkext.apex                     1380352  Java archive data (JAR)                payload=1212416  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.tzdata.apex                      978944  Java archive data (JAR)                payload=872448  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.virt.apex                      64884736  Java archive data (JAR)                payload=64622592  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+
+apex 个数 = 10
+apex 总字节 = 151973888  (144 MiB)
+
+[1m=== 5. 挑一个 runtime apex 展开，验证 payload 结构 ===[0m
+total 13M
+-rw-r--r-- 1 runner runner 1.1K Jan  1  2009 AndroidManifest.xml
+-rw-r--r-- 1 runner runner 2.2K Jan  1  2009 apex_build_info.pb
+-rw-r--r-- 1 runner runner  143 Jan  1  2009 apex_manifest.pb
+-rw-r--r-- 1 runner runner  13M Jan  1  2009 apex_payload.img
+-rw-r--r-- 1 runner runner 1.1K Jan  1  2009 apex_pubkey
+drwxr-xr-x 2 runner runner 4.0K Nov 28 08:26 assets
+-rw-r--r-- 1 runner runner   40 Jan  1  2009 resources.arsc
+/tmp/rt/apex_payload.img: Linux rev 1.0 ext2 filesystem data, UUID=7d1522e1-9dfa-5edb-a43e-98e3a4d20250 (extents) (large files) (huge files)
+--- payload 根目录 ---
+      2   40755 (2)   1000   1000    4096  1-Jan-1970 00:00 .
+      2   40755 (2)   1000   1000    4096  1-Jan-1970 00:00 ..
+     11   40700 (2)      0      0   16384  1-Jan-1970 00:00 lost+found
+     12   40755 (2)      0   2000    4096  1-Jan-1970 00:00 bin
+     21   40755 (2)      0   2000    4096  1-Jan-1970 00:00 etc
+     23   40755 (2)      0   2000    4096  1-Jan-1970 00:00 lib
+     37   40755 (2)      0   2000    4096  1-Jan-1970 00:00 lib64
+     54  100644 (1)   1000   1000     143  1-Jan-1970 00:00 apex_manifest.pb
+
+--- payload /lib64 前 15 项 ---
+
+37
+(12)
+.
+2
+(12)
+..
+38
+(16)
+bionic
+46
+(24)
+ld-android.so
+47
+(20)
+--- payload 里.so 总数 ---
+8
+--- apex_manifest.pb 里的包名/版本（strings） ---
+com.android.runtime
+libc.soB%libclang_rt.hwasan-aarch64-android.soB
+libdexfile.soB
+libdl.soB
+libdl_android.soB	liblog.soB
+libm.soB
+libz.so
+
+[1m=== 6. init 二进制里与 APEX / loop / dm-verity 相关的字符串 ===[0m
+-rw-r--r-- 1 runner runner 2.5M Nov 28 08:26 /tmp/init
+/tmp/init: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/bootstrap/linker64, for Android 37, BuildID[md5/uuid]=37ed4b3521c306e4b312de5fd2058918, stripped
+--- 命中行 ---
+ with mounted APEX modules info
+' before configs from APEXes are all loaded
+' before configs from APEXes are all loaded. 
+' with a config in APEX
+'/system/bin/apexd --unmount-all' failed : 
+--apex
+/apex
+/apex/
+/apex/*/etc/*rc
+/apex/*/etc/firmware/
+/apex/apex-info-list.xml
+/apex/com.android.runtime/bin/linkerconfig
+/bootstrap-apex
+/bootstrap-apex/*/etc/firmware/
+/data/misc/apexdata
+/data/misc/apexdata/
+/dev/loop-control
+/first_stage_ramdisk/fstab.
+/first_stage_ramdisk/system/etc/fstab.
+/metadata/apex
+/metadata/apex/config/mount_before_data
+/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/apex/com.android.virt/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+/system/bin/apexd
+APEX name cannot be empty
+Apexd activation wait timeout
+Check failed: !apex_name.empty()
+FIRST_STAGE_SNAPUSERD_FD
+FIRST_STAGE_SNAPUSERD_PID
+FIRST_STAGE_STARTED_AT
+Failed to call '/system/bin/apexd --unmount-all'
+No service found for APEX: 
+ParseSection() failed: 'on' is supported for only Vendor APEXes.
+Ready to unmount apexes. So far shutdown sequence took 
+Unable to parse apex configs: 
+apex-info
+apex-info-list
+apex_
+apexd.config.compressed_apex
+apexd.config.use_fiemap
+apexd.status
+
+--- 关键计数 ---
+apex           39
+dm-verity      0
+loop-control   1
+first_stage    7
+mount          102
+
+[1m=== 7. /system/etc/init 里提到 /apex 的 rc ===[0m
+30
+检查了前 12 个 rc，提到 /apex 的有 0 个
+
+[1m=== 汇总 ===[0m
+# APEX 取证（Android 17 GSI CP2A）
+
+- apex 个数：10
+- apex 总字节：151973888（144 MiB）
+
+```
+com.android.apex.cts.shim.apex               360448  Java archive data (JAR)                payload=274432  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.devicelock.apex                 6164480  Java archive data (JAR)                payload=6004736  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.healthfitness.apex             17190912  Java archive data (JAR)                payload=17031168  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.i18n.apex                      42889216  Java archive data (JAR)                payload=42741760  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.os.statsd.apex                  3772416  Java archive data (JAR)                payload=3571712  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.rkpd.apex                       1572864  Java archive data (JAR)                payload=1409024  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.runtime.apex                   12779520  Java archive data (JAR)                payload=12640256  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.sdkext.apex                     1380352  Java archive data (JAR)                payload=1212416  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.tzdata.apex                      978944  Java archive data (JAR)                payload=872448  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.virt.apex                      64884736  Java archive data (JAR)                payload=64622592  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+```
+
+DONE

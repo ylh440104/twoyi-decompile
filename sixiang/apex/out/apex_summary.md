@@ -1,0 +1,17 @@
+# APEX 取证（Android 17 GSI CP2A）
+
+- apex 个数：10
+- apex 总字节：151973888（144 MiB）
+
+```
+com.android.apex.cts.shim.apex               360448  Java archive data (JAR)                payload=274432  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.devicelock.apex                 6164480  Java archive data (JAR)                payload=6004736  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.healthfitness.apex             17190912  Java archive data (JAR)                payload=17031168  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.i18n.apex                      42889216  Java archive data (JAR)                payload=42741760  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.os.statsd.apex                  3772416  Java archive data (JAR)                payload=3571712  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.rkpd.apex                       1572864  Java archive data (JAR)                payload=1409024  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.runtime.apex                   12779520  Java archive data (JAR)                payload=12640256  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.sdkext.apex                     1380352  Java archive data (JAR)                payload=1212416  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.tzdata.apex                      978944  Java archive data (JAR)                payload=872448  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+com.android.virt.apex                      64884736  Java archive data (JAR)                payload=64622592  apex_payload.img,assets/NOTICE.html.gz,resources.arsc,AndroidManifest.xml,apex_build_info.pb,apex_manifest.pb,
+```
