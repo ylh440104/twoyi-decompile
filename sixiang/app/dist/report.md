@@ -1,70 +1,70 @@
 # SiXiang.apk
 
-commit: `a277d210b4e5cf8c9abefc4ce6bea40612608fbf`
+commit: `0720c6f17efef3fd5c9f14d4f37cb952bf31420d`
 
-run: https://github.com/ylh440104/twoyi-decompile/actions/runs/46158723220
+run: https://github.com/ylh440104/twoyi-decompile/actions/runs/46159433352
 
 ## dist
 ```
 total 4156
--rw-r--r-- 1 runner runner 3990116 Nov 28 15:13 SiXiang.apk
--rw-r--r-- 1 runner runner    2439 Nov 28 15:13 build.log
--rw-r--r-- 1 runner runner    1542 Nov 28 15:13 inspect.txt
--rw-r--r-- 1 runner runner     155 Nov 28 15:13 report.md
--rw-r--r-- 1 runner runner   10036 Nov 28 15:13 ui-log.txt
--rw-r--r-- 1 runner runner  232870 Nov 28 15:13 ui.png
--rw-r--r-- 1 runner runner    1008 Nov 28 15:13 ui.txt
+-rw-r--r-- 1 runner runner 3990116 Nov 28 15:21 SiXiang.apk
+-rw-r--r-- 1 runner runner    2439 Nov 28 15:21 build.log
+-rw-r--r-- 1 runner runner    1542 Nov 28 15:21 inspect.txt
+-rw-r--r-- 1 runner runner     155 Nov 28 15:21 report.md
+-rw-r--r-- 1 runner runner   10036 Nov 28 15:21 ui-log.txt
+-rw-r--r-- 1 runner runner  232870 Nov 28 15:21 ui.png
+-rw-r--r-- 1 runner runner    1008 Nov 28 15:21 ui.txt
 ```
 ## sha256
 ```
-b609b668dd0942f0da9c9fb561f3519f32acc270f48d0ec3bb72e18eed4c5f2e  sixiang/app/dist/SiXiang.apk
+200c8f91fc4737749f05fdf45bde3a064c43036868c28296ca5391eb416cb699  sixiang/app/dist/SiXiang.apk
 ```
 ## build.log tail
 ```
 build-tools: /home/runner/android-sdk/build-tools/33.0.2
 platform   : /home/runner/android-sdk/platforms/android-33
 javac      : javac 17.0.21.1
-work: /tmp/tmp.jq4yCCaduA
+work: /tmp/tmp.T1VrCQ4rV6
 
 == javac ==
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$6.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$5.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$2$1.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$2.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$1.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$3.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$1$1.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$5$1.class
-  /tmp/tmp.jq4yCCaduA/classes/io/sixiang/MainActivity$4.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$6.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$5.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$2$1.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$2.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$1.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$3.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$1$1.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$5$1.class
+  /tmp/tmp.T1VrCQ4rV6/classes/io/sixiang/MainActivity$4.class
 
 == d8 (dex) ==
--rw-r--r-- 1 runner runner 13944 Nov 28 15:13 /tmp/tmp.jq4yCCaduA/classes.dex
+-rw-r--r-- 1 runner runner 13944 Nov 28 15:21 /tmp/tmp.T1VrCQ4rV6/classes.dex
 
 == aapt2 ==
 values_strings.arsc.flat
--rw-r--r-- 1 runner runner 1555 Nov 28 15:13 /tmp/tmp.jq4yCCaduA/base.apk
+-rw-r--r-- 1 runner runner 1555 Nov 28 15:21 /tmp/tmp.T1VrCQ4rV6/base.apk
 
 == stage payload ==
-/tmp/tmp.jq4yCCaduA/stage/assets:
+/tmp/tmp.T1VrCQ4rV6/stage/assets:
 total 3588
--rw-r--r-- 1 runner runner 3671032 Nov 28 15:13 guest.zip
+-rw-r--r-- 1 runner runner 3671032 Nov 28 15:21 guest.zip
 
-/tmp/tmp.jq4yCCaduA/stage/lib/arm64-v8a:
+/tmp/tmp.T1VrCQ4rV6/stage/lib/arm64-v8a:
 total 660
--rwxr-xr-x 1 runner runner 706544 Nov 28 15:13 libmini_loader.so
+-rwxr-xr-x 1 runner runner 706544 Nov 28 15:21 libmini_loader.so
 
 == assemble ==
   Length      Date    Time    Name
 ---------  ---------- -----   ----
      1988  1980-01-01 00:00   AndroidManifest.xml
       560  1980-01-01 00:00   resources.arsc
-    13944  2026-11-28 15:13   classes.dex
-        0  2026-11-28 15:13   lib/
-        0  2026-11-28 15:13   lib/arm64-v8a/
-   706544  2026-11-28 15:13   lib/arm64-v8a/libmini_loader.so
-        0  2026-11-28 15:13   assets/
-  3671032  2026-11-28 15:13   assets/guest.zip
+    13944  2026-11-28 15:21   classes.dex
+        0  2026-11-28 15:21   lib/
+        0  2026-11-28 15:21   lib/arm64-v8a/
+   706544  2026-11-28 15:21   lib/arm64-v8a/libmini_loader.so
+        0  2026-11-28 15:21   assets/
+  3671032  2026-11-28 15:21   assets/guest.zip
 ---------                     -------
   4394068                     8 files
   ok: lib/arm64-v8a/libmini_loader.so
@@ -77,8 +77,8 @@ Signer #1 certificate SHA-256 digest: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff
 Signer #1 certificate SHA-1 digest: 6d465928339b2db0c2b403794bca95506a721c77
 Signer #1 certificate MD5 digest: ef6fc5e26ec56205a07f38564189ae7a
 signer sha256: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
--rw-r--r-- 1 runner runner 3.9M Nov 28 15:13 sixiang/app/dist/SiXiang.apk
+-rw-r--r-- 1 runner runner 3.9M Nov 28 15:21 sixiang/app/dist/SiXiang.apk
 
-sha256: b609b668dd0942f0da9c9fb561f3519f32acc270f48d0ec3bb72e18eed4c5f2e
+sha256: 200c8f91fc4737749f05fdf45bde3a064c43036868c28296ca5391eb416cb699
 DONE
 ```
