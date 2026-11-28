@@ -66,6 +66,14 @@ public class MainActivity extends Activity {
     private File guestDir;
     private File loader;
 
+    /* Android runs every app under a seccomp filter that kills disallowed
+     * syscalls. glibc >= 2.35 registers rseq() in its startup path, and that
+     * call is not in the allowlist, so a *static glibc* helper dies with signal
+     * 31 before it can print anything (observed: exit=159, zero output, while
+     * the very same binary runs fine as `shell`). glibc honours
+     * GLIBC_TUNABLES before that registration, so this flag turns it off. */
+    private volatile boolean noRseq;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -263,8 +271,15 @@ public class MainActivity extends Activity {
             // [4] guest 程序 --------------------------------------------
             say("[4] 让 guest 自己的 linker64 启动 toybox");
             int a = runToybox(new String[]{"uname", "-a"});
-            int b = runToybox(new String[]{"id"});
-            int c = runToybox(new String[]{"echo", "SIXIANG_GUEST_OK"});
+            if (a != 0) {
+                say("");
+                say("  第一次失败（exit=" + a + "，没有任何输出）—— 典型的 seccomp 杀进程。");
+                say("  重试：GLIBC_TUNABLES=glibc.pthread.rseq=0");
+                noRseq = true;
+                a = runToybox(new String[]{"uname", "-a"});
+            }
+            int b = (a == 0) ? runToybox(new String[]{"id"}) : -1;
+            int c = (b == 0) ? runToybox(new String[]{"echo", "SIXIANG_GUEST_OK"}) : -1;
             say("");
             if (a == 0 && b == 0 && c == 0) {
                 say("== 全部通过：guest（Android 17 用户态）已在本 app 内运行 ==");
@@ -345,6 +360,10 @@ public class MainActivity extends Activity {
             pb.environment().put("PATH",
                     new File(dir, "system/bin").getAbsolutePath() + ":/system/bin");
             pb.environment().put("TMPDIR", new File(dir, "tmp").getAbsolutePath());
+            if (noRseq) {
+                // glibc reads these tunables before it registers rseq.
+                pb.environment().put("GLIBC_TUNABLES", "glibc.pthread.rseq=0");
+            }
             pb.redirectErrorStream(true);
 
             Process p = pb.start();
