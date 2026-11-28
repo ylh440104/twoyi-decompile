@@ -1,59 +1,59 @@
 build-tools: /home/runner/android-sdk/build-tools/33.0.2
 platform   : /home/runner/android-sdk/platforms/android-33
 javac      : javac 17.0.21.1
-work: /tmp/tmp.nkYrRg6snq
+work: /tmp/tmp.GPlYy6cJ7r
 
 == javac ==
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$FrameView$TapListener.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$7.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$11$1.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$8$1.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$6.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$12.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$5.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$2$1.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$2.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$1.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$3.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$8.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$5$1.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$11.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$FrameView.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$10.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$4.class
-  /tmp/tmp.nkYrRg6snq/classes/io/sixiang/MainActivity$9.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$1.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$12.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$6.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$5.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$FrameView.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$11.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$11$1.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$5$1.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$7.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$2$1.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$10.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$FrameView$TapListener.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$8$1.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$8.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$9.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$3.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$2.class
+  /tmp/tmp.GPlYy6cJ7r/classes/io/sixiang/MainActivity$4.class
 
 == d8 (dex) ==
--rw-r--r-- 1 runner runner 24680 Nov 28 16:49 /tmp/tmp.nkYrRg6snq/classes.dex
+-rw-r--r-- 1 runner runner 24764 Nov 28 16:55 /tmp/tmp.GPlYy6cJ7r/classes.dex
 
 == aapt2 ==
 values_strings.arsc.flat
--rw-r--r-- 1 runner runner 1555 Nov 28 16:49 /tmp/tmp.nkYrRg6snq/base.apk
+-rw-r--r-- 1 runner runner 1555 Nov 28 16:55 /tmp/tmp.GPlYy6cJ7r/base.apk
 
 == stage payload ==
-/tmp/tmp.nkYrRg6snq/stage/assets:
+/tmp/tmp.GPlYy6cJ7r/stage/assets:
 total 3604
--rw-r--r-- 1 runner runner 3671043 Nov 28 16:49 guest.zip
--rwxr-xr-x 1 runner runner   14488 Nov 28 16:49 screen
+-rw-r--r-- 1 runner runner 3671043 Nov 28 16:55 guest.zip
+-rwxr-xr-x 1 runner runner   14488 Nov 28 16:55 screen
 
-/tmp/tmp.nkYrRg6snq/stage/lib/arm64-v8a:
+/tmp/tmp.GPlYy6cJ7r/stage/lib/arm64-v8a:
 total 872
--rwxr-xr-x 1 runner runner 892584 Nov 28 16:49 libmini_loader.so
+-rwxr-xr-x 1 runner runner 892584 Nov 28 16:55 libmini_loader.so
 
 == assemble ==
 ---------  ---------- -----   ----
      1988  1980-01-01 00:00   AndroidManifest.xml
       560  1980-01-01 00:00   resources.arsc
-    24680  2026-11-28 16:49   classes.dex
-        0  2026-11-28 16:49   lib/
-        0  2026-11-28 16:49   lib/arm64-v8a/
-   892584  2026-11-28 16:49   lib/arm64-v8a/libmini_loader.so
-        0  2026-11-28 16:49   assets/
-  3671043  2026-11-28 16:49   assets/guest.zip
-    14488  2026-11-28 16:49   assets/screen
+    24764  2026-11-28 16:55   classes.dex
+        0  2026-11-28 16:55   lib/
+        0  2026-11-28 16:55   lib/arm64-v8a/
+   892584  2026-11-28 16:55   lib/arm64-v8a/libmini_loader.so
+        0  2026-11-28 16:55   assets/
+  3671043  2026-11-28 16:55   assets/guest.zip
+    14488  2026-11-28 16:55   assets/screen
 ---------                     -------
-  4605343                     9 files
+  4605427                     9 files
   ok: lib/arm64-v8a/libmini_loader.so
   ok: assets/guest.zip
   ok: assets/screen
@@ -65,7 +65,7 @@ Signer #1 certificate SHA-256 digest: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff
 Signer #1 certificate SHA-1 digest: 6d465928339b2db0c2b403794bca95506a721c77
 Signer #1 certificate MD5 digest: ef6fc5e26ec56205a07f38564189ae7a
 signer sha256: 26125d4761c9bc9e1143d90bcf1fd51b398a9cecff82b0d8d30fd3ddc6bdf792
--rw-r--r-- 1 runner runner 4.0M Nov 28 16:49 sixiang/app/dist/SiXiang.apk
+-rw-r--r-- 1 runner runner 4.0M Nov 28 16:55 sixiang/app/dist/SiXiang.apk
 
-sha256: 67f94040a90f737070c05a83a23f6001ccaa5c84250a3f199595945697ddeed5
+sha256: 1af3897bae6d281969536effab4bc3c50b78724ca116fa3d2ff0bd5e0310f68f
 DONE
