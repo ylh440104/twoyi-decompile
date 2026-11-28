@@ -103,7 +103,10 @@ def strip_apex_suffix(name):
 def probe_apex(apex_path):
     """返回 (kind, payload_path) 或 (kind, None)。kind ∈ {zip-apex, gzip-apex, raw-ext4, unknown}"""
     t = file_type(apex_path)
-    if 'Zip archive' in t or 'Java archive' in t or 'JAR' in t:
+    # .capex 的 file(1) 输出是 "Android package (APK), with AndroidManifest.xml"，
+    # 它本质仍是 zip，只是多了 APK 的味道。别漏掉这一条。
+    if ('Zip archive' in t or 'Java archive' in t or 'JAR' in t
+            or 'Android package' in t or 'APK' in t):
         return 'zip-apex', t
     with open(apex_path, 'rb') as f:
         magic = f.read(4)
@@ -124,7 +127,9 @@ def extract_one(apex_path, name, outdir, log):
     """把一个 apex/capex 展开成 outdir/apex/<name>/"""
     kind, desc = probe_apex(apex_path)
     log.append('%-38s %9d  %-12s %s' % (name, os.path.getsize(apex_path), kind, desc[:50]))
-    work = os.path.join(outdir, '.work', name)
+    # 注意：main() 把原始的 apex/capex 文件 dump 到 .work/<name>，
+    # 这里不能用同一路径当目录，否则 makedirs 抛 FileExistsError。
+    work = os.path.join(outdir, '.work', name + '.d')
     os.makedirs(work, exist_ok=True)
     dest = os.path.join(outdir, 'apex', strip_apex_suffix(name))
 
