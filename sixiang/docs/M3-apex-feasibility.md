@@ -246,35 +246,52 @@ bionic 的 `access()` 走它。fallback 是 `fstatat`，存在但语义不完全
 
 ## 5. 结论与下一步
 
-### 可行性判定
+### 已确认（实测，不是推断）
 
-| 环节 | 判定 | 依据 |
+| 项 | 结果 | 证据 |
 |---|---|---|
-| 拿到 Android 17 镜像 | ✅ 可行 | GSI 直链 200 |
-| 静态展开 38 个 APEX | ✅ 可行 | runtime.apex 实测展开成功 |
-| 免除 loop 设备 | ✅ 可行 | init 里 `loop-control` 仅 1 处，且属 apexd |
-| 免除 dm-verity | ✅ 可行 | init 里 0 处，校验在 apexd |
-| patch apexd 为 stub | ⚠️ 需验证 | 要确保 init 不因「等不到 apexd ready」而超时 |
-| **API 37 跑在 5.15 内核上** | ❌ **硬阻塞** | 新 syscall 缺失，只能靠 bionic fallback |
-| gralloc4 / AIDL radio | ❌ 硬阻塞 | twoyi 的补丁全部作废，需重写 |
+| Android 17 源码可用 | ✅ | tag `android-17.0.0_r1`，`cp2a` |
+| Android 17 官方镜像可下载 | ✅ | GSI `CP2A.260605.012`，HEAD 200，954 MB |
+| APEX 数量与体积 | ✅ | 38 个（10 `.apex` + 28 `.capex`），311 MiB |
+| APEX 可静态展开 | ✅ | `runtime.apex` payload → ext4 → 目录树 |
+| init 有 `/bootstrap-apex` | ✅ | init 字符串，Android 16+ 新机制 |
+| init 里 `dm-verity` = 0 处 | ✅ | 校验在 `apexd`，不在 init |
+| init 里 `loop-control` = 1 处 | ✅ | 只用于提示 apexd |
+| 本机 kernel | ✅ | **4.19.191**（不是 5.15） |
+| `clone3` / `faccessat2` | ❌ 缺失 | ctypes 实测 ENOSYS |
+| 新 mount API 全族 | ❌ 缺失 | `fsopen`/`fsmount`/`move_mount`/`open_tree` |
+| `pidfd_*` / `openat2` | ✅ 存在 | MTK BSP 做了 backport |
 
-### 建议的下一步（按性价比排序）
+### 待确认（决定成败的唯一一项）
 
-**第 1 步：把「静态展开」写成工具，并实测 init 能否推进（不花钱）**
+**API 37 的 bionic 在 `clone3` 返回 `ENOSYS` 时，是否保留 `clone` fallback。**
 
-- 写 `apex_unpack.py`：38 个 apex/capex → `/apex/<name>/` 全展开 + 生成 `apex-info-list.xml`
-- 在 Actions 里跑一遍，产出「展开后的 rootfs 有多大」
-- 用 `qemu-user` 或静态分析验证 init 的 first stage 分支
+- 若保留 → 4.19 上能启动，APEX 静态展开方案可以推进
+- 若删除 → Android 17 guest 在这台设备上物理不可行
 
-**第 2 步：先测 kernel 墙，因为这决定整件事成不成立**
+判定方法（已建好工具，等 artifact 下载完即可执行）：
+1. 扫 `libc.so` 里 `mov x8,#0x1b3`(clone3) 与 `mov x8,#0xdc`(clone) 的出现次数
+2. 两者都有 → 有 fallback
+3. 直接实跑 `bootstrap-linker64 ./sh` 看是否活过第一秒
 
-- 在本机（Lenovo TB330FU，kernel 5.15）上跑一个 API 37 的静态二进制
-- 或者更直接：拿 GSI 的 `system/bin/sh`（API 37 bionic）在本机 chroot 跑
-- **如果跑不起来，APEX 那一堆работ全部白做**
+`tools/scan_syscall.py` 已写好（按 ARM64 指令编码做字节级扫描，不依赖 objdump）。
+`tools/get_artifact.py` 负责把 Actions 抽出的 bionic 取回本机。
 
-**第 3 步：如果 kernel 墙过不去，改目标**
+### 方案分叉
 
-- 退回 **Android 9**（API 28，最后无 APEX 的版本），kernel 4.9+ 即可
-- 或做「宿主 shim」：在宿主侧拦截新 syscall 并模拟
+```
+如果 clone3 有 fallback（乐观）:
+    APEX 静态展开 -> 生成 /apex/<name>/ 目录树
+    -> stub 掉 apexd -> init 跳过 mount
+    -> 再解决 gralloc4 / AIDL radio（这仍是大工程）
 
-**核心判断：先测 kernel，再谈 APEX。** APEX 我已有明确的解法，kernel 没有。
+如果 clone3 无 fallback（悲观）:
+    Android 17 在这台设备上不可行
+    -> 退 Android 9（API 28，无 APEX，kernel 4.9+）
+    -> 或做宿主侧 syscall shim（工程量极大，不推荐）
+```
+
+### 一句话总结
+
+**APEX 那道墙我已经有解法（静态展开 + stub apexd），
+但 kernel 4.19 这道墙的答案还没拿到——而它才是决定整件事成不成立的那一道。**
