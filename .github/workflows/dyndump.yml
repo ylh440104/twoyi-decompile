@@ -1,13 +1,21 @@
 name: Dynamic dump of libtwoyi.so (aarch64)
 
-# Loads the real library, lets the dynamic linker relocate it, runs the 38
-# constructors / JNI_OnLoad, and dumps what only exists at runtime:
-#   * the 6 GOT slots that are 0 in the static image
-#   * .data / .bss after relocation
-# Everything is diffed against the static file image.
+# Runs on a NATIVE arm64 runner, so no qemu and no cross-compiler are needed:
+# gcc produces an aarch64 binary that the host can execute directly.
 #
-# Every step logs to dyn-out/run.log and the commit step runs with if: always(),
-# so even a failure leaves the diagnostics in the repository.
+# What it does:
+#   1. download libtwoyi.so from the release
+#   2. build a small "bionic extra" stub library (libandroid.so / liblog.so are
+#      symlinked to it) and symlink libc/libm/libdl to the real glibc objects
+#   3. dlopen libtwoyi.so in three phases:
+#        noinit : constructors disabled, DT_BIND_NOW cleared  -> post-relocation
+#        init   : constructors run
+#        jni    : constructors + JNI_OnLoad with a fake JavaVM
+#   4. read the 6 GOT slots that are 0 in the static image, dump .data/.bss
+#   5. diff everything against the file image
+#
+# Every step appends to dyn-out/run.log and the commit step runs with
+# if: always(), so even a failing run leaves its diagnostics in the repo.
 
 on:
   workflow_dispatch:
@@ -21,7 +29,7 @@ permissions:
 
 jobs:
   dump:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
@@ -32,25 +40,10 @@ jobs:
           {
             echo "== dyndump start $(date -u) =="
             uname -a
-            lscpu | head -8
+            uname -m
             python3 --version
+            gcc --version | head -1
           } > dyn-out/run.log 2>&1
-
-      - name: Install aarch64 toolchain + qemu-user
-        run: |
-          set +e
-          {
-            echo "--- apt update"
-            sudo apt-get update -qq
-            echo "update rc=$?"
-            echo "--- apt install"
-            sudo apt-get install -y -qq gcc-aarch64-linux-gnu qemu-user-static
-            echo "install rc=$?"
-            echo "--- versions"
-            aarch64-linux-gnu-gcc --version 2>&1 | head -1
-            qemu-aarch64-static --version 2>&1 | head -2
-            which aarch64-linux-gnu-gcc qemu-aarch64-static
-          } >> dyn-out/run.log 2>&1
 
       - name: Fetch libtwoyi.so
         run: |
@@ -70,16 +63,19 @@ jobs:
           {
             echo "--- stubs"
             mkdir -p stubs
-            aarch64-linux-gnu-gcc -O2 -shared -fPIC -o stubs/libbionic_extra.so dyn/stubs.c
+            gcc -O2 -shared -fPIC -o stubs/libbionic_extra.so dyn/stubs.c
             echo "stub rc=$?"
-            ln -sf /usr/aarch64-linux-gnu/lib/libc.so.6 stubs/libc.so
-            ln -sf /usr/aarch64-linux-gnu/lib/libm.so.6 stubs/libm.so
-            ln -sf /usr/aarch64-linux-gnu/lib/libdl.so.2 stubs/libdl.so
+            LIBC=$(gcc -print-file-name=libc.so.6)
+            LIBM=$(gcc -print-file-name=libm.so.6)
+            echo "LIBC=$LIBC  LIBM=$LIBM"
+            ln -sf "$LIBC" stubs/libc.so
+            ln -sf "$LIBM" stubs/libm.so
+            ln -sf "$LIBC" stubs/libdl.so
             ln -sf libbionic_extra.so stubs/libandroid.so
             ln -sf libbionic_extra.so stubs/liblog.so
             ls -l stubs
             echo "--- dumper"
-            aarch64-linux-gnu-gcc -O2 -o dumper dyn/dumper.c -ldl
+            gcc -O2 -o dumper dyn/dumper.c -ldl
             echo "dumper rc=$?"
             file dumper
           } >> dyn-out/run.log 2>&1
@@ -97,13 +93,12 @@ jobs:
             sha256sum work/*.so
           } >> dyn-out/run.log 2>&1
 
-      - name: "Phase 1: relocate only (constructors disabled)"
+      - name: "Phase 1: relocate only"
         run: |
           set +e
           {
             echo "--- phase noinit"
-            QEMU_LD_PREFIX=/usr/aarch64-linux-gnu LD_LIBRARY_PATH="$PWD/stubs" \
-              qemu-aarch64-static ./dumper "$PWD/work/libtwoyi_noinit.so" "$PWD/dyn-out" noinit
+            LD_LIBRARY_PATH="$PWD/stubs" ./dumper "$PWD/work/libtwoyi_noinit.so" "$PWD/dyn-out" noinit
             echo "rc=$?"
           } >> dyn-out/run.log 2>&1
 
@@ -112,8 +107,7 @@ jobs:
           set +e
           {
             echo "--- phase init"
-            QEMU_LD_PREFIX=/usr/aarch64-linux-gnu LD_LIBRARY_PATH="$PWD/stubs" \
-              qemu-aarch64-static ./dumper "$PWD/work/libtwoyi_lazy.so" "$PWD/dyn-out" init
+            LD_LIBRARY_PATH="$PWD/stubs" ./dumper "$PWD/work/libtwoyi_lazy.so" "$PWD/dyn-out" init
             echo "rc=$?"
           } >> dyn-out/run.log 2>&1
 
@@ -122,8 +116,7 @@ jobs:
           set +e
           {
             echo "--- phase jni"
-            QEMU_LD_PREFIX=/usr/aarch64-linux-gnu LD_LIBRARY_PATH="$PWD/stubs" \
-              qemu-aarch64-static ./dumper "$PWD/work/libtwoyi_lazy.so" "$PWD/dyn-out" jni
+            LD_LIBRARY_PATH="$PWD/stubs" ./dumper "$PWD/work/libtwoyi_lazy.so" "$PWD/dyn-out" jni
             echo "rc=$?"
           } >> dyn-out/run.log 2>&1
 
