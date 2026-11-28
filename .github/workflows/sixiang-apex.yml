@@ -55,6 +55,32 @@ jobs:
         continue-on-error: true
         run: bash sixiang/apex/inspect.sh gsi 2>&1 | tee apex.log
 
+      - name: DECISIVE - unpack all 38 apex/capex to directories
+        continue-on-error: true
+        run: |
+          python3 sixiang/apex/unpack.py gsi/system.img sixiang/apex/out/tree 2>&1 | tee unpack.log
+          echo '--- disk after unpack ---'
+          df -h / | tail -1
+
+      - name: Show tree sample
+        if: always()
+        continue-on-error: true
+        run: |
+          {
+            echo '=== apex/ 目录清单 ==='
+            ls -1 sixiang/apex/out/tree/apex 2>/dev/null | head -50
+            echo
+            echo '=== com.android.runtime 内部 ==='
+            find sixiang/apex/out/tree/apex/com.android.runtime -maxdepth 2 2>/dev/null | head -30
+            echo
+            echo '=== APEX 的 total size ==='
+            du -sh sixiang/apex/out/tree/apex 2>/dev/null
+            du -sh sixiang/apex/out/tree 2>/dev/null
+            echo
+            echo '=== apex-info-list.xml 前 20 行 ==='
+            head -20 sixiang/apex/out/tree/apex-info-list.xml 2>/dev/null
+          } | tee tree-sample.txt
+
       - name: Save results
         if: always()
         run: |
@@ -62,7 +88,10 @@ jobs:
           cp -f apex.log sixiang/apex/out/ 2>/dev/null || true
           cp -f /tmp/apex_summary.md sixiang/apex/out/ 2>/dev/null || true
           cp -f /tmp/apex_report.txt sixiang/apex/out/ 2>/dev/null || true
-          head -c 100000 apex.log > sixiang/apex/out/apex.head.txt 2>/dev/null || true
+          cp -f unpack.log sixiang/apex/out/ 2>/dev/null || true
+          cp -f tree-sample.txt sixiang/apex/out/ 2>/dev/null || true
+          cp -f sixiang/apex/out/tree/unpack-report.txt sixiang/apex/out/ 2>/dev/null || true
+          cp -f sixiang/apex/out/tree/apex-info-list.xml sixiang/apex/out/ 2>/dev/null || true
           ls -lh sixiang/apex/out
 
       - name: Upload artifact
