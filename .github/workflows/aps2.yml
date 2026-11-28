@@ -1,0 +1,91 @@
+name: APS2 unpack (llvm-readelf)
+
+# The bionic runtime cannot execute on a stock Linux kernel (even bionic's own
+# toybox segfaults, rc=139), so APS2 has to be unpacked statically.
+#
+# llvm-readelf decodes APS2 natively (LLVM >= 9), which gives all 112,262 packed
+# RELATIVE relocations as plain text.  tools/r221_apply_relocs.py then applies
+# them to the on-disk image with a virtual base of 0, so
+#   * every RELATIVE relocation becomes the absolute .text/.data offset it points at
+#   * .init_array finally shows which 38 constructors would be registered
+#   * the six GOT slots show their post-relocation values
+#
+# No execution involved: this is pure decoding of a documented format.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/r221_apply_relocs.py'
+      - '.github/workflows/aps2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install llvm
+        run: |
+          set +e
+          mkdir -p aps2-out work
+          exec 1>aps2-out/aps2.log 2>&1
+          uname -m
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq llvm | tail -2
+          ls /usr/bin/llvm-readelf* 2>&1
+          llvm-readelf --version | head -3
+
+      - name: Fetch and verify libtwoyi.so
+        run: |
+          set +e
+          exec 1>>aps2-out/aps2.log 2>&1
+          curl -fsL --retry 2 -o work/libtwoyi.so \
+            "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
+          echo "curl rc=$?"
+          ls -l work/libtwoyi.so
+          sha256sum work/libtwoyi.so
+
+      - name: Unpack APS2
+        run: |
+          set +e
+          exec 1>>aps2-out/aps2.log 2>&1
+          RE=$(ls /usr/bin/llvm-readelf* | head -1)
+          echo "== $RE --relocations =="
+          "$RE" --relocations work/libtwoyi.so > aps2-out/relocs.txt 2>aps2-out/relocs.err
+          echo "rc=$?"
+          wc -l aps2-out/relocs.txt
+          head -5 aps2-out/relocs.err
+          echo "== section headers (is there a reloc section now?) =="
+          "$RE" --section-headers work/libtwoyi.so | grep -i -E 'rel|Name' | head -20
+          echo "== sample =="
+          head -20 aps2-out/relocs.txt
+          echo "..."
+          grep -c 'R_AARCH64' aps2-out/relocs.txt
+
+      - name: Apply and inspect
+        run: |
+          set +e
+          exec 1>>aps2-out/aps2.log 2>&1
+          python3 tools/r221_apply_relocs.py work/libtwoyi.so aps2-out/relocs.txt aps2-out
+          echo "apply rc=$?"
+
+      - name: Commit
+        if: always()
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f aps2-out/aps2.log aps2-out/relocs_apply.txt aps2-out/relocs.err
+          git add -f aps2-out/virt.bin 2>/dev/null
+          if git diff --cached --quiet; then
+            echo "nothing"
+          else
+            git commit -m "chore: APS2 unpack"
+            git pull --rebase -q origin main || true
+            git push || echo "push failed"
+          fi
