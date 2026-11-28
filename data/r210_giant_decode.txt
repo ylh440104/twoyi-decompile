@@ -1,0 +1,102 @@
+# round 210: direct decode of the 15 FDE ranges Ghidra never decompiled
+== 0x4d2a38  size=244068  insns=61017
+   BL calls: 126 sites / 25 distinct targets (25 known funcs, 0 not)
+   direct branch/cond: 3391   LDR-literal: 0   STR: 3221   STP: 6   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 506   distinct strings: 0
+== 0x60c5d4  size=207440  insns=51860
+   BL calls: 7867 sites / 1265 distinct targets (1265 known funcs, 0 not)
+   direct branch/cond: 4561   LDR-literal: 0   STR: 2273   STP: 142   BR: 1   BLR: 775   RET: 1
+   distinct data refs: 967   distinct strings: 482
+   str  "/data/twoyi-13/device/generic/vulkan-cereal/stream-servers/vulkan/VkDe"  x2
+   str  "decode"  x2
+   str  "vkCreateInstance decode"  x1
+   str  "vkGetDeviceImageSparseMemoryRequirementsKHR decode"  x1
+   str  "vkCmdSetViewportShadingRatePaletteNV decode"  x1
+   str  "vkSetLocalDimmingAMD decode"  x1
+== 0x486104  size=170724  insns=42681
+   BL calls: 162 sites / 14 distinct targets (14 known funcs, 0 not)
+   direct branch/cond: 2518   LDR-literal: 0   STR: 2139   STP: 8   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 307   distinct strings: 0
+== 0x55189c  size=115360  insns=28840
+   BL calls: 163 sites / 14 distinct targets (14 known funcs, 0 not)
+   direct branch/cond: 1682   LDR-literal: 0   STR: 1210   STP: 6   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 221   distinct strings: 0
+== 0x2d0b00  size=89548  insns=22387
+   BL calls: 34 sites / 4 distinct targets (3 known funcs, 1 not)
+   direct branch/cond: 1387   LDR-literal: 0   STR: 1103   STP: 34   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 85   distinct strings: 0
+   callee NOT in Ghidra set: 0x2d0b00 (x4)
+== 0x4714d0  size=85044  insns=21261
+   BL calls: 102 sites / 12 distinct targets (12 known funcs, 0 not)
+   direct branch/cond: 1145   LDR-literal: 0   STR: 1139   STP: 6   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 153   distinct strings: 0
+== 0x74db04  size=84352  insns=21088
+   BL calls: 522 sites / 7 distinct targets (7 known funcs, 0 not)
+   direct branch/cond: 2906   LDR-literal: 0   STR: 1405   STP: 6   BR: 0   BLR: 1847   RET: 1
+   distinct data refs: 1326   distinct strings: 1293
+   str  "alid Twoyi staging extent %ux%u"  x16
+   str  "bugReportCallbackEXT"  x10
+   str  "glGetFramebufferParameteriv decode"  x9
+   str  "yAccelerationStructureNV decode"  x8
+   str  "adingRateEnumNV subdecode"  x8
+   str  "n decode"  x7
+== 0x527ba8  size=80296  insns=20074
+   BL calls: 101 sites / 17 distinct targets (14 known funcs, 3 not)
+   direct branch/cond: 1155   LDR-literal: 0   STR: 1195   STP: 6   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 148   distinct strings: 0
+   callee NOT in Ghidra set: 0x4714d0 (x7)
+   callee NOT in Ghidra set: 0x486104 (x1)
+   callee NOT in Ghidra set: 0x55189c (x2)
+== 0x77dfd4  size=6076  insns=1519
+   BL calls: 135 sites / 11 distinct targets (11 known funcs, 0 not)
+   direct branch/cond: 76   LDR-literal: 0   STR: 204   STP: 11   BR: 0   BLR: 4   RET: 1
+   distinct data refs: 61   distinct strings: 56
+   str  "/data/twoyi-13/device/generic/vulkan-cereal/stream-servers/glestransla"  x2
+   str  "getProcAddressGles1"  x2
+   str  "glEGLImageTargetTexture2DOES"  x1
+   str  "glEGLImageTargetRenderbufferStorageOES"  x1
+   str  "glBlendEquationSeparateOES"  x1
+   str  "glBlendFuncSeparateOES"  x1
+== 0x871184  size=2064  insns=516
+   BL calls: 55 sites / 9 distinct targets (9 known funcs, 0 not)
+   direct branch/cond: 68   LDR-literal: 0   STR: 63   STP: 10   BR: 0   BLR: 2   RET: 1
+   distinct data refs: 22   distinct strings: 19
+   str  "OpenGL ES 2.0"  x1
+   str  "GL_OES_EGL_image"  x1
+   str  "GL_OES_EGL_image_external"  x1
+   str  "GL_OES_depth24"  x1
+   str  "GL_OES_depth32"  x1
+   str  "GL_OES_element_index_uint"  x1
+== 0x843c34  size=988  insns=247
+   BL calls: 11 sites / 7 distinct targets (7 known funcs, 0 not)
+   direct branch/cond: 36   LDR-literal: 0   STR: 17   STP: 10   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 8   distinct strings: 5
+   str  "Void extent texture coordinates are invalid"  x1
+   str  "Too many color values"  x1
+   str  "Reserved bits set for void extent block"  x1
+   str  "Not enough color bits"  x1
+   str  "Both four partitions and dual plane specified"  x1
+== 0x5e7ee0  size=956  insns=239
+   BL calls: 24 sites / 12 distinct targets (12 known funcs, 0 not)
+   direct branch/cond: 35   LDR-literal: 0   STR: 13   STP: 7   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 1   distinct strings: 1
+   str  "_indirect"  x1
+== 0x870ee4  size=672  insns=168
+   BL calls: 16 sites / 9 distinct targets (9 known funcs, 0 not)
+   direct branch/cond: 19   LDR-literal: 0   STR: 7   STP: 8   BR: 0   BLR: 1   RET: 1
+   distinct data refs: 2   distinct strings: 1
+   str  "EGL_KHR_gl_texture_2D_image"  x1
+== 0x878418  size=404  insns=101
+   BL calls: 6 sites / 4 distinct targets (4 known funcs, 0 not)
+   direct branch/cond: 10   LDR-literal: 0   STR: 4   STP: 2   BR: 0   BLR: 0   RET: 0
+   distinct data refs: 9   distinct strings: 5
+   str  "46000"  x3
+   str  "46001"  x2
+   str  "46011"  x2
+   str  "46000000000000"  x1
+   str  "android"  x1
+== 0x84f40c  size=232  insns=58
+   BL calls: 4 sites / 4 distinct targets (4 known funcs, 0 not)
+   direct branch/cond: 8   LDR-literal: 0   STR: 6   STP: 3   BR: 0   BLR: 0   RET: 1
+   distinct data refs: 1   distinct strings: 1
+   str  ".feature_config"  x1
