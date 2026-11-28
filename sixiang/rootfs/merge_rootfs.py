@@ -156,7 +156,10 @@ def main():
     else:
         say('WARN: %s 不存在，system 展开可能有问题' % apex_orig)
 
-    # ── 5. 展开 38 个 APEX 到 <out>/apex ───────────
+    # ── 5. 展开 38 个 APEX ───────────────────────────
+    # 关键：Android 10+ 是 system-as-root。
+    # switch_root 之后 /system 就是 /，所以 /system/apex == /apex。
+    # 因此展开后的模块必须放到 <out>/system/apex/，而不是顶层 ape​x/。
     apex_out = os.path.join(work, 'apex-stage')
     say('running unpack.py ...')
     rc, o, e = sh(['python3', UNPACK, raw, apex_out])
@@ -167,13 +170,14 @@ def main():
         say('  stderr: ' + (e or '').strip()[:300])
 
     staged = os.path.join(apex_out, 'apex')
-    final_apex = os.path.join(out, 'apex')
+    final_apex = os.path.join(sys_dest, 'apex')  # <out>/system/apex
     if os.path.isdir(staged):
+        # 已存在的 system/apex 里只剩空壳（原件被删），可以整体替换
         if os.path.isdir(final_apex):
             shutil.rmtree(final_apex)
         shutil.move(staged, final_apex)
-        n = len(os.listdir(final_apex))
-        say('moved apex stager -> %s (%d entries)' % (final_apex, n))
+        n = len([d for d in os.listdir(final_apex) if os.path.isdir(os.path.join(final_apex, d))])
+        say('moved apex stager -> %s (%d dirs)' % (final_apex, n))
     else:
         say('FATAL: unpack 没有产出 apex/ 目录')
 
@@ -203,11 +207,41 @@ def main():
         allok = allok and okv
 
     say('')
-    for part in ('system', 'apex'):
+    for part in ('system',):
         p = os.path.join(out, part)
         if os.path.isdir(p):
             say('%-12s %8.1f MiB' % (part, du_bytes(p) / 1048576.0))
     say('TOTAL        %8.1f MiB' % (du_bytes(out) / 1048576.0))
+
+    # ── 7. 造 first stage 需要的 ramdisk 层 ─────────
+    # GSI 只有 system.img，没有 boot.img，也就没有 ramdisk。
+    # 而 Android 10+ 的 init 必须从 ramdisk 起 first stage，再 switch_root 到 system。
+    # 这里补一个最小 ramdisk：
+    #   /init                        <- system/bin/init
+    #   /first_stage_ramdisk/fstab   <- 空（不挂任何分区）
+    #   /system                      已就位
+    #   /apex -> 由 system-as-root 提供（system/apex）
+    say('')
+    say('=== 造 ramdisk 层 ===')
+    init_src = os.path.join(sys_dest, 'bin', 'init')
+    if os.path.exists(init_src):
+        shutil.copy2(init_src, os.path.join(out, 'init'))
+        os.chmod(os.path.join(out, 'init'), 0o755)
+        say('  /init <- %s (%d bytes)' % (init_src, os.path.getsize(init_src)))
+    else:
+        say('  WARN: %s 不存在' % init_src)
+
+    fsd = os.path.join(out, 'first_stage_ramdisk')
+    os.makedirs(fsd, exist_ok=True)
+    # 空 fstab：MountPartitions() 遍历到空表就什么都不做，不会尝试挂载
+    for name in ('fstab.sixiang', 'fstab.android', 'fstab.qemu'):
+        with open(os.path.join(fsd, name), 'w') as f:
+            f.write('# SiXiang: 所有分区已静态就位，无需 first stage 挂载\n')
+        say('  first_stage_ramdisk/%s (empty fstab)' % name)
+
+    # switch_root 的目标标记：有 /system/system 说明是 system-as-root 布局
+    # 我们不切根（根同时扮演 ramdisk 与 system），所以不建这个
+    say('  不建 system/system（根同时扮演 ramdisk 与 system）')
 
     rpt = os.path.join(out, 'merge-report.txt')
     with open(rpt, 'w') as f:

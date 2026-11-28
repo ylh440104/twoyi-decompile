@@ -61,16 +61,39 @@ jobs:
           ls -1 out | head -20
           du -sh out/* 2>/dev/null | sort -rh | head -10
 
-      - name: Pack test (zstd, 只记录大小)
+      - name: T3 - run init with qemu (chroot into rootfs)
         continue-on-error: true
         run: |
-          if [ -d out/apex ] && [ -d out/system ]; then
-            time tar -C out --exclude=.work -cf - system apex 2>/dev/null | zstd -19 -T0 -q -o rootfs.tar.zst
-            ls -lh rootfs.tar.zst
-            echo "zstd_size=$(stat -c%s rootfs.tar.zst)" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo 'skip pack: out/system 或 out/apex 缺失'
-          fi
+          set -x
+          # qemu-user-static 在 runner 上装不上，直接拿 multiarch 的静态二进制
+          curl -fL -o qemu-aarch64-static \
+            'https://github.com/multiarch/qemu-user-static/releases/download/v7.2.0-1/qemu-aarch64-static'
+          chmod +x qemu-aarch64-static
+          file qemu-aarch64-static | head -1
+
+          # 关键：chroot 进去，让 /init 看到的绝对路径都落在 out/ 里
+          sudo cp qemu-aarch64-static out/qemu-aarch64-static
+          ls -l out/init out/qemu-aarch64-static out/system/bin/init 2>&1
+
+          echo '==================== run init ===================='
+          # 40 秒超时；init 大概率中途失败，但要看它走到哪
+          sudo timeout -s KILL 40 chroot out /qemu-aarch64-static /init > init-run.log 2>&1 || true
+          wc -l init-run.log
+          head -60 init-run.log
+          echo '==================== end ========================'
+
+      - name: T3b - run init with strace (syscall trace)
+        continue-on-error: true
+        run: |
+          set -x
+          sudo apt-get install -y --no-install-recommends strace || true
+          # 记录 init 前 200 行 syscall，看它先碰什么
+          sudo timeout -s KILL 30 strace -f -e trace=openat,mount,statfs,execve \
+            -o /tmp/init.strace chroot out /qemu-aarch64-static /init 2>&1 | head -20 || true
+          echo '--- strace 关键行 ---'
+          grep -E 'apex|fstab|first_stage|mount\(' /tmp/init.strace 2>/dev/null | head -40 || echo '(no trace)'
+          echo '--- 前 30 行 syscall ---'
+          head -30 /tmp/init.strace 2>/dev/null || true
 
       - name: Save report
         if: always()
@@ -78,6 +101,9 @@ jobs:
           mkdir -p sixiang/rootfs/out
           cp -f merge.log sixiang/rootfs/out/merge.log 2>/dev/null || true
           cp -f out/merge-report.txt sixiang/rootfs/out/merge-report.txt 2>/dev/null || true
+          cp -f init-run.log sixiang/rootfs/out/init-run.log 2>/dev/null || true
+          cp -f /tmp/init.strace sixiang/rootfs/out/init.strace 2>/dev/null || true
+          head -c 200000 /tmp/init.strace > sixiang/rootfs/out/init.strace.head 2>/dev/null || true
           {
             echo '=== out 顶层 ==='
             ls -1 out 2>/dev/null | head -20
@@ -99,6 +125,12 @@ jobs:
             echo
             echo '=== tar.zst ==='
             ls -lh rootfs.tar.zst 2>/dev/null || echo '(未生成)'
+            echo
+            echo '=== init 产物 ==='
+            ls -l out/init out/first_stage_ramdisk/ 2>/dev/null
+            echo
+            echo '=== system/apex 目录数 ==='
+            ls -1d out/system/apex/*/ 2>/dev/null | wc -l
           } > sixiang/rootfs/out/summary.txt
           cat sixiang/rootfs/out/summary.txt
 
