@@ -60,6 +60,38 @@ jobs:
           ls "$SDK/build-tools" "$SDK/platforms"
           echo "ANDROID_SDK=$SDK" >> "$GITHUB_ENV"
 
+      # A static *glibc* helper cannot run inside an Android app: the app's
+      # seccomp filter kills it with signal 31 before it prints a byte. Proved
+      # on the emulator -- /system/bin/sh -> exit 0, our glibc loader -> 159 and
+      # zero output, while the same binary runs fine as `shell`. bionic is what
+      # the filter is written for, so the loader is built with the NDK.
+      - name: Android NDK
+        run: |
+          set -uo pipefail
+          NDK=$(ls -d /usr/local/lib/android/sdk/ndk/* 2>/dev/null | sort -V | tail -1 || true)
+          if [ -z "${NDK:-}" ] || [ ! -d "$NDK" ]; then
+            "$ANDROID_SDK/cmdline-tools/latest/bin/sdkmanager" --install \
+              "ndk;26.1.10909125" >/dev/null
+            NDK=$(ls -d "$ANDROID_SDK"/ndk/* | sort -V | tail -1)
+          fi
+          echo "ANDROID_NDK=$NDK" >> "$GITHUB_ENV"
+          ls "$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin" | head -5
+
+      - name: Build the loader against bionic (aarch64, static)
+        run: |
+          set -uo pipefail
+          CC=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android26-clang
+          LOG=sixiang/loader/bin/build.log
+          set +e
+          "$CC" -O2 -static -Wall -Wextra \
+              -o sixiang/loader/bin/mini_loader sixiang/loader/mini_loader.c 2>&1 | tee "$LOG"
+          rc=${PIPESTATUS[0]}
+          set -e
+          { file sixiang/loader/bin/mini_loader
+            ls -l sixiang/loader/bin/mini_loader
+          } >> "$LOG" 2>&1 || true
+          exit $rc
+
       - name: Need the loader and the guest bundle
         run: |
           set -uo pipefail
@@ -143,6 +175,9 @@ jobs:
           git config user.name  "sixiang-ci"
           git config user.email "ci@sixiang.invalid"
           git add -f sixiang/app/dist 2>/dev/null || true
+          # The bionic loader built above is part of the deliverable: the APK
+          # embeds it, and the repo copy is what other jobs use.
+          git add -f sixiang/loader/bin 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "nothing to commit"
             exit 0

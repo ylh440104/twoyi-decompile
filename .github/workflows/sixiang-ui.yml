@@ -65,9 +65,19 @@ jobs:
         run: |
           set -uo pipefail
           mkdir -p sixiang/loader/out
+          # bionic, not glibc: see the note in sixiang-apk.yml. A static glibc
+          # binary is killed by the app's seccomp filter before it can print.
+          NDK=$(ls -d /usr/local/lib/android/sdk/ndk/* 2>/dev/null | sort -V | tail -1 || true)
+          if [ -z "${NDK:-}" ] || [ ! -d "$NDK" ]; then
+            "$ANDROID_SDK/cmdline-tools/latest/bin/sdkmanager" --install \
+              "ndk;26.1.10909125" >/dev/null
+            NDK=$(ls -d "$ANDROID_SDK"/ndk/* | sort -V | tail -1)
+          fi
+          echo "NDK=$NDK"
+          CC=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android26-clang
           LOG=sixiang/loader/out/x86_64-build.log
           set +e
-          gcc -O2 -static -Wall -Wextra \
+          "$CC" -O2 -static -Wall -Wextra \
               -o sixiang/loader/out/mini_loader_x86_64 sixiang/loader/mini_loader.c \
               2>&1 | tee "$LOG"
           rc=${PIPESTATUS[0]}
