@@ -38,6 +38,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
@@ -61,6 +62,14 @@ static int g_busy[NSLOT];
 static int g_cur = -1;
 static int g_ready;               /* slots mapped so far */
 static int g_pending_fd = -1;     /* fd that arrived with an SCM_RIGHTS cmsg */
+static int g_binder_fd = -1;      /* app's /dev/binder, if it handed one over */
+
+/* Minimal binder ioctl surface: enough to ask the driver for its version,
+ * which tells us whether a foreign process may use the app's connection. */
+struct binder_version_probe {
+    int32_t protocol_version;
+};
+#define BINDER_VERSION _IOWR('b', 9, struct binder_version_probe)
 
 static char g_labels[TILE_MAX][16];
 static int g_nlabels;
@@ -363,6 +372,18 @@ static void handle_line(char *line, int *tx, int *ty, int *age, int *hit,
         g_inlen = 0;
         fprintf(stderr, "screen: text=\n");
         *dirty = 1;
+    } else if (strncmp(line, "binder", 6) == 0) {
+        /* R8 probe: can a foreign process drive the app's binder connection? */
+        if (g_pending_fd >= 0) {
+            struct binder_version_probe v;
+            v.protocol_version = 0;
+            int rc = ioctl(g_pending_fd, BINDER_VERSION, &v);
+            fprintf(stderr, "screen: binder fd=%d ioctl rc=%d errno=%d version=%d\n",
+                    g_pending_fd, rc, rc ? errno : 0, v.protocol_version);
+            /* keep it: the next step is a servicemanager transaction */
+            g_binder_fd = g_pending_fd;
+            g_pending_fd = -1;
+        }
     } else if (strncmp(line, "fbuf ", 5) == 0) {
         int s = atoi(line + 5);
         if (g_pending_fd >= 0 && s >= 0 && s < NSLOT) {

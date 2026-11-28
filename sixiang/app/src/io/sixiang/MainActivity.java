@@ -112,6 +112,7 @@ public class MainActivity extends Activity {
     private int slotCount;
     private int ready;
     private android.os.ParcelFileDescriptor[] slotPfd;
+    private android.os.ParcelFileDescriptor binderPfd;
     private MappedByteBuffer[] slotMap;
     private IntBuffer[] slotInts;
 
@@ -585,6 +586,24 @@ public class MainActivity extends Activity {
                     openSlots();
                     for (int i = 0; i < slotCount; i++) sendFd(i);
                     clearPendingFds();
+
+                    /* R8 probe: an app process is allowed to open /dev/binder
+                     * (that is how libbinder works). If we can pass that fd to
+                     * the guest, the guest can try to speak binder through it,
+                     * which is the gate for init/zygote/system_server. */
+                    try {
+                        binderPfd = android.os.ParcelFileDescriptor.open(
+                                new File("/dev/binder"),
+                                android.os.ParcelFileDescriptor.MODE_READ_WRITE);
+                        say("binder: 打开 /dev/binder 成功（probe）");
+                        conn.setFileDescriptorsForSend(new java.io.FileDescriptor[]{
+                                binderPfd.getFileDescriptor()});
+                        send("binder");
+                        clearPendingFds();
+                    } catch (Throwable t) {
+                        say("binder: 打不开 /dev/binder: " + t);
+                    }
+
                     /* prove the keyboard path immediately: the guest renders it */
                     send("text READY");
                 }
