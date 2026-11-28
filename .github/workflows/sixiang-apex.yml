@@ -1,0 +1,86 @@
+name: SiXiang APEX probe (Android 17 GSI)
+
+# 目的：用官方 Android 17 GSI 取全部事实，回答一个问题——
+#   把 /system/apex/*.apex 展开成普通目录后，init 能否走过 first stage。
+#
+# 为什么放在 Actions：只需「下载 954 MB + 解包 + 统计」，
+# 不编译、不需要 250 GB，60 GB 磁盘和 6 小时上限都够。
+#
+# 直链已用 HEAD 验证：200 / 954,207,230 bytes / application/zip
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sixiang/apex/**'
+      - '.github/workflows/sixiang-apex.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Env
+        run: |
+          nproc; free -g | head -2; df -h / | tail -1
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq \
+            android-sdk-libsparse-utils e2fsprogs unzip file binutils zip curl
+
+      - name: Download Android 17 GSI (arm64, AOSP, no GMS)
+        run: |
+          set -x
+          URL='https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP2A.260605.012-15430684-8e545e1e.zip'
+          curl -fL --retry 3 --retry-delay 5 -o gsi.zip "$URL"
+          ls -l gsi.zip
+          echo "$(sha256sum gsi.zip)" | tee gsi.sha256
+          echo "expected: 8e545e1e1e977c3b43b4e54a3af463f3e7d1c3177b120e772138334e15f48f75"
+
+      - name: Unzip
+        run: |
+          set -x
+          unzip -o gsi.zip -d gsi | tail -20
+          ls -lh gsi
+          df -h / | tail -1
+
+      - name: Inspect APEX
+        continue-on-error: true
+        run: bash sixiang/apex/inspect.sh gsi 2>&1 | tee apex.log
+
+      - name: Save results
+        if: always()
+        run: |
+          mkdir -p sixiang/apex/out
+          cp -f apex.log sixiang/apex/out/ 2>/dev/null || true
+          cp -f /tmp/apex_summary.md sixiang/apex/out/ 2>/dev/null || true
+          cp -f /tmp/apex_report.txt sixiang/apex/out/ 2>/dev/null || true
+          head -c 100000 apex.log > sixiang/apex/out/apex.head.txt 2>/dev/null || true
+          ls -lh sixiang/apex/out
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apex-probe
+          path: sixiang/apex/out/
+          retention-days: 30
+
+      - name: Commit results
+        if: always()
+        run: |
+          set +e
+          git config user.name "sixiang-bot"
+          git config user.email "sixiang@users.noreply.github.com"
+          git add -f sixiang/apex/out/* 2>/dev/null
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "sixiang: APEX probe results (Android 17 GSI)"
+          git pull --rebase -q origin main
+          git push

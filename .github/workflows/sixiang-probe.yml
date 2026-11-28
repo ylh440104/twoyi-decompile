@@ -125,33 +125,31 @@ jobs:
           git ls-remote --heads https://android.googlesource.com/platform/manifest 2>/dev/null \
             | grep -oE 'refs/heads/[a-z-]*latest[a-z-]*' | sort -u | tail -10
 
-      - name: Check whether AOSP main carries Android 17 (cp1a)
+      - name: Check Android 17 availability (corrected)
         continue-on-error: true
         run: |
           set -x
-          curl -fsS --max-time 30 'https://android.googlesource.com/platform/build/release/+/refs/heads/main/release_configs/?format=JSON' \
-            | tail -n +2 > /tmp/rc.json
-          tr ',' '\n' < /tmp/rc.json | grep -oE '[a-z]{2}[0-9][a-z]\.textproto' | sort -u
-          if grep -q 'cp1a' /tmp/rc.json; then
-            echo "FOUND cp1a -> Android 17 present in AOSP main"
-            {
-              echo "# AOSP 17 (cp1a) detected"
-              echo ""
-              echo "detected at: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-              echo ""
-              echo '```'
-              tr ',' '\n' < /tmp/rc.json | grep -oE '[a-z]{2}[0-9][a-z]\.textproto' | sort -u
-              echo '```'
-            } > sixiang/docs/AOSP17-DETECTED.md
-            git config user.name "sixiang-bot"
-            git config user.email "sixiang@users.noreply.github.com"
-            git add -f sixiang/docs/AOSP17-DETECTED.md
-            git commit -m "sixiang: AOSP 17 (cp1a) detected in main" || true
-            git pull --rebase -q origin main || true
-            git push || true
-          else
-            echo "cp1a absent -> AOSP main still Android 16 (bp1a)"
-          fi
+          # 之前误判过一次：main 的 release_configs 只有 bp1a(16)，但 17 在独立 tag 上。
+          # 正确判据 = manifest 是否有 android-17.0.0_r1 这个 ref/tag。
+          echo '=== manifest 17 tags ==='
+          curl -fsS --max-time 40 'https://android.googlesource.com/platform/manifest/+refs?format=JSON' \
+            | tail -n +2 | tr ',' '\n' | grep -oE 'android-17\.0\.0_r[0-9]+' | sort -u | head -10
+          echo '=== release config on that tag ==='
+          curl -fsS --max-time 40 'https://android.googlesource.com/platform/build/release/+/android-17.0.0_r1/release_config_map.textproto?format=TEXT' \
+            | base64 -d 2>/dev/null | head -8
+          {
+            echo "# Android 17 availability"
+            echo ""
+            echo "checked at: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo ""
+            echo "判据一：manifest 是否存在 android-17.0.0_r1"
+            curl -fsS --max-time 40 'https://android.googlesource.com/platform/manifest/+refs?format=JSON' \
+              | tail -n +2 | tr ',' '\n' | grep -oE 'android-17\.0\.0_r[0-9]+' | sort -u || echo "(none)"
+            echo ""
+            echo "判据二：该 tag 的 release config（应为 cp2a）"
+            curl -fsS --max-time 40 'https://android.googlesource.com/platform/build/release/+/android-17.0.0_r1/release_config_map.textproto?format=TEXT' \
+              | base64 -d 2>/dev/null | head -8 || echo "(read failed)"
+          } > sixiang/docs/AOSP17-STATUS.md
 
       - name: Summary
         run: |

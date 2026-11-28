@@ -1,126 +1,123 @@
-# M1 实测结论：AOSP 版本边界与 runner 能力
+# M1 实测结论（含一次更正）
 
-> 全部数据来自 GitHub Actions 实跑（run 46124077230，probe 全绿）+ googlesource gitiles 直读。
-> 不是推断。
+> 数据来源：GitHub Actions 实跑（probe `46124077230` / `46124624860`）+ googlesource gitiles 直读 + GSI 官方发布页。
 
 ---
 
-## 1. AOSP 当前最新是 Android 16，不是 17
+## 0. 更正：Android 17 是**可用**的，我之前判断错了
 
-`platform/manifest` 分支 `android-latest-release` 的 `default.xml`：
+### 我错在哪
 
-```xml
-<superproject name="platform/superproject" remote="aosp" revision="android-latest-release"/>
-<project path="build/make" name="platform/build" groups="pdk,sysui-studio" >
+我当时查的是 `platform/build` 的 **`main`** 分支上的 `release/release_configs/`，看到只有：
+
+```
+['ap2a', 'ap3a', 'ap4a', 'bp1a']
 ```
 
-共 **1087** 个 project，`<default>` 为空，全部由 superproject 定位。
+于是得出「AOSP 主干停在 Android 16，没有 17」。**这个推论是错的**——AOSP 的发布版本走**独立 tag**，不在 main 上。
 
-`platform/superproject` → `android-latest-release` → `platform/build` 的 **`main`**（该仓库没有 `android-*` 分支，只有 `main` / `master`）。
+### 正确的判据
 
-`main` 上的 `build/release/release_config_map.textproto`：
+```
+$ git ls-remote --tags https://android.googlesource.com/platform/manifest | grep android-17
+5bc9a7ce1cd78dd53613bbfd0ebf506e1e4adb0f  refs/tags/android-17.0.0_r1
+```
 
-```proto
-aliases: { name: "aosp_current" target: "bp1a" }
+读该 tag 下的 release config：
+
+```
+$ curl .../platform/build/release/+/android-17.0.0_r1/release_config_map.textproto?format=TEXT | base64 -d
+
+aliases: {
+  name: "aosp_current"
+  target: "cp2a"
+}
 default_containers: "product"
 default_containers: "system"
 default_containers: "system_ext"
 default_containers: "vendor"
 ```
 
-`build/release/release_configs/` 与 `flag_values/` 里**只有四个 release**：
+**`cp2a` = Android 17**。GSI 官方页面也印证：
 
-```
-['ap2a', 'ap3a', 'ap4a', 'bp1a']
-```
+| 版本 | Build | 日期 | 代号 |
+|---|---|---|---|
+| Android 17 | **CP2A.260605.012** | 2026-06-18 | Cinnamon Bun |
+| Android 17 QPR1 | CP3A.260905.010 | 2026-09-17 | 同上 |
+| Android 17 QPR2 | CP41.260831.019 | 2026-10-16 | Beta |
+| Android 17 QPR3 | DP11.261030.003 | 2026-11-12 | Beta |
 
-对照官方 build ID 表：
+GSI 直链格式已在 `docs/M2-how-to-build.md` 记录。
 
-| 代号 | 版本 | 证据 |
+### 各版本的分支位置（避免再踩）
+
+| 版本 | 位置 | release config |
 |---|---|---|
-| `ap2a` | Android 14 | `AP2A.240805.005` → `android-14.0.0_r55` |
-| `ap3a` | Android 15 | `AP3A.241005.015` → `android-15.0.0_r2` |
-| `ap4a` | Android 15 QPR | `AP4A.250205.002` → `android-15.0.0_r17` |
-| **`bp1a`** | **Android 16** | `B` = Baklava，Android 16 代号 |
+| Android 15 | tag `android-15.0.0_r36` | `ap4a` |
+| Android 16 | tag `android-16.0.0_r4`；main 也是 16 | `bp1a` |
+| **Android 17** | **tag `android-17.0.0_r1`** | **`cp2a`** |
 
-**没有 `cp1a`。** AOSP 主干当前停在 Android 16。
-
-另：`platform/manifest` 的 refs 里最新正式 tag 是 `android-15.0.0_r23`，**没有任何 `android-16.*` / `android-17.*` tag**。
-（官方文档：2026 起 AOSP 只在 Q2/Q4 发源码，并推荐用 `android-latest-release` 构建。）
-
-### 结论
-
-**「编 Android 17」这件事目前无源码可用。** 不是环境问题，是代码还不存在。
-
-`android-latest-release` 现在等于 **Android 16**。等 Google 把 17 推到 AOSP 后，同一套脚本改一个变量即可。
+`android-latest-release`（= main）**目前仍是 16**。要 17 必须显式 `-b android-17.0.0_r1`。
 
 ---
 
-## 2. GitHub Actions 免费 runner 无法全量编译 AOSP
+## 1. runner 能力（这部分结论不变）
 
-实测（ubuntu-latest）：
+Actions 免费 runner 实测：
 
 ```
-nproc      = 4
-Mem        = 15 GiB（total），可用 ~13 GiB
-df -h /    = ~60 GB 可用
+nproc     = 4
+Mem       = 15 GiB
+disk free ≈ 60 GB
 ```
 
-AOSP 16 的真实需求（官方 + 经验值）：
+AOSP 需求：**≥250 GB 磁盘 / ≥32 GB 内存 / 4 核 20–40 小时**，单 job 上限 6 小时。
 
-| 资源 | 需求 | runner 提供 | 缺口 |
-|---|---|---|---|
-| 磁盘 | **≥ 250 GB**（源码 ~100 GB + out ~150 GB） | ~60 GB | **4 倍不足** |
-| 内存 | ≥ 32 GB（链接阶段，`-j4` 勉强 16 GB） | 15 GiB | 不足 |
-| 时间 | 4 核约 **20–40 小时** | 单 job **6 小时**上限 | **3–7 倍不足** |
+**结论：`repo sync + make` 在 Actions 上不可行，这是物理限制。**
 
-**结论：`repo sync + make` 在 Actions 上物理不可行。** 这不是配置问题。
-
-### 可行的替代（按成本排序）
-
-| 方案 | 规格 | 估时 | 估算成本 |
-|---|---|---|---|
-| 云服务器按量 | 16 vCPU / 64 GB / 500 GB SSD | 3–5 h | 约 $1–3 |
-| 云服务器按量 | 32 vCPU / 128 GB / 1 TB | 2–3 h | 约 $3–6 |
-| GitHub larger runner | 16 vCPU / 64 GB / 150 GB | 3–5 h | 需付费计划，$0.32/min ≈ $60+ |
-| 本地 | —— | —— | 本机 8 GB / 无 250 GB 空闲，排除 |
-
-**结论：rootfs 编译必须放到「一次性云服务器」，Actions 只负责**取产物 + 重打包 + 发 release**。**
+推荐：16 vCPU / 64 GB / 500 GB SSD 的按量云机，3–5 小时，约 $1–3。
 
 ---
 
-## 3. 预编译产物渠道
+## 2. 预编译产物：有一条可用渠道（也是更正）
 
-`ci.android.com` 在 Actions 与本地均**不可达**（curl 超时 / 404；本地 visit_web 亦超时）。
-`androidbuildinternal.googleapis.com` 需要 Google 内部凭证。
+`ci.android.com` 不可达，但 **GSI 官方发布页可用**：
 
-**结论：拿不到公开的通用 arm64 AOSP 预编译镜像。rootfs 只能自建。**
+`https://developer.android.com/topic/generic-system-image/releases`
+
+Android 17 的 ARM64 GSI（纯 AOSP，不含 GMS）：
+
+```
+aosp_arm64-exp-CP2A.260605.012-15430684-8e545e1e.zip
+sha256 8e545e1e1e977c3b43b4e54a3af463f3e7d1c3177b120e772138334e15f48f75
+```
+
+这是**官方构建的完整 system.img**，含 APEX、含 `init`，正好可以用来做「APEX 能否绕过」的验证，**不需要自己编**。
 
 ---
 
-## 4. 已经打通的部分
+## 3. 已经打通的部分
 
 | 项 | 状态 | 证据 |
 |---|---|---|
 | 项目骨架 | ✅ | `sixiang/{keys,rootfs,app,docs}` |
-| **固定签名** | ✅ | `sixiang/keys/sixiang.jks`，SHA-256 `26:12:5D:47:...:F7:92`，4096-bit RSA，有效期至 2126-11-04 |
-| 版本自动探测 | ✅ | `sixiang-probe.yml` 全绿，可在任何 commit 上重跑 |
-| 版本监控 | ✅ | 已加 cron，出现 `cp1a` 即留下记录 |
+| 固定签名 | ✅ | SHA-256 `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
+| 版本探测 | ✅ | probe 全绿 |
+| **rootfs 重打包器** | ✅ | selftest run `46124876177` 全绿 |
+| 一条命令编译 | ✅ | `sixiang/rootfs/build_aosp.sh`（默认 17） |
 
 ---
 
-## 5. 决策点
+## 4. 下一步（顺序很关键）
 
-后续路线只有两条，取决于目标：
+```
+1) 拿 GSI 的 aosp_arm64-exp-CP2A...zip（官方直链，~2 GB）
+2) 解出 system.img，展开，数 /system/apex/*.apex
+3) 把 apex 逐个展开成目录，patch init 跳过 loop mount
+4) 看 init 能否走过 first stage -> second stage
+   └ 通了：花 $1-3 编自己的 AOSP 17
+   └ 不通：编了也跑不起来，转 Android 9 或改设计
+```
 
-**A. 要「能跑的最新 guest」→ 编 Android 16（`bp1a`）**
-- 需租一次云服务器（约 $1–3）
-- 编完产物按 twoyi 的 rootfs 布局重打包
-- 但注意：**16 仍在 Android 10 之后的不可容器化区间**（APEX + dynamic partitions + gralloc4 + AIDL radio 全部适用），
-  所以「编出来」不等于「能跑」，中间还有 M4 那道墙。
-
-**B. 要「SiXiang 能真正跑起来」→ 必须回头处理 Android 10 那道坎**
-- 与 AOSP 版本号无关，APEX 挂载是核心
-- 这一步才决定 SiXiang 是「又一个 shell」还是「真能跑」
-
-**先做 B 的技术验证（能否绕过 APEX），再决定编哪个版本，比直接烧机器算力更划算。**
+**第 2、3 步不需要大机器，Actions 就够（下载 + 解包 + 统计）。**
+**所以先做这个，再决定要不要花钱编译。**
