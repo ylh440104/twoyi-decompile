@@ -5,7 +5,7 @@ exit=0
 
 ### hello_static_pie
 SIXIANG_PAYLOAD_OK
-  pid      = 3033
+  pid      = 2769
   argv[0]  = ./sixiang/loader/out/hello_static_pie
   argc     = 1
   libc     = glibc static-pie

@@ -1,16 +1,16 @@
 # loader build report
 
-commit: b534b72bd6b2caa13e38310b9cf93fb966eefea7
-run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46143808146
+commit: 43005e7668d095fe3d3dbb246746267ca6121c8d
+run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46144048875
 
 ```
 total 1384
--rw-r--r-- 1 runner runner   1362 Nov 28 12:16 build.log
--rwxr-xr-x 1 runner runner  67392 Nov 28 12:16 hello_freestanding
--rwxr-xr-x 1 runner runner 771568 Nov 28 12:16 hello_static_pie
--rwxr-xr-x 1 runner runner 706536 Nov 28 12:16 mini_loader
--rw-r--r-- 1 runner runner    155 Nov 28 12:16 report.md
--rw-r--r-- 1 runner runner    296 Nov 28 12:16 selftest.log
+-rw-r--r-- 1 runner runner   1362 Nov 28 12:19 build.log
+-rwxr-xr-x 1 runner runner  67392 Nov 28 12:19 hello_freestanding
+-rwxr-xr-x 1 runner runner 771568 Nov 28 12:19 hello_static_pie
+-rwxr-xr-x 1 runner runner 706536 Nov 28 12:19 mini_loader
+-rw-r--r-- 1 runner runner    155 Nov 28 12:19 report.md
+-rw-r--r-- 1 runner runner    296 Nov 28 12:19 selftest.log
 
 sixiang/loader/out/build.log:          ASCII text
 sixiang/loader/out/hello_freestanding: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), static-pie linked, not stripped
@@ -29,7 +29,7 @@ exit=0
 
 ### hello_static_pie
 SIXIANG_PAYLOAD_OK
-  pid      = 3033
+  pid      = 2769
   argv[0]  = ./sixiang/loader/out/hello_static_pie
   argc     = 1
   libc     = glibc static-pie
@@ -51,9 +51,9 @@ sixiang/loader/out/hello_freestanding: ELF 64-bit LSB pie executable, ARM aarch6
 sixiang/loader/out/hello_static_pie: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), static-pie linked, BuildID[sha1]=7c6df4e315b5d1a1cc4efe23ac317b43e21c4c39, for GNU/Linux 3.7.0, not stripped
 
 == sizes ==
--rwxr-xr-x 1 runner runner  67392 Nov 28 12:16 sixiang/loader/out/hello_freestanding
--rwxr-xr-x 1 runner runner 706536 Nov 28 12:16 sixiang/loader/out/mini_loader
--rwxr-xr-x 1 runner runner 771568 Nov 28 12:16 sixiang/loader/out/hello_static_pie
+-rwxr-xr-x 1 runner runner  67392 Nov 28 12:19 sixiang/loader/out/hello_freestanding
+-rwxr-xr-x 1 runner runner 706536 Nov 28 12:19 sixiang/loader/out/mini_loader
+-rwxr-xr-x 1 runner runner 771568 Nov 28 12:19 sixiang/loader/out/hello_static_pie
 
 == payload headers (must be DYN / ET_DYN) ==
 hello_freestanding     e_type=DYN(Position-IndependentExecutablefile) relocs: noneawk: cmd. line:2: (FILENAME=- FNR=2) fatal: attempt to use scalar `c' as an array
