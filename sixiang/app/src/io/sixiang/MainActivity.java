@@ -10,6 +10,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.net.LocalServerSocket;
+import android.net.LocalSocket;
+import android.net.LocalSocketAddress;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,7 +36,6 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.RandomAccessFile;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -49,28 +51,16 @@ import java.util.zip.ZipInputStream;
  * SiXiang -- a container UI in the shape twoyi has: status bar, the guest's
  * screen, settings, recents, and a terminal.
  *
- * Division of labour, which is the whole point:
- *   - the app owns no geometry. It forwards a touch coordinate and reads back
- *     the tile index the guest computed (word 20 of the shared header);
- *   - the guest owns the desktop: grid, captions (its own 3x5 font), focus ring,
- *     ripple, frame counter;
- *   - the app decides which applet a tile stands for, and starts it in the guest.
- *
- * Resolution, frame rate and dpi are runtime settings; the painter is restarted
- * with new SIXIANG_W/H/FPS/DPI and a resized buffer.
+ * Transport (R5): the guest owns the pixels. It allocates buffers with
+ * memfd_create and hands them over an abstract unix socket as (pid, fd); this
+ * side opens /proc/&lt;pid&gt;/fd/&lt;n&gt;, which resolves to the same memfd, maps it and
+ * blits. Control messages (tap / hit / focus / rel) travel on the same socket,
+ * so there is no agreed-upon file and no layout knowledge on this side: the
+ * guest decides which tile a tap hit.
  */
 public class MainActivity extends Activity {
 
-    private static final int HDR = 64;
-
-    /* header words (ints), keep in sync with sixiang/guest/demo/screen.c */
-    private static final int W_SEQ = 0;
-    private static final int W_TX = 4;
-    private static final int W_TY = 8;
-    private static final int W_TSEQ = 12;
-    private static final int W_FOCUS = 16;
-    private static final int W_HIT = 20;
-    private static final int W_FSEQ = 24;
+    private static final String CTL = "sixiang-fb";
 
     private static final int[][] RES = {{320, 568}, {360, 640}, {480, 854}};
     private static final int[] FPSS = {15, 20, 30};
@@ -103,7 +93,7 @@ public class MainActivity extends Activity {
     private TextView recentsEmpty;
 
     private volatile boolean busy;
-    private volatile boolean pumping;
+    private volatile boolean streaming;
     private volatile int frames;
     private int fpsBase;
     private long fpsT0;
@@ -113,8 +103,15 @@ public class MainActivity extends Activity {
     private File guestDir;
     private File loader;
     private Process screenProc;
-    private MappedByteBuffer fbMap;
-    private int fbGen;
+
+    private LocalServerSocket server;
+    private LocalSocket conn;
+    private OutputStream toGuest;
+    private int guestPid;
+    private int slotCount;
+    private MappedByteBuffer[] slotMap;
+    private IntBuffer[] slotInts;
+
     private volatile int touchSeq;
     private volatile int focusTile = -1;
 
@@ -169,7 +166,6 @@ public class MainActivity extends Activity {
         slp.topMargin = pad;
         root.addView(screen, slp);
 
-        // ---- recents
         LinearLayout recentRow = new LinearLayout(this);
         recentRow.setOrientation(LinearLayout.HORIZONTAL);
         recentRow.setGravity(Gravity.CENTER_VERTICAL);
@@ -195,7 +191,6 @@ public class MainActivity extends Activity {
         recents.addView(recentsEmpty);
         root.addView(recentRow);
 
-        // ---- controls
         LinearLayout controls = new LinearLayout(this);
         controls.setOrientation(LinearLayout.HORIZONTAL);
 
@@ -226,7 +221,6 @@ public class MainActivity extends Activity {
         }));
         root.addView(controls);
 
-        // ---- terminal
         console = new TextView(this);
         console.setTextSize(9);
         console.setTypeface(Typeface.MONOSPACE);
@@ -291,6 +285,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         shutdown();
+        closeQuietly(server);
         super.onDestroy();
     }
 
@@ -308,7 +303,7 @@ public class MainActivity extends Activity {
                 fpsT0 = now;
                 fpsBase = frames;
             }
-            if (pumping) {
+            if (streaming) {
                 status.setText(String.format("%dx%d · %d fps · frame %d · %.0f",
                         fbW, fbH, fps, frames, f));
             } else if (frames > 0) {
@@ -323,7 +318,6 @@ public class MainActivity extends Activity {
     private void showSettings() {
         LinearLayout box = new LinearLayout(this);
         box.setOrientation(LinearLayout.VERTICAL);
-
         addGroup(box, "分辨率（guest 画面）", new String[]{"320x568", "360x640", "480x854"},
                 resIndex(), 0);
         addGroup(box, "帧率", new String[]{"15", "20", "30"}, fpsIndex(), 1);
@@ -445,8 +439,7 @@ public class MainActivity extends Activity {
                 }
             });
 
-            say("SiXiang container v0.3  " + fbW + "x" + fbH + " @" + fps + "fps dpi" + dpi);
-            ApplicationInfo ai = getApplicationInfo();
+            say("SiXiang container v0.4  " + fbW + "x" + fbH + " @" + fps + "fps dpi" + dpi);
             sayBoth("device", Build.MANUFACTURER + " " + Build.MODEL + " / API " + Build.VERSION.SDK_INT);
 
             guestDir = new File(getFilesDir(), "guest");
@@ -473,7 +466,7 @@ public class MainActivity extends Activity {
             }
             sayBoth("loader", loader.getAbsolutePath());
 
-            say("画面通道");
+            say("画面通道（socket + memfd）");
             startScreen(linker64);
 
             say("guest 程序");
@@ -492,25 +485,39 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void ensureServer() throws Exception {
+        if (server != null) return;
+        server = new LocalServerSocket(
+                new LocalSocketAddress(CTL, LocalSocketAddress.Namespace.ABSTRACT));
+        new Thread(new Runnable() {
+            public void run() {
+                while (true) {
+                    LocalServerSocket srv = server;
+                    if (srv == null) return;
+                    try {
+                        handleConnection(srv.accept());
+                    } catch (Throwable t) {
+                        say("  ctl 接受失败: " + t);
+                        return;
+                    }
+                }
+            }
+        }).start();
+    }
+
     private void startScreen(File linker64) {
         try {
-            File fb = new File(getFilesDir(), "screen.rgba");
-            int bytes = HDR + fbW * fbH * 4;
-            RandomAccessFile raf = new RandomAccessFile(fb, "rw");
-            raf.setLength(bytes);
-            FileChannel ch = raf.getChannel();
-            fbMap = ch.map(FileChannel.MapMode.READ_WRITE, 0, bytes);
-            fbMap.order(ByteOrder.nativeOrder());
-            for (int w = 0; w <= 24; w += 4) fbMap.putInt(w, 0);
-            fbGen++;
-            focusTile = -1;
+            ensureServer();
 
             File bin = new File(guestDir, "screen");
             copyAsset("screen", bin);
-
             File apps = new File(guestDir, "apps.txt");
             writeLabels(apps, LABELS);
-            sayBoth("painter", bin.length() + " B · " + fbW + "x" + fbH + " · " + LABELS.length + " labels");
+            slotMap = null;
+            slotInts = null;
+            slotCount = 0;
+            frames = 0;
+            fpsT0 = 0;
 
             List<String> cmd = new ArrayList<String>();
             cmd.add(loader.getAbsolutePath());
@@ -521,7 +528,7 @@ public class MainActivity extends Activity {
             ProcessBuilder pb = new ProcessBuilder(cmd);
             pb.environment().put("LD_LIBRARY_PATH",
                     new File(guestDir, "system/lib64").getAbsolutePath());
-            pb.environment().put("SIXIANG_FB", fb.getAbsolutePath());
+            pb.environment().put("SIXIANG_CTL", CTL);
             pb.environment().put("SIXIANG_APPS", apps.getAbsolutePath());
             pb.environment().put("SIXIANG_W", String.valueOf(fbW));
             pb.environment().put("SIXIANG_H", String.valueOf(fbH));
@@ -530,9 +537,7 @@ public class MainActivity extends Activity {
             pb.redirectErrorStream(true);
 
             screenProc = pb.start();
-            frames = 0;
-            fpsT0 = 0;
-            startPump();
+            sayBoth("painter", bin.length() + " B · " + fbW + "x" + fbH + " · dpi " + dpi);
 
             final Process p = screenProc;
             new Thread(new Runnable() {
@@ -549,136 +554,170 @@ public class MainActivity extends Activity {
                 }
             }).start();
 
-            Thread.sleep(1200);
+            Thread.sleep(1500);
             sayBoth("frames", String.valueOf(frames));
-            if (frames > 0) say("  PASS 已连接 guest 画面");
+            if (frames > 0) say("  PASS 已连接 guest 画面（socket + memfd）");
             else say("  FAIL 画面没有到达");
         } catch (Throwable t) {
             say("  !! 画面通道失败 " + t);
         }
     }
 
-    private void startPump() {
-        if (pumping) return;
-        pumping = true;
-        new Thread(new Runnable() {
-            public void run() {
-                IntBuffer ib = null;
-                int last = -1, gen = -1;
-                say("  pump: 启动");
-                while (pumping) {
-                    try {
-                        MappedByteBuffer map = fbMap;
-                        if (map == null) {
-                            Thread.sleep(50);
-                            continue;
-                        }
-                        if (ib == null || gen != fbGen) {
-                            /* Buffer.position is covariant in Java 9+, Android
-                             * only has the Buffer version; and the map is
-                             * big-endian by default while the guest writes
-                             * native ints. Both bite at runtime, not at compile
-                             * time -- see docs/SIXIANG-APK.md. */
-                            map.order(ByteOrder.nativeOrder());
-                            ByteBuffer base = map;
-                            ByteBuffer dup = base.duplicate();
-                            dup.order(ByteOrder.nativeOrder());
-                            ((Buffer) dup).position(HDR);
-                            ib = dup.asIntBuffer();
-                            gen = fbGen;
-                            say("  pump: 映射 " + ib.capacity() + " ints (gen " + gen + ")");
-                        }
-                        int seq = map.getInt(W_SEQ);
-                        if (seq != last && (seq & 1) == 0) {
-                            ((Buffer) ib).position(0);
-                            ib.get(screen.px);
-                            if (map.getInt(W_SEQ) == seq) {
-                                last = seq;
-                                frames++;
-                                if (frames == 1) say("  pump: 第一帧");
-                                ui.post(new Runnable() {
-                                    public void run() {
-                                        screen.blit();
-                                    }
-                                });
-                            }
-                        }
-                        Thread.sleep(25);
-                    } catch (InterruptedException e) {
-                        return;
-                    } catch (Throwable t) {
-                        say("  pump 异常: " + t);
-                        return;
-                    }
+    /** Reads the guest's control stream until the connection drops. */
+    private void handleConnection(LocalSocket s) throws Exception {
+        conn = s;
+        BufferedReader r = new BufferedReader(new InputStreamReader(s.getInputStream()));
+        toGuest = s.getOutputStream();
+        String line;
+        while ((line = r.readLine()) != null) {
+            if (line.startsWith("hello ")) {
+                String[] p = line.trim().split("\\s+");
+                if (p.length >= 5) {
+                    guestPid = Integer.parseInt(p[1]);
+                    int w = Integer.parseInt(p[2]);
+                    int h = Integer.parseInt(p[3]);
+                    slotCount = Integer.parseInt(p[4]);
+                    slotMap = new MappedByteBuffer[slotCount];
+                    slotInts = new IntBuffer[slotCount];
+                    say("  ctl: guest pid=" + guestPid + " " + w + "x" + h
+                            + " slots=" + slotCount);
                 }
+            } else if (line.startsWith("buf ")) {
+                String[] p = line.trim().split("\\s+");
+                if (p.length >= 3) mapSlot(Integer.parseInt(p[1]), Integer.parseInt(p[2]));
+            } else if (line.startsWith("frame ")) {
+                int slot = Integer.parseInt(line.substring(6).trim());
+                blit(slot);
+                send("rel " + slot);
+            } else if (line.startsWith("hit ")) {
+                int idx = Integer.parseInt(line.substring(4).trim());
+                onHit(idx);
+            } else {
+                say("  ctl: " + line);
             }
-        }).start();
+        }
+        conn = null;
+        toGuest = null;
+        streaming = false;
+        say("  ctl: 连接关闭");
+    }
+
+    /**
+     * The guest sends (pid, fd). /proc/&lt;pid&gt;/fd/&lt;n&gt; resolves to the same memfd, so
+     * this is an fd handoff without native code on our side.
+     */
+    private void mapSlot(int slot, int fd) {
+        try {
+            if (slotMap == null || slot >= slotMap.length) return;
+            String path = "/proc/" + guestPid + "/fd/" + fd;
+            FileInputStream in = new FileInputStream(path);
+            FileChannel ch = in.getChannel();
+            long size = (long) fbW * fbH * 4;
+            MappedByteBuffer m = ch.map(FileChannel.MapMode.READ_ONLY, 0, size);
+            m.order(ByteOrder.nativeOrder());
+            ByteBuffer base = m;
+            ByteBuffer dup = base.duplicate();
+            dup.order(ByteOrder.nativeOrder());
+            slotMap[slot] = m;
+            slotInts[slot] = dup.asIntBuffer();
+            streaming = true;
+            say("  ctl: slot " + slot + " <- " + path + " (" + size + " B)");
+        } catch (Throwable t) {
+            say("  !! 映射 slot " + slot + " 失败: " + t);
+        }
+    }
+
+    private synchronized void send(String s) {
+        OutputStream o = toGuest;
+        if (o == null) return;
+        try {
+            o.write((s + "\n").getBytes("UTF-8"));
+        } catch (Throwable t) {
+            say("  !! 发送失败: " + t);
+        }
+    }
+
+    private void blit(int slot) {
+        try {
+            if (slotInts == null || slot >= slotInts.length) return;
+            IntBuffer ib = slotInts[slot];
+            if (ib == null) return;
+            ((Buffer) ib).position(0);
+            ib.get(screen.px);
+            frames++;
+            if (frames == 1) say("  ctl: 第一帧（slot " + slot + "）");
+            ui.post(new Runnable() {
+                public void run() {
+                    screen.blit();
+                }
+            });
+        } catch (Throwable t) {
+            say("  !! blit 失败: " + t);
+        }
     }
 
     private void shutdown() {
-        pumping = false;
+        streaming = false;
         if (screenProc != null) {
             screenProc.destroy();
             screenProc = null;
         }
-        fbMap = null;
+        closeQuietly(conn);
+        conn = null;
+        toGuest = null;
+        slotMap = null;
+        slotInts = null;
+    }
+
+    private static void closeQuietly(Object o) {
+        try {
+            if (o instanceof LocalSocket) ((LocalSocket) o).close();
+            else if (o instanceof LocalServerSocket) ((LocalServerSocket) o).close();
+        } catch (Throwable ignored) {
+        }
     }
 
     // ------------------------------------------------------------ input path
 
-    /**
-     * Forward the tap; the *guest* decides which tile it hit (word 20) and we
-     * launch that applet. The app never second-guesses the layout.
-     */
-    private void onGuestTap(final int gx, final int gy) {
-        touchSeq++;
-        final MappedByteBuffer map = fbMap;
-        if (map == null) {
+    /** Forward the tap; the guest answers with the tile index it hit. */
+    private void onGuestTap(int gx, int gy) {
+        if (toGuest == null) {
             say("tap (" + gx + "," + gy + ") — 容器未启动");
             return;
         }
-        try {
-            map.putInt(W_TX, gx);
-            map.putInt(W_TY, gy);
-            map.putInt(W_TSEQ, touchSeq);
-        } catch (Throwable t) {
-            say("  !! 触摸转发失败 " + t);
+        touchSeq++;
+        send("tap " + gx + " " + gy + " " + touchSeq);
+    }
+
+    private void onHit(final int idx) {
+        if (idx < 0 || idx >= APPLETS.length) {
+            say("tap — guest 说没命中图标");
             return;
         }
+        focus(idx);
+        addRecent(idx);
+        say("tap -> 图标 " + idx + "：" + join(APPLETS[idx]));
         new Thread(new Runnable() {
             public void run() {
-                try {
-                    Thread.sleep(90);          /* let the painter pick it up */
-                    int hit = map.getInt(W_HIT);
-                    int labelCount = APPLETS.length;
-                    if (hit < 0 || hit >= labelCount) {
-                        say("tap (" + gx + "," + gy + ") — guest: 未命中图标");
-                        return;
-                    }
-                    focus(hit);
-                    final String[] cmd = APPLETS[hit];
-                    say("tap (" + gx + "," + gy + ") -> 图标 " + hit + "：" + join(cmd));
-                    addRecent(hit);
-                    runToybox(cmd);
-                } catch (Throwable t) {
-                    say("  !! tap 处理失败 " + t);
-                }
+                runToybox(APPLETS[idx]);
             }
         }).start();
     }
 
     private void focus(int idx) {
         focusTile = idx;
-        try {
-            if (fbMap != null) {
-                fbMap.putInt(W_FOCUS, idx);
-                fbMap.putInt(W_FSEQ, fbMap.getInt(W_FSEQ) + 1);
-            }
-        } catch (Throwable ignored) {
-        }
+        send("focus " + idx);
     }
 
-    private void addRecent(int idx) {
+    private void addRecent(final int idx) {
+        ui.post(new Runnable() {
+            public void run() {
+                addRecentOnUi(idx);
+            }
+        });
+    }
+
+    private void addRecentOnUi(int idx) {
         for (int i = 0; i < recents.getChildCount(); i++) {
             View v = recents.getChildAt(i);
             if (v.getTag() instanceof Integer && ((Integer) v.getTag()).intValue() == idx) {
@@ -692,7 +731,7 @@ public class MainActivity extends Activity {
         Button chip = new Button(this);
         chip.setText(LABELS[idx]);
         chip.setTextSize(10);
-        View.OnClickListener again = new View.OnClickListener() {
+        chip.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 focus(tile);
                 say("最近 -> " + join(APPLETS[tile]));
@@ -702,8 +741,7 @@ public class MainActivity extends Activity {
                     }
                 }).start();
             }
-        };
-        chip.setOnClickListener(again);
+        });
         chip.setTag(Integer.valueOf(idx));
         recents.addView(chip, 0);
         while (recents.getChildCount() > 6) recents.removeViewAt(recents.getChildCount() - 1);
@@ -756,7 +794,6 @@ public class MainActivity extends Activity {
             String l;
             int n = 0, shown = 0;
             while ((l = r.readLine()) != null) {
-                /* keep the console readable: a tapped ls can print hundreds */
                 if (shown++ < 40) say("  " + l);
                 n++;
             }

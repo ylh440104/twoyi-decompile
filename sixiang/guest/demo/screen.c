@@ -3,56 +3,65 @@
  *
  * A real guest process: a bionic binary that SiXiang starts through the guest's
  * own linker64, exactly like toybox. It owns no window and never talks to a
- * display server; it paints pixels into a shared buffer that the app maps and
- * blits into its screen view -- the frame channel a container needs.
+ * display server.
  *
- * Buffer layout (little endian, native ints, 0xAARRGGBB):
- *   [0]      uint32 sequence, even = stable, odd = being written
- *   [4]      int32  touch x (-1 = none)
- *   [8]      int32  touch y
- *   [12]     uint32 touch sequence, bumped by the host on every tap
- *   [16]     int32  focus, tile index the host considers active (-1 none)
- *   [20]     int32  hit, tile index under the last tap, written by *this* side
- *   [24..63] reserved
- *   [64..]   W * H pixels
+ * Transport (R5): the guest allocates its own buffers with memfd_create and
+ * hands them to the app over an abstract unix socket, reporting pid + fd
+ * number. The app opens /proc/<pid>/fd/<n>, which resolves to the same memfd,
+ * mmaps it and blits. Nothing is agreed on disk any more: the guest owns the
+ * pixels, the app only borrows a mapping. That is the shape of a real buffer
+ * queue (SCM_RIGHTS is the usual way to pass the fd; /proc/<pid>/fd is the way
+ * that works without native code on the app side).
  *
- * The hit word is the point of the exercise: the app does not know the grid
- * geometry. It forwards a coordinate, this process decides which tile it landed
- * on and publishes the index, and the app launches that applet. One authority
- * for layout, and a guest -> host data path that is not just acknowledgement.
+ * Protocol, line oriented, UTF-8:
+ *   guest -> app   hello <pid> <w> <h> <slots>
+ *                  buf <slot> <fd>
+ *                  frame <slot>
+ *                  hit <tile>
+ *   app -> guest   tap <x> <y> <seq>
+ *                  focus <tile>
+ *                  rel <slot>
  *
  * Env:
- *   SIXIANG_FB    path to the shared buffer (required)
+ *   SIXIANG_CTL   abstract socket name (required)
  *   SIXIANG_W/H   framebuffer size (default 320x568)
- *   SIXIANG_DPI   100 = 1x; scales paddings and text (default 100)
+ *   SIXIANG_DPI   100 = 1x; scales paddings and text
  *   SIXIANG_FPS   target frames per second (default 20)
  *   SIXIANG_APPS  file with one label per line, drawn as tile captions
  */
 #include <errno.h>
 #include <fcntl.h>
+#include <poll.h>
+#include <stdarg.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/mman.h>
+#include <sys/socket.h>
 #include <sys/stat.h>
+#include <sys/syscall.h>
+#include <sys/un.h>
 #include <time.h>
 #include <unistd.h>
 
-#define HDR 64
 #define COLS 4
 #define ROWS 4
+#define NSLOT 2
+#define TILE_MAX 16
 
 static int g_w = 320, g_h = 568, g_s = 2;
 static int L_hh, L_pad, L_gap, L_tw, L_th, L_top;
 
-static uint32_t *g_fb;
-static uint32_t *g_seq;
+static int g_ctl = -1;
+static uint32_t *g_fb;            /* current draw target */
+static uint32_t *g_slot[NSLOT];
+static int g_busy[NSLOT];
+static int g_cur = -1;
 
-static char g_labels[16][16];
+static char g_labels[TILE_MAX][16];
 static int g_nlabels;
-
-static inline int32_t *words(void) { return (int32_t *)g_seq; }
 
 static uint32_t rgb(uint32_t r, uint32_t g, uint32_t b)
 {
@@ -93,10 +102,9 @@ static int tile_index(int x, int y)
 {
     int bottom = L_top + ROWS * (L_th + L_gap) - L_gap;
     if (y < L_top - L_gap / 2 || y > bottom + L_gap / 2) return -1;
+    if (x < L_pad - L_gap / 2 || x > g_w - L_pad + L_gap / 2) return -1;
     int cx = (x - L_pad - L_tw / 2) / (L_tw + L_gap);
     int cy = (y - L_top - L_th / 2) / (L_th + L_gap);
-    if (x < L_pad - L_gap / 2 || x > g_w - L_pad + L_gap / 2) return -1;
-    /* round towards zero is close enough: the guard above keeps us inside */
     if (cx < 0) cx = 0;
     if (cx >= COLS) cx = COLS - 1;
     if (cy < 0) cy = 0;
@@ -104,7 +112,7 @@ static int tile_index(int x, int y)
     return cy * COLS + cx;
 }
 
-/* 3x5 bitmap font: enough for tile labels. Rows bit-packed, bit 2 = left. */
+/* 3x5 bitmap font: tile captions. Rows bit-packed, bit 2 = left. */
 static const uint8_t FONT[][5] = {
     /* A */ {7, 5, 7, 5, 5}, /* B */ {6, 5, 6, 5, 6}, /* C */ {7, 4, 4, 4, 7},
     /* D */ {6, 5, 5, 5, 6}, /* E */ {7, 4, 6, 4, 7}, /* F */ {7, 4, 6, 4, 4},
@@ -160,7 +168,7 @@ static void load_labels(const char *path)
     FILE *f = fopen(path, "r");
     if (!f) return;
     char line[32];
-    while (g_nlabels < 16 && fgets(line, sizeof line, f)) {
+    while (g_nlabels < TILE_MAX && fgets(line, sizeof line, f)) {
         char *p = line;
         while (*p == ' ' || *p == '\t') p++;
         int n = 0;
@@ -198,14 +206,12 @@ static void paint(int t, int tx, int ty, int age, int focus, int hit)
 {
     vgrad(0, 0, g_w, g_h, rgb(0x10, 0x18, 0x22), rgb(0x05, 0x07, 0x0a));
 
-    /* status strip */
     rect(0, 0, g_w, L_hh, rgb(0x16, 0x22, 0x2e));
     rect(L_pad, L_hh / 2 - 3, g_w / 5, 6, rgb(0x7f, 0xd1, 0xff));
     for (int i = 0; i < 3; i++)
         rect(g_w - L_pad - (3 - i) * (10 + 2 * g_s), L_hh / 2 - 3,
              8 + 2 * g_s, 6, rgb(0x3d, 0x50, 0x60));
 
-    /* app grid */
     for (int i = 0; i < COLS * ROWS; i++) {
         int x, y;
         tile_rect(i, &x, &y);
@@ -227,7 +233,6 @@ static void paint(int t, int tx, int ty, int age, int focus, int hit)
                   y + L_th - 4 - 5 * sc, lab, sc, rgb(0xd8, 0xe6, 0xf0));
 
         if (i == focus) {
-            /* thick border: this is the app the container says is running */
             int b = 2 + g_s / 2;
             rect(x - b, y - b, L_tw + 2 * b, b, rgb(0x57, 0xe3, 0x9a));
             rect(x - b, y + L_th, L_tw + 2 * b, b, rgb(0x57, 0xe3, 0x9a));
@@ -238,14 +243,12 @@ static void paint(int t, int tx, int ty, int age, int focus, int hit)
             rect(x, y, L_tw, L_th, rgb(0xff, 0xd4, 0x7f));
     }
 
-    /* bottom dock + a progress bar that proves the frame is fresh */
     int dock = 30 + 6 * g_s;
     rect(0, g_h - dock, g_w, dock, rgb(0x0d, 0x13, 0x1a));
     int pw = (t * 5) % (g_w - 2 * L_pad);
     rect(L_pad, g_h - 14 - 3 * g_s, g_w - 2 * L_pad, 4 + 2 * g_s, rgb(0x1b, 0x28, 0x35));
     rect(L_pad, g_h - 14 - 3 * g_s, pw, 4 + 2 * g_s, rgb(0x57, 0xe3, 0x9a));
 
-    /* frame counter as a binary strip: a screenshot carries a number */
     for (int i = 0; i < 16; i++)
         rect(L_pad + i * (7 + 2 * g_s), g_h - dock + 8, 3 + g_s, 5,
              (t >> i) & 1 ? rgb(0x7f, 0xd1, 0xff) : rgb(0x20, 0x2c, 0x38));
@@ -257,6 +260,62 @@ static void paint(int t, int tx, int ty, int age, int focus, int hit)
     }
 }
 
+/* ------------------------------------------------------------- transport */
+
+static void sendf(const char *fmt, ...)
+{
+    if (g_ctl < 0) return;
+    char buf[128];
+    va_list ap;
+    va_start(ap, fmt);
+    int n = vsnprintf(buf, sizeof buf, fmt, ap);
+    va_end(ap);
+    if (n > 0) {
+        ssize_t off = 0;
+        while (off < n) {
+            ssize_t w = write(g_ctl, buf + off, (size_t)(n - off));
+            if (w <= 0) return;
+            off += w;
+        }
+    }
+}
+
+static int ctl_connect(const char *name)
+{
+    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
+    if (fd < 0) return -1;
+    struct sockaddr_un a;
+    memset(&a, 0, sizeof a);
+    a.sun_family = AF_UNIX;
+    a.sun_path[0] = 0;                       /* abstract namespace */
+    size_t n = strlen(name);
+    if (n > sizeof(a.sun_path) - 2) n = sizeof(a.sun_path) - 2;
+    memcpy(a.sun_path + 1, name, n);
+    socklen_t len = (socklen_t)(offsetof(struct sockaddr_un, sun_path) + 1 + n);
+    if (connect(fd, (struct sockaddr *)&a, len) != 0) {
+        fprintf(stderr, "screen: connect %s: %s\n", name, strerror(errno));
+        close(fd);
+        return -1;
+    }
+    return fd;
+}
+
+static int make_memfd(int bytes)
+{
+#ifdef __NR_memfd_create
+    int fd = (int)syscall(__NR_memfd_create, "sixiang-fb", 0);
+    if (fd < 0) return -1;
+    if (ftruncate(fd, bytes) != 0) {
+        close(fd);
+        return -1;
+    }
+    return fd;
+#else
+    (void)bytes;
+    return -1;
+#endif
+}
+
 static int env_int(const char *k, int def)
 {
     const char *v = getenv(k);
@@ -265,11 +324,35 @@ static int env_int(const char *k, int def)
     return n > 0 ? n : def;
 }
 
+/* Handles one line from the app. Returns when the line buffer is consumed. */
+static void handle_line(char *line, int *tx, int *ty, int *age, int *hit,
+                        int *focus, int *dirty)
+{
+    if (strncmp(line, "tap ", 4) == 0) {
+        int x = -1, y = -1, seq = 0;
+        if (sscanf(line + 4, "%d %d %d", &x, &y, &seq) == 3) {
+            *tx = x;
+            *ty = y;
+            *age = 0;
+            *hit = tile_index(x, y);
+            *focus = *hit;
+            *dirty = 1;
+            sendf("hit %d\n", *hit);
+        }
+    } else if (strncmp(line, "focus ", 6) == 0) {
+        *focus = atoi(line + 6);
+        *dirty = 1;
+    } else if (strncmp(line, "rel ", 4) == 0) {
+        int s = atoi(line + 4);
+        if (s >= 0 && s < NSLOT) g_busy[s] = 0;
+    }
+}
+
 int main(void)
 {
-    const char *path = getenv("SIXIANG_FB");
-    if (!path || !*path) {
-        fprintf(stderr, "screen: SIXIANG_FB not set\n");
+    const char *ctl = getenv("SIXIANG_CTL");
+    if (!ctl || !*ctl) {
+        fprintf(stderr, "screen: SIXIANG_CTL not set\n");
         return 2;
     }
     g_w = env_int("SIXIANG_W", 320);
@@ -287,61 +370,81 @@ int main(void)
     layout();
     load_labels(getenv("SIXIANG_APPS"));
 
-    size_t bytes = HDR + (size_t)g_w * g_h * 4;
-    int fd = open(path, O_RDWR, 0600);
-    if (fd < 0) {
-        fprintf(stderr, "screen: open %s: %s\n", path, strerror(errno));
-        return 3;
-    }
-    void *base = mmap(NULL, bytes, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-    if (base == MAP_FAILED) {
-        fprintf(stderr, "screen: mmap %zu: %s\n", bytes, strerror(errno));
-        return 4;
+    g_ctl = ctl_connect(ctl);
+    if (g_ctl < 0) return 3;
+
+    int bytes = g_w * g_h * 4;
+    size_t nbytes = (size_t)bytes;
+    sendf("hello %d %d %d %d\n", (int)getpid(), g_w, g_h, NSLOT);
+    for (int i = 0; i < NSLOT; i++) {
+        int fd = make_memfd(bytes);
+        if (fd < 0) {
+            fprintf(stderr, "screen: memfd_create: %s\n", strerror(errno));
+            return 4;
+        }
+        void *p = mmap(NULL, nbytes, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+        if (p == MAP_FAILED) {
+            fprintf(stderr, "screen: mmap: %s\n", strerror(errno));
+            return 4;
+        }
+        g_slot[i] = (uint32_t *)p;
+        g_busy[i] = 0;
+        sendf("buf %d %d\n", i, fd);
     }
 
-    g_seq = (uint32_t *)base;
-    g_fb = (uint32_t *)((char *)base + HDR);
-
-    fprintf(stderr, "screen: up %dx%d dpi=%d tiles=%dx%d labels=%d\n",
-            g_w, g_h, g_s * 100, L_tw, L_th, g_nlabels);
+    fprintf(stderr, "screen: up %dx%d dpi=%d tiles=%dx%d labels=%d slots=%d\n",
+            g_w, g_h, g_s * 100, L_tw, L_th, g_nlabels, NSLOT);
 
     struct timespec ts;
     ts.tv_sec = 0;
     ts.tv_nsec = 1000000000L / fps;
 
-    int last_touch = 0, tx = -1, ty = -1, age = -1;
-    int focus = -1, hit = -1, last_fseq = 0;
+    int tx = -1, ty = -1, age = -1, focus = -1, hit = -1;
+    char rx[256];
+    size_t rxlen = 0;
 
     for (int t = 0;; t++) {
-        /* focus is the host's call (it knows which applet it launched), so the
-         * host bumps focusSeq and this side follows it. */
-        int fseq = __atomic_load_n(&words()[6], __ATOMIC_ACQUIRE);
-        if (fseq != last_fseq) {
-            last_fseq = fseq;
-            focus = __atomic_load_n(&words()[4], __ATOMIC_ACQUIRE);
+        /* 1. drain control messages without blocking */
+        for (;;) {
+            struct pollfd pf = {g_ctl, POLLIN, 0};
+            if (poll(&pf, 1, 0) <= 0) break;
+            ssize_t n = read(g_ctl, rx + rxlen, sizeof(rx) - 1 - rxlen);
+            if (n <= 0) break;
+            rxlen += (size_t)n;
+            rx[rxlen] = 0;
+            char *nl;
+            while ((nl = strchr(rx, '\n')) != NULL) {
+                *nl = 0;
+                int dirty = 0;
+                handle_line(rx, &tx, &ty, &age, &hit, &focus, &dirty);
+                memmove(rx, nl + 1, rxlen - (size_t)(nl + 1 - rx) + 1);
+                rxlen -= (size_t)(nl + 1 - rx);
+            }
         }
 
-        uint32_t tseq = __atomic_load_n(&g_seq[3], __ATOMIC_ACQUIRE);
-        if ((int)tseq != last_touch) {
-            last_touch = (int)tseq;
-            tx = __atomic_load_n(&words()[1], __ATOMIC_ACQUIRE);
-            ty = __atomic_load_n(&words()[2], __ATOMIC_ACQUIRE);
-            age = 0;
-            /* the guest decides which tile was hit, and says so */
-            hit = tile_index(tx, ty);
-            focus = hit;
-            __atomic_store_n(&words()[5], hit, __ATOMIC_RELEASE);
-        } else if (age >= 0 && age < 64) {
-            age++;
-        }
+        if (age >= 0 && age < 64) age++;
 
-        __atomic_store_n(g_seq, (uint32_t)(2 * t + 1), __ATOMIC_RELEASE);
+        /* 2. pick the next free slot; if the app is behind, reuse the oldest */
+        int slot = -1;
+        for (int k = 0; k < NSLOT; k++) {
+            int cand = (g_cur + 1 + k) % NSLOT;
+            if (!g_busy[cand]) {
+                slot = cand;
+                break;
+            }
+        }
+        if (slot < 0) slot = (g_cur + 1) % NSLOT;
+
+        g_cur = slot;
+        g_fb = g_slot[slot];
         paint(t, tx, ty, age, focus, hit);
-        __atomic_store_n(g_seq, (uint32_t)(2 * t + 2), __ATOMIC_RELEASE);
+        __sync_synchronize();
+        g_busy[slot] = 1;
+        sendf("frame %d\n", slot);
 
         if ((t % 50) == 0)
-            fprintf(stderr, "screen: frame %d seq=%u touch=%d,%d hit=%d\n",
-                    t, 2 * t + 2, tx, ty, hit);
+            fprintf(stderr, "screen: frame %d slot=%d touch=%d,%d hit=%d\n",
+                    t, slot, tx, ty, hit);
         nanosleep(&ts, NULL);
     }
 }
