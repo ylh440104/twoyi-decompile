@@ -64,6 +64,40 @@ def rdump(img, src, dst):
     return rc == 0, err.strip()[:120]
 
 
+def rootfs_from_image(raw, dst, say, work):
+    """把 ext4 镜像展开到 dst，尽量保留符号链接。
+
+    优先 loop mount 到临时点再 rsync -a 拷出来：runner 有 sudo，
+    符号链接原样保留，system-as-root 的 /bin -> /system/bin、/system -> . 都不断。
+    失败退回 debugfs rdump（绝对路径符号链接会断，仅兜底）。
+    """
+    os.makedirs(dst, exist_ok=True)
+    for n in os.listdir(dst):
+        p = os.path.join(dst, n)
+        if os.path.isdir(p) and not os.path.islink(p):
+            shutil.rmtree(p, ignore_errors=True)
+        else:
+            os.remove(p)
+
+    mnt = os.path.join(work, 'mnt')
+    os.makedirs(mnt, exist_ok=True)
+    rc, _, err = sh(['sudo', 'mount', '-t', 'ext4', '-o', 'loop,ro', raw, mnt])
+    if rc == 0:
+        say('  loop mount OK -> %s' % mnt)
+        rc2, _, err2 = sh(['sudo', 'rsync', '-aHAX', mnt + '/', dst + '/'])
+        sh(['sudo', 'umount', mnt])
+        if rc2 == 0:
+            sh(['sudo', 'chown', '-R', '%d:%d' % (os.getuid(), os.getgid()), dst])
+            say('  rsync -aHAX OK (symlinks preserved)')
+            return True, 'mount'
+        say('  rsync failed: %s' % err2.strip()[:120])
+
+    say('  loop mount failed/rsync failed: %s' % err.strip()[:120])
+    say('  fallback to debugfs rdump (abs-path symlinks will BREAK)')
+    ok, e2 = rdump(raw, '/', dst)
+    return ok, 'rdump' if ok else e2
+
+
 def du_bytes(path):
     total = 0
     for r, _, fs in os.walk(path):
@@ -119,8 +153,16 @@ def main():
         sys_dest = os.path.join(out, 'system')
 
     # ── 2. 展开 system ──────────────────────────────
-    ok, err = rdump(raw, sys_prefix or '/', sys_dest)
-    say('rdump %s -> %s : %s' % (sys_prefix or '/', sys_dest, 'OK' if ok else 'FAIL ' + err))
+    ok, how = rootfs_from_image(raw, sys_dest, say, work)
+    say('extract via %s -> %s' % (how, sys_dest))
+
+    # loop mount + rsync 之后，sys_dest 就是镜像根的完整还原（符号链接完好）。
+    # 唯一例外是 rdump 兜底时绝对路径链接会断。
+    content = sys_dest
+    if os.path.exists(os.path.join(content, 'bin', 'init')):
+        say('content root = %s (found bin/init)' % content)
+    else:
+        say('WARN: %s/bin/init 不存在' % content)
 
     # ── 3. 展开其它分区（若有）─────────────────────
     for part in PARTITIONS:
@@ -139,7 +181,7 @@ def main():
             say('rdump %s -> %s : %s' % (found, d, 'OK' if ok else 'FAIL ' + err))
 
     # ── 4. 剔除 apex 原件（关键：避免白多 326 MB）──
-    apex_orig = os.path.join(sys_dest, 'apex')
+    apex_orig = os.path.join(content, 'apex')
     removed, freed = 0, 0
     if os.path.isdir(apex_orig):
         for n in sorted(os.listdir(apex_orig)):
@@ -170,7 +212,7 @@ def main():
         say('  stderr: ' + (e or '').strip()[:300])
 
     staged = os.path.join(apex_out, 'apex')
-    final_apex = os.path.join(sys_dest, 'apex')  # <out>/system/apex
+    final_apex = os.path.join(content, 'apex')  # system-as-root 后这里就是 /apex
     if os.path.isdir(staged):
         # 已存在的 system/apex 里只剩空壳（原件被删），可以整体替换
         if os.path.isdir(final_apex):
@@ -207,11 +249,8 @@ def main():
         allok = allok and okv
 
     say('')
-    for part in ('system',):
-        p = os.path.join(out, part)
-        if os.path.isdir(p):
-            say('%-12s %8.1f MiB' % (part, du_bytes(p) / 1048576.0))
-    say('TOTAL        %8.1f MiB' % (du_bytes(out) / 1048576.0))
+    say('system %8.1f MiB' % (du_bytes(content) / 1048576.0))
+    say('TOTAL  %8.1f MiB (不含 .work)' % ((du_bytes(content) + du_bytes(apex_out)) / 1048576.0))
 
     # ── 7. 造 first stage 需要的 ramdisk 层 ─────────
     # GSI 只有 system.img，没有 boot.img，也就没有 ramdisk。
@@ -223,15 +262,16 @@ def main():
     #   /apex -> 由 system-as-root 提供（system/apex）
     say('')
     say('=== 造 ramdisk 层 ===')
-    init_src = os.path.join(sys_dest, 'bin', 'init')
+    init_src = os.path.join(content, 'bin', 'init')
     if os.path.exists(init_src):
-        shutil.copy2(init_src, os.path.join(out, 'init'))
-        os.chmod(os.path.join(out, 'init'), 0o755)
-        say('  /init <- %s (%d bytes)' % (init_src, os.path.getsize(init_src)))
+        init_dst = os.path.join(content, 'init')
+        shutil.copy2(init_src, init_dst)
+        os.chmod(init_dst, 0o755)
+        say('  /init <- bin/init (%d bytes)' % os.path.getsize(init_dst))
     else:
-        say('  WARN: %s 不存在' % init_src)
+        say('  WARN: bin/init 不存在，init 无法启动')
 
-    fsd = os.path.join(out, 'first_stage_ramdisk')
+    fsd = os.path.join(content, 'first_stage_ramdisk')
     os.makedirs(fsd, exist_ok=True)
     # 空 fstab：MountPartitions() 遍历到空表就什么都不做，不会尝试挂载
     for name in ('fstab.sixiang', 'fstab.android', 'fstab.qemu'):

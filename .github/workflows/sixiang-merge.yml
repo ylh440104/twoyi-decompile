@@ -29,7 +29,7 @@ jobs:
       - name: Install tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq android-sdk-libsparse-utils e2fsprogs unzip zstd
+          sudo apt-get install -y -qq android-sdk-libsparse-utils e2fsprogs unzip zstd rsync
 
       - name: Cache GSI
         id: gsi
@@ -71,13 +71,14 @@ jobs:
           chmod +x qemu-aarch64-static
           file qemu-aarch64-static | head -1
 
-          # 关键：chroot 进去，让 /init 看到的绝对路径都落在 out/ 里
-          sudo cp qemu-aarch64-static out/qemu-aarch64-static
-          ls -l out/init out/qemu-aarch64-static out/system/bin/init 2>&1
+          # 关键：chroot 进去，让 /init 看到的绝对路径都落在 rootfs 里
+          # rootfs 根 = out/system（镜像根，含 bin/ system/ apex/ init）
+          sudo cp qemu-aarch64-static out/system/qemu-aarch64-static
+          ls -l out/system/init out/system/qemu-aarch64-static out/system/bin/init 2>&1
 
           echo '==================== run init ===================='
           # 40 秒超时；init 大概率中途失败，但要看它走到哪
-          sudo timeout -s KILL 40 chroot out /qemu-aarch64-static /init > init-run.log 2>&1 || true
+          sudo timeout -s KILL 40 chroot out/system /qemu-aarch64-static /init > init-run.log 2>&1 || true
           wc -l init-run.log
           head -60 init-run.log
           echo '==================== end ========================'
@@ -89,7 +90,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends strace || true
           # 记录 init 前 200 行 syscall，看它先碰什么
           sudo timeout -s KILL 30 strace -f -e trace=openat,mount,statfs,execve \
-            -o /tmp/init.strace chroot out /qemu-aarch64-static /init 2>&1 | head -20 || true
+            -o /tmp/init.strace chroot out/system /qemu-aarch64-static /init 2>&1 | head -20 || true
           echo '--- strace 关键行 ---'
           grep -E 'apex|fstab|first_stage|mount\(' /tmp/init.strace 2>/dev/null | head -40 || echo '(no trace)'
           echo '--- 前 30 行 syscall ---'
@@ -127,7 +128,7 @@ jobs:
             ls -lh rootfs.tar.zst 2>/dev/null || echo '(未生成)'
             echo
             echo '=== init 产物 ==='
-            ls -l out/init out/first_stage_ramdisk/ 2>/dev/null
+            ls -l out/system/init out/system/first_stage_ramdisk/ 2>/dev/null
             echo
             echo '=== system/apex 目录数 ==='
             ls -1d out/system/apex/*/ 2>/dev/null | wc -l
