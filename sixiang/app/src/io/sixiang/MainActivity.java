@@ -435,20 +435,27 @@ public class MainActivity extends Activity {
                             continue;
                         }
                         if (ib == null) {
-                            /* FileChannel maps are BIG_ENDIAN by default and the
-                             * guest writes native ints, so the sequence word
-                             * read back "0x36000000" for 54 until this was set. */
+                            /* Two traps here, both from compiling java.* against
+                             * the JDK 17 platform instead of android.jar:
+                             *   - MappedByteBuffer.duplicate() is a Java 9
+                             *     covariant override that Android does not have,
+                             *     so call it through a ByteBuffer reference;
+                             *   - Buffer.position(int) is likewise covariant in
+                             *     Java 9+, so call it through Buffer.
+                             * Getting this wrong is a NoSuchMethodError at
+                             * runtime, not a compile error. */
                             fbMap.order(ByteOrder.nativeOrder());
-                            ByteBuffer d = fbMap.duplicate();
+                            ByteBuffer base = fbMap;
+                            ByteBuffer d = base.duplicate();
                             d.order(ByteOrder.nativeOrder());
-                            d.position(FB_HDR);
+                            ((java.nio.Buffer) d).position(FB_HDR);
                             ib = d.asIntBuffer();
                             say("  pump: 映射 " + ib.capacity() + " ints, px="
                                     + (screen == null ? -1 : screen.px.length));
                         }
                         int seq = fbMap.getInt(0);
                         if (seq != last && (seq & 1) == 0) {
-                            ib.position(0);
+                            ((java.nio.Buffer) ib).position(0);
                             ib.get(screen.px);
                             if (fbMap.getInt(0) == seq) {
                                 last = seq;
