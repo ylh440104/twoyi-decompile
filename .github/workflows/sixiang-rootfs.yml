@@ -1,0 +1,160 @@
+name: SiXiang rootfs (repack, no AOSP build)
+
+# 这里不做 AOSP 编译 —— 那需要 >=250 GB 磁盘 / >=32 GB 内存 / 6 小时以上，
+# Actions 免费 runner 物理上做不到（见 sixiang/docs/M1-probe-results.md）。
+#
+# 职责分工：
+#   编译   -> 云服务器跑 sixiang/rootfs/build_aosp16.sh（16 vCPU/64 GB/500 GB，3-5h）
+#   重打包 -> 本 workflow（把 .img 换成 twoyi 式 rootfs.tar.zst 并发 release）
+#
+# 两种输入：
+#   A) images  = 一个 zip，内含 system.img / vendor.img / ... / ramdisk.img
+#   B) rootfs  = 已经打好的 rootfs.tar.zst，直接发 release
+
+on:
+  workflow_dispatch:
+    inputs:
+      images_url:
+        description: 'A) zip 内含各 *.img（可留空）'
+        required: false
+        default: ''
+      rootfs_url:
+        description: 'B) 已打好的 rootfs.tar.zst（可留空）'
+        required: false
+        default: ''
+      tag:
+        description: 'Release tag'
+        required: false
+        default: 'rootfs-android16'
+
+permissions:
+  contents: write
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq e2fsprogs erofs-utils lz4 cpio zstd \
+            android-sdk-libsparse-utils zlib1g-dev
+
+      - name: Build a synthetic ext4 "system.img"
+        run: |
+          set -x
+          mkdir -p /tmp/aosp /tmp/payload/app
+          # 8 MB ext4，塞少量文件，模拟 system 分区
+          dd if=/dev/zero of=/tmp/aosp/system.img bs=1M count=8 status=none
+          mkfs.ext4 -q -F /tmp/aosp/system.img
+          echo 'ro.build.fingerprint=Android/sixiang_test/sixiang_test:16/TEST/eng:userdebug/test-keys' > /tmp/payload/build.prop
+          echo 'hello-sixiang' > /tmp/payload/app/hello.txt
+          printf '\x7fELF' > /tmp/payload/app/fake.bin
+          debugfs -w -R "mkdir /system" /tmp/aosp/system.img
+          debugfs -w -R "write /tmp/payload/build.prop /system/build.prop" /tmp/aosp/system.img
+          debugfs -w -R "mkdir /system/app" /tmp/aosp/system.img
+          debugfs -w -R "write /tmp/payload/app/hello.txt /system/app/hello.txt" /tmp/aosp/system.img
+          debugfs -w -R "write /tmp/payload/app/fake.bin /system/app/fake.apk" /tmp/aosp/system.img
+          # 伪造一个 ramdisk：纯 cpio（gzip 压缩）
+          mkdir -p /tmp/rd/sbin
+          echo init-stub > /tmp/rd/init
+          echo prop > /tmp/rd/default.prop
+          echo ueventd > /tmp/rd/sbin/ueventd
+          ( cd /tmp/rd && find . | cpio -o -H newc --quiet ) | gzip -c > /tmp/aosp/ramdisk.img
+          ls -l /tmp/aosp
+
+      - name: Run pack_rootfs.py
+        run: |
+          set -x
+          python3 sixiang/rootfs/pack_rootfs.py /tmp/aosp /tmp/sxout
+          echo '--- report ---'
+          cat /tmp/sxout/pack_report.txt
+          ls -l /tmp/sxout
+
+      - name: Verify tarball contents
+        run: |
+          set -x
+          zstd -dc /tmp/sxout/rootfs.tar.zst | tar -t | sort | head -30
+          echo '--- assertions ---'
+          zstd -dc /tmp/sxout/rootfs.tar.zst | tar -t > /tmp/list.txt
+          grep -qx 'rootfs/init' /tmp/list.txt || { echo 'MISSING init'; exit 1; }
+          grep -qx 'rootfs/default.prop' /tmp/list.txt || { echo 'MISSING default.prop'; exit 1; }
+          grep -qx 'rootfs/system/build.prop' /tmp/list.txt || { echo 'MISSING system/build.prop'; exit 1; }
+          grep -qx 'rootfs/system/app/hello.txt' /tmp/list.txt || { echo 'MISSING hello.txt'; exit 1; }
+          echo '--- content check ---'
+          zstd -dc /tmp/sxout/rootfs.tar.zst | tar -xO rootfs/system/app/hello.txt
+          echo '--- version file ---'
+          cat /tmp/sxout/rootfs.version
+          grep -q 'sixiang_test' /tmp/sxout/rootfs.version || { echo 'BAD rootfs.version'; exit 1; }
+          echo 'SELFTEST OK'
+
+  pack:
+    if: github.event.inputs.images_url != '' || github.event.inputs.rootfs_url != ''
+    needs: selftest
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq e2fsprogs erofs-utils lz4 cpio zstd \
+            android-sdk-libsparse-utils zlib1g-dev
+
+      - name: Fetch input
+        run: |
+          set -x
+          mkdir -p in out
+          if [ -n "${{ github.event.inputs.rootfs_url }}" ]; then
+            curl -fL --retry 3 -o in/rootfs.tar.zst "${{ github.event.inputs.rootfs_url }}"
+            ls -l in/
+            cp in/rootfs.tar.zst out/rootfs.tar.zst
+            echo "MODE=direct" >> "$GITHUB_ENV"
+          else
+            curl -fL --retry 3 -o in/images.zip "${{ github.event.inputs.images_url }}"
+            ls -l in/
+            ( cd in && unzip -o images.zip >/dev/null )
+            find in -maxdepth 2 -name '*.img' -printf '%p %s\n'
+            echo "MODE=repack" >> "$GITHUB_ENV"
+          fi
+
+      - name: Repack
+        if: env.MODE == 'repack'
+        run: |
+          set -x
+          SRC=$(dirname "$(find in -maxdepth 3 -name system.img | head -1)")
+          echo "SRC=$SRC"
+          test -n "$SRC" || { echo 'no system.img in zip'; exit 1; }
+          python3 sixiang/rootfs/pack_rootfs.py "$SRC" out
+          cat out/pack_report.txt
+
+      - name: Inspect output
+        run: |
+          set -x
+          ls -l out/
+          echo '--- entries ---'
+          zstd -dc out/rootfs.tar.zst | tar -t 2>/dev/null | wc -l
+          echo '--- top dirs ---'
+          zstd -dc out/rootfs.tar.zst | tar -t 2>/dev/null | awk -F/ 'NF>1{print $1"/"$2}' | sort -u | head -20
+          echo '--- version ---'
+          cat out/rootfs.version 2>/dev/null || true
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag }}
+          name: SiXiang rootfs ${{ github.event.inputs.tag }}
+          body: |
+            rootfs for SiXiang, repacked from AOSP images.
+
+            - entries: see job log
+            - built by `.github/workflows/sixiang-rootfs.yml`
+          files: |
+            out/rootfs.tar.zst
+            out/rootfs.version
+            out/pack_report.txt
+          fail_on_unmatched_files: false

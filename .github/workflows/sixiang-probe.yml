@@ -11,6 +11,9 @@ name: SiXiang probe (version + runner capacity)
 
 on:
   workflow_dispatch:
+  schedule:
+    # 每天 03:17 UTC 查一次 AOSP 是否已把 Android 17（cp1a）推到主干
+    - cron: '17 3 * * *'
   push:
     paths:
       - '.github/workflows/sixiang-probe.yml'
@@ -121,6 +124,34 @@ jobs:
           echo "=== release-ish branches ==="
           git ls-remote --heads https://android.googlesource.com/platform/manifest 2>/dev/null \
             | grep -oE 'refs/heads/[a-z-]*latest[a-z-]*' | sort -u | tail -10
+
+      - name: Check whether AOSP main carries Android 17 (cp1a)
+        continue-on-error: true
+        run: |
+          set -x
+          curl -fsS --max-time 30 'https://android.googlesource.com/platform/build/release/+/refs/heads/main/release_configs/?format=JSON' \
+            | tail -n +2 > /tmp/rc.json
+          tr ',' '\n' < /tmp/rc.json | grep -oE '[a-z]{2}[0-9][a-z]\.textproto' | sort -u
+          if grep -q 'cp1a' /tmp/rc.json; then
+            echo "FOUND cp1a -> Android 17 present in AOSP main"
+            {
+              echo "# AOSP 17 (cp1a) detected"
+              echo ""
+              echo "detected at: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+              echo ""
+              echo '```'
+              tr ',' '\n' < /tmp/rc.json | grep -oE '[a-z]{2}[0-9][a-z]\.textproto' | sort -u
+              echo '```'
+            } > sixiang/docs/AOSP17-DETECTED.md
+            git config user.name "sixiang-bot"
+            git config user.email "sixiang@users.noreply.github.com"
+            git add -f sixiang/docs/AOSP17-DETECTED.md
+            git commit -m "sixiang: AOSP 17 (cp1a) detected in main" || true
+            git pull --rebase -q origin main || true
+            git push || true
+          else
+            echo "cp1a absent -> AOSP main still Android 16 (bp1a)"
+          fi
 
       - name: Summary
         run: |
