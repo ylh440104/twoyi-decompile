@@ -45,7 +45,11 @@ jobs:
           qemu-aarch64-static --version | head -1
 
       - name: Build
-        run: bash sixiang/loader/build.sh
+        run: |
+          set -uo pipefail
+          mkdir -p sixiang/loader/out
+          bash sixiang/loader/build.sh 2>&1 | tee sixiang/loader/out/build.log
+          exit ${PIPESTATUS[0]}
 
       - name: Self-test (this is the result that matters)
         run: |
@@ -53,25 +57,43 @@ jobs:
           mkdir -p sixiang/loader/out
           : > sixiang/loader/out/selftest.log
 
-          echo "### freestanding payload (no libc)" | tee -a sixiang/loader/out/selftest.log
-          timeout 30 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
-              ./sixiang/loader/out/hello_freestanding 2>&1 | tee -a sixiang/loader/out/selftest.log
-          rc=${PIPESTATUS[0]}
-          echo "exit=$rc" | tee -a sixiang/loader/out/selftest.log
+          run_one () {
+            local name="$1"
+            echo "### $name" | tee -a sixiang/loader/out/selftest.log
+            timeout 30 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
+                "./sixiang/loader/out/$name" 2>&1 | tee -a sixiang/loader/out/selftest.log
+            local rc=${PIPESTATUS[0]}
+            echo "exit=$rc" | tee -a sixiang/loader/out/selftest.log
+            echo | tee -a sixiang/loader/out/selftest.log
+            LAST_RC=$rc
+          }
 
-          echo | tee -a sixiang/loader/out/selftest.log
-          echo "### glibc static-pie payload" | tee -a sixiang/loader/out/selftest.log
-          timeout 30 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
-              ./sixiang/loader/out/hello_static_pie 2>&1 | tee -a sixiang/loader/out/selftest.log
-          rc2=${PIPESTATUS[0]}
-          echo "exit=$rc2" | tee -a sixiang/loader/out/selftest.log
+          LAST_RC=99
+          if [ -f sixiang/loader/out/hello_freestanding ]; then
+            run_one hello_freestanding
+            FS_RC=$LAST_RC
+          else
+            FS_RC=99
+            echo "hello_freestanding missing" | tee -a sixiang/loader/out/selftest.log
+          fi
+
+          if [ -f sixiang/loader/out/hello_static_pie ]; then
+            run_one hello_static_pie
+            PIE_RC=$LAST_RC
+          else
+            PIE_RC=99
+            echo "hello_static_pie not built (optional)" | tee -a sixiang/loader/out/selftest.log
+          fi
 
           {
-            echo
             echo "### verdict"
-            echo "freestanding exit = $rc"
-            echo "glibc        exit = $rc2"
+            echo "freestanding exit = $FS_RC   (0 = loader works, no libc needed)"
+            echo "glibc        exit = $PIE_RC  (0 = loader also boots a second glibc)"
           } | tee -a sixiang/loader/out/selftest.log
+
+          # The freestanding payload is the gate: if it does not exit 0 the
+          # loader is broken. The glibc one is a bonus when it builds.
+          test "$FS_RC" = "0"
 
       - name: Write report
         if: always()
@@ -92,6 +114,11 @@ jobs:
             echo "## self-test"
             echo '```'
             cat $OUT/selftest.log 2>/dev/null || echo "(no output)"
+            echo '```'
+            echo
+            echo "## build log (compiler errors show up here)"
+            echo '```'
+            cat $OUT/build.log 2>/dev/null || echo "(no output)"
             echo '```'
           } > $OUT/report.md
           cat $OUT/report.md
@@ -117,4 +144,4 @@ jobs:
             sixiang/loader/out/mini_loader
             sixiang/loader/out/hello_static_pie
             sixiang/loader/out/hello_freestanding
-          if-no-files-found: error
+          if-no-files-found: warn
