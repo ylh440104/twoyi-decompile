@@ -81,15 +81,17 @@ jobs:
       - name: Package for the device
         run: |
           OUT=sixiang/guest/out
-          cp sixiang/guest/run-on-device.sh "$OUT/run-on-device.sh"
-          chmod +x "$OUT/run-on-device.sh" "$OUT/mini_loader"
+          test -d "$OUT/dist" || { echo "dist missing"; exit 1; }
           rm -f /tmp/sixiang-guest.zip
-          (cd "$OUT" && zip -qr /tmp/sixiang-guest.zip .)
+          (cd "$OUT/dist" && zip -qr /tmp/sixiang-guest.zip .)
           ls -lh /tmp/sixiang-guest.zip
-          echo "contents:"; unzip -l /tmp/sixiang-guest.zip | head -20
+          mkdir -p sixiang/guest/dist
+          cp -f /tmp/sixiang-guest.zip sixiang/guest/dist/sixiang-guest.zip
+          unzip -l /tmp/sixiang-guest.zip | head -15
+          rm -rf "$OUT/dist"   # do not commit the unpacked copy as well
 
-      - name: Publish release asset (downloadable without a token)
-        if: success()
+      - name: Publish release asset (optional, public download)
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -98,10 +100,7 @@ jobs:
           gh release create "$TAG" /tmp/sixiang-guest.zip \
             --repo "$GITHUB_REPOSITORY" \
             --title "SiXiang guest bundle ${TAG}" \
-            --notes "Android 17 (bionic) linker64 + libc + toybox, plus mini_loader.
-Unzip on the device and run ./run-on-device.sh from a shell that can load ELF
-(proot/Termux). No root, no execve, no namespaces." \
-            || echo "release skipped"
+            --notes "Android 17 bionic linker64 + libc + toybox + mini_loader. Unzip on the device and run ./run-on-device.sh from a shell that can load ELF (proot/Termux)."
 
       - name: Report
         if: always()
@@ -139,6 +138,7 @@ Unzip on the device and run ./run-on-device.sh from a shell that can load ELF
           git config user.email "ci@sixiang.invalid"
           mkdir -p sixiang/guest/out
           git add -f sixiang/guest/out 2>/dev/null || true
+          git add -f sixiang/guest/dist 2>/dev/null || true
           git add -f sixiang/docs 2>/dev/null || true
           git commit -q -m "guest: run report ($GITHUB_SHA)" || echo "nothing to commit"
           # The loader workflow may push at the same moment; retry instead of

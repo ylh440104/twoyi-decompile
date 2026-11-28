@@ -101,7 +101,31 @@ python3 sixiang/guest/resolve_libs.py \
     > "$OUT/libresolve.txt" 2>&1 || true
 sed 's/^/  /' "$OUT/libresolve.txt" | head -20
 
+# Device bundle: only the closure, not the whole tree. A few MB instead of
+# hundreds, which means it can live in the repo and be downloaded without a
+# token -- the user tests on the phone.
+echo
+echo "== device bundle (closure only) =="
+DIST="$OUT/dist"
+rm -rf "$DIST"
+mkdir -p "$DIST/system/bin" "$DIST/system/lib64"
+python3 sixiang/guest/resolve_libs.py \
+    --out "$DIST/system/lib64" \
+    --program "$OUT/system/bin/toybox" \
+    /mnt/apex/lib64 /mnt/gsi/system/lib64 /mnt/apex/lib64/bionic \
+    > "$DIST/libresolve.txt" 2>&1 || true
+tail -3 "$DIST/libresolve.txt" | sed 's/^/  /'
+
+cp -f "$OUT/system/bin/linker64" "$DIST/system/bin/linker64"
+cp -f "$OUT/system/bin/toybox"   "$DIST/system/bin/toybox"
+cp -f sixiang/loader/out/mini_loader "$DIST/mini_loader" 2>/dev/null || true
+cp -f sixiang/guest/run-on-device.sh "$DIST/run-on-device.sh"
+chmod +x "$DIST/mini_loader" "$DIST/run-on-device.sh" 2>/dev/null || true
+
 sudo umount /mnt/apex 2>/dev/null
+
+echo "  dist size: $(du -sh "$DIST" | cut -f1)"
+du -sh "$DIST"/system/lib64 | sed 's/^/  libs: /'
 
 echo "  libs in bundle: $(find "$OUT/system/lib64" -maxdepth 1 -type f | wc -l)"
 ls -l "$OUT/system/lib64/libc.so" 2>/dev/null | head -1
