@@ -105,7 +105,12 @@ jobs:
         run: |
           git config user.name  "sixiang-ci"
           git config user.email "ci@sixiang.invalid"
-          git add sixiang/guest/out 2>/dev/null || true
+          mkdir -p sixiang/guest/out
+          git add -f sixiang/guest/out 2>/dev/null || true
           git commit -q -m "guest: run report ($GITHUB_SHA)" || echo "nothing to commit"
-          git pull --rebase -q origin main || true
-          git push || echo "push skipped"
+          # The loader workflow may push at the same moment; retry instead of
+          # silently dropping the report on a non-fast-forward.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin main && git push && { echo PUSHED; break; }
+            echo "retry $i"; sleep 6
+          done
