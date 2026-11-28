@@ -4,6 +4,10 @@ name: SiXiang probe (version + runner capacity)
 #   1. android-latest-release 实际指向哪个 Android 版本（有没有 16/17）
 #   2. 这个 runner 的 CPU / 内存 / 磁盘到底够不够编 AOSP
 #   3. ci.android.com 的预编译产物是否可达（Actions 全量编译不可行时的替代路）
+#
+# 注意：本文件里不允许出现 heredoc。上一版因为 `run: |` 块里嵌
+# python3 - <<'PY' 且代码顶格，直接触发 "Invalid workflow file ... line 74"。
+# 所以全部改成纯 shell 管道；不需要的步骤一律 `continue-on-error`。
 
 on:
   workflow_dispatch:
@@ -17,7 +21,7 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -28,26 +32,24 @@ jobs:
           grep -m1 'model name' /proc/cpuinfo || true
           free -g
           df -h /
-          df -h /mnt 2>/dev/null || true
-          echo "--- AOSP 估算需求：磁盘 >=250G，4 核约 20-40h ---"
+          echo "--- AOSP 估算需求: 磁盘 >=250G, 4 核约 20-40h ---"
 
-      - name: Android SDK present?
+      - name: Android SDK present
+        continue-on-error: true
         run: |
           set -x
-          echo "ANDROID_HOME=$ANDROID_HOME ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
-          for d in "$ANDROID_HOME" /usr/local/lib/android/sdk; do
-            [ -d "$d" ] && echo "SDK: $d" && ls "$d"
-          done
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          ls /usr/local/lib/android/sdk 2>/dev/null || true
           ls /usr/local/lib/android/sdk/build-tools/ 2>/dev/null || true
           ls /usr/local/lib/android/sdk/platforms/ 2>/dev/null || true
           which sdkmanager apksigner zipalign 2>/dev/null || true
 
-      - name: ci.android.com reachable?
+      - name: ci.android.com reachable
+        continue-on-error: true
         run: |
           set -x
-          for u in https://ci.android.com/ \
-                   https://ci.android.com/builds/branches/aosp-main/status \
-                   https://androidbuildinternal.googleapis.com/; do
+          for u in https://ci.android.com/ https://ci.android.com/builds/branches/aosp-main/status; do
             code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 "$u" || echo ERR)
             echo "$code  $u"
           done
@@ -55,66 +57,77 @@ jobs:
       - name: repo init android-latest-release
         run: |
           set -x
-          mkdir -p /tmp/aosp && cd /tmp/aosp
-          curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo > /tmp/repo
+          git config --global user.name  "sixiang-probe"
+          git config --global user.email "sixiang@users.noreply.github.com"
+          git config --global color.ui false
+          git config --global http.postBuffer 524288000
+          mkdir -p /tmp/aosp
+          cd /tmp/aosp
+          curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo -o /tmp/repo
           chmod +x /tmp/repo
-          /tmp/repo init -u https://android.googlesource.com/platform/manifest \
-            -b android-latest-release --depth=1 --no-repo-verify 2>&1 | tail -20
-          echo "=== manifests ==="
+          /tmp/repo --version
+          /tmp/repo init -u https://android.googlesource.com/platform/manifest -b android-latest-release --depth=1 --no-repo-verify 2>&1 | tail -25
+          echo "=== manifests dir ==="
           ls -l .repo/manifests/ | head
-          echo "=== superproject / build revision ==="
-          grep -E 'superproject' -A3 .repo/manifests/default.xml | head -10 || true
-          grep -E 'name="platform/build"' .repo/manifests/default.xml | head -3 || true
+          echo "=== default.xml size ==="
+          wc -c .repo/manifests/default.xml
 
-      - name: Resolve actual Android version
+      - name: Extract platform/build revision
+        id: rev
         run: |
           set -x
           cd /tmp/aosp
-          REV=$(python3 - <<'PY'
-import re
-d = open('.repo/manifests/default.xml', encoding='utf-8', errors='replace').read()
-m = re.search(r'<project[^>]*name="platform/build"[^>]*>', d)
-if not m:
-    print('')
-else:
-    tag = m.group(0)
-    r = re.search(r'revision="([^"]+)"', tag)
-    print(r.group(1) if r else '')
-PY
-)
-          echo "build revision = [$REV]"
-          [ -z "$REV" ] && REV=refs/heads/aosp-android-latest-release
-          # clone platform/build at that revision (depth 1)
-          git clone --depth 1 -b "$REV" https://android.googlesource.com/platform/build /tmp/build 2>&1 | tail -5 \
-            || git clone --depth 1 https://android.googlesource.com/platform/build /tmp/build 2>&1 | tail -5
-          cd /tmp/build
-          git log --oneline -1
-          echo "=== version_defaults.mk ==="
-          grep -E 'PLATFORM_VERSION|PLATFORM_SDK_VERSION|PLATFORM_SECURITY_PATCH' \
-            make/core/version_defaults.mk 2>/dev/null | head -12 || echo "(no version_defaults.mk)"
-          echo "=== release config (14+) ==="
-          ls release/ 2>/dev/null | head
-          for f in release/release_config_map.textproto release/build_flags.bzl; do
-            [ -f "$f" ] && echo "--- $f ---" && head -40 "$f"
-          done
-          echo "=== any APEX / 16-17 markers ==="
-          grep -rl 'PLATFORM_SDK_VERSION.*3[5-9]' --include='*.mk' . 2>/dev/null | head -5 || true
+          REV=$(grep -oE '<project[^>]*name="platform/build"[^>]*>' .repo/manifests/default.xml \
+                | head -1 \
+                | grep -oE 'revision="[^"]+"' \
+                | cut -d'"' -f2)
+          echo "raw revision = [$REV]"
+          REV=${REV#refs/heads/}
+          REV=${REV#refs/tags/}
+          if [ -z "$REV" ]; then REV="aosp-android-latest-release"; fi
+          echo "usable = [$REV]"
+          echo "rev=$REV" >> "$GITHUB_OUTPUT"
+          echo "=== superproject line ==="
+          grep -oE '<superproject[^>]*>' .repo/manifests/default.xml | head -1 || true
 
-      - name: Latest branch heads
+      - name: Read version from platform/build
+        continue-on-error: true
         run: |
           set -x
-          echo "=== newest android-1x tags on platform/manifest ==="
-          git ls-remote --tags https://android.googlesource.com/platform/manifest \
-            | grep -oE 'android-1[0-9]+\.[0-9]+\.[0-9]+_r[0-9]+' | sort -u -V | tail -15
-          echo "=== aosp-* release branches ==="
-          git ls-remote --heads https://android.googlesource.com/platform/manifest \
-            | grep -oE 'refs/heads/(aosp-)?android-?1[0-9][^ ]*' | sort -u | tail -15
+          REV="${{ steps.rev.outputs.rev }}"
+          rm -rf /tmp/build
+          git clone --depth 1 -b "$REV" https://android.googlesource.com/platform/build /tmp/build 2>&1 | tail -6 \
+            || git clone --depth 1 https://android.googlesource.com/platform/build /tmp/build 2>&1 | tail -6
+          cd /tmp/build || exit 1
+          echo "=== head ==="
+          git log --oneline -1
+          echo "=== PLATFORM_* in version_defaults.mk ==="
+          grep -E 'PLATFORM_VERSION|PLATFORM_SDK_VERSION|PLATFORM_SECURITY_PATCH' \
+            make/core/version_defaults.mk 2>/dev/null | head -12 || echo "(absent)"
+          echo "=== release/ dir ==="
+          ls release/ 2>/dev/null | head -20
+          echo "=== release_config_map.textproto (head) ==="
+          sed -n '1,40p' release/release_config_map.textproto 2>/dev/null || echo "(absent)"
+          echo "=== any 3x SDK marker ==="
+          grep -rE 'PLATFORM_SDK_VERSION[^0-9]*3[5-9]' --include='*.mk' . 2>/dev/null | head -5 || true
+
+      - name: Manifest tags and heads
+        continue-on-error: true
+        run: |
+          set -x
+          echo "=== newest android-1x release tags ==="
+          git ls-remote --tags https://android.googlesource.com/platform/manifest 2>/dev/null \
+            | grep -oE 'android-1[0-9]+\.[0-9]+\.[0-9]+_r[0-9]+' | sort -u -V | tail -12
+          echo "=== release-ish branches ==="
+          git ls-remote --heads https://android.googlesource.com/platform/manifest 2>/dev/null \
+            | grep -oE 'refs/heads/[a-z-]*latest[a-z-]*' | sort -u | tail -10
 
       - name: Summary
         run: |
           {
             echo "### SiXiang probe"
-            echo "- runner: $(nproc) vCPU, $(free -g | awk '/^Mem:/{print $2}') GiB RAM, $(df -h / | awk 'NR==2{print $4}') free on /"
-            echo "- android-latest-release -> build revision resolved above"
-            echo "- see step logs for PLATFORM_VERSION / PLATFORM_SDK_VERSION"
+            echo ""
+            echo "- runner: $(nproc) vCPU / $(free -g | awk '/^Mem:/{print $2}') GiB / $(df -h / | awk 'NR==2{print $4}') free"
+            echo "- build revision: \`${{ steps.rev.outputs.rev }}\`"
+            echo "- 版本号与 SDK 号见上一步日志；若 clone 失败则为 continue-on-error"
           } >> "$GITHUB_STEP_SUMMARY"
