@@ -616,6 +616,15 @@ public class MainActivity extends Activity {
                 int slot = Integer.parseInt(line.substring(6).trim());
                 blit(slot);
                 send("rel " + slot);
+            } else if (line.startsWith("req ")) {
+                /* R8 relay: the guest asks, this process performs the lookup */
+                final String name = line.substring(4).trim();
+                if (!BinderBridge.load()) {
+                    say("relay: JNI 桥不可用，无法替 guest 查询 " + name);
+                } else {
+                    boolean ok = BinderBridge.canGetService(name);
+                    say("relay: getService(\"" + name + "\") -> " + (ok ? "有句柄" : "null"));
+                }
             } else if (line.startsWith("hit ")) {
                 int idx = Integer.parseInt(line.substring(4).trim());
                 onHit(idx);

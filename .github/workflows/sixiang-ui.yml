@@ -75,6 +75,7 @@ jobs:
             NDK=$(ls -d "$ANDROID_SDK"/ndk/* | sort -V | tail -1)
           fi
           echo "NDK=$NDK"
+          echo "SIXIANG_NDK_BIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin" >> "$GITHUB_ENV"
           CC=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android26-clang
           LOG=sixiang/loader/out/x86_64-build.log
           set +e

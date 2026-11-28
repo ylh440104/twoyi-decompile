@@ -76,6 +76,7 @@ jobs:
             NDK=$(ls -d "$ANDROID_SDK"/ndk/* | sort -V | tail -1)
           fi
           echo "ANDROID_NDK=$NDK" >> "$GITHUB_ENV"
+          echo "SIXIANG_NDK_BIN=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin" >> "$GITHUB_ENV"
           ls "$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin" | head -5
 
       - name: Build the loader against bionic (aarch64, static)

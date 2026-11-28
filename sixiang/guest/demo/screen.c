@@ -531,6 +531,8 @@ static void handle_line(char *line, int *tx, int *ty, int *age, int *hit,
             g_binder_fd = g_pending_fd;
             g_pending_fd = -1;
             if (rc == 0) binder_probe_txn(g_binder_fd);
+            /* and ask the app to do the same lookup from its own context */
+            sendf("req activity\n");
         }
     } else if (strncmp(line, "fbuf ", 5) == 0) {
         int s = atoi(line + 5);

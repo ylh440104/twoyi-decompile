@@ -101,6 +101,25 @@ if [ "${SIXIANG_ABIS:-arm64}" = "all" ]; then
 fi
 ls -l "$WORK/stage/lib/arm64-v8a" "$WORK/stage/lib/x86_64" "$WORK/stage/assets" 2>/dev/null
 
+# The binder relay (R8). Needs the NDK's libbinder_ndk, which is an ordinary
+# public library for apps from API 29.
+if [ -n "${SIXIANG_NDK_BIN:-}" ] && [ -f sixiang/jni/binder_bridge.c ]; then
+    for abi in arm64-v8a x86_64; do
+        [ -d "$WORK/stage/lib/$abi" ] || continue
+        case "$abi" in
+            arm64-v8a) cc="$SIXIANG_NDK_BIN/aarch64-linux-android29-clang" ;;
+            *)         cc="$SIXIANG_NDK_BIN/x86_64-linux-android29-clang" ;;
+        esac
+        [ -x "$cc" ] || { echo "  (no $cc, skipping JNI for $abi)"; continue; }
+        "$cc" -O2 -fPIC -shared -Wall \
+            -o "$WORK/stage/lib/$abi/libsixiang_binder.so" \
+            sixiang/jni/binder_bridge.c -lbinder_ndk || exit 1
+        echo "  jni: lib/$abi/libsixiang_binder.so ($(wc -c < "$WORK/stage/lib/$abi/libsixiang_binder.so") B)"
+    done
+else
+    echo "  (SIXIANG_NDK_BIN unset: APK without the binder relay)"
+fi
+
 echo
 echo "== assemble =="
 cp "$WORK/base.apk" "$WORK/unsigned.apk" || exit 1
