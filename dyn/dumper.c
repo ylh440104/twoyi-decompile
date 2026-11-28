@@ -171,12 +171,7 @@ int main(int argc, char **argv)
 
         uintptr_t base = find_base(lib);
         if (!base) {
-            /* fall back to dlinfo if dl_iterate_phdr did not match */
-            struct link_map *lm = NULL;
-            if (h && dlinfo(h, RTLD_DI_LINKMAP, &lm) == 0 && lm)
-                base = (uintptr_t)lm->l_addr;
-        }
-        if (!base) {
+            fprintf(stderr, "[%s] cannot locate load base for %s\n", phase, lib);
             _exit(11);
         }
         fprintf(stderr, "[%s] base = 0x%lx\n", phase, (unsigned long)base);
