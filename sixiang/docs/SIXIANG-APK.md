@@ -16,7 +16,7 @@
 | 签名 | `sixiang/keys/sixiang.jks`，alias `sixiang` |
 | 签名 SHA-256 | `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
 | 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`（bionic 静态，892 KB）、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等）、`assets/screen`（guest 画面程序，13 KB） |
-| 体积 / sha256 | 4,113,079 B / `7e3db0e8d820d1a0f71b5e248ded96b79358fd3cecd040c138dc1eb9ecf43424` |
+| 体积 / sha256 | 4,113,079 B / `c376eec19eb8940841daf766163b3a85c78995c46e2ac0821a710dbf07c3a662` |
 
 构建全部在 Actions：`.github/workflows/sixiang-apk.yml`（用 NDK 编 loader，再
 javac/d8/aapt2/zipalign/apksigner），产物与 `build.log`、`inspect.txt` 一起提交回仓库。
@@ -239,6 +239,18 @@ app → guest   fbuf <slot>  [SCM_RIGHTS 附带 fd]
 | `/proc/<childpid>/fd/N` → `EACCES` | 先试过「guest 建 memfd、宿主按 pid 取」，Android 的 `untrusted_app` 不允许读子进程的 fd 目录。故改成反方向：宿主建缓冲、用 `SCM_RIGHTS` 递过去 |
 | `java.io.IOException: Bad file descriptor`（发出 fd 之后的下一条消息） | `setFileDescriptorsForSend` 里的 fd 是**跟着下一次 write** 走的；我在 write 后立刻 `close()` 了 PFD，结果死 fd 被挂到了后面的 `rel` 上。修法：PFD 保持打开，发完两个 slot 后 `setFileDescriptorsForSend(new FileDescriptor[0])` 清空 |
 
+### 键盘输入（文本进 guest）
+
+除了触摸，app 还能把文本直接送进 guest：`text <utf8>` 走同一条 socket，guest 把它
+存进自己的文本缓冲、用同一套 3×5 字库画在底部 dock 上，并带一个闪烁光标（有文本时
+二进制帧号条让位给这行字）。日志里能看到 guest 侧的回执：
+
+```
+painter| screen: text=READY
+```
+
+界面上输入框点「运行」时，那一行字也会先 `text` 给 guest，再作为 toybox 命令执行。
+
 ### 设置与最近任务
 
 - 「设置」对话框：分辨率（320×568 / 360×640 / 480×854）、帧率（15/20/30）、DPI
@@ -290,7 +302,7 @@ adb install -r sixiang/app/dist/SiXiang.apk
 | R6 | guest `SurfaceFlinger` + `hwcomposer` shim | ❌ 未做 |
 | R7 | guest `init` → `zygote` → `system_server` 启动序列 | ❌ 未做（需要打过补丁的 ROM） |
 | R8 | `binder` / `servicemanager` 代理 | ❌ 未做 |
-| R9 | `InputFlinger` 注入（真实触摸事件进 guest 输入栈） | ❌ 未做（现在是我们自己的坐标协议） |
+| R9 | `InputFlinger` 注入（真实触摸事件进 guest 输入栈） | ❌ 仍是私有协议：触摸坐标 + `text`/`clear` 文本，走我们的 socket，不是 guest 的 `InputFlinger`/`InputReader` |
 
 **为什么 R5–R9 不是这一轮能完成的**：R7 依赖一份打过补丁的 guest ROM（twoyi 自己
 的 ROM 包是 GB 级，且 `system_server` 需要 binder 才能起来）；R8 需要一份能截获
