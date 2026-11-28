@@ -53,11 +53,13 @@ jobs:
           echo 'ro.build.fingerprint=Android/sixiang_test/sixiang_test:16/TEST/eng:userdebug/test-keys' > /tmp/payload/build.prop
           echo 'hello-sixiang' > /tmp/payload/app/hello.txt
           printf '\x7fELF' > /tmp/payload/app/fake.bin
-          debugfs -w -R "mkdir /system" /tmp/aosp/system.img
-          debugfs -w -R "write /tmp/payload/build.prop /system/build.prop" /tmp/aosp/system.img
-          debugfs -w -R "mkdir /system/app" /tmp/aosp/system.img
-          debugfs -w -R "write /tmp/payload/app/hello.txt /system/app/hello.txt" /tmp/aosp/system.img
-          debugfs -w -R "write /tmp/payload/app/fake.bin /system/app/fake.apk" /tmp/aosp/system.img
+          # 注意：system.img 的根就是 /system 的根，里面直接是 build.prop / app/，
+          # 不再套一层 system/。上一版在这里多写了一层，导致产物变成
+          # rootfs/system/system/build.prop，断言因此失败。
+          debugfs -w -R "write /tmp/payload/build.prop /build.prop" /tmp/aosp/system.img
+          debugfs -w -R "mkdir /app" /tmp/aosp/system.img
+          debugfs -w -R "write /tmp/payload/app/hello.txt /app/hello.txt" /tmp/aosp/system.img
+          debugfs -w -R "write /tmp/payload/app/fake.bin /app/fake.apk" /tmp/aosp/system.img
           # 伪造一个 ramdisk：纯 cpio（gzip 压缩）
           mkdir -p /tmp/rd/sbin
           echo init-stub > /tmp/rd/init
