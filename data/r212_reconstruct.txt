@@ -1,0 +1,163 @@
+# round 212: event-stream reconstruction of the 6 giants (no decompiler)
+== 0x4d2a38  insns=61017  events=8944
+   noise: MOVZ 27967 (45.8%)  imm-ALU 530 (0.9%)  state-machine back-edges 1937
+   real loops (span<=2048): 14   distinct call sites: 25   string refs: 0   mem events: 2111
+   loop heads (head, #back-edges): 0x4d7148 x14
+   --- statement list (compressed) ---
+   call 0x427a58  x47  (472 lines)
+   call 0x546d7c  x11  (932 lines)
+   call 0x8e0780  x10  (14 lines)
+   call 0x54aa04  x9   (216 lines)
+   call 0x8e06a0  x5   (10 lines)
+   call 0x8e06b0  x4   (14 lines)
+   call 0x8e0890  x4   (10 lines)
+   call 0x4cc6d8  x4   (526 lines)
+   call 0x8e07b0  x4   (10 lines)
+   call 0x5424a8  x3   (1402 lines)
+   call 0x8e0700  x3   (14 lines)
+   call 0x8e0630  x2   (14 lines)
+   call 0x8e0ce0  x2   (14 lines)
+   call 0x549430  x2   (549 lines)
+   ld   d [x28+0x0]            x1443
+   st   w [x8+0x0]             x1349
+   ld   d [x8+0x0]             x231
+   ld   b [x8+0x0]             x180
+   ld   d [x9+0x0]             x168
+   st   w [x9+0x0]             x141
+   st   b [x10+0x0]            x135
+   st   d [x9+0x0]             x120
+   ld   d [x10+0x0]            x107
+   st   d [x10+0x0]            x86
+== 0x486104  insns=42681  events=6176
+   noise: MOVZ 20774 (48.7%)  imm-ALU 326 (0.8%)  state-machine back-edges 1490
+   real loops (span<=2048): 17   distinct call sites: 14   string refs: 0   mem events: 1503
+   loop heads (head, #back-edges): 0x4886c8 x17
+   --- statement list (compressed) ---
+   call 0x8e06a0  x44  (10 lines)
+   call 0x8e0780  x21  (14 lines)
+   call 0x8e0960  x19  (14 lines)
+   call 0x8e0d40  x17  (14 lines)
+   call 0x427a58  x15  (472 lines)
+   call 0x8e06b0  x12  (14 lines)
+   call 0x8e0890  x9   (10 lines)
+   call 0x4b46ac  x9   (319 lines)
+   call 0x4afbe8  x6   (1536 lines)
+   call 0x4b6120  x3   (2040 lines)
+   call 0x8e0d70  x3   (14 lines)
+   call 0x470218  x2   (408 lines)
+   call 0x8e0d50  x1   (14 lines)
+   call 0x8e0610  x1   (10 lines)
+   ld   d [x20+0x0]            x1009
+   st   w [x8+0x0]             x998
+   ld   w [x8+0x0]             x104
+   st   w [x9+0x0]             x93
+   ld   w [x9+0x0]             x81
+   ld   b [x8+0x0]             x81
+   ld   d [x8+0x0]             x81
+   st   b [x10+0x0]            x71
+   st   w [x10+0x0]            x48
+   st   d [x9+0x0]             x47
+== 0x55189c  insns=28840  events=4074
+   noise: MOVZ 13891 (48.2%)  imm-ALU 217 (0.8%)  state-machine back-edges 763
+   real loops (span<=2048): 21   distinct call sites: 14   string refs: 0   mem events: 1349
+   loop heads (head, #back-edges): 0x553244 x11, 0x553238 x3, 0x569974 x3, 0x56d4d8 x3, 0x553234 x1
+   --- statement list (compressed) ---
+   call 0x8e06a0  x38  (10 lines)
+   call 0x8e0780  x38  (14 lines)
+   call 0x8e06b0  x19  (14 lines)
+   call 0x8e0960  x18  (14 lines)
+   call 0x427a58  x15  (472 lines)
+   call 0x8e0d40  x13  (14 lines)
+   call 0x8e0890  x6   (10 lines)
+   call 0x4b46ac  x5   (319 lines)
+   call 0x53b550  x2   (1604 lines)
+   call 0x4afbe8  x2   (1536 lines)
+   call 0x578e38  x2   (497 lines)
+   call 0x8e0e30  x2   (14 lines)
+   call 0x8e0de0  x2   (14 lines)
+   call 0x8e0610  x1   (10 lines)
+   ld   d [x20+0x0]            x693
+   st   w [x8+0x0]             x350
+   ld   w [x8+0x0]             x112
+   st   w [x9+0x0]             x72
+   ld   w [x9+0x0]             x55
+   ld   d [x8+0x0]             x52
+   st   b [x10+0x0]            x48
+   ld   d [x9+0x0]             x46
+   st   w [x10+0x0]            x34
+   ld   b [x8+0x0]             x32
+== 0x2d0b00  insns=22387  events=3212
+   noise: MOVZ 9774 (43.7%)  imm-ALU 29 (0.1%)  state-machine back-edges 807
+   real loops (span<=2048): 14   distinct call sites: 4   string refs: 0   mem events: 580
+   loop heads (head, #back-edges): 0x2d260c x14
+   --- statement list (compressed) ---
+   call 0x8da688  x20  (12 lines)
+   call 0x2c56e0  x9   (504 lines)
+   call 0x2d0b00  x4   (? lines)
+   call 0x8e0610  x1   (10 lines)
+   ld   d [x6+0x0]             x565
+   st   w [x8+0x0]             x503
+   ld   d [x9+0x0]             x211
+   ld   d [x8+0x0]             x159
+   ld   d [x10+0x0]            x117
+   st   d [x10+0x0]            x104
+   st   d [x11+0x0]            x88
+   st   d [x9+0x0]             x73
+   st   d [x8+0x0]             x70
+   ld   b [x8+0x0]             x62
+== 0x4714d0  insns=21261  events=3389
+   noise: MOVZ 10039 (47.2%)  imm-ALU 271 (1.3%)  state-machine back-edges 590
+   real loops (span<=2048): 17   distinct call sites: 12   string refs: 0   mem events: 876
+   loop heads (head, #back-edges): 0x4722b0 x15, 0x472238 x1, 0x4722a4 x1
+   --- statement list (compressed) ---
+   call 0x8e06a0  x20  (10 lines)
+   call 0x8e0780  x19  (14 lines)
+   call 0x427a58  x19  (472 lines)
+   call 0x8e06b0  x14  (14 lines)
+   call 0x8e0960  x12  (14 lines)
+   call 0x8e0d70  x5   (14 lines)
+   call 0x8e0890  x4   (10 lines)
+   call 0x8e0d50  x3   (14 lines)
+   call 0x8e0740  x2   (10 lines)
+   call 0x4b46ac  x2   (319 lines)
+   call 0x4afbe8  x1   (1536 lines)
+   call 0x8e0610  x1   (10 lines)
+   ld   d [x26+0x0]            x443
+   st   w [x8+0x0]             x268
+   ld   w [x8+0x0]             x54
+   ld   d [x8+0x0]             x41
+   st   b [x10+0x0]            x35
+   st   w [x9+0x0]             x35
+   ld   w [x9+0x0]             x34
+   ld   b [x8+0x0]             x25
+   st   d [x10+0x0]            x19
+   st   d [x9+0x0]             x18
+== 0x527ba8  insns=20074  events=3381
+   noise: MOVZ 9086 (45.3%)  imm-ALU 297 (1.5%)  state-machine back-edges 519
+   real loops (span<=2048): 17   distinct call sites: 17   string refs: 0   mem events: 1406
+   loop heads (head, #back-edges): 0x528774 x15, 0x52876c x1, 0x53ae34 x1
+   --- statement list (compressed) ---
+   call 0x8e06a0  x24  (10 lines)
+   call 0x427a58  x14  (472 lines)
+   call 0x8e06b0  x13  (14 lines)
+   call 0x8e0960  x8   (14 lines)
+   call 0x4714d0  x7   (? lines)
+   call 0x8e0d40  x6   (14 lines)
+   call 0x4b46ac  x6   (319 lines)
+   call 0x8e0740  x5   (10 lines)
+   call 0x8e0780  x4   (14 lines)
+   call 0x8e0d70  x3   (14 lines)
+   call 0x8e0d50  x2   (14 lines)
+   call 0x55189c  x2   (? lines)
+   call 0x8e0890  x2   (10 lines)
+   call 0x578e38  x2   (497 lines)
+   ld   d [x23+0x0]            x444
+   st   w [x8+0x0]             x282
+   ld   w [x8+0x0]             x37
+   st   w [x9+0x0]             x37
+   st   b [x10+0x0]            x35
+   ld   w [x9+0x0]             x30
+   ld   d [x9+0x0]             x27
+   ld   d [x8+0x0]             x24
+   st   w [x10+0x0]            x21
+   ld   b [x8+0x0]             x16
