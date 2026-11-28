@@ -74,12 +74,44 @@ binder 调 `InputManager`，或直接写 `/dev/input` 不可行时的替代路�
 
 *验收*：在 guest 的画面上点一个真实 Android 控件（例如设置里的开关），状态真的变化。
 
-## 3. 探针结果
+## 3. 探针结果（实际跑出来的，不是推测）
 
-*（本节在 CI 跑完后填写，届时把 logcat 原文贴在这里。）*
+CI run `46175023959`（模拟器 Android 13 x86_64），guest 侧 `screen` 程序输出：
+
+```
+binder: 打开 /dev/binder 成功（probe）              ← app 侧
+painter| screen: binder fd=4 ioctl rc=0 errno=0 version=8
+painter| screen: binder txn rc=0 errno=0 w=68/68 r=12
+painter| screen: binder reply failed cmd=0x7205
+```
+
+逐条读：
+
+1. `ParcelFileDescriptor.open("/dev/binder")` 在 app 里**成功** —— `untrusted_app` 允许
+   打开 binder 设备（这正是 libbinder 自己做的事）。
+2. fd 经 `SCM_RIGHTS` 递给 guest 后，guest 的 `ioctl(BINDER_VERSION)` 返回
+   `rc=0, version=8` —— **外部进程可以驱动这个连接**，驱动不检查调用者是不是开 fd 的那个 task。
+3. guest 发 `BC_TRANSACTION` 给 handle 0（servicemanager，code=1 GET_SERVICE）：
+   写缓冲 `68/68` 全部被消费，说明事务被解析接受了；但读回来的是
+   `BR_DEAD_REPLY (0x7205)`。
+
+`BR_DEAD_REPLY` 的含义是「目标节点不存在」。也就是说：**handle 0 在这个连接上看不到
+`servicemanager` 的 context manager 节点**。`BINDER_VERSION` 能过而事务不成，说明驱动
+允许我们借用连接，但不认为我们有 servicemanager 的引用。
+
+**结论与下一步**：R8 不能走「guest 直接借 fd 发事务」这条捷径。要走的是我原先说的
+改道方案——**guest 把 parcel 字节流和 code/handle 用我们的 socket 发给宿主，宿主在
+自己的 task 上下文里用 libbinder 重放这次 `transact()`**，再把回复 parcel 发回。
+这样 SELinux/驱动的绑定关系仍然属于 app 进程本身，guest 只是提供字节。
+
+这也解释了为什么 twoyi 必须改 libbinder：绕不过「谁是调用者」这件事。
+
+**这一步没做**：宿主侧重放需要 `IBinder::transact` 的 native 入口（JNI 或 NDK 编译的
+小库），而当前设计是「无 JNI」。要么接受引入一个小 JNI 层（几十行，只做 transact），
+要么把这层做成独立 native 可执行文件（走同样的 socket），后者与现有架构一致。
 
 ---
 
 **一句话**：R6–R9 是「搬 ROM + 写 binder 改道 + 写 HWC shim」三件事，前两件是几周
-量级的活，第三件依赖前两件。我已经把宿主侧做到可用、把管道（socket + fd 传递）打通，
-并且把下一跳需要的文件与验收方式列清楚了。
+量级的活，第三件依赖前两件。宿主侧这一半已经可用，管道（socket + fd 传递）已打通，
+binder 的路由边界也已经用实测划清楚了。
