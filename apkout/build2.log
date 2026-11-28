@@ -1,9 +1,9 @@
 total 216060
--rw-r--r-- 1 runner runner 83886080 Nov 28 05:45 partaa
--rw-r--r-- 1 runner runner 83886080 Nov 28 05:45 partab
--rw-r--r-- 1 runner runner 53469606 Nov 28 05:45 partac
+-rw-r--r-- 1 runner runner 83886080 Nov 28 05:54 partaa
+-rw-r--r-- 1 runner runner 83886080 Nov 28 05:54 partab
+-rw-r--r-- 1 runner runner 53469606 Nov 28 05:54 partac
 cat rc=0
--rw-r--r-- 1 runner runner 221241766 Nov 28 05:45 work/twoyi.apk
+-rw-r--r-- 1 runner runner 221241766 Nov 28 05:54 work/twoyi.apk
 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e  work/twoyi.apk
 expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
   4501160  1981-01-01 01:01   classes.dex
@@ -11,9 +11,9 @@ expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
 == toolchain ==
 2.9.3
 BT=/usr/local/lib/android/sdk/build-tools/37.0.0
--rw-r--r-- 1 runner runner 10284 Nov 28 05:45 dyn/TwoyiApplicationDump.smali
+-rw-r--r-- 1 runner runner 10734 Nov 28 05:54 dyn/TwoyiApplicationDump.smali
 == injected class size ==
-401 dyn/TwoyiApplicationDump.smali
+415 dyn/TwoyiApplicationDump.smali
 == probe the pieces the class relies on ==
 3
 2
@@ -27,15 +27,15 @@ I: Copying unknown files...
 I: Copying original files...
 I: Copying META-INF/services directory
 decode rc=0
--rw-r--r-- 1 runner runner 872 Nov 28 05:46 dec/apktool.yml
+-rw-r--r-- 1 runner runner 872 Nov 28 05:55 dec/apktool.yml
 dec/AndroidManifest.xml
 4893
 == original lib/ is preserved verbatim ==
 total 9924
--rw-r--r-- 1 runner runner   10096 Nov 28 05:46 libandroidx.graphics.path.so
--rw-r--r-- 1 runner runner  147768 Nov 28 05:46 libloader.so
--rw-r--r-- 1 runner runner  146256 Nov 28 05:46 libloader32.so
--rw-r--r-- 1 runner runner 9850096 Nov 28 05:46 libtwoyi.so
+-rw-r--r-- 1 runner runner   10096 Nov 28 05:55 libandroidx.graphics.path.so
+-rw-r--r-- 1 runner runner  147768 Nov 28 05:55 libloader.so
+-rw-r--r-- 1 runner runner  146256 Nov 28 05:55 libloader32.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 05:55 libtwoyi.so
 == keep the 212 MB rootfs stored ==
 doNotCompress:
 - zst
@@ -44,7 +44,7 @@ doNotCompress:
 - assets/dexopt/baseline.prof
 - assets/dexopt/baseline.profm
 installed helper -> dec/smali/io/twoyi/TwoyiApplication$Dump.smali
-  bytes = 10284
+  bytes = 10734
 patched dec/smali/io/twoyi/TwoyiApplication.smali
   contains TwoyiApplication$Dump                      yes
   contains dump thread begin                          yes
@@ -72,7 +72,7 @@ patch rc=0
     move-exception v0
     :goto_g9
     # <<< dump thread end
--rw-r--r-- 1 runner runner 10284 Nov 28 05:46 dec/smali/io/twoyi/TwoyiApplication$Dump.smali
+-rw-r--r-- 1 runner runner 10734 Nov 28 05:55 dec/smali/io/twoyi/TwoyiApplication$Dump.smali
 == no gadget anywhere ==
 libandroidx.graphics.path.so
 libloader.so
@@ -90,19 +90,19 @@ I: Building apk file...
 I: Copying unknown files/dir...
 I: Built apk into: out/unsigned.apk
 build rc=0
--rw-r--r-- 1 runner runner 221448204 Nov 28 05:46 out/unsigned.apk
+-rw-r--r-- 1 runner runner 221448156 Nov 28 05:55 out/unsigned.apk
 reusing repo keystore
 zipalign rc=0
 sign rc=0
--rw-r--r-- 1 runner runner 221522997 Nov 28 05:46 out/twoyi-gadget.apk
+-rw-r--r-- 1 runner runner 221522997 Nov 28 05:55 out/twoyi-gadget.apk
 V3.0 Signer: certificate DN: CN=gadget, O=t, C=cn
 V3.0 Signer: certificate SHA-256 digest: a22dd5d978aa191d829b74ca08729130439e6a2cafe2d22b33adff72d0137e07
 V3.0 Signer: certificate SHA-1 digest: 8ef1cb715518142cb9a75dbe3dd54b2037e1d578
 V3.0 Signer: certificate MD5 digest: cd09a0252a74d1a3c6bef4d1702efa02
 upload rc=0
 total 650572
--rw-r--r-- 1 runner runner 221448466 Nov 28 05:46 aligned.apk
--rw-r--r-- 1 runner runner      2590 Nov 28 05:46 ks.jks
--rw-r--r-- 1 runner runner 221522997 Nov 28 05:46 twoyi-gadget.apk
--rw-r--r-- 1 runner runner   1754520 Nov 28 05:46 twoyi-gadget.apk.idsig
--rw-r--r-- 1 runner runner 221448204 Nov 28 05:46 unsigned.apk
+-rw-r--r-- 1 runner runner 221448418 Nov 28 05:55 aligned.apk
+-rw-r--r-- 1 runner runner      2590 Nov 28 05:55 ks.jks
+-rw-r--r-- 1 runner runner 221522997 Nov 28 05:55 twoyi-gadget.apk
+-rw-r--r-- 1 runner runner   1754520 Nov 28 05:55 twoyi-gadget.apk.idsig
+-rw-r--r-- 1 runner runner 221448156 Nov 28 05:55 unsigned.apk
