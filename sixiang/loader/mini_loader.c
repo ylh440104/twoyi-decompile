@@ -289,9 +289,12 @@ static uintptr_t build_stack(const struct loaded *img, const char *path,
     while (envp && envp[envc])
         envc++;
 
-    struct { uint64_t k, v; } auxv[32];
+    struct { uint64_t key, val; } auxv[32];
     int n = 0;
-#define AU(k, v) (auxv[n].k = (uint64_t)(k), auxv[n].v = (uint64_t)(v), n++)
+/* NOTE: the parameters must not be called key/val -- they are spliced into
+ * member accesses, so a parameter named `key` would rewrite `.key` itself. */
+#define AU(_k, _v) \
+    (auxv[n].key = (uint64_t)(_k), auxv[n].val = (uint64_t)(_v), n++)
     AU(AT_PHDR, img->phdr);
     AU(AT_PHENT, img->phentsize);
     AU(AT_PHNUM, img->phnum);
@@ -322,8 +325,8 @@ static uintptr_t build_stack(const struct loaded *img, const char *path,
         *p++ = (uint64_t)(uintptr_t)envp[i];
     *p++ = 0;
     for (int i = 0; i < n; i++) {
-        *p++ = auxv[i].k;
-        *p++ = auxv[i].v;
+        *p++ = auxv[i].key;
+        *p++ = auxv[i].val;
     }
 
     return sp;
