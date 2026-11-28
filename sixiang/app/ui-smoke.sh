@@ -41,11 +41,37 @@ mkdir -p "$STAGE/system/bin" "$STAGE/system/lib64"
 
 log ""
 log "== pull an x86_64 guest out of this emulator =="
-for f in toybox linker64; do
-    if ! adb pull "/system/bin/$f" "$STAGE/system/bin/$f" >>"$LOG" 2>&1; then
-        log "!! cannot pull /system/bin/$f"
+log "\$ ls -l /system/bin/toybox*"
+adb shell 'ls -l /system/bin/toybox* 2>&1' | tee -a "$LOG"
+
+# `adb pull` refuses some /system paths ("failed to stat remote object:
+# Permission denied") even though the shell can read them, so fall back to
+# `cat` through the shell. A zero-length result is treated as a failure.
+pull_file() {  # remote local
+    rm -f "$2"
+    if adb pull "$1" "$2" >/dev/null 2>&1 && [ -s "$2" ]; then
+        log "  pulled $1 ($(wc -c < "$2") bytes)"
+        return 0
+    fi
+    if adb exec-out "cat '$1'" > "$2" 2>/dev/null && [ -s "$2" ]; then
+        log "  catted $1 ($(wc -c < "$2") bytes)"
+        return 0
+    fi
+    log "  !! cannot read $1"
+    rm -f "$2"
+    return 1
+}
+
+# Any 64-bit Android binary will do; toybox is just the most convenient one.
+for f in /system/bin/toybox /system/bin/toybox64 /system/bin/mksh /system/bin/sh; do
+    if pull_file "$f" "$STAGE/system/bin/toybox"; then
+        log "  guest program: $f"
+        break
     fi
 done
+[ -s "$STAGE/system/bin/toybox" ] || { log "!! no guest program"; exit 1; }
+
+pull_file /system/bin/linker64 "$STAGE/system/bin/linker64" || exit 1
 # The exact library closure bionic needs for toybox, taken from the same
 # release as the binaries above. Missing optional ones are not fatal.
 for f in ld-android.so libc.so libm.so libdl.so liblog.so libz.so libc++.so \
@@ -66,6 +92,18 @@ GUEST=/tmp/guest-x86_64.zip
 rm -f "$GUEST"
 ( cd "$STAGE" && zip -qr "$GUEST" system mini_loader ) || exit 1
 log "bundle: $(ls -l "$GUEST" | awk '{print $5}') bytes"
+
+# --------------------------------------------------------------------- preflight
+# Same loader, same bundle, but run as `shell` from /data/local/tmp. If this
+# fails too, the problem is the loader or the guest; if only the in-app run
+# fails, the problem is the app sandbox (seccomp/SELinux).
+log ""
+log "== pre-flight: loader + guest as shell, outside the app =="
+adb push sixiang/loader/out/mini_loader_x86_64 /data/local/tmp/mini_loader >>"$LOG" 2>&1 || true
+adb shell 'rm -rf /data/local/tmp/g; mkdir -p /data/local/tmp/g' >>"$LOG" 2>&1 || true
+adb push "$GUEST" /data/local/tmp/guest.zip >>"$LOG" 2>&1 || true
+adb shell 'cd /data/local/tmp/g && unzip -o /data/local/tmp/guest.zip >/dev/null 2>&1; chmod 755 /data/local/tmp/mini_loader; ls -l system/bin system/lib64 | head -20' >>"$LOG" 2>&1 || true
+adb shell 'cd /data/local/tmp/g && LD_LIBRARY_PATH=system/lib64 /data/local/tmp/mini_loader --interp system/bin/linker64 system/bin/toybox uname -a; echo "PREFLIGHT_EXIT=$?"' 2>&1 | tee -a "$LOG"
 
 # ------------------------------------------------------------------------ apk
 log ""
@@ -119,13 +157,12 @@ adb logcat -d -s SiXiang:V AndroidRuntime:E DEBUG:E | tail -60 | tee -a "$LOG"
 
 log ""
 log "== verdict =="
-if grep -q 'SIXIANG_GUEST_OK' "$OUT/ui.txt" 2>/dev/null; then
-    log "PASS: the guest ran and its output reached the screen"
+# The app prints this line only when all three guest runs returned 0, so it can
+# not be faked by the echoed command line (an earlier version grepped for
+# SIXIANG_GUEST_OK and happily matched "$ toybox echo SIXIANG_GUEST_OK").
+if grep -q '全部通过' "$LOG" 2>/dev/null; then
+    log "PASS: the guest ran inside the app and its output reached the screen"
     exit 0
 fi
-if grep -q '全部通过' "$OUT/ui.txt" 2>/dev/null; then
-    log "PASS: the guest ran and its output reached the screen"
-    exit 0
-fi
-log "FAIL: the screen does not show guest output (see ui.txt / logcat above)"
+log "FAIL: no successful guest run (see the pre-flight and logcat above)"
 exit 1

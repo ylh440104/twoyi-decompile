@@ -108,11 +108,15 @@ jobs:
           ls -l sixiang/app/dist sixiang/loader/out 2>/dev/null || true
           git config user.name  "sixiang-ci"
           git config user.email "ci@sixiang.invalid"
-          # One pathspec per call: `git add a b c` aborts entirely if any single
-          # path is missing, which silently threw away every previous run's
-          # evidence. Directories are fine -- they always exist here.
-          git add -f sixiang/app/dist 2>/dev/null || true
-          git add -f sixiang/loader/out 2>/dev/null || true
+          # Only the evidence files. `git add sixiang/app/dist` would also stage
+          # this job's APK, which embeds an x86_64 guest and must never replace
+          # the arm64 SiXiang.apk that the phone installs.
+          for f in ui.png ui.txt ui-log.txt; do
+            if [ -f "sixiang/app/dist/$f" ]; then git add -f "sixiang/app/dist/$f" || true; fi
+          done
+          if [ -f sixiang/loader/out/x86_64-build.log ]; then
+            git add -f sixiang/loader/out/x86_64-build.log || true
+          fi
           if git diff --cached --quiet; then
             echo "no evidence to commit"
             exit 0

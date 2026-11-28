@@ -20,6 +20,10 @@ ALIAS=${4:-sixiang}
 # Optional knobs, used by the emulator smoke test in .github/workflows/sixiang-ui.yml.
 #   SIXIANG_ABIS=all      also ship lib/x86_64/libmini_loader.so (from loader/out)
 #   SIXIANG_DEBUG=1       aapt2 --debug-mode, output SiXiang-debug.apk
+#   SIXIANG_GUEST_ZIP     embed this rootfs instead of the committed arm64 one
+# The default build is the one the phone installs: arm64 loader, Android 17
+# guest, signed with sixiang.jks. The emulator job only overrides these env
+# vars in its own workspace and never commits its APK.
 APKS_NAME=SiXiang.apk
 LINK_EXTRA=""
 case "${SIXIANG_DEBUG:-0}" in
