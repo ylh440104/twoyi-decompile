@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.InputType;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -58,6 +59,23 @@ public class MainActivity extends Activity {
     private static final int FB_W = 320;
     private static final int FB_H = 568;
     private static final int FB_HDR = 64;
+
+    /* Tile grid, also in sync with screen.c. Index into APPLETS is the tile. */
+    private static final int GRID_COLS = 4;
+    private static final int GRID_ROWS = 4;
+    private static final int GRID_PAD = 14;
+    private static final int GRID_GAP = 12;
+    private static final int GRID_TOP = 54;
+
+    /** What each tile launches, in the guest. Sixteen real toybox applets. */
+    private static final String[][] APPLETS = {
+            {"uname", "-a"}, {"id"}, {"date"}, {"uptime"},
+            {"ls", "/"}, {"ls", "/system"}, {"ls", "/system/lib64"}, {"ls", "/proc"},
+            {"cat", "/proc/version"}, {"head", "-3", "/proc/cpuinfo"},
+            {"free"}, {"df"},
+            {"cat", "/proc/self/status"}, {"wc", "-l", "/proc/cpuinfo"},
+            {"uname", "-m"}, {"echo", "SiXiang"},
+    };
 
     private final Handler ui = new Handler(Looper.getMainLooper());
 
@@ -116,6 +134,11 @@ public class MainActivity extends Activity {
 
         // ---- the guest screen
         screen = new FrameView(this);
+        screen.setTapListener(new FrameView.TapListener() {
+            public void onTap(int gx, int gy) {
+                onGuestTap(gx, gy);
+            }
+        });
         LinearLayout.LayoutParams slp = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f);
         slp.topMargin = pad;
@@ -497,6 +520,53 @@ public class MainActivity extends Activity {
         }
     }
 
+    // ------------------------------------------------------------ input path
+
+    private volatile int touchSeq;
+
+    /**
+     * A tap inside the guest's screen: publish the coordinate on the shared
+     * header (the painter draws the ripple), then launch whatever tile is under
+     * it *in the guest*, with the output going to the terminal.
+     */
+    private void onGuestTap(int gx, int gy) {
+        touchSeq++;
+        try {
+            if (fbMap != null) {
+                fbMap.putInt(4, gx);
+                fbMap.putInt(8, gy);
+                fbMap.putInt(12, touchSeq);
+            }
+        } catch (Throwable t) {
+            say("  !! 触摸转发失败 " + t);
+        }
+
+        int idx = tileAt(gx, gy);
+        if (idx < 0 || idx >= APPLETS.length) {
+            say("tap (" + gx + "," + gy + ")");
+            return;
+        }
+        final String[] cmd = APPLETS[idx];
+        say("tap (" + gx + "," + gy + ") -> 图标 " + idx + "：toybox " + join(cmd));
+        new Thread(new Runnable() {
+            public void run() {
+                runToybox(cmd);
+            }
+        }).start();
+    }
+
+    private static int tileAt(int gx, int gy) {
+        int tw = (FB_W - GRID_PAD * 2 - GRID_GAP * (GRID_COLS - 1)) / GRID_COLS;
+        int th = tw + 8;
+        for (int i = 0; i < GRID_COLS * GRID_ROWS; i++) {
+            int cx = i % GRID_COLS, cy = i / GRID_COLS;
+            int x = GRID_PAD + cx * (tw + GRID_GAP);
+            int y = GRID_TOP + cy * (th + GRID_GAP);
+            if (gx >= x && gx < x + tw && gy >= y && gy < y + th) return i;
+        }
+        return -1;
+    }
+
     // ------------------------------------------------------------- guest exec
 
     private File chooseLoader() throws Exception {
@@ -568,14 +638,49 @@ public class MainActivity extends Activity {
 
     /** Draws the guest's framebuffer, aspect-fitted, in the middle of the view. */
     static final class FrameView extends View {
+        interface TapListener {
+            void onTap(int gx, int gy);
+        }
+
         final Bitmap bmp = Bitmap.createBitmap(FB_W, FB_H, Bitmap.Config.ARGB_8888);
         final int[] px = new int[FB_W * FB_H];
         private final Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG);
         private final RectF dst = new RectF();
+        private TapListener listener;
 
         FrameView(Context c) {
             super(c);
             setBackgroundColor(0xFF05070A);
+        }
+
+        void setTapListener(TapListener l) {
+            listener = l;
+        }
+
+        /** Inverse of the aspect-fit transform in onDraw: view point -> guest pixel. */
+        private int toGuestX(float vx) {
+            float sw = getWidth();
+            float scale = Math.min(sw / FB_W, getHeight() / FB_H);
+            return (int) ((vx - (sw - FB_W * scale) / 2f) / scale);
+        }
+
+        private int toGuestY(float vy) {
+            float sh = getHeight();
+            float scale = Math.min(getWidth() / FB_W, sh / FB_H);
+            return (int) ((vy - (sh - FB_H * scale) / 2f) / scale);
+        }
+
+        @Override
+        public boolean onTouchEvent(MotionEvent e) {
+            if (e.getAction() == MotionEvent.ACTION_DOWN) {
+                int gx = toGuestX(e.getX());
+                int gy = toGuestY(e.getY());
+                if (listener != null && gx >= 0 && gx < FB_W && gy >= 0 && gy < FB_H) {
+                    listener.onTap(gx, gy);
+                    return true;
+                }
+            }
+            return super.onTouchEvent(e);
         }
 
         @Override

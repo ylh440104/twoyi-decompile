@@ -11,8 +11,17 @@
  *
  * Buffer layout (little endian, native ints, 0xAARRGGBB):
  *   [0]      uint32 sequence, even = stable, odd = being written
- *   [4..63]  reserved
+ *   [4]      int32  touch x (-1 = none)
+ *   [8]      int32  touch y (-1 = none)
+ *   [12]     uint32 touch sequence, bumped by the host on every tap
+ *   [16..63] reserved
  *   [64..]   FB_W * FB_H pixels
+ *
+ * The touch words are the host -> guest direction of the same channel: the app
+ * writes a coordinate, this program draws a ripple and highlights the tile under
+ * it, and the app launches the matching guest program. That is the interaction
+ * a container needs; input injection into a real InputFlinger is still ours to
+ * write.
  *
  * Env:
  *   SIXIANG_FB   path to the shared buffer (required)
@@ -73,10 +82,19 @@ static void vgrad(int x, int y, int w, int h, uint32_t top, uint32_t bot)
     }
 }
 
+/* A hollow square, used for the tap ripple. */
+static void ring(int cx, int cy, int r, uint32_t c)
+{
+    rect(cx - r, cy - r, 2 * r, 2, c);
+    rect(cx - r, cy + r - 2, 2 * r, 2, c);
+    rect(cx - r, cy - r, 2, 2 * r, c);
+    rect(cx + r - 2, cy - r, 2, 2 * r, c);
+}
+
 /* 4x5 grid of tiles plus a highlight that walks the grid and a bottom bar that
  * fills over time. Everything is driven by the frame counter so the host can
  * tell a frozen picture from a live one at a glance. */
-static void paint(int t)
+static void paint(int t, int tx, int ty, int age)
 {
     vgrad(0, 0, FB_W, FB_H, rgb(0x10, 0x18, 0x22), rgb(0x05, 0x07, 0x0a));
 
@@ -95,6 +113,12 @@ static void paint(int t)
     const int top = 54;
 
     int hl = (t / 12) % (cols * rows);
+    if (tx >= 0) {
+        int cx = (tx - pad) / (tw + gap);
+        int cy = (ty - top) / (th + gap);
+        if (cx >= 0 && cx < cols && cy >= 0 && cy < rows)
+            hl = cy * cols + cx;
+    }
     for (int i = 0; i < cols * rows; i++) {
         int cx = i % cols, cy = i / cols;
         int x = pad + cx * (tw + gap);
@@ -119,6 +143,13 @@ static void paint(int t)
     for (int i = 0; i < 16; i++)
         rect(20 + i * 14, FB_H - 40, 10, 6,
              (t >> i) & 1 ? rgb(0x7f, 0xd1, 0xff) : rgb(0x20, 0x2c, 0x38));
+
+    /* tap feedback: a ripple that lives ~24 frames at the last touched point */
+    if (tx >= 0 && age >= 0 && age < 24) {
+        int r = 8 + age * 3;
+        ring(tx, ty, r, rgb(0xff, 0xff, 0xff));
+        ring(tx, ty, r + 6, rgb(0x7f, 0xd1, 0xff));
+    }
 }
 
 int main(void)
@@ -162,13 +193,28 @@ int main(void)
     ts.tv_sec = 0;
     ts.tv_nsec = 1000000000L / fps;
 
+    int32_t *words = (int32_t *)base;            /* [1] = x, [2] = y */
+    uint32_t *touch_seq = (uint32_t *)base + 3;   /* [3] = touch counter */
+    int last_touch = 0, tx = -1, ty = -1, age = -1;
+
     for (int t = 0;; t++) {
+        uint32_t tseq = __atomic_load_n(touch_seq, __ATOMIC_ACQUIRE);
+        if ((int)tseq != last_touch) {
+            last_touch = (int)tseq;
+            tx = __atomic_load_n(&words[1], __ATOMIC_ACQUIRE);
+            ty = __atomic_load_n(&words[2], __ATOMIC_ACQUIRE);
+            age = 0;
+        } else if (age >= 0 && age < 64) {
+            age++;
+        }
+
         /* odd = mid-write, so the reader can detect tearing */
         __atomic_store_n(g_seq, (uint32_t)(2 * t + 1), __ATOMIC_RELEASE);
-        paint(t);
+        paint(t, tx, ty, age);
         __atomic_store_n(g_seq, (uint32_t)(2 * t + 2), __ATOMIC_RELEASE);
         if ((t % 50) == 0)
-            fprintf(stderr, "screen: frame %d seq=%u\n", t, 2 * t + 2);
+            fprintf(stderr, "screen: frame %d seq=%u touch=%d,%d age=%d\n",
+                    t, 2 * t + 2, tx, ty, age);
         nanosleep(&ts, NULL);
     }
 }

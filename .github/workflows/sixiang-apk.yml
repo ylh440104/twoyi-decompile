@@ -25,6 +25,7 @@ on:
       - 'sixiang/app/res/**'
       - 'sixiang/app/AndroidManifest.xml'
       - 'sixiang/app/build.sh'
+      - 'sixiang/guest/demo/**'
       - 'sixiang/guest/dist/**'
       - '.github/workflows/sixiang-apk.yml'
 

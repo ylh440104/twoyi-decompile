@@ -132,7 +132,16 @@ log "installed: $(adb shell pm path $APP | tr -d '\r')"
 log ""
 log "== start the activity (this is the whole point) =="
 adb shell am start -W -n "$ACT" 2>&1 | tee -a "$LOG"
-sleep 25
+sleep 12
+
+# Tap inside the guest screen view: the coordinate goes into the shared header
+# (the painter draws a ripple) and the tile under it launches a guest applet.
+log ""
+log "== tap into the guest screen =="
+adb shell input tap 540 900 2>&1 | tee -a "$LOG"
+sleep 3
+adb shell input tap 300 1200 2>&1 | tee -a "$LOG"
+sleep 3
 
 # ------------------------------------------------------------------ evidence
 log ""
@@ -181,5 +190,12 @@ if grep -q 'guest 程序已在本 app 内运行' "$LOG" 2>/dev/null; then
 else
     log "FAIL: no successful guest run (see logcat above)"
 fi
-[ "$ok" = "2" ] && exit 0
+# Input path: a tap must reach the guest and launch the tile's applet.
+if grep -q 'tap (' "$LOG" 2>/dev/null; then
+    log "PASS: touch reached the guest"
+    ok=$((ok + 1))
+else
+    log "FAIL: the tap never reached the guest"
+fi
+[ "$ok" = "3" ] && exit 0
 exit 1
