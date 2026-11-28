@@ -1,25 +1,26 @@
-name: bionic load v2 (gcc + patchelf, no NDK)
+name: bionic load v3 (install to /system, kernel PT_INTERP)
 
-# The NDK route failed (its download is ~700 MB and the job died in 37 s), so this
-# job takes a much cheaper path that needs nothing but the host toolchain:
+# v2 proved two things:
+#   * the toolchain works (gcc + patchelf + version strip all rc=0)
+#   * handing a program to linker64 by hand produces *silent* nothing, because
+#     patchelf --set-interpreter also injected NEEDED "ld-linux-aarch64.so.1",
+#     which the bionic linker cannot resolve
 #
-#   1. compile dyn/dumper.c with the native aarch64 gcc       (glibc ABI)
-#   2. patchelf: retarget NEEDED  libc.so.6 -> libc.so
-#                              libm.so.6 -> libm.so
-#                              libdl.so.2 -> libdl.so
-#                 and set INTERP to /system/bin/linker64
-#   3. strip the GLIBC_x.y version requirements (retag DT_VERSYM/VERNEED/VERNEEDNUM)
-#   4. execute it under dyn/bionic/system/bin/linker64 --library-path dyn/bionic/system/lib64
+# v3 uses the mechanism Android itself uses: install the bionic runtime at the
+# exact paths baked into PT_INTERP, then just run the binary and let the kernel
+# exec /system/bin/linker64 as its interpreter.  No --library-path, no argv
+# plumbing — the linker finds /system/lib64 on its own.
 #
-# Step 4 is the first time in this whole investigation that DT_ANDROID_RELA
-# (APS2, 112,262 packed relocations) is actually understood by the loader, so
-# .got / .init_array can become non-zero and the constructors can run.
+# This is the configuration where DT_ANDROID_RELA (APS2, 112,262 packed
+# relocations) is finally honoured, so .got / .init_array get real addresses and
+# the six slots may become non-zero.
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'dyn/dumper.c'
+      - 'dyn/strip_versions.py'
       - '.github/workflows/bionic_load.yml'
 
 permissions:
@@ -32,94 +33,76 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Toolchain
+      - name: Install bionic runtime at /system
         run: |
           set +e
           mkdir -p bload-out work
-          {
-            echo "== host =="
-            uname -m
-            gcc --version | head -1
-            echo "== patchelf =="
-            sudo apt-get update -qq
-            sudo apt-get install -y -qq patchelf 2>&1 | tail -3
-            patchelf --version 2>&1
-          } >> bload-out/load.log 2>&1
+          exec 1>bload-out/load.log 2>&1
+          echo "== host =="
+          uname -m; gcc --version | head -1
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq patchelf | tail -2
+          patchelf --version
+          echo "== install bionic to /system =="
+          sudo mkdir -p /system/bin /system/lib64 /system/etc
+          sudo cp dyn/bionic/system/bin/linker64 /system/bin/linker64
+          sudo cp dyn/bionic/system/lib64/libc.so      /system/lib64/libc.so
+          sudo cp dyn/bionic/system/lib64/libm.so      /system/lib64/libm.so
+          sudo cp dyn/bionic/system/lib64/libdl.so     /system/lib64/libdl.so
+          sudo cp dyn/bionic/system/lib64/liblog.so    /system/lib64/liblog.so
+          sudo cp dyn/bionic/system/lib64/libandroid.so /system/lib64/libandroid.so
+          sudo chmod 755 /system/bin/linker64
+          ls -l /system/bin/linker64 /system/lib64/
+          echo "== does the kernel accept bionic as an interpreter? =="
+          sudo cp dyn/bionic/system/bin/toybox /tmp/toybox
+          sudo chmod 755 /tmp/toybox
+          /tmp/toybox echo KERNEL_INTERP_OK
+          echo "toybox rc=$?"
+          ls -l /dev/kmsg 2>&1 | head -1
 
-      - name: Build and retarget dumper
+      - name: Build dumper and drop the stale ld-linux NEEDED
         run: |
           set +e
-          {
-            echo "== gcc build =="
-            gcc -O2 -o dumper_glibc dyn/dumper.c -ldl
-            echo "gcc rc=$?"
-            ls -l dumper_glibc
-            echo "== patchelf =="
-            cp dumper_glibc dumper_bionic
-            patchelf --replace-needed libc.so.6 libc.so dumper_bionic;   echo "needed libc rc=$?"
-            patchelf --replace-needed libm.so.6 libm.so dumper_bionic;   echo "needed libm rc=$?"
-            patchelf --replace-needed libdl.so.2 libdl.so dumper_bionic; echo "needed libdl rc=$?"
-            patchelf --set-interpreter /system/bin/linker64 dumper_bionic; echo "interp rc=$?"
-            echo "== strip glibc versions =="
-            python3 dyn/strip_versions.py dumper_bionic dumper_bionic2
-            echo "rc=$?"
-            mv dumper_bionic2 dumper_bionic
-            chmod +x dumper_bionic
-            echo "== after =="
-            readelf -d dumper_bionic 2>/dev/null | grep -E 'NEEDED|FLAGS' | head -8
-            readelf -l dumper_bionic 2>/dev/null | grep -A1 INTERP | head -3
-          } >> bload-out/load.log 2>&1
+          exec 1>>bload-out/load.log 2>&1
+          echo "== gcc =="
+          gcc -O2 -o dumper_glibc dyn/dumper.c -ldl
+          echo "gcc rc=$?"
+          cp dumper_glibc dumper_bionic
+          patchelf --replace-needed libc.so.6 libc.so dumper_bionic;      echo "needed libc rc=$?"
+          patchelf --replace-needed libm.so.6 libm.so dumper_bionic;      echo "needed libm rc=$?"
+          patchelf --replace-needed libdl.so.2 libdl.so dumper_bionic;    echo "needed libdl rc=$?"
+          patchelf --set-interpreter /system/bin/linker64 dumper_bionic;  echo "interp rc=$?"
+          # patchelf turns the old interpreter into a NEEDED entry; bionic cannot resolve it
+          patchelf --remove-needed ld-linux-aarch64.so.1 dumper_bionic;   echo "rm ld-linux rc=$?"
+          python3 dyn/strip_versions.py dumper_bionic dumper_bionic2
+          echo "strip rc=$?"
+          mv dumper_bionic2 dumper_bionic
+          chmod 755 dumper_bionic
+          echo "== after =="
+          readelf -d dumper_bionic | grep -E 'NEEDED|FLAGS'
+          readelf -l dumper_bionic | grep -A1 INTERP
 
-      - name: Fetch libtwoyi.so
+      - name: Run under the kernel-provided bionic interpreter
         run: |
           set +e
-          {
-            echo "== bionic tree =="
-            ls -l dyn/bionic/system/bin dyn/bionic/system/lib64 2>&1
-            chmod +x dyn/bionic/system/bin/linker64 dyn/bionic/system/bin/toybox dyn/bionic/system/bin/sh
-            echo "== libtwoyi =="
-            curl -fL --retry 2 -o work/libtwoyi.so \
-              "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
-            echo "curl rc=$?"
-            sha256sum work/libtwoyi.so 2>&1
-          } >> bload-out/load.log 2>&1
-
-      - name: "Sanity: can the bionic runtime execute anything?"
-        run: |
-          set +e
-          B="$PWD/dyn/bionic"
-          {
-            echo "== sanity toybox =="
-            "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              "$B/system/bin/toybox" echo BIONIC_TOYBOX_OK 2>&1 | head -6
-            echo "rc=$?"
-            echo "== sanity sh =="
-            "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              "$B/system/bin/sh" -c 'echo BIONIC_SH_OK' 2>&1 | head -6
-            echo "rc=$?"
-            echo "== sanity: our dumper under bionic (no args) =="
-            "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              ./dumper_bionic 2>&1 | head -6
-            echo "rc=$?"
-          } >> bload-out/load.log 2>&1
-
-      - name: Run dumper under bionic linker
-        run: |
-          set +e
-          B="$PWD/dyn/bionic"
-          {
-            echo "== phase init under bionic =="
-            export ANDROID_ROOT="$B/system"
-            "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              ./dumper_bionic "$PWD/work/libtwoyi.so" "$PWD/bload-out" init 2>&1 | head -40
-            echo "rc=$?"
-            echo "== slots =="
-            cat bload-out/init_slots.txt 2>/dev/null
-            echo "== status =="
-            cat bload-out/init_status.txt 2>/dev/null
-            echo "== files =="
-            ls -la bload-out
-          } >> bload-out/load.log 2>&1
+          exec 1>>bload-out/load.log 2>&1
+          echo "== fetch libtwoyi =="
+          curl -fsL --retry 2 -o work/libtwoyi.so \
+            "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
+          echo "curl rc=$?"
+          sha256sum work/libtwoyi.so
+          echo "== our dumper, no args (should print usage) =="
+          ./dumper_bionic
+          echo "rc=$?"
+          echo "== phase init =="
+          ./dumper_bionic "$PWD/work/libtwoyi.so" "$PWD/bload-out" init
+          echo "rc=$?"
+          echo "== slots =="
+          cat bload-out/init_slots.txt 2>&1
+          echo "== status =="
+          cat bload-out/init_status.txt 2>&1
+          echo "== files =="
+          ls -la bload-out
 
       - name: Commit
         if: always()
@@ -131,7 +114,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "nothing"
           else
-            git commit -m "chore: bionic load v2"
+            git commit -m "chore: bionic load v3"
             git pull --rebase -q origin main || true
             git push || echo "push failed"
           fi
