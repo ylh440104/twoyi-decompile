@@ -1,0 +1,80 @@
+apktool rc=0
+2.9.3
+34.0.0
+35.0.0
+35.0.1
+36.0.0
+36.1.0
+37.0.0
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [=======================================] 100% Computing updates...             
+
+yes: standard output: Broken pipe
+BT=/usr/local/lib/android/sdk/build-tools/37.0.0
+0.9
+Zip alignment utility
+Copyright (C) 2009 The Android Open Source Project
+frida tag=17.28.1
+trying frida-gadget-17.28.1-android-arm64.so.xz
+curl rc=0
+total 9624
+-rw-r--r-- 1 runner runner 9854456 Nov 28 02:48 g.xz
+total 38284
+-rw-r--r-- 1 runner runner 39425920 Nov 28 02:48 g
+gadget/g: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, for Android 21, built by NDK r29 (14206865), stripped
+config rc=0
+{"interaction": {"type": "listen", "address": "127.0.0.1", "port": 27042}}try https://github.com/twoyi/twoyi/releases/download/v0.7.5/twoyi_0.7.5-11131322.apk
+curl: (22) The requested URL returned error: 404
+rc=22 size=
+try https://github.com/twoyi/twoyi/releases/download/0.7.5/twoyi_0.7.5-11131322.apk
+curl: (22) The requested URL returned error: 404
+rc=22 size=
+try https://github.com/twoyi/twoyi/releases/download/v0.7.5/twoyi.apk
+curl: (22) The requested URL returned error: 404
+rc=22 size=
+total 0
+input/twoyi.apk: cannot open `input/twoyi.apk' (No such file or directory)
+sha256sum: input/twoyi.apk: No such file or directory
+== dex list ==
+unzip:  cannot find or open input/twoyi.apk, input/twoyi.apk.zip or input/twoyi.apk.ZIP.
+Input file (/home/runner/work/twoyi-decompile/twoyi-decompile/input/twoyi.apk) was not found or was not readable.
+decode rc=1
+du: cannot access 'dec': No such file or directory
+find: ‘dec’: No such file or directory
+0
+== who calls loadLibrary ==
+grep: dec: No such file or directory
+sites=0 files=0
+inject rc=1
+grep: dec: No such file or directory
+total 38284
+-rw-r--r-- 1 runner runner       74 Nov 28 02:48 libgadget.config.so
+-rw-r--r-- 1 runner runner 39425920 Nov 28 02:48 libgadget.so
+I: Using Apktool 2.9.3
+brut.directory.PathNotExist: apktool.yml
+build rc=1
+ls: cannot access 'unsigned.apk': No such file or directory
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+	for: CN=gadget, O=t, C=cn
+Unable to open 'unsigned.apk' as zip archive: No such file or directory
+zipalign rc=1
+Exception in thread "main" java.io.FileNotFoundException: aligned.apk (No such file or directory)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:344)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:259)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:213)
+	at com.android.apksig.ApkSigner.sign(ApkSigner.java:217)
+	at com.android.apksigner.ApkSignerTool.sign(ApkSignerTool.java:499)
+	at com.android.apksigner.ApkSignerTool.main(ApkSignerTool.java:94)
+sign rc=1
+ls: cannot access 'twoyi-gadget.apk': No such file or directory
+Exception in thread "main" java.io.FileNotFoundException: twoyi-gadget.apk (No such file or directory)
+	at java.base/java.io.RandomAccessFile.open0(Native Method)
+	at java.base/java.io.RandomAccessFile.open(RandomAccessFile.java:344)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:259)
+	at java.base/java.io.RandomAccessFile.<init>(RandomAccessFile.java:213)
+	at com.android.apksig.ApkVerifier.verify(ApkVerifier.java:160)
+	at com.android.apksigner.ApkSignerTool.verify(ApkSignerTool.java:678)
+	at com.android.apksigner.ApkSignerTool.main(ApkSignerTool.java:97)
+unzip:  cannot find or open twoyi-gadget.apk, twoyi-gadget.apk.zip or twoyi-gadget.apk.ZIP.
+no apk, skip
+ls: cannot access 'twoyi-gadget.apk': No such file or directory
