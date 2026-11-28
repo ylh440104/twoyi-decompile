@@ -71,7 +71,7 @@ jobs:
           unxz -f gadget/g.xz
           mv gadget/g gadget/libgadget.so
           file gadget/libgadget.so
-          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"script","path":"/data/user/0/io.twoyi/files/hook.js","on_change":"reload"}}))'
+          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"script","path":"/data/user/0/io.twoyi/files/hook.js","on_load":"wait"}}))'
           echo "cfg rc=$?"
           cat gadget/libgadget.config.so
 
