@@ -1,7 +1,7 @@
-load_base=0xffed23ab4000
+load_base=0xff16f1894000
 PTR_PTR_FUN_00a0df80     va=0x90df80   value=0x0
 PTR_PTR_FUN_00a0df88     va=0x90df88   value=0x0
 PTR_PTR_FUN_00a0e058     va=0x90e058   value=0x0
 PTR_PTR_FUN_00a0e088     va=0x90e088   value=0x0
 PTR_DAT_00a0e470         va=0x90e470   value=0x0
-PTR_00a10f18             va=0x910f18   value=0xffed2460173c
+PTR_00a10f18             va=0x910f18   value=0xff16f23e473c
