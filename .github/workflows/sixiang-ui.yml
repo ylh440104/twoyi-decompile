@@ -105,13 +105,14 @@ jobs:
         if: always()
         run: |
           set -uo pipefail
-          ls -l sixiang/app/dist || true
+          ls -l sixiang/app/dist sixiang/loader/out 2>/dev/null || true
           git config user.name  "sixiang-ci"
           git config user.email "ci@sixiang.invalid"
-          git add -f sixiang/app/dist/ui.png \
-                     sixiang/app/dist/ui.txt \
-                     sixiang/app/dist/ui-log.txt \
-                     sixiang/loader/out/x86_64-build.log 2>/dev/null || true
+          # One pathspec per call: `git add a b c` aborts entirely if any single
+          # path is missing, which silently threw away every previous run's
+          # evidence. Directories are fine -- they always exist here.
+          git add -f sixiang/app/dist 2>/dev/null || true
+          git add -f sixiang/loader/out 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "no evidence to commit"
             exit 0
