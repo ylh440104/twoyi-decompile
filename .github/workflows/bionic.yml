@@ -1,0 +1,118 @@
+name: bionic runtime probe (aarch64)
+
+# Frida-gadget can only hook a library that actually *loads*.  On glibc the load
+# is degenerate: DT_ANDROID_RELA (APS2 packed relocations, 112,262 entries) is
+# ignored, so .got and .init_array stay zero and every PLT call jumps to 0.
+#
+# So before any gadget work we need a real bionic loader.  Two candidate sources:
+#   * Termux bootstrap  - real linker64 + libc.so + libm.so + libdl.so (bionic)
+#   * Android NDK       - clang + stub libs, to *build* a bionic-target binary
+#
+# This job only proves the runtime can execute: it fetches the Termux bootstrap,
+# runs its bionic /bin/bash, and reports the loader + libc it used.  It also
+# resolves the current frida-gadget Android arm64 asset so the next step can
+# pin an exact URL.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'dyn/**'
+      - '.github/workflows/bionic.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Probe bionic runtime (Termux bootstrap)
+        run: |
+          set +e
+          mkdir -p bionic-out work
+          {
+            echo "== host =="
+            uname -a
+
+            echo "== termux bootstrap asset =="
+            ASSET=$(curl -s --max-time 30 \
+              https://api.github.com/repos/termux/termux-packages/releases/latest \
+              | python3 -c 'import json,sys
+d=json.load(sys.stdin)
+print(d.get("tag_name","?"))
+for a in d.get("assets",[]):
+    if a["name"]=="bootstrap-aarch64.zip":
+        print(a["browser_download_url"]); break' )
+            echo "$ASSET"
+            URL=$(echo "$ASSET" | tail -1)
+            if [ -z "$URL" ]; then
+              echo "no bootstrap asset found; falling back to a pinned tag"
+              URL="https://github.com/termux/termux-packages/releases/download/bootstrap-2024.10.24-r1/bootstrap-aarch64.zip"
+            fi
+            curl -fL --retry 2 -o work/tb.zip "$URL"
+            echo "curl rc=$?"
+            ls -l work/tb.zip
+
+            echo "== unpack =="
+            unzip -q -o work/tb.zip -d work/termux
+            echo "unzip rc=$?"
+            ls work/termux | head -20
+
+            echo "== find bionic pieces =="
+            find work/termux -maxdepth 3 \( -name 'linker64' -o -name 'libc.so' -o -name 'libm.so' -o -name 'libdl.so' -o -name 'bash' \) -printf '%p %s\n' 2>/dev/null
+
+            echo "== can the bionic loader execute? =="
+            BASH=$(find work/termux -type f -name bash | head -1)
+            echo "BASH=$BASH"
+            if [ -n "$BASH" ]; then
+              "$BASH" -c 'echo BIONIC_OK; uname -a; id' 2>&1 | head -6
+              echo "bash rc=$?"
+            fi
+
+            echo "== ldd-like: what did it link against =="
+            if [ -n "$BASH" ]; then
+              head -c 64 "$BASH" | od -An -tx1 | head -2
+            fi
+          } >> bionic-out/probe.log 2>&1
+
+      - name: Resolve frida-gadget asset
+        run: |
+          set +e
+          {
+            echo "== frida latest release =="
+            curl -s --max-time 30 https://api.github.com/repos/frida/frida/releases/latest \
+              | python3 -c 'import json,sys
+d=json.load(sys.stdin)
+print("tag:", d.get("tag_name","?"))
+for a in d.get("assets",[]):
+    n=a["name"]
+    if "gadget" in n and ("android-arm64" in n or "android-arm" in n):
+        print(" ", n, a.get("size"), a["browser_download_url"])' 2>&1
+
+            echo "== frida-server assets (needs root, informational) =="
+            curl -s --max-time 30 https://api.github.com/repos/frida/frida/releases/latest \
+              | python3 -c 'import json,sys
+d=json.load(sys.stdin)
+for a in d.get("assets",[]):
+    if "frida-server" in a["name"] and "android-arm64" in a["name"]:
+        print(" ", a["name"], a.get("size"), a["browser_download_url"])' 2>&1
+          } >> bionic-out/frida.txt 2>&1
+
+      - name: Commit probe results
+        if: always()
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f -A bionic-out
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "chore: bionic/frida probe ($(date -u +%H%M))"
+            git pull --rebase -q origin main || true
+            git push || echo "push failed"
+          fi
