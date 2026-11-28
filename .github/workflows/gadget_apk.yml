@@ -17,6 +17,7 @@ on:
     paths:
       - 'dyn/patch_app.py'
       - 'dyn/hook.js'
+      - 'dyn/TwoyiApplicationDump.smali'
       - 'apkinput/parta*'
       - '.github/workflows/gadget_apk.yml'
 
@@ -60,20 +61,17 @@ jobs:
           BT=$(ls -d "$ANDROID_HOME"/build-tools/* | tail -1)
           echo "BT=$BT"
 
-      - name: Fetch gadget and write its config
+      - name: Build the dumper
         run: |
           set +e
           exec 1>>build.log 2>&1
-          mkdir -p gadget
-          curl -fsSL -o gadget/g.xz \
-            https://github.com/frida/frida/releases/download/17.28.1/frida-gadget-17.28.1-android-arm64.so.xz
-          echo "curl rc=$?"
-          unxz -f gadget/g.xz
-          mv gadget/g gadget/libgadget.so
-          file gadget/libgadget.so
-          python3 -c 'import json;open("gadget/libgadget.config.so","w").write(json.dumps({"interaction":{"type":"script","path":"/data/user/0/io.twoyi/files/hook.js","on_load":"wait"}}))'
-          echo "cfg rc=$?"
-          cat gadget/libgadget.config.so
+          ls -l dyn/TwoyiApplicationDump.smali
+          echo "== injected class size =="
+          wc -l dyn/TwoyiApplicationDump.smali
+          echo "== probe the pieces the class relies on =="
+          grep -c 'getLong' dyn/TwoyiApplicationDump.smali
+          grep -c 'proc/self/maps' dyn/TwoyiApplicationDump.smali
+          grep -c 'MediaStore$Downloads' dyn/TwoyiApplicationDump.smali
 
       - name: Decode smali only (never recompile resources)
         run: |
@@ -101,19 +99,16 @@ jobs:
           python3 dyn/patch_app.py dec
           echo "patch rc=$?"
           echo "== patched region =="
-          sed -n '/attachBaseContext/,/gadget injection end/p' dec/smali/io/twoyi/TwoyiApplication.smali | head -40
+          sed -n '/attachBaseContext/,/dump thread end/p' dec/smali/io/twoyi/TwoyiApplication.smali | head -40
 
-      - name: Add gadget and hook.js
+      - name: Verify the injected class landed in the tree
         run: |
           set +e
           exec 1>>build.log 2>&1
-          # gadget and its config must sit in the same nativeLibraryDir, which
-          # only exists when extractNativeLibs="true".
-          mkdir -p dec/lib/arm64-v8a dec/assets
-          cp gadget/libgadget.so gadget/libgadget.config.so dec/lib/arm64-v8a/
-          cp dyn/hook.js dec/assets/hook.js
-          ls -l dec/lib/arm64-v8a/
-          ls -l dec/assets/hook.js
+          ls -l dec/smali/io/twoyi/TwoyiApplication\$Dump.smali
+          echo "== no gadget anywhere =="
+          ls dec/lib/arm64-v8a/
+          find dec -name 'libgadget*' -o -name 'hook.js' | head
 
       - name: Rebuild, align, sign
         run: |
