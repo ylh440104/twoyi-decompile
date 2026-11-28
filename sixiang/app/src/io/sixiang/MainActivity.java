@@ -558,13 +558,17 @@ public class MainActivity extends Activity {
     private static int tileAt(int gx, int gy) {
         int tw = (FB_W - GRID_PAD * 2 - GRID_GAP * (GRID_COLS - 1)) / GRID_COLS;
         int th = tw + 8;
-        for (int i = 0; i < GRID_COLS * GRID_ROWS; i++) {
-            int cx = i % GRID_COLS, cy = i / GRID_COLS;
-            int x = GRID_PAD + cx * (tw + GRID_GAP);
-            int y = GRID_TOP + cy * (th + GRID_GAP);
-            if (gx >= x && gx < x + tw && gy >= y && gy < y + th) return i;
-        }
-        return -1;
+        int bottom = GRID_TOP + GRID_ROWS * (th + GRID_GAP) - GRID_GAP;
+        if (gy < GRID_TOP - GRID_GAP / 2 || gy > bottom + GRID_GAP / 2) return -1;
+        /* Snap to the nearest tile instead of requiring a hit inside the rect:
+         * a finger is bigger than the gap between two icons. */
+        int cx = Math.round((gx - GRID_PAD - tw / 2f) / (float) (tw + GRID_GAP));
+        int cy = Math.round((gy - GRID_TOP - th / 2f) / (float) (th + GRID_GAP));
+        if (cx < 0) cx = 0;
+        if (cx >= GRID_COLS) cx = GRID_COLS - 1;
+        if (cy < 0) cy = 0;
+        if (cy >= GRID_ROWS) cy = GRID_ROWS - 1;
+        return cy * GRID_COLS + cx;
     }
 
     // ------------------------------------------------------------- guest exec

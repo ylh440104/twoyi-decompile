@@ -139,8 +139,10 @@ sleep 12
 log ""
 log "== tap into the guest screen =="
 adb shell input tap 540 900 2>&1 | tee -a "$LOG"
-sleep 3
-adb shell input tap 300 1200 2>&1 | tee -a "$LOG"
+sleep 2
+adb shell input tap 540 700 2>&1 | tee -a "$LOG"
+sleep 2
+adb shell input tap 540 1100 2>&1 | tee -a "$LOG"
 sleep 3
 
 # ------------------------------------------------------------------ evidence
@@ -191,9 +193,11 @@ else
     log "FAIL: no successful guest run (see logcat above)"
 fi
 # Input path: a tap must reach the guest and launch the tile's applet.
-if grep -q 'tap (' "$LOG" 2>/dev/null; then
-    log "PASS: touch reached the guest"
+if grep -q '图标' "$LOG" 2>/dev/null; then
+    log "PASS: a tap landed on a tile and launched its guest applet"
     ok=$((ok + 1))
+elif grep -q 'tap (' "$LOG" 2>/dev/null; then
+    log "PARTIAL: touch reached the guest but no tile was hit"
 else
     log "FAIL: the tap never reached the guest"
 fi
