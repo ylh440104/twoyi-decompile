@@ -117,7 +117,7 @@ if [ -n "${SIXIANG_NDK_BIN:-}" ] && [ -f sixiang/jni/binder_bridge.c ]; then
         echo "  jni: lib/$abi/libsixiang_binder.so ($(wc -c < "$WORK/stage/lib/$abi/libsixiang_binder.so") B)"
     done
 else
-    echo "  (SIXIANG_NDK_BIN unset: APK without the binder relay)"
+    echo "  (binder relay skipped: SIXIANG_NDK_BIN='${SIXIANG_NDK_BIN:-}' jni-src=$([ -f sixiang/jni/binder_bridge.c ] && echo yes || echo no))"
 fi
 
 echo

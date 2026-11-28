@@ -22,6 +22,7 @@ on:
       - 'sixiang/app/build.sh'
       - 'sixiang/app/ui-smoke.sh'
       - 'sixiang/guest/demo/**'
+      - 'sixiang/jni/**'
       - 'sixiang/loader/mini_loader.c'
       - 'sixiang/loader/bin/**'
       - '.github/workflows/sixiang-ui.yml'
