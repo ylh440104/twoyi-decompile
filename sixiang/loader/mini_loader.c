@@ -265,6 +265,9 @@ static struct loaded load_ex(const char *path, int do_relocate)
     return out;
 }
 
+/* Direct mode: relocate it ourselves. */
+static struct loaded load(const char *path) { return load_ex(path, 1); }
+
 /* ---------------------------------------------------------------- */
 
 static uintptr_t build_stack(const struct loaded *img, const char *path,
