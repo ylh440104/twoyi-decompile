@@ -1,0 +1,20 @@
+== dyndump start Sat Nov 28 01:04:45 UTC 2026 ==
+Linux runnervm0hi8g 7.0.0-1020-azure #21-Ubuntu SMP PREEMPT Tue Oct 27 22:34:38 UTC 2026 x86_64 GNU/Linux
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           48 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Vendor ID:                               AuthenticAMD
+Model name:                              AMD EPYC 9V74 80-Core Processor
+Python 3.14.4
+--- apt update
+update rc=0
+--- apt install
+E: Package 'qemu-user-static' has no installation candidate
+install rc=100
+--- versions
+/home/runner/work/_temp/002cb9b9-f20a-4a09-b1c2-af0df124dd81.sh: line 10: aarch64-linux-gnu-gcc: command not found
+/home/runner/work/_temp/002cb9b9-f20a-4a09-b1c2-af0df124dd81.sh: line 11: qemu-aarch64-static: command not found
+== dyndump end Sat Nov 28 01:04:49 UTC 2026 ==
