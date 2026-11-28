@@ -45,6 +45,33 @@
 static uint32_t *g_fb;
 static uint32_t *g_seq;
 
+/* Tile labels, one per line, supplied by the app. This is the host -> guest
+ * data direction: the launcher decides what exists, the guest draws it. */
+static char g_labels[16][16];
+static int g_nlabels;
+
+static void load_labels(const char *path)
+{
+    g_nlabels = 0;
+    if (!path || !*path) return;
+    FILE *f = fopen(path, "r");
+    if (!f) return;
+    char line[32];
+    while (g_nlabels < 16 && fgets(line, sizeof line, f)) {
+        char *p = line;
+        while (*p == ' ' || *p == '\t') p++;
+        int n = 0;
+        while (*p && *p != '\n' && *p != '\r' && n < 15) {
+            char c = *p++;
+            if (c >= 'a' && c <= 'z') c = (char)(c - 'a' + 'A');
+            g_labels[g_nlabels][n++] = c;
+        }
+        g_labels[g_nlabels][n] = 0;
+        if (n > 0) g_nlabels++;
+    }
+    fclose(f);
+}
+
 static inline uint32_t rgb(uint32_t r, uint32_t g, uint32_t b)
 {
     return 0xff000000u | (r << 16) | (g << 8) | b;
@@ -79,6 +106,61 @@ static void vgrad(int x, int y, int w, int h, uint32_t top, uint32_t bot)
         uint32_t g = ((top >> 8 & 0xff) * (255 - t) + (bot >> 8 & 0xff) * t) / 255;
         uint32_t b = ((top & 0xff) * (255 - t) + (bot & 0xff) * t) / 255;
         rect(x, y + j, w, 1, rgb(r, g, b));
+    }
+}
+
+/* 3x5 bitmap font: enough for tile labels. Rows are bit-packed, bit 2 = left.
+ * Kept in the guest on purpose: the desktop must be drawn by the guest, not
+ * overlaid by the app, or "guest screen" would be a lie. */
+static const uint8_t FONT[][5] = {
+    /* A */ {7, 5, 7, 5, 5}, /* B */ {6, 5, 6, 5, 6}, /* C */ {7, 4, 4, 4, 7},
+    /* D */ {6, 5, 5, 5, 6}, /* E */ {7, 4, 6, 4, 7}, /* F */ {7, 4, 6, 4, 4},
+    /* G */ {7, 4, 5, 5, 7}, /* H */ {5, 5, 7, 5, 5}, /* I */ {7, 2, 2, 2, 7},
+    /* J */ {1, 1, 1, 5, 7}, /* K */ {5, 5, 6, 5, 5}, /* L */ {4, 4, 4, 4, 7},
+    /* M */ {5, 7, 7, 5, 5}, /* N */ {6, 5, 5, 5, 5}, /* O */ {7, 5, 5, 5, 7},
+    /* P */ {7, 5, 7, 4, 4}, /* Q */ {7, 5, 5, 7, 1}, /* R */ {7, 5, 6, 5, 5},
+    /* S */ {7, 4, 7, 1, 7}, /* T */ {7, 2, 2, 2, 2}, /* U */ {5, 5, 5, 5, 7},
+    /* V */ {5, 5, 5, 5, 2}, /* W */ {5, 5, 7, 7, 5}, /* X */ {5, 5, 2, 5, 5},
+    /* Y */ {5, 5, 2, 2, 2}, /* Z */ {7, 1, 2, 4, 7},
+    /* 0 */ {7, 5, 5, 5, 7}, /* 1 */ {2, 6, 2, 2, 7}, /* 2 */ {7, 1, 7, 4, 7},
+    /* 3 */ {7, 1, 7, 1, 7}, /* 4 */ {5, 5, 7, 1, 1}, /* 5 */ {7, 4, 7, 1, 7},
+    /* 6 */ {7, 4, 7, 5, 7}, /* 7 */ {7, 1, 1, 1, 1}, /* 8 */ {7, 5, 7, 5, 7},
+    /* 9 */ {7, 5, 7, 1, 7},
+    /* - */ {0, 0, 7, 0, 0}, /* / */ {1, 1, 2, 4, 4}, /* . */ {0, 0, 0, 0, 2},
+    /* space */ {0, 0, 0, 0, 0},
+};
+
+#define FONT_H 5
+#define FONT_COLS ((int)(sizeof(FONT) / sizeof(FONT[0])))
+
+static int glyph_index(char c)
+{
+    if (c >= 'A' && c <= 'Z') return c - 'A';
+    if (c >= 'a' && c <= 'z') return c - 'a';
+    if (c >= '0' && c <= '9') return 26 + (c - '0');
+    if (c == '-') return 36;
+    if (c == '/') return 37;
+    if (c == '.') return 38;
+    return 39; /* space */
+}
+
+/* Draws uppercase text; scale 2 gives 6x10 px per cell. */
+static int text_width(const char *s, int scale)
+{
+    int n = 0;
+    while (*s++) n++;
+    return n ? n * (4 * scale) - scale : 0;
+}
+
+static void draw_text(int x, int y, const char *s, int scale, uint32_t c)
+{
+    for (; *s; s++) {
+        const uint8_t *g = FONT[glyph_index(*s)];
+        for (int r = 0; r < FONT_H; r++)
+            for (int b = 0; b < 3; b++)
+                if (g[r] & (4 >> b))
+                    rect(x + b * scale, y + r * scale, scale, scale, c);
+        x += 4 * scale;
     }
 }
 
@@ -127,8 +209,14 @@ static void paint(int t, int tx, int ty, int age)
         tile(x, y, tw, th, base);
         /* "icon" square + two text-ish lines */
         rect(x + 10, y + 10, tw - 20, tw - 20, rgb(0x7f, 0xd1, 0xff));
-        rect(x + 10, y + th - 26, tw - 30, 4, rgb(0x4a, 0x5c, 0x6c));
-        rect(x + 10, y + th - 18, tw - 44, 4, rgb(0x35, 0x44, 0x52));
+
+        /* label, guest-rendered */
+        const char *lab = (i < g_nlabels) ? g_labels[i] : "APP";
+        int sc = 2;
+        while (sc > 1 && text_width(lab, sc) > tw - 6) sc--;
+        draw_text(x + (tw - text_width(lab, sc)) / 2,
+                  y + th - 6 - FONT_H * sc, lab, sc, rgb(0xd8, 0xe6, 0xf0));
+
         if (i == hl)
             tile(x - 2, y - 2, tw + 4, th + 4, rgb(0xff, 0xd4, 0x7f));
     }
@@ -184,10 +272,12 @@ int main(void)
     g_seq = (uint32_t *)base;
     g_fb = (uint32_t *)((char *)base + HDR);
 
+    load_labels(getenv("SIXIANG_APPS"));
+
     /* Say something before the loop: if this line never appears, the process
      * died before its first instruction of real work, and the host knows to
      * stop blaming the frame channel. */
-    fprintf(stderr, "screen: up %dx%d fb=%s\n", FB_W, FB_H, path);
+    fprintf(stderr, "screen: up %dx%d fb=%s labels=%d\n", FB_W, FB_H, path, g_nlabels);
 
     struct timespec ts;
     ts.tv_sec = 0;

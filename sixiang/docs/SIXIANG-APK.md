@@ -211,7 +211,45 @@ adb install -r sixiang/app/dist/SiXiang.apk
 终端里逐条打印 `[1] 运行环境 → [2] guest rootfs → [3] loader → [4] 画面通道 → [5] guest 程序`，
 每一步都有 `exit=` 和输出行；失败时把这一屏截图发出来就能直接定位。
 
-## 6. 边界（不要当成 twoyi 的等价物）
+## 7. 验收标准（明确写下来，哪些达到、哪些没有）
+
+**界面（两仪式容器 UI）**
+
+| # | 标准 | 状态 |
+|---|---|---|
+| U1 | 有容器式布局：状态栏 / guest 画面 / 控制条 / 终端抽屉 | ✅ |
+| U2 | 画面区域显示的是 **guest 渲染的像素**，不是 app 自己画的占位图 | ✅（guest 侧 `screen` 画，app 只 blit） |
+| U3 | 桌面有带名字的图标网格，名字由 guest 用自己的点阵字库绘制 | ✅（host 给 `apps.txt` 清单，guest 渲染） |
+| U4 | 点图标 → 在 guest 里运行该程序，输出进终端 | ✅（模拟器实测 `toybox free` / `ls /system/lib64`） |
+| U5 | 点击在 guest 画面上有反馈（ripple + 高亮） | ✅（`touch=160,243 age=3`） |
+| U6 | 屏幕上有实时状态：帧号与 fps | ✅（`guest 画面 · frame N · fps`） |
+| U7 | 设置项（分辨率/DPI/帧率可调） | ❌ 只有帧率走 env，未做 UI |
+| U8 | 多窗口 / 应用切换 / 最近任务 | ❌ 未做 |
+
+**运行时（真正的两仪）**
+
+| # | 标准 | 状态 |
+|---|---|---|
+| R1 | 不 exec、不 root、不命名空间地启动 guest 程序 | ✅ |
+| R2 | guest 自己的 `linker64` 解析 `DT_NEEDED` | ✅ |
+| R3 | guest → host 画面通道 | ✅（共享文件 + seqlock） |
+| R4 | host → guest 输入与数据通道 | ✅（同一头的 x/y/seq + `apps.txt`） |
+| R5 | 画面通道换成 buffer 队列（socket + `SCM_RIGHTS` 传 `AHardwareBuffer`/memfd） | ❌ 现在还是约定文件 |
+| R6 | guest `SurfaceFlinger` + `hwcomposer` shim | ❌ 未做 |
+| R7 | guest `init` → `zygote` → `system_server` 启动序列 | ❌ 未做（需要打过补丁的 ROM） |
+| R8 | `binder` / `servicemanager` 代理 | ❌ 未做 |
+| R9 | `InputFlinger` 注入（真实触摸事件进 guest 输入栈） | ❌ 未做（现在是我们自己的坐标协议） |
+
+**为什么 R5–R9 不是这一轮能完成的**：R7 依赖一份打过补丁的 guest ROM（twoyi 自己
+的 ROM 包是 GB 级，且 `system_server` 需要 binder 才能起来）；R8 需要一份能截获
+`/dev/binder` 的 libbinder 替换件（app 没有 `binder_device` 权限，必须整体改道到
+宿主进程的 binder 连接）；R6 依赖 R7/R8 提供的进程与 IPC 基础。这三件是 twoyi 五年
+工程量的主体，不是把现有代码再推一步能得到的。
+
+**这一轮真正做到的是**：把「界面 + 画面 + 输入」三条链路做成可运行、可复现、可在
+模拟器上自动验收的实物（U1–U6、R1–R4），并把 R5–R9 的缺口逐条写清楚。
+
+## 8. 边界（与 twoyi 的差距）
 
 现在证明的是：**Android 的用户态程序能在 SiXiang 的 app 沙箱内、由 guest 自己的
 linker64 启动，并且 guest 能把自己的像素画到 app 的窗口里**。它还不是 twoyi 那种

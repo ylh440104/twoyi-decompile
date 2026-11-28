@@ -77,6 +77,14 @@ public class MainActivity extends Activity {
             {"uname", "-m"}, {"echo", "SiXiang"},
     };
 
+    /** Tile captions handed to the guest; it renders them with its own font. */
+    private static final String[] LABELS = {
+            "UNAME", "ID", "DATE", "UPTIME",
+            "LS /", "SYSTEM", "LIB64", "PROC",
+            "VERSION", "CPUINFO", "FREE", "DF",
+            "SELF", "CPU N", "ARCH", "ECHO",
+    };
+
     private final Handler ui = new Handler(Looper.getMainLooper());
 
     private TextView status;
@@ -391,6 +399,13 @@ public class MainActivity extends Activity {
             File bin = new File(guestDir, "screen");
             copyAsset("screen", bin);
             sayBoth("painter", bin.getAbsolutePath() + " (" + bin.length() + " B)");
+
+            /* The launcher's app list, handed to the guest. The guest draws the
+             * captions itself, so the desktop is guest-rendered text, not an
+             * overlay painted by the app. */
+            File apps = new File(guestDir, "apps.txt");
+            writeLabels(apps, LABELS);
+            sayBoth("labels", apps.getAbsolutePath() + " (" + LABELS.length + ")");
             sayBoth("framebuffer", fb.getAbsolutePath() + " (" + bytes + " B)");
 
             List<String> cmd = new ArrayList<String>();
@@ -403,6 +418,7 @@ public class MainActivity extends Activity {
             pb.environment().put("LD_LIBRARY_PATH",
                     new File(guestDir, "system/lib64").getAbsolutePath());
             pb.environment().put("SIXIANG_FB", fb.getAbsolutePath());
+            pb.environment().put("SIXIANG_APPS", apps.getAbsolutePath());
             pb.environment().put("SIXIANG_FPS", "20");
             pb.redirectErrorStream(true);
 
@@ -738,6 +754,17 @@ public class MainActivity extends Activity {
             }
         } finally {
             in.close();
+        }
+    }
+
+    private static void writeLabels(File f, String[] labels) throws Exception {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < labels.length; i++) sb.append(labels[i]).append('\n');
+        OutputStream o = new FileOutputStream(f);
+        try {
+            o.write(sb.toString().getBytes("UTF-8"));
+        } finally {
+            o.close();
         }
     }
 
