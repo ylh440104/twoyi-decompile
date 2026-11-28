@@ -1,9 +1,9 @@
 total 216060
--rw-r--r-- 1 runner runner 83886080 Nov 28 04:36 partaa
--rw-r--r-- 1 runner runner 83886080 Nov 28 04:36 partab
--rw-r--r-- 1 runner runner 53469606 Nov 28 04:36 partac
+-rw-r--r-- 1 runner runner 83886080 Nov 28 05:04 partaa
+-rw-r--r-- 1 runner runner 83886080 Nov 28 05:04 partab
+-rw-r--r-- 1 runner runner 53469606 Nov 28 05:04 partac
 cat rc=0
--rw-r--r-- 1 runner runner 221241766 Nov 28 04:36 work/twoyi.apk
+-rw-r--r-- 1 runner runner 221241766 Nov 28 05:04 work/twoyi.apk
 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e  work/twoyi.apk
 expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
   4501160  1981-01-01 01:01   classes.dex
@@ -15,27 +15,24 @@ curl rc=0
 gadget/libgadget.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, for Android 21, built by NDK r29 (14206865), stripped
 cfg rc=0
 {"interaction": {"type": "script", "path": "/data/user/0/io.twoyi/files/hook.js", "on_change": "reload"}}I: Using Apktool 2.9.3 on twoyi.apk
-I: Loading resource table...
-I: Decoding file-resources...
-I: Loading resource table from file: /home/runner/.local/share/apktool/framework/1.apk
-I: Decoding values */* XMLs...
-I: Decoding AndroidManifest.xml with resources...
-I: Regular manifest package...
+I: Copying raw resources...
+I: Copying raw manifest...
 I: Baksmaling classes.dex...
 I: Copying assets and libs...
 I: Copying unknown files...
 I: Copying original files...
 I: Copying META-INF/services directory
 decode rc=0
--rw-r--r-- 1 runner runner 9525 Nov 28 04:37 dec/AndroidManifest.xml
--rw-r--r-- 1 runner runner  931 Nov 28 04:37 dec/apktool.yml
+-rw-r--r-- 1 runner runner 872 Nov 28 05:04 dec/apktool.yml
+dec/AndroidManifest.xml
 4893
-== before ==
-android:extractNativeLibs="true"
-already present, leaving it alone
-== after ==
-android:extractNativeLibs="true"
-== doNotCompress: keep the 212 MB rootfs stored ==
+== original lib/ is preserved verbatim ==
+total 9924
+-rw-r--r-- 1 runner runner   10096 Nov 28 05:04 libandroidx.graphics.path.so
+-rw-r--r-- 1 runner runner  147768 Nov 28 05:04 libloader.so
+-rw-r--r-- 1 runner runner  146256 Nov 28 05:04 libloader32.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 05:04 libtwoyi.so
+== keep the 212 MB rootfs stored ==
 doNotCompress:
 - zst
 - resources.arsc
@@ -86,18 +83,18 @@ patch rc=0
     :goto_ga
     # <<< gadget injection end
 total 48208
--rw-r--r-- 1 runner runner    10096 Nov 28 04:37 libandroidx.graphics.path.so
--rw-r--r-- 1 runner runner      105 Nov 28 04:37 libgadget.config.so
--rw-r--r-- 1 runner runner 39425920 Nov 28 04:37 libgadget.so
--rw-r--r-- 1 runner runner   147768 Nov 28 04:37 libloader.so
--rw-r--r-- 1 runner runner   146256 Nov 28 04:37 libloader32.so
--rw-r--r-- 1 runner runner  9850096 Nov 28 04:37 libtwoyi.so
--rw-r--r-- 1 runner runner 6290 Nov 28 04:37 dec/assets/hook.js
+-rw-r--r-- 1 runner runner    10096 Nov 28 05:04 libandroidx.graphics.path.so
+-rw-r--r-- 1 runner runner      105 Nov 28 05:04 libgadget.config.so
+-rw-r--r-- 1 runner runner 39425920 Nov 28 05:04 libgadget.so
+-rw-r--r-- 1 runner runner   147768 Nov 28 05:04 libloader.so
+-rw-r--r-- 1 runner runner   146256 Nov 28 05:04 libloader32.so
+-rw-r--r-- 1 runner runner  9850096 Nov 28 05:04 libtwoyi.so
+-rw-r--r-- 1 runner runner 6290 Nov 28 05:04 dec/assets/hook.js
 I: Using Apktool 2.9.3
 I: Checking whether sources has changed...
 I: Smaling smali folder into classes.dex...
 I: Checking whether resources has changed...
-I: Building resources...
+I: Copying raw resources...
 I: Copying libs... (/lib)
 I: Copying libs... (/kotlin)
 I: Copying libs... (/META-INF/services)
@@ -105,22 +102,22 @@ I: Building apk file...
 I: Copying unknown files/dir...
 I: Built apk into: out/unsigned.apk
 build rc=0
--rw-r--r-- 1 runner runner 236227216 Nov 28 04:37 out/unsigned.apk
+-rw-r--r-- 1 runner runner 236163407 Nov 28 05:05 out/unsigned.apk
 reusing repo keystore
 zipalign rc=0
 sign rc=0
--rw-r--r-- 1 runner runner 236306675 Nov 28 04:37 out/twoyi-gadget.apk
+-rw-r--r-- 1 runner runner 236240136 Nov 28 05:05 out/twoyi-gadget.apk
 V3.0 Signer: certificate DN: CN=gadget, O=t, C=cn
 V3.0 Signer: certificate SHA-256 digest: a22dd5d978aa191d829b74ca08729130439e6a2cafe2d22b33adff72d0137e07
 V3.0 Signer: certificate SHA-1 digest: 8ef1cb715518142cb9a75dbe3dd54b2037e1d578
 V3.0 Signer: certificate MD5 digest: cd09a0252a74d1a3c6bef4d1702efa02
- 39425920  2026-11-28 04:37   lib/arm64-v8a/libgadget.so
-      105  2026-11-28 04:37   lib/arm64-v8a/libgadget.config.so
-     6290  2026-11-28 04:37   assets/hook.js
+ 39425920  2026-11-28 05:05   lib/arm64-v8a/libgadget.so
+      105  2026-11-28 05:05   lib/arm64-v8a/libgadget.config.so
+     6290  2026-11-28 05:05   assets/hook.js
 upload rc=0
-total 693992
--rw-r--r-- 1 runner runner 236227492 Nov 28 04:37 aligned.apk
--rw-r--r-- 1 runner runner      2590 Nov 28 04:37 ks.jks
--rw-r--r-- 1 runner runner 236306675 Nov 28 04:37 twoyi-gadget.apk
--rw-r--r-- 1 runner runner   1869208 Nov 28 04:37 twoyi-gadget.apk.idsig
--rw-r--r-- 1 runner runner 236227216 Nov 28 04:37 unsigned.apk
+total 693800
+-rw-r--r-- 1 runner runner 236163665 Nov 28 05:05 aligned.apk
+-rw-r--r-- 1 runner runner      2590 Nov 28 05:05 ks.jks
+-rw-r--r-- 1 runner runner 236240136 Nov 28 05:05 twoyi-gadget.apk
+-rw-r--r-- 1 runner runner   1869208 Nov 28 05:05 twoyi-gadget.apk.idsig
+-rw-r--r-- 1 runner runner 236163407 Nov 28 05:05 unsigned.apk
