@@ -205,5 +205,12 @@ elif grep -q 'tap (' "$LOG" 2>/dev/null; then
 else
     log "FAIL: the tap never reached the guest"
 fi
-[ "$ok" = "3" ] && exit 0
+# Keyboard path: the app's text must reach the guest's renderer.
+if grep -q 'screen: text=' "$OUT/logcat.txt" 2>/dev/null; then
+    log "PASS: typed text reached the guest"
+    ok=$((ok + 1))
+else
+    log "FAIL: typed text never reached the guest"
+fi
+[ "$ok" = "4" ] && exit 0
 exit 1

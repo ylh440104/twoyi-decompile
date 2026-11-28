@@ -65,6 +65,11 @@ static int g_pending_fd = -1;     /* fd that arrived with an SCM_RIGHTS cmsg */
 static char g_labels[TILE_MAX][16];
 static int g_nlabels;
 
+/* Text typed into the guest by the app ("text <utf8>"), drawn with the same
+ * 3x5 font. This is the keyboard half of the input path; taps are the other. */
+static char g_input[24];
+static int g_inlen;
+
 static uint32_t rgb(uint32_t r, uint32_t g, uint32_t b)
 {
     return 0xff000000u | (r << 16) | (g << 8) | b;
@@ -251,9 +256,19 @@ static void paint(int t, int tx, int ty, int age, int focus, int hit)
     rect(L_pad, g_h - 14 - 3 * g_s, g_w - 2 * L_pad, 4 + 2 * g_s, rgb(0x1b, 0x28, 0x35));
     rect(L_pad, g_h - 14 - 3 * g_s, pw, 4 + 2 * g_s, rgb(0x57, 0xe3, 0x9a));
 
-    for (int i = 0; i < 16; i++)
-        rect(L_pad + i * (7 + 2 * g_s), g_h - dock + 8, 3 + g_s, 5,
-             (t >> i) & 1 ? rgb(0x7f, 0xd1, 0xff) : rgb(0x20, 0x2c, 0x38));
+    if (g_inlen > 0) {
+        /* keyboard input, drawn by the guest, with a blinking caret */
+        int sc = 2;
+        while (sc > 1 && text_width(g_input, sc) > g_w - 2 * L_pad - 8) sc--;
+        draw_text(L_pad, g_h - dock + 5, g_input, sc, rgb(0xff, 0xd4, 0x7f));
+        int cx = L_pad + text_width(g_input, sc) + 3;
+        rect(cx, g_h - dock + 5, 2, 5 * sc,
+             ((t / 8) % 2) ? rgb(0xff, 0xd4, 0x7f) : rgb(0x3a, 0x30, 0x18));
+    } else {
+        for (int i = 0; i < 16; i++)
+            rect(L_pad + i * (7 + 2 * g_s), g_h - dock + 8, 3 + g_s, 5,
+                 (t >> i) & 1 ? rgb(0x7f, 0xd1, 0xff) : rgb(0x20, 0x2c, 0x38));
+    }
 
     if (tx >= 0 && age >= 0 && age < 24) {
         int r = 6 + age * 2;
@@ -331,6 +346,23 @@ static void handle_line(char *line, int *tx, int *ty, int *age, int *hit,
     } else if (strncmp(line, "rel ", 4) == 0) {
         int s = atoi(line + 4);
         if (s >= 0 && s < NSLOT) g_busy[s] = 0;
+    } else if (strncmp(line, "text ", 5) == 0) {
+        /* the app's keyboard goes straight into the guest's text buffer */
+        int n = 0;
+        for (const char *p = line + 5; *p && n < (int)sizeof(g_input) - 1; p++) {
+            char c = *p;
+            if (c >= 'a' && c <= 'z') c = (char)(c - 'a' + 'A');
+            if (glyph_index(c) >= 0) g_input[n++] = c;
+        }
+        g_input[n] = 0;
+        g_inlen = n;
+        fprintf(stderr, "screen: text=%s\n", g_input);
+        *dirty = 1;
+    } else if (strncmp(line, "clear", 5) == 0) {
+        g_input[0] = 0;
+        g_inlen = 0;
+        fprintf(stderr, "screen: text=\n");
+        *dirty = 1;
     } else if (strncmp(line, "fbuf ", 5) == 0) {
         int s = atoi(line + 5);
         if (g_pending_fd >= 0 && s >= 0 && s < NSLOT) {

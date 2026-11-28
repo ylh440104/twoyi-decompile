@@ -254,6 +254,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 final String line = input.getText().toString().trim();
                 if (line.length() == 0) return;
+                send("text " + line);          /* typed text also lands in the guest */
                 new Thread(new Runnable() {
                     public void run() {
                         runGuestCommand(line);
@@ -584,6 +585,8 @@ public class MainActivity extends Activity {
                     openSlots();
                     for (int i = 0; i < slotCount; i++) sendFd(i);
                     clearPendingFds();
+                    /* prove the keyboard path immediately: the guest renders it */
+                    send("text READY");
                 }
             } else if (line.startsWith("bufok ")) {
                 int slot = Integer.parseInt(line.substring(6).trim());
