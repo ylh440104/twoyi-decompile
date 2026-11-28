@@ -1,0 +1,6 @@
+== frida latest ==
+tag: 17.28.1
+-- gadget android arm64 --
+  frida-gadget-17.28.1-android-arm64.so.xz 9854456 https://github.com/frida/frida/releases/download/17.28.1/frida-gadget-17.28.1-android-arm64.so.xz
+-- frida-server android arm64 (needs root) --
+  frida-server-17.28.1-android-arm64.xz 24706172 https://github.com/frida/frida/releases/download/17.28.1/frida-server-17.28.1-android-arm64.xz
