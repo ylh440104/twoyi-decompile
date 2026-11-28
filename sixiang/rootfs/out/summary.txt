@@ -1,17 +1,13 @@
 === out 顶层 ===
-first_stage_ramdisk
 merge-report.txt
 odm
 product
-qemu-aarch64-static
 system
 system_ext
 vendor
 
 === 各部件大小 ===
 2.3G	out/system
-10M	out/qemu-aarch64-static
-16K	out/first_stage_ramdisk
 8.0K	out/vendor
 8.0K	out/odm
 4.0K	out/system_ext
@@ -32,8 +28,13 @@ vendor
 (未生成)
 
 === init 产物 ===
-out/first_stage_ramdisk/:
+lrwxrwxrwx 1 runner runner 16 Jan  1  2009 out/system/init -> /system/bin/init
+
+out/system/first_stage_ramdisk/:
 total 12
--rw-r--r-- 1 runner runner 67 Nov 28 10:56 fstab.android
--rw-r--r-- 1 runner runner 67 Nov 28 10:56 fstab.qemu
--rw-r--r-- 1 runner runner 67 Nov 28 10:56 fstab.sixiang
+-rw-r--r-- 1 runner runner 67 Nov 28 11:13 fstab.android
+-rw-r--r-- 1 runner runner 67 Nov 28 11:13 fstab.qemu
+-rw-r--r-- 1 runner runner 67 Nov 28 11:13 fstab.sixiang
+
+=== system/apex 目录数 ===
+38

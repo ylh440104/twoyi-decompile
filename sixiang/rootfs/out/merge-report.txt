@@ -2,7 +2,10 @@ converting to raw ...
 raw = 1904779264 bytes
 root entries (71): 2,11,lost+found,12,adb_keys,13,apex,14,bin,15,bootstrap-apex,16,bugreports,17,cache,18,config,19,d,20,data,21,data_mirror,22,debug_ramdisk
 layout = B (image root IS /system)
-rdump / -> out/system : OK
+  loop mount OK -> out/.work/mnt
+  rsync -aHAX OK (symlinks preserved)
+extract via mount -> out/system
+WARN: out/system/bin/init 不存在
 rdump /system_ext -> out/system_ext : OK
 rdump /product -> out/product : OK
 rdump /vendor -> out/vendor : OK
@@ -21,11 +24,11 @@ placed apex-info-list.xml
   [OK] com.android.art 存在
   [OK] system/apex 下的原件已清空
 
-system         2396.7 MiB
-TOTAL          7809.0 MiB
+system   2396.7 MiB
+TOTAL    5992.4 MiB (不含 .work)
 
 === 造 ramdisk 层 ===
-  WARN: out/system/bin/init 不存在
+  WARN: bin/init 不存在，init 无法启动
   first_stage_ramdisk/fstab.sixiang (empty fstab)
   first_stage_ramdisk/fstab.android (empty fstab)
   first_stage_ramdisk/fstab.qemu (empty fstab)
