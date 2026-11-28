@@ -1,0 +1,95 @@
+# round 211: inside the six zero-string giants
+== 0x4d2a38  insns=61017
+   widths: ld=2012 sw=1580 lb=1387 sb=1320 lw=1283 sd=321 lx=14 sx=12
+   loops=1951 neon=0 movz=27967 movk=0 csel=877 ubfm=239
+   biggest loops (site, head, span_bytes): (50e34c->4d7148, 225796), (50e33c->4d7148, 225780), (50e290->4d7148, 225608), (50e19c->4d7148, 225364), (50e188->4d7148, 225344), (50dfa8->4d7148, 224864)
+   callees (25):
+     0x427a58   x47   472 lines  tag=string
+     0x546d7c   x11   932 lines  tag=plain
+     0x8e0780   x10    14 lines  tag=io.file
+     0x54aa04   x9    216 lines  tag=string
+     0x8e06a0   x5     10 lines  tag=plain
+     0x8e06b0   x4     14 lines  tag=plain
+     0x8e0890   x4     10 lines  tag=io.file
+     0x4cc6d8   x4    526 lines  tag=io.mem
+     0x8e07b0   x4     10 lines  tag=io.mem
+     0x5424a8   x3   1402 lines  tag=io.file
+     0x8e0700   x3     14 lines  tag=io.mem
+     0x8e0630   x2     14 lines  tag=io.mem
+== 0x486104  insns=42681
+   widths: ld=1160 sw=1154 lw=1064 sb=901 lb=895 sd=88 lx=40 sx=12
+   loops=1507 neon=0 movz=20774 movk=0 csel=574 ubfm=162
+   biggest loops (site, head, span_bytes): (4afb9c->4886c8, 160980), (4afb8c->4886c8, 160964), (4afaec->4886c8, 160804), (4afad8->4886c8, 160784), (4af9ec->4886c8, 160548), (4af998->4886c8, 160464)
+   callees (14):
+     0x8e06a0   x44    10 lines  tag=plain
+     0x8e0780   x21    14 lines  tag=io.file
+     0x8e0960   x19    14 lines  tag=io.file
+     0x8e0d40   x17    14 lines  tag=io.file
+     0x427a58   x15   472 lines  tag=string
+     0x8e06b0   x12    14 lines  tag=plain
+     0x8e0890   x9     10 lines  tag=io.file
+     0x4b46ac   x9    319 lines  tag=io.file
+     0x4afbe8   x6   1536 lines  tag=io.file
+     0x4b6120   x3   2040 lines  tag=io.file
+     0x8e0d70   x3     14 lines  tag=io.file
+     0x470218   x2    408 lines  tag=io.file
+== 0x55189c  insns=28840
+   widths: ld=811 lw=790 sb=671 lb=656 sw=471 sd=68 lx=30 sx=12
+   loops=784 neon=0 movz=13891 movk=0 csel=352 ubfm=121
+   biggest loops (site, head, span_bytes): (56daf0->553244, 108716), (56dae0->553244, 108700), (56dacc->553244, 108680), (56dab8->553238, 108672), (56d9c0->553244, 108412), (56d860->553244, 108060)
+   callees (14):
+     0x8e06a0   x38    10 lines  tag=plain
+     0x8e0780   x38    14 lines  tag=io.file
+     0x8e06b0   x19    14 lines  tag=plain
+     0x8e0960   x18    14 lines  tag=io.file
+     0x427a58   x15   472 lines  tag=string
+     0x8e0d40   x13    14 lines  tag=io.file
+     0x8e0890   x6     10 lines  tag=io.file
+     0x4b46ac   x5    319 lines  tag=io.file
+     0x53b550   x2   1604 lines  tag=io.file
+     0x4afbe8   x2   1536 lines  tag=io.file
+     0x578e38   x2    497 lines  tag=io.file
+     0x8e0e30   x2     14 lines  tag=plain
+== 0x2d0b00  insns=22387
+   widths: ld=1208 sw=570 lw=493 sd=428 sb=105 lb=90 sx=68 lx=40
+   loops=821 neon=0 movz=9774 movk=0 csel=354 ubfm=104
+   biggest loops (site, head, span_bytes): (2e688c->2d260c, 82560), (2e687c->2d260c, 82544), (2e67bc->2d260c, 82352), (2e66dc->2d260c, 82128), (2e66a4->2d260c, 82072), (2e664c->2d260c, 81984)
+   callees (4):
+     0x8da688   x20    12 lines  tag=io.mem
+     0x2c56e0   x9    504 lines  tag=io.mem
+     0x2d0b00   x4      ? lines  tag=?
+     0x8e0610   x1     10 lines  tag=plain
+== 0x4714d0  insns=21261
+   widths: sb=776 lb=765 ld=513 lw=498 sw=321 sd=42 lx=20 sx=12
+   loops=607 neon=0 movz=10039 movk=0 csel=226 ubfm=84
+   biggest loops (site, head, span_bytes): (4860b8->4722b0, 81416), (4860a8->4722b0, 81400), (485f3c->4722b0, 81036), (485e78->4722b0, 80840), (485e64->4722b0, 80820), (485e58->4722b0, 80808)
+   callees (12):
+     0x8e06a0   x20    10 lines  tag=plain
+     0x8e0780   x19    14 lines  tag=io.file
+     0x427a58   x19   472 lines  tag=string
+     0x8e06b0   x14    14 lines  tag=plain
+     0x8e0960   x12    14 lines  tag=io.file
+     0x8e0d70   x5     14 lines  tag=io.file
+     0x8e0890   x4     10 lines  tag=io.file
+     0x8e0d50   x3     14 lines  tag=io.file
+     0x8e0740   x2     10 lines  tag=log
+     0x4b46ac   x2    319 lines  tag=io.file
+     0x4afbe8   x1   1536 lines  tag=io.file
+     0x8e0610   x1     10 lines  tag=plain
+== 0x527ba8  insns=20074
+   widths: sb=807 lb=790 ld=510 lw=463 sw=345 sd=43 lx=26 sx=12
+   loops=536 neon=0 movz=9086 movk=0 csel=96 ubfm=77
+   biggest loops (site, head, span_bytes): (53b508->528774, 77204), (53b4f8->528774, 77188), (53b4e4->528774, 77168), (53b380->528774, 76812), (53b34c->528774, 76760), (53b2f8->528774, 76676)
+   callees (17):
+     0x8e06a0   x24    10 lines  tag=plain
+     0x427a58   x14   472 lines  tag=string
+     0x8e06b0   x13    14 lines  tag=plain
+     0x8e0960   x8     14 lines  tag=io.file
+     0x4714d0   x7      ? lines  tag=?
+     0x8e0d40   x6     14 lines  tag=io.file
+     0x4b46ac   x6    319 lines  tag=io.file
+     0x8e0740   x5     10 lines  tag=log
+     0x8e0780   x4     14 lines  tag=io.file
+     0x8e0d70   x3     14 lines  tag=io.file
+     0x8e0d50   x2     14 lines  tag=io.file
+     0x55189c   x2      ? lines  tag=?
