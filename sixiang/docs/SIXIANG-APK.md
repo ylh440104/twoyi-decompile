@@ -1,8 +1,10 @@
 # SiXiang.apk — 能装、能起、能在 app 里跑 guest
 
-> 结论先写：**APK 已经能安装、能启动、界面可见，并且在 app 自己的沙箱里把
-> Android 的 `toybox` 跑起来了**（由 guest 自己的 `linker64` 装载，不 exec、
-> 不要 root、不要命名空间）。这是 twoyi 路线的第一段，图形部分还没做。
+> 结论先写：**APK 能安装、能启动、界面是容器形态（状态栏 + guest 画面 + 控制条 +
+> 终端），并且界面中间那块画面是 guest 进程一帧帧画出来、app 映射同一块共享内存
+> 显示的。** guest 的 `toybox` 也仍然由 guest 自己的 `linker64` 启动。这是 twoyi
+> 路线的第一段：**入口机制 + 画面通道都通了**，还差「真正的合成器」（SurfaceFlinger
+> + HWC shim）与 binder。
 
 ## 1. 产物
 
@@ -13,7 +15,8 @@
 | minSdk / targetSdk | 26 / **28**（见下，28 是设计，不是偷懒） |
 | 签名 | `sixiang/keys/sixiang.jks`，alias `sixiang` |
 | 签名 SHA-256 | `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
-| 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等） |
+| 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`（bionic 静态，892 KB）、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等）、`assets/screen`（guest 画面程序，13 KB） |
+| 体积 / sha256 | 4,100,791 B / `fe5c2c3309f22489f315336ab4ef368fee87bc57eda6a80bad9777a87cf939bb` |
 
 构建全部在 Actions：`.github/workflows/sixiang-apk.yml`（用 NDK 编 loader，再
 javac/d8/aapt2/zipalign/apksigner），产物与 `build.log`、`inspect.txt` 一起提交回仓库。
@@ -98,7 +101,74 @@ $ toybox echo SIXIANG_GUEST_OK
 
 `uname` 打的是模拟器自己的内核串，`id` 打的是 app 自己的 uid——不是伪造的。
 
-## 4. 装到手机上怎么测
+## 4. 容器界面与画面通道（v0.2）
+
+界面不再是「一个按钮 + 一段文字」，而是容器该有的样子：
+
+```
+┌────────────────────────────────────────┐
+│ SiXiang        guest 画面 · frame 812 · 19 fps │
+├────────────────────────────────────────┤
+│                                        │
+│        guest 画出来的桌面（320×568）      │
+│        4×4 图标网格 + 高亮框 + 进度条      │
+│                                        │
+├────────────────────────────────────────┤
+│ [启动容器]  [停止]  [终端]                │
+├────────────────────────────────────────┤
+│ [1] 运行环境 … [2] guest rootfs …        │
+│ [3] loader …  [4] 画面通道 …  [5] guest  │
+├────────────────────────────────────────┤
+│ uname -a                        [运行]  │
+└────────────────────────────────────────┘
+```
+
+通道怎么走：
+
+1. app 建 `files/screen.rgba`（64 B 头 + 320×568×4），`FileChannel.map` 成
+   `MappedByteBuffer`；
+2. app 把 `assets/screen`（NDK 编的 bionic PIE 程序）解到 guest 根目录，用
+   `mini_loader --interp linker64 screen` 启动它，env 里给 `SIXIANG_FB`；
+3. guest 打开同一文件 `mmap(MAP_SHARED)`，每帧先写奇数序号、画像素、再写偶数序号；
+4. app 的读取线程按序号做 seqlock，取到稳定帧就 `Bitmap.setPixels` + `invalidate`。
+
+这就是 twoyi 图形通道的内核（只是 twoyi 传的是 HWC buffer，我们暂时传文件，因为
+guest 里还没有合成器去产 buffer）。
+
+**这一轮踩的两个坑（都不是编译期错误，全是运行时）：**
+
+| 现象 | 真因 |
+|---|---|
+| `pump 异常: NoSuchMethodError: MappedByteBuffer.duplicate()` | `javac` 用 JDK 17 的平台类解析 `java.*`（android.jar 只在 classpath 提供 android 包），于是 `duplicate()/position()` 被编成 **Java 9+ 的协变重载**，Android 的 core-oj 没有。修法：通过 `ByteBuffer` / `java.nio.Buffer` 静态类型调用。 |
+| `seq: 905969664`（应为 54） | `FileChannel.map` 返回的 buffer 默认 **BIG_ENDIAN**，guest 写的是本机序。修法：`map.order(ByteOrder.nativeOrder())`。 |
+
+顺带一条经验：`catch (Throwable) { return; }` 会把这类问题变成黑盒——pump 一开始
+就是这么静默死掉的，加上异常与首帧日志之后一次就定位了。
+
+修好之后模拟器上一次通过（run `46166192574`，两条检查都 PASS）：
+
+```
+pump: 启动
+pump: 映射 181760 ints, px=181760
+pump: 第一帧 seq=0
+seq: 58
+frames: 28                                               <- 1.5 秒 28 帧 ≈ 19fps
+  PASS 已连接 guest 画面（guest 在画，app 在显示）
+
+painter| screen: up 320x568 fb=/data/user/0/io.sixiang/files/screen.rgba
+painter| screen: frame 0/50/100/.../550                  <- guest 侧持续出帧
+$ toybox uname -a  -> Linux localhost ... x86_64 Toybox   -> exit=0
+== guest 程序已在本 app 内运行 ==
+
+== verdict ==
+PASS: guest frames reached the screen view
+PASS: the guest ran inside the app
+```
+
+截图 `sixiang/app/dist/ui.png`（183 KB，存在 `ui-evidence` 分支）就是上面那个界面，
+中间是 guest 画的内容。
+
+## 5. 装到手机上怎么测
 
 ```bash
 # 1) 取 APK：仓库里就有，或从 Actions 的 SiXiang-apk artifact 下
@@ -109,20 +179,24 @@ adb install -r sixiang/app/dist/SiXiang.apk
 #    想手动试：在输入框里输入 toybox 子命令（uname -a / id / ls / ...）点「运行」
 ```
 
-第一次启动会把 `assets/guest.zip` 解到 `files/guest`，约 1 秒。屏幕上会显示
-`[1] 运行环境 → [2] guest rootfs → [3] loader → [4] guest`，每一步都有
-`exit=` 和输出行；失败时把这一屏截图发出来就能直接定位。
+第一次启动会把 `assets/guest.zip` 解到 `files/guest`，约 1 秒；接着启动 guest 画面
+程序，中间那块视图就会开始动（约 19 fps），顶部状态栏显示 `guest 画面 · frame N · fps`。
+终端里逐条打印 `[1] 运行环境 → [2] guest rootfs → [3] loader → [4] 画面通道 → [5] guest 程序`，
+每一步都有 `exit=` 和输出行；失败时把这一屏截图发出来就能直接定位。
 
-## 5. 边界（不要当成 twoyi 的等价物）
+## 6. 边界（不要当成 twoyi 的等价物）
 
 现在证明的是：**Android 的用户态程序能在 SiXiang 的 app 沙箱内、由 guest 自己的
-linker64 启动，输出显示在 Activity 上**。它还不是 twoyi 那种「guest 桌面渲染进
-app 窗口」，后者还缺：
+linker64 启动，并且 guest 能把自己的像素画到 app 的窗口里**。它还不是 twoyi 那种
+「guest 桌面渲染进 app 窗口」——差别在**画面是谁产的**：我们的画面是 guest 里一个
+程序自己画的，twoyi 的画面是 guest 的 `SurfaceFlinger` 合成出来的。还缺：
 
 - guest 侧 `SurfaceFlinger` + `hwcomposer` shim（HWC 转发到宿主 `Surface`）
-- 图形 buffer 通道（unix socket + `AHardwareBuffer`）
+- 把现在的共享文件换成 buffer 队列（unix socket + `AHardwareBuffer`，fd 用
+  `SCM_RIGHTS` 传）
 - guest `binder` 与 `servicemanager`（twoyi 的 binder 走宿主 ioctl 转发）
 - guest `init`/`zygote`/`system_server` 的启动序列与 AOT（GSI 自带 vdex，见
   `docs/AOT-INVENTORY.md`）
+- 输入转发（触摸/按键 → guest `InputFlinger`）
 
-这些是工程量，不是可行性问题——入口机制这一关已经过了。
+这些是工程量，不是可行性问题——入口机制和画面通道这两关已经过了。
