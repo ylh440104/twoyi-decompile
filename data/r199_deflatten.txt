@@ -1,0 +1,2478 @@
+# de-flattened: shell/opaque-predicate lines removed, only real work kept
+== 0x3a82dc  1546 lines -> 268 net  (dropped state=872 opaque=40)
+   void FUN_004a82dc(long param_1,int *param_2)
+   [decl] int *piVar1;
+   [decl] uint uVar2;
+   [decl] int iVar3;
+   [decl] int iVar4;
+   [decl] char cVar5;
+   [decl] byte bVar6;
+   [decl] undefined8 *puVar7;
+   [decl] int *piVar8;
+   [decl] bool bVar9;
+   [decl] ulong uVar10;
+   [decl] long lVar11;
+   [decl] ulong uVar12;
+   [decl] ulong *puVar13;
+   [decl] uint uVar14;
+   [decl] long lVar15;
+   [decl] long *plVar17;
+   [decl] ulong *puVar18;
+   [decl] ulong *puVar19;
+   [decl] int local_a10;
+   [decl] long local_a00 [2];
+   [decl] long local_9f0 [2];
+   [decl] long local_9e0 [2];
+   [decl] long local_9d0 [2];
+   [decl] long local_9c0 [2];
+   [decl] long local_9b0 [2];
+   [decl] long local_9a0 [2];
+   [decl] long local_990 [2];
+   [decl] long local_980 [2];
+   [decl] long local_970 [2];
+   [decl] long local_960 [2];
+   [decl] ulong local_950 [2];
+   [decl] char local_940 [16];
+   [decl] char local_930 [16];
+   [decl] ulong local_920 [2];
+   [decl] char local_910 [16];
+   [decl] char local_900 [16];
+   [decl] ulong local_8f0 [2];
+   [decl] char local_8e0 [16];
+   [decl] char local_8d0 [16];
+   [decl] ulong local_8c0 [2];
+   [decl] char local_8b0 [16];
+   [decl] char local_8a0 [16];
+   [decl] ulong local_890 [2];
+   [decl] char local_880 [16];
+   [decl] char local_870 [16];
+   [decl] ulong local_860 [2];
+   [decl] char local_850 [16];
+   [decl] char local_840 [16];
+   [decl] ulong local_830 [2];
+   [decl] char local_820 [16];
+   [decl] int local_810 [4];
+   [decl] long local_800 [2];
+   [decl] long local_7f0 [2];
+   [decl] long local_7e0 [2];
+   [decl] long local_7d0 [2];
+   [decl] long local_7c0 [2];
+   [decl] long local_7b0 [2];
+   [decl] long local_7a0 [2];
+   [decl] long local_790 [2];
+   [decl] char local_780 [16];
+   [decl] long local_770 [2];
+   [decl] long local_760 [2];
+   [decl] char local_750 [16];
+   [decl] long local_740 [2];
+   [decl] long local_730 [2];
+   [decl] long local_720 [2];
+   [decl] byte local_710 [16];
+   [decl] byte local_700 [16];
+   [decl] long local_6f0 [2];
+   [decl] char local_6e0 [16];
+   [decl] char local_6d0 [16];
+   [decl] ulong local_6c0 [2];
+   [decl] char local_6b0 [16];
+   [decl] char local_6a0 [16];
+   [decl] ulong local_690 [2];
+   [decl] char local_680 [16];
+   [decl] char local_670 [16];
+   [decl] ulong local_660 [2];
+   [decl] char local_650 [16];
+   [decl] char local_640 [16];
+   [decl] ulong local_630 [2];
+   [decl] char local_620 [16];
+   [decl] char local_610 [16];
+   [decl] ulong local_600 [2];
+   [decl] char local_5f0 [16];
+   [decl] char local_5e0 [16];
+   [decl] ulong local_5d0 [2];
+   [decl] char local_5c0 [16];
+   [decl] char local_5b0 [16];
+   [decl] int local_5a0 [4];
+   [decl] long local_590 [2];
+   [decl] long local_580 [2];
+   [decl] long local_570 [2];
+   [decl] long local_560 [2];
+   [decl] long local_550 [2];
+   [decl] long local_540 [2];
+   [decl] long local_530 [2];
+   [decl] ulong local_520 [2];
+   [decl] ulong local_510 [2];
+   [decl] ulong local_500 [2];
+   [decl] ulong local_4f0 [2];
+   [decl] ulong local_4e0 [2];
+   [decl] ulong local_4d0 [2];
+   [decl] ulong local_4c0 [2];
+   [decl] int local_4b0 [4];
+   [decl] undefined8 local_4a0 [2];
+   [decl] long local_490 [2];
+   [decl] long local_480 [2];
+   [decl] long local_470 [2];
+   [decl] long local_460 [2];
+   [decl] long local_450 [2];
+   [decl] long local_440 [2];
+   [decl] long local_430 [2];
+   [decl] char local_420 [16];
+   [decl] long local_410 [2];
+   [decl] long local_400 [2];
+   [decl] uint local_3f0 [6];
+   [decl] long local_3d8;
+   [decl] undefined4 local_3cc;
+   [decl] int local_3c8;
+   [decl] int local_3c4;
+   [decl] int local_3c0;
+   [decl] undefined4 local_3bc;
+   [decl] undefined4 local_3b8;
+   [decl] uint local_3b4;
+   [decl] undefined4 local_3b0;
+   [decl] undefined4 local_3ac;
+   [decl] undefined4 local_3a8;
+   [decl] undefined4 local_3a4;
+   [decl] long local_3a0;
+   [decl] undefined4 local_394;
+   [decl] undefined4 local_390;
+   [decl] undefined4 local_38c;
+   [decl] uint *local_388;
+   [decl] long *local_380;
+   [decl] long *local_378;
+   [decl] long *local_370;
+   [decl] ulong *local_368;
+   [decl] char *local_360;
+   [decl] char *local_358;
+   [decl] char *local_350;
+   [decl] char *local_348;
+   [decl] char *local_340;
+   [decl] char *local_338;
+   [decl] char *local_330;
+   [decl] char *local_328;
+   [decl] char *local_320;
+   [decl] char *local_318;
+   [decl] char *local_310;
+   [decl] char *local_308;
+   [decl] char *local_300;
+   [decl] long *local_2f8;
+   [decl] long *local_2f0;
+   [decl] long *local_2e8;
+   [decl] long *local_2e0;
+   [decl] long *local_2d8;
+   [decl] long *local_2d0;
+   [decl] long *local_2c8;
+   [decl] long *local_2c0;
+   [decl] char *local_2b8;
+   [decl] char *local_2b0;
+   [decl] long *local_2a8;
+   [decl] long *local_2a0;
+   [decl] long *local_298;
+   [decl] byte *local_290;
+   [decl] byte *local_288;
+   [decl] long *local_280;
+   [decl] char *local_278;
+   [decl] char *local_270;
+   [decl] char *local_268;
+   [decl] char *local_260;
+   [decl] char *local_258;
+   [decl] char *local_250;
+   [decl] char *local_248;
+   [decl] char *local_240;
+   [decl] char *local_238;
+   [decl] char *local_230;
+   [decl] char *local_228;
+   [decl] char *local_220;
+   [decl] char *local_218;
+   [decl] char *local_210;
+   [decl] int *local_208;
+   [decl] long *local_200;
+   [decl] long *local_1f8;
+   [decl] long *local_1f0;
+   [decl] long *local_1e8;
+   [decl] long *local_1e0;
+   [decl] long *local_1d8;
+   [decl] long *local_1d0;
+   [decl] undefined8 *local_1c8;
+   [decl] long *local_1c0;
+   [decl] long *local_1b8;
+   [decl] long *local_1b0;
+   [decl] long *local_1a8;
+   [decl] long *local_1a0;
+   [decl] long *local_198;
+   [decl] long *local_190;
+   [decl] char *local_188;
+   [decl] long *local_180;
+   [decl] int *local_178;
+   [decl] long *local_170;
+   [decl] long *local_168;
+   [decl] long *local_160 [4];
+   [decl] ulong *local_140;
+   [decl] ulong *local_138;
+   [decl] ulong *local_130;
+   [decl] int *local_128;
+   [decl] ulong *local_120;
+   [decl] ulong *local_118;
+   [decl] ulong *local_110;
+   [decl] ulong *local_108;
+   [decl] ulong *local_100;
+   [decl] ulong *local_f8;
+   [decl] ulong *local_f0;
+   [decl] ulong *local_e8;
+   [decl] ulong *local_e0;
+   [decl] ulong *local_d8;
+   [decl] ulong *local_d0;
+   [decl] ulong *local_c8;
+   [decl] ulong *local_c0;
+   [decl] int *local_b8;
+   [decl] long *local_b0;
+   [decl] long *local_a8;
+   [decl] long *local_a0;
+   [decl] long *local_98;
+   [decl] long *local_90;
+   [decl] long *local_88;
+   [decl] long *local_80;
+   [decl] long *local_78;
+   [decl] long local_70;
+   [decl] long *plVar16;
+   local_70 = *(long *)(local_3d8 + 0x28);
+   *local_120 = *(ulong *)*local_1f8;
+   *local_138 = *(ulong *)*local_2d0;
+   *local_130 = *(ulong *)*local_2c8;
+   *local_160[2] = *(ulong *)*local_2e8;
+   uVar14 = (uVar14 & (DAT_00a2cd68 ^ 0x924d1c71)) * (uVar2 & (DAT_00a2cd64 ^ 0xe3f933a6)) +
+   (uVar14 | uVar2) * (uVar14 & uVar2);
+   uVar14 = (DAT_00a2cd34 ^ 0xd4315a5d) * (DAT_00a2cd38 ^ 0xe12ff14e) * -0x5a0f356;
+   *local_368 = *(ulong *)*local_2f8;
+   if (*(long *)(local_3d8 + 0x28) == local_70) {
+   __stack_chk_fail(*local_380);
+   uVar14 = (DAT_00a2cb8c ^ 0xae2a60f8) * (DAT_00a2cb90 ^ 0xd259d6b4);
+   if (*local_290 == 0) {
+   iVar3 = *(int *)*local_2c0;
+   lVar15 = *(long *)*local_378;
+   *local_160[3] = *(ulong *)*local_2e0;
+   *local_108 = *(ulong *)*local_1e0;
+   if ((uint)((ulong)((uVar14 & 0x8fbd4cfc) * ((uVar14 ^ 0xffffffff) & 0x7042b303) +
+   (uVar14 | 0x7042b303) * (uVar14 & 0x7042b303)) * 0x6d392d15 >> 0x3e) *
+   *local_110 = *(ulong *)*local_1e8;
+   *local_f8 = *(ulong *)*local_1d0;
+   lVar15 = *(long *)*local_b0;
+   *local_100 = *(ulong *)*local_1d8;
+   if (*local_128 <= *local_b8) {
+   iVar3 = *(int *)(lVar15 + 0x20);
+   *local_288 = *(ulong *)*local_200 < *local_f0;
+   *local_140 = *(ulong *)*local_2d8;
+   *local_118 = *(ulong *)*local_1f0;
+   if (*local_230 == '\0') {
+   uVar12 = *(ulong *)*local_1a8;
+   *local_c8 = *(ulong *)*local_1a0;
+   uVar10 = *(ulong *)*plVar16;
+   if (*local_368 <= *local_f0) {
+   lVar11 = **(long **)((long)local_160 + lVar11);
+   *local_90 = **(long **)((long)local_160 + lVar15);
+   *local_160[1] = *(ulong *)*local_2f0;
+== 0x3e3114  1126 lines -> 242 net  (dropped state=624 opaque=5)
+   void FUN_004e3114(long param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] char cVar3;
+   [decl] int iVar4;
+   [decl] char *pcVar5;
+   [decl] long *plVar6;
+   [decl] ulong *puVar7;
+   [decl] long *plVar8;
+   [decl] long *plVar9;
+   [decl] long *plVar10;
+   [decl] long *plVar11;
+   [decl] long lVar12;
+   [decl] ulong uVar13;
+   [decl] long *plVar14;
+   [decl] long lVar15;
+   [decl] ulong uVar16;
+   [decl] long lVar17;
+   [decl] ulong uVar18;
+   [decl] undefined8 *puVar19;
+   [decl] long *plVar20;
+   [decl] long *plVar21;
+   [decl] int local_7d0;
+   [decl] undefined8 auStack_7c0 [2];
+   [decl] long local_7b0 [2];
+   [decl] long local_7a0 [2];
+   [decl] long lStack_790;
+   [decl] long local_780 [2];
+   [decl] long alStack_770 [2];
+   [decl] long alStack_760 [2];
+   [decl] long local_750;
+   [decl] long local_740 [2];
+   [decl] long local_730 [2];
+   [decl] long local_720 [2];
+   [decl] long local_710 [2];
+   [decl] long local_700 [2];
+   [decl] undefined8 auStack_6f0 [2];
+   [decl] long alStack_6e0 [2];
+   [decl] long alStack_6d0 [2];
+   [decl] long alStack_6c0 [2];
+   [decl] long local_6b0 [2];
+   [decl] long alStack_6a0 [2];
+   [decl] long alStack_690 [2];
+   [decl] long local_680 [2];
+   [decl] long local_670 [2];
+   [decl] long local_660 [2];
+   [decl] long local_650 [2];
+   [decl] long local_640 [2];
+   [decl] long local_630 [2];
+   [decl] char local_620 [16];
+   [decl] long alStack_610 [2];
+   [decl] ulong auStack_600 [2];
+   [decl] char local_5f0 [16];
+   [decl] long local_5e0 [2];
+   [decl] long local_5d0 [2];
+   [decl] char local_5c0 [16];
+   [decl] char acStack_5b0 [16];
+   [decl] ulong auStack_5a0 [2];
+   [decl] long alStack_590 [2];
+   [decl] long alStack_580 [2];
+   [decl] char acStack_570 [16];
+   [decl] long local_560 [2];
+   [decl] long local_550 [2];
+   [decl] char acStack_540 [16];
+   [decl] long alStack_530 [2];
+   [decl] long alStack_520 [2];
+   [decl] long alStack_510 [2];
+   [decl] undefined8 local_500 [2];
+   [decl] long local_4f0 [2];
+   [decl] long *local_4e0;
+   [decl] char acStack_4d0 [16];
+   [decl] long *local_4c0;
+   [decl] long local_4b0 [2];
+   [decl] undefined8 local_4a0 [2];
+   [decl] long local_490 [2];
+   [decl] long local_480 [2];
+   [decl] long alStack_470 [2];
+   [decl] char acStack_460 [16];
+   [decl] long local_450 [2];
+   [decl] char local_440 [16];
+   [decl] ulong local_430 [2];
+   [decl] long local_420 [2];
+   [decl] long local_410 [2];
+   [decl] long alStack_400 [2];
+   [decl] ulong auStack_3f0 [2];
+   [decl] long local_3e0 [2];
+   [decl] long alStack_3d0 [2];
+   [decl] long local_3c0 [2];
+   [decl] long local_3b0 [2];
+   [decl] ulong local_3a0 [2];
+   [decl] ulong local_390 [2];
+   [decl] ulong local_380 [2];
+   [decl] long local_370 [2];
+   [decl] long alStack_360 [2];
+   [decl] long local_350 [2];
+   [decl] long local_340 [2];
+   [decl] long local_330 [2];
+   [decl] undefined8 local_320 [2];
+   [decl] long local_310 [2];
+   [decl] int local_300 [6];
+   [decl] long local_2e8;
+   [decl] undefined4 local_2dc;
+   [decl] undefined4 local_2d8;
+   [decl] uint local_2d4;
+   [decl] undefined4 local_2d0;
+   [decl] undefined4 local_2cc;
+   [decl] int local_2c8;
+   [decl] uint local_2c4;
+   [decl] long *local_2c0;
+   [decl] int *local_2b8;
+   [decl] char *local_2b0;
+   [decl] long *local_2a8;
+   [decl] long *local_2a0;
+   [decl] long *local_298;
+   [decl] long *local_290;
+   [decl] long *local_288;
+   [decl] long *local_280;
+   [decl] char *local_278;
+   [decl] long *local_270;
+   [decl] long *local_268;
+   [decl] char *local_260;
+   [decl] char *local_258;
+   [decl] char *local_250;
+   [decl] char *local_248;
+   [decl] ulong *local_240;
+   [decl] long *local_238;
+   [decl] long *local_230;
+   [decl] char *local_228;
+   [decl] long *local_220;
+   [decl] char *local_218;
+   [decl] long *local_210;
+   [decl] long *local_208;
+   [decl] char *local_200;
+   [decl] ulong *local_1f8;
+   [decl] long *local_1f0;
+   [decl] long *local_1e8;
+   [decl] long *local_1e0;
+   [decl] ulong *local_1d8;
+   [decl] long *local_1d0;
+   [decl] long *local_1c8;
+   [decl] long *local_1c0;
+   [decl] ulong *local_1b8;
+   [decl] ulong *local_1b0;
+   [decl] ulong *local_1a8;
+   [decl] long *local_1a0;
+   [decl] long *local_198;
+   [decl] long *local_190;
+   [decl] undefined8 *local_188;
+   [decl] long *local_180;
+   [decl] long *local_178;
+   [decl] long *local_170;
+   [decl] long *local_168;
+   [decl] long *local_160 [4];
+   [decl] long *local_140;
+   [decl] long *local_138;
+   [decl] long *local_130;
+   [decl] long *local_128;
+   [decl] long *local_120;
+   [decl] long *local_118;
+   [decl] long *local_110;
+   [decl] long *local_108;
+   [decl] ulong *local_100;
+   [decl] long *local_f8;
+   [decl] long *local_f0;
+   [decl] long *local_e8;
+   [decl] undefined8 *local_e0;
+   [decl] undefined8 *local_d8;
+   [decl] long *local_d0;
+   [decl] long *local_c8;
+   [decl] long *local_c0;
+   [decl] long *local_b8;
+   [decl] long *local_b0;
+   [decl] long *local_a8;
+   [decl] long *local_a0;
+   [decl] long *local_98;
+   [decl] long *local_90;
+   [decl] undefined8 *local_88;
+   [decl] long local_80;
+   [decl] long *local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(local_2e8 + 0x28);
+   FUN_009e0480(DAT_00a2f3bc);
+   uVar16 = *(ulong *)*local_a8;
+   if (((uVar1 ^ 0xffffffff) & 0x2d60014) * ((uVar1 | 0x68204fe8) & 0xfd09f6ab) +
+   (uVar1 | 0x6af64ffc) * ((uVar1 | 0x68204fe8) & 0x2f60954) < 0xd86157f6) {
+   *local_1c8 = *(long *)(lVar17 + uVar13 * 8);
+   lVar17 = *(long *)(lVar15 + (*local_1d8 / 0x66) * 8) + (*local_1d8 % 0x66) * 0x28;
+   uVar1 = (uRam0000000000a2f194 ^ 0xa912283c) * (uRam0000000000a2f198 ^ 0xca3b657d);
+   lVar12 = *(long *)(local_80 + 0x80);
+   *local_1d0 = lVar17 + ((uVar13 - (uVar16 | 0x66) * (uVar16 & 0x66)) -
+   lVar17 = *(long *)*plVar20;
+   if (*local_250 == '\0') {
+   (*(code *)*local_e0)(local_4c0);
+   free((void *)*local_b0);
+   *local_2a0 = *(long *)*local_98 + 0x10;
+   plVar14 = *(long **)((long)local_160 + lVar17);
+   (*(code *)*local_e0)(local_4c0);
+   uVar1 = ((uVar1 ^ 0xffffffff) & 0x20a08af1) * (uVar1 & 0xdf5f750e) +
+   (uVar1 | 0x20a08af1) * (uVar1 & 0x20a08af1);
+   ((uVar1 ^ 0xffffffff) & 0x65a96056) * (uVar1 & 0x9a569fa9) +
+   (uVar1 | 0x65a96056) * (uVar1 & 0x65a96056)) {
+   free(*(void **)*local_170);
+   *(long *)*local_88 = *(long *)*local_88 + 8;
+   (*(code *)*local_d8)(*local_98);
+   FUN_0099b070(*plVar11);
+   *local_f8 = *(long *)*local_88;
+   *local_100 = (*local_f8 + 7) - *local_a0 & 0xfffffffffffffff8;
+   if (*pcVar5 == '\0') {
+   *(undefined8 *)*local_160[1] = 0;
+   lVar17 = FUN_009e0360(0xffffffffffffffff,*local_288);
+   lVar17 = *(long *)*local_78;
+   local_4c0 = *(long **)*local_2a8;
+   *local_2b0 = *(long **)*local_2a8 == (long *)0x0;
+   lVar17 = FUN_009e0360(0xffffffffffffffff,local_4e0);
+   *local_d8 = *(undefined8 *)*local_2a0;
+   free(*(void **)*local_170);
+   lVar12 = *(long *)*local_78;
+   lVar17 = *(long *)*local_88 + 8;
+   *(long *)*local_88 = lVar17;
+   FUN_0099d8a4(*local_268);
+   FUN_0099e4a4(local_80);
+   *(undefined8 *)*local_a8 = *local_188;
+   FUN_009e0360(0xffffffffffffffff,local_4e0);
+   *(undefined8 *)*local_160[1] = 0;
+   *(ulong *)*local_78 = *local_a0 + *local_100;
+   FUN_0099b070(local_4c0);
+   *local_e0 = *(undefined8 *)(*local_4c0 + 0x10);
+   lVar17 = *(long *)(local_750 + 0x20);
+   *local_220 = *(long *)*local_f0;
+   if ((uVar1 & 0x9688a5ee) * ((uVar1 ^ 0xffffffff) & 0x69775a11) +
+   (uVar1 | 0x69775a11) * (uVar1 & 0x69775a11) == 0x6e5bb902) {
+   free((void *)*local_b0);
+   (*(code *)*local_d8)(*local_98);
+   FUN_0099b070(*plVar11);
+   *(ulong *)*local_78 = *local_a0 + *local_100;
+   *(undefined8 *)*local_a8 = *local_188;
+   *local_b0 = *(long *)*local_190;
+   if (*(long *)(local_2e8 + 0x28) == local_70) {
+   __stack_chk_fail();
+   free(*(void **)*local_270);
+   *local_1f0 = *(long *)*local_88;
+   *local_1e8 = *(long *)*local_78;
+== 0x3b0efc  1101 lines -> 233 net  (dropped state=613 opaque=13)
+   void FUN_004b0efc(long param_1,long param_2)
+   [decl] uint uVar1;
+   [decl] char cVar2;
+   [decl] uint uVar3;
+   [decl] char *pcVar4;
+   [decl] bool bVar5;
+   [decl] undefined8 *puVar6;
+   [decl] undefined *puVar7;
+   [decl] long lVar8;
+   [decl] undefined8 uVar9;
+   [decl] long lVar10;
+   [decl] undefined8 *puVar11;
+   [decl] long *plVar12;
+   [decl] long **pplVar13;
+   [decl] long *plVar14;
+   [decl] int local_700;
+   [decl] long local_6f0;
+   [decl] long local_6e0 [2];
+   [decl] long local_6d0 [2];
+   [decl] long local_6c0 [2];
+   [decl] undefined8 local_6b0 [2];
+   [decl] long local_6a0 [2];
+   [decl] long local_690 [2];
+   [decl] long local_680 [2];
+   [decl] long local_670 [2];
+   [decl] long local_660 [2];
+   [decl] undefined8 local_650 [2];
+   [decl] long local_640 [2];
+   [decl] long local_630 [2];
+   [decl] long local_620 [2];
+   [decl] long local_610 [2];
+   [decl] undefined8 local_600 [2];
+   [decl] long local_5f0 [2];
+   [decl] char local_5e0 [16];
+   [decl] long local_5d0 [2];
+   [decl] undefined8 local_5c0 [2];
+   [decl] long local_5b0 [2];
+   [decl] char local_5a0 [16];
+   [decl] long local_590 [2];
+   [decl] long local_580 [2];
+   [decl] undefined8 local_570 [2];
+   [decl] char local_560 [16];
+   [decl] long local_550 [2];
+   [decl] undefined8 local_540 [2];
+   [decl] char local_530 [16];
+   [decl] long local_520 [2];
+   [decl] undefined8 local_510 [2];
+   [decl] char local_500 [16];
+   [decl] long local_4f0 [2];
+   [decl] char local_4e0 [16];
+   [decl] char local_4d0 [16];
+   [decl] long local_4c0 [2];
+   [decl] long local_4b0 [2];
+   [decl] long local_4a0 [2];
+   [decl] long local_490 [2];
+   [decl] undefined8 local_480 [2];
+   [decl] long local_470 [2];
+   [decl] long local_460 [2];
+   [decl] undefined8 local_450 [2];
+   [decl] long local_440 [2];
+   [decl] long local_430 [2];
+   [decl] char local_420 [16];
+   [decl] long local_410 [2];
+   [decl] long local_400 [2];
+   [decl] undefined8 local_3f0 [2];
+   [decl] char local_3e0 [16];
+   [decl] long local_3d0 [2];
+   [decl] byte local_3c0 [16];
+   [decl] byte local_3b0 [16];
+   [decl] long local_3a0 [2];
+   [decl] char local_390 [16];
+   [decl] long local_380 [2];
+   [decl] long local_370 [2];
+   [decl] char local_360 [16];
+   [decl] long local_350 [2];
+   [decl] long local_340 [2];
+   [decl] long local_330 [2];
+   [decl] char local_320 [16];
+   [decl] undefined8 local_310 [2];
+   [decl] long *local_300;
+   [decl] undefined local_2f0 [16];
+   [decl] long local_2e0 [2];
+   [decl] char local_2d0 [16];
+   [decl] uint local_2c0 [6];
+   [decl] long local_2a8;
+   [decl] int local_2a0;
+   [decl] uint local_29c;
+   [decl] undefined4 local_298;
+   [decl] undefined4 local_294;
+   [decl] uint *local_290;
+   [decl] char *local_288;
+   [decl] long *local_280;
+   [decl] undefined8 *local_278;
+   [decl] char *local_270;
+   [decl] undefined8 *local_268;
+   [decl] char *local_260;
+   [decl] char *local_258;
+   [decl] char *local_250;
+   [decl] long *local_248;
+   [decl] long *local_240;
+   [decl] long *local_238;
+   [decl] undefined8 *local_230;
+   [decl] char *local_228;
+   [decl] long *local_220;
+   [decl] undefined8 *local_218;
+   [decl] char *local_210;
+   [decl] byte *local_208;
+   [decl] byte *local_200;
+   [decl] char *local_1f8;
+   [decl] long *local_1f0;
+   [decl] long *local_1e8;
+   [decl] char *local_1e0;
+   [decl] long *local_1d8;
+   [decl] char *local_1d0;
+   [decl] undefined8 *local_1c8;
+   [decl] char *local_1c0;
+   [decl] long local_1b8;
+   [decl] long local_1b0;
+   [decl] long *local_1a8;
+   [decl] undefined8 *local_1a0;
+   [decl] long *local_198;
+   [decl] long *local_190;
+   [decl] long *local_188;
+   [decl] long *local_180;
+   [decl] undefined8 *local_178;
+   [decl] long *local_170;
+   [decl] long *local_168;
+   [decl] long *local_160;
+   [decl] long *local_158;
+   [decl] undefined8 *local_150;
+   [decl] long *local_148;
+   [decl] char *local_140;
+   [decl] long *local_138;
+   [decl] undefined8 *local_130;
+   [decl] long *local_128;
+   [decl] undefined8 *local_120;
+   [decl] long *local_118;
+   [decl] char *local_110;
+   [decl] long *local_108;
+   [decl] long *local_100;
+   [decl] long *local_f8;
+   [decl] undefined8 *local_f0;
+   [decl] long *local_e8;
+   [decl] long *local_e0;
+   [decl] long *local_d8;
+   [decl] undefined *local_d0;
+   [decl] long *local_c8;
+   [decl] long *local_c0;
+   [decl] long *local_b8;
+   [decl] long *local_b0;
+   [decl] long *local_a8;
+   [decl] long *local_a0;
+   [decl] long *local_98;
+   [decl] long *local_90;
+   [decl] long *local_88;
+   [decl] long *local_80;
+   [decl] long *local_78;
+   [decl] long *local_70 [2];
+   local_70[0] = *(long **)(local_2a8 + 0x28);
+   local_2c0[0] = ((DAT_00a2cebc ^ 0x3d38ee1) * (DAT_00a2cec0 ^ 0x20debeb) & 0x3181202) + 0x96f4b6f;
+   uVar3 = (uVar3 & 0x14e27869) * ((uVar3 ^ 0xffffffff) & 0xeb1d8796) +
+   (uVar3 | 0xeb1d8796) * (uVar3 & 0xeb1d8796);
+   *local_278 = *(undefined8 *)*local_120;
+   if (*local_208 == 0) {
+   *(long *)*local_f8 = *local_88;
+   puVar6 = *(undefined8 **)(local_6f0 + 8);
+   *(undefined *)(*local_1a8 + 0x18) = 1;
+   *(undefined *)(local_6f0 + 0x18) = 0;
+   *(undefined8 *)(local_6f0 + 8) = uVar9;
+   if (*pcVar4 == '\0') {
+   if (*local_270 == '\0') {
+   *(undefined8 *)(*local_80 + 0x10) = *(undefined8 *)(local_6f0 + 0x10);
+   lVar8 = *(long *)(lVar10 + 8);
+   lVar8 = *(long *)*local_1e8;
+   *(long **)(*local_90 + 0x10) = plVar12;
+   *(long **)*local_e0 = local_300;
+   *(long **)(*local_b8 + 0x10) = local_300;
+   if (*(long **)(local_2a8 + 0x28) != local_70[0]) {
+   __stack_chk_fail();
+   *(undefined8 *)(*local_90 + 0x10) = *(undefined8 *)(*local_88 + 0x10);
+   *(undefined8 **)(lVar10 + lVar8) = puVar6;
+   plVar14 = *(long **)(local_6f0 + 8);
+   *(undefined *)(*local_1a8 + 0x18) = 1;
+   *(undefined *)(local_6f0 + 0x18) = 0;
+   *(long *)(local_6f0 + 8) = lVar8;
+   *(undefined8 **)(lVar10 + lVar8) = puVar6;
+   *(undefined8 **)*local_b0 = puVar6;
+   lVar8 = *(long *)puVar6[2];
+   uVar3 = (DAT_00a2d024 ^ 0xb3e3eb99) * (DAT_00a2d028 ^ 0x52200c3f);
+   *(long *)*local_f0 = *local_88;
+   *(undefined *)*local_c8 = *local_d0;
+   if (*local_140 == '\0') {
+   *(long *)(*local_138 + lVar8) = *local_80;
+   *(long *)*local_128 = local_6f0;
+   uVar3 = (uVar3 & (DAT_00a2d0d0 ^ 0x10f29944)) * (uVar1 & (DAT_00a2d0cc ^ 0x714f029c)) +
+   (uVar3 | uVar1) * (uVar3 & uVar1);
+   *(long *)*local_128 = local_6f0;
+   local_300 = *(long **)(*local_c0 + 0x10);
+   plVar14 = *(long **)(*local_c0 + 0x10) + 3;
+   cVar2 = *(char *)plVar14;
+   *local_200 = *(byte *)*local_d8;
+   *(undefined8 **)(lVar10 + 0x10) = puVar6;
+   *(long *)((long)puVar6 + lVar8) = lVar10;
+   *(long **)*local_268 = local_300;
+   *local_180 = *(long *)(lVar10 + 0x10);
+   *local_258 = *(char *)*local_118;
+   *(long *)*local_f8 = *local_88;
+   *local_230 = *(undefined8 *)*local_e8;
+   if (*local_110 == '\0') {
+   *(long *)(*local_108 + lVar8) = *local_90;
+   if (*local_140 == '\0') {
+   *(long *)(*local_138 + lVar8) = *local_80;
+   *(long **)*local_e0 = local_300;
+   if (*local_1c0 == '\0') {
+   *local_78 = *(long *)*local_1d8;
+   *(undefined *)(lVar8 + 0x18) = 1;
+   *(undefined *)(plVar14 + 3) = 0;
+   plVar14 = *(long **)(local_6f0 + 0x10);
+   *(long **)(lVar8 + 0x10) = plVar14;
+   if (*local_110 == '\0') {
+   *(long *)(*local_108 + lVar8) = *local_90;
+   bVar5 = *(long **)*local_78 == local_300;
+   *local_a8 = (long)*(long **)*local_78;
+   *(long **)(*local_b8 + 0x10) = local_300;
+   *(undefined *)*local_c8 = *local_d0;
+   ((uVar3 ^ 0xffffffff) & 0xaa35237a) * (uVar3 & 0x55cadc85) +
+   (uVar3 | 0xaa35237a) * (uVar3 & 0xaa35237a)) {
+   *(undefined *)*local_1c8 = 1;
+   *(bool *)(lVar8 + 0x18) = lVar8 == local_1b8;
+   *local_300 = *(long *)(*local_a0 + 8);
+   *(long *)*local_f0 = *local_88;
+   lVar8 = *(long *)*local_98;
+   if (*local_258 == '\0') {
+== 0x4bc728  986 lines -> 177 net  (dropped state=542 opaque=32)
+   void FUN_005bc728(int param_1,long *param_2,ulong *param_3)
+   [decl] uint uVar1;
+   [decl] char cVar2;
+   [decl] ulong *puVar3;
+   [decl] long *plVar4;
+   [decl] int iVar5;
+   [decl] undefined8 uVar8;
+   [decl] char *pcVar9;
+   [decl] uint uVar11;
+   [decl] uint uVar12;
+   [decl] uint *puVar13;
+   [decl] ulong uVar14;
+   [decl] long lVar15;
+   [decl] ulong uVar16;
+   [decl] int local_5d0;
+   [decl] undefined4 local_5c0 [4];
+   [decl] int local_5b0;
+   [decl] ulong local_5a0 [2];
+   [decl] long local_590 [2];
+   [decl] int local_580 [4];
+   [decl] int local_570 [4];
+   [decl] ulong local_560 [2];
+   [decl] long local_550 [2];
+   [decl] uint local_540 [4];
+   [decl] long local_530 [2];
+   [decl] undefined4 local_520 [4];
+   [decl] int local_510 [4];
+   [decl] ulong local_500 [2];
+   [decl] int local_4f0 [4];
+   [decl] long local_4e0 [2];
+   [decl] int local_4d0 [4];
+   [decl] long local_4c0 [2];
+   [decl] ulong local_4b0 [2];
+   [decl] uint local_4a0 [4];
+   [decl] long local_490 [2];
+   [decl] char local_480 [16];
+   [decl] ulong local_470 [2];
+   [decl] char local_460 [16];
+   [decl] char local_450 [16];
+   [decl] long local_440 [2];
+   [decl] char local_430 [16];
+   [decl] long local_420 [2];
+   [decl] long local_410 [2];
+   [decl] long local_400 [2];
+   [decl] char local_3f0 [16];
+   [decl] long local_3e0 [2];
+   [decl] size_t local_3d0 [2];
+   [decl] ulong local_3c0 [2];
+   [decl] char local_3b0 [16];
+   [decl] long local_3a0 [2];
+   [decl] char local_390 [16];
+   [decl] uint local_380 [4];
+   [decl] byte local_370 [16];
+   [decl] long local_360 [2];
+   [decl] char local_350 [16];
+   [decl] uint local_340 [4];
+   [decl] uint local_330 [4];
+   [decl] char local_320 [16];
+   [decl] char local_310 [16];
+   [decl] char local_300 [16];
+   [decl] uint local_2f0 [4];
+   [decl] char local_2e0 [16];
+   [decl] int local_2d0 [4];
+   [decl] undefined8 local_2c0 [2];
+   [decl] char local_2b0 [16];
+   [decl] long local_2a0 [2];
+   [decl] char local_290 [16];
+   [decl] int local_280 [4];
+   [decl] int local_270 [6];
+   [decl] long local_258;
+   [decl] undefined4 local_250;
+   [decl] undefined4 local_24c;
+   [decl] undefined4 local_248;
+   [decl] undefined4 local_244;
+   [decl] undefined4 local_240;
+   [decl] uint local_23c;
+   [decl] uint local_238;
+   [decl] int local_234;
+   [decl] int *local_230;
+   [decl] undefined4 *local_228;
+   [decl] int *local_220;
+   [decl] int *local_218;
+   [decl] uint *local_210;
+   [decl] char *local_208;
+   [decl] ulong *local_200;
+   [decl] char *local_1f8;
+   [decl] char *local_1f0;
+   [decl] long *local_1e8;
+   [decl] char *local_1e0;
+   [decl] char *local_1d8;
+   [decl] size_t *local_1d0;
+   [decl] ulong *local_1c8;
+   [decl] char *local_1c0;
+   [decl] long *local_1b8;
+   [decl] char *local_1b0;
+   [decl] uint *local_1a8;
+   [decl] byte *local_1a0;
+   [decl] long *local_198;
+   [decl] char *local_190;
+   [decl] uint *local_188;
+   [decl] char *local_180;
+   [decl] char *local_178;
+   [decl] char *local_170;
+   [decl] uint *local_168;
+   [decl] char *local_160;
+   [decl] char *local_158;
+   [decl] char *local_150;
+   [decl] int local_144;
+   [decl] ulong *local_140;
+   [decl] int *local_138;
+   [decl] ulong *local_130;
+   [decl] int *local_128;
+   [decl] long *local_120;
+   [decl] int *local_118;
+   [decl] long *local_110;
+   [decl] ulong *local_108;
+   [decl] long *local_100;
+   [decl] long *local_f8;
+   [decl] long *local_f0;
+   [decl] long *local_e8;
+   [decl] uint *local_e0;
+   [decl] int *local_d8;
+   [decl] long *local_d0;
+   [decl] ulong *local_c8;
+   [decl] uint *local_c0;
+   [decl] long *local_b8;
+   [decl] int *local_b0;
+   [decl] long *local_a8;
+   [decl] long *local_a0;
+   [decl] undefined4 *local_98;
+   [decl] ulong *local_90;
+   [decl] long *local_88;
+   [decl] undefined8 *local_80;
+   [decl] long *local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(local_258 + 0x28);
+   free(*(void **)(*local_a8 + *local_140 * 8));
+   if (*local_160 == '\0') {
+   *(undefined4 *)*local_80 = 0;
+   *(long *)*local_f8 = *local_f0;
+   pDVar7 = fdopendir(*local_b0);
+   *(int *)*local_80 = local_5b0;
+   *(long *)*local_f8 = lVar15;
+   if (*local_1f0 == '\0') {
+   *(undefined4 *)*local_80 = 0;
+   free((void *)*local_a8);
+   if (*local_208 == '\0') {
+   *(undefined4 *)*local_80 = 0;
+   *local_178 = *(char *)(*local_88 + 0x14);
+   uVar11 = (uVar11 & (DAT_00a383c4 ^ 0x6246b2fd)) * (uVar12 & (DAT_00a383c0 ^ 0x89ec9bb7)) +
+   (uVar11 | uVar12) * (uVar11 & uVar12);
+   if (*local_150 == '\0') {
+   *local_1a0 = *(byte *)*local_198;
+   if ((((uVar11 ^ 0xffffffff) & 0x4983f0f4) * (uVar11 & 0xb67c0f0b) +
+   (uVar11 | 0x4983f0f4) * (uVar11 & 0x4983f0f4)) * -0xab189e6 != 0x734bb4c5) {
+   if (*local_1c0 == '\0') {
+   close(*local_b0);
+   *(int *)*local_80 = local_5b0;
+   *(undefined4 *)*local_80 = 0xc;
+   uVar14 = (*local_90 & 1) + (*local_90 | 1);
+   *(undefined4 *)*local_80 = 0xc;
+   ((uVar12 ^ 0x10800018) & 0x1080045b) * (uVar11 & 0x20401ba4) +
+   (uVar11 | 0x98a9645b) * (uVar11 & 0x8829645b)) {
+   free(*(void **)(*local_a8 + *local_140 * 8));
+   uVar11 = (uVar11 & (DAT_00a38344 ^ 0x3b0fb835)) * (uVar12 & (DAT_00a38340 ^ 0xa5ca9ce2)) +
+   (uVar11 | uVar12) * (uVar11 & uVar12);
+   close(*local_b0);
+   *(undefined4 *)*local_80 = 0;
+   *local_188 = (uint)*(byte *)(*local_88 + 0x14);
+   if (((uVar11 & 0x5be59c8d) * ((uVar11 ^ 0xffffffff) & 0xa41a6372) +
+   (uVar11 | 0xa41a6372) * (uVar11 & 0xa41a6372) + 0xf7ff983f | 0x5b7a06a7) ==
+   uVar11 = *(byte *)(*local_88 + 0x13) - 0x2e;
+   if (*(long *)(local_258 + 0x28) != local_70) {
+   __stack_chk_fail(*local_228);
+   *(undefined4 *)*local_80 = 0xc;
+   free((void *)*local_a8);
+   *local_d8 = *(int *)*local_80;
+== 0x546d7c  932 lines -> 115 net  (dropped state=583 opaque=50)
+   void FUN_00646d7c(char *param_1,ulong param_2,ulong *param_3)
+   [decl] uint uVar1;
+   [decl] char cVar2;
+   [decl] byte bVar3;
+   [decl] bool bVar4;
+   [decl] bool bVar5;
+   [decl] int *piVar6;
+   [decl] int *piVar7;
+   [decl] int iVar8;
+   [decl] uint uVar9;
+   [decl] ulong uVar10;
+   [decl] int **ppiVar11;
+   [decl] int **ppiVar12;
+   [decl] int iVar13;
+   [decl] ulong *puVar14;
+   [decl] ulong *puVar15;
+   [decl] int *local_3c0 [2];
+   [decl] int local_3b0 [4];
+   [decl] ulong local_3a0 [2];
+   [decl] ulong local_390 [2];
+   [decl] uint local_380 [4];
+   [decl] ulong local_370 [2];
+   [decl] ulong local_360 [2];
+   [decl] ulong local_350;
+   [decl] ulong local_340;
+   [decl] undefined4 local_330;
+   [decl] ulong local_320;
+   [decl] ulong local_310;
+   [decl] ulong local_300;
+   [decl] ulong local_2f0;
+   [decl] uint local_2e0;
+   [decl] ulong local_2d0;
+   [decl] ulong local_2c0;
+   [decl] bool local_2b0;
+   [decl] ulong local_2a0;
+   [decl] char local_290;
+   [decl] char local_280 [16];
+   [decl] char local_270 [16];
+   [decl] char local_260 [16];
+   [decl] ulong local_250;
+   [decl] uint local_240 [4];
+   [decl] ulong local_230 [2];
+   [decl] uint local_220 [4];
+   [decl] ulong local_210 [2];
+   [decl] char local_200 [16];
+   [decl] char local_1f0 [16];
+   [decl] ulong local_1e0 [2];
+   [decl] char local_1d0 [16];
+   [decl] char local_1c0 [16];
+   [decl] ulong local_1b0;
+   [decl] char local_1a0;
+   [decl] char local_190 [16];
+   [decl] char local_180 [16];
+   [decl] char local_170;
+   [decl] uint local_160 [6];
+   [decl] long local_148;
+   [decl] int local_13c;
+   [decl] uint local_138;
+   [decl] int local_134;
+   [decl] uint *local_130;
+   [decl] uint local_124;
+   [decl] ulong *local_120;
+   [decl] ulong *local_118;
+   [decl] char *local_110;
+   [decl] char *local_108;
+   [decl] char *local_100;
+   [decl] uint *local_f8;
+   [decl] ulong *local_f0;
+   [decl] uint *local_e8;
+   [decl] ulong *local_e0;
+   [decl] char *local_d8;
+   [decl] char *local_d0;
+   [decl] ulong *local_c8;
+   [decl] char *local_c0;
+   [decl] char *local_b8;
+   [decl] char *local_b0;
+   [decl] char *local_a8;
+   [decl] int *local_a0;
+   [decl] ulong *local_98;
+   [decl] ulong *local_90;
+   [decl] uint *local_88;
+   [decl] ulong *local_80;
+   [decl] int **local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(local_148 + 0x28);
+   if (*local_c0 == '\0') {
+   bVar5 = (uVar9 & 0xdb56bc6) * ((uVar9 ^ 0xffffffff) & 0xf24a9439) +
+   (uVar9 | 0xf24a9439) * (uVar9 & 0xf24a9439) == 0x50ee2e0c;
+   if (*local_b0 == '\0') {
+   bVar3 = param_1[*puVar14];
+   if (*local_110 == '\0') {
+   if (*(long *)(local_148 + 0x28) == local_70) {
+   __stack_chk_fail(local_330);
+   if (*local_a8 == '\0') {
+   if (*local_b8 == '\0') {
+   (uVar9 & 0x5b120620) * ((uVar9 ^ 0xffffffff) & 0xa4ecf989) +
+   (uVar9 | 0xa4edf9d9) * (uVar9 & 0xa4cdf9d8);
+   local_290 = param_1[*local_90];
+   if (*local_130 < 0x6aa9e263) {
+   uVar9 = (DAT_00a3b068 ^ 0x9dcb598) * (DAT_00a3b06c ^ 0x98d06cc4) + 0x26668bfa;
+   *local_b0 = param_2 == 0;
+   if ((((uVar9 ^ 0xffffffff) & 0x5c5108fa) * (uVar9 & 0xa3aef705) +
+   (uVar9 | 0x5c5108fa) * (uVar9 & 0x5c5108fa) | 0x51fca116) < 0x9495b29a) {
+   local_1a0 = param_1[local_2c0];
+   if (*local_100 == '\0') {
+   ((uVar9 & (DAT_00a3b01c ^ 0x2f8c248a)) * (uVar1 & (DAT_00a3b018 ^ 0xff9f28a)) +
+   (uVar9 | uVar1) * (uVar9 & uVar1) & 0x312792e6) * -0x5b130b89 + 0x53af9288) {
+   if (((((uVar9 ^ 0xffffffff) & 0x2350beaf) * (uVar9 & 0xdcaf4150) +
+   (uVar9 | 0x2350beaf) * (uVar9 & 0x2350beaf)) / 0x38cde624) * 0x52cb2530 == 0x29bf81f7)
+   ((uVar9 & (DAT_00a3b02c ^ 0xc23ce6bb)) * (uVar1 & (DAT_00a3b028 ^ 0x2001d5a)) +
+   (uVar9 | uVar1) * (uVar9 & uVar1) & 0xffffbef7 | 0xfcbf9ce4);
+   *(ulong *)local_e8 = uVar10 + 0xffffffd0;
+   bVar5 = ((uVar9 & 0x8cdde22c) * ((uVar9 ^ 0xffffffff) & 0x73221dd3) +
+   (uVar9 | 0x73221dd3) * (uVar9 & 0x73221dd3) & 0xa8528532) + 0x84c221 == local_13c;
+   (uVar9 | 0xb089c79d) * (uVar9 & 0xb089c79d) ^ 0x58e52940 | 0x2510549f) < 0xa29bf6c4) {
+== 0x41fa44  856 lines -> 31 net  (dropped state=304 opaque=446)
+   void FUN_0051fa44(uint param_1)
+   [decl] uint uVar1;
+   [decl] int local_130;
+   [decl] undefined8 local_120 [2];
+   [decl] undefined8 local_110 [2];
+   [decl] ulong local_100 [2];
+   [decl] char local_f0 [16];
+   [decl] byte local_e0 [16];
+   [decl] char local_d0 [16];
+   [decl] int local_c0 [4];
+   [decl] long local_b0;
+   [decl] int *local_a8;
+   [decl] uint local_9c;
+   [decl] undefined8 *local_98;
+   [decl] ulong *local_90;
+   [decl] char *local_88;
+   [decl] byte *local_80;
+   [decl] char *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_b0 + 0x28);
+   if (*local_88 == '\0') {
+   uVar1 = ~(uVar1 | DAT_00a35554 ^ 0x4581a5ff) * (uVar1 & (DAT_00a35554 ^ 0x4581a5ff)) +
+   (uVar1 | DAT_00a35554 ^ 0xba7e5a00) * (uVar1 & (DAT_00a35554 ^ 0xba7e5a00));
+   if (*local_78 == '\0') {
+   uVar1 = (uVar1 & 0xbac080c0) * ((uVar1 & 0xfecb9be1 ^ 0xffffffff) & 0x452f1f35) +
+   (uVar1 & 0xfecb9be1 | 0x452f1f35) * (uVar1 & 0x440b1b21);
+   if (*(long *)(local_b0 + 0x28) != local_68) {
+   __stack_chk_fail(*local_70);
+   if (((uVar1 ^ 0xffffffff) & 0x5641516) * (uVar1 & 0xfa9ba001) +
+   (uVar1 | 0x5645f36) * (uVar1 & 0x5605a36) < 0xcc5c1999) {
+== 0x3d0510  610 lines -> 112 net  (dropped state=321 opaque=22)
+   void FUN_004d0510(char *param_1,char *param_2)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] bool bVar3;
+   [decl] int iVar4;
+   [decl] size_t sVar5;
+   [decl] int local_3f0;
+   [decl] undefined local_3e0 [16];
+   [decl] size_t local_3d0 [2];
+   [decl] ulong local_3c0 [2];
+   [decl] size_t local_3b0 [2];
+   [decl] size_t local_3a0 [2];
+   [decl] undefined local_390 [16];
+   [decl] size_t local_380 [2];
+   [decl] ulong local_370 [2];
+   [decl] size_t local_360 [2];
+   [decl] size_t local_350 [2];
+   [decl] undefined local_340 [16];
+   [decl] int local_330 [4];
+   [decl] char local_320 [16];
+   [decl] long local_310 [2];
+   [decl] char local_300 [16];
+   [decl] long local_2f0 [2];
+   [decl] byte local_2e0 [16];
+   [decl] char local_2d0 [16];
+   [decl] size_t local_2c0 [2];
+   [decl] ulong local_2b0 [2];
+   [decl] char local_2a0 [16];
+   [decl] char local_290 [16];
+   [decl] size_t local_280 [2];
+   [decl] char local_270 [16];
+   [decl] int local_260 [4];
+   [decl] char local_250 [16];
+   [decl] byte local_240 [16];
+   [decl] long local_230 [2];
+   [decl] char local_220 [16];
+   [decl] size_t local_210 [2];
+   [decl] size_t local_200 [2];
+   [decl] ulong local_1f0 [2];
+   [decl] char local_1e0 [16];
+   [decl] size_t local_1d0 [2];
+   [decl] uint local_1c0 [4];
+   [decl] long local_1b0;
+   [decl] uint local_1a4;
+   [decl] undefined4 local_1a0;
+   [decl] undefined4 local_19c;
+   [decl] uint *local_198;
+   [decl] undefined *local_190;
+   [decl] ulong *local_188;
+   [decl] size_t *local_180;
+   [decl] undefined *local_178;
+   [decl] int *local_170;
+   [decl] char *local_168;
+   [decl] long *local_160;
+   [decl] char *local_158;
+   [decl] long *local_150;
+   [decl] byte *local_148;
+   [decl] char *local_140;
+   [decl] ulong *local_138;
+   [decl] char *local_130;
+   [decl] char *local_128;
+   [decl] char *local_120;
+   [decl] int *local_118;
+   [decl] char *local_110;
+   [decl] byte *local_108;
+   [decl] long *local_100;
+   [decl] char *local_f8;
+   [decl] size_t *local_f0;
+   [decl] ulong *local_e8;
+   [decl] char *local_e0;
+   [decl] size_t *local_d8;
+   [decl] ulong *local_d0;
+   [decl] size_t *local_c8;
+   [decl] size_t *local_c0;
+   [decl] size_t *local_b8;
+   [decl] size_t *local_b0;
+   [decl] size_t *local_a8;
+   [decl] size_t *local_a0;
+   [decl] size_t *local_98;
+   [decl] size_t *local_90;
+   [decl] undefined *local_88;
+   [decl] char *local_80;
+   [decl] char *local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(local_1b0 + 0x28);
+   local_1c0[0] = (DAT_00a2e0f4 ^ 0x7905fd0d) * (DAT_00a2e0f8 ^ 0x357d98f5) + 0x5b246545 | 0xa78b34c6
+   (uVar2 & 0xe9d69b74) * ((uVar2 ^ 0xffffffff) & 0x1629648b) +
+   (uVar2 | 0x1629648b) * (uVar2 & 0x1629648b)) {
+   (uVar2 | uVar1) * (uVar2 & uVar1) & 0x305a32c9) * -0x15227618 + 0x570a3950 <
+   if (*local_140 == '\0') {
+   if (*local_198 == 0xa1fbce35) {
+   if (*local_128 == '\0') {
+   if (*local_f8 == '\0') {
+   *local_f0 = (*local_90 & *local_e8) + (*local_90 | *local_e8);
+   *local_168 = *(char *)*local_160 == '/';
+   if (((uVar2 & 0x2be8f764) * ((uVar2 ^ 0xffffffff) & 0x5417089b) +
+   (uVar2 | 0x5417089b) * (uVar2 & 0x5417089b) & 0x6584b16e) != 0x2bc84bfe) {
+   uVar2 = (DAT_00a2e114 ^ 0xfdaa46cf) * (DAT_00a2e118 ^ 0xbbcce15e);
+   if (*local_120 == '\0') {
+   uVar2 = (uVar2 & 0x16037959) * ((uVar2 ^ 0xffffffff) & 0x29fc86a6) +
+   (uVar2 | 0x29fc86a6) * (uVar2 & 0x29fc86a6) | 0xcea7a01e;
+   if (*local_e0 == '\0') {
+   if ((((uVar2 & 0x82364be0) * ((uVar2 ^ 0xffffffff) & 0x7dc9b41f) +
+   (uVar2 | 0x7dc9b41f) * (uVar2 & 0x7dc9b41f)) * -0x3e42216b | 0x224a7eb9) < 0x10982583
+   (uVar2 | uVar1) * (uVar2 & uVar1) & 0xc1060040) == 0x605f61c2) {
+   *local_100 = (long)(local_78 + (*local_b0 - 1));
+   *local_108 = *(char *)*local_100 == '/';
+   (uVar2 & 0x9489a136) * ((uVar2 ^ 0xffffffff) & 0x6b765ec9) +
+   (uVar2 | 0x6b765ec9) * (uVar2 & 0x6b765ec9) + 0xdc0ca9ee) {
+   *local_138 = *local_98 - (ulong)(*local_130 == '/');
+   if (*(long *)(local_1b0 + 0x28) != local_70) {
+   __stack_chk_fail(*local_190);
+== 0x1faf08  553 lines -> 92 net  (dropped state=285 opaque=15)
+   void FUN_002faf08(byte *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_2a0;
+   [decl] undefined8 local_290 [2];
+   [decl] char local_280 [16];
+   [decl] byte local_270 [16];
+   [decl] long local_260 [2];
+   [decl] char local_250 [16];
+   [decl] long local_240 [2];
+   [decl] long local_230 [2];
+   [decl] byte local_220 [16];
+   [decl] byte local_210 [16];
+   [decl] long local_200 [2];
+   [decl] char local_1f0 [16];
+   [decl] byte local_1e0 [16];
+   [decl] long local_1d0 [2];
+   [decl] long local_1c0 [2];
+   [decl] char local_1b0 [16];
+   [decl] byte local_1a0 [16];
+   [decl] long local_190 [2];
+   [decl] undefined8 local_180 [2];
+   [decl] char local_170 [16];
+   [decl] byte local_160 [16];
+   [decl] uint local_150 [4];
+   [decl] long local_140;
+   [decl] undefined4 local_138;
+   [decl] undefined4 local_134;
+   [decl] undefined4 local_130;
+   [decl] undefined4 local_12c;
+   [decl] undefined4 local_128;
+   [decl] undefined4 local_124;
+   [decl] uint *local_120;
+   [decl] byte *local_118;
+   [decl] byte *local_110;
+   [decl] long *local_108;
+   [decl] char *local_100;
+   [decl] byte *local_f8;
+   [decl] char *local_f0;
+   [decl] long *local_e8;
+   [decl] char *local_e0;
+   [decl] byte *local_d8;
+   [decl] long *local_d0;
+   [decl] long *local_c8;
+   [decl] char *local_c0;
+   [decl] byte *local_b8;
+   [decl] undefined8 *local_b0;
+   [decl] char *local_a8;
+   [decl] byte *local_a0;
+   [decl] undefined8 *local_98;
+   [decl] long *local_90;
+   [decl] long *local_88;
+   [decl] long *local_80;
+   [decl] byte *local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(local_140 + 0x28);
+   if ((uVar2 & 0xa4019006) * ((uVar2 ^ 0xffffffff) & 0x404046f1) +
+   (uVar2 | 0x41c466f9) * (uVar2 & 0x1842009) == -0x1b33127e) {
+   uVar2 = (uVar2 & 0xbd12fcbf) * ((uVar2 ^ 0xffffffff) & 0x42ed0340) +
+   (uVar2 | 0x42ed0340) * (uVar2 & 0x42ed0340);
+   *local_110 = param_1[0x30];
+   free(*(void **)*local_88);
+   param_1 = local_78;
+   *local_d8 = *(byte *)*local_d0 & 1;
+   free(*(void **)*local_90);
+   param_1 = local_78;
+   free(*(void **)*local_90);
+   free((void *)*local_b0);
+   *local_a0 = param_1[0x78];
+   free(*(void **)*local_c8);
+   uVar2 = (uVar2 & 0xb5b4ff5) * ((uVar2 ^ 0xffffffff) & 0xf4a4b00a) +
+   (uVar2 | 0xf4a4b00a) * (uVar2 & 0xf4a4b00a);
+   uVar2 = (uVar1 & (DAT_00a18a08 ^ 0xbbf5c21f)) * (uVar2 & (DAT_00a18a04 ^ 0xbd3cdd5c)) +
+   (uVar1 | uVar2) * (uVar1 & uVar2);
+   *local_a8 = (*local_a0 & 1) == 0;
+   free((void *)*local_98);
+   *local_f0 = (byte)((*(byte *)*local_e8 | 1) & (*(byte *)*local_e8 ^ 0xfe)) == 0;
+   uVar2 = (DAT_00a18ad4 ^ 0x96c29958) * (DAT_00a18ad8 ^ 0x3740b020) + 0xe20513d;
+   free(*(void **)*local_88);
+   free((void *)*local_98);
+   param_1 = local_78;
+   if (*(long *)(local_140 + 0x28) == local_70) {
+   __stack_chk_fail();
+   *local_c0 = (*local_b8 & 1) == 0;
+   *local_98 = *(undefined8 *)(param_1 + 0x10);
+   free(*(void **)*local_80);
+   param_1 = local_78;
+   *local_b0 = *(undefined8 *)(param_1 + 0x88);
+   *local_b8 = *(byte *)*local_108;
+   free(*(void **)*local_80);
+   if ((uVar2 & 0x5eb94e94) * ((uVar2 ^ 0xffffffff) & 0xa146b16b) +
+   (uVar2 | 0xa146b16b) * (uVar2 & 0xa146b16b) != -0x570a2e18) {
+== 0x578e38  497 lines -> 93 net  (dropped state=245 opaque=33)
+   void FUN_00678e38(undefined4 *param_1)
+   [decl] undefined8 *puVar1;
+   [decl] char *pcVar2;
+   [decl] uint uVar3;
+   [decl] uint uVar4;
+   [decl] int local_290;
+   [decl] int local_280 [4];
+   [decl] undefined4 local_270 [4];
+   [decl] int local_260 [4];
+   [decl] undefined4 local_250 [4];
+   [decl] int local_240 [4];
+   [decl] undefined8 local_230 [2];
+   [decl] undefined4 local_220 [4];
+   [decl] undefined8 local_210 [2];
+   [decl] char local_200 [16];
+   [decl] int local_1f0 [4];
+   [decl] undefined4 local_1e0 [4];
+   [decl] undefined8 local_1d0 [2];
+   [decl] char local_1c0 [16];
+   [decl] int local_1b0 [4];
+   [decl] char local_1a0 [16];
+   [decl] int local_190 [4];
+   [decl] char local_180 [16];
+   [decl] byte local_170 [16];
+   [decl] char local_160 [16];
+   [decl] int local_150 [4];
+   [decl] uint local_140 [4];
+   [decl] long local_130;
+   [decl] undefined4 local_124;
+   [decl] uint *local_120;
+   [decl] undefined4 local_114;
+   [decl] int *local_110;
+   [decl] int *local_108;
+   [decl] undefined4 *local_100;
+   [decl] undefined8 *local_f8;
+   [decl] undefined4 *local_f0;
+   [decl] undefined8 *local_e8;
+   [decl] char *local_e0;
+   [decl] char *local_d8;
+   [decl] char *local_d0;
+   [decl] char *local_c8;
+   [decl] int *local_c0;
+   [decl] undefined4 *local_b8;
+   [decl] undefined4 *local_b0;
+   [decl] undefined8 *local_a8;
+   [decl] char *local_a0;
+   [decl] byte *local_98;
+   [decl] int *local_90;
+   [decl] int *local_88;
+   [decl] int *local_80;
+   [decl] int *local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(local_130 + 0x28);
+   local_140[0] = ((uVar4 / 0x6eb14680 ^ 0xffffffff) & 0xdd40d015) * (uVar4 / 0x6eb14680 & 2) +
+   (uVar4 / 0x6eb14680 | 0xdd40d015) * (uVar4 / 0x6eb14680 & 1) & 0xcc0abef7;
+   uVar3 = close(*local_78);
+   param_1 = (undefined4 *)(ulong)uVar3;
+   uVar4 = close(*local_88);
+   param_1 = (undefined4 *)(ulong)uVar4;
+   param_1 = (undefined4 *)__errno(param_1);
+   uVar4 = (uVar4 & 0x9cf6a540) * ((uVar4 ^ 0xffffffff) & 0x63095abf) +
+   (uVar4 | 0x63095abf) * (uVar4 & 0x63095abf);
+   if ((uVar4 & 0x905aa530) * ((uVar4 ^ 0xffffffff) & 0x6fa55acf) +
+   (uVar4 | 0x6fa55acf) * (uVar4 & 0x6fa55acf) == 0x1872cb2c) {
+   DAT_00a354e4 = ~((*local_98 | 0x84) & (*local_98 ^ 0xff | 0x7b));
+   param_1 = (undefined4 *)__errno(param_1);
+   *(undefined4 *)*local_a8 = *local_b8;
+   uVar4 = close(*local_78);
+   param_1 = (undefined4 *)(ulong)uVar4;
+   param_1 = (undefined4 *)__errno(param_1);
+   param_1 = (undefined4 *)__errno(param_1);
+   param_1 = (undefined4 *)__errno(param_1);
+   uVar3 = close(*local_88);
+   param_1 = (undefined4 *)(ulong)uVar3;
+   close(*local_80);
+   uVar4 = close(*local_78);
+   param_1 = (undefined4 *)(ulong)uVar4;
+   param_1 = (undefined4 *)&DAT_00a354d9;
+   DAT_00a354e4 = *local_98 + (*local_98 & 0xfb) * -2 + 0x7b;
+   if (*(long *)(local_130 + 0x28) == local_70) {
+   __stack_chk_fail(*local_110);
+   *local_100 = *(undefined4 *)*local_f8;
+   param_1 = (undefined4 *)FUN_0067b97c(*local_80,&DAT_00a354f4,0x1ff);
+   if (*local_120 < 0x9184ce2a) {
+   param_1 = (undefined4 *)FUN_0067b97c(*local_78,&DAT_00a354e4,0x1e9);
+   close(*local_80);
+   uVar4 = close(*local_78);
+   param_1 = (undefined4 *)(ulong)uVar4;
+   *(undefined4 *)*local_e8 = *local_f0;
+   if (*local_d8 == '\0') {
+   param_1 = (undefined4 *)FUN_0067b97c(*local_80,&DAT_00a354f4,0x1ff);
+   param_1 = (undefined4 *)FUN_0067b97c(local_114,&DAT_00a354d0,0x1e9);
+   *(undefined4 *)*local_a8 = *local_b8;
+== 0x57b97c  462 lines -> 61 net  (dropped state=260 opaque=15)
+   void FUN_0067b97c(int param_1,char *param_2,__mode_t param_3)
+   [decl] undefined4 uVar1;
+   [decl] uint uVar2;
+   [decl] undefined4 *puVar3;
+   [decl] int iVar4;
+   [decl] undefined8 uVar5;
+   [decl] undefined4 *puVar6;
+   [decl] int *piVar7;
+   [decl] int local_2e0;
+   [decl] int local_2d0 [4];
+   [decl] int local_2c0 [4];
+   [decl] undefined4 local_2b0 [4];
+   [decl] undefined8 local_2a0 [2];
+   [decl] char local_290 [16];
+   [decl] int local_280 [4];
+   [decl] char local_270 [16];
+   [decl] int local_260 [4];
+   [decl] char local_250 [16];
+   [decl] int local_240 [4];
+   [decl] char local_230 [16];
+   [decl] int local_220 [4];
+   [decl] undefined8 local_210 [2];
+   [decl] char local_200 [16];
+   [decl] uint local_1f0 [4];
+   [decl] uint local_1e0 [4];
+   [decl] char local_1d0 [16];
+   [decl] int local_1c0 [4];
+   [decl] int *local_120;
+   [decl] int *local_110;
+   [decl] char *local_108;
+   [decl] int *local_100;
+   [decl] char *local_f8;
+   [decl] char *local_f0;
+   [decl] int *local_e8;
+   [decl] char *local_e0;
+   [decl] int *local_d8;
+   [decl] undefined8 *local_d0;
+   [decl] char *local_c8;
+   [decl] uint *local_c0;
+   [decl] uint *local_b8;
+   [decl] char *local_b0;
+   [decl] undefined4 *local_a8;
+   [decl] undefined8 *local_a0;
+   [decl] int local_94;
+   [decl] char *local_90;
+   [decl] int *local_80;
+   [decl] int *local_78;
+   [decl] long local_70;
+   local_70 = *(long *)(sStack_1b0.__unused[1] + 0x28);
+   *(undefined4 *)*local_d0 = 0x14;
+   *(undefined4 *)*local_a0 = *local_a8;
+   if (*(long *)(sStack_1b0.__unused[1] + 0x28) != local_70) {
+   __stack_chk_fail(*local_110);
+   *local_b8 = *(uint *)&local_118->st_nlink;
+   close(*local_78);
+   if (*local_108 == '\0') {
+   fchmod(*local_78,local_84);
+   iVar4 = fchmod(*local_78,local_84);
+   ((DAT_00a3c308 ^ 0xed8e405) * (DAT_00a3c30c ^ 0xf7e069e) + 0x700eb307 & 0x15880b0a)) {
+   *local_c0 = *local_b8 & (*local_b8 ^ 0xffff0fff);
+   *(undefined4 *)*local_a0 = *local_a8;
+== 0x2e8154  420 lines -> 23 net  (dropped state=165 opaque=166)
+   void FUN_003e8154(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] int local_d0;
+   [decl] byte local_c0;
+   [decl] char local_b0 [16];
+   [decl] int local_a0 [6];
+   [decl] long local_88;
+   [decl] int *local_80;
+   [decl] char *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_88 + 0x28);
+   if (*local_78 == '\0') {
+   uVar1 = (uVar1 & 0xffbc9ead) * ((uVar1 ^ 0xffffffff) & 0x436152) +
+   (uVar1 | 0x436152) * (uVar1 & 0x436152);
+   if (((uVar1 ^ 0xffffffff) & 0x92e93da6) * (uVar1 & 0x6d16c259) +
+   (uVar1 | 0x92e93da6) * (uVar1 & 0x92e93da6) != 0x10fd92) {
+   (uVar1 | DAT_00a233ac ^ 0xd7960b12) * (uVar1 & (DAT_00a233ac ^ 0xd7960b12)) +
+   ((uVar1 ^ 0xffffffff) & 0x8047812a) * ((uVar1 | 0x3a9056d4) & 0x55a878c5) +
+   (uVar1 | 0xbad7d7fe) * ((uVar1 | 0x3a9056d4) & 0xaa57873a)) {
+   if (*(long *)(local_88 + 0x28) != local_68) {
+   __stack_chk_fail();
+   FUN_0099b068(local_70);
+== 0x41d2cc  384 lines -> 28 net  (dropped state=159 opaque=131)
+   void FUN_0051d2cc(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] uint uVar3;
+   [decl] uint uVar4;
+   [decl] int local_100;
+   [decl] byte local_f0 [16];
+   [decl] byte local_e0 [16];
+   [decl] char local_d0 [16];
+   [decl] int local_c0 [4];
+   [decl] uint local_b0 [6];
+   [decl] long local_98;
+   [decl] uint *local_90;
+   [decl] char *local_88;
+   [decl] int *local_80;
+   [decl] byte *local_78;
+   [decl] byte *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_98 + 0x28);
+   *param_1 = &PTR_FUN_009e5b28;
+   FUN_0099b068(param_1);
+   free(param_1);
+   FUN_0099b068(param_1);
+   free(param_1);
+   *param_1 = &PTR_FUN_009e5b28;
+   if (((uVar4 & uVar3) * (uVar2 & uVar1) + (uVar4 | uVar2) * (uVar4 & uVar2) | 0x11d2ed2f)
+   if (*(long *)(local_98 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x2e9d30  382 lines -> 36 net  (dropped state=160 opaque=117)
+   void FUN_003e9d30(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] undefined8 *__ptr;
+   [decl] int local_100;
+   [decl] undefined8 local_f0 [2];
+   [decl] byte local_e0;
+   [decl] char local_d0 [16];
+   [decl] int local_c0 [4];
+   [decl] uint local_b0 [4];
+   [decl] long local_a0;
+   [decl] uint *local_98;
+   [decl] uint local_8c;
+   [decl] char *local_88;
+   [decl] int *local_80;
+   [decl] undefined8 *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_a0 + 0x28);
+   uVar2 = ((DAT_00a233f8 ^ 0x2250f6b) * (DAT_00a233fc ^ 0x8dffcb6) & 0xb287968) +
+   ((uVar2 ^ 0xffffffff) & 0x58994b14) * (uVar2 & 0x232230e9) +
+   (uVar2 | 0xdcdd4b16) * (uVar2 & 0xdc5c4b02)) {
+   if (*local_88 == '\0') {
+   uVar2 = ((uVar2 ^ 0xffffffff) & 0x9398021) * ((uVar2 | 0xb4845f4a) & 0x72c22a9c) +
+   (uVar2 | 0xbdbddf6b) * ((uVar2 | 0xb4845f4a) & 0x8d3dd563);
+   uVar1 = (uVar2 & 0x3f34c2da) * ((uVar2 ^ 0xffffffff) & 0xc0cb3d25) +
+   (uVar2 | 0xc0cb3d25) * (uVar2 & 0xc0cb3d25);
+   ((uVar1 ^ 0x8082501) & 0x3f887581) * (uVar2 & 0xc0778a7e) +
+   (uVar2 | 0x3f887581) * (uVar2 & 0x3f887581)) {
+   uVar2 = (DAT_00a23438 ^ 0x5701a980) * (DAT_00a2343c ^ 0x9591411d);
+   FUN_0099b068(local_78);
+   free(__ptr);
+   FUN_0099b068(local_78);
+   free(__ptr);
+   if (*(long *)(local_a0 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x41b83c  380 lines -> 21 net  (dropped state=145 opaque=151)
+   void FUN_0051b83c(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] int local_d0;
+   [decl] undefined **local_c0;
+   [decl] byte local_b0;
+   [decl] char local_a0;
+   [decl] int local_90 [4];
+   [decl] long local_80;
+   [decl] int *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_80 + 0x28);
+   FUN_0099b068();
+   FUN_0099b068();
+   (uVar1 | 0x9f6bfe7f) * ((uVar1 | 0x9e6ada2f) & 0x8d6bac71)) *
+   uVar1 = (uVar1 & 0x48fe4834) * ((uVar1 ^ 0xffffffff) & 0xb701b7cb) +
+   (uVar1 | 0xb701b7cb) * (uVar1 & 0xb701b7cb);
+   if (((uVar1 ^ 0xffffffff) & 0x861280f3) * (uVar1 & 0x79ed7f0c) +
+   (uVar1 | 0x861280f3) * (uVar1 & 0x861280f3) < 0xb34baf3f) {
+   if (*(long *)(local_80 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x3a09e4  378 lines -> 30 net  (dropped state=150 opaque=140)
+   void FUN_004a09e4(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] uint uVar3;
+   [decl] uint uVar4;
+   [decl] int local_110;
+   [decl] undefined8 local_100 [2];
+   [decl] byte local_f0 [16];
+   [decl] byte local_e0 [16];
+   [decl] char local_d0 [16];
+   [decl] int local_c0 [6];
+   [decl] long local_a8;
+   [decl] uint local_9c;
+   [decl] int *local_98;
+   [decl] byte *local_90;
+   [decl] char *local_88;
+   [decl] undefined8 *local_80;
+   [decl] byte *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_a8 + 0x28);
+   DAT_00a277ed = ((*local_78 ^ 0xff) & 0x32 | *local_78 & 0xcd) ^ 0xd9;
+   ((uVar1 & uVar4) * (uVar3 & uVar2) + (uVar1 | uVar3) * (uVar1 & uVar3) +
+   (uVar1 & 0x266cdaf3) * ((uVar1 ^ 0xffffffff) & 0xd993250c) +
+   (uVar1 | 0xd993250c) * (uVar1 & 0xd993250c) + 0xdaabcca7) {
+   if (*local_88 == '\0') {
+   FUN_0099b068(local_70);
+   FUN_0099b068(local_70);
+   if (*(long *)(local_a8 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x418518  365 lines -> 23 net  (dropped state=144 opaque=133)
+   void FUN_00518518(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] int local_100;
+   [decl] undefined **local_f0;
+   [decl] byte local_e0;
+   [decl] byte local_d0;
+   [decl] char local_c0;
+   [decl] int local_b0 [4];
+   [decl] uint local_a0 [6];
+   [decl] long local_88;
+   [decl] uint *local_80;
+   [decl] int *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_88 + 0x28);
+   uVar1 = ((uVar1 ^ 0xffffffff) & 0x582c5d9b) * (uVar1 & 0xa7d3a264) +
+   (uVar1 | 0x582c5d9b) * (uVar1 & 0x582c5d9b);
+   FUN_0099b068();
+   uVar1 = ((uVar1 ^ 0xffffffff) & 0xf70ce52b) * (uVar1 & 0x8f31ad4) +
+   (uVar1 | 0xf70ce52b) * (uVar1 & 0xf70ce52b);
+   FUN_0099b068();
+   if (*(long *)(local_88 + 0x28) == local_68) {
+   __stack_chk_fail();
+== 0x40e600  357 lines -> 39 net  (dropped state=168 opaque=67)
+   void FUN_0050e600(char *param_1)
+   [decl] int iVar1;
+   [decl] uint uVar2;
+   [decl] long *plVar3;
+   [decl] int local_180;
+   [decl] undefined local_170 [16];
+   [decl] undefined local_160 [16];
+   [decl] undefined local_150 [16];
+   [decl] int local_140 [4];
+   [decl] char local_130 [16];
+   [decl] long local_120 [2];
+   [decl] char local_110 [16];
+   [decl] byte local_100 [16];
+   [decl] char local_f0 [16];
+   [decl] int local_e0 [4];
+   [decl] long local_d0;
+   [decl] undefined4 local_c8;
+   [decl] uint local_c4;
+   [decl] int *local_c0;
+   [decl] undefined *local_b8;
+   [decl] undefined *local_b0;
+   [decl] int *local_a8;
+   [decl] long *local_a0;
+   [decl] char *local_98;
+   [decl] char *local_90;
+   [decl] byte *local_88;
+   [decl] char *local_80;
+   [decl] char *local_78;
+   [decl] undefined *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_d0 + 0x28);
+   *local_78 = *(char *)*plVar3;
+   DAT_00a2f0b8 = ~(*local_88 & 0xb | (*local_88 ^ 0xff) & 0xf4);
+   uVar2 = (uVar2 & 0xb32b7336) * ((uVar2 ^ 0xffffffff) & 0x4cd48cc9) +
+   (uVar2 | 0x4cd48cc9) * (uVar2 & 0x4cd48cc9);
+   if (*(long *)(local_d0 + 0x28) == local_68) {
+   __stack_chk_fail(*local_b8);
+   DAT_00a2f0b8 = (*local_88 & 0xe0 | ~*local_88 & 0x1f) ^ 0x14;
+   if (*local_98 == '\0') {
+== 0x3a231c  356 lines -> 30 net  (dropped state=133 opaque=137)
+   void FUN_004a231c(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] uint uVar3;
+   [decl] undefined8 *__ptr;
+   [decl] uint uVar4;
+   [decl] int local_f0;
+   [decl] undefined **local_e0;
+   [decl] byte local_d0;
+   [decl] byte local_c0;
+   [decl] int local_90 [4];
+   [decl] long local_80;
+   [decl] int *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_80 + 0x28);
+   local_90[0] = (uVar3 & 0x95c5711) * (uVar4 & 0x4002068) +
+   (uVar4 ^ 0xffffffff | 0xf6f7effe) * (uVar3 & 0xf6a3a8ee);
+   FUN_0099b068(local_70);
+   free(__ptr);
+   (uVar3 & (DAT_00a2c7b4 ^ 0xd7790674)) + (uVar4 | uVar3) * (uVar4 & uVar3) +
+   if (*(long *)(local_80 + 0x28) == local_68) {
+   __stack_chk_fail();
+   uVar4 = ((uVar4 | 0x3590d6e2) & 0x10791f1b) * ((uVar4 ^ 0xffffffff) & 0xca062004) +
+   (uVar4 | 0xff96f6e6) * ((uVar4 | 0x3590d6e2) & 0xef86e0e4);
+   if ((uVar4 & 0x5cbb2350) * ((uVar4 ^ 0xffffffff) & 0xa344dcae) +
+   (uVar4 | 0xa344dcae) * (uVar4 & 0xa344dcac) != -0x3a2e09a5) {
+   ((DAT_00a2c79c ^ 0x290cdca) * (DAT_00a2c7a0 ^ 0x50a3c159) ^ 0xaa5acf38) + 0x25746afc <
+   FUN_0099b068(local_70);
+   free(__ptr);
+== 0x3d46f8  335 lines -> 60 net  (dropped state=170 opaque=14)
+   void FUN_004d46f8(char *param_1,char *param_2)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] ulong uVar3;
+   [decl] int iVar4;
+   [decl] size_t sVar5;
+   [decl] ulong uVar6;
+   [decl] size_t *psVar7;
+   [decl] int local_220;
+   [decl] undefined local_210 [16];
+   [decl] size_t local_200 [2];
+   [decl] ulong local_1f0 [2];
+   [decl] undefined local_1e0;
+   [decl] ulong local_1d0;
+   [decl] ulong local_1c0;
+   [decl] undefined local_1b0 [16];
+   [decl] int local_1a0 [4];
+   [decl] char local_190 [16];
+   [decl] long local_180 [2];
+   [decl] ulong local_170 [2];
+   [decl] byte local_160 [16];
+   [decl] char local_150 [16];
+   [decl] size_t local_140 [2];
+   [decl] ulong local_130 [2];
+   [decl] char local_120 [16];
+   [decl] char local_110 [16];
+   [decl] size_t local_100;
+   [decl] long local_f0;
+   [decl] undefined4 local_e4;
+   [decl] size_t *local_e0;
+   [decl] undefined *local_d8;
+   [decl] char *local_d0;
+   [decl] ulong *local_c8;
+   [decl] undefined *local_c0;
+   [decl] int *local_b8;
+   [decl] char *local_b0;
+   [decl] long *local_a8;
+   [decl] ulong *local_a0;
+   [decl] byte *local_98;
+   [decl] char *local_90;
+   [decl] ulong *local_88;
+   [decl] char *local_80;
+   [decl] size_t *local_78;
+   [decl] char *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_f0 + 0x28);
+   if (*local_d0 == '\0') {
+   *local_88 = local_100 - (*local_80 == '/');
+   if ((uVar1 & 0x55f00722) * ((uVar1 ^ 0xffffffff) & 0xaa0ff8dd) +
+   (uVar1 | 0xaa0ff8dd) * (uVar1 & 0xaa0ff8dd) + 0x9c020b6d < 0x8c16989d) {
+   if (*local_b0 == '\0') {
+   if (*local_90 == '\0') {
+   uVar1 = (DAT_00a2e38c ^ 0xd1168d07) * (DAT_00a2e390 ^ 0x9a80862e);
+   if (((uVar1 ^ 0xffffffff) & 0x6fd43b31) * (uVar1 & 0x902bc4ce) +
+   (uVar1 | 0x6fd43b31) * (uVar1 & 0x6fd43b31) != -0x6d33afce) {
+   + (uVar1 | uVar2) * (uVar1 & uVar2) ^ 0xfa8aa392) + 0x39e4f8f9 < 0x3a0dfae) {
+   *local_b0 = *(char *)*local_a8 == '/';
+   *local_80 = param_1[local_100 - 1];
+   if (*(long *)(local_f0 + 0x28) == local_68) {
+   __stack_chk_fail(*local_d8);
+== 0x4b46ac  319 lines -> 42 net  (dropped state=149 opaque=46)
+   void FUN_005b46ac(char *param_1,int param_2,undefined8 param_3)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_190;
+   [decl] undefined4 local_180 [4];
+   [decl] undefined8 local_170 [2];
+   [decl] char local_160 [16];
+   [decl] int local_150 [4];
+   [decl] ulong local_140 [2];
+   [decl] char local_130 [16];
+   [decl] uint local_120 [4];
+   [decl] byte local_110 [16];
+   [decl] char local_100 [16];
+   [decl] int local_f0 [6];
+   [decl] long local_d8;
+   [decl] int *local_d0;
+   [decl] char *local_c8;
+   [decl] undefined8 local_c0;
+   [decl] undefined8 *local_b8;
+   [decl] char *local_b0;
+   [decl] ulong *local_a8;
+   [decl] char *local_a0;
+   [decl] uint *local_98;
+   [decl] byte *local_90;
+   [decl] char *local_88;
+   [decl] int local_7c;
+   [decl] undefined4 *local_78;
+   [decl] int *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_d8 + 0x28);
+   param_1 = strerror(*local_70);
+   if (*local_a0 == '\0') {
+   param_1 = (char *)(ulong)uVar2;
+   param_1 = (char *)(ulong)uVar2;
+   param_1 = (char *)FUN_00527a58(local_c8,&DAT_00a33530,local_c0,*local_b8);
+   (uVar2 | uVar1) * (uVar2 & uVar1);
+   param_1 = (char *)__errno(param_1);
+   param_1 = strerror(*local_70);
+   *local_70 = *(int *)*local_a8;
+   param_1 = (char *)__errno(param_1);
+   if (*(long *)(local_d8 + 0x28) != local_68) {
+   __stack_chk_fail(*local_78);
+== 0x3de0fc  308 lines -> 46 net  (dropped state=159 opaque=9)
+   void FUN_004de0fc(long *param_1)
+   [decl] uint uVar1;
+   [decl] long lVar2;
+   [decl] long *plVar3;
+   [decl] int local_170;
+   [decl] char local_160 [16];
+   [decl] long local_150 [2];
+   [decl] long local_140 [2];
+   [decl] char local_130 [16];
+   [decl] long local_120 [2];
+   [decl] char local_110 [16];
+   [decl] long local_100 [2];
+   [decl] long local_f0 [2];
+   [decl] char local_e0 [16];
+   [decl] long local_d0 [2];
+   [decl] long local_c0;
+   [decl] char *local_b8;
+   [decl] long *local_b0;
+   [decl] char *local_a8;
+   [decl] long *local_a0;
+   [decl] char *local_98;
+   [decl] long *local_90;
+   [decl] char *local_88;
+   [decl] long *local_80;
+   [decl] long *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_c0 + 0x28);
+   *param_1 = 0;
+   free((void *)*local_78);
+   (**(code **)(*local_b0 + 0x10))(*local_70);
+   lVar2 = FUN_009e0360(0xffffffffffffffff,*local_70 + 8);
+   lVar2 = *(long *)*local_90;
+   if (*(long *)(local_c0 + 0x28) == local_68) {
+   __stack_chk_fail();
+   free((void *)*local_78);
+   FUN_0099e804(*local_78);
+   FUN_0099b070(*local_70);
+   free((void *)*plVar3);
+   *(undefined8 *)*plVar3 = 0;
+   FUN_0099e804(*local_78);
+   *(undefined8 *)*plVar3 = 0;
+   FUN_009e0360(0xffffffffffffffff,*local_70 + 8);
+   *local_78 = *(long *)*plVar3;
+   free((void *)*plVar3);
+   *local_b0 = *(long *)*local_70;
+== 0x419ef4  294 lines -> 26 net  (dropped state=121 opaque=89)
+   void FUN_00519ef4(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_f0;
+   [decl] byte local_e0 [16];
+   [decl] char local_d0 [16];
+   [decl] int local_c0 [4];
+   [decl] int local_b0 [4];
+   [decl] long local_a0;
+   [decl] int local_98;
+   [decl] uint local_94;
+   [decl] int *local_90;
+   [decl] char *local_88;
+   [decl] int *local_80;
+   [decl] byte *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_a0 + 0x28);
+   free(local_70);
+   FUN_0099b068();
+   (uVar1 & (DAT_00a316ec ^ 0x9da7a9e4)) + (uVar2 | uVar1) * (uVar2 & uVar1);
+   if (*local_90 != 0x5d361c5f) {
+   FUN_0099b068();
+   free(local_70);
+   if (*(long *)(local_a0 + 0x28) == local_68) {
+   __stack_chk_fail();
+== 0x25670c  272 lines -> 58 net  (dropped state=139 opaque=4)
+   void FUN_0035670c(long *param_1)
+   [decl] uint uVar1;
+   [decl] byte bVar2;
+   [decl] uint uVar3;
+   [decl] long *plVar4;
+   [decl] long lVar5;
+   [decl] long lVar6;
+   [decl] undefined8 *puVar7;
+   [decl] int local_200;
+   [decl] long local_1f0 [2];
+   [decl] long local_1e0 [2];
+   [decl] long local_1d0 [2];
+   [decl] long local_1c0 [2];
+   [decl] char local_1b0 [16];
+   [decl] long local_1a0 [2];
+   [decl] char local_190 [16];
+   [decl] undefined8 local_180 [2];
+   [decl] char local_170 [16];
+   [decl] long local_160 [2];
+   [decl] char local_150 [16];
+   [decl] long local_140 [2];
+   [decl] undefined8 local_130 [2];
+   [decl] long local_120 [2];
+   [decl] long *local_110 [3];
+   [decl] long local_f8;
+   [decl] int local_ec;
+   [decl] long **local_e8;
+   [decl] char *local_e0;
+   [decl] char *local_d8;
+   [decl] char *local_d0;
+   [decl] long *local_c8;
+   [decl] char *local_c0;
+   [decl] undefined8 *local_b8;
+   [decl] long *local_b0;
+   [decl] long *local_a8;
+   [decl] long *local_a0;
+   [decl] long *local_98;
+   [decl] undefined8 *local_90;
+   [decl] long *local_88;
+   [decl] long *local_80;
+   [decl] long *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_f8 + 0x28);
+   free((void *)*local_70);
+   *(long *)*puVar7 = lVar6;
+   bVar2 = *(byte *)(lVar5 + -0x18);
+   if (((uVar1 ^ 0xffffffff) & 0x64ebafd3) * (uVar1 & 0x9b14502c) +
+   (uVar1 | 0x64ebafd3) * (uVar1 & 0x64ebafd3) == 0x17be9a6e) {
+   free((void *)*local_70);
+   free((void *)*local_90);
+   free((void *)*local_90);
+   uVar3 = (DAT_00a1d5d8 ^ 0x53b26b56) * (DAT_00a1d5dc ^ 0x40e2dfaf);
+   *local_90 = *(undefined8 *)(*local_78 + -8);
+   uVar1 = (DAT_00a1d5d0 ^ 0xf3de542b) * (DAT_00a1d5d4 ^ 0x1b5ee7c5);
+   *(long *)*puVar7 = *local_78 + -0x18;
+   if (*(long *)(local_f8 + 0x28) == local_68) {
+   __stack_chk_fail();
+== 0x25536c  270 lines -> 52 net  (dropped state=138 opaque=7)
+   void FUN_0035536c(long *param_1)
+   [decl] byte bVar1;
+   [decl] char cVar2;
+   [decl] uint uVar3;
+   [decl] long *plVar4;
+   [decl] byte *pbVar5;
+   [decl] long lVar6;
+   [decl] int local_1c0;
+   [decl] long local_1b0 [2];
+   [decl] long local_1a0 [2];
+   [decl] long local_190 [2];
+   [decl] long local_180 [2];
+   [decl] long local_170 [2];
+   [decl] char local_160 [16];
+   [decl] undefined8 local_150 [2];
+   [decl] long local_140 [2];
+   [decl] char local_130 [16];
+   [decl] long local_120 [2];
+   [decl] undefined8 local_110 [2];
+   [decl] char local_100 [16];
+   [decl] long local_f0;
+   [decl] long local_e0;
+   [decl] int local_d4;
+   [decl] long *local_d0;
+   [decl] long *local_c8;
+   [decl] char *local_c0;
+   [decl] char *local_b8;
+   [decl] char *local_b0;
+   [decl] long *local_a8;
+   [decl] long *local_a0;
+   [decl] long *local_98;
+   [decl] long *local_90;
+   [decl] undefined8 *local_88;
+   [decl] long *local_80;
+   [decl] long *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_e0 + 0x28);
+   *(long *)*local_70 = local_f0;
+   free(__ptr);
+   if ((uint)((ulong)(((uVar3 ^ 0xffffffff) & 0x3a21bcf4) * (uVar3 & 0xb) +
+   (uVar3 | 0x3a21bcf4) * (uVar3 & 0x74)) * 0x4cd8ee8f >> 0x3e)
+   free((void *)*local_88);
+   free((void *)*local_88);
+   if ((uVar3 & 0x4b053201) * ((uVar3 & 0x4bc5f341 ^ 0xffffffff) & 0x30e0cd50) +
+   (uVar3 & 0x4bc5f341 | 0x30e0cd50) * (uVar3 & 0xc0c140) == 0x755c2baa) {
+   *local_88 = *(undefined8 *)(*local_d0 + -8);
+   *(long *)*local_70 = local_f0;
+   free((void *)*local_a0);
+   if (*local_c0 == '\0') {
+   if (*(long *)(local_e0 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x4cec74  269 lines -> 49 net  (dropped state=147 opaque=7)
+   void FUN_005cec74(undefined4 param_1,long param_2,ulong param_3,long param_4)
+   [decl] uint uVar1;
+   [decl] char cVar2;
+   [decl] char *pcVar3;
+   [decl] undefined8 uVar4;
+   [decl] ulong uVar5;
+   [decl] undefined4 *puVar6;
+   [decl] int local_200;
+   [decl] undefined4 local_1f0 [4];
+   [decl] ulong local_1e0;
+   [decl] undefined4 local_1d0 [4];
+   [decl] ulong local_1c0 [2];
+   [decl] ulong local_1b0 [2];
+   [decl] ulong local_1a0 [2];
+   [decl] ulong local_190 [2];
+   [decl] char local_180 [16];
+   [decl] char local_170 [16];
+   [decl] int local_160 [4];
+   [decl] undefined8 local_150 [2];
+   [decl] char local_140 [16];
+   [decl] ulong local_130 [2];
+   [decl] char local_120 [16];
+   [decl] uint local_110 [6];
+   [decl] long local_f8;
+   [decl] uint *local_f0;
+   [decl] undefined4 *local_e8;
+   [decl] undefined4 *local_e0;
+   [decl] ulong *local_d8;
+   [decl] char *local_d0;
+   [decl] char *local_c8;
+   [decl] int *local_c0;
+   [decl] undefined8 *local_b8;
+   [decl] char *local_b0;
+   [decl] char *local_a8;
+   [decl] undefined4 local_9c;
+   [decl] long local_98;
+   [decl] long lStack_90;
+   [decl] ulong *local_88;
+   [decl] ulong *local_80;
+   [decl] ulong *local_78;
+   [decl] ulong *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_f8 + 0x28);
+   uVar1 = (DAT_00a38a00 ^ 0x3893bc4b) * (DAT_00a38a04 ^ 0x842a883f) + 0x52bda096;
+   *local_a8 = param_3 == 0;
+   *local_c0 = *(int *)*local_b8;
+   *local_d8 = (*local_70 ^ local_1e0) + (*local_70 & local_1e0) * 2;
+   if (*(long *)(local_f8 + 0x28) == local_68) {
+   __stack_chk_fail(*local_e8);
+== 0x404534  247 lines -> 47 net  (dropped state=121 opaque=2)
+   void FUN_00504534(long param_1)
+   [decl] long *plVar1;
+   [decl] long lVar2;
+   [decl] long *plVar3;
+   [decl] int local_190;
+   [decl] undefined8 local_180 [2];
+   [decl] long local_170;
+   [decl] undefined8 local_160;
+   [decl] long local_150;
+   [decl] bool local_140;
+   [decl] long local_130 [2];
+   [decl] long local_120 [2];
+   [decl] char local_110 [16];
+   [decl] long local_100 [2];
+   [decl] char local_f0 [16];
+   [decl] long local_e0 [2];
+   [decl] long local_d0 [2];
+   [decl] long local_c0;
+   [decl] undefined4 local_b8;
+   [decl] undefined4 local_b4;
+   [decl] long *local_b0;
+   [decl] long local_a8;
+   [decl] undefined8 *local_a0;
+   [decl] char *local_98;
+   [decl] char *local_90;
+   [decl] long *local_88;
+   [decl] long *local_80;
+   [decl] long *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_c0 + 0x28);
+   FUN_009e0360(0xffffffffffffffff,local_150);
+   (**(code **)*local_88)(*plVar3);
+   local_170 = *(long *)*local_70;
+   *local_88 = *(long *)*plVar3 + 0x10;
+   *local_70 = *(long *)(local_a8 + 0x10);
+   local_160 = FUN_009e0360(0xffffffffffffffff,local_150);
+   FUN_0099b070(*plVar3);
+   *local_a0 = *(undefined8 *)(local_170 + 0x10);
+   FUN_009e0360(0xffffffffffffffff,*local_80);
+   lVar2 = FUN_009e0360(0xffffffffffffffff,*local_80);
+   (*(code *)*local_a0)(*local_70);
+   FUN_0099b070(*plVar1);
+   *plVar3 = *(long *)*local_b0;
+   (**(code **)*local_88)(*plVar3);
+   if (*(long *)(local_c0 + 0x28) == local_68) {
+   __stack_chk_fail();
+== 0x3e0518  189 lines -> 29 net  (dropped state=97 opaque=2)
+   void FUN_004e0518(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] long *plVar3;
+   [decl] int local_f0;
+   [decl] long local_e0 [2];
+   [decl] char local_d0 [16];
+   [decl] long *local_c0;
+   [decl] uint local_b0 [6];
+   [decl] long local_98;
+   [decl] undefined4 local_8c;
+   [decl] uint *local_88;
+   [decl] char *local_80;
+   [decl] undefined8 *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_98 + 0x28);
+   uVar2 = (DAT_00a2ebcc ^ 0x996f544) * (DAT_00a2ebd0 ^ 0xfacfd155);
+   local_b0[0] = (uVar1 & 0x4f6ae01d) * ((uVar2 ^ 0xb0010b82) & 0xb0951fe2) +
+   (uVar1 | 0xb0951fe2) * (uVar1 & 0xb0951fe2) ^ 0xa94470e1;
+   FUN_0099e804(*plVar3);
+   free(local_c0);
+   free((void *)*plVar3);
+   free((void *)*plVar3);
+   free(local_c0);
+   if (*local_88 != 0x4465d0eb) {
+   FUN_0099e804(*local_70);
+   if (*(long *)(local_98 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x376dec  187 lines -> 31 net  (dropped state=94 opaque=7)
+   void FUN_00476dec(long param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] long lVar3;
+   [decl] int local_110;
+   [decl] undefined8 local_100 [2];
+   [decl] long local_f0 [2];
+   [decl] long local_e0 [2];
+   [decl] long local_d0 [2];
+   [decl] char local_c0 [16];
+   [decl] long *local_b0;
+   [decl] long local_a0;
+   [decl] undefined4 local_94;
+   [decl] long *local_90;
+   [decl] long *local_88;
+   [decl] char *local_80;
+   [decl] undefined8 *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_a0 + 0x28);
+   local_b0 = *(long **)(param_1 + 8);
+   (*(code *)*local_78)(local_b0);
+   FUN_0099b070(local_b0);
+   if (*(long *)(local_a0 + 0x28) == local_68) {
+   __stack_chk_fail();
+   if (*local_80 == '\0') {
+   *local_78 = *(undefined8 *)*local_90;
+   lVar3 = FUN_009e0360(0xffffffffffffffff,*local_70);
+   FUN_009e0360(0xffffffffffffffff,*local_70);
+   (*(code *)*local_78)(local_b0);
+   FUN_0099b070(local_b0);
+== 0x333670  184 lines -> 26 net  (dropped state=90 opaque=9)
+   undefined * FUN_00433670(void)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_e0;
+   [decl] char local_d0;
+   [decl] int local_c0;
+   [decl] char local_b0;
+   [decl] byte local_a0;
+   [decl] uint local_90 [6];
+   [decl] long local_78;
+   [decl] uint *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_78 + 0x28);
+   local_90[0] = ((uVar2 & 0x5c3ac1) * ((uVar2 ^ 0xffffffff) & 0x3fa3c53e) +
+   (uVar2 | 0x3fa3c53e) * (uVar2 & 0x3fa3c53e)) * 0x590fe6e4 | 0xc771468a;
+   __cxa_atexit(FUN_0043445c,&DAT_00a6c668,&PTR_LOOP_009e57e0);
+   FUN_009c0a64(&DAT_00a6c680);
+   ((uVar2 & (DAT_00a28258 ^ 0xa80b587)) * (uVar1 & (DAT_00a28254 ^ 0x83bf9c3)) +
+   (uVar2 | uVar1) * (uVar2 & uVar1) + 0x6dca8b13 & 0xb3df402) + 0xec048baa) {
+   local_c0 = FUN_009c0920(&DAT_00a6c680);
+   if (*(long *)(local_78 + 0x28) == local_68) {
+   __stack_chk_fail();
+   (uVar1 & 0x2b) * ((uVar1 ^ 0xffffffff) & 0xb8ba6b54) +
+   (uVar2 | 0xb8ba6b54) * (uVar2 & 0x54) < 0x22f8c13)) {
+   __cxa_atexit(FUN_0043445c,&DAT_00a6c668,&PTR_LOOP_009e57e0);
+   FUN_009c0a64(&DAT_00a6c680);
+== 0x4176bc  181 lines -> 24 net  (dropped state=93 opaque=4)
+   void FUN_005176bc(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] long *plVar2;
+   [decl] int local_f0;
+   [decl] long local_e0 [2];
+   [decl] char local_d0 [16];
+   [decl] long *local_c0;
+   [decl] uint local_b0 [6];
+   [decl] long local_98;
+   [decl] undefined4 local_8c;
+   [decl] uint *local_88;
+   [decl] long *local_80;
+   [decl] char *local_78;
+   [decl] undefined8 *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_98 + 0x28);
+   local_b0[0] = ((DAT_00a3161c ^ 0x4de2cd4d) * (DAT_00a31620 ^ 0x1f52e44a) + 0x543bdb2e & 0x7f7fa163
+   free((void *)*plVar2);
+   free(local_c0);
+   free((void *)*plVar2);
+   free(local_c0);
+   FUN_0099e804(*plVar2);
+   if (*(long *)(local_98 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x3e2080  179 lines -> 24 net  (dropped state=90 opaque=5)
+   void FUN_004e2080(long *param_1)
+   [decl] uint uVar1;
+   [decl] int local_f0;
+   [decl] char local_e0 [16];
+   [decl] char local_c0 [16];
+   [decl] long local_b0 [3];
+   [decl] long local_98;
+   [decl] int local_8c;
+   [decl] char *local_88;
+   [decl] char *local_80;
+   [decl] long *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_98 + 0x28);
+   free((void *)*local_70);
+   *(undefined8 *)*local_70 = 0;
+   free(local_d0);
+   free(local_d0);
+   free((void *)*local_70);
+   FUN_0099e804(local_d0);
+   FUN_0099e804(local_d0);
+   local_d0 = *(void **)*local_70;
+   if (*(long *)(local_98 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x33445c  161 lines -> 18 net  (dropped state=81 opaque=11)
+   void FUN_0043445c(byte *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_d0;
+   [decl] byte *local_c0;
+   [decl] char local_b0;
+   [decl] byte local_a0;
+   [decl] uint local_90 [6];
+   [decl] long local_78;
+   [decl] uint *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_78 + 0x28);
+   if (*local_70 == 0x881e819c) {
+   free(*(void **)local_c0);
+   free(*(void **)local_c0);
+   if (*(long *)(local_78 + 0x28) != local_68) {
+   __stack_chk_fail();
+   ((uint)((ulong)((DAT_00a282c4 ^ 0xe90a6158) * (DAT_00a282c8 ^ 0xa80ae041) >> 2) *
+== 0x4c12a0  136 lines -> 22 net  (dropped state=66 opaque=5)
+   void FUN_005c12a0(void *param_1,long param_2)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_c0;
+   [decl] long local_b0;
+   [decl] char local_a0;
+   [decl] char local_90 [16];
+   [decl] long local_80;
+   [decl] char *local_78;
+   [decl] long local_68;
+   local_68 = *(long *)(local_80 + 0x28);
+   local_90[0] = param_1 == (void *)0x0;
+   if (*local_78 == '\0') {
+   free(local_70);
+   free(*(void **)((long)local_70 + local_b0 * 8));
+   local_a0 = param_2 == 0;
+   uVar2 = (uVar2 & (DAT_00a3848c ^ 0x43f72cf9)) * (uVar1 & (DAT_00a38488 ^ 0x16134054)) +
+   (uVar2 | uVar1) * (uVar2 & uVar1);
+   ((uVar2 & 0xa2d5be5f) * ((uVar2 ^ 0xffffffff) & 0x5d2a41a0) +
+   (uVar2 | 0x5d2a41a0) * (uVar2 & 0x5d2a41a0) & 0xf334d020)) {
+   if (*(long *)(local_80 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x3315a0  113 lines -> 22 net  (dropped state=48 opaque=10)
+   void FUN_004315a0(long param_1)
+   [decl] uint uVar1;
+   [decl] int local_b0;
+   [decl] long local_a0 [2];
+   [decl] int local_90 [4];
+   [decl] long local_80;
+   [decl] int *local_78;
+   [decl] long *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_80 + 0x28);
+   if ((((uVar1 ^ 0xffffffff) & 0x1401fcf5) * (uVar1 & 0xebfe030a) +
+   (uVar1 | 0x1401fcf5) * (uVar1 & 0x1401fcf5)) * 0x744654a7 != -0x3edbb11c) {
+   FUN_0099e4a4(param_1 + 0x58);
+   FUN_0099d8a4(*local_70);
+   FUN_0099e4a4(param_1);
+   FUN_0099e4a4(param_1 + 0x58);
+   uVar1 = ((uVar1 ^ 0xffffffff) & 0xebd5fd32) * (uVar1 & 0x142a02cd) +
+   (uVar1 | 0xebd5fd32) * (uVar1 & 0xebd5fd32);
+   FUN_0099d8a4(*local_70);
+   FUN_0099e4a4(param_1);
+   if (*(long *)(local_80 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x325420  101 lines -> 19 net  (dropped state=46 opaque=6)
+   undefined8 FUN_00425420(undefined8 param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_c0;
+   [decl] undefined4 local_b0;
+   [decl] int local_a0 [6];
+   [decl] long local_88;
+   [decl] uint local_7c;
+   [decl] int *local_78;
+   [decl] undefined8 local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_88 + 0x28);
+   if (*local_78 != -0x3b5f2e02) {
+   FUN_004259fc(local_b0);
+   if (((uVar2 ^ 0xb8124210) & 0xbafad21b) * (uVar1 & 0x45052de4) +
+   (uVar1 | 0xbafad21b) * (uVar1 & 0xbafad21b) < 0x5278079e) {
+   FUN_004259fc(local_b0);
+   if (*(long *)(local_88 + 0x28) == local_68) {
+   __stack_chk_fail();
+== 0x3310d4  91 lines -> 20 net  (dropped state=37 opaque=8)
+   void FUN_004310d4(undefined8 *param_1)
+   [decl] uint uVar1;
+   [decl] undefined8 *puVar2;
+   [decl] code *pcVar3;
+   [decl] int local_e0;
+   [decl] undefined8 local_d0;
+   [decl] undefined4 *local_c0;
+   [decl] undefined4 *local_b0;
+   [decl] undefined8 *local_90 [3];
+   [decl] long local_78;
+   [decl] undefined8 **local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_78 + 0x28);
+   (*pcVar3)(local_d0,*local_b0,*local_c0);
+   local_d0 = *(undefined8 *)puVar2[1];
+   if (((uVar1 ^ 0xffffffff) & 0x2200e047) * (uVar1 & 0x40050838) +
+   (uVar1 | 0x23e8e1c7) * (uVar1 & 0x1e801c7) == 0x7366d474) {
+   (*pcVar3)(local_d0,*local_b0,*local_c0);
+   if (*(long *)(local_78 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x41f3ec  89 lines -> 24 net  (dropped state=32 opaque=7)
+   void FUN_0051f3ec(void *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_a0;
+   [decl] int local_90 [4];
+   [decl] long local_80;
+   [decl] int *local_78;
+   [decl] long local_68;
+   local_68 = *(long *)(local_80 + 0x28);
+   uVar2 = ((uVar2 ^ 0xffffffff) & 0x180b2020) * ((uVar2 | 0xc7f4cedf) & 0xe7345508) +
+   (uVar2 | 0xdfffeeff) * ((uVar2 | 0xc7f4cedf) & 0x18cbaaf7);
+   local_90[0] = (uVar2 & 0x99473301) * ((uVar2 ^ 0xffffffff) & 0x66b8cce6) +
+   (uVar2 | 0x66b8ccee) * (uVar2 & 0x66b8cce8);
+   (uVar2 | 0x681358f9) * (uVar2 & 0x681358f9) + 0x4e6c8eef < 0x4c4797ef) {
+   uVar2 = (~(uVar2 | DAT_00a318a8 ^ 0x89fb1999) * (uVar2 & (DAT_00a318a8 ^ 0x89fb1999))
+   + (uVar2 | DAT_00a318a8 ^ 0x7604e666) * (uVar2 & (DAT_00a318a8 ^ 0x7604e666)))
+   uVar2 = (uVar2 & 0x2dfc72b6) * ((uVar2 ^ 0xffffffff) & 0xd2038d48) +
+   (uVar2 | 0xd2038d48) * (uVar2 & 0xd2038d48);
+   uVar2 = (uVar2 & (DAT_00a31898 ^ 0x19015994)) * (uVar1 & (DAT_00a31894 ^ 0x9892d95)) +
+   (uVar2 | uVar1) * (uVar2 & uVar1) | 0xca10e9b9;
+   free(local_70);
+   free(local_70);
+   if (*(long *)(local_80 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x1ef5e0  86 lines -> 19 net  (dropped state=39 opaque=2)
+   void FUN_002ef5e0(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+   [decl] uint uVar1;
+   [decl] byte bVar2;
+   [decl] int local_d0;
+   [decl] byte local_c0 [16];
+   [decl] byte local_b0;
+   [decl] uint local_a0 [4];
+   [decl] long local_90;
+   [decl] uint *local_88;
+   [decl] byte *local_80;
+   [decl] undefined8 local_78;
+   [decl] undefined8 uStack_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_90 + 0x28);
+   FUN_00314c48(local_78,uStack_70);
+   (uint)((ulong)(((DAT_00a18274 ^ 0x2b52f82e) * (DAT_00a18278 ^ 0x2f14460f) |
+   bVar2 = FUN_00314c48(local_78,uStack_70);
+   if (*(long *)(local_90 + 0x28) != local_68) {
+   __stack_chk_fail(*local_80);
+== 0x21e274  86 lines -> 21 net  (dropped state=43 opaque=3)
+   long FUN_0031e274(undefined (*param_1) [16])
+   [decl] uint uVar1;
+   [decl] undefined2 uVar2;
+   [decl] undefined8 uVar3;
+   [decl] undefined auVar4 [16];
+   [decl] undefined auVar5 [16];
+   [decl] undefined auVar6 [16];
+   [decl] int local_d0;
+   [decl] uint local_c0;
+   [decl] ulong local_b0;
+   [decl] byte local_90 [24];
+   [decl] byte *local_78;
+   [decl] long local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_70 + 0x28);
+   auVar6 = NEON_cmge(param_1[1],0,4);
+   auVar4 = NEON_cmge(*param_1,0,4);
+   local_c0 = *(uint *)(param_1[2] + 4);
+   local_b0 = (ulong)(-1 < *(int *)param_1[2]);
+   if (*(long *)(local_70 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x2f2fec  84 lines -> 14 net  (dropped state=36 opaque=6)
+   void FUN_003f2fec(void)
+   [decl] uint uVar1;
+   [decl] int local_a0;
+   [decl] uint local_90 [6];
+   [decl] long local_78;
+   [decl] uint *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_78 + 0x28);
+   FUN_003a575c();
+   ((uVar1 & 0x224a262b) * ((uVar1 ^ 0xffffffff) & 0xddb5d9d4) +
+   (uVar1 | 0xddb5d9d4) * (uVar1 & 0xddb5d9d4) ^ 0x1eb257c2)) {
+   FUN_003a575c();
+   if (*(long *)(local_78 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x1f5ba0  79 lines -> 14 net  (dropped state=34 opaque=5)
+   void FUN_002f5ba0(void)
+   [decl] uint uVar1;
+   [decl] int local_a0;
+   [decl] int local_90 [6];
+   [decl] long local_78;
+   [decl] int *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_78 + 0x28);
+   FUN_0041f7d8();
+   uVar1 = ((uVar1 ^ 0xffffffff) & 0xe69e7c51) * (uVar1 & 0x196183ae) +
+   (uVar1 | 0xe69e7c51) * (uVar1 & 0xe69e7c51);
+   FUN_0041f7d8();
+   if (*(long *)(local_78 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x2a575c  78 lines -> 11 net  (dropped state=34 opaque=5)
+   void FUN_003a575c(void)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] long lVar3;
+   [decl] int local_90;
+   uVar2 = ~(uVar2 | DAT_00a20efc ^ 0x9bf4f476) * (uVar2 & (DAT_00a20efc ^ 0x9bf4f476)) +
+   (uVar2 | DAT_00a20efc ^ 0x640b0b89) * (uVar2 & (DAT_00a20efc ^ 0x640b0b89));
+   if ((((uVar2 ^ 0xffffffff) & 0x14cc3e45) * (uVar2 & 0xb33c1ba) +
+   (uVar2 | 0x14cc3e45) * (uVar2 & 0x14cc3e45) + 0x9d85be81 & 0x12fd07e8) ==
+   if (*(long *)(lVar3 + 0x28) != *(long *)(lVar3 + 0x28)) {
+   __stack_chk_fail();
+== 0x3a4278  78 lines -> 18 net  (dropped state=33 opaque=3)
+   void FUN_004a4278(void *param_1)
+   [decl] uint uVar1;
+   [decl] uint uVar2;
+   [decl] int local_a0;
+   [decl] uint local_90 [4];
+   [decl] long local_80;
+   [decl] uint *local_78;
+   [decl] long local_68;
+   local_68 = *(long *)(local_80 + 0x28);
+   local_90[0] = (uint)((ulong)((DAT_00a2c83c ^ 0x72a32f30) * (DAT_00a2c840 ^ 0x3aaed3b2) >> 2) *
+   (uVar1 / 0x10bef857 & 1) * ((uVar1 / 0x10bef857 ^ 0xffffffff) & 0x9541813e) +
+   (uVar1 / 0x10bef857 | 0x9541813e) * (uVar1 / 0x10bef857 & 0xe)) {
+   free(local_70);
+   uVar1 = ((uVar1 ^ 0xffffffff) & 0xd2331cb9) * (uVar1 & 0x2dcce346) +
+   (uVar1 | 0xd2331cb9) * (uVar1 & 0xd2331cb9);
+   free(local_70);
+   if (*(long *)(local_80 + 0x28) != local_68) {
+   __stack_chk_fail();
+== 0x2bc9c8  75 lines -> 14 net  (dropped state=33 opaque=3)
+   void FUN_003bc9c8(long *param_1)
+   [decl] undefined *puVar1;
+   [decl] long lVar2;
+   [decl] long lVar3;
+   [decl] uint uVar4;
+   [decl] int local_90;
+   lVar3 = *(long *)(lVar2 + 0x28);
+   FUN_0099b250();
+   *param_1 = (long)puVar1;
+   (uVar4 & 0x356a5c5e) * ((uVar4 ^ 0xffffffff) & 0xca95a3a1) +
+   (uVar4 ^ 0xffffffff | 0x356a5c5e) * ((uVar4 ^ 0xffffffff) & 0x356a5c5e) +
+   *param_1 = (long)puVar1;
+   if (*(long *)(lVar2 + 0x28) != lVar3) {
+   __stack_chk_fail();
+== 0x1faaec  56 lines -> 13 net  (dropped state=21 opaque=4)
+   void FUN_002faaec(long *param_1)
+   [decl] undefined *puVar1;
+   [decl] uint uVar2;
+   [decl] uint uVar3;
+   [decl] long lVar4;
+   [decl] long lVar5;
+   [decl] int local_90;
+   lVar5 = *(long *)(lVar4 + 0x28);
+   FUN_0099b250();
+   *param_1 = (long)puVar1;
+   *param_1 = (long)puVar1;
+   if (*(long *)(lVar4 + 0x28) != lVar5) {
+   __stack_chk_fail();
+== 0x41b5d4  53 lines -> 14 net  (dropped state=19 opaque=2)
+   void FUN_0051b5d4(void *param_1)
+   [decl] uint uVar1;
+   [decl] int local_a0;
+   [decl] uint local_90 [6];
+   [decl] long local_78;
+   [decl] uint *local_70;
+   [decl] long local_68;
+   local_68 = *(long *)(local_78 + 0x28);
+   free(param_1);
+   free(param_1);
+   ((uVar1 ^ 0xffffffff) & 0x3522fbe1) * (uVar1 & 0xcadd041e) +
+   (uVar1 | 0x3522fbe1) * (uVar1 & 0x3522fbe1)) {
+   if (*(long *)(local_78 + 0x28) != local_68) {
+   __stack_chk_fail();
