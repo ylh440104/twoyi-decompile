@@ -1,0 +1,27 @@
+converting to raw ...
+raw = 1904779264 bytes
+root entries (71): 2,11,lost+found,12,adb_keys,13,apex,14,bin,15,bootstrap-apex,16,bugreports,17,cache,18,config,19,d,20,data,21,data_mirror,22,debug_ramdisk
+layout = B (image root IS /system)
+rdump / -> out/system : OK
+rdump /system_ext -> out/system_ext : OK
+rdump /product -> out/product : OK
+rdump /vendor -> out/vendor : OK
+rdump /odm -> out/odm : OK
+removed 0 apex originals from out/system/apex, freed 0.0 MiB
+running unpack.py ...
+  展开成功: 38 / 38
+  展开后总字节: 508957093 (485.4 MiB)
+  report: out/.work/apex-stage/unpack-report.txt
+moved apex stager -> out/apex (38 entries)
+placed apex-info-list.xml
+
+=== 验收 ===
+  [OK] apex 目录数 == 38
+  [OK] runtime/bin/linker64 存在
+  [OK] com.android.art 存在
+  [OK] system/apex 下的原件已清空
+
+system         1911.3 MiB
+apex            485.4 MiB
+TOTAL          7809.0 MiB
+report: out/merge-report.txt
