@@ -1,7 +1,7 @@
 # guest run report
 
-commit: e9bfbe8eba1904490688edb70fbb589a58e2afb0
-run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46147977722
+commit: 06f937d301303d8e46df17645b523bdb9a23ef44
+run:    https://github.com/ylh440104/twoyi-decompile/actions/runs/46148245276
 
 ```
 system/bin/linker64                            ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -208,7 +208,6 @@ system/lib64/gsi_aidl_interface-cpp.so         ELF 64-bit LSB shared object, ARM
 system/lib64/heapprofd_client.so               ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/heapprofd_client_api.so           ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/hwasan/libc.so                    ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/ld-android.so                     ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/lib-camera-compatibility-info-api.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/lib-platform-compat-native-api.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libEGL.so                         ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -316,7 +315,6 @@ system/lib64/libaudiousecasevalidation.so      ELF 64-bit LSB shared object, ARM
 system/lib64/libaudioutils.so                  ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libavservices_minijail.so         ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libbackstage_power_flags_rust.dylib.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libbase.so                        ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libbattery.so                     ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libbatterystats_aidl.so           ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libbcc.so                         ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -347,8 +345,8 @@ system/lib64/libbrillo-stream.so               ELF 64-bit LSB shared object, ARM
 system/lib64/libbrillo.so                      ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libbytemuck.dylib.so              ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libbytes.dylib.so                 ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libc++.so                         ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libc.so                           broken symbolic link to /apex/com.android.runtime/lib64/bionic/l
+system/lib64/libc_malloc_debug.so              ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
+system/lib64/libc_malloc_hooks.so              ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libcamera2ndk.so                  ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libcamera_client.so               ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libcamera_metadata.so             ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -361,7 +359,6 @@ system/lib64/libcfg_if.dylib.so                ELF 64-bit LSB shared object, ARM
 system/lib64/libcgrouprc.so                    ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libchrome.so                      ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libclang_rt.asan-aarch64-android.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libclang_rt.hwasan-aarch64-android.so broken symbolic link to /apex/com.android.runtime/lib64/bionic/l
 system/lib64/libclang_rt.ubsan_standalone-aarch64-android.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libclap.dylib.so                  ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libclap_builder.dylib.so          ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -393,8 +390,6 @@ system/lib64/libdataloader.so                  ELF 64-bit LSB shared object, ARM
 system/lib64/libdatasource.so                  ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libdebuggerd_client.so            ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libdebugstore_cxx.so              ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libdl.so                          broken symbolic link to /apex/com.android.runtime/lib64/bionic/l
-system/lib64/libdl_android.so                  broken symbolic link to /apex/com.android.runtime/lib64/bionic/l
 system/lib64/libdm_rust.dylib.so               ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libdmabufheap.so                  ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libdng_sdk.so                     ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -521,8 +516,6 @@ system/lib64/liblp.so                          ELF 64-bit LSB shared object, ARM
 system/lib64/liblpdump.so                      ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/liblpdump_interface-cpp.so        ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/liblz4.so                         ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/liblzma.so                        ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libm.so                           broken symbolic link to /apex/com.android.runtime/lib64/bionic/l
 system/lib64/libmedia.so                       ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libmedia_codeclist.so             ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libmedia_codeclist_capabilities.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -608,7 +601,6 @@ system/lib64/libprocessgroup_flags_c.so        ELF 64-bit LSB shared object, ARM
 system/lib64/libprocessgroup_platform.so       ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libprocessgroup_rust.dylib.so     ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libprocessgroup_setup.so          ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libprocinfo.so                    ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libprotobuf-cpp-full-6.33.5.so    ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libprotobuf-cpp-lite-6.33.5.so    ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libprotobuf.dylib.so              ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
@@ -719,7 +711,6 @@ system/lib64/libui.so                          ELF 64-bit LSB shared object, ARM
 system/lib64/libuinputcommand_jni.so           ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libukey2_jni.so                   ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libultrahdr.so                    ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
-system/lib64/libunwindstack.so                 ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libupdate_engine_stable-V3-cpp.so ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/liburingutils.so                  ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
 system/lib64/libusb4_policies.dylib.so         ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dyn
