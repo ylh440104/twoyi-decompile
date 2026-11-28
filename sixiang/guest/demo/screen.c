@@ -153,6 +153,11 @@ int main(void)
     g_seq = (uint32_t *)base;
     g_fb = (uint32_t *)((char *)base + HDR);
 
+    /* Say something before the loop: if this line never appears, the process
+     * died before its first instruction of real work, and the host knows to
+     * stop blaming the frame channel. */
+    fprintf(stderr, "screen: up %dx%d fb=%s\n", FB_W, FB_H, path);
+
     struct timespec ts;
     ts.tv_sec = 0;
     ts.tv_nsec = 1000000000L / fps;
@@ -162,6 +167,8 @@ int main(void)
         __atomic_store_n(g_seq, (uint32_t)(2 * t + 1), __ATOMIC_RELEASE);
         paint(t);
         __atomic_store_n(g_seq, (uint32_t)(2 * t + 2), __ATOMIC_RELEASE);
+        if ((t % 50) == 0)
+            fprintf(stderr, "screen: frame %d seq=%u\n", t, 2 * t + 2);
         nanosleep(&ts, NULL);
     }
 }

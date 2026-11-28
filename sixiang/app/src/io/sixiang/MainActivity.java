@@ -405,7 +405,10 @@ public class MainActivity extends Activity {
             }).start();
 
             // give it a moment, then report whether pixels are actually moving
-            Thread.sleep(600);
+            Thread.sleep(1500);
+            int seq = fbMap.getInt(0);
+            sayBoth("seq", String.valueOf(seq));
+            sayBoth("frames", String.valueOf(frames));
             if (frames > 0) {
                 say("  PASS 已连接 guest 画面（guest 在画，app 在显示）");
             } else {
