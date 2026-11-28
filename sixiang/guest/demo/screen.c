@@ -71,6 +71,153 @@ struct binder_version_probe {
 };
 #define BINDER_VERSION _IOWR('b', 9, struct binder_version_probe)
 
+/* --- enough of the binder wire protocol to talk to servicemanager --------- */
+typedef uint64_t bptr_t;
+
+struct btd {                       /* binder_transaction_data, 64-bit */
+    union {
+        uint32_t handle;
+        bptr_t ptr;
+    } target;
+    bptr_t cookie;
+    uint32_t code;
+    uint32_t flags;
+    int32_t sender_pid;
+    uint32_t sender_euid;
+    uint64_t data_size;
+    uint64_t offsets_size;
+    union {
+        struct {
+            bptr_t buffer;
+            bptr_t offsets;
+        } ptr;
+        uint8_t buf[16];
+    } data;
+};
+
+struct bwr {                       /* binder_write_read, 64-bit */
+    uint64_t write_size;
+    uint64_t write_consumed;
+    bptr_t write_buffer;
+    uint64_t read_size;
+    uint64_t read_consumed;
+    bptr_t read_buffer;
+};
+
+#define BINDER_WRITE_READ _IOWR('b', 1, struct bwr)
+#define BC_TRANSACTION _IOW('c', 0, struct btd)
+#define BC_FREE_BUFFER _IOW('c', 3, bptr_t)
+#define BR_REPLY _IOW('r', 3, struct btd)
+#define BR_TRANSACTION_COMPLETE _IO('r', 6)
+#define BR_FAILED_REPLY _IO('r', 17)
+#define BR_DEAD_REPLY _IO('r', 5)
+
+/* Parcel: strict-mode word, interface token, one string16 argument. */
+static size_t put_u32(uint8_t *b, size_t n, uint32_t v)
+{
+    memcpy(b + n, &v, 4);
+    return n + 4;
+}
+
+static size_t put_s16(uint8_t *b, size_t n, const char *s)
+{
+    int len = (int)strlen(s);
+    n = put_u32(b, n, (uint32_t)len);
+    for (int i = 0; i < len; i++) {
+        uint16_t c = (uint16_t)(unsigned char)s[i];
+        memcpy(b + n, &c, 2);
+        n += 2;
+    }
+    b[n++] = 0;
+    b[n++] = 0;
+    while (n & 3) b[n++] = 0;
+    return n;
+}
+
+/* One-way look at servicemanager: GET_SERVICE("activity"). */
+static void binder_probe_txn(int fd)
+{
+    uint8_t payload[192];
+    size_t plen = 0;
+    plen = put_u32(payload, plen, 0);                       /* strict mode */
+    plen = put_s16(payload, plen, "android.os.IServiceManager");
+    plen = put_s16(payload, plen, "activity");
+
+    uint8_t wbuf[128];
+    memset(wbuf, 0, sizeof wbuf);
+    uint32_t cmd = BC_TRANSACTION;
+    memcpy(wbuf, &cmd, 4);
+    struct btd tr;
+    memset(&tr, 0, sizeof tr);
+    tr.target.handle = 0;                                   /* servicemanager */
+    tr.code = 1;                                            /* GET_SERVICE */
+    tr.data_size = plen;
+    tr.data.ptr.buffer = (bptr_t)(uintptr_t)payload;
+    memcpy(wbuf + 4, &tr, sizeof tr);
+
+    static uint8_t rbuf[1024];
+    struct bwr b;
+    memset(&b, 0, sizeof b);
+    b.write_size = 4 + sizeof tr;
+    b.write_buffer = (bptr_t)(uintptr_t)wbuf;
+    b.read_size = sizeof rbuf;
+    b.read_buffer = (bptr_t)(uintptr_t)rbuf;
+
+    int rc = ioctl(fd, BINDER_WRITE_READ, &b);
+    fprintf(stderr, "screen: binder txn rc=%d errno=%d w=%llu/%llu r=%llu\n",
+            rc, rc ? errno : 0,
+            (unsigned long long)b.write_consumed, (unsigned long long)b.write_size,
+            (unsigned long long)b.read_consumed);
+
+    size_t off = 0;
+    int guard = 0;
+    while (off + 4 <= b.read_consumed && guard++ < 8) {
+        uint32_t c;
+        memcpy(&c, rbuf + off, 4);
+        off += 4;
+        if (c == BR_REPLY) {
+            struct btd r;
+            if (off + sizeof r > b.read_consumed) break;
+            memcpy(&r, rbuf + off, sizeof r);
+            off += sizeof r;
+            fprintf(stderr, "screen: binder reply size=%llu code=%u\n",
+                    (unsigned long long)r.data_size, r.code);
+            const uint32_t *p = (const uint32_t *)(uintptr_t)r.data.ptr.buffer;
+            if (p && r.data_size >= 8) {
+                char line[160];
+                int n = snprintf(line, sizeof line, "screen: binder parcel");
+                int words = (int)(r.data_size / 4);
+                if (words > 4) words = 4;
+                for (int i = 0; i < words; i++)
+                    n += snprintf(line + n, sizeof line - (size_t)n, " %u", p[i]);
+                fprintf(stderr, "%s\n", line);
+            }
+            /* release the kernel buffer */
+            uint8_t fbuf[16];
+            uint32_t fcmd = BC_FREE_BUFFER;
+            memcpy(fbuf, &fcmd, 4);
+            bptr_t ptr = r.data.ptr.buffer;
+            memcpy(fbuf + 4, &ptr, 8);
+            struct bwr fb;
+            memset(&fb, 0, sizeof fb);
+            fb.write_size = 12;
+            fb.write_buffer = (bptr_t)(uintptr_t)fbuf;
+            ioctl(fd, BINDER_WRITE_READ, &fb);
+            return;
+        }
+        if (c == BR_TRANSACTION_COMPLETE || c == 0x720c || c == 0x720d) {
+            continue;                        /* no payload */
+        }
+        if (c == BR_FAILED_REPLY || c == BR_DEAD_REPLY) {
+            fprintf(stderr, "screen: binder reply failed cmd=0x%x\n", c);
+            return;
+        }
+        fprintf(stderr, "screen: binder unexpected cmd=0x%x\n", c);
+        return;
+    }
+    fprintf(stderr, "screen: binder no reply in this read\n");
+}
+
 static char g_labels[TILE_MAX][16];
 static int g_nlabels;
 
@@ -383,6 +530,7 @@ static void handle_line(char *line, int *tx, int *ty, int *age, int *hit,
             /* keep it: the next step is a servicemanager transaction */
             g_binder_fd = g_pending_fd;
             g_pending_fd = -1;
+            if (rc == 0) binder_probe_txn(g_binder_fd);
         }
     } else if (strncmp(line, "fbuf ", 5) == 0) {
         int s = atoi(line + 5);
