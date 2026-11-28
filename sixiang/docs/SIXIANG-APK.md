@@ -16,7 +16,7 @@
 | 签名 | `sixiang/keys/sixiang.jks`，alias `sixiang` |
 | 签名 SHA-256 | `26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92` |
 | 内含 | `classes.dex`、`lib/arm64-v8a/libmini_loader.so`（bionic 静态，892 KB）、`assets/guest.zip`（Android 17 GSI 的 linker64/toybox/libc 等）、`assets/screen`（guest 画面程序，13 KB） |
-| 体积 / sha256 | 4,100,791 B / `1af3897bae6d281969536effab4bc3c50b78724ca116fa3d2ff0bd5e0310f68f` |
+| 体积 / sha256 | 4,100,791 B / `2455360e50f8912d0b943315b879c1e587f188edee73382836df2169433e2f4d` |
 
 构建全部在 Actions：`.github/workflows/sixiang-apk.yml`（用 NDK 编 loader，再
 javac/d8/aapt2/zipalign/apksigner），产物与 `build.log`、`inspect.txt` 一起提交回仓库。
@@ -111,7 +111,7 @@ $ toybox echo SIXIANG_GUEST_OK
 ├────────────────────────────────────────┤
 │                                        │
 │        guest 画出来的桌面（320×568）      │
-│        4×4 图标网格 + 高亮框 + 进度条      │
+│        4×4 图标网格 + 名字 + 高亮框 + 进度条 │
 │                                        │
 ├────────────────────────────────────────┤
 │ [启动容器]  [停止]  [终端]                │
@@ -194,6 +194,10 @@ $ toybox ls /system/lib64
 
 也就是说：**点 app 里的图标 → guest 收到坐标 → guest 自己画出反馈 → guest 把那个
 程序跑起来**。界面、出画面、输入三条链路都在同一条通道上闭环了。
+
+图标下面的名字也是 guest 画的：app 写 `files/guest/apps.txt`（16 行），guest 启动时
+读它，用自己的 3×5 点阵字库渲染（`screen: up ... labels=16`）。这样「桌面」上的每
+一个像素都出自 guest，app 只负责把这块缓冲贴到 View 上。
 
 ## 5. 装到手机上怎么测
 
