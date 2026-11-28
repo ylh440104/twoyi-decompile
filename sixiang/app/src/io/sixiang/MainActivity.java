@@ -362,6 +362,7 @@ public class MainActivity extends Activity {
             raf.setLength(bytes);
             FileChannel ch = raf.getChannel();
             fbMap = ch.map(FileChannel.MapMode.READ_WRITE, 0, bytes);
+            fbMap.order(ByteOrder.nativeOrder());
             fbMap.putInt(0, 0);
 
             File bin = new File(guestDir, "screen");
@@ -426,6 +427,7 @@ public class MainActivity extends Activity {
             public void run() {
                 IntBuffer ib = null;
                 int last = -1;
+                say("  pump: 启动");
                 while (pumping) {
                     try {
                         if (fbMap == null) {
@@ -433,10 +435,16 @@ public class MainActivity extends Activity {
                             continue;
                         }
                         if (ib == null) {
+                            /* FileChannel maps are BIG_ENDIAN by default and the
+                             * guest writes native ints, so the sequence word
+                             * read back "0x36000000" for 54 until this was set. */
+                            fbMap.order(ByteOrder.nativeOrder());
                             ByteBuffer d = fbMap.duplicate();
                             d.order(ByteOrder.nativeOrder());
                             d.position(FB_HDR);
                             ib = d.asIntBuffer();
+                            say("  pump: 映射 " + ib.capacity() + " ints, px="
+                                    + (screen == null ? -1 : screen.px.length));
                         }
                         int seq = fbMap.getInt(0);
                         if (seq != last && (seq & 1) == 0) {
@@ -445,6 +453,7 @@ public class MainActivity extends Activity {
                             if (fbMap.getInt(0) == seq) {
                                 last = seq;
                                 frames++;
+                                if (frames == 1) say("  pump: 第一帧 seq=" + seq);
                                 ui.post(new Runnable() {
                                     public void run() {
                                         screen.bmp.setPixels(screen.px, 0, FB_W, 0, 0, FB_W, FB_H);
@@ -457,6 +466,7 @@ public class MainActivity extends Activity {
                     } catch (InterruptedException e) {
                         return;
                     } catch (Throwable t) {
+                        say("  pump 异常: " + t);
                         return;
                     }
                 }
