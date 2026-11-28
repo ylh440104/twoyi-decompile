@@ -262,36 +262,67 @@ bionic 的 `access()` 走它。fallback 是 `fstatat`，存在但语义不完全
 | 新 mount API 全族 | ❌ 缺失 | `fsopen`/`fsmount`/`move_mount`/`open_tree` |
 | `pidfd_*` / `openat2` | ✅ 存在 | MTK BSP 做了 backport |
 
-### 待确认（决定成败的唯一一项）
+### 待确认（已确认 ✅）
 
 **API 37 的 bionic 在 `clone3` 返回 `ENOSYS` 时，是否保留 `clone` fallback。**
 
-- 若保留 → 4.19 上能启动，APEX 静态展开方案可以推进
-- 若删除 → Android 17 guest 在这台设备上物理不可行
+**答：保留。**
 
-判定方法（已建好工具，等 artifact 下载完即可执行）：
-1. 扫 `libc.so` 里 `mov x8,#0x1b3`(clone3) 与 `mov x8,#0xdc`(clone) 的出现次数
-2. 两者都有 → 有 fallback
-3. 直接实跑 `bootstrap-linker64 ./sh` 看是否活过第一秒
-
-`tools/scan_syscall.py` 已写好（按 ARM64 指令编码做字节级扫描，不依赖 objdump）。
-`tools/get_artifact.py` 负责把 Actions 抽出的 bionic 取回本机。
-
-### 方案分叉
+实测（run `d4adccea` / `d9964f6`，从 `com.android.runtime.apex` 的 payload 抽出真 libc）：
 
 ```
-如果 clone3 有 fallback（乐观）:
-    APEX 静态展开 -> 生成 /apex/<name>/ 目录树
-    -> stub 掉 apexd -> init 跳过 mount
-    -> 再解决 gralloc4 / AIDL radio（这仍是大工程）
+--- _lib64_bionic_libc.so  (1,313,264 bytes)
+    clone          x2
+    clone3         x1
+    faccessat      x1
+    mseal          x1
+    pidfd_open     x1
+    epoll_pwait2   x1
+    => clone3 HAS clone fallback
 
-如果 clone3 无 fallback（悲观）:
-    Android 17 在这台设备上不可行
-    -> 退 Android 9（API 28，无 APEX，kernel 4.9+）
-    -> 或做宿主侧 syscall shim（工程量极大，不推荐）
+--- _bin_linker64  (2,469,280 bytes)
+    clone          x1
+    clone3         x1
+    => clone3 HAS clone fallback
+
+--- bootstrap-linker64  (2,420,544 bytes)
+    clone          x1
+    clone3         x1
+    => clone3 HAS clone fallback
 ```
+
+判据：ARM64 上 syscall 号必须进 `x8`，`mov x8,#0x1b3`(clone3) 与 `mov x8,#0xdc`(clone) 的指令编码是唯一的字节序列。
+**两者同时出现，说明代码里有「先 clone3, ENOSYS 则 clone」的双路径。**
+
+顺带修正一个我自己的错误：`libc.so` **不在** `/system/lib64/`（那里抽出来 0 字节），
+Android 10 起它在 `com.android.runtime.apex` 的 `apex_payload.img` → `/lib64/bionic/libc.so`。
+
+### 三个新 syscall 引用的风险分级
+
+| syscall | libc 里有 | 本机支持 | 风险 |
+|---|---|---|---|
+| `clone3` | x1 | ❌ | **低** —— 有 clone fallback（已证） |
+| `faccessat` | x1 | ✅ | 无 |
+| `pidfd_open` | x1 | ✅（MTK backport） | 无 |
+| `epoll_pwait2` | x1 | ❌ | 低 —— 仅优化路径，fallback 到 epoll_wait |
+| `mseal` | x1 | ❌ | 低 —— 内存加固，失败不影响功能 |
+
+### 方案分叉（已收敛）
+
+```
+已确认 clone3 有 fallback
+    => 4.19 内核不阻止 Android 17 guest 启动
+
+下一道墙（按顺序）:
+    1. APEX 静态展开 —— 有解法（38 个解成目录 + stub apexd）
+    2. .capex 解压 —— 需要可写 /metadata，容器给个目录即可
+    3. first stage init —— 需要 /system /vendor 启动前就位，rootfs 布局里解决
+    4. gralloc4 / AIDL radio —— 最重的一道，twoyi 的 ColorBuffer 与 modem 补丁全部作废
+```
+
+**kernel 这一关过了。剩下的墙都是工程问题，不是物理不可能。**
 
 ### 一句话总结
 
-**APEX 那道墙我已经有解法（静态展开 + stub apexd），
-但 kernel 4.19 这道墙的答案还没拿到——而它才是决定整件事成不成立的那一道。**
+**APEX 有解法，kernel 4.19 有 fallback，两道理应致命的坎都通了。
+剩下最重的是 gralloc4 / AIDL radio——那不是「能不能跑」，而是「要写多少代码」。**
