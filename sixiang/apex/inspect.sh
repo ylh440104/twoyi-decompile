@@ -48,7 +48,7 @@ mkdir -p /tmp/apex
 COUNT=0
 TOTAL=0
 : > /tmp/apex_report.txt
-for name in $(debugfs -R 'ls /system/apex' "$RAW" 2>/dev/null | tr -s ' ' '\n' | grep -E '\.apex$'); do
+for name in $(debugfs -R 'ls /system/apex' "$RAW" 2>/dev/null | tr -s ' ' '\n' | grep -E '\.(apex|capex)$'); do
   COUNT=$((COUNT+1))
   debugfs -R "dump /system/apex/$name /tmp/apex/$name" "$RAW" 2>/dev/null
   SZ=$(stat -c%s "/tmp/apex/$name" 2>/dev/null || echo 0)
