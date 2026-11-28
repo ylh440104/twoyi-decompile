@@ -1,0 +1,111 @@
+name: SiXiang guest (bionic linker takes over)
+
+# The question this answers
+# -------------------------
+# mini_loader maps a program and then jumps into the *guest's own* linker64 with
+# AT_PHDR / AT_BASE, exactly the way the kernel does when it execs a dynamic
+# binary. If that works, we get DT_NEEDED, symbol resolution, TLS and IFUNCs for
+# free -- because the real linker does them, not us.
+#
+# The check is a real Android 17 binary: toybox from the official GSI, started
+# with the GSI's own linker64 and libc.so.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sixiang/guest/**'
+      - 'sixiang/loader/**'
+      - '.github/workflows/sixiang-guest.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  guest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gcc-aarch64-linux-gnu file unzip >/dev/null
+          if ! sudo apt-get install -y -qq qemu-user-static >/dev/null 2>&1; then
+            curl -fsSL -o /tmp/qemu-aarch64-static \
+              https://github.com/multiarch/qemu-user-static/releases/download/v7.2.0-1/qemu-aarch64-static
+            chmod +x /tmp/qemu-aarch64-static
+            sudo cp /tmp/qemu-aarch64-static /usr/bin/qemu-aarch64-static
+          fi
+          qemu-aarch64-static --version | head -1
+
+      - name: Build loader
+        run: |
+          bash sixiang/loader/build.sh
+          file sixiang/loader/out/mini_loader
+
+      - name: Assemble guest bundle (GSI -> linker64 + libc + toybox)
+        run: bash sixiang/guest/make_bundle.sh
+
+      - name: Run a real guest binary with the guest's own linker
+        run: |
+          set -uo pipefail
+          set +e
+          OUT=sixiang/guest/out
+          LOG=$OUT/run.log
+          : > "$LOG"
+
+          echo "### interp run: linker64 + toybox" | tee -a "$LOG"
+          LD_LIBRARY_PATH="$PWD/$OUT/system/lib64" \
+          timeout 60 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
+              --interp "$PWD/$OUT/system/bin/linker64" \
+              "$PWD/$OUT/system/bin/toybox" echo GUEST_TOYBOX_OK 2>&1 \
+            | tee -a "$LOG"
+          rc=${PIPESTATUS[0]}
+          echo "exit=$rc" | tee -a "$LOG"
+
+          echo | tee -a "$LOG"
+          echo "### second run: toybox uname -a" | tee -a "$LOG"
+          LD_LIBRARY_PATH="$PWD/$OUT/system/lib64" \
+          timeout 60 qemu-aarch64-static ./sixiang/loader/out/mini_loader \
+              --interp "$PWD/$OUT/system/bin/linker64" \
+              "$PWD/$OUT/system/bin/toybox" uname -a 2>&1 | tee -a "$LOG"
+          rc2=${PIPESTATUS[0]}
+          echo "exit=$rc2" | tee -a "$LOG"
+
+          echo "RC1=$rc RC2=$rc2" > "$OUT/rc.txt"
+
+      - name: Report
+        if: always()
+        run: |
+          OUT=sixiang/guest/out
+          {
+            echo "# guest run report"
+            echo
+            echo "commit: $GITHUB_SHA"
+            echo "run:    $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo '```'
+            find "$OUT/system" -type f -o -type l 2>/dev/null | sort | while read -r f; do
+              printf '%-46s %s\n' "${f#"$OUT"/}" "$(file -b "$f" 2>/dev/null | cut -c1-64)"
+            done
+            echo '```'
+            echo
+            echo "## run"
+            echo '```'
+            cat "$OUT/run.log" 2>/dev/null || echo "(no output)"
+            echo '```'
+            echo
+            cat "$OUT/rc.txt" 2>/dev/null || true
+          } > "$OUT/report.md"
+          cat "$OUT/report.md"
+
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name  "sixiang-ci"
+          git config user.email "ci@sixiang.invalid"
+          git add sixiang/guest/out 2>/dev/null || true
+          git commit -q -m "guest: run report ($GITHUB_SHA)" || echo "nothing to commit"
+          git pull --rebase -q origin main || true
+          git push || echo "push skipped"

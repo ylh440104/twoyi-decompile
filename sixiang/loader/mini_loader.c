@@ -173,7 +173,7 @@ static void relocate(uintptr_t bias, const Elf64_Phdr *ph, int phnum,
     }
 }
 
-static struct loaded load(const char *path)
+static struct loaded load_ex(const char *path, int do_relocate)
 {
     size_t len = 0;
     unsigned char *buf = slurp(path, &len);
@@ -226,7 +226,8 @@ static struct loaded load(const char *path)
             memset(dst + ph[i].p_filesz, 0, ph[i].p_memsz - ph[i].p_filesz);
     }
 
-    relocate(bias, ph, eh->e_phnum, path);
+    if (do_relocate)
+        relocate(bias, ph, eh->e_phnum, path);
 
     for (int i = 0; i < eh->e_phnum; i++) {
         if (ph[i].p_type != PT_LOAD)
@@ -267,7 +268,8 @@ static struct loaded load(const char *path)
 /* ---------------------------------------------------------------- */
 
 static uintptr_t build_stack(const struct loaded *img, const char *path,
-                             int argc, char **argv, char **envp)
+                             int argc, char **argv, char **envp,
+                             uintptr_t at_base)
 {
     unsigned char *stk = mmap(NULL, STACK_SIZE, PROT_READ | PROT_WRITE,
                               MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
@@ -299,7 +301,7 @@ static uintptr_t build_stack(const struct loaded *img, const char *path,
     AU(AT_PHENT, img->phentsize);
     AU(AT_PHNUM, img->phnum);
     AU(AT_PAGESZ, PAGE);
-    AU(AT_BASE, 0);
+    AU(AT_BASE, at_base);
     AU(AT_ENTRY, img->entry);
     AU(AT_UID, getuid());
     AU(AT_EUID, geteuid());
@@ -344,19 +346,58 @@ __attribute__((noreturn)) static void jump(uintptr_t sp, uintptr_t entry)
 
 int main(int argc, char **argv, char **envp)
 {
+    /*
+     * Mode 2: act like the kernel.
+     *
+     *   mini_loader --interp <linker64> <program> [args...]
+     *
+     * The kernel, when it execs a dynamic binary, maps the interpreter and
+     * jumps to *its* entry with AT_PHDR pointing at the program and AT_BASE at
+     * the interpreter. We reproduce exactly that, so the guest's own linker64
+     * takes over: DT_NEEDED, symbol resolution, TLS, IFUNCs -- all of it.
+     *
+     * That is the whole point: we never reimplement a linker, we just give the
+     * real one the stack it expects.
+     */
+    if (argc >= 4 && strcmp(argv[1], "--interp") == 0) {
+        const char *linker_path = argv[2];
+        const char *prog_path = argv[3];
+
+        struct loaded prog = load_ex(prog_path, 0);   /* linker relocates it */
+        struct loaded ldr = load_ex(linker_path, 0);  /* relocates itself */
+
+        fprintf(stderr,
+                "mini_loader: interp mode\n"
+                "  program  %s\n"
+                "           base=%#lx entry=%#lx phdr=%#lx\n"
+                "  linker   %s\n"
+                "           base=%#lx entry=%#lx\n",
+                prog_path, (unsigned long)prog.bias, (unsigned long)prog.entry,
+                (unsigned long)prog.phdr, linker_path,
+                (unsigned long)ldr.bias, (unsigned long)ldr.entry);
+
+        uintptr_t sp = build_stack(&prog, prog_path, argc - 3, argv + 3, envp,
+                                   ldr.bias);
+        jump(sp, ldr.entry);
+    }
+
     if (argc < 2) {
         fprintf(stderr,
-                "usage: %s <aarch64 ET_DYN elf> [args...]\n"
-                "  loads it into anonymous memory, applies relocations, makes\n"
-                "  the text executable and jumps to the entry point.\n"
-                "  no execve is involved at any stage.\n",
-                argv[0]);
+                "usage:\n"
+                "  %s <aarch64 ET_DYN elf> [args...]\n"
+                "      load it into anonymous memory, relocate, make the text\n"
+                "      executable and jump to its entry. no execve.\n"
+                "  %s --interp <linker64> <program> [args...]\n"
+                "      imitate the kernel: jump into <linker64> with AT_PHDR\n"
+                "      pointing at <program>, so the guest's own dynamic linker\n"
+                "      does DT_NEEDED and everything after it.\n",
+                argv[0], argv[0]);
         return FAIL;
     }
 
     const char *path = argv[1];
     struct loaded img = load(path);
-    uintptr_t sp = build_stack(&img, path, argc - 1, argv + 1, envp);
+    uintptr_t sp = build_stack(&img, path, argc - 1, argv + 1, envp, 0);
 
     jump(sp, img.entry);
 }
