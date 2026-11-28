@@ -18,13 +18,13 @@ Archive:  sixiang/app/dist/SiXiang.apk
 ---------  ---------- -----   ----
      1988  1980-01-01 00:00   AndroidManifest.xml
       560  1980-01-01 00:00   resources.arsc
-    34268  2026-11-28 18:26   classes.dex
-   892584  2026-11-28 18:26   lib/arm64-v8a/libmini_loader.so
-  3671043  2026-11-28 18:26   assets/guest.zip
-    33768  2026-11-28 18:26   assets/screen
-      688  2026-11-28 18:26   META-INF/SIXIANG.SF
-     2103  2026-11-28 18:26   META-INF/SIXIANG.RSA
-      561  2026-11-28 18:26   META-INF/MANIFEST.MF
+    34268  2026-11-28 18:43   classes.dex
+   892584  2026-11-28 18:43   lib/arm64-v8a/libmini_loader.so
+  3671043  2026-11-28 18:43   assets/guest.zip
+    33768  2026-11-28 18:43   assets/screen
+      688  2026-11-28 18:43   META-INF/SIXIANG.SF
+     2103  2026-11-28 18:43   META-INF/SIXIANG.RSA
+      561  2026-11-28 18:43   META-INF/MANIFEST.MF
 ---------                     -------
   4637563                     9 files
 
