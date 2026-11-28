@@ -1,11 +1,12 @@
 package io.sixiang;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
@@ -20,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.RandomAccessFile;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
@@ -43,31 +46,36 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
- * SiXiang -- a container UI, in the shape twoyi has: a status bar, the guest's
- * screen in the middle, controls, and a terminal drawer.
+ * SiXiang -- a container UI in the shape twoyi has: status bar, the guest's
+ * screen, settings, recents, and a terminal.
  *
- * The screen is not a mock. A guest process (assets/screen, a bionic binary
- * started through the guest's own linker64) paints pixels into a shared buffer;
- * this app maps the same file and blits it into a View. That is the frame
- * channel a container needs, and it is the first half of "guest desktop in a
- * window". The second half -- a real compositor producing those frames -- is
- * what SurfaceFlinger + an HWC shim would bring, and is not here yet.
+ * Division of labour, which is the whole point:
+ *   - the app owns no geometry. It forwards a touch coordinate and reads back
+ *     the tile index the guest computed (word 20 of the shared header);
+ *   - the guest owns the desktop: grid, captions (its own 3x5 font), focus ring,
+ *     ripple, frame counter;
+ *   - the app decides which applet a tile stands for, and starts it in the guest.
+ *
+ * Resolution, frame rate and dpi are runtime settings; the painter is restarted
+ * with new SIXIANG_W/H/FPS/DPI and a resized buffer.
  */
 public class MainActivity extends Activity {
 
-    /* Keep in sync with sixiang/guest/demo/screen.c */
-    private static final int FB_W = 320;
-    private static final int FB_H = 568;
-    private static final int FB_HDR = 64;
+    private static final int HDR = 64;
 
-    /* Tile grid, also in sync with screen.c. Index into APPLETS is the tile. */
-    private static final int GRID_COLS = 4;
-    private static final int GRID_ROWS = 4;
-    private static final int GRID_PAD = 14;
-    private static final int GRID_GAP = 12;
-    private static final int GRID_TOP = 54;
+    /* header words (ints), keep in sync with sixiang/guest/demo/screen.c */
+    private static final int W_SEQ = 0;
+    private static final int W_TX = 4;
+    private static final int W_TY = 8;
+    private static final int W_TSEQ = 12;
+    private static final int W_FOCUS = 16;
+    private static final int W_HIT = 20;
+    private static final int W_FSEQ = 24;
 
-    /** What each tile launches, in the guest. Sixteen real toybox applets. */
+    private static final int[][] RES = {{320, 568}, {360, 640}, {480, 854}};
+    private static final int[] FPSS = {15, 20, 30};
+    private static final int[] DPIS = {80, 100, 130};
+
     private static final String[][] APPLETS = {
             {"uname", "-a"}, {"id"}, {"date"}, {"uptime"},
             {"ls", "/"}, {"ls", "/system"}, {"ls", "/system/lib64"}, {"ls", "/proc"},
@@ -77,7 +85,6 @@ public class MainActivity extends Activity {
             {"uname", "-m"}, {"echo", "SiXiang"},
     };
 
-    /** Tile captions handed to the guest; it renders them with its own font. */
     private static final String[] LABELS = {
             "UNAME", "ID", "DATE", "UPTIME",
             "LS /", "SYSTEM", "LIB64", "PROC",
@@ -92,6 +99,8 @@ public class MainActivity extends Activity {
     private ScrollView consoleScroll;
     private EditText input;
     private FrameView screen;
+    private LinearLayout recents;
+    private TextView recentsEmpty;
 
     private volatile boolean busy;
     private volatile boolean pumping;
@@ -99,17 +108,27 @@ public class MainActivity extends Activity {
     private int fpsBase;
     private long fpsT0;
 
+    private int fbW = 320, fbH = 568, fps = 20, dpi = 100;
+
     private File guestDir;
     private File loader;
     private Process screenProc;
     private MappedByteBuffer fbMap;
-    private Thread pump;
+    private int fbGen;
+    private volatile int touchSeq;
+    private volatile int focusTile = -1;
 
     /* ------------------------------------------------------------------ ui */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sp = getSharedPreferences("sixiang", MODE_PRIVATE);
+        fbW = sp.getInt("w", 320);
+        fbH = sp.getInt("h", 568);
+        fps = sp.getInt("fps", 20);
+        dpi = sp.getInt("dpi", 100);
 
         float d = getResources().getDisplayMetrics().density;
         int pad = (int) (10 * d);
@@ -119,7 +138,6 @@ public class MainActivity extends Activity {
         root.setBackgroundColor(0xFF0A0E12);
         root.setPadding(pad, pad, pad, pad);
 
-        // ---- header: name + live status
         LinearLayout head = new LinearLayout(this);
         head.setOrientation(LinearLayout.HORIZONTAL);
         head.setGravity(Gravity.CENTER_VERTICAL);
@@ -140,7 +158,6 @@ public class MainActivity extends Activity {
         head.addView(status);
         root.addView(head);
 
-        // ---- the guest screen
         screen = new FrameView(this);
         screen.setTapListener(new FrameView.TapListener() {
             public void onTap(int gx, int gy) {
@@ -152,13 +169,37 @@ public class MainActivity extends Activity {
         slp.topMargin = pad;
         root.addView(screen, slp);
 
+        // ---- recents
+        LinearLayout recentRow = new LinearLayout(this);
+        recentRow.setOrientation(LinearLayout.HORIZONTAL);
+        recentRow.setGravity(Gravity.CENTER_VERTICAL);
+
+        TextView rlab = new TextView(this);
+        rlab.setText("最近");
+        rlab.setTextSize(10);
+        rlab.setTextColor(0xFF8A9AA6);
+        recentRow.addView(rlab);
+
+        recents = new LinearLayout(this);
+        recents.setOrientation(LinearLayout.HORIZONTAL);
+        HorizontalScrollView rh = new HorizontalScrollView(this);
+        rh.setHorizontalScrollBarEnabled(false);
+        rh.addView(recents);
+        recentRow.addView(rh, new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+
+        recentsEmpty = new TextView(this);
+        recentsEmpty.setText("（还没有启动过 guest 程序）");
+        recentsEmpty.setTextSize(10);
+        recentsEmpty.setTextColor(0xFF4A5A66);
+        recents.addView(recentsEmpty);
+        root.addView(recentRow);
+
         // ---- controls
         LinearLayout controls = new LinearLayout(this);
         controls.setOrientation(LinearLayout.HORIZONTAL);
 
-        Button start = new Button(this);
-        start.setText("启动容器");
-        start.setOnClickListener(new View.OnClickListener() {
+        controls.addView(btn("启动容器", new View.OnClickListener() {
             public void onClick(View v) {
                 new Thread(new Runnable() {
                     public void run() {
@@ -166,31 +207,26 @@ public class MainActivity extends Activity {
                     }
                 }).start();
             }
-        });
-        controls.addView(start, new LinearLayout.LayoutParams(0,
-                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
-
-        Button stop = new Button(this);
-        stop.setText("停止");
-        stop.setOnClickListener(new View.OnClickListener() {
+        }), weight());
+        controls.addView(btn("停止", new View.OnClickListener() {
             public void onClick(View v) {
                 shutdown();
             }
-        });
-        controls.addView(stop);
-
-        Button term = new Button(this);
-        term.setText("终端");
-        term.setOnClickListener(new View.OnClickListener() {
+        }));
+        controls.addView(btn("设置", new View.OnClickListener() {
+            public void onClick(View v) {
+                showSettings();
+            }
+        }));
+        controls.addView(btn("终端", new View.OnClickListener() {
             public void onClick(View v) {
                 consoleScroll.setVisibility(
                         consoleScroll.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
             }
-        });
-        controls.addView(term);
+        }));
         root.addView(controls);
 
-        // ---- terminal drawer
+        // ---- terminal
         console = new TextView(this);
         console.setTextSize(9);
         console.setTypeface(Typeface.MONOSPACE);
@@ -199,9 +235,8 @@ public class MainActivity extends Activity {
         consoleScroll = new ScrollView(this);
         consoleScroll.setBackgroundColor(0xFF05070A);
         consoleScroll.addView(console);
-        consoleScroll.setVisibility(View.VISIBLE);
         LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, (int) (150 * d));
+                ViewGroup.LayoutParams.MATCH_PARENT, (int) (128 * d));
         clp.topMargin = pad;
         root.addView(consoleScroll, clp);
 
@@ -218,9 +253,7 @@ public class MainActivity extends Activity {
         row.addView(input, new LinearLayout.LayoutParams(0,
                 ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-        Button run = new Button(this);
-        run.setText("运行");
-        run.setOnClickListener(new View.OnClickListener() {
+        row.addView(btn("运行", new View.OnClickListener() {
             public void onClick(View v) {
                 final String line = input.getText().toString().trim();
                 if (line.length() == 0) return;
@@ -230,20 +263,29 @@ public class MainActivity extends Activity {
                     }
                 }).start();
             }
-        });
-        row.addView(run);
+        }));
         root.addView(row);
 
         setContentView(root);
-
         ui.post(statusTick);
 
-        // Bring the container up on its own: opening the app is the test.
         new Thread(new Runnable() {
             public void run() {
                 boot();
             }
         }).start();
+    }
+
+    private Button btn(String text, View.OnClickListener l) {
+        Button b = new Button(this);
+        b.setText(text);
+        b.setTextSize(12);
+        b.setOnClickListener(l);
+        return b;
+    }
+
+    private LinearLayout.LayoutParams weight() {
+        return new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f);
     }
 
     @Override
@@ -259,15 +301,16 @@ public class MainActivity extends Activity {
                 fpsT0 = now;
                 fpsBase = frames;
             }
-            double fps = 0;
+            double f = 0;
             long dt = now - fpsT0;
-            if (dt > 0) fps = (frames - fpsBase) * 1000.0 / dt;
+            if (dt > 0) f = (frames - fpsBase) * 1000.0 / dt;
             if (fpsT0 + 2000 < now) {
                 fpsT0 = now;
                 fpsBase = frames;
             }
-            if (screenProc != null && pumping) {
-                status.setText(String.format("guest 画面 · frame %d · %.0f fps", frames, fps));
+            if (pumping) {
+                status.setText(String.format("%dx%d · %d fps · frame %d · %.0f",
+                        fbW, fbH, fps, frames, f));
             } else if (frames > 0) {
                 status.setText("已停止 · 最后 frame " + frames);
             }
@@ -275,7 +318,98 @@ public class MainActivity extends Activity {
         }
     };
 
-    // ---------------------------------------------------------------- logging
+    // ------------------------------------------------------------- settings
+
+    private void showSettings() {
+        LinearLayout box = new LinearLayout(this);
+        box.setOrientation(LinearLayout.VERTICAL);
+
+        addGroup(box, "分辨率（guest 画面）", new String[]{"320x568", "360x640", "480x854"},
+                resIndex(), 0);
+        addGroup(box, "帧率", new String[]{"15", "20", "30"}, fpsIndex(), 1);
+        addGroup(box, "DPI（guest 布局缩放）", new String[]{"80", "100", "130"}, dpiIndex(), 2);
+
+        new AlertDialog.Builder(this)
+                .setTitle("容器设置")
+                .setView(box)
+                .setPositiveButton("关闭", null)
+                .show();
+    }
+
+    private int resIndex() {
+        for (int i = 0; i < RES.length; i++)
+            if (RES[i][0] == fbW && RES[i][1] == fbH) return i;
+        return 0;
+    }
+
+    private int fpsIndex() {
+        for (int i = 0; i < FPSS.length; i++) if (FPSS[i] == fps) return i;
+        return 1;
+    }
+
+    private int dpiIndex() {
+        for (int i = 0; i < DPIS.length; i++) if (DPIS[i] == dpi) return i;
+        return 1;
+    }
+
+    private void addGroup(LinearLayout box, String titleText, String[] items,
+                          int selected, final int kind) {
+        float d = getResources().getDisplayMetrics().density;
+        int pad = (int) (10 * d);
+
+        TextView t = new TextView(this);
+        t.setText(titleText);
+        t.setTextSize(11);
+        t.setTextColor(0xFF6B7A88);
+        t.setPadding(0, pad, 0, 2);
+        box.addView(t);
+
+        LinearLayout row = new LinearLayout(this);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        for (int i = 0; i < items.length; i++) {
+            final int idx = i;
+            Button b = new Button(this);
+            b.setText(items[i]);
+            b.setTextSize(11);
+            if (i == selected) b.setTypeface(Typeface.DEFAULT_BOLD);
+            b.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    pick(kind, idx);
+                }
+            });
+            row.addView(b, new LinearLayout.LayoutParams(0,
+                    ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+        }
+        box.addView(row);
+    }
+
+    private void pick(int kind, int idx) {
+        if (kind == 0) {
+            fbW = RES[idx][0];
+            fbH = RES[idx][1];
+        } else if (kind == 1) {
+            fps = FPSS[idx];
+        } else {
+            dpi = DPIS[idx];
+        }
+        getSharedPreferences("sixiang", MODE_PRIVATE).edit()
+                .putInt("w", fbW).putInt("h", fbH)
+                .putInt("fps", fps).putInt("dpi", dpi).apply();
+        say("设置: " + fbW + "x" + fbH + " · " + fps + "fps · dpi " + dpi + "（重启容器生效）");
+        restartContainer();
+    }
+
+    private void restartContainer() {
+        shutdown();
+        screen.alloc();
+        new Thread(new Runnable() {
+            public void run() {
+                boot();
+            }
+        }).start();
+    }
+
+    // ---------------------------------------------------------------- output
 
     private void say(final String s) {
         android.util.Log.i("SiXiang", s);
@@ -296,7 +430,7 @@ public class MainActivity extends Activity {
         say("  " + k + ": " + v);
     }
 
-    // ------------------------------------------------------------------- boot
+    // ------------------------------------------------------------------ boot
 
     private void boot() {
         if (busy) {
@@ -311,19 +445,10 @@ public class MainActivity extends Activity {
                 }
             });
 
-            say("SiXiang container v0.2");
-            say("");
-            say("[1] 运行环境");
-            sayBoth("device", Build.MANUFACTURER + " " + Build.MODEL);
-            sayBoth("android", Build.VERSION.RELEASE + " (API " + Build.VERSION.SDK_INT + ")");
-            sayBoth("abi", Build.SUPPORTED_ABIS[0]);
+            say("SiXiang container v0.3  " + fbW + "x" + fbH + " @" + fps + "fps dpi" + dpi);
             ApplicationInfo ai = getApplicationInfo();
-            sayBoth("targetSdk", String.valueOf(ai.targetSdkVersion));
-            sayBoth("filesDir", getFilesDir().getAbsolutePath());
-            sayBoth("nativeLibraryDir", ai.nativeLibraryDir);
-            say("");
+            sayBoth("device", Build.MANUFACTURER + " " + Build.MODEL + " / API " + Build.VERSION.SDK_INT);
 
-            say("[2] guest rootfs");
             guestDir = new File(getFilesDir(), "guest");
             File toybox = new File(guestDir, "system/bin/toybox");
             File linker64 = new File(guestDir, "system/bin/linker64");
@@ -331,42 +456,28 @@ public class MainActivity extends Activity {
             if (!toybox.isFile() || !linker64.isFile() || !libc.isFile()) {
                 File override = new File(getFilesDir(), "guest.zip");
                 boolean useOverride = override.isFile();
-                say("  解包 " + (useOverride ? override.getAbsolutePath() : "assets/guest.zip"));
+                say("解包 " + (useOverride ? "files/guest.zip" : "assets/guest.zip"));
                 long t0 = System.currentTimeMillis();
                 InputStream in = useOverride
                         ? new FileInputStream(override)
                         : getAssets().open("guest.zip");
                 unzip(in, guestDir);
-                say("  解包完成 " + (System.currentTimeMillis() - t0) + " ms");
-            } else {
-                say("  已存在，跳过解包");
+                sayBoth("解包耗时", (System.currentTimeMillis() - t0) + " ms");
             }
-            sayBoth("linker64", linker64.length() + " B");
-            sayBoth("libc.so", libc.length() + " B");
             sayBoth("toybox", toybox.length() + " B");
-            say("");
 
-            say("[3] loader");
             loader = chooseLoader();
             if (loader == null) {
-                say("  FAIL 没有可执行的 mini_loader");
+                say("FAIL 没有可执行的 mini_loader");
                 return;
             }
-            sayBoth("path", loader.getAbsolutePath());
-            sayBoth("executable", String.valueOf(loader.canExecute()));
-            say("  PASS");
-            say("");
+            sayBoth("loader", loader.getAbsolutePath());
 
-            say("[4] 画面通道");
+            say("画面通道");
             startScreen(linker64);
-            say("");
 
-            say("[5] guest 程序");
+            say("guest 程序");
             int a = runToybox(new String[]{"uname", "-a"});
-            if (a != 0) {
-                say("  重试：GLIBC_TUNABLES=glibc.pthread.rseq=0（老 glibc loader 才需要）");
-                a = runToybox(new String[]{"uname", "-a"});
-            }
             if (a == 0) {
                 runToybox(new String[]{"id"});
                 say("== guest 程序已在本 app 内运行 ==");
@@ -381,32 +492,25 @@ public class MainActivity extends Activity {
         }
     }
 
-    /**
-     * Map the shared buffer, extract the guest painter next to the rootfs, and
-     * run it through the guest linker. Frames then arrive via the mapping.
-     */
     private void startScreen(File linker64) {
         try {
             File fb = new File(getFilesDir(), "screen.rgba");
-            int bytes = FB_HDR + FB_W * FB_H * 4;
+            int bytes = HDR + fbW * fbH * 4;
             RandomAccessFile raf = new RandomAccessFile(fb, "rw");
             raf.setLength(bytes);
             FileChannel ch = raf.getChannel();
             fbMap = ch.map(FileChannel.MapMode.READ_WRITE, 0, bytes);
             fbMap.order(ByteOrder.nativeOrder());
-            fbMap.putInt(0, 0);
+            for (int w = 0; w <= 24; w += 4) fbMap.putInt(w, 0);
+            fbGen++;
+            focusTile = -1;
 
             File bin = new File(guestDir, "screen");
             copyAsset("screen", bin);
-            sayBoth("painter", bin.getAbsolutePath() + " (" + bin.length() + " B)");
 
-            /* The launcher's app list, handed to the guest. The guest draws the
-             * captions itself, so the desktop is guest-rendered text, not an
-             * overlay painted by the app. */
             File apps = new File(guestDir, "apps.txt");
             writeLabels(apps, LABELS);
-            sayBoth("labels", apps.getAbsolutePath() + " (" + LABELS.length + ")");
-            sayBoth("framebuffer", fb.getAbsolutePath() + " (" + bytes + " B)");
+            sayBoth("painter", bin.length() + " B · " + fbW + "x" + fbH + " · " + LABELS.length + " labels");
 
             List<String> cmd = new ArrayList<String>();
             cmd.add(loader.getAbsolutePath());
@@ -419,7 +523,10 @@ public class MainActivity extends Activity {
                     new File(guestDir, "system/lib64").getAbsolutePath());
             pb.environment().put("SIXIANG_FB", fb.getAbsolutePath());
             pb.environment().put("SIXIANG_APPS", apps.getAbsolutePath());
-            pb.environment().put("SIXIANG_FPS", "20");
+            pb.environment().put("SIXIANG_W", String.valueOf(fbW));
+            pb.environment().put("SIXIANG_H", String.valueOf(fbH));
+            pb.environment().put("SIXIANG_FPS", String.valueOf(fps));
+            pb.environment().put("SIXIANG_DPI", String.valueOf(dpi));
             pb.redirectErrorStream(true);
 
             screenProc = pb.start();
@@ -427,7 +534,6 @@ public class MainActivity extends Activity {
             fpsT0 = 0;
             startPump();
 
-            // watcher: report the guest painter's output and exit code
             final Process p = screenProc;
             new Thread(new Runnable() {
                 public void run() {
@@ -436,24 +542,17 @@ public class MainActivity extends Activity {
                                 new InputStreamReader(p.getInputStream()));
                         String l;
                         while ((l = r.readLine()) != null) say("  painter| " + l);
-                        final int rc = p.waitFor();
-                        say("  painter 退出 exit=" + rc);
+                        say("  painter 退出 exit=" + p.waitFor());
                     } catch (Throwable t) {
                         say("  painter 监控失败 " + t);
                     }
                 }
             }).start();
 
-            // give it a moment, then report whether pixels are actually moving
-            Thread.sleep(1500);
-            int seq = fbMap.getInt(0);
-            sayBoth("seq", String.valueOf(seq));
+            Thread.sleep(1200);
             sayBoth("frames", String.valueOf(frames));
-            if (frames > 0) {
-                say("  PASS 已连接 guest 画面（guest 在画，app 在显示）");
-            } else {
-                say("  FAIL 画面没有到达（guest painter 可能没起来）");
-            }
+            if (frames > 0) say("  PASS 已连接 guest 画面");
+            else say("  FAIL 画面没有到达");
         } catch (Throwable t) {
             say("  !! 画面通道失败 " + t);
         }
@@ -462,53 +561,49 @@ public class MainActivity extends Activity {
     private void startPump() {
         if (pumping) return;
         pumping = true;
-        pump = new Thread(new Runnable() {
+        new Thread(new Runnable() {
             public void run() {
                 IntBuffer ib = null;
-                int last = -1;
+                int last = -1, gen = -1;
                 say("  pump: 启动");
                 while (pumping) {
                     try {
-                        if (fbMap == null) {
+                        MappedByteBuffer map = fbMap;
+                        if (map == null) {
                             Thread.sleep(50);
                             continue;
                         }
-                        if (ib == null) {
-                            /* Two traps here, both from compiling java.* against
-                             * the JDK 17 platform instead of android.jar:
-                             *   - MappedByteBuffer.duplicate() is a Java 9
-                             *     covariant override that Android does not have,
-                             *     so call it through a ByteBuffer reference;
-                             *   - Buffer.position(int) is likewise covariant in
-                             *     Java 9+, so call it through Buffer.
-                             * Getting this wrong is a NoSuchMethodError at
-                             * runtime, not a compile error. */
-                            fbMap.order(ByteOrder.nativeOrder());
-                            ByteBuffer base = fbMap;
-                            ByteBuffer d = base.duplicate();
-                            d.order(ByteOrder.nativeOrder());
-                            ((java.nio.Buffer) d).position(FB_HDR);
-                            ib = d.asIntBuffer();
-                            say("  pump: 映射 " + ib.capacity() + " ints, px="
-                                    + (screen == null ? -1 : screen.px.length));
+                        if (ib == null || gen != fbGen) {
+                            /* Buffer.position is covariant in Java 9+, Android
+                             * only has the Buffer version; and the map is
+                             * big-endian by default while the guest writes
+                             * native ints. Both bite at runtime, not at compile
+                             * time -- see docs/SIXIANG-APK.md. */
+                            map.order(ByteOrder.nativeOrder());
+                            ByteBuffer base = map;
+                            ByteBuffer dup = base.duplicate();
+                            dup.order(ByteOrder.nativeOrder());
+                            ((Buffer) dup).position(HDR);
+                            ib = dup.asIntBuffer();
+                            gen = fbGen;
+                            say("  pump: 映射 " + ib.capacity() + " ints (gen " + gen + ")");
                         }
-                        int seq = fbMap.getInt(0);
+                        int seq = map.getInt(W_SEQ);
                         if (seq != last && (seq & 1) == 0) {
-                            ((java.nio.Buffer) ib).position(0);
+                            ((Buffer) ib).position(0);
                             ib.get(screen.px);
-                            if (fbMap.getInt(0) == seq) {
+                            if (map.getInt(W_SEQ) == seq) {
                                 last = seq;
                                 frames++;
-                                if (frames == 1) say("  pump: 第一帧 seq=" + seq);
+                                if (frames == 1) say("  pump: 第一帧");
                                 ui.post(new Runnable() {
                                     public void run() {
-                                        screen.bmp.setPixels(screen.px, 0, FB_W, 0, 0, FB_W, FB_H);
-                                        screen.invalidate();
+                                        screen.blit();
                                     }
                                 });
                             }
                         }
-                        Thread.sleep(30);
+                        Thread.sleep(25);
                     } catch (InterruptedException e) {
                         return;
                     } catch (Throwable t) {
@@ -517,8 +612,7 @@ public class MainActivity extends Activity {
                     }
                 }
             }
-        });
-        pump.start();
+        }).start();
     }
 
     private void shutdown() {
@@ -527,64 +621,92 @@ public class MainActivity extends Activity {
             screenProc.destroy();
             screenProc = null;
         }
-        if (pump != null) {
-            pump.interrupt();
-            pump = null;
-        }
-        if (fbMap != null) {
-            fbMap = null;
-        }
+        fbMap = null;
     }
 
     // ------------------------------------------------------------ input path
 
-    private volatile int touchSeq;
-
     /**
-     * A tap inside the guest's screen: publish the coordinate on the shared
-     * header (the painter draws the ripple), then launch whatever tile is under
-     * it *in the guest*, with the output going to the terminal.
+     * Forward the tap; the *guest* decides which tile it hit (word 20) and we
+     * launch that applet. The app never second-guesses the layout.
      */
-    private void onGuestTap(int gx, int gy) {
+    private void onGuestTap(final int gx, final int gy) {
         touchSeq++;
-        try {
-            if (fbMap != null) {
-                fbMap.putInt(4, gx);
-                fbMap.putInt(8, gy);
-                fbMap.putInt(12, touchSeq);
-            }
-        } catch (Throwable t) {
-            say("  !! 触摸转发失败 " + t);
-        }
-
-        int idx = tileAt(gx, gy);
-        if (idx < 0 || idx >= APPLETS.length) {
-            say("tap (" + gx + "," + gy + ")");
+        final MappedByteBuffer map = fbMap;
+        if (map == null) {
+            say("tap (" + gx + "," + gy + ") — 容器未启动");
             return;
         }
-        final String[] cmd = APPLETS[idx];
-        say("tap (" + gx + "," + gy + ") -> 图标 " + idx + "：toybox " + join(cmd));
+        try {
+            map.putInt(W_TX, gx);
+            map.putInt(W_TY, gy);
+            map.putInt(W_TSEQ, touchSeq);
+        } catch (Throwable t) {
+            say("  !! 触摸转发失败 " + t);
+            return;
+        }
         new Thread(new Runnable() {
             public void run() {
-                runToybox(cmd);
+                try {
+                    Thread.sleep(90);          /* let the painter pick it up */
+                    int hit = map.getInt(W_HIT);
+                    int labelCount = APPLETS.length;
+                    if (hit < 0 || hit >= labelCount) {
+                        say("tap (" + gx + "," + gy + ") — guest: 未命中图标");
+                        return;
+                    }
+                    focus(hit);
+                    final String[] cmd = APPLETS[hit];
+                    say("tap (" + gx + "," + gy + ") -> 图标 " + hit + "：" + join(cmd));
+                    addRecent(hit);
+                    runToybox(cmd);
+                } catch (Throwable t) {
+                    say("  !! tap 处理失败 " + t);
+                }
             }
         }).start();
     }
 
-    private static int tileAt(int gx, int gy) {
-        int tw = (FB_W - GRID_PAD * 2 - GRID_GAP * (GRID_COLS - 1)) / GRID_COLS;
-        int th = tw + 8;
-        int bottom = GRID_TOP + GRID_ROWS * (th + GRID_GAP) - GRID_GAP;
-        if (gy < GRID_TOP - GRID_GAP / 2 || gy > bottom + GRID_GAP / 2) return -1;
-        /* Snap to the nearest tile instead of requiring a hit inside the rect:
-         * a finger is bigger than the gap between two icons. */
-        int cx = Math.round((gx - GRID_PAD - tw / 2f) / (float) (tw + GRID_GAP));
-        int cy = Math.round((gy - GRID_TOP - th / 2f) / (float) (th + GRID_GAP));
-        if (cx < 0) cx = 0;
-        if (cx >= GRID_COLS) cx = GRID_COLS - 1;
-        if (cy < 0) cy = 0;
-        if (cy >= GRID_ROWS) cy = GRID_ROWS - 1;
-        return cy * GRID_COLS + cx;
+    private void focus(int idx) {
+        focusTile = idx;
+        try {
+            if (fbMap != null) {
+                fbMap.putInt(W_FOCUS, idx);
+                fbMap.putInt(W_FSEQ, fbMap.getInt(W_FSEQ) + 1);
+            }
+        } catch (Throwable ignored) {
+        }
+    }
+
+    private void addRecent(int idx) {
+        for (int i = 0; i < recents.getChildCount(); i++) {
+            View v = recents.getChildAt(i);
+            if (v.getTag() instanceof Integer && ((Integer) v.getTag()).intValue() == idx) {
+                recents.removeViewAt(i);
+                break;
+            }
+        }
+        if (recentsEmpty.getParent() != null) recents.removeView(recentsEmpty);
+
+        final int tile = idx;
+        Button chip = new Button(this);
+        chip.setText(LABELS[idx]);
+        chip.setTextSize(10);
+        View.OnClickListener again = new View.OnClickListener() {
+            public void onClick(View v) {
+                focus(tile);
+                say("最近 -> " + join(APPLETS[tile]));
+                new Thread(new Runnable() {
+                    public void run() {
+                        runToybox(APPLETS[tile]);
+                    }
+                }).start();
+            }
+        };
+        chip.setOnClickListener(again);
+        chip.setTag(Integer.valueOf(idx));
+        recents.addView(chip, 0);
+        while (recents.getChildCount() > 6) recents.removeViewAt(recents.getChildCount() - 1);
     }
 
     // ------------------------------------------------------------- guest exec
@@ -593,19 +715,12 @@ public class MainActivity extends Activity {
         File fromLib = new File(getApplicationInfo().nativeLibraryDir, "libmini_loader.so");
         File fromZip = new File(guestDir, "mini_loader");
         File copy = new File(getFilesDir(), "bin/mini_loader");
-
         File[] order = new File[]{fromLib, fromZip, copy};
         for (int i = 0; i < order.length; i++) {
             File f = order[i];
             if (!f.isFile()) continue;
             if (!f.canExecute()) f.setExecutable(true, false);
             if (f.canExecute()) return f;
-        }
-        if (fromZip.isFile()) {
-            copy.getParentFile().mkdirs();
-            copyFile(fromZip, copy);
-            copy.setExecutable(true, false);
-            if (copy.canExecute()) return copy;
         }
         return null;
     }
@@ -628,7 +743,6 @@ public class MainActivity extends Activity {
             for (int i = 0; i < args.length; i++) cmd.add(args[i]);
 
             say("$ toybox " + join(args));
-
             ProcessBuilder pb = new ProcessBuilder(cmd);
             pb.environment().put("LD_LIBRARY_PATH",
                     new File(guestDir, "system/lib64").getAbsolutePath());
@@ -640,11 +754,13 @@ public class MainActivity extends Activity {
             Process p = pb.start();
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String l;
-            int n = 0;
+            int n = 0, shown = 0;
             while ((l = r.readLine()) != null) {
-                say("  " + l);
+                /* keep the console readable: a tapped ls can print hundreds */
+                if (shown++ < 40) say("  " + l);
                 n++;
             }
+            if (n > 40) say("  …（共 " + n + " 行，其余略）");
             int rc = p.waitFor();
             say("  -> exit=" + rc + " (" + n + " lines)");
             return rc;
@@ -656,14 +772,14 @@ public class MainActivity extends Activity {
 
     // ------------------------------------------------------------------ views
 
-    /** Draws the guest's framebuffer, aspect-fitted, in the middle of the view. */
-    static final class FrameView extends View {
+    /** Shows the guest's framebuffer; owns no geometry decisions. */
+    private final class FrameView extends View {
         interface TapListener {
             void onTap(int gx, int gy);
         }
 
-        final Bitmap bmp = Bitmap.createBitmap(FB_W, FB_H, Bitmap.Config.ARGB_8888);
-        final int[] px = new int[FB_W * FB_H];
+        Bitmap bmp;
+        int[] px;
         private final Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG);
         private final RectF dst = new RectF();
         private TapListener listener;
@@ -671,46 +787,51 @@ public class MainActivity extends Activity {
         FrameView(Context c) {
             super(c);
             setBackgroundColor(0xFF05070A);
+            alloc();
+        }
+
+        void alloc() {
+            bmp = Bitmap.createBitmap(fbW, fbH, Bitmap.Config.ARGB_8888);
+            px = new int[fbW * fbH];
+        }
+
+        void blit() {
+            bmp.setPixels(px, 0, fbW, 0, 0, fbW, fbH);
+            invalidate();
         }
 
         void setTapListener(TapListener l) {
             listener = l;
         }
 
-        /** Inverse of the aspect-fit transform in onDraw: view point -> guest pixel. */
-        private int toGuestX(float vx) {
-            float sw = getWidth();
-            float scale = Math.min(sw / FB_W, getHeight() / FB_H);
-            return (int) ((vx - (sw - FB_W * scale) / 2f) / scale);
+        private float scale() {
+            return Math.min(getWidth() / (float) fbW, getHeight() / (float) fbH);
         }
 
-        private int toGuestY(float vy) {
-            float sh = getHeight();
-            float scale = Math.min(getWidth() / FB_W, sh / FB_H);
-            return (int) ((vy - (sh - FB_H * scale) / 2f) / scale);
+        @Override
+        protected void onDraw(Canvas c) {
+            if (bmp == null || bmp.getWidth() != fbW || bmp.getHeight() != fbH) return;
+            float sw = getWidth(), sh = getHeight();
+            if (sw <= 0 || sh <= 0) return;
+            float s = scale();
+            float w = fbW * s, h = fbH * s;
+            dst.set((sw - w) / 2f, (sh - h) / 2f, (sw + w) / 2f, (sh + h) / 2f);
+            c.drawBitmap(bmp, null, dst, paint);
         }
 
         @Override
         public boolean onTouchEvent(MotionEvent e) {
             if (e.getAction() == MotionEvent.ACTION_DOWN) {
-                int gx = toGuestX(e.getX());
-                int gy = toGuestY(e.getY());
-                if (listener != null && gx >= 0 && gx < FB_W && gy >= 0 && gy < FB_H) {
+                float s = scale();
+                if (s <= 0) return false;
+                int gx = (int) ((e.getX() - (getWidth() - fbW * s) / 2f) / s);
+                int gy = (int) ((e.getY() - (getHeight() - fbH * s) / 2f) / s);
+                if (listener != null && gx >= 0 && gx < fbW && gy >= 0 && gy < fbH) {
                     listener.onTap(gx, gy);
                     return true;
                 }
             }
             return super.onTouchEvent(e);
-        }
-
-        @Override
-        protected void onDraw(Canvas c) {
-            float sw = getWidth(), sh = getHeight();
-            if (sw <= 0 || sh <= 0) return;
-            float scale = Math.min(sw / FB_W, sh / FB_H);
-            float w = FB_W * scale, h = FB_H * scale;
-            dst.set((sw - w) / 2f, (sh - h) / 2f, (sw + w) / 2f, (sh + h) / 2f);
-            c.drawBitmap(bmp, null, dst, paint);
         }
     }
 
@@ -727,22 +848,6 @@ public class MainActivity extends Activity {
 
     private void copyAsset(String name, File dst) throws Exception {
         InputStream in = getAssets().open(name);
-        try {
-            OutputStream out = new FileOutputStream(dst);
-            try {
-                byte[] buf = new byte[65536];
-                int n;
-                while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
-            } finally {
-                out.close();
-            }
-        } finally {
-            in.close();
-        }
-    }
-
-    private static void copyFile(File src, File dst) throws Exception {
-        InputStream in = new FileInputStream(src);
         try {
             OutputStream out = new FileOutputStream(dst);
             try {
