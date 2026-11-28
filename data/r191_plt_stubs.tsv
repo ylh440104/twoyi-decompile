@@ -1,0 +1,62 @@
+addr	sig	gotslot
+588048	void FUN_00688048(undefined8 param_1,undefined8 param_2)	PTR_PTR_FUN_00a0df80
+58805c	void FUN_0068805c(undefined8 param_1,undefined8 param_2)	PTR_PTR_FUN_00a0df88
+5a6060	void FUN_006a6060(undefined8 param_1,undefined8 param_2)	PTR_PTR_FUN_00a0df80
+5a6074	void FUN_006a6074(undefined8 param_1,undefined8 param_2)	PTR_PTR_FUN_00a0df88
+5abb00	void FUN_006abb00(long param_1)	PTR_PTR_FUN_00a0e058
+5abc84	void FUN_006abc84(long param_1)	PTR_PTR_FUN_00a0e058
+5b46cc	void FUN_006b46cc(void)	PTR_PTR_FUN_00a0e088
+5d25ac	void ANativeWindow_release(void)	PTR_ANativeWindow_release_00a10f50
+78a958	void FUN_0088a958(long *param_1)	PTR_DAT_00a0e470
+87d260	void __open_2(void)	PTR___open_2_00a11070
+8e05a0	void FUN_009e05a0(void)	PTR_00a10f18
+8e05c0	void __cxa_finalize(void)	PTR___cxa_finalize_00a10f20
+8e05d0	void __cxa_atexit(void)	PTR___cxa_atexit_00a10f28
+8e05e0	void __register_atfork(void)	PTR___register_atfork_00a10f30
+8e05f0	void __system_property_get(void)	PTR___system_property_get_00a10f38
+8e0610	void __stack_chk_fail(void)	PTR___stack_chk_fail_00a10f48
+8e0620	void ANativeWindow_release(void)	PTR_ANativeWindow_release_00a10f50
+8e0660	void __android_log_vprint(void)	PTR___android_log_vprint_00a10f70
+8e0670	void ANativeWindow_fromSurface(void)	PTR_ANativeWindow_fromSurface_00a10f78
+8e06a0	void __errno(void)	PTR___errno_00a10f90
+8e06c0	void ANativeWindow_getWidth(void)	PTR_ANativeWindow_getWidth_00a10fa0
+8e06d0	void ANativeWindow_getHeight(void)	PTR_ANativeWindow_getHeight_00a10fa8
+8e06e0	void ANativeWindow_acquire(void)	PTR_ANativeWindow_acquire_00a10fb0
+8e0740	void __android_log_print(void)	PTR___android_log_print_00a10fe0
+8e07b0	void __memcpy_chk(void)	PTR___memcpy_chk_00a11018
+8e0860	void __open_2(void)	PTR___open_2_00a11070
+8e0890	void __openat_2(void)	PTR___openat_2_00a11088
+8e0920	void __write_chk(void)	PTR___write_chk_00a110d0
+8e0ae0	void __strrchr_chk(void)	PTR___strrchr_chk_00a111b0
+8e0b10	void __vsnprintf_chk(void)	PTR___vsnprintf_chk_00a111c8
+8e0b20	void __read_chk(void)	PTR___read_chk_00a111d0
+8e0be0	void __strchr_chk(void)	PTR___strchr_chk_00a11230
+8e0c20	void __strlen_chk(void)	PTR___strlen_chk_00a11250
+8e0cf0	void flock(void)	PTR_flock_00a112b8
+8e0dc0	void __pread_chk(void)	PTR___pread_chk_00a11320
+8e0df0	void __strcpy_chk(void)	PTR___strcpy_chk_00a11338
+8e0fb0	void ANativeWindow_setBuffersGeometry(void)	PTR_ANativeWindow_setBuffersGeometry_00a11418
+8e1020	void dlerror(void)	PTR_dlerror_00a11450
+8e1030	void dlopen(void)	PTR_dlopen_00a11458
+8e1040	void dlclose(void)	PTR_dlclose_00a11460
+8e1050	void dlsym(void)	PTR_dlsym_00a11468
+8e10e0	void AHardwareBuffer_describe(void)	PTR_AHardwareBuffer_describe_00a114b0
+8e10f0	void AHardwareBuffer_release(void)	PTR_AHardwareBuffer_release_00a114b8
+8e1100	void __strncpy_chk2(void)	PTR___strncpy_chk2_00a114c0
+8e1120	void ASharedMemory_create(void)	PTR_ASharedMemory_create_00a114d0
+8e1370	void AHardwareBuffer_acquire(void)	PTR_AHardwareBuffer_acquire_00a115f8
+8e1380	void AHardwareBuffer_allocate(void)	PTR_AHardwareBuffer_allocate_00a11600
+8e13a0	void AHardwareBuffer_recvHandleFromUnixSocket(void)	PTR_AHardwareBuffer_recvHandleFromUnixSocket_00a11610
+8e13b0	void __strcat_chk(void)	PTR___strcat_chk_00a11618
+8e1470	void __vsprintf_chk(void)	PTR___vsprintf_chk_00a11678
+8e1480	void __FD_ISSET_chk(void)	PTR___FD_ISSET_chk_00a11680
+8e1490	void __FD_CLR_chk(void)	PTR___FD_CLR_chk_00a11688
+8e14a0	void __FD_SET_chk(void)	PTR___FD_SET_chk_00a11690
+8e14f0	void __umask_chk(void)	PTR___umask_chk_00a116b8
+8e1530	void __memmove_chk(void)	PTR___memmove_chk_00a116d8
+8e1540	void ZSTD_trace_decompress_end(void)	PTR_ZSTD_trace_decompress_end_00a116e0
+8e1550	void ZSTD_trace_decompress_begin(void)	PTR_ZSTD_trace_decompress_begin_00a116e8
+8e1560	void getauxval(void)	PTR_getauxval_00a116f0
+8e15d0	void android_set_abort_message(void)	PTR_android_set_abort_message_00a11728
+8e17b0	void __cxa_thread_atexit_impl(void)	PTR___cxa_thread_atexit_impl_00a11818
+8e17c0	void dl_iterate_phdr(void)	PTR_dl_iterate_phdr_00a11820

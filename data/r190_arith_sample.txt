@@ -1,0 +1,367 @@
+# 40 random arith functions, full body
+== 0x600f4c [14] void FUN_00700f4c(long param_1,undefined8 *param_2)
+    1| void FUN_00700f4c(long param_1,undefined8 *param_2)
+    3| {
+    4|   undefined8 uVar1;
+    6|   uVar1 = *(undefined8 *)(param_1 + 8);
+    7|   *param_2 = &PTR_FUN_009e8ca0;
+    8|   param_2[1] = uVar1;
+    9|   return;
+   10| }
+== 0x7cb914 [15] bool FUN_008cb914(long param_1,long param_2,undefined8 param_3)
+    1| bool FUN_008cb914(long param_1,long param_2,undefined8 param_3)
+    3| {
+    4|   long lVar1;
+    6|   lVar1 = *(long *)(param_1 + 0x18);
+    7|   if (lVar1 == param_2) {
+    8|     *(undefined8 *)(param_1 + 0x18) = param_3;
+    9|   }
+   10|   return lVar1 == param_2;
+   11| }
+== 0x8e1120 [10] void ASharedMemory_create(void)
+    1| void ASharedMemory_create(void)
+    3| {
+    4|   (*(code *)PTR_ASharedMemory_create_00a114d0)();
+    5|   return;
+    6| }
+== 0x8e1480 [10] void __FD_ISSET_chk(void)
+    1| void __FD_ISSET_chk(void)
+    3| {
+    4|   (*(code *)PTR___FD_ISSET_chk_00a11680)();
+    5|   return;
+    6| }
+== 0x838118 [35] undefined8 FUN_00938118(long param_1,int param_2,undefined4 *param_3)
+    1| undefined8 FUN_00938118(long param_1,int param_2,undefined4 *param_3)
+    3| {
+    4|   undefined4 *puVar1;
+    6|   if (0x3057 < param_2) {
+    7|     if (param_2 - 0x3080U < 3) {
+    8|       return 1;
+    9|     }
+   10|     if (param_2 == 0x3058) {
+   11|       return 1;
+   12|     }
+   13|     return 0;
+   14|   }
+   15|   if (param_2 == 0x3028) {
+   16|     param_1 = *(long *)(param_1 + 0x18);
+   17|   }
+   18|   else {
+   19|     if (param_2 == 0x3056) {
+   20|       puVar1 = (undefined4 *)(param_1 + 0x24);
+   21|       goto LAB_00938184;
+   22|     }
+   23|     if (param_2 != 0x3057) {
+   24|       return 0;
+   25|     }
+   26|   }
+   27|   puVar1 = (undefined4 *)(param_1 + 0x20);
+   28| LAB_00938184:
+   29|   *param_3 = *puVar1;
+   30|   return 1;
+   31| }
+== 0x870e8c [18] undefined8 FUN_00970e8c(undefined4 *param_1,undefined4 *param_2)
+    1| undefined8 FUN_00970e8c(undefined4 *param_1,undefined4 *param_2)
+    3| {
+    4|   long lVar1;
+    6|   lVar1 = DAT_00a70aa8;
+    7|   if (DAT_00a70aa8 != 0) {
+    8|     *param_1 = *(undefined4 *)(DAT_00a70aa8 + 0x6c);
+    9|     *param_2 = *(undefined4 *)(lVar1 + 0x70);
+   10|     (*(code *)PTR_FUN_00a6c1d0)("rcGetEGLVersion: %d %d",*param_1);
+   11|     return 1;
+   12|   }
+   13|   return 0;
+   14| }
+== 0x979668 [13] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    2| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    4| float asinf(float __x)
+    6| {
+    7|                     /* WARNING: Bad instruction - Truncating control flow here */
+    8|   halt_baddata();
+    9| }
+== 0x8e1700 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| int iswlower_l(wint_t __wc,__locale_t __locale)
+    5| {
+    6|   int iVar1;
+    8|   iVar1 = (*(code *)PTR_iswlower_l_00a117c0)(__wc);
+    9|   return iVar1;
+   10| }
+== 0x5f63a4 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| int dup(int __fd)
+    5| {
+    6|   int iVar1;
+    8|   iVar1 = (*(code *)PTR_dup_00a11290)(__fd);
+    9|   return iVar1;
+   10| }
+== 0x7ca1d0 [15] bool FUN_008ca1d0(long param_1,long param_2,undefined8 param_3)
+    1| bool FUN_008ca1d0(long param_1,long param_2,undefined8 param_3)
+    3| {
+    4|   long lVar1;
+    6|   lVar1 = *(long *)(param_1 + 0xa8);
+    7|   if (lVar1 == param_2) {
+    8|     *(undefined8 *)(param_1 + 0xa8) = param_3;
+    9|   }
+   10|   return lVar1 == param_2;
+   11| }
+== 0x66cfe8 [11] void FUN_0076cfe8(undefined8 param_1,undefined8 param_2,undefined8 *param_3,long *param_4)
+    1| void FUN_0076cfe8(undefined8 param_1,undefined8 param_2,undefined8 *param_3,long *param_4)
+    3| {
+    4|   *param_3 = *(undefined8 *)*param_4;
+    5|   *param_4 = *param_4 + 8;
+    6|   return;
+    7| }
+== 0x5daf64 [26] /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+    1| /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+    3| void FUN_006daf64(undefined8 *param_1)
+    5| {
+    6|   uRam0000000000a6cc30 = param_1[5];
+    7|   _DAT_00a6cc28 = param_1[4];
+    8|   uRam0000000000a6cc40 = param_1[7];
+    9|   _DAT_00a6cc38 = param_1[6];
+   10|   uRam0000000000a6cc10 = param_1[1];
+   11|   _DAT_00a6cc08 = *param_1;
+   12|   uRam0000000000a6cc20 = param_1[3];
+   13|   _DAT_00a6cc18 = param_1[2];
+   14|   DAT_00a6cc78 = param_1[0xe];
+   15|   uRam0000000000a6cc60 = param_1[0xb];
+   16|   _DAT_00a6cc58 = param_1[10];
+   17|   uRam0000000000a6cc70 = param_1[0xd];
+   18|   _DAT_00a6cc68 = param_1[0xc];
+   19|   uRam0000000000a6cc50 = param_1[9];
+   20|   _DAT_00a6cc48 = param_1[8];
+   21|   return;
+   22| }
+== 0x5e55bc [14] void FUN_006e55bc(long param_1,undefined8 *param_2)
+    1| void FUN_006e55bc(long param_1,undefined8 *param_2)
+    3| {
+    4|   undefined8 uVar1;
+    6|   uVar1 = *(undefined8 *)(param_1 + 8);
+    7|   *param_2 = &PTR_FUN_009e78c8;
+    8|   param_2[1] = uVar1;
+    9|   return;
+   10| }
+== 0x9798c8 [13] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    2| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    4| int iswlower_l(wint_t __wc,__locale_t __locale)
+    6| {
+    7|                     /* WARNING: Bad instruction - Truncating control flow here */
+    8|   halt_baddata();
+    9| }
+== 0x8e12d0 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| char * getcwd(char *__buf,size_t __size)
+    5| {
+    6|   char *pcVar1;
+    8|   pcVar1 = (char *)(*(code *)PTR_getcwd_00a115a8)();
+    9|   return pcVar1;
+   10| }
+== 0x8e0cc0 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| int fsetxattr(int __fd,char *__name,void *__value,size_t __size,int __flags)
+    5| {
+    6|   int iVar1;
+    8|   iVar1 = (*(code *)PTR_fsetxattr_00a112a0)(__fd);
+    9|   return iVar1;
+   10| }
+== 0x8e1740 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| size_t mbrtowc(wchar_t *__pwc,char *__s,size_t __n,mbstate_t *__p)
+    5| {
+    6|   size_t sVar1;
+    8|   sVar1 = (*(code *)PTR_mbrtowc_00a117e0)();
+    9|   return sVar1;
+   10| }
+== 0x5dac78 [10] void FUN_006dac78(undefined *param_1)
+    1| void FUN_006dac78(undefined *param_1)
+    3| {
+    4|   PTR_FUN_00a3c908 = param_1;
+    5|   return;
+    6| }
+== 0x8e11c0 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| float sinhf(float __x)
+    5| {
+    6|   float fVar1;
+    8|   fVar1 = (float)(*(code *)PTR_sinhf_00a11520)();
+    9|   return fVar1;
+   10| }
+== 0x8381c4 [13] void FUN_009381c4(void)
+    1| void FUN_009381c4(void)
+    3| {
+    4|   code *pcVar1;
+    6|                     /* WARNING: Does not return */
+    7|   pcVar1 = (code *)SoftwareBreakpoint(1,0x9381c8);
+    8|   (*pcVar1)();
+    9| }
+== 0x8e1640 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| __off_t ftello(FILE *__stream)
+    5| {
+    6|   __off_t _Var1;
+    8|   _Var1 = (*(code *)PTR_ftello_00a11760)();
+    9|   return _Var1;
+   10| }
+== 0x5df348 [13] void FUN_006df348(void)
+    1| void FUN_006df348(void)
+    3| {
+    4|   code *pcVar1;
+    6|                     /* WARNING: Does not return */
+    7|   pcVar1 = (code *)SoftwareBreakpoint(1,0x6df34c);
+    8|   (*pcVar1)();
+    9| }
+== 0x979510 [12] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    3| void ANativeWindow_setBuffersGeometry(void)
+    5| {
+    6|                     /* WARNING: Bad instruction - Truncating control flow here */
+    7|   halt_baddata();
+    8| }
+== 0x9796d0 [13] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    2| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    4| __ssize_t getline(char **__lineptr,size_t *__n,FILE *__stream)
+    6| {
+    7|                     /* WARNING: Bad instruction - Truncating control flow here */
+    8|   halt_baddata();
+    9| }
+== 0x8e06b0 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| char * strerror(int __errnum)
+    5| {
+    6|   char *pcVar1;
+    8|   pcVar1 = (char *)(*(code *)PTR_strerror_00a10f98)(__errnum);
+    9|   return pcVar1;
+   10| }
+== 0x74bc48 [15] void FUN_0084bc48(long param_1,undefined8 *param_2)
+    1| void FUN_0084bc48(long param_1,undefined8 *param_2)
+    3| {
+    4|   undefined8 uVar1;
+    6|   *param_2 = &PTR_FUN_009eb510;
+    7|   uVar1 = *(undefined8 *)(param_1 + 8);
+    8|   param_2[2] = *(undefined8 *)(param_1 + 0x10);
+    9|   param_2[1] = uVar1;
+   10|   return;
+   11| }
+== 0x979928 [12] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    3| void dl_iterate_phdr(void)
+    5| {
+    6|                     /* WARNING: Bad instruction - Truncating control flow here */
+    7|   halt_baddata();
+    8| }
+== 0x78b6a0 [10] undefined ** FUN_0088b6a0(undefined8 param_1)
+    1| undefined ** FUN_0088b6a0(undefined8 param_1)
+    3| {
+    4|   DAT_00a6d730 = param_1;
+    5|   return &PTR_thunk_FUN_008294a8_00a3cb28;
+    6| }
+== 0x8e10e0 [10] void AHardwareBuffer_describe(void)
+    1| void AHardwareBuffer_describe(void)
+    3| {
+    4|   (*(code *)PTR_AHardwareBuffer_describe_00a114b0)();
+    5|   return;
+    6| }
+== 0x837cd0 [24] void FUN_00937cd0(long *param_1,long *param_2,long *param_3)
+    1| void FUN_00937cd0(long *param_1,long *param_2,long *param_3)
+    3| {
+    4|   long lVar1;
+    5|   long lVar2;
+    6|   long lVar3;
+    7|   long lVar4;
+    9|   lVar3 = *param_2;
+   10|   lVar1 = param_2[2];
+   11|   lVar2 = param_3[2];
+   12|   param_1[1] = param_2[1];
+   13|   *param_1 = lVar3;
+   14|   lVar4 = param_3[1];
+   15|   lVar3 = *param_3;
+   16|   param_1[2] = lVar1 - lVar2;
+   17|   param_1[1] = param_1[1] - lVar4;
+   18|   *param_1 = *param_1 - lVar3;
+   19|   return;
+   20| }
+== 0x5997d0 [11] void FUN_006997d0(long param_1,undefined8 *param_2)
+    1| void FUN_006997d0(long param_1,undefined8 *param_2)
+    3| {
+    4|   *(undefined4 *)(param_2 + 1) = *(undefined4 *)(param_1 + 8);
+    5|   *param_2 = &PTR_FUN_009e5eb0;
+    6|   return;
+    7| }
+== 0x8e1510 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| int raise(int __sig)
+    5| {
+    6|   int iVar1;
+    8|   iVar1 = (*(code *)PTR_raise_00a116c8)(__sig);
+    9|   return iVar1;
+   10| }
+== 0x831d80 [15] bool FUN_00931d80(long param_1,int param_2)
+    1| bool FUN_00931d80(long param_1,int param_2)
+    3| {
+    4|   if ((param_2 - 0x8d42U < 0x14) && ((1 << (ulong)(param_2 - 0x8d42U & 0x1f) & 0xfc007U) != 0)) {
+    5|     return true;
+    6|   }
+    7|   if (param_2 == 0x8cab) {
+    8|     return 2 < *(int *)(param_1 + 0x1d8);
+    9|   }
+   10|   return false;
+   11| }
+== 0x8e16b0 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| __locale_t uselocale(__locale_t __dataset)
+    5| {
+    6|   __locale_t p_Var1;
+    8|   p_Var1 = (__locale_t)(*(code *)PTR_uselocale_00a11798)();
+    9|   return p_Var1;
+   10| }
+== 0x9796f0 [13] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    2| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    4| void perror(char *__s)
+    6| {
+    7|                     /* WARNING: Bad instruction - Truncating control flow here */
+    8|   halt_baddata();
+    9| }
+== 0x8e14f0 [10] void __umask_chk(void)
+    1| void __umask_chk(void)
+    3| {
+    4|   (*(code *)PTR___umask_chk_00a116b8)();
+    5|   return;
+    6| }
+== 0x979650 [13] /* WARNING: Control flow encountered bad instruction data */
+    1| /* WARNING: Control flow encountered bad instruction data */
+    2| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    4| float coshf(float __x)
+    6| {
+    7|                     /* WARNING: Bad instruction - Truncating control flow here */
+    8|   halt_baddata();
+    9| }
+== 0x8e11e0 [14] /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    1| /* WARNING: Unknown calling convention -- yet parameter storage is locked */
+    3| float cosf(float __x)
+    5| {
+    6|   float fVar1;
+    8|   fVar1 = (float)(*(code *)PTR_cosf_00a11530)();
+    9|   return fVar1;
+   10| }
+== 0x8b2a98 [12] void FUN_009b2a98(undefined8 *param_1)
+    1| void FUN_009b2a98(undefined8 *param_1)
+    3| {
+    4|   *param_1 = 0;
+    5|   param_1[1] = 0;
+    6|   param_1[2] = 0;
+    7|   return;
+    8| }
+== 0x8dc874 [13] undefined  [16] FUN_009dc874(long param_1,int param_2)
+    1| undefined  [16] FUN_009dc874(long param_1,int param_2)
+    3| {
+    4|   undefined auVar1 [16];
+    6|   auVar1._0_8_ = *(ulong *)(param_1 + (long)param_2 * 8 + -0xe0);
+    7|   auVar1._8_8_ = 0;
+    8|   return auVar1;
+    9| }

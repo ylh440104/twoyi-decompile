@@ -1,0 +1,514 @@
+# parameter domain per morphology
+
+== mixed  (7198 functions)
+  -- store_off: 403 distinct
+     param_1                            289
+     param_3                            153
+     param_2                            18
+     param_1+0x18                       8
+     param_1+0x20                       7
+     param_1+0x28                       6
+     param_1+0xc                        5
+     param_1+0x10                       5
+     param_1+0x68                       4
+     param_1+0x70                       4
+     param_1+0x40                       4
+     param_1+0x38                       4
+     param_1+0x48                       4
+     param_1+0x60                       4
+     param_1+0x98                       4
+     param_1+0xc0                       4
+     param_1+0xd0                       4
+     param_1+0xd8                       4
+     param_1+0x78                       3
+     param_1+0x50                       3
+     param_1+0x90                       3
+     param_1+0xa0                       3
+     param_1+0xb0                       3
+     param_1+0x80                       3
+     param_1+0xe8                       3
+  -- callee: 5933 distinct
+     0x009e0490                         2153
+     0x007fe544                         1262
+     0x006da46c                         940
+     0x0095a374                         900
+     0x006ebf00                         787
+     0x008bd304                         775
+     0x008bbcb8                         773
+     0x009e0360                         630
+     0x0099b070                         547
+     0x0099c6c8                         546
+     0x00951728                         542
+     0x007febc0                         520
+     0x006f4a9c                         505
+     0x006d9ef4                         505
+     0x00747f08                         501
+     0x007c4348                         484
+     0x0095a500                         478
+     0x00950868                         352
+     0x007872bc                         345
+     0x006f31f4                         308
+     0x007e1b18                         308
+     0x0068ddb0                         297
+     0x00688420                         289
+     0x0099a8bc                         286
+     0x009e0330                         283
+  -- str: 4035 distinct
+     
+,                                 1176
+     null s_eglIface                    610
+     %s:%s:%d error 0x%x\n              483
+     null ctx                           416
+     %s:%s:%d error %s\n                411
+     ,
+                                 286
+     %s: unbox %p failed, not found\n   255
+     ;
+fprintf(*(FILE **)PTR_stderr_00a 195
+     %s: err not found boxed %p\n       98
+     TwoyiGfxstream                     66
+                                        58
+     dispatch_VkDevice                  58
+     C                                  56
+     unbox_VkBuffer                     46
+     ,uVar4,0x502);
+pcVar5 =            36
+     libunwind: %s - %s\n               30
+     ,                                  28
+     invalid layout qualifier: not supp 25
+     (%s:%d) EmuGL:WARNING: bad generic 18
+     unbox_VkImage                      17
+     libOpenglRender                    17
+     %s:%d: %s                          16
+     /data/twoyi-13/device/generic/vulk 15
+     Optional not constructed           15
+     dispatch_VkPhysicalDevice          15
+
+== tail-call  (1432 functions)
+  -- store_off: 58 distinct
+     param_1                            139
+     param_2                            75
+     param_3                            21
+     param_1+0x10                       3
+     param_1+0x20                       3
+     param_1+0x18                       3
+     param_1+0x28                       3
+     param_1+0x98                       2
+     param_1+0x88                       2
+     param_1+0x78                       2
+     param_1+0xa8                       2
+     param_1+0xa0                       2
+     param_1+0x30                       2
+     param_1+0x40                       2
+     param_1+0x38                       2
+     param_1+0x50                       2
+     param_1+0x48                       2
+     param_1+0x60                       2
+     param_1+0x58                       2
+     param_1+0x70                       2
+     param_1+0x68                       2
+     param_1+0x90                       2
+     DAT_00a6d170                       1
+     _DAT_00a6d158                      1
+     _DAT_00a6d150                      1
+  -- callee: 525 distinct
+     0x0068b560                         125
+     0x009e0490                         91
+     0x0099b068                         81
+     0x0099ea18                         27
+     0x0090b7a8                         15
+     0x009830e8                         11
+     0x004594c8                         9
+     0x0099d7c4                         9
+     0x0069ae2c                         6
+     0x009c0fb8                         6
+     0x0095116c                         5
+     0x009c0f28                         5
+     0x009dfa88                         4
+     0x0096faa4                         4
+     0x0099d748                         4
+     0x009c0e78                         4
+     0x009c10cc                         4
+     0x006d493c                         3
+     0x00835f48                         3
+     0x008359e8                         3
+     0x008bef34                         3
+     0x002fa70c                         3
+     0x0099ecdc                         3
+     0x009a0698                         3
+     0x006da538                         2
+  -- str: 67 distinct
+     vector                             135
+     basic_string                       6
+     %s\"                               4
+     bad_array_new_length was thrown in 2
+     bad_optional_access was thrown in  1
+     bad_function_call was thrown in -f 1
+     future_error was thrown in -fno-ex 1
+     VK_KHR_surface                     1
+     VK_KHR_swapchain                   1
+     hostSync                           1
+     hostSyncQueue                      1
+     glColorPointerWithDataSize         1
+     glNormalPointerWithDataSize        1
+     glTexCoordPointerWithDataSize      1
+     glVertexPointerWithDataSize        1
+     glVertexAttribPointerWithDataSize  1
+     glVertexAttribIPointerWithDataSize 1
+     glEGLImageTargetTexture2DOES       1
+     glEGLImageTargetRenderbufferStorag 1
+     glBlendEquationSeparateOES         1
+     glBlendFuncSeparateOES             1
+     glBlendEquationOES                 1
+     glCurrentPaletteMatrixOES          1
+     glLoadPaletteFromModelViewMatrixOE 1
+     glMatrixIndexPointerOES            1
+
+== empty  (1186 functions)
+  -- store_off: 8 distinct
+     param_1                            29
+     DAT_00a6c970                       1
+     PTR_FUN_00a3c900                   1
+     PTR_FUN_00a3c910                   1
+     param_1+0xc                        1
+     param_1+0x10                       1
+     param_1+0x18                       1
+     param_1+0x20                       1
+
+== ctrl-nocall  (984 functions)
+  -- store_off: 55 distinct
+     param_1                            23
+     param_1+0x10                       3
+     param_1+0x12                       2
+     param_1+0x81                       1
+     param_1+0x111                      1
+     param_1+0xc                        1
+     param_1+0xe                        1
+     param_1+0x14                       1
+     param_1+0x16                       1
+     param_1+0x18                       1
+     param_1+0x1a                       1
+     param_1+0x1c                       1
+     param_1+0x1f                       1
+     param_1+0x1d                       1
+     param_1+0x23                       1
+     param_1+0x21                       1
+     param_1+0x27                       1
+     param_1+0x25                       1
+     param_1+0x2b                       1
+     param_1+0x29                       1
+     param_1+0x2f                       1
+     param_1+0x2d                       1
+     param_1+0x33                       1
+     param_1+0x31                       1
+     param_1+0x37                       1
+  -- str: 1624 distinct
+     libunwind: %s - %s\n               6
+     %s:%d unknown format/type 0x%x 0x% 4
+     s_computePixelSize                 4
+                                        3
+     TwoyiGfxstream                     2
+     VK_ERROR_INVALID_OPAQUE_CAPTURE_AD 2
+     VK_ERROR_FULL_SCREEN_EXCLUSIVE_MOD 2
+     VK_ERROR_NOT_PERMITTED_EXT         2
+     VK_ERROR_FRAGMENTATION             2
+     VK_ERROR_INVALID_DRM_FORMAT_MODIFI 2
+     VK_ERROR_INVALID_EXTERNAL_HANDLE   2
+     VK_ERROR_OUT_OF_POOL_MEMORY        2
+     VK_ERROR_INVALID_SHADER_NV         2
+     VK_ERROR_VALIDATION_FAILED_EXT     2
+     VK_ERROR_INCOMPATIBLE_DISPLAY_KHR  2
+     VK_ERROR_OUT_OF_DATE_KHR           2
+     VK_ERROR_NATIVE_WINDOW_IN_USE_KHR  2
+     VK_ERROR_SURFACE_LOST_KHR          2
+     VK_ERROR_DEVICE_LOST               2
+     VK_NOT_READY                       2
+     VK_TIMEOUT                         2
+     VK_EVENT_SET                       2
+     VK_EVENT_RESET                     2
+     VK_INCOMPLETE                      2
+     VK_ERROR_UNKNOWN                   2
+
+== expr  (670 functions)
+  -- store_off: 474 distinct
+     param_1                            8
+     param_2                            6
+     param_1+0xb8                       4
+     param_1+0x28                       3
+     param_1+0x10                       3
+     param_1+0x20                       3
+     param_1+0x30                       3
+     param_1+0x38                       3
+     param_1+0x40                       3
+     param_1+0x48                       3
+     param_1+0x50                       3
+     param_1+0x58                       3
+     param_1+0x60                       3
+     param_1+0x68                       3
+     param_1+0x70                       3
+     param_1+0x78                       3
+     param_1+0x80                       3
+     param_1+0x88                       3
+     param_1+0x90                       3
+     param_1+0x98                       3
+     param_1+0xa0                       3
+     param_1+0xa8                       3
+     param_1+0xb0                       3
+     param_1+0xd0                       3
+     param_1+0xd8                       3
+  -- str: 26 distinct
+     %s\n                               2
+     Called unimplemented GLESv1 API\n  2
+     %s                                 2
+     ANDROID_EMU_CHECKSUM_HELPER_v1     1
+     %s: FATAL: [%s]\n                  1
+     emugl_crash_reporter               1
+     invariant                          1
+     precise                            1
+     layout                             1
+     gl_                                1
+     Called unimplemented GLES API\n    1
+     %s: Saving combined trace async... 1
+     asyncTraceSaveFunc                 1
+     
+,                                 1
+     Called unimplemented GLESv2 API\n  1
+     ERROR: unimplemented               1
+     generic                            1
+     system                             1
+     libc++                             1
+     future                             1
+     iostream                           1
+     std::bad_alloc                     1
+     bad_array_new_length               1
+     std::bad_cast                      1
+     libc++abi:                         1
+
+== baddata  (290 functions)
+
+== call-seq  (264 functions)
+  -- store_off: 14 distinct
+     param_1                            11
+     DAT_00a6c8a0                       1
+     _DAT_00a6c888                      1
+     _DAT_00a6c880                      1
+     DAT_00a6c898                       1
+     _DAT_00a6c890                      1
+     uRam0000000000a6c868               1
+     _DAT_00a6c860                      1
+     uRam0000000000a6c878               1
+     _DAT_00a6c870                      1
+     DAT_00a6c8a8                       1
+     param_1+0x624                      1
+     param_3                            1
+     param_1+0xb0                       1
+  -- callee: 387 distinct
+     0x008bbcb8                         45
+     0x008bd304                         45
+     0x0099c6c8                         33
+     0x006d9ac4                         28
+     0x009e0490                         21
+     0x008c7e68                         19
+     0x006d9b20                         17
+     0x00869278                         16
+     0x0099b068                         15
+     0x0099d8a4                         12
+     0x0099e4a4                         12
+     0x0099ebd8                         12
+     0x0099a824                         11
+     0x0099e4c4                         10
+     0x0099e4f0                         10
+     0x009da6c8                         8
+     0x009da8b0                         8
+     0x008d7b98                         8
+     0x00982f70                         8
+     0x009a14a8                         8
+     0x0099ea18                         8
+     0x006daf98                         7
+     0x008d7b1c                         7
+     0x008ca8d4                         7
+     0x006ddd40                         6
+  -- str: 493 distinct
+     ,
+                                 3
+     vkDestroyInstance                  2
+     vkEnumeratePhysicalDevices         2
+     vkGetPhysicalDeviceFeatures        2
+     vkGetPhysicalDeviceFormatPropertie 2
+     vkGetPhysicalDeviceImageFormatProp 2
+     vkGetPhysicalDeviceProperties      2
+     vkGetPhysicalDeviceQueueFamilyProp 2
+     vkGetPhysicalDeviceMemoryPropertie 2
+     vkGetInstanceProcAddr              2
+     vkCreateDevice                     2
+     vkDestroyDevice                    2
+     vkEnumerateDeviceExtensionProperti 2
+     vkEnumerateDeviceLayerProperties   2
+     vkCreateInstance                   2
+     vkEnumerateInstanceExtensionProper 2
+     vkEnumerateInstanceLayerProperties 2
+     vkGetDeviceProcAddr                2
+     vkGetPhysicalDeviceSparseImageForm 2
+     vkEnumerateInstanceVersion         2
+     vkEnumeratePhysicalDeviceGroups    2
+     vkGetPhysicalDeviceFeatures2       2
+     vkGetPhysicalDeviceProperties2     2
+     vkGetPhysicalDeviceFormatPropertie 2
+     vkGetPhysicalDeviceImageFormatProp 2
+
+== multi-set  (143 functions)
+  -- store_off: 19 distinct
+     param_3                            125
+     param_1                            52
+     param_2                            2
+     param_1+0x10                       2
+     param_1+0x18                       2
+     param_3+0x20                       1
+     param_3+0xdc                       1
+     param_3+0xe0                       1
+     param_1+0x128                      1
+     param_1+0x130                      1
+     param_1+0x134                      1
+     param_2+0x178                      1
+     param_2+0x1d0                      1
+     param_1+0x12                       1
+     param_1+0xc                        1
+     param_1+0x58                       1
+     param_1+0x20                       1
+     param_1+0x38                       1
+     DAT_00a741a8                       1
+  -- str: 619 distinct
+     glClearColor                       4
+     glClearDepthf                      4
+     glDepthRangef                      4
+     glGetFloatv                        4
+     glGetTexParameterfv                4
+     glLineWidth                        4
+     glPolygonOffset                    4
+     glTexParameterf                    4
+     glTexParameterfv                   4
+     glActiveTexture                    4
+     glBindBuffer                       4
+     glBindTexture                      4
+     glBlendFunc                        4
+     glBufferData                       4
+     glBufferSubData                    4
+     glClear                            4
+     glClearStencil                     4
+     glColorMask                        4
+     glCompressedTexImage2D             4
+     glCompressedTexSubImage2D          4
+     glCopyTexImage2D                   4
+     glCopyTexSubImage2D                4
+     glCullFace                         4
+     glDeleteBuffers                    4
+     glDeleteTextures                   4
+
+== setter  (141 functions)
+  -- store_off: 33 distinct
+     param_3                            12
+     param_1                            8
+     param_1+0xc                        2
+     PTR_FUN_00a3c908                   1
+     PTR_FUN_00a3c918                   1
+     PTR_FUN_00a3c920                   1
+     PTR_FUN_00a3c928                   1
+     PTR_FUN_00a3c930                   1
+     PTR_FUN_00a3c938                   1
+     DAT_00a6cb48                       1
+     DAT_00a3c940                       1
+     DAT_00a6cb38                       1
+     DAT_00a6cb40                       1
+     param_1+0xb8                       1
+     param_1+0x2c                       1
+     param_1+0x164                      1
+     param_1+0x168                      1
+     param_1+0x16c                      1
+     param_3+0x170                      1
+     param_3+0x174                      1
+     param_2+0x17c                      1
+     param_2+0x180                      1
+     param_5+0x1c0                      1
+     param_5+0x1c4                      1
+     param_5+0x1c8                      1
+  -- str: 3 distinct
+     0123456789abcdef                   2
+     ReadBuffer::%s: tail move time %f  1
+     printStats                         1
+
+== plt-stub  (61 functions)
+  -- gotslot: 56 distinct
+     PTR_PTR_FUN_00a0df80               2
+     PTR_PTR_FUN_00a0df88               2
+     PTR_PTR_FUN_00a0e058               2
+     PTR_ANativeWindow_release_00a10f50 2
+     PTR___open_2_00a11070              2
+     PTR_PTR_FUN_00a0e088               1
+     PTR_DAT_00a0e470                   1
+     PTR_00a10f18                       1
+     PTR___cxa_finalize_00a10f20        1
+     PTR___cxa_atexit_00a10f28          1
+     PTR___register_atfork_00a10f30     1
+     PTR___system_property_get_00a10f38 1
+     PTR___stack_chk_fail_00a10f48      1
+     PTR___android_log_vprint_00a10f70  1
+     PTR_ANativeWindow_fromSurface_00a1 1
+     PTR___errno_00a10f90               1
+     PTR_ANativeWindow_getWidth_00a10fa 1
+     PTR_ANativeWindow_getHeight_00a10f 1
+     PTR_ANativeWindow_acquire_00a10fb0 1
+     PTR___android_log_print_00a10fe0   1
+     PTR___memcpy_chk_00a11018          1
+     PTR___openat_2_00a11088            1
+     PTR___write_chk_00a110d0           1
+     PTR___strrchr_chk_00a111b0         1
+     PTR___vsnprintf_chk_00a111c8       1
+  -- callee: 1 distinct
+     0x006b46e4                         1
+
+== vtable  (27 functions)
+  -- vtable: 27 distinct
+     PTR_FUN_009e6180                   1
+     PTR_FUN_009e61c8                   1
+     PTR_FUN_009e72e0                   1
+     PTR_FUN_009e7388                   1
+     PTR_FUN_009e73d0                   1
+     PTR_FUN_009e7418                   1
+     PTR_FUN_009e7460                   1
+     PTR_FUN_009e74a8                   1
+     PTR_FUN_009e74f0                   1
+     PTR_FUN_009e7538                   1
+     PTR_FUN_009e7580                   1
+     PTR_FUN_009e75c8                   1
+     PTR_FUN_009e7610                   1
+     PTR_FUN_009e7910                   1
+     PTR_FUN_009eaa98                   1
+     PTR_FUN_009ebaa0                   1
+     PTR_thunk_FUN_008c55d4_00a02530    1
+     PTR_FUN_00a03510                   1
+     PTR_FUN_00a02928                   1
+     PTR_FUN_00a03318                   1
+     PTR_FUN_00a064b0                   1
+     PTR_FUN_00a07780                   1
+     PTR_FUN_00a077a0                   1
+     PTR_FUN_00a08628                   1
+     PTR_FUN_00a0a948                   1
+
+== trap  (16 functions)
+  -- callee: 6 distinct
+     0x009e0490                         4
+     0x0094b418                         3
+     0x0094c540                         3
+     0x006b75d4                         3
+     0x009c0920                         1
+     0x009c0a64                         1
+  -- str: 9 distinct
+     %s (errno: %d, %s)                 3
+     PERFETTO_CHECK(clock_gettime(clk_i 3
+     [printf format error]              1
+     %s:%s                              1
+     perfetto                           1
+     %s %s                              1
+     [%03u.%03u]                        1
+     %s%s %s\n                          1
+     %s%s%s%s %s%s%s\n                  1
