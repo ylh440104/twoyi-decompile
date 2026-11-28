@@ -134,15 +134,20 @@ jobs:
           } > $OUT/report.md
           cat $OUT/report.md
 
-      - name: Keep the report, drop the binaries
+      - name: Keep the report and the binaries
         if: always()
         run: |
-          rm -f sixiang/loader/out/mini_loader \
-                sixiang/loader/out/hello_static_pie \
-                sixiang/loader/out/hello_freestanding
+          # The aarch64 binaries are what we want to run *on the phone*, and
+          # artifact downloads need a token, so keep them in the tree.
+          mkdir -p sixiang/loader/bin
+          cp -f sixiang/loader/out/mini_loader        sixiang/loader/bin/ 2>/dev/null || true
+          cp -f sixiang/loader/out/hello_freestanding sixiang/loader/bin/ 2>/dev/null || true
+          cp -f sixiang/loader/out/hello_static_pie   sixiang/loader/bin/ 2>/dev/null || true
+          ls -l sixiang/loader/bin
+
           git config user.name  "sixiang-ci"
           git config user.email "ci@sixiang.invalid"
-          git add sixiang/loader/out || true
+          git add sixiang/loader/out sixiang/loader/bin || true
           git commit -q -m "loader: build + self-test report ($GITHUB_SHA)" || echo "nothing to commit"
           git pull --rebase -q origin main || true
           git push || echo "push skipped"
