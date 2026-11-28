@@ -1,0 +1,11 @@
+=== 反汇编中是否引用了 apexd.status ===
+92023
+
+=== 字符串表里的路径 ===
+/apex
+/apex/apexd.status
+success
+
+=== 动态段（应为空）===
+
+There is no dynamic section in this file.
