@@ -32,3 +32,68 @@ bash rc=0
  177   E   L   F 002 001 001  \0
  7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
  03 00 b7 00
+== host ==
+aarch64
+asset: https://github.com/termux/termux-packages/releases/download/bootstrap-2026.11.15-r1%2Bapt.android-7/bootstrap-aarch64.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 31.6M  100 31.6M    0     0  90.2M      0 --:--:-- --:--:-- --:--:--  189M
+curl rc=0
+unzip rc=0
+SYMLINKS.txt
+bin
+etc
+include
+lib
+libexec
+share
+tmp
+var
+== lib dir ==
+apt
+bash
+cmake
+engines-3
+gawk
+libacl.so
+libandroid-glob.so
+libandroid-posix-semaphore.so
+libandroid-selinux.so
+libandroid-support.so
+libapt-pkg.so
+libapt-private.so
+libassuan.so
+libattr.so
+libbz2.so.1.0.8
+libc++_shared.so
+libcap-ng.so
+libcharset.so
+libcrypto.so.3
+libcurl.so
+libdrop_ambient.so
+libevent-2.1.so
+libevent_core-2.1.so
+libevent_extra-2.1.so
+libevent_pthreads-2.1.so
+libffi.so
+libgcrypt.so
+libgmp.so
+libgmpxx.so
+libgnutls-dane.so
+libgnutls.so
+libgnutlsxx.so
+libgpg-error.so
+libhistory.so.8.3
+libhogweed.so.6.11
+libiconv.so
+libidn2.so
+liblsof.so
+liblz4.so
+liblzma.so.5.8.4
+== any loader / libc ==
+== PT_INTERP of the bionic bash ==
+['/system/bin/linker64']
+PREFIX=/home/runner/work/twoyi-decompile/twoyi-decompile/work/termux
+LOADER=
+== fallback: exec loader with argv[0]=bash ==
