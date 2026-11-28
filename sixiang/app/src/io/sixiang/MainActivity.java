@@ -487,8 +487,7 @@ public class MainActivity extends Activity {
 
     private void ensureServer() throws Exception {
         if (server != null) return;
-        server = new LocalServerSocket(
-                new LocalSocketAddress(CTL, LocalSocketAddress.Namespace.ABSTRACT));
+        server = new LocalServerSocket(CTL);
         new Thread(new Runnable() {
             public void run() {
                 while (true) {
