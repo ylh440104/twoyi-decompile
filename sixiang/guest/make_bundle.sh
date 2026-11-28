@@ -85,22 +85,34 @@ sudo mount -o loop,ro "$WORK/runtime_payload.img" /mnt/apex || { echo "apex moun
 sudo cp -a /mnt/apex/bin/linker64 "$OUT/system/bin/linker64" 2>/dev/null \
     && echo "  got linker64"
 
-# Order matters: /system/lib64/libc.so in the image is a symlink into /apex and
-# is therefore *dangling* here. Copying it last would replace the real libc.so
-# with a broken link (that is exactly what the second run hit). Platform libs
-# first, real bionic files second so they win.
-sudo cp -a /mnt/gsi/system/lib64/*.so "$OUT/system/lib64/" 2>/dev/null \
-    && echo "  got system/lib64/*.so"
-sudo cp -a /mnt/gsi/system/lib64/*.so.* "$OUT/system/lib64/" 2>/dev/null || true
+# Copy whatever exists, then let the dependency list drive: guessing paths is
+# what produced three failed runs in a row (libcrypto.so, then a dangling
+# libc.so symlink replacing the real one). The resolver below walks toybox's
+# DT_NEEDED and hunts each name down in the mounted image.
+sudo cp -a /mnt/gsi/system/lib64/*.so "$OUT/system/lib64/" 2>/dev/null || true
+sudo cp -a /mnt/apex/lib64/*.so "$OUT/system/lib64/" 2>/dev/null || true
+sudo cp -a /mnt/apex/lib64/bionic/*.so "$OUT/system/lib64/" 2>/dev/null || true
 
-# Whole bionic directory: libc, libm, libdl, libstdc++ and whatever else the
-# linker decides it needs (guessing a subset is how libcrypto.so went missing).
-sudo cp -af /mnt/apex/lib64/bionic/. "$OUT/system/lib64/" 2>/dev/null \
-    && echo "  got bionic/*"
+echo "  apex lib64 layout:"
+sudo ls /mnt/apex/lib64 2>/dev/null | head -8 | sed 's/^/    /'
 
-# Drop any dangling symlinks the image left behind.
+echo "  resolving DT_NEEDED of toybox:"
+for lib in $(readelf -d "$OUT/system/bin/toybox" 2>/dev/null \
+             | sed -n 's/.*(NEEDED).*\[\(.*\)\]/\1/p'); do
+    if [ -e "$OUT/system/lib64/$lib" ]; then
+        echo "    $lib  (already present)"
+        continue
+    fi
+    src=$(find /mnt/gsi/system/lib64 /mnt/apex/lib64 -name "$lib" -type f 2>/dev/null | head -1)
+    if [ -n "$src" ]; then
+        sudo cp -af "$src" "$OUT/system/lib64/$lib" && echo "    $lib  <- $src"
+    else
+        echo "    $lib  MISSING in image"
+    fi
+done
+
+# Any dangling symlink left over is useless to the linker.
 find "$OUT/system/lib64" -maxdepth 1 -type l ! -exec test -e {} \; -delete 2>/dev/null
-
 sudo umount /mnt/apex 2>/dev/null
 
 echo "  libs in bundle: $(find "$OUT/system/lib64" -maxdepth 1 -type f | wc -l)"
