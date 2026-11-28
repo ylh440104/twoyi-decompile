@@ -1,2 +1,2 @@
-dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so)
+dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so: unsupported version 17791 of Verneed record
 exited 10

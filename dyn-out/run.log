@@ -1,4 +1,4 @@
-== dyndump start Sat Nov 28 01:11:38 UTC 2026 ==
+== dyndump start Sat Nov 28 01:15:57 UTC 2026 ==
 Linux runnervmu7lcj 7.0.0-1020-azure #21~24.04.2-Ubuntu SMP PREEMPT Tue Nov 10 01:19:17 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 aarch64
 Python 3.12.3
@@ -7,9 +7,9 @@ gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 9619k  100 9619k    0     0  21.4M      0 --:--:-- --:--:-- --:--:-- 21.4M
+100 9619k  100 9619k    0     0  23.3M      0 --:--:-- --:--:-- --:--:-- 23.3M
 curl rc=0
--rw-r--r-- 1 runner runner 9850096 Nov 28 01:11 work/libtwoyi.so
+-rw-r--r-- 1 runner runner 9850096 Nov 28 01:15 work/libtwoyi.so
 5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
 --- stubs
 dyn/stubs.c: In function ‘__read_chk’:
@@ -43,12 +43,12 @@ dyn/stubs.c:90:39: warning: implicit declaration of function ‘umask’ [-Wimpl
 stub rc=0
 LIBC=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6  LIBM=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 total 36
-lrwxrwxrwx 1 runner runner    18 Nov 28 01:11 libandroid.so -> libbionic_extra.so
--rwxr-xr-x 1 runner runner 72976 Nov 28 01:11 libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:11 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:11 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
-lrwxrwxrwx 1 runner runner    18 Nov 28 01:11 liblog.so -> libbionic_extra.so
-lrwxrwxrwx 1 runner runner    70 Nov 28 01:11 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:15 libandroid.so -> libbionic_extra.so
+-rwxr-xr-x 1 runner runner 72976 Nov 28 01:15 libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:15 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:15 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:15 liblog.so -> libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:15 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
 --- dumper
 dumper rc=0
 dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=872e98fb0066957b8bca1109fc89e12e4dbc0dee, for GNU/Linux 3.7.0, not stripped
@@ -57,16 +57,22 @@ dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamicall
   DT_FLAGS_1 0x1 -> 0x1
   DT_INIT_ARRAYSZ 304 -> 0
   DT_INIT_ARRAY 0x90d7a0 -> 0
+  DT_VERSYM 0x1ed0 -> 0
+  DT_VERNEED 0x2124 -> 0
+  DT_VERNEEDNUM 3 -> 0
 wrote work/libtwoyi_noinit.so (9850096 bytes)
 rc=0
 --- patch lazy
   DT_FLAGS 0x8 -> 0
   DT_FLAGS_1 0x1 -> 0x1
+  DT_VERSYM 0x1ed0 -> 0
+  DT_VERNEED 0x2124 -> 0
+  DT_VERNEEDNUM 3 -> 0
 wrote work/libtwoyi_lazy.so (9850096 bytes)
 rc=0
 5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
-043c5a20ff2e579154b81901836db3eb7f0b4937198ac36f81880bb4c9a4f480  work/libtwoyi_lazy.so
-2e1f02ee8aba702fe8112a0bc74a80d81b7a22a0b2896dfa1e5e9f1c6fa332cb  work/libtwoyi_noinit.so
+37d7fd25e032222c0df03d2d2b6f7ba4bc56d84b4822c89bdce13b1270ffe4be  work/libtwoyi_lazy.so
+8126a3ab15071fc290e37830deb3664faa6f6e57afd4d3612772312a17339539  work/libtwoyi_noinit.so
 --- phase noinit
 dlopen failed: (null)
 phase noinit  status: exit 10
@@ -87,18 +93,18 @@ rc=0
 rc=0
 --- slots
 --- status
-dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so)
+dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
-dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so)
+dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so: unsupported version 17791 of Verneed record
 exited 10
-dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so)
+dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so: unsupported version 17791 of Verneed record
 exited 10
 --- files
 total 36
-drwxr-xr-x  2 runner runner  4096 Nov 28 01:11 .
-drwxr-xr-x 15 runner runner 12288 Nov 28 01:11 ..
--rw-r--r--  1 runner runner   170 Nov 28 01:11 init_status.txt
--rw-r--r--  1 runner runner   170 Nov 28 01:11 jni_status.txt
--rw-r--r--  1 runner runner   172 Nov 28 01:11 noinit_status.txt
--rw-r--r--  1 runner runner  5743 Nov 28 01:11 run.log
-== dyndump end Sat Nov 28 01:11:39 UTC 2026 ==
+drwxr-xr-x  2 runner runner  4096 Nov 28 01:15 .
+drwxr-xr-x 15 runner runner 12288 Nov 28 01:15 ..
+-rw-r--r--  1 runner runner   142 Nov 28 01:15 init_status.txt
+-rw-r--r--  1 runner runner   142 Nov 28 01:15 jni_status.txt
+-rw-r--r--  1 runner runner   144 Nov 28 01:15 noinit_status.txt
+-rw-r--r--  1 runner runner  5803 Nov 28 01:15 run.log
+== dyndump end Sat Nov 28 01:15:58 UTC 2026 ==
