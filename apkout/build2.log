@@ -1,9 +1,9 @@
 total 216060
--rw-r--r-- 1 runner runner 83886080 Nov 28 03:52 partaa
--rw-r--r-- 1 runner runner 83886080 Nov 28 03:52 partab
--rw-r--r-- 1 runner runner 53469606 Nov 28 03:52 partac
+-rw-r--r-- 1 runner runner 83886080 Nov 28 04:31 partaa
+-rw-r--r-- 1 runner runner 83886080 Nov 28 04:31 partab
+-rw-r--r-- 1 runner runner 53469606 Nov 28 04:31 partac
 cat rc=0
--rw-r--r-- 1 runner runner 221241766 Nov 28 03:52 work/twoyi.apk
+-rw-r--r-- 1 runner runner 221241766 Nov 28 04:31 work/twoyi.apk
 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e  work/twoyi.apk
 expected 86ed3afaa447104f131d906c42ed8a07e207959c7869fda54bd245f62db14f4e
   4501160  1981-01-01 01:01   classes.dex
@@ -15,30 +15,38 @@ curl rc=0
 gadget/libgadget.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, for Android 21, built by NDK r29 (14206865), stripped
 cfg rc=0
 {"interaction": {"type": "script", "path": "/data/user/0/io.twoyi/files/hook.js", "on_change": "reload"}}I: Using Apktool 2.9.3 on twoyi.apk
-I: Copying raw resources...
-I: Copying raw manifest...
+I: Loading resource table...
+I: Decoding file-resources...
+I: Loading resource table from file: /home/runner/.local/share/apktool/framework/1.apk
+I: Decoding values */* XMLs...
+I: Decoding AndroidManifest.xml with resources...
+I: Regular manifest package...
 I: Baksmaling classes.dex...
 I: Copying assets and libs...
 I: Copying unknown files...
 I: Copying original files...
 I: Copying META-INF/services directory
 decode rc=0
-dec/apktool.yml
-apktool.yml present
+-rw-r--r-- 1 runner runner 9525 Nov 28 04:31 dec/AndroidManifest.xml
+-rw-r--r-- 1 runner runner  931 Nov 28 04:31 dec/apktool.yml
 4893
-== keep the 212 MB rootfs stored, not deflated ==
-30:doNotCompress:
+== before ==
+android:extractNativeLibs="true"
+== after ==
+android:extractNativeLibs="true"
+android:extractNativeLibs="true"
+== doNotCompress: keep .so and .zst stored ==
 doNotCompress:
 - zst
+- so
 - resources.arsc
 - assets/rootfs.tar.zst
 - assets/dexopt/baseline.prof
-- assets/dexopt/baseline.profm
-- png
 patched dec/smali/io/twoyi/TwoyiApplication.smali
-  contains hookCopy                 yes
-  contains libgadget.config.so      yes
-  contains System;->load(           yes
+  contains hookCopy                                 yes
+  contains System;->loadLibrary(Ljava/lang/String;)V yes
+  contains load(Ljava/lang/String;)                 no
+  contains libgadget.so                             no
 patch rc=0
 == patched region ==
 .method public final attachBaseContext(Landroid/content/Context;)V
@@ -49,18 +57,6 @@ patch rc=0
 
     # >>> gadget injection begin
     :try_start_g9
-    const-string v1, "libgadget.config.so"
-    invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
-    move-result-object v0
-    invoke-virtual {v0, v1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
-    move-result-object v0
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
-    move-result-object v1
-    new-instance v2, Ljava/io/FileOutputStream;
-    invoke-direct {v2, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    invoke-static {v0, v2}, Lio/twoyi/TwoyiApplication;->hookCopy(Ljava/io/InputStream;Ljava/io/OutputStream;)V
-    invoke-virtual {v2}, Ljava/io/OutputStream;->close()V
-    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
     const-string v1, "hook.js"
     invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
     move-result-object v0
@@ -73,56 +69,40 @@ patch rc=0
     invoke-static {v0, v2}, Lio/twoyi/TwoyiApplication;->hookCopy(Ljava/io/InputStream;Ljava/io/OutputStream;)V
     invoke-virtual {v2}, Ljava/io/OutputStream;->close()V
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    const-string v1, "libgadget.so"
-    invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
-    move-result-object v0
-    invoke-virtual {v0, v1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
-    move-result-object v0
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
-    move-result-object v1
-    new-instance v2, Ljava/io/FileOutputStream;
-total 245536
-drwxr-xr-x 2 runner runner      4096 Nov 28 03:52 dexopt
--rw-r--r-- 1 runner runner      6290 Nov 28 03:52 hook.js
--rw-r--r-- 1 runner runner       105 Nov 28 03:52 libgadget.config.so
--rw-r--r-- 1 runner runner  39425920 Nov 28 03:52 libgadget.so
--rw-r--r-- 1 runner runner      3656 Nov 28 03:52 main.jar
--rw-r--r-- 1 runner runner 212205950 Nov 28 03:52 rootfs.tar.zst
-== no gadget in lib/ ==
-libandroidx.graphics.path.so
-libloader.so
-libloader32.so
-libtwoyi.so
+    :try_end_g9
+    .catch Ljava/lang/Throwable; {:try_start_g9 .. :try_end_g9} :catch_g9
+    goto :goto_g9
+    :catch_g9
+    move-exception v0
+    :goto_g9
+    :try_start_ga
+    const-string v0, "gadget"
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+    :try_end_ga
+    .catch Ljava/lang/Throwable; {:try_start_ga .. :try_end_ga} :catch_ga
+    goto :goto_ga
+    :catch_ga
+    move-exception v0
+    :goto_ga
+    # <<< gadget injection end
+total 48208
+-rw-r--r-- 1 runner runner    10096 Nov 28 04:31 libandroidx.graphics.path.so
+-rw-r--r-- 1 runner runner      105 Nov 28 04:31 libgadget.config.so
+-rw-r--r-- 1 runner runner 39425920 Nov 28 04:31 libgadget.so
+-rw-r--r-- 1 runner runner   147768 Nov 28 04:31 libloader.so
+-rw-r--r-- 1 runner runner   146256 Nov 28 04:31 libloader32.so
+-rw-r--r-- 1 runner runner  9850096 Nov 28 04:31 libtwoyi.so
+-rw-r--r-- 1 runner runner 6290 Nov 28 04:31 dec/assets/hook.js
 I: Using Apktool 2.9.3
 I: Checking whether sources has changed...
 I: Smaling smali folder into classes.dex...
+[Fatal Error] :37:179: Attribute "android:extractNativeLibs" was already specified for element "application".
 I: Checking whether resources has changed...
-I: Copying raw resources...
-I: Copying libs... (/lib)
-I: Copying libs... (/kotlin)
-I: Copying libs... (/META-INF/services)
-I: Building apk file...
-I: Copying unknown files/dir...
-I: Built apk into: out/unsigned.apk
-build rc=0
--rw-r--r-- 1 runner runner 236163376 Nov 28 03:52 out/unsigned.apk
-Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
-	for: CN=gadget, O=t, C=cn
-generated new keystore
-zipalign rc=0
-sign rc=0
--rw-r--r-- 1 runner runner 236240122 Nov 28 03:52 out/twoyi-gadget.apk
-V3.0 Signer: certificate DN: CN=gadget, O=t, C=cn
-V3.0 Signer: certificate SHA-256 digest: a22dd5d978aa191d829b74ca08729130439e6a2cafe2d22b33adff72d0137e07
-V3.0 Signer: certificate SHA-1 digest: 8ef1cb715518142cb9a75dbe3dd54b2037e1d578
-V3.0 Signer: certificate MD5 digest: cd09a0252a74d1a3c6bef4d1702efa02
-     6290  2026-11-28 03:52   assets/hook.js
- 39425920  2026-11-28 03:52   assets/libgadget.so
-      105  2026-11-28 03:52   assets/libgadget.config.so
-upload rc=0
-total 693800
--rw-r--r-- 1 runner runner 236163636 Nov 28 03:52 aligned.apk
--rw-r--r-- 1 runner runner      2590 Nov 28 03:52 ks.jks
--rw-r--r-- 1 runner runner 236240122 Nov 28 03:52 twoyi-gadget.apk
--rw-r--r-- 1 runner runner   1869208 Nov 28 03:52 twoyi-gadget.apk.idsig
--rw-r--r-- 1 runner runner 236163376 Nov 28 03:52 unsigned.apk
+I: Building resources...
+W: /home/runner/work/twoyi-decompile/twoyi-decompile/dec/AndroidManifest.xml:37: error: duplicate attribute.
+brut.androlib.exceptions.AndrolibException: brut.common.BrutException: could not exec (exit code = 1): [/tmp/brut_util_Jar_38353167852566476933572131115204332413.tmp, link, -o, /tmp/APKTOOL8388906972537376062.tmp, --package-id, 127, --min-sdk-version, 27, --target-sdk-version, 36, --version-code, 10375, --version-name, 0.7.5-11131322, --no-auto-version, --no-version-vectors, --no-version-transitions, --no-resource-deduping, --allow-reserved-package-id, --no-compile-sdk-metadata, --warn-manifest-validation, -e, /tmp/APKTOOL13620470764421152260.tmp, -0, arsc, -I, /home/runner/.local/share/apktool/framework/1.apk, --manifest, /home/runner/work/twoyi-decompile/twoyi-decompile/dec/AndroidManifest.xml, /home/runner/work/twoyi-decompile/twoyi-decompile/dec/build/resources.zip]
+build rc=1
+ls: cannot access 'out/unsigned.apk': No such file or directory
+NO APK
+no apk
+total 0
