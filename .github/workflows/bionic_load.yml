@@ -1,21 +1,19 @@
-name: bionic load (real Android linker)
+name: bionic load v2 (gcc + patchelf, no NDK)
 
-# Step 3 of the bionic route.
+# The NDK route failed (its download is ~700 MB and the job died in 37 s), so this
+# job takes a much cheaper path that needs nothing but the host toolchain:
 #
-#   job build : on x86_64 (where the NDK's clang actually runs) compile
-#               dyn/dumper.c for aarch64-linux-android, so the resulting ELF
-#               says PT_INTERP=/system/bin/linker64
-#   job run   : on native arm64, execute it under the bionic linker extracted
-#               from twoyi's own rootfs (dyn/bionic/system/bin/linker64) with
-#               --library-path pointing at the bionic libs
+#   1. compile dyn/dumper.c with the native aarch64 gcc       (glibc ABI)
+#   2. patchelf: retarget NEEDED  libc.so.6 -> libc.so
+#                              libm.so.6 -> libm.so
+#                              libdl.so.2 -> libdl.so
+#                 and set INTERP to /system/bin/linker64
+#   3. strip the GLIBC_x.y version requirements (retag DT_VERSYM/VERNEED/VERNEEDNUM)
+#   4. execute it under dyn/bionic/system/bin/linker64 --library-path dyn/bionic/system/lib64
 #
-# This is the first configuration in the whole investigation where
-# DT_ANDROID_RELA (APS2, 112,262 packed relocations) is actually understood, so
-# .got and .init_array can finally become non-zero, constructors can run, and the
-# six GOT slots may get real values.
-#
-# A cheap sanity check runs first: the bionic toybox must print something.  If it
-# does not, the failure is the runtime, not libtwoyi.so.
+# Step 4 is the first time in this whole investigation that DT_ANDROID_RELA
+# (APS2, 112,262 packed relocations) is actually understood by the loader, so
+# .got / .init_array can become non-zero and the constructors can run.
 
 on:
   workflow_dispatch:
@@ -28,106 +26,99 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Fetch Android NDK
-        run: |
-          set +e
-          echo "== ndk =="
-          curl -fL --retry 2 -o ndk.zip https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
-          echo "curl rc=$?"
-          ls -l ndk.zip
-          unzip -q ndk.zip
-          echo "unzip rc=$?"
-          ls -d android-ndk-*
-
-      - name: Build aarch64-linux-android dumper
-        run: |
-          set +e
-          NDK=$(ls -d android-ndk-* | head -1)
-          CC=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
-          echo "CC=$CC"
-          "$CC" --version 2>&1 | head -3
-          echo "== build =="
-          "$CC" --target=aarch64-linux-android21 -O2 -Wall \
-                -o dumper_android dyn/dumper.c -ldl 2>&1 | head -30
-          echo "build rc=$?"
-          ls -l dumper_android
-          file dumper_android 2>/dev/null
-          echo "== PT_INTERP =="
-          readelf -l dumper_android 2>/dev/null | grep -A1 INTERP
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dumper-android
-          path: dumper_android
-          if-no-files-found: error
-          retention-days: 7
-
   run:
     runs-on: ubuntu-24.04-arm
-    needs: build
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
-        with:
-          name: dumper-android
-
-      - name: Fetch libtwoyi.so
+      - name: Toolchain
         run: |
           set +e
           mkdir -p bionic-out work
           {
             echo "== host =="
             uname -m
+            gcc --version | head -1
+            echo "== patchelf =="
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq patchelf 2>&1 | tail -3
+            patchelf --version 2>&1
+          } >> bionic-out/load.log 2>&1
+
+      - name: Build and retarget dumper
+        run: |
+          set +e
+          {
+            echo "== gcc build =="
+            gcc -O2 -o dumper_glibc dyn/dumper.c -ldl
+            echo "gcc rc=$?"
+            ls -l dumper_glibc
+            echo "== patchelf =="
+            cp dumper_glibc dumper_bionic
+            patchelf --replace-needed libc.so.6 libc.so dumper_bionic;   echo "needed libc rc=$?"
+            patchelf --replace-needed libm.so.6 libm.so dumper_bionic;   echo "needed libm rc=$?"
+            patchelf --replace-needed libdl.so.2 libdl.so dumper_bionic; echo "needed libdl rc=$?"
+            patchelf --set-interpreter /system/bin/linker64 dumper_bionic; echo "interp rc=$?"
+            echo "== strip glibc versions =="
+            python3 dyn/strip_versions.py dumper_bionic dumper_bionic2
+            echo "rc=$?"
+            mv dumper_bionic2 dumper_bionic
+            chmod +x dumper_bionic
+            echo "== after =="
+            readelf -d dumper_bionic 2>/dev/null | grep -E 'NEEDED|FLAGS' | head -8
+            readelf -l dumper_bionic 2>/dev/null | grep -A1 INTERP | head -3
+          } >> bionic-out/load.log 2>&1
+
+      - name: Fetch libtwoyi.so
+        run: |
+          set +e
+          {
             echo "== bionic tree =="
             ls -l dyn/bionic/system/bin dyn/bionic/system/lib64 2>&1
-            chmod +x dyn/bionic/system/bin/linker64 dyn/bionic/system/bin/toybox dyn/bionic/system/bin/sh dumper_android
+            chmod +x dyn/bionic/system/bin/linker64 dyn/bionic/system/bin/toybox dyn/bionic/system/bin/sh
             echo "== libtwoyi =="
             curl -fL --retry 2 -o work/libtwoyi.so \
               "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
             echo "curl rc=$?"
             sha256sum work/libtwoyi.so 2>&1
-            ls -l dumper_android
-            file dumper_android 2>/dev/null
           } >> bionic-out/load.log 2>&1
 
-      - name: Sanity — can the bionic runtime execute at all?
+      - name: "Sanity: can the bionic runtime execute anything?"
         run: |
           set +e
           B="$PWD/dyn/bionic"
           {
-            echo "== sanity: bionic toybox =="
+            echo "== sanity toybox =="
             "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              "$B/system/bin/toybox" echo BIONIC_TOYBOX_OK 2>&1 | head -8
+              "$B/system/bin/toybox" echo BIONIC_TOYBOX_OK 2>&1 | head -6
             echo "rc=$?"
-            echo "== sanity: bionic sh =="
+            echo "== sanity sh =="
             "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              "$B/system/bin/sh" -c 'echo BIONIC_SH_OK; uname -a' 2>&1 | head -8
+              "$B/system/bin/sh" -c 'echo BIONIC_SH_OK' 2>&1 | head -6
+            echo "rc=$?"
+            echo "== sanity: our dumper under bionic (no args) =="
+            "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
+              ./dumper_bionic 2>&1 | head -6
             echo "rc=$?"
           } >> bionic-out/load.log 2>&1
 
-      - name: Run dumper under the bionic linker
+      - name: Run dumper under bionic linker
         run: |
           set +e
           B="$PWD/dyn/bionic"
           {
-            echo "== phase: bionic init (constructors enabled) =="
+            echo "== phase init under bionic =="
             export ANDROID_ROOT="$B/system"
-            export ANDROID_DATA="$B/data"
             "$B/system/bin/linker64" --library-path "$B/system/lib64" -- \
-              ./dumper_android "$PWD/work/libtwoyi.so" "$PWD/bionic-out" init 2>&1 | head -40
+              ./dumper_bionic "$PWD/work/libtwoyi.so" "$PWD/bionic-out" init 2>&1 | head -40
             echo "rc=$?"
             echo "== slots =="
             cat bionic-out/init_slots.txt 2>/dev/null
             echo "== status =="
             cat bionic-out/init_status.txt 2>/dev/null
+            echo "== files =="
+            ls -la bionic-out
           } >> bionic-out/load.log 2>&1
 
       - name: Commit
@@ -140,7 +131,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "nothing"
           else
-            git commit -m "chore: bionic load attempt"
+            git commit -m "chore: bionic load v2"
             git pull --rebase -q origin main || true
             git push || echo "push failed"
           fi
