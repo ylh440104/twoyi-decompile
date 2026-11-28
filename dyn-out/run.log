@@ -1,4 +1,4 @@
-== dyndump start Sat Nov 28 01:08:06 UTC 2026 ==
+== dyndump start Sat Nov 28 01:11:38 UTC 2026 ==
 Linux runnervmu7lcj 7.0.0-1020-azure #21~24.04.2-Ubuntu SMP PREEMPT Tue Nov 10 01:19:17 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 aarch64
 Python 3.12.3
@@ -6,11 +6,99 @@ gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
 --- curl
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-Warning: Failed to open the file work/libtwoyi.so: No such file or directory
-  0 9619k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-curl: (23) Failure writing output to destination
-curl rc=23
-ls: cannot access 'work/libtwoyi.so': No such file or directory
-sha256sum: work/libtwoyi.so: No such file or directory
-== dyndump end Sat Nov 28 01:08:06 UTC 2026 ==
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 9619k  100 9619k    0     0  21.4M      0 --:--:-- --:--:-- --:--:-- 21.4M
+curl rc=0
+-rw-r--r-- 1 runner runner 9850096 Nov 28 01:11 work/libtwoyi.so
+5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
+--- stubs
+dyn/stubs.c: In function ‘__read_chk’:
+dyn/stubs.c:82:79: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   82 | ssize_t __read_chk(int fd, void *buf, size_t n, size_t bn) { (void)bn; return read(fd, buf, n); }
+      |                                                                               ^~~~
+      |                                                                               fread
+dyn/stubs.c: In function ‘__pread_chk’:
+dyn/stubs.c:83:91: warning: implicit declaration of function ‘pread’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   83 | ssize_t __pread_chk(int fd, void *buf, size_t n, off_t off, size_t bn) { (void)bn; return pread(fd, buf, n, off); }
+      |                                                                                           ^~~~~
+      |                                                                                           fread
+dyn/stubs.c: In function ‘__write_chk’:
+dyn/stubs.c:84:86: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+   84 | ssize_t __write_chk(int fd, const void *buf, size_t n, size_t bn) { (void)bn; return write(fd, buf, n); }
+      |                                                                                      ^~~~~
+      |                                                                                      fwrite
+dyn/stubs.c: In function ‘__open_2’:
+dyn/stubs.c:85:45: warning: implicit declaration of function ‘open’; did you mean ‘popen’? [-Wimplicit-function-declaration]
+   85 | int __open_2(const char *p, int f) { return open(p, f); }
+      |                                             ^~~~
+      |                                             popen
+dyn/stubs.c: In function ‘__openat_2’:
+dyn/stubs.c:86:54: warning: implicit declaration of function ‘openat’ [-Wimplicit-function-declaration]
+   86 | int __openat_2(int d, const char *p, int f) { return openat(d, p, f); }
+      |                                                      ^~~~~~
+dyn/stubs.c: In function ‘__umask_chk’:
+dyn/stubs.c:90:39: warning: implicit declaration of function ‘umask’ [-Wimplicit-function-declaration]
+   90 | mode_t __umask_chk(mode_t m) { return umask(m); }
+      |                                       ^~~~~
+stub rc=0
+LIBC=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6  LIBM=/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
+total 36
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:11 libandroid.so -> libbionic_extra.so
+-rwxr-xr-x 1 runner runner 72976 Nov 28 01:11 libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:11 libc.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:11 libdl.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 runner runner    18 Nov 28 01:11 liblog.so -> libbionic_extra.so
+lrwxrwxrwx 1 runner runner    70 Nov 28 01:11 libm.so -> /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/libm.so.6
+--- dumper
+dumper rc=0
+dumper: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=872e98fb0066957b8bca1109fc89e12e4dbc0dee, for GNU/Linux 3.7.0, not stripped
+--- patch noinit
+  DT_FLAGS 0x8 -> 0
+  DT_FLAGS_1 0x1 -> 0x1
+  DT_INIT_ARRAYSZ 304 -> 0
+  DT_INIT_ARRAY 0x90d7a0 -> 0
+wrote work/libtwoyi_noinit.so (9850096 bytes)
+rc=0
+--- patch lazy
+  DT_FLAGS 0x8 -> 0
+  DT_FLAGS_1 0x1 -> 0x1
+wrote work/libtwoyi_lazy.so (9850096 bytes)
+rc=0
+5169a972d6741ace5a9445bde5b3fb4c2f8c06cc4fb1c0cada9f46371c349c72  work/libtwoyi.so
+043c5a20ff2e579154b81901836db3eb7f0b4937198ac36f81880bb4c9a4f480  work/libtwoyi_lazy.so
+2e1f02ee8aba702fe8112a0bc74a80d81b7a22a0b2896dfa1e5e9f1c6fa332cb  work/libtwoyi_noinit.so
+--- phase noinit
+dlopen failed: (null)
+phase noinit  status: exit 10
+rc=0
+--- phase init
+dlopen failed: (null)
+phase init    status: exit 10
+rc=0
+--- phase jni
+dlopen failed: (null)
+phase jni     status: exit 10
+rc=0
+--- compare
+== runtime .data vs static image ==
+  (no complete .data dump found)
+
+== runtime .bss (static image has no bytes here) ==
+rc=0
+--- slots
+--- status
+dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so)
+exited 10
+dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_lazy.so)
+exited 10
+dlopen FAILED: /lib/aarch64-linux-gnu/libc.so.6: version `LIBC' not found (required by /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_noinit.so)
+exited 10
+--- files
+total 36
+drwxr-xr-x  2 runner runner  4096 Nov 28 01:11 .
+drwxr-xr-x 15 runner runner 12288 Nov 28 01:11 ..
+-rw-r--r--  1 runner runner   170 Nov 28 01:11 init_status.txt
+-rw-r--r--  1 runner runner   170 Nov 28 01:11 jni_status.txt
+-rw-r--r--  1 runner runner   172 Nov 28 01:11 noinit_status.txt
+-rw-r--r--  1 runner runner  5743 Nov 28 01:11 run.log
+== dyndump end Sat Nov 28 01:11:39 UTC 2026 ==
