@@ -45,7 +45,7 @@
 
     const-string v3, "_display_name"
 
-    const-string v4, "twoyi_dump2.txt"
+    const-string v4, "twoyi_dump3.txt"
 
     invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -111,6 +111,20 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v6, "build=v11 pid="
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v6
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, "\n"
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -119,7 +133,7 @@
 
     :try_start_m
     :loop_m
-    const/16 v6, 0x28
+    const/16 v6, 0x14
 
     if-ge v3, v6, :endloop_m
 
