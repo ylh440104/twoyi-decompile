@@ -65,8 +65,18 @@ jobs:
 
       - name: Build APK
         run: |
+          set -uo pipefail
+          mkdir -p sixiang/app/dist
           bash sixiang/app/build.sh "$ANDROID_SDK" \
-            sixiang/keys/sixiang.jks sixiang2026 sixiang
+            sixiang/keys/sixiang.jks sixiang2026 sixiang \
+            2>&1 | tee sixiang/app/dist/build.log
+          rc=${PIPESTATUS[0]}
+          if [ "$rc" != "0" ]; then
+            echo "::group::build.log tail"
+            tail -40 sixiang/app/dist/build.log
+            echo "::endgroup::"
+          fi
+          exit $rc
 
       - name: Report
         if: always()
@@ -79,7 +89,7 @@ jobs:
             echo
             ls -l sixiang/app/dist 2>/dev/null || true
             echo
-            sha256sum sixiang/app/dist/SiXiang.apk 2>/dev/null || echo "(no apk)"
+            sha256sum sixiang/app/dist/SiXiang.apk 2>/dev/null || echo "(no apk)"; echo; echo "
           } > sixiang/app/dist/report.md 2>/dev/null || true
           cat sixiang/app/dist/report.md 2>/dev/null || true
 

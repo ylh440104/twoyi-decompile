@@ -31,7 +31,7 @@ mkdir -p "$WORK/classes" "$WORK/flat" "$WORK/stage/lib/arm64-v8a" "$WORK/stage/a
 echo
 echo "== javac =="
 # shellcheck disable=SC2046
-javac -source 8 -target 8 -bootclasspath "$JAR" -d "$WORK/classes" \
+javac -source 8 -target 8 -classpath "$JAR" -d "$WORK/classes" \
       $(find sixiang/app/src -name '*.java') || exit 1
 find "$WORK/classes" -name '*.class' | head
 
