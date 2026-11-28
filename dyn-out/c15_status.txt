@@ -1,0 +1,2 @@
+dlopen FAILED: libandroid.so: cannot open shared object file: No such file or directory
+exited 10

@@ -2,3 +2,4 @@ dlopen FAILED: /home/runner/work/twoyi-decompile/twoyi-decompile/work/libtwoyi_n
 exited 10
 exited 0
 exited 0
+exited 0
