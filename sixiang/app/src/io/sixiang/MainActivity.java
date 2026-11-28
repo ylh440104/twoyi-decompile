@@ -159,7 +159,7 @@ public class MainActivity extends Activity {
         root.addView(head);
 
         screen = new FrameView(this);
-        screen.setTapListener(new FrameView.TapListener() {
+        screen.setTapListener(new TapListener() {
             public void onTap(int gx, int gy) {
                 onGuestTap(gx, gy);
             }
@@ -772,12 +772,13 @@ public class MainActivity extends Activity {
 
     // ------------------------------------------------------------------ views
 
+    /** Notification from the screen view: a tap in guest pixel coordinates. */
+    interface TapListener {
+        void onTap(int gx, int gy);
+    }
+
     /** Shows the guest's framebuffer; owns no geometry decisions. */
     private final class FrameView extends View {
-        interface TapListener {
-            void onTap(int gx, int gy);
-        }
-
         Bitmap bmp;
         int[] px;
         private final Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG);
