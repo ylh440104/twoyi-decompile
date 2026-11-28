@@ -1,0 +1,14 @@
+# SiXiang signing identity
+# keystore: sixiang/keys/sixiang.jks   alias: sixiang
+# storepass / keypass: sixiang2026
+# generated: 2026-11-28T08:00:18Z
+
+Alias name: sixiang
+Creation date: Nov 28, 2026
+Owner: CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN
+Issuer: CN=SiXiang, OU=sixiang, O=sixiang, L=NA, ST=NA, C=CN
+Valid from: Sat Nov 28 08:00:18 UTC 2026 until: Mon Nov 04 08:00:18 UTC 2126
+	 SHA1: 6D:46:59:28:33:9B:2D:B0:C2:B4:03:79:4B:CA:95:50:6A:72:1C:77
+	 SHA256: 26:12:5D:47:61:C9:BC:9E:11:43:D9:0B:CF:1F:D5:1B:39:8A:9C:EC:FF:82:B0:D8:D3:0F:D3:DD:C6:BD:F7:92
+Signature algorithm name: SHA384withRSA
+Subject Public Key Algorithm: 4096-bit RSA key
