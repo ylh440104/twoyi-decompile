@@ -3,13 +3,16 @@ name: SiXiang APK
 # Builds SiXiang.apk with the Android SDK command line tools only: no Gradle,
 # no NDK, no JNI.
 #
-# The trick that removes half the work: the loader is shipped as
-# lib/arm64-v8a/libmini_loader.so. The system unpacks native libraries to
-# /data/app/.../lib/arm64 at install time, and that path is labelled
-# apk_data_file -- which SELinux *does* allow executing. app_data_file is the one
-# that is denied (that is what twoyi's exec-from-fd works around). So the app can
-# simply ProcessBuilder the loader, with the guest rootfs living in filesDir
-# where it is readable but never executed -- mini_loader maps it instead.
+# Two details carry the design:
+#   * the loader ships as lib/arm64-v8a/libmini_loader.so, so the system unpacks
+#     it into /data/app/.../lib/arm64 where the label is apk_data_file -- a type
+#     every app domain may execute (unlike app_data_file);
+#   * the manifest targets API 28, which keeps the app in untrusted_app_27 and
+#     therefore keeps exec/mmap(PROT_EXEC) working on filesDir, which the guest's
+#     own linker64 needs for libc.so and friends.
+#
+# Everything is compiled here. The only thing left for the phone is: install,
+# open, read the console.
 
 on:
   workflow_dispatch:
@@ -67,47 +70,92 @@ jobs:
         run: |
           set -uo pipefail
           mkdir -p sixiang/app/dist
+          # GitHub runs steps with `bash -e`. Turn that off so a failing step
+          # still leaves build.log behind for the report.
+          set +e
           bash sixiang/app/build.sh "$ANDROID_SDK" \
             sixiang/keys/sixiang.jks sixiang2026 sixiang \
             2>&1 | tee sixiang/app/dist/build.log
           rc=${PIPESTATUS[0]}
+          set -e
           if [ "$rc" != "0" ]; then
             echo "::group::build.log tail"
             tail -40 sixiang/app/dist/build.log
             echo "::endgroup::"
+            echo "::error::build.sh exited with $rc"
           fi
           exit $rc
+
+      - name: Inspect APK
+        if: always()
+        run: |
+          set -uo pipefail
+          APK=sixiang/app/dist/SiXiang.apk
+          test -f "$APK" || { echo "no apk"; exit 0; }
+          BT=$(ls -d "$ANDROID_SDK"/build-tools/* | sort -V | tail -1)
+          {
+            echo "## badging"
+            "$BT/aapt2" dump badging "$APK" 2>&1 | head -12 || true
+            echo
+            echo "## zip"
+            unzip -l "$APK" | head -20 || true
+            echo
+            echo "## certs"
+            "$BT/apksigner" verify --print-certs "$APK" | head -6 || true
+          } | tee sixiang/app/dist/inspect.txt
 
       - name: Report
         if: always()
         run: |
+          set -uo pipefail
+          mkdir -p sixiang/app/dist
           {
             echo "# SiXiang.apk"
             echo
-            echo "commit: $GITHUB_SHA"
-            echo "run:    $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "commit: \`$GITHUB_SHA\`"
             echo
+            echo "run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "## dist"
+            echo '```'
             ls -l sixiang/app/dist 2>/dev/null || true
-            echo
-            sha256sum sixiang/app/dist/SiXiang.apk 2>/dev/null || echo "(no apk)"; echo; echo "
-          } > sixiang/app/dist/report.md 2>/dev/null || true
-          cat sixiang/app/dist/report.md 2>/dev/null || true
+            echo '```'
+            echo "## sha256"
+            echo '```'
+            sha256sum sixiang/app/dist/SiXiang.apk 2>/dev/null || echo "(no apk)"
+            echo '```'
+            echo "## build.log tail"
+            echo '```'
+            tail -60 sixiang/app/dist/build.log 2>/dev/null || echo "(no build.log)"
+            echo '```'
+          } > sixiang/app/dist/report.md
+          cat sixiang/app/dist/report.md
 
-      - name: Commit APK
+      - name: Commit results
         if: always()
         run: |
+          set -uo pipefail
           git config user.name  "sixiang-ci"
           git config user.email "ci@sixiang.invalid"
           git add -f sixiang/app/dist 2>/dev/null || true
-          git commit -q -m "apk: SiXiang ${GITHUB_SHA::7}" || echo "nothing to commit"
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -q -m "apk: SiXiang ${GITHUB_SHA::7}" || true
           for i in 1 2 3 4 5; do
-            git pull --rebase -q origin main && git push && { echo PUSHED; break; }
-            echo "retry $i"; sleep 6
+            if git pull --rebase -q origin main && git push -q origin HEAD:main; then
+              echo PUSHED
+              exit 0
+            fi
+            echo "retry $i"
+            sleep 6
           done
+          echo "::warning::could not push results"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: SiXiang-apk
-          path: sixiang/app/dist/SiXiang.apk
+          path: sixiang/app/dist/
           if-no-files-found: warn
