@@ -1,8 +1,13 @@
 package io.sixiang;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,139 +30,104 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.IntBuffer;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
- * SiXiang v0.1 -- a console that runs Android 17 user-space programs inside
- * this app, with no JNI, no root and no namespaces.
+ * SiXiang -- a container UI, in the shape twoyi has: a status bar, the guest's
+ * screen in the middle, controls, and a terminal drawer.
  *
- * Why this is a real container step and not a simulation
- * ------------------------------------------------------
- * The code in filesDir/system/bin/toybox is the toybox from an Android 17 GSI.
- * It is started by the *guest's own* linker64, which resolves libc.so, libm.so,
- * libc++.so ... and then transfers control to toybox. mini_loader only does
- * what the kernel would do for execve(): put the program's phdr into AT_PHDR,
- * put the interpreter's load bias into AT_BASE, and jump to the interpreter's
- * entry point.
- *
- * Why targetSdk is 28 (see AndroidManifest.xml)
- * ---------------------------------------------
- * Android 10+ forbids executing -- and therefore mmap(PROT_EXEC) -- files under
- * filesDir unless the app targets API <= 28 (untrusted_app_27). Both the loader
- * and the guest linker need those mappings.
- *
- * The console is self-diagnosing on purpose: every step prints PASS/FAIL and the
- * exact exception, so a screenshot alone says where it stopped.
+ * The screen is not a mock. A guest process (assets/screen, a bionic binary
+ * started through the guest's own linker64) paints pixels into a shared buffer;
+ * this app maps the same file and blits it into a View. That is the frame
+ * channel a container needs, and it is the first half of "guest desktop in a
+ * window". The second half -- a real compositor producing those frames -- is
+ * what SurfaceFlinger + an HWC shim would bring, and is not here yet.
  */
 public class MainActivity extends Activity {
 
-    private static final String TAG = "SiXiang";
-
-    private TextView console;
-    private EditText input;
-    private ScrollView scroll;
+    /* Keep in sync with sixiang/guest/demo/screen.c */
+    private static final int FB_W = 320;
+    private static final int FB_H = 568;
+    private static final int FB_HDR = 64;
 
     private final Handler ui = new Handler(Looper.getMainLooper());
 
+    private TextView status;
+    private TextView console;
+    private ScrollView consoleScroll;
+    private EditText input;
+    private FrameView screen;
+
     private volatile boolean busy;
+    private volatile boolean pumping;
+    private volatile int frames;
+    private int fpsBase;
+    private long fpsT0;
+
     private File guestDir;
     private File loader;
+    private Process screenProc;
+    private MappedByteBuffer fbMap;
+    private Thread pump;
 
-    /* Android runs every app under a seccomp filter that kills disallowed
-     * syscalls. glibc >= 2.35 registers rseq() in its startup path, and that
-     * call is not in the allowlist, so a *static glibc* helper dies with signal
-     * 31 before it can print anything (observed: exit=159, zero output, while
-     * the very same binary runs fine as `shell`). glibc honours
-     * GLIBC_TUNABLES before that registration, so this flag turns it off. */
-    private volatile boolean noRseq;
+    /* ------------------------------------------------------------------ ui */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         float d = getResources().getDisplayMetrics().density;
-        int pad = (int) (12 * d);
+        int pad = (int) (10 * d);
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setBackgroundColor(Color.parseColor("#101418"));
+        root.setBackgroundColor(0xFF0A0E12);
         root.setPadding(pad, pad, pad, pad);
+
+        // ---- header: name + live status
+        LinearLayout head = new LinearLayout(this);
+        head.setOrientation(LinearLayout.HORIZONTAL);
+        head.setGravity(Gravity.CENTER_VERTICAL);
 
         TextView title = new TextView(this);
         title.setText("SiXiang");
-        title.setTextSize(22);
-        title.setTextColor(Color.parseColor("#7fd1ff"));
+        title.setTextSize(20);
         title.setTypeface(Typeface.DEFAULT_BOLD);
-        root.addView(title);
+        title.setTextColor(0xFF7FD1FF);
+        head.addView(title, new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-        TextView sub = new TextView(this);
-        sub.setText("四象 · Android 17 用户态容器 (v0.1)");
-        sub.setTextSize(11);
-        sub.setTextColor(Color.parseColor("#8a9aa6"));
-        root.addView(sub);
+        status = new TextView(this);
+        status.setTextSize(11);
+        status.setGravity(Gravity.END);
+        status.setTextColor(0xFF8A9AA6);
+        status.setText("容器未启动");
+        head.addView(status);
+        root.addView(head);
 
-        console = new TextView(this);
-        console.setTextSize(10);
-        console.setTypeface(Typeface.MONOSPACE);
-        console.setTextColor(Color.parseColor("#c8f0d0"));
-        console.setTextIsSelectable(true);
-        scroll = new ScrollView(this);
-        scroll.addView(console);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+        // ---- the guest screen
+        screen = new FrameView(this);
+        LinearLayout.LayoutParams slp = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f);
-        lp.topMargin = pad;
-        root.addView(scroll, lp);
+        slp.topMargin = pad;
+        root.addView(screen, slp);
 
-        // command row ---------------------------------------------------
-        LinearLayout row = new LinearLayout(this);
-        row.setOrientation(LinearLayout.HORIZONTAL);
-        row.setGravity(Gravity.CENTER_VERTICAL);
+        // ---- controls
+        LinearLayout controls = new LinearLayout(this);
+        controls.setOrientation(LinearLayout.HORIZONTAL);
 
-        input = new EditText(this);
-        input.setText("uname -a");
-        input.setTextSize(12);
-        input.setSingleLine(true);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setHint("toybox 参数，如 ls / 、id 、cat /system/build.prop");
-        row.addView(input, new LinearLayout.LayoutParams(0,
-                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
-
-        Button send = new Button(this);
-        send.setText("运行");
-        row.addView(send);
-        root.addView(row);
-
-        LinearLayout row2 = new LinearLayout(this);
-        row2.setOrientation(LinearLayout.HORIZONTAL);
-
-        Button selftest = new Button(this);
-        selftest.setText("自检 / 重新启动 guest");
-        row2.addView(selftest, new LinearLayout.LayoutParams(0,
-                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
-
-        Button clear = new Button(this);
-        clear.setText("清屏");
-        row2.addView(clear);
-        root.addView(row2);
-
-        setContentView(root);
-
-        send.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                final String line = input.getText().toString().trim();
-                if (line.length() == 0) return;
-                new Thread(new Runnable() {
-                    public void run() {
-                        runCommandLine(line);
-                    }
-                }).start();
-            }
-        });
-
-        selftest.setOnClickListener(new View.OnClickListener() {
+        Button start = new Button(this);
+        start.setText("启动容器");
+        start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new Thread(new Runnable() {
                     public void run() {
@@ -166,14 +136,78 @@ public class MainActivity extends Activity {
                 }).start();
             }
         });
+        controls.addView(start, new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-        clear.setOnClickListener(new View.OnClickListener() {
+        Button stop = new Button(this);
+        stop.setText("停止");
+        stop.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                console.setText("");
+                shutdown();
             }
         });
+        controls.addView(stop);
 
-        // Start the self-test by itself: opening the app is the test.
+        Button term = new Button(this);
+        term.setText("终端");
+        term.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                consoleScroll.setVisibility(
+                        consoleScroll.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+            }
+        });
+        controls.addView(term);
+        root.addView(controls);
+
+        // ---- terminal drawer
+        console = new TextView(this);
+        console.setTextSize(9);
+        console.setTypeface(Typeface.MONOSPACE);
+        console.setTextColor(0xFFC8F0D0);
+        console.setTextIsSelectable(true);
+        consoleScroll = new ScrollView(this);
+        consoleScroll.setBackgroundColor(0xFF05070A);
+        consoleScroll.addView(console);
+        consoleScroll.setVisibility(View.VISIBLE);
+        LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, (int) (150 * d));
+        clp.topMargin = pad;
+        root.addView(consoleScroll, clp);
+
+        LinearLayout row = new LinearLayout(this);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setGravity(Gravity.CENTER_VERTICAL);
+
+        input = new EditText(this);
+        input.setText("uname -a");
+        input.setTextSize(11);
+        input.setSingleLine(true);
+        input.setTextColor(0xFFC8F0D0);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        row.addView(input, new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+
+        Button run = new Button(this);
+        run.setText("运行");
+        run.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                final String line = input.getText().toString().trim();
+                if (line.length() == 0) return;
+                new Thread(new Runnable() {
+                    public void run() {
+                        runGuestCommand(line);
+                    }
+                }).start();
+            }
+        });
+        row.addView(run);
+        root.addView(row);
+
+        setContentView(root);
+
+        ui.post(statusTick);
+
+        // Bring the container up on its own: opening the app is the test.
         new Thread(new Runnable() {
             public void run() {
                 boot();
@@ -181,17 +215,46 @@ public class MainActivity extends Activity {
         }).start();
     }
 
-    // ------------------------------------------------------------------ log
+    @Override
+    protected void onDestroy() {
+        shutdown();
+        super.onDestroy();
+    }
+
+    private final Runnable statusTick = new Runnable() {
+        public void run() {
+            long now = System.currentTimeMillis();
+            if (fpsT0 == 0) {
+                fpsT0 = now;
+                fpsBase = frames;
+            }
+            double fps = 0;
+            long dt = now - fpsT0;
+            if (dt > 0) fps = (frames - fpsBase) * 1000.0 / dt;
+            if (fpsT0 + 2000 < now) {
+                fpsT0 = now;
+                fpsBase = frames;
+            }
+            if (screenProc != null && pumping) {
+                status.setText(String.format("guest 画面 · frame %d · %.0f fps", frames, fps));
+            } else if (frames > 0) {
+                status.setText("已停止 · 最后 frame " + frames);
+            }
+            ui.postDelayed(this, 500);
+        }
+    };
+
+    // ---------------------------------------------------------------- logging
 
     private void say(final String s) {
-        android.util.Log.i(TAG, s);
+        android.util.Log.i("SiXiang", s);
         ui.post(new Runnable() {
             public void run() {
                 console.append(s);
                 console.append("\n");
-                scroll.post(new Runnable() {
+                consoleScroll.post(new Runnable() {
                     public void run() {
-                        scroll.fullScroll(View.FOCUS_DOWN);
+                        consoleScroll.fullScroll(View.FOCUS_DOWN);
                     }
                 });
             }
@@ -202,7 +265,7 @@ public class MainActivity extends Activity {
         say("  " + k + ": " + v);
     }
 
-    // ----------------------------------------------------------------- boot
+    // ------------------------------------------------------------------- boot
 
     private void boot() {
         if (busy) {
@@ -217,7 +280,7 @@ public class MainActivity extends Activity {
                 }
             });
 
-            say("SiXiang v0.1");
+            say("SiXiang container v0.2");
             say("");
             say("[1] 运行环境");
             sayBoth("device", Build.MANUFACTURER + " " + Build.MODEL);
@@ -229,16 +292,12 @@ public class MainActivity extends Activity {
             sayBoth("nativeLibraryDir", ai.nativeLibraryDir);
             say("");
 
-            // [2] guest rootfs ------------------------------------------
             say("[2] guest rootfs");
             guestDir = new File(getFilesDir(), "guest");
             File toybox = new File(guestDir, "system/bin/toybox");
             File linker64 = new File(guestDir, "system/bin/linker64");
             File libc = new File(guestDir, "system/lib64/libc.so");
-
             if (!toybox.isFile() || !linker64.isFile() || !libc.isFile()) {
-                // An APK-external bundle wins: it lets a test (or the user) drop
-                // in a rootfs for another ABI without rebuilding the APK.
                 File override = new File(getFilesDir(), "guest.zip");
                 boolean useOverride = override.isFile();
                 say("  解包 " + (useOverride ? override.getAbsolutePath() : "assets/guest.zip"));
@@ -251,16 +310,15 @@ public class MainActivity extends Activity {
             } else {
                 say("  已存在，跳过解包");
             }
-            sayBoth("linker64", linker64.isFile() ? linker64.length() + " B" : "missing");
+            sayBoth("linker64", linker64.length() + " B");
             sayBoth("libc.so", libc.length() + " B");
             sayBoth("toybox", toybox.length() + " B");
             say("");
 
-            // [3] loader ------------------------------------------------
             say("[3] loader");
             loader = chooseLoader();
             if (loader == null) {
-                say("  FAIL 没有可执行的 mini_loader —— 停在这里");
+                say("  FAIL 没有可执行的 mini_loader");
                 return;
             }
             sayBoth("path", loader.getAbsolutePath());
@@ -268,34 +326,21 @@ public class MainActivity extends Activity {
             say("  PASS");
             say("");
 
-            // [4] guest 程序 --------------------------------------------
-            say("[4] 让 guest 自己的 linker64 启动 toybox");
+            say("[4] 画面通道");
+            startScreen(linker64);
+            say("");
 
-            // Three probes, so one screenshot is enough to localise the failure:
-            //   a) can this app exec *anything* (control: /system/bin/sh)
-            //   b) can it exec our loader at all (loader alone prints usage)
-            //   c) can the loader bring up the guest
-            say("[4a] 控制组：exec /system/bin/sh");
-            int sh = runRaw("/system/bin/sh", "-c", "echo SIXIANG_SH_OK");
-            say("[4b] 单独跑 loader（无参数，应打印用法，exit=2）");
-            int usage = runRaw(loader.getAbsolutePath());
-            say("[4c] guest");
+            say("[5] guest 程序");
             int a = runToybox(new String[]{"uname", "-a"});
             if (a != 0) {
-                say("");
-                say("  第一次失败（exit=" + a + "，没有任何输出）—— 典型的 seccomp 杀进程。");
-                say("  重试：GLIBC_TUNABLES=glibc.pthread.rseq=0");
-                noRseq = true;
+                say("  重试：GLIBC_TUNABLES=glibc.pthread.rseq=0（老 glibc loader 才需要）");
                 a = runToybox(new String[]{"uname", "-a"});
             }
-            int b = (a == 0) ? runToybox(new String[]{"id"}) : -1;
-            int c = (b == 0) ? runToybox(new String[]{"echo", "SIXIANG_GUEST_OK"}) : -1;
-            say("");
-            say("[小结] sh=" + sh + " loader=" + usage + " guest=" + a + "/" + b + "/" + c);
-            if (a == 0 && b == 0 && c == 0) {
-                say("== 全部通过：guest（Android 17 用户态）已在本 app 内运行 ==");
+            if (a == 0) {
+                runToybox(new String[]{"id"});
+                say("== guest 程序已在本 app 内运行 ==");
             } else {
-                say("== 有失败项，看上面的错误行 ==");
+                say("== guest 程序失败 ==");
             }
         } catch (Throwable t) {
             say("!! 异常 " + t);
@@ -306,11 +351,134 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Three candidates, in order of preference:
-     *   1. nativeLibraryDir/libmini_loader.so  -- apk_data_file, always executable
-     *   2. filesDir/guest/mini_loader          -- shipped inside guest.zip
-     *   3. filesDir/bin/mini_loader            -- copy of (2), mode 0755
+     * Map the shared buffer, extract the guest painter next to the rootfs, and
+     * run it through the guest linker. Frames then arrive via the mapping.
      */
+    private void startScreen(File linker64) {
+        try {
+            File fb = new File(getFilesDir(), "screen.rgba");
+            int bytes = FB_HDR + FB_W * FB_H * 4;
+            RandomAccessFile raf = new RandomAccessFile(fb, "rw");
+            raf.setLength(bytes);
+            FileChannel ch = raf.getChannel();
+            fbMap = ch.map(FileChannel.MapMode.READ_WRITE, 0, bytes);
+            fbMap.putInt(0, 0);
+
+            File bin = new File(guestDir, "screen");
+            copyAsset("screen", bin);
+            sayBoth("painter", bin.getAbsolutePath() + " (" + bin.length() + " B)");
+            sayBoth("framebuffer", fb.getAbsolutePath() + " (" + bytes + " B)");
+
+            List<String> cmd = new ArrayList<String>();
+            cmd.add(loader.getAbsolutePath());
+            cmd.add("--interp");
+            cmd.add(linker64.getAbsolutePath());
+            cmd.add(bin.getAbsolutePath());
+
+            ProcessBuilder pb = new ProcessBuilder(cmd);
+            pb.environment().put("LD_LIBRARY_PATH",
+                    new File(guestDir, "system/lib64").getAbsolutePath());
+            pb.environment().put("SIXIANG_FB", fb.getAbsolutePath());
+            pb.environment().put("SIXIANG_FPS", "20");
+            pb.redirectErrorStream(true);
+
+            screenProc = pb.start();
+            frames = 0;
+            fpsT0 = 0;
+            startPump();
+
+            // watcher: report the guest painter's output and exit code
+            final Process p = screenProc;
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        BufferedReader r = new BufferedReader(
+                                new InputStreamReader(p.getInputStream()));
+                        String l;
+                        while ((l = r.readLine()) != null) say("  painter| " + l);
+                        final int rc = p.waitFor();
+                        say("  painter 退出 exit=" + rc);
+                    } catch (Throwable t) {
+                        say("  painter 监控失败 " + t);
+                    }
+                }
+            }).start();
+
+            // give it a moment, then report whether pixels are actually moving
+            Thread.sleep(600);
+            if (frames > 0) {
+                say("  PASS 已连接 guest 画面（guest 在画，app 在显示）");
+            } else {
+                say("  FAIL 画面没有到达（guest painter 可能没起来）");
+            }
+        } catch (Throwable t) {
+            say("  !! 画面通道失败 " + t);
+        }
+    }
+
+    private void startPump() {
+        if (pumping) return;
+        pumping = true;
+        pump = new Thread(new Runnable() {
+            public void run() {
+                IntBuffer ib = null;
+                int last = -1;
+                while (pumping) {
+                    try {
+                        if (fbMap == null) {
+                            Thread.sleep(50);
+                            continue;
+                        }
+                        if (ib == null) {
+                            ByteBuffer d = fbMap.duplicate();
+                            d.order(ByteOrder.nativeOrder());
+                            d.position(FB_HDR);
+                            ib = d.asIntBuffer();
+                        }
+                        int seq = fbMap.getInt(0);
+                        if (seq != last && (seq & 1) == 0) {
+                            ib.position(0);
+                            ib.get(screen.px);
+                            if (fbMap.getInt(0) == seq) {
+                                last = seq;
+                                frames++;
+                                ui.post(new Runnable() {
+                                    public void run() {
+                                        screen.bmp.setPixels(screen.px, 0, FB_W, 0, 0, FB_W, FB_H);
+                                        screen.invalidate();
+                                    }
+                                });
+                            }
+                        }
+                        Thread.sleep(30);
+                    } catch (InterruptedException e) {
+                        return;
+                    } catch (Throwable t) {
+                        return;
+                    }
+                }
+            }
+        });
+        pump.start();
+    }
+
+    private void shutdown() {
+        pumping = false;
+        if (screenProc != null) {
+            screenProc.destroy();
+            screenProc = null;
+        }
+        if (pump != null) {
+            pump.interrupt();
+            pump = null;
+        }
+        if (fbMap != null) {
+            fbMap = null;
+        }
+    }
+
+    // ------------------------------------------------------------- guest exec
+
     private File chooseLoader() throws Exception {
         File fromLib = new File(getApplicationInfo().nativeLibraryDir, "libmini_loader.so");
         File fromZip = new File(guestDir, "mini_loader");
@@ -319,48 +487,46 @@ public class MainActivity extends Activity {
         File[] order = new File[]{fromLib, fromZip, copy};
         for (int i = 0; i < order.length; i++) {
             File f = order[i];
-            if (!f.isFile()) {
-                sayBoth("missing", f.getAbsolutePath());
-                continue;
-            }
-            if (!f.canExecute()) {
-                boolean ok = f.setExecutable(true, false);
-                sayBoth("chmod +x " + f.getName(), String.valueOf(ok));
-            }
+            if (!f.isFile()) continue;
+            if (!f.canExecute()) f.setExecutable(true, false);
             if (f.canExecute()) return f;
-            sayBoth("not executable", f.getAbsolutePath());
         }
-
-        // Last resort: copy the one inside guest.zip next to filesDir/bin.
         if (fromZip.isFile()) {
             copy.getParentFile().mkdirs();
             copyFile(fromZip, copy);
-            //noinspection ResultOfMethodCallIgnored
             copy.setExecutable(true, false);
             if (copy.canExecute()) return copy;
         }
         return null;
     }
 
-    // ------------------------------------------------------------- running
-
-    private void runCommandLine(String line) {
+    private void runGuestCommand(String line) {
         if (loader == null || guestDir == null) {
-            say("先点「自检」把 guest 准备好");
+            say("先点「启动容器」");
             return;
         }
-        String[] parts = line.trim().split("\\s+");
-        runToybox(parts);
+        runToybox(line.trim().split("\\s+"));
     }
 
-    /** Exec an arbitrary argv inside this app and echo everything it prints. */
-    private int runRaw(String... argv) {
+    private int runToybox(String[] args) {
         try {
             List<String> cmd = new ArrayList<String>();
-            for (int i = 0; i < argv.length; i++) cmd.add(argv[i]);
-            say("$ " + join(argv));
+            cmd.add(loader.getAbsolutePath());
+            cmd.add("--interp");
+            cmd.add(new File(guestDir, "system/bin/linker64").getAbsolutePath());
+            cmd.add(new File(guestDir, "system/bin/toybox").getAbsolutePath());
+            for (int i = 0; i < args.length; i++) cmd.add(args[i]);
+
+            say("$ toybox " + join(args));
+
             ProcessBuilder pb = new ProcessBuilder(cmd);
+            pb.environment().put("LD_LIBRARY_PATH",
+                    new File(guestDir, "system/lib64").getAbsolutePath());
+            pb.environment().put("PATH",
+                    new File(guestDir, "system/bin").getAbsolutePath() + ":/system/bin");
+            pb.environment().put("TMPDIR", new File(guestDir, "tmp").getAbsolutePath());
             pb.redirectErrorStream(true);
+
             Process p = pb.start();
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String l;
@@ -378,48 +544,32 @@ public class MainActivity extends Activity {
         }
     }
 
-    private int runToybox(String[] args) {
-        File dir = guestDir;
-        try {
-            List<String> cmd = new ArrayList<String>();
-            cmd.add(loader.getAbsolutePath());
-            cmd.add("--interp");
-            cmd.add(new File(dir, "system/bin/linker64").getAbsolutePath());
-            cmd.add(new File(dir, "system/bin/toybox").getAbsolutePath());
-            for (int i = 0; i < args.length; i++) cmd.add(args[i]);
+    // ------------------------------------------------------------------ views
 
-            say("$ toybox " + join(args));
+    /** Draws the guest's framebuffer, aspect-fitted, in the middle of the view. */
+    static final class FrameView extends View {
+        final Bitmap bmp = Bitmap.createBitmap(FB_W, FB_H, Bitmap.Config.ARGB_8888);
+        final int[] px = new int[FB_W * FB_H];
+        private final Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG);
+        private final RectF dst = new RectF();
 
-            ProcessBuilder pb = new ProcessBuilder(cmd);
-            pb.environment().put("LD_LIBRARY_PATH",
-                    new File(dir, "system/lib64").getAbsolutePath());
-            pb.environment().put("PATH",
-                    new File(dir, "system/bin").getAbsolutePath() + ":/system/bin");
-            pb.environment().put("TMPDIR", new File(dir, "tmp").getAbsolutePath());
-            if (noRseq) {
-                // glibc reads these tunables before it registers rseq.
-                pb.environment().put("GLIBC_TUNABLES", "glibc.pthread.rseq=0");
-            }
-            pb.redirectErrorStream(true);
+        FrameView(Context c) {
+            super(c);
+            setBackgroundColor(0xFF05070A);
+        }
 
-            Process p = pb.start();
-            BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String l;
-            int lines = 0;
-            while ((l = r.readLine()) != null) {
-                say("  " + l);
-                lines++;
-            }
-            int rc = p.waitFor();
-            say("  -> exit=" + rc + " (" + lines + " lines)");
-            return rc;
-        } catch (Throwable t) {
-            say("  !! " + t);
-            return -1;
+        @Override
+        protected void onDraw(Canvas c) {
+            float sw = getWidth(), sh = getHeight();
+            if (sw <= 0 || sh <= 0) return;
+            float scale = Math.min(sw / FB_W, sh / FB_H);
+            float w = FB_W * scale, h = FB_H * scale;
+            dst.set((sw - w) / 2f, (sh - h) / 2f, (sw + w) / 2f, (sh + h) / 2f);
+            c.drawBitmap(bmp, null, dst, paint);
         }
     }
 
-    // -------------------------------------------------------------- helpers
+    // ---------------------------------------------------------------- helpers
 
     private static String join(String[] a) {
         StringBuilder sb = new StringBuilder();
@@ -428,6 +578,22 @@ public class MainActivity extends Activity {
             sb.append(a[i]);
         }
         return sb.toString();
+    }
+
+    private void copyAsset(String name, File dst) throws Exception {
+        InputStream in = getAssets().open(name);
+        try {
+            OutputStream out = new FileOutputStream(dst);
+            try {
+                byte[] buf = new byte[65536];
+                int n;
+                while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
     }
 
     private static void copyFile(File src, File dst) throws Exception {
@@ -471,8 +637,6 @@ public class MainActivity extends Activity {
                 } finally {
                     o.close();
                 }
-                // Cheap, but it matters: an exec'd guest binary needs +x if it
-                // is ever started directly instead of through the loader.
                 if (name.indexOf("/bin/") >= 0 || name.indexOf("mini_loader") >= 0) {
                     //noinspection ResultOfMethodCallIgnored
                     f.setExecutable(true, false);

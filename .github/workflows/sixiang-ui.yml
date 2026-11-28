@@ -88,6 +88,20 @@ jobs:
           } >> "$LOG" 2>&1 || true
           exit $rc
 
+      - name: Build the guest screen painter (x86_64, PIE)
+        run: |
+          set -uo pipefail
+          mkdir -p sixiang/guest/dist
+          NDK=$(ls -d /usr/local/lib/android/sdk/ndk/* 2>/dev/null | sort -V | tail -1 || true)
+          if [ -z "${NDK:-}" ] || [ ! -d "$NDK" ]; then
+            NDK=$(ls -d "$ANDROID_SDK"/ndk/* | sort -V | tail -1)
+          fi
+          CC=$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android26-clang
+          "$CC" -O2 -fPIE -pie -Wall -Wextra \
+              -o sixiang/guest/dist/screen-x86_64 sixiang/guest/demo/screen.c
+          file sixiang/guest/dist/screen-x86_64
+          ls -l sixiang/guest/dist/screen-x86_64
+
       - name: Enable KVM (the emulator is unusable without it)
         run: |
           set -uo pipefail

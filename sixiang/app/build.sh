@@ -32,6 +32,8 @@ esac
 # Which guest rootfs to embed. The emulator smoke test builds an x86_64 bundle
 # out of the emulator itself and points this at it.
 GUEST_ZIP=${SIXIANG_GUEST_ZIP:-sixiang/guest/dist/sixiang-guest.zip}
+# The guest painter that feeds the app's screen view. Built per ABI in CI.
+SCREEN=${SIXIANG_SCREEN:-sixiang/guest/dist/screen-arm64}
 
 # Pick whatever build-tools the SDK installed.
 BT=$(ls -d "$SDK"/build-tools/* 2>/dev/null | sort -V | tail -1)
@@ -44,6 +46,7 @@ echo "javac      : $(javac -version 2>&1)"
 test -f "$JAR" || { echo "android.jar missing"; exit 1; }
 test -f sixiang/loader/bin/mini_loader || { echo "mini_loader missing"; exit 1; }
 test -f "$GUEST_ZIP" || { echo "guest bundle missing: $GUEST_ZIP"; exit 1; }
+test -f "$SCREEN" || { echo "guest painter missing: $SCREEN"; exit 1; }
 
 WORK=$(mktemp -d)
 echo "work: $WORK"
@@ -84,6 +87,7 @@ echo
 echo "== stage payload =="
 cp sixiang/loader/bin/mini_loader "$WORK/stage/lib/arm64-v8a/libmini_loader.so" || exit 1
 cp "$GUEST_ZIP" "$WORK/stage/assets/guest.zip" || exit 1
+cp "$SCREEN" "$WORK/stage/assets/screen" || exit 1
 # The emulator smoke test needs an APK it can actually install on x86_64, so it
 # builds with SIXIANG_ABIS=all and drops this second loader in.
 if [ "${SIXIANG_ABIS:-arm64}" = "all" ]; then
@@ -105,7 +109,7 @@ cp "$WORK/base.apk" "$WORK/unsigned.apk" || exit 1
 unzip -l "$WORK/unsigned.apk" | tail -12
 
 # Fail loudly if the load-bearing entries did not make it in.
-for e in lib/arm64-v8a/libmini_loader.so assets/guest.zip classes.dex; do
+for e in lib/arm64-v8a/libmini_loader.so assets/guest.zip assets/screen classes.dex; do
     if ! unzip -l "$WORK/unsigned.apk" | grep -q " $e$"; then
         echo "::error::APK is missing $e"
         exit 1

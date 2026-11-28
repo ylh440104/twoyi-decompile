@@ -109,6 +109,7 @@ adb shell 'cd /data/local/tmp/g && LD_LIBRARY_PATH=system/lib64 /data/local/tmp/
 log ""
 log "== build an APK that can install here (arm64 + x86_64) =="
 SIXIANG_ABIS=all SIXIANG_GUEST_ZIP="$GUEST" \
+    SIXIANG_SCREEN=sixiang/guest/dist/screen-x86_64 \
     bash sixiang/app/build.sh "$ANDROID_SDK" \
     sixiang/keys/sixiang.jks sixiang2026 sixiang >>"$LOG" 2>&1 || {
         log "!! build failed (tail)"; tail -20 "$LOG"; exit 1; }
@@ -164,12 +165,21 @@ adb logcat -d -b all 2>/dev/null | grep -iE 'avc:|seccomp|SIGSYS' | tail -40 | t
 
 log ""
 log "== verdict =="
-# The app prints this line only when all three guest runs returned 0, so it can
-# not be faked by the echoed command line (an earlier version grepped for
-# SIXIANG_GUEST_OK and happily matched "$ toybox echo SIXIANG_GUEST_OK").
-if grep -q '全部通过' "$LOG" 2>/dev/null; then
-    log "PASS: the guest ran inside the app and its output reached the screen"
-    exit 0
+# Two things must hold: the guest painter feeds frames into the app's screen
+# view, and a guest binary runs. "已连接 guest 画面" is printed only after a
+# frame actually arrived through the mapping.
+ok=0
+if grep -q '已连接 guest 画面' "$LOG" 2>/dev/null; then
+    log "PASS: guest frames reached the screen view"
+    ok=$((ok + 1))
+else
+    log "FAIL: no guest frames arrived"
 fi
-log "FAIL: no successful guest run (see the pre-flight and logcat above)"
+if grep -q 'guest 程序已在本 app 内运行' "$LOG" 2>/dev/null; then
+    log "PASS: the guest ran inside the app"
+    ok=$((ok + 1))
+else
+    log "FAIL: no successful guest run (see logcat above)"
+fi
+[ "$ok" = "2" ] && exit 0
 exit 1
