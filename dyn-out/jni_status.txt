@@ -13,3 +13,5 @@ NOTE: fault inside dlopen (constructor), partial state dumped
 exited 0
 NOTE: fault inside dlopen (constructor), partial state dumped
 exited 0
+NOTE: fault inside dlopen (constructor), partial state dumped
+exited 0
