@@ -121,7 +121,7 @@
     :loop_m
     const/16 v6, 0x28
 
-    if-lt v3, v6, :endloop_m
+    if-ge v3, v6, :endloop_m
 
     new-instance v6, Ljava/io/BufferedReader;
 
