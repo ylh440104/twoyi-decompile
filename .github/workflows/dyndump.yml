@@ -50,6 +50,7 @@ jobs:
           set +e
           {
             echo "--- curl"
+            mkdir -p work dyn-out
             curl -fL --retry 2 -o work/libtwoyi.so \
               "https://github.com/ylh440104/twoyi-decompile/releases/download/native-0.7.5/libtwoyi.so"
             echo "curl rc=$?"
