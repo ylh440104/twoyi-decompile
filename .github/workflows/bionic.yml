@@ -1,13 +1,14 @@
 name: bionic runtime probe
 
-# Frida-gadget can only hook a library that actually loads.  On glibc the load is
-# degenerate: DT_ANDROID_RELA (APS2 packed relocations, 112,262 entries) is
-# ignored, so .got and .init_array stay zero and any PLT call jumps to 0.
-# So first we need a real bionic loader.
+# Step 2 of the bionic route: the Termux bootstrap is a bionic userland, but its
+# binaries need the bionic loader as INTERP.  Termux puts it at
+#     $PREFIX/lib/ld-android.so
+# and the loader understands `--library-path`, so a bionic binary can run on a
+# glibc host without patching anything:
+#     ld-android.so --library-path $PREFIX/lib -- $PREFIX/bin/bash -c ...
 #
-# This job proves the runtime can execute: fetch the Termux bootstrap, run its
-# bionic /bin/bash on the ARM64 runner, and report which loader/libc it used.
-# It also resolves the current frida-gadget Android arm64 asset URL.
+# This job (a) prints PT_INTERP of the bionic bash, (b) locates ld-android.so and
+# libc.so, (c) actually executes bash through that loader.
 
 on:
   workflow_dispatch:
@@ -26,63 +27,56 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Probe bionic runtime (Termux bootstrap)
+      - name: Get Termux bootstrap
         run: |
           set +e
           mkdir -p bionic-out work
           {
             echo "== host =="
-            uname -a
-
-            echo "== resolve bootstrap asset =="
+            uname -m
             A="https://api.github.com/repos/termux/termux-packages/releases/latest"
             URL=$(curl -s --max-time 30 "$A" | python3 -c "import json,sys;d=json.load(sys.stdin);print([a['browser_download_url'] for a in d.get('assets',[]) if a['name']=='bootstrap-aarch64.zip'][0])" 2>/dev/null)
-            echo "resolved: [$URL]"
-            if [ -z "$URL" ]; then
-              URL="https://github.com/termux/termux-packages/releases/download/bootstrap-2024.10.24-r1/bootstrap-aarch64.zip"
-              echo "fallback: $URL"
-            fi
+            echo "asset: $URL"
+            [ -z "$URL" ] && URL="https://github.com/termux/termux-packages/releases/download/bootstrap-2024.10.24-r1/bootstrap-aarch64.zip"
             curl -fL --retry 2 -o work/tb.zip "$URL"
             echo "curl rc=$?"
-            ls -l work/tb.zip
-
-            echo "== unpack =="
             unzip -q -o work/tb.zip -d work/termux
             echo "unzip rc=$?"
-            ls work/termux | head -20
-
-            echo "== bionic pieces =="
-            find work/termux -maxdepth 3 \( -name linker64 -o -name libc.so -o -name libm.so -o -name libdl.so -o -name bash \) -printf '%p %s\n' 2>/dev/null
-
-            echo "== execute bionic bash =="
-            BASHBIN=$(find work/termux -type f -name bash | head -1)
-            echo "BASH=$BASHBIN"
-            if [ -n "$BASHBIN" ]; then
-              "$BASHBIN" -c 'echo BIONIC_OK; uname -a; id; echo LD=$LD_LIBRARY_PATH' 2>&1 | head -8
-              echo "bash rc=$?"
-            fi
-
-            echo "== ELF header of bash (expect ELF/aarch64) =="
-            if [ -n "$BASHBIN" ]; then
-              od -An -c -N 8 "$BASHBIN" | head -1
-              od -An -tx1 -N 20 "$BASHBIN" | head -2
-            fi
+            ls work/termux
           } >> bionic-out/probe.log 2>&1
 
-      - name: Resolve frida assets
+      - name: Locate bionic loader and libs
         run: |
           set +e
           {
-            echo "== frida latest =="
-            R="https://api.github.com/repos/frida/frida/releases/latest"
-            curl -s --max-time 30 "$R" | python3 -c "import json,sys;d=json.load(sys.stdin);print('tag:',d.get('tag_name'))" 2>&1
-            echo "-- gadget android arm64 --"
-            curl -s --max-time 30 "$R" | python3 -c "import json,sys;d=json.load(sys.stdin);print('\n'.join('  %s %s %s' % (a['name'],a.get('size'),a['browser_download_url']) for a in d.get('assets',[]) if 'gadget' in a['name'] and 'android-arm64' in a['name']))" 2>&1
-            echo "-- frida-server android arm64 (needs root) --"
-            curl -s --max-time 30 "$R" | python3 -c "import json,sys;d=json.load(sys.stdin);print('\n'.join('  %s %s %s' % (a['name'],a.get('size'),a['browser_download_url']) for a in d.get('assets',[]) if 'frida-server' in a['name'] and 'android-arm64' in a['name']))" 2>&1
-          } >> bionic-out/frida.txt 2>&1
+            echo "== lib dir =="
+            ls work/termux/lib 2>/dev/null | head -40
+            echo "== any loader / libc =="
+            find work/termux \( -name 'ld-android.so' -o -name 'linker64' -o -name 'libc.so' -o -name 'libm.so' -o -name 'libdl.so' \) -printf '%p %s\n' 2>/dev/null | head -20
+            echo "== PT_INTERP of the bionic bash =="
+            python3 -c "import struct;d=open('work/termux/bin/bash','rb').read();ph=struct.unpack_from('<Q',d,0x20)[0];n=struct.unpack_from('<H',d,0x38)[0];print([d[struct.unpack_from('<Q',d,ph+i*56+8)[0]:][:120].split(chr(0).encode())[0].decode() for i in range(n) if struct.unpack_from('<I',d,ph+i*56)[0]==3])" 2>&1
+          } >> bionic-out/probe.log 2>&1
 
-      - name: Commit probe results
+      - name: Execute bionic bash through ld-android.so
+        run: |
+          set +e
+          {
+            P="$PWD/work/termux"
+            L=$(find "$P" -name 'ld-android.so' | head -1)
+            echo "PREFIX=$P"
+            echo "LOADER=$L"
+            if [ -n "$L" ]; then
+              echo "== direct: loader --library-path =="
+              "$L" --library-path "$P/lib" -- "$P/bin/bash" -c 'echo BIONIC_OK; uname -a; echo PREFIX=$PREFIX' 2>&1 | head -10
+              echo "rc=$?"
+            fi
+            echo "== fallback: exec loader with argv[0]=bash =="
+            if [ -n "$L" ]; then
+              echo "skipped"
+            fi
+          } >> bionic-out/probe.log 2>&1
+
+      - name: Commit
         if: always()
         run: |
           set +e
@@ -90,9 +84,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f -A bionic-out
           if git diff --cached --quiet; then
-            echo "nothing to commit"
+            echo "nothing"
           else
-            git commit -m "chore: bionic/frida probe"
+            git commit -m "chore: bionic probe 2"
             git pull --rebase -q origin main || true
             git push || echo "push failed"
           fi
