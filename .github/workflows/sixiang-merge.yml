@@ -65,22 +65,33 @@ jobs:
         continue-on-error: true
         run: |
           set -x
-          # qemu-user-static 在 runner 上装不上，直接拿 multiarch 的静态二进制
           curl -fL -o qemu-aarch64-static \
             'https://github.com/multiarch/qemu-user-static/releases/download/v7.2.0-1/qemu-aarch64-static'
           chmod +x qemu-aarch64-static
-          file qemu-aarch64-static | head -1
-
-          # 关键：chroot 进去，让 /init 看到的绝对路径都落在 rootfs 里
-          # rootfs 根 = out/system（镜像根，含 bin/ system/ apex/ init）
           sudo cp qemu-aarch64-static out/system/qemu-aarch64-static
-          ls -l out/system/init out/system/qemu-aarch64-static out/system/bin/init 2>&1
 
-          echo '==================== run init ===================='
-          # 40 秒超时；init 大概率中途失败，但要看它走到哪
-          sudo timeout -s KILL 40 chroot out/system /qemu-aarch64-static /init > init-run.log 2>&1 || true
-          wc -l init-run.log
-          head -60 init-run.log
+          # 上一轮 strace 证明 init 卡在三处，这里逐一补齐：
+          # ① /dev 可写（property 系统、kmsg）
+          # ② /linkerconfig（ld.config.txt 由 linkerconfig 生成）
+          echo '===== 准备 /dev 和 /linkerconfig =====' | tee prep.log
+          sudo mkdir -p out/system/dev out/system/linkerconfig
+          sudo mount -t tmpfs tmpfs out/system/dev 2>&1 | tee -a prep.log || true
+          sudo chmod 777 out/system/linkerconfig
+          for d in "null c 1 3" "zero c 1 5" "urandom c 1 9" "kmsg c 1 11" "random c 1 8"; do
+            set -- $d
+            sudo mknod "out/system/dev/$1" "$2" "$3" "$4" 2>/dev/null || sudo touch "out/system/dev/$1"
+          done
+          ls -l out/system/dev | head -10 | tee -a prep.log
+
+          echo '===== linkerconfig 生成 ld.config.txt =====' | tee -a prep.log
+          sudo timeout -s KILL 30 chroot out/system /qemu-aarch64-static \
+            /system/bin/linkerconfig --target /linkerconfig >> prep.log 2>&1 || true
+          tail -20 prep.log
+          ls -l out/system/linkerconfig/ 2>&1 | head
+
+          echo '==================== run init ====================' 
+          sudo timeout -s KILL 40 chroot out/system /qemu-aarch64-static /init 2>&1 | tee init-run.log | head -40 || true
+          echo "init-run.log lines: $(wc -l < init-run.log)"
           echo '==================== end ========================'
 
       - name: T3b - run init with strace (syscall trace)

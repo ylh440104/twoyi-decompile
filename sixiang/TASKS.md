@@ -137,6 +137,28 @@ init 是 stripped 的 2.5 MB 二进制，要定位「判断 /apex 是否已挂�
 
 ---
 
+### T3 实测结果（已拿到铁证，详见 `docs/T3-init-actually-ran.md`）
+
+用 `qemu-aarch64-static` + `chroot out/system` 实跑，strace 记录：
+
+```
+openat("/init", O_RDONLY) = 3                            ← /init 可执行
+openat("/system/bin/bootstrap/linker64", O_RDONLY) = 3    ← bootstrap linker 可达
+openat("/system/lib64/libbase.so", O_RDONLY) = 3          ← 依赖库开始加载
+```
+
+**init 真的启动了，卡在三处可枚举的缺失：**
+
+| 缺失 | 补法 |
+|---|---|
+| `/linkerconfig/ld.config.txt` | 先跑 `/system/bin/linkerconfig --target /linkerconfig` |
+| `/dev/__properties__` | chroot 前 `mount -t tmpfs tmpfs out/system/dev` + mknod |
+| `debuggerd dispatch thread` | qemu-user 限制，真机不受影响 |
+
+前两条已在 workflow 里补上（`T3 - run init with qemu` 步骤）。
+
+---
+
 ### T4 — 裁减非必需 APEX
 
 **做什么**
